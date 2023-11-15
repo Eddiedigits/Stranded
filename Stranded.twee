@@ -12,8 +12,67 @@ Stranded
 }
 
 
-:: DateFilippina {"position":"475,425","size":"100,100"}
+:: Crash {"position":"800,300","size":"100,100"}
 
+
+
+:: DateFilippina {"position":"475,425","size":"100,100"}
+<video width="346" height="224" controls loop>
+  <source src="assets/Ch-Intro/Indo1.webm" type="video/webm">
+  Your browser does not support the video tag.
+</video>
+Oh yes. Lick it gooood.
+
+<<linkappend "Up it into the wet snatch!" t8n>>
+	<video width="346" height="224" controls loop>
+		<source src="assets/Ch-Intro/Indo2.webm" type="video/webm">
+		Your browser does not support the video tag.
+	</video>
+    No much foreplay needed, I guess I am that handsome.
+<</linkappend>>
+
+<<linkappend "Up and down, up and down" t8n>>
+	<video width="346" height="224" controls loop>
+		<source src="assets/Ch-Intro/Indo3.webm" type="video/webm">
+		Your browser does not support the video tag.
+	</video>
+    If that continues on ...
+<</linkappend>>
+
+<<linkappend "Change, I need a 5 seconds break." t8n>>
+	<video width="250" height="224" controls loop>
+		<source src="assets/Ch-Intro/Indo10.webm" type="video/webm">
+		Your browser does not support the video tag.
+	</video>
+    An in it goes again.
+<</linkappend>>
+
+<<linkappend "Baby, goddamn!" t8n>>
+	<video width="346" height="224" controls loop>
+		<source src="assets/Ch-Intro/Indo8.webm" type="video/webm">
+		Your browser does not support the video tag.
+	</video>
+    Damn indeed! Is she hot! Wet! And greedy! Whoo!
+<</linkappend>>
+
+<<linkappend "I am coming to my limit!" t8n>>
+	<video width="346" height="224" controls loop>
+		<source src="assets/Ch-Intro/Indo9.webm" type="video/webm">
+		Your browser does not support the video tag.
+	</video>
+    Aaaand, ecstacy!
+<</linkappend>>
+
+<<linkappend "Cuddling time" t8n>>
+	[img[assets/Ch-Intro/cuddle.jpg]]
+    What is more beautiful than cuddling with each other after hot and sweaty sex?
+<</linkappend>>
+
+<<timed 8000ms>>
+After many minutes
+<</timed>>
+
+[[I am ready|Intro3]]
 
 
 :: Intro2 {"position":"475,300","size":"100,100"}
@@ -26,8 +85,9 @@ That's the big spacecruiser. Made for voyaging from Earth to other galaxies. Big
     
     <<timed 1500ms>>
     	...
-    
-    	[[Whatever|Intro3]]
+    <</timed>>
+    <<timed 3000ms>>
+    	[[Whatever!|Intro3]]
         
     <</timed>>
  <<else>>
@@ -41,10 +101,11 @@ That's the big spacecruiser. Made for voyaging from Earth to other galaxies. Big
 I enjoy going out, meet people, have dates; then frustrations and dissappointments. And, on top of all, my prof forces me to cram, cram, cram. Eeeck! 
 
 Too much is cramming not good for me, so I go out anew, meet people, have fun, all as much as my hormones allow me. Then frustrations, dissap ... wait ... 
-
+<<timed 2000ms>>
 ...
-
-[[Something is happening!]]
+<</timed>><<timed 3000ms>>
+[[Something is happening!|Crash]]
+<</timed>>
 
 
 :: Like this {"position":"350,300","size":"100,100"}
@@ -56,13 +117,13 @@ And since we are in the future, or like in the past, every technology is subject
 
 Choose in which profession you want to master:
 
-[[Xenology (Xenology (archaelogy, exploration/navigation, cataloguing etc.)|Intro2][$Skills.xeno += 1]]
+[[Xenology (Xenology (archaelogy, exploration/navigation, cataloguing etc.)|Intro2][$xeno = 1]]
 
-[[Combatability (martial arts, endurance, attack, defense etc.)|Intro2][$Skills.combat += 1]]
+[[Combatability (martial arts, endurance, attack, defense etc.)|Intro2][$combat = 1]]
 
-[[Engineering (mechanics, 3D-printing, electronics, coding etc.)|Intro2][$Skills.engineering += 1]]
+[[Engineering (mechanics, 3D-printing, electronics, coding etc.)|Intro2][$engineering = 1]]
 
-[[Interactibility (social management, negotiations, leadership, group behavior etc.)|Intro2][$Skills.social += 1]]
+[[Interactibility (social management, negotiations, leadership, group behavior etc.)|Intro2][$social = 1]]
 
 
 :: Menu {"position":"100,300","size":"100,100"}
@@ -77,10 +138,6 @@ Ready to play a game?
 
 [[Yes]]
 [[Yes, but ...|Yes][$SFW_Path = true]]
-
-
-:: Something is happening! {"position":"725,300","size":"100,100"}
-
 
 
 :: StoryInit {"position":"100,25","size":"100,100"}
@@ -101,12 +158,14 @@ Since I come from upper middle class, my family invested in a designer baby. Obv
 :: globalvariables {"position":"225,25","size":"100,100"}
 <<set $SFW_Path = false>>
 
-<<set $Skills = {
-	xeno: 0,
-	combat: 0,
-	engineering: 0,
-	social: 0,
-};>>
+<<set $xeno = 0>>
+<<set $combat = 0>>
+<<set $engineering = 0>>
+<<set $social = 0>>
+
+
+:: new {"position":"800,425","size":"100,100"}
+
 
 
 :: StoryScript [script]
@@ -119,25 +178,23 @@ $(document).ready(function () {
   $('#ui-bar-tray').after(banner);
 });
 
-// Image Path
-if (document.location.href.toLowerCase().includes("/temp/") || document.location.href.toLowerCase().includes("/private/") || hasOwnProperty.call(window, "storyFormat")) {
-	// Change this to the path where the HTML file is
-	// located if you want to run this from inside Twine.
-	setup.Path = "E:/Favorites/Fastnight/Stranded/";  // Running inside Twine application
-} else { 
-	setup.Path = "";  // Running in a browser
-}
-
 :: StoryStylesheet [stylesheet]
 @font-face {
-  font-family: 'LiberationSans-Regular';
-  src: url('Design/Fonts/LiberationSans-Regular.ttf') format('ttf');
+  font-family: 'Bahnschrift';
+  src: url('Design/Fonts/bahnschrift.ttf') format('ttf');
 }
 
+html {
+ font: 18px/1 Bahnschrift,Helmet,Freesans,sans-serif; 
+}
+
+body{
+  color: #A9A9A9;
+}
 
 img {
   max-width: 700px;
-  max-height: 300px;
+  max-height: 350px;
 }
 
 #ui-bar-tray {
@@ -160,4 +217,8 @@ img {
 #ui-bar-body {
   position: relative;
   top: 25%;  
+}
+
+.passage {
+ max-width: 700px;
 }
