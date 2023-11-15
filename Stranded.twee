@@ -1,0 +1,163 @@
+:: StoryTitle
+Stranded
+
+
+:: StoryData
+{
+  "ifid": "824F50D1-FCB4-4ECE-938E-7A3C1429622D",
+  "format": "SugarCube",
+  "format-version": "2.36.1",
+  "start": "Menu",
+  "zoom": 1
+}
+
+
+:: DateFilippina {"position":"475,425","size":"100,100"}
+
+
+
+:: Intro2 {"position":"475,300","size":"100,100"}
+[img[assets/backgrounds/Dock_by_Kuldar_Leement.png]]
+
+That's the big spacecruiser. Made for voyaging from Earth to other galaxies. Big Chunker, that one. Many engineering feats for fast inter-galactical travels. Like the one I have to take it for the obligatory out-field practice repectively inter-change student program. Which is, practically. in three hours.
+
+<<if $SFW_Path == true>>
+	Enough time to prepare myself for
+    
+    <<timed 1500ms>>
+    	...
+    
+    	[[Whatever|Intro3]]
+        
+    <</timed>>
+ <<else>>
+ 	[[Enough time to enjoy my filippine date!|DateFilippina]]
+<</if>>
+
+
+:: Intro3 {"position":"600,300","size":"100,100"}
+[img[assets/backgrounds/To_the_Moon_by_Voyager212.png]]
+
+I enjoy going out, meet people, have dates; then frustrations and dissappointments. And, on top of all, my prof forces me to cram, cram, cram. Eeeck! 
+
+Too much is cramming not good for me, so I go out anew, meet people, have fun, all as much as my hormones allow me. Then frustrations, dissap ... wait ... 
+
+...
+
+[[Something is happening!]]
+
+
+:: Like this {"position":"350,300","size":"100,100"}
+[img[assets/characters/cylinder.png]]
+
+That's me at birth. Cute, eh? Arms and Legs are missing, though. They come later. Why in virtual age do we need a complete organic body? We are connected to the cloud, internet, parallel world, Peer-to-Peer. Countries are practically virtual now. Borders? Nah, firewalls.
+
+And since we are in the future, or like in the past, every technology is subject to evolution. Despite of advanced technology, no entity - except of (maybe) the universe - has unlimited data storage. Professionals are still in demand like in every time.
+
+Choose in which profession you want to master:
+
+[[Xenology (Xenology (archaelogy, exploration/navigation, cataloguing etc.)|Intro2][$Skills.xeno += 1]]
+
+[[Combatability (martial arts, endurance, attack, defense etc.)|Intro2][$Skills.combat += 1]]
+
+[[Engineering (mechanics, 3D-printing, electronics, coding etc.)|Intro2][$Skills.engineering += 1]]
+
+[[Interactibility (social management, negotiations, leadership, group behavior etc.)|Intro2][$Skills.social += 1]]
+
+
+:: Menu {"position":"100,300","size":"100,100"}
+[img[assets/ui/bg-cover.png]]
+
+Hello, words from the developper:
+
+Greeting, ancient. Welcome to the future, as it is now, oldtimer.
+
+
+Ready to play a game?
+
+[[Yes]]
+[[Yes, but ...|Yes][$SFW_Path = true]]
+
+
+:: Something is happening! {"position":"725,300","size":"100,100"}
+
+
+
+:: StoryInit {"position":"100,25","size":"100,100"}
+<<include [[globalvariables]]>>
+
+
+:: Yes {"position":"225,300","size":"100,100"}
+[img[assets/characters/Me.png]]
+
+Yep, that's me. Handsome, eh? Like a Roman demi-god, no?
+
+Since I come from upper middle class, my family invested in a designer baby. Obviously. But surprise, surprise! Like the mayority of humanity (and pets!), we are synthetic beings, Cyborgs. For better space travel, which this story is about, we have to be cyborgs. Only our brain and spine is completely organic; the rest in synthetic materials.
+
+[[Like this]]
+
+
+
+:: globalvariables {"position":"225,25","size":"100,100"}
+<<set $SFW_Path = false>>
+
+<<set $Skills = {
+	xeno: 0,
+	combat: 0,
+	engineering: 0,
+	social: 0,
+};>>
+
+
+:: StoryScript [script]
+// appending a div
+$(document).ready(function () {
+  // Create your custom content
+  var banner = '<div id="container-banner"><img id="img-banner" src="assets/ui/bg-cover.png"></img></div>';
+
+  // Insert the custom content between ui-bar-tray and ui-bar-body
+  $('#ui-bar-tray').after(banner);
+});
+
+// Image Path
+if (document.location.href.toLowerCase().includes("/temp/") || document.location.href.toLowerCase().includes("/private/") || hasOwnProperty.call(window, "storyFormat")) {
+	// Change this to the path where the HTML file is
+	// located if you want to run this from inside Twine.
+	setup.Path = "E:/Favorites/Fastnight/Stranded/";  // Running inside Twine application
+} else { 
+	setup.Path = "";  // Running in a browser
+}
+
+:: StoryStylesheet [stylesheet]
+@font-face {
+  font-family: 'LiberationSans-Regular';
+  src: url('Design/Fonts/LiberationSans-Regular.ttf') format('ttf');
+}
+
+
+img {
+  max-width: 700px;
+  max-height: 300px;
+}
+
+#ui-bar-tray {
+  position: absolute;
+  top: 0.5%;
+  left: 0;
+  right: 0;
+}
+
+#container-banner {
+  width: 100%;
+  position: absolute;
+  top: 10%;
+}
+
+#img-banner {
+  width: 80%;
+}
+
+#ui-bar-body {
+  position: relative;
+  top: 25%;  
+}
