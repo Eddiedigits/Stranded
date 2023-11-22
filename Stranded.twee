@@ -12,11 +12,201 @@ Stranded
 }
 
 
+:: A New Cycle {"position":"350,475","size":"100,100"}
+<<if random (100) > 50>>
+A new cycle, a new day. Although this planet's rotation is much slower obviously.
+Energy is replenished. Vika has learned some more in engineering, as has Leo in interactibility.
+<<if $CampJ.EHarvesters == true>><<set $energy += 10>><<else>><<set $energy += 5>><</if>>
+<<if $CampJ.Farm == false>><<set $nutrients -= 3>><<else>><<set $food +=1>><</if>>
+<<set $engineering += 0.2>><<set $social += 0.2>>
+[[On to new adventures!|Camp Jungle]]
+<<else>>
+
+random Events
+
+[[Camp Jungle]]
+<</if>>
+
+
+:: A Small Hill {"position":"1600,175","size":"100,100"}
+]img[assets/items/antenna_CJ.png]]
+
+The antenna is installed on a small hill. But it seems to reach no one. Maybe it is set too low, or the jungle is too dense.
+<<nobr>>
+<<set $CampJ.TransMast = true>>
+<<set $CampJ.building += 1>>
+<</nobr>>
+[[Set up the Camp|Camp Jungle]]
+
+
+:: Ante Explore {"position":"350,725","size":"100,100"}
+
+
+
+:: AnteCamp {"position":"1400,300","size":"100,100"}
+[img[assets/Ch-Camp/JungleCamp.png]]
+
+<<set $engineering +=1>><<set $social +=1>><<set $unimatter += 5>>
+Vika's spaceship, which is our parent of our - Leo's and mine - pods. That way, we distribute the risk of losing too many personnel to a wide area. The AI decide which way is the best. Which in our case, it decided to spread out. Weird decision, in my opinion. Since we are missing 2 others that we cannot reach. Everyone should have a compass to reach out to the others, to any others. I hope, we will find out the reason it decided to let us spread out. Now, the AI is silent. It does sometimes; I have heard, it is to avoid us degenerating our brains, i.e. to keep our neuronal activities steady. I can hope, it - the AI - decide to tell us soon enough if our situation turns sticky. But for now, we can assume, there is no imminent danger. Also, it keeps silent about the other stranded; weird policy.
+
+But for now, what will we do?
+
+<div class="Char">
+<div class="Char-Framer"><img class="Char-img" src="assets/characters/Vika.png"></div><div class="Char-dialogues">Honestly, as a pilot, I can say that we cannot connect to the mothership. In fact. there is nothing but noise. So, I conclude the mothership is unreachable or no more. Also, I do not reach the others; the other stranded.
+My suggestion is therefore: As we only have 5 unimatter, we print a portable transmission mast and look for an elevation.</div></div>
+
+Only 5 unimatter?! That sucks! That means, I have to strategize wisely.
+
+<div class="Char">
+<div class="Char-Framer"><img class="Char-img" src="assets/characters/Leo.png"></div><div class="Char-dialogues"><em>groan</em> I would hoard food. What Vika said doesn't sound good. I fear, we are stuck here. At least for a while.
+Oh, by the dark universe! Please, give us hope!
+Ah, ye'. I would like to repair myself and have an substance analyzer.</div></div>
+
+Oh, I do not have much problems being stuck here for some time. <em>glancing at Vika</em>
+But then again ... if we are stuck here for long ... food/energy is essential. A substance analyzer enables us to know which things are edible or can be used as materials, like unimatter.
+
+<div class="Char">
+<div class="Char-Framer"><img class="Char-img" src="assets/characters/RD.png"></div><div class="Char-dialogues"><em>Hrm!</em>&nbsp;Let me check. Do we have enough energy?</div></div>
+<<nobr>>
+<<if $engineering >= 2>>
+<div class="Char">
+<div class="Char-Framer"><img class="Char-img" src="assets/characters/RD.png"></div><div class="Char-dialogues">I could salvage one more energy.</div></div>
+<<set $energy += 1>>
+<</if>>
+
+<<if hasVisited("Shutdown")>>
+Not enough to fly.<br>
+And for walk? We gotta see.
+<<set $energy -= 5>>
+<<else>>
+<em>10 minutes later</em> Enough for some tries.
+<</if>><</nobr>>
+
+<div class="Char">
+<div class="Char-Framer"><img class="Char-img" src="assets/characters/RD.png"></div><div class="Char-dialogues">Alright. Anyway. I suggest we use these 5 unimatter to build an energy harvester.</div></div>
+... some pause ...
+
+<div class="Char">
+<div class="Char-Framer"><img class="Char-img" src="assets/characters/Leo.png"></div><div class="Char-dialogues"><em>Mh.</em>&nbsp;To me, all reasons seem to be sensible. I say, we vote.</div></div>
+
+<div class="Char">
+<div class="Char-Framer"><img class="Char-img" src="assets/characters/Vika.png"></div><div class="Char-dialogues">I agree.</div></div>
+
+<strong>What?! I am the protagonist!
+
+I want to decide! 
+
+I wanna be the boss!</strong>
+<<if $social >=2>>
+Maybe I can convince them about ...
+
+... a transmission mast. The potential to reach more people sounds more intriguing <<if $energy > 5>>[[to me.|Foot of a Mountain]]<<elseif $energy <=5 && $energy > 1>>[[to me.|A Small Hill]]<<else>>[[to me|WhyNothing]]<</if>>
+
+... a substance analyzer. Knowing what surrounds us gives us better planning [[ahead.|Substance Analyzer]]
+
+... an energy harvester. Energy is crucial to our survival, so pump up the [[regeneration rate!|Energy Harvester]]
+<<else>>
+Ugh. FIne. Voting it is.
+Do I have a change of mind? And want ... <<= $numero>>
+
+<<button "Transmission Mast">><<set $numero = 1>><<replace>><<print "a transmissiont mast">><</replace>><</button>>
+
+<<button "Substance Analyzer">><<set $numero = 2>><<replace>><<print "a substance analyzer">><</replace>><</button>>
+
+<<button "Energy Harvester">><<set $numero = 3>><<replace>><<print "an energy harvester">><</replace>><</button>>
+<<= $numero>>
+Vika gives in her vote.
+
+Leo has decided.
+
+<div class="Char"><div class="Char-Framer"><img class="Char-img" src="assets/characters/Vika.png"></div><div class="Char-dialogues">Gentlemen. It resulted in for a ...<<if $numero == random(1, 3) && $energy > 5 || random(1, 3) == 1 && $energy > 5>>[[Transmission Mast|Foot of a Mountain]]>><<elseif $numero == random(1, 3) && $energy < 5 && $energy > 2 ||  random(1, 3) == 1 && $energy < 5 && $energy > 2>>[[Transmission Mast|A Small Hill]]>><<elseif $numero == random(1, 3) && $energy <= 2 || random(1, 3) == 1 && $energy <= 2>>[[Transmission Mast. But ...|WhyNothing]]<<elseif $numero == random(1, 3) || random(1, 3) == 2>>[[Substance Analyzer]]<<elseif $numero == random(1, 3) || random(1, 3) == 3>>[[Energy Harvester]]<</if>></div></div>
+
+<</if>>
+
+
+:: Camp Jungle {"position":"350,600","size":"100,100"}
+[img[assets/Ch-Camp/JungleCamp.png]]
+<<set $Camp_J = true>><<set $Camp_M = false>>
+<div id="Camp-Jungle"><h2><strong>Camp Jungle</strong></h2></div>
+Things in the inventory:
+
++ [img[Materials Printer|assets/items/3D-Printer_rs.png]] + [img[Compass|assets/items/compass_rs.png]] + <<if $SubAnalyzer == true>>[img[Substance Analyzer|assets/items/Substance-Analyzer_rs.png]]<</if>>
+
+Components and Buildings in your slots:
+
+<<if $CampJ.TransMast == true>>[img[Transmission Mast|assets/items/antenna_CJ_rs.png]] <</if>><<if $CampJ.EHarvester == true>>[img[Energy Harvester|assets/items/sun-collectors_rs.png]] <</if>><<if $CampJ.DefPerimeter == true>>[img[Defense Perimeter|assets/items/defense-perimeter_rs.png]] <</if>><<if $CampJ.Farm == true>>[img[Horticulture|assets/items/farm_rs.png]] <</if>><<if $CampJ.Orb == true>>[img[Flotating Orb|assets/items/The-Orb_rs.png]] <</if>><<if $CampJ.nOrb == true>>[img[Orb +Navigation|assets/items/navigation-Orb_rs.png]] <</if>><<if $CampJ.cOrb == true>>[img[Orb +Combat|assets/items/combat-Orb_rs.png]] <</if>><<if $CampJ.cnOrb == true>>[img[Orb +Navi +Combat|assets/items/combat-Orb_rs.png]] <</if>>
+
+<<if $CampJ.building > $CampJ.maxbuilding>><<set $CampJ.building = $CampJ.maxbuilding>><<elseif $CampJ.building < 0>><<set $CampJ.building = 0>><</if>>
+The camp has <<= $CampJ.building>> of maximal <<= $CampJ.maxbuildings>>.
+
+CYCLES: <<= $days>>
+
+NUTRIENTS:
+We have <<= $nutrients>> nutrients in storage. Each person consume one food per cycle. We can only store a quantity of 50.
+
+ENERGY: <<if $energy > $maxenergy>><<set $energy = $maxenergy>><<elseif $energy < 0>><<set $energy = 0>><</if>>
+<<= $energy>> of maximal <<= $maxenergy>>
+
+UNIMATTER: <<if $unimatter > $maxunimatter>><<set $unimatter = $maxunimatter>><<elseif $unimatter < 0>><<set unimatter = 0>><</if>>
+<<= $unimatter>> Unimatter
+
+PROFESSIONS:
+
+Xenology: <<= $xeno>> + Combatibility: <<= $combat>> + Engineering: <<= $engineering>> + Interactibility: <<= $social>>
+
+ACTIONS:
+<<if $energy >=1>>
+[[Train in Engineering|Train Engineering][$energy -= 1; engineering += 0.1]]
+
+[[Train in Combat Arts|Train Combat][$energy -= 1; combat += 0.1]]
+
+[[Go Out|Ante Explore][$energy -= 1]]
+
+[[Go to the Materials Printer|Construction Menu][$energy -= 1]]
+
+[[Socialize with your Crew|social Events][$energy -= 1]]
+<</if>>
+[[Rest|A New Cycle][$days += 1]]
+<<if hasVisited("4East") || hasVisited("Foot of a Mountain") || $energy > 4>>
+[[Move to Camp Mountain|Camp Mountain][$energy -= 5; $maxenergy += 10; $maxnutrients += 50]]
+<</if>>
+
+
+:: Camp Mountain {"position":"1000,600","size":"100,100"}
+
+
+
+:: Check my pod {"position":"925,300","size":"100,100"}
+[img[assets/Ch-Crash/Pod1.png]]
+
+Hm. Nice! Like it is designed to be: sturdy.
+
+Now. What to do? I have <<= $energy>> energy left.
+<<if $energy == 4>>
+Ech! Nothing happens. It is boring. Maybe I should try to go out anyway? 
+<<elseif $energy <= 0>><<goto "Shutdown">>
+<</if>>
+[[Look for other stranded|LostiJ]]
+<<if $passagevisited == false>>
+[[Check for salvageables|Search for Compass]]
+<</if>><<if $energy != 4>>
+[[Wait out|Check my pod][$energy -= 1]]
+<<else>>
+[[Nope! I wait out|Check my pod][$energy -= 1]]
+<</if>>
+
+
+:: Construction Menu {"position":"475,725","size":"100,100"}
+
+
+
 :: Crash {"position":"800,300","size":"100,100"}
+<em>Moan. Ugh. Oooph</em>, what a ride. It is a miracle that I am still whole and functioning. Although ... will it still be on my side?
+
+[[Check my pod]]
 
 
-
-:: DateFilippina {"position":"475,425","size":"100,100"}
+:: DateFilippina {"position":"475,175","size":"100,100"}
 <video width="346" height="224" controls loop>
   <source src="assets/Ch-Intro/Indo1.webm" type="video/webm">
   Your browser does not support the video tag.
@@ -75,6 +265,55 @@ After many minutes
 [[I am ready|Intro3]]
 
 
+:: EndPoint ChCrash {"position":"1175,300","size":"100,100"}
+<<nobr>><div style="position: relative;">
+    <img id="VikaFront" src="assets/characters/Vika_2.png">
+    <img src="assets/Ch-Camp/JungleCamp.png">
+</div><</nobr>>
+
+Oh! Am I glad to find another stranded.
+
+<div class="Char">
+<div class="Char-Framer"><img  class="Char-img" src="assets/characters/Vika.png"></div><div class="Char-dialogues"><<if hasVisited("Shutdown")>>Fella! Can I tell you how glad I am to find another one of you?<<else>>Fellas! Can I tell you how glad I am to find the likes of you?<</if>></div></div>
+
+ [[Same here, same here|AnteCamp]]
+
+
+:: Energy Harvester {"position":"1600,550","size":"100,100"}
+[img[assets/items/sun-collectors.png]]
+
+Yes, with our energy harvester, which is in this case the sun collectors, we have raised the energy regeneration rate.
+
+<<nobr>><<set $energy -= 2>>
+<<set $unimatter -= 5>>
+<<set $CampJ.EHarvesters = true>>
+<<set $CampJ.building += 1>>
+<</nobr>>
+It is important to note, that those cannot be transported. Either they gets disintegrated to unimatter, which again can only be transported of maximal 5 units per spaceship. Or they stay at the [[camp|Camp Jungle]].
+
+
+:: Foot of a Mountain {"position":"1600,50","size":"100,100"}
+[img[assets/items/antenna_CM.png]]
+
+Since, luckily, I had the compass, I did not spend too much energy. Which gave us an optimal total balance (no forgetti! We are practically machines, too) for a fly.
+We found two spots, one for parking, the other for the antenna. Both in visible distance. 
+It didn't take long after the installation of the antenna until we established contact to another group of stranded, but like us, not in a lucky number: 2 of 5. The small spaceships is designed to house 5 pods with 10 maximum energy to keep us fed and alive for maximal 5x10 cycles. With two spaceships, we have a total of 20 energy now.
+
+But, for me personally, I welcome to have two more ladies: Elva and Abiba.
+<<nobr>>
+<<set $engineering += 1>>
+<<set $combat += 1>>
+<<set $unimatter += 5>>
+<<set $energy += 10>>
+<<set $maxenergy += 10>>
+<<set $nutrients += 50>>
+<<set $maxnutrients += 50>>
+<<set $CampM.building += 1>>
+<<set $CampM.TransMast = true>>
+<</nobr>>
+[[Set up the Camp|Camp Mountain]]
+
+
 :: Intro2 {"position":"475,300","size":"100,100"}
 [img[assets/backgrounds/Dock_by_Kuldar_Leement.png]]
 
@@ -98,7 +337,7 @@ That's the big spacecruiser. Made for voyaging from Earth to other galaxies. Big
 :: Intro3 {"position":"600,300","size":"100,100"}
 [img[assets/backgrounds/To_the_Moon_by_Voyager212.png]]
 
-I enjoy going out, meet people, have dates; then frustrations and dissappointments. And, on top of all, my prof forces me to cram, cram, cram. Eeeck! 
+I enjoy going out, meet people, have dates; then frustrations and dissappointments. And, on top of all, my prof forces me to cram, cram, cram. Eeech! 
 
 Too much is cramming not good for me, so I go out anew, meet people, have fun, all as much as my hormones allow me. Then frustrations, dissap ... wait ... 
 <<timed 2000ms>>
@@ -106,6 +345,38 @@ Too much is cramming not good for me, so I go out anew, meet people, have fun, a
 <</timed>><<timed 3000ms>>
 [[Something is happening!|Crash]]
 <</timed>>
+
+
+:: Leo Crashsite {"position":"1175,175","size":"100,100"}
+[img[assets/Ch-Crash/Pod2.png]]<<unset $numero>>
+
+Another stranded. And this one is quite dilapidated. He has his movement, but barely any limbs (no forgetti, we are inside machines). He will survive, but not up to top. I help him getting up. He thanks me and asks me if I have a compass?
+
+<<if $compass == true>>
+<div class="Char">
+<div class="Char-Framer"><img class="Char-img" src="assets/characters/RD.png"></div><div class="Char-dialogues">Yes I have one.</div></div>
+<div class="Char">
+<div class="Char-Framer"><img class="Char-img" src="assets/characters/Leo.png"></div><div class="Char-dialogues">Oh good, then we can find the others.</div></div>
+<div class="Char">
+<div class="Char-Framer"><img  class="Char-img" src="assets/characters/RD.png"></div><div class="Char-dialogues">True. Although there is only one signal.</div></div>
+<div class="Char">
+<div class="Char-Framer"><img class="Char-img" src="assets/characters/Leo.png"></div><div class="Char-dialogues">Hm. Well, anyway. Like as we can do anything here. Let us go..</div></div>
+
+[[Go to the only and last signal|EndPoint ChCrash]]
+<<else>>
+<div class="Char">
+<div class="Char-Framer"><img class="Char-img" src="assets/characters/RD.png"></div><div class="Char-dialogues">Nope</div></div>
+<div class="Char">
+<div class="Char-Framer"><img class="Char-img" src="assets/characters/Leo.png"></div><div class="Char-dialogues">So, you just found me by sheer luck?</div></div>
+<div class="Char">
+<div class="Char-Framer"><img class="Char-img" src="assets/characters/RD.png"></div><div class="Char-dialogues">Pretty cool, eh.</div></div>
+<div class="Char">
+<div class="Char-Framer"><img class="Char-img" src="assets/characters/Leo.png"></div><div class="Char-dialogues">...</div></div>
+<div class="Char">
+<div class="Char-Framer"><img class="Char-img" src="assets/characters/Leo.png"></div><div class="Char-dialogues">Anyway, you should find one in my pod.</div></div>
+
+[[Search for Compass]]
+<</if>>
 
 
 :: Like this {"position":"350,300","size":"100,100"}
@@ -126,6 +397,32 @@ Choose in which profession you want to master:
 [[Interactibility (social management, negotiations, leadership, group behavior etc.)|Intro2][$social = 1]]
 
 
+:: LostiJ {"position":"1050,300","size":"100,100"}
+<<if $energy <= 0>><<goto "Shutdown")>><</if>>
+<<if $compass == true>>
+	The compass is a lifesaver, I wonder how I would have done without it ...
+
+	There are two signals, one that is more near and the other more far away.
+    
+    [[Go to the next signal|Leo Crashsite]]
+    
+    [[Go to the more distant signal|EndPoint ChCrash]]
+<<else>>
+	[img[assets/Ch-Explore/lostinjungle.png]]
+    
+    I have <<= $energy>> energy. I cannot be lost! Otherwise, I am at mercy of others to find me.
+<<nobr>><<if $xeno >= 1 && lastVisited("LostiJ") is 4>>My "professional" guts are telling me it should be somewhere north and east.<<elseif $xeno >= 1 && $numero >= 8>><<goto "Leo Crashsite">><<elseif $energy < 3>>Oh no no. Please, Fortuna, be on my side!<<elseif $numero >= 6 && random(6) > 5>><<goto "Leo Crashsite">><</if>><</nobr>>
+
+		[[North|LostiJ][$energy -= 1; $numero += 1]]
+    
+    	[[East|LostiJ][$energy -= 1; $numero += 1]]
+
+		[[South|LostiJ][$energy -= 1]]
+        
+        [[West|LostiJ][$energy -= 1]]
+<</if>>
+
+
 :: Menu {"position":"100,300","size":"100,100"}
 [img[assets/ui/bg-cover.png]]
 
@@ -140,8 +437,107 @@ Ready to play a game?
 [[Yes, but ...|Yes][$SFW_Path = true]]
 
 
+:: Search for Compass {"position":"925,175","size":"100,100"}
+<<if not hasVisited("Leo Crashsite")>>Are there things I can use?
+<<set $passagevisited = true>>
+<<timed 1000ms>>Anything on the left side?<</timed>><<timed 3000ms>> In the middle?<</timed>><<timed 5000ms>> On the right?<</timed>>
+<<nobr>><</nobr>>
+<<timed 7000ms>>
+  <<if $engineering >= 1 && random(3) >0>>
+      Yepp. My eye for engineering helps.
+      <<set $compass = true>>
+      [img[assets/items/compass.png]]
+
+      That is something useful. So, looking for other stranded shouldn't be that much of a problem.
+
+       [[Go back|Check my pod]]
+    <<elseif random(3) > 2>>
+    	Yepp.
+     	<<set $compass = true>>
+        [img[assets/items/compass.png]]
+        
+        That is something useful. So, looking for other stranded shouldn't be that much of a problem.
+        
+        [[Go back|Check my pod]]
+      <<else>>
+      	I cannot find anything useful.
+        
+        [[Go back|Check my pod]]
+      <</if>>
+<</timed>>
+<<else>><<nobr>>
+<img src="assets/Ch-Crash/inside-of-crashed-pod.png">
+<</nobr>>
+<<if $compass == false>>Hm. Where could be the compass? 
+
+<<timed 1000ms>>Anything on the left side?<</timed>><<timed 3000ms>> In the middle?<</timed>><<timed 4000ms>> [img[assets/items/compass.png]] 
+
+Oh yes.
+
+Bien, bien. Now I have the compass. <</timed>>
+
+[[Go back to Leo|Leo Crashsite][$compass = true]]
+<</if>>
+<</if>>
+
+
+:: Shutdown {"position":"1050,175","size":"100,100"}
+<<timed 1000ms>>Shutdown in 3
+Shit?! No! No!<</timed>>
+
+<<timed 2000ms>>2
+<em>Eeeech!</em><</timed>>
+
+<<timed 3000ms>>1
+Maldición! Oh please, oh please, someone find me!<</timed>>
+
+<<timed 4000ms>>Shutting Down<</timed>>
+
+<<timed 8000ms>>.<</timed>> <<timed 10000ms>>.<</timed>> <<timed 12000ms>>.<</timed>>
+
+<<timed 14000ms>>(It is not a bug)<</timed>>
+<<timed 18000ms>>It is intended to be annoying<</timed>>
+<<timed 22000ms>>Hating me?<</timed>>
+<<timed 23000ms>>
+[img[assets/characters/Rescue.png]]
+
+Huh?!
+
+Yes! Yes! I am saved
+
+<</timed>><<timed 26000ms>><<goto "EndPoint ChCrash">><</timed>>
+
+
 :: StoryInit {"position":"100,25","size":"100,100"}
 <<include [[globalvariables]]>>
+
+
+:: Substance Analyzer {"position":"1600,425","size":"100,100"}
+[img[assets/items/Substance-Analyzer.png]]
+
+The substance analyzer is now in our inventory.
+
+With that, we should be able to collect materials nearby. Hopefully, some can be broken down to refuel our energy. If we don't have anymore of it.
+<<nobr>>
+<<set $energy -= 2>>
+<<set $unimatter -= 5>>
+<<set $SubAnalyzer = true>>
+<</nobr>>
+[[Set up the Camp|Camp Jungle]]
+
+
+:: Train Combat {"position":"200,725","size":"100,100"}
+
+
+
+:: Train Engineering {"position":"200,600","size":"100,100"}
+
+
+
+:: WhyNothing {"position":"1600,300","size":"100,100"}
+... energy is too low for any constructions. We need rest.
+
+[[Set up the Camp|Camp Jungle]]
 
 
 :: Yes {"position":"225,300","size":"100,100"}
@@ -163,8 +559,48 @@ Since I come from upper middle class, my family invested in a designer baby. Obv
 <<set $engineering = 0>>
 <<set $social = 0>>
 
+<<set $energy = 10>>
+<<set $maxenergy = 10>>
+<<set $unimatter = 0>>
+<<set $maxunimatter = 15>>
+<<set $nutrients = 50>>
+<<set $maxnutrients = 50>>
+<<set $days = 0>>
 
-:: new {"position":"800,425","size":"100,100"}
+<<set $compass = false>>
+<<set $SubAnalyzer = false>>
+
+<<set $Camp_J = false>>
+<<set $Camp_M = false>>
+<<set $CampJ to {
+	TransMast: false,
+	Farm: false,
+	Orb: false,
+	nOrb: false,
+    cnOrb: false,
+    DefPerimeter: false,
+    building: 0,
+    maxbuildings: 5,
+    EHarvester: false,
+};>>
+<<set $CampM to {
+	TransMast: false,
+	Farm: false,
+	Orb: false,
+	nOrb: false,
+    cnOrb: false,
+    DefPerimeter: false,
+    building: 0,
+    maxbuildings: 3,
+    EHarvester: false,
+};>>
+
+<<set $passagevisited = false>>
+
+<<set $numero = 0>>
+
+
+:: social Events {"position":"475,600","size":"100,100"}
 
 
 
@@ -178,14 +614,30 @@ $(document).ready(function () {
   $('#ui-bar-tray').after(banner);
 });
 
+// Initializing the $CampJ variable as an object
+let $CampJ = {
+    TransMast: false,
+    Farm: false,
+    Orb: false,
+    nOrb: false,
+    cnOrb: false,
+    DefPerimeter: false,
+    building: 0,
+    maxbuildings: 3,
+    EHarvester: false
+};
+
+
 :: StoryStylesheet [stylesheet]
 @font-face {
   font-family: 'Bahnschrift';
-  src: url('Design/Fonts/bahnschrift.ttf') format('ttf');
+  src: url('assets/Fonts/bahnschrift.ttf') format('ttf');
+  font-family: 'Corbel';
+  src: url('assets/Fonts/corbel.ttf') format('ttf');
 }
 
 html {
- font: 18px/1 Bahnschrift,Helmet,Freesans,sans-serif; 
+ font: 18px/1 Bahnschrift,Corbel,Helmet,Freesans,sans-serif; 
 }
 
 body{
@@ -221,4 +673,51 @@ img {
 
 .passage {
  max-width: 700px;
+}
+
+.Char {
+  max-width: 700px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content:flex-start;
+  position: relative;
+  background-color: #282828;
+  padding: 5px;
+  border: 1px solid DarkGrey;
+  border-radius: 5px;
+}
+
+.Char-Framer {
+  display: flex;
+  align-items: flex-start;
+}
+
+.Char-img {
+  position: relative;
+  vertical-align: text-top;
+  max-width: 60px;
+  max-height: 60px;
+  border-radius: 3px;
+  display: block; /* Convert the image to a block element */
+  margin: 0; /* Reset margin */
+  padding: 0; /* Reset padding */
+  border: none; /* Reset border */
+}
+
+.Char-dialogues {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  margin: 0 10px;
+}
+
+#VikaFront {
+  position: absolute;
+  z-index: 1;
+}
+
+#Camp-Jungle {
+  color: #2aa22a;
+  padding: 2px,
+  background-color: 
 }
