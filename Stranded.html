@@ -187,8 +187,64 @@ img {
 
 #Camp-Jungle {
   color: #2aa22a;
-  padding: 2px,
-  background-color: 
+}
+
+.order-indices {
+  display: flex;
+  flex-flow: column;
+  max-width: 700px;
+}
+
+.index-screen {
+  position: relative;
+  width: 660px;
+  background-color: #248f8f;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 2px solid #8c8c8c;
+}
+
+.index-Sscreens {
+  width: 700px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  border-radius: 10px;
+}
+
+.index-Sscreens>div {
+  background-color: #248f8f;
+  width: 25%;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 2px solid #8c8c8c;
+}
+
+.index-Pscreens {
+  width: 660px;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  background-color: #248f8f;
+  border: 2px solid #8c8c8c;
+}
+
+.title-profession {
+  width: 700px;
+}
+
+.index-professions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: green;
+}
+
+.index-professions>div {
+  border-radius: 3px;
+  width: 20%;
+  background-color: red;
 }</style><script role="script" id="twine-user-script" type="text/twine-javascript">// appending a div
 $(document).ready(function () {
   // Create your custom content
@@ -602,7 +658,7 @@ But, for me personally, I welcome to have two more ladies: Elva and Abiba.
 &lt;&lt;set $CampM.building += 1&gt;&gt;
 &lt;&lt;set $CampM.TransMast = true&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;
-[[Set up the Camp|Camp Mountain]]</tw-passagedata><tw-passagedata pid="18" name="A Small Hill" tags="" position="1600,175" size="100,100">]img[assets/items/antenna_CJ.png]]
+[[Set up the Camp|Camp Mountain]]</tw-passagedata><tw-passagedata pid="18" name="A Small Hill" tags="" position="1600,175" size="100,100">[img[assets/items/antenna_CJ.png]]
 
 The antenna is installed on a small hill. But it seems to reach no one. Maybe it is set too low, or the jungle is too dense.
 &lt;&lt;nobr&gt;&gt;
@@ -633,33 +689,20 @@ Yes, with our energy harvester, which is in this case the sun collectors, we hav
 It is important to note, that those cannot be transported. Either they gets disintegrated to unimatter, which again can only be transported of maximal 5 units per spaceship. Or they stay at the [[camp|Camp Jungle]].</tw-passagedata><tw-passagedata pid="22" name="Camp Jungle" tags="" position="350,600" size="100,100">[img[assets/Ch-Camp/JungleCamp.png]]
 &lt;&lt;set $Camp_J = true&gt;&gt;&lt;&lt;set $Camp_M = false&gt;&gt;
 &lt;div id=&quot;Camp-Jungle&quot;&gt;&lt;h2&gt;&lt;strong&gt;Camp Jungle&lt;/strong&gt;&lt;/h2&gt;&lt;/div&gt;
-Things in the inventory:
-
-+ [img[Materials Printer|assets/items/3D-Printer_rs.png]] + [img[Compass|assets/items/compass_rs.png]] + &lt;&lt;if $SubAnalyzer == true&gt;&gt;[img[Substance Analyzer|assets/items/Substance-Analyzer_rs.png]]&lt;&lt;/if&gt;&gt;
-
-Components and Buildings in your slots:
-
+&lt;div class=&quot;order-indices&quot;&gt;&lt;div class=&quot;index-screen&quot;&gt;&lt;strong&gt;Things in the inventory:&lt;/strong&gt;
+[img[Materials Printer|assets/items/3D-Printer_rs.png]] [img[Compass|assets/items/compass_rs.png]] &lt;&lt;if $SubAnalyzer == true&gt;&gt;[img[Substance Analyzer|assets/items/Substance-Analyzer_rs.png]]&lt;&lt;/if&gt;&gt;&lt;/div&gt;
+&lt;div class=&quot;index-screen&quot;&gt;&lt;strong&gt;Components and Buildings operated by your spaceship:&lt;/strong&gt;
 &lt;&lt;if $CampJ.TransMast == true&gt;&gt;[img[Transmission Mast|assets/items/antenna_CJ_rs.png]] &lt;&lt;/if&gt;&gt;&lt;&lt;if $CampJ.EHarvester == true&gt;&gt;[img[Energy Harvester|assets/items/sun-collectors_rs.png]] &lt;&lt;/if&gt;&gt;&lt;&lt;if $CampJ.DefPerimeter == true&gt;&gt;[img[Defense Perimeter|assets/items/defense-perimeter_rs.png]] &lt;&lt;/if&gt;&gt;&lt;&lt;if $CampJ.Farm == true&gt;&gt;[img[Horticulture|assets/items/farm_rs.png]] &lt;&lt;/if&gt;&gt;&lt;&lt;if $CampJ.Orb == true&gt;&gt;[img[Flotating Orb|assets/items/The-Orb_rs.png]] &lt;&lt;/if&gt;&gt;&lt;&lt;if $CampJ.nOrb == true&gt;&gt;[img[Orb +Navigation|assets/items/navigation-Orb_rs.png]] &lt;&lt;/if&gt;&gt;&lt;&lt;if $CampJ.cOrb == true&gt;&gt;[img[Orb +Combat|assets/items/combat-Orb_rs.png]] &lt;&lt;/if&gt;&gt;&lt;&lt;if $CampJ.cnOrb == true&gt;&gt;[img[Orb +Navi +Combat|assets/items/combat-Orb_rs.png]] &lt;&lt;/if&gt;&gt;
+&lt;&lt;if $CampJ.building &gt; $CampJ.maxbuilding&gt;&gt;&lt;&lt;set $CampJ.building = $CampJ.maxbuilding&gt;&gt;&lt;&lt;elseif $CampJ.building &lt; 0&gt;&gt;&lt;&lt;set $CampJ.building = 0&gt;&gt;&lt;&lt;/if&gt;&gt;The camp has &lt;&lt;= $CampJ.building&gt;&gt; of maximal &lt;&lt;= $CampJ.maxbuildings&gt;&gt;.&lt;/div&gt;
+&lt;div class=&quot;index-Sscreens&quot;&gt;&lt;div&gt;&lt;strong&gt;CYCLES:&amp;nbsp;&lt;/strong&gt;
+&lt;&lt;= $days&gt;&gt;&lt;/div&gt;&lt;div&gt;&lt;strong&gt;ENERGY:&amp;nbsp;&lt;/strong&gt;
+&lt;&lt;if $energy &gt; $maxenergy&gt;&gt;&lt;&lt;set $energy = $maxenergy&gt;&gt;&lt;&lt;elseif $energy &lt; 0&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;= $energy&gt;&gt; of maximal &lt;&lt;= $maxenergy&gt;&gt;&lt;/div&gt;&lt;div&gt;&lt;strong&gt;UNIMATTER:&amp;nbsp;&lt;/strong&gt;
+&lt;&lt;if $unimatter &gt; $maxunimatter&gt;&gt;&lt;&lt;set $unimatter = $maxunimatter&gt;&gt;&lt;&lt;elseif $unimatter &lt; 0&gt;&gt;&lt;&lt;set unimatter = 0&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;= $unimatter&gt;&gt; Unimatter&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;index-screen&quot;&gt;&lt;strong&gt;NUTRIENTS:&lt;/strong&gt;
+We have &lt;&lt;= $nutrients&gt;&gt; nutrients in storage. Each person consume one food per cycle. We can only store a quantity of 50.&lt;/div&gt;
+&lt;div class=&quot;index-Pscreens&quot;&gt;&lt;div class=&quot;title-profession&quot;&gt;&lt;strong&gt;PROFESSIONS:&lt;/strong&gt;&lt;/div&gt;&lt;div class=&quot;index-professions&quot;&gt;&lt;div&gt; Xenology: &lt;&lt;= $xeno&gt;&gt;&lt;/div&gt; + &lt;div&gt;Combatibility: &lt;&lt;= $combat&gt;&gt;&lt;/div&gt; + &lt;div&gt;Engineering: &lt;&lt;= $engineering&gt;&gt;&lt;/div&gt; + &lt;div&gt;Interactibility: &lt;&lt;= $social&gt;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;&lt;if $CampJ.building &gt; $CampJ.maxbuilding&gt;&gt;&lt;&lt;set $CampJ.building = $CampJ.maxbuilding&gt;&gt;&lt;&lt;elseif $CampJ.building &lt; 0&gt;&gt;&lt;&lt;set $CampJ.building = 0&gt;&gt;&lt;&lt;/if&gt;&gt;
-The camp has &lt;&lt;= $CampJ.building&gt;&gt; of maximal &lt;&lt;= $CampJ.maxbuildings&gt;&gt;.
-
-CYCLES: &lt;&lt;= $days&gt;&gt;
-
-NUTRIENTS:
-We have &lt;&lt;= $nutrients&gt;&gt; nutrients in storage. Each person consume one food per cycle. We can only store a quantity of 50.
-
-ENERGY: &lt;&lt;if $energy &gt; $maxenergy&gt;&gt;&lt;&lt;set $energy = $maxenergy&gt;&gt;&lt;&lt;elseif $energy &lt; 0&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;/if&gt;&gt;
-&lt;&lt;= $energy&gt;&gt; of maximal &lt;&lt;= $maxenergy&gt;&gt;
-
-UNIMATTER: &lt;&lt;if $unimatter &gt; $maxunimatter&gt;&gt;&lt;&lt;set $unimatter = $maxunimatter&gt;&gt;&lt;&lt;elseif $unimatter &lt; 0&gt;&gt;&lt;&lt;set unimatter = 0&gt;&gt;&lt;&lt;/if&gt;&gt;
-&lt;&lt;= $unimatter&gt;&gt; Unimatter
-
-PROFESSIONS:
-
-Xenology: &lt;&lt;= $xeno&gt;&gt; + Combatibility: &lt;&lt;= $combat&gt;&gt; + Engineering: &lt;&lt;= $engineering&gt;&gt; + Interactibility: &lt;&lt;= $social&gt;&gt;
-
-ACTIONS:
+&lt;strong&gt;ACTIONS:&lt;/strong&gt;
 &lt;&lt;if $energy &gt;=1&gt;&gt;
 [[Train in Engineering|Train Engineering][$energy -= 1; engineering += 0.1]]
 

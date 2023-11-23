@@ -29,7 +29,7 @@ random Events
 
 
 :: A Small Hill {"position":"1600,175","size":"100,100"}
-]img[assets/items/antenna_CJ.png]]
+[img[assets/items/antenna_CJ.png]]
 
 The antenna is installed on a small hill. But it seems to reach no one. Maybe it is set too low, or the jungle is too dense.
 <<nobr>>
@@ -128,33 +128,20 @@ Leo has decided.
 [img[assets/Ch-Camp/JungleCamp.png]]
 <<set $Camp_J = true>><<set $Camp_M = false>>
 <div id="Camp-Jungle"><h2><strong>Camp Jungle</strong></h2></div>
-Things in the inventory:
-
-+ [img[Materials Printer|assets/items/3D-Printer_rs.png]] + [img[Compass|assets/items/compass_rs.png]] + <<if $SubAnalyzer == true>>[img[Substance Analyzer|assets/items/Substance-Analyzer_rs.png]]<</if>>
-
-Components and Buildings in your slots:
-
+<div class="order-indices"><div class="index-screen"><strong>Things in the inventory:</strong>
+[img[Materials Printer|assets/items/3D-Printer_rs.png]] [img[Compass|assets/items/compass_rs.png]] <<if $SubAnalyzer == true>>[img[Substance Analyzer|assets/items/Substance-Analyzer_rs.png]]<</if>></div>
+<div class="index-screen"><strong>Components and Buildings operated by your spaceship:</strong>
 <<if $CampJ.TransMast == true>>[img[Transmission Mast|assets/items/antenna_CJ_rs.png]] <</if>><<if $CampJ.EHarvester == true>>[img[Energy Harvester|assets/items/sun-collectors_rs.png]] <</if>><<if $CampJ.DefPerimeter == true>>[img[Defense Perimeter|assets/items/defense-perimeter_rs.png]] <</if>><<if $CampJ.Farm == true>>[img[Horticulture|assets/items/farm_rs.png]] <</if>><<if $CampJ.Orb == true>>[img[Flotating Orb|assets/items/The-Orb_rs.png]] <</if>><<if $CampJ.nOrb == true>>[img[Orb +Navigation|assets/items/navigation-Orb_rs.png]] <</if>><<if $CampJ.cOrb == true>>[img[Orb +Combat|assets/items/combat-Orb_rs.png]] <</if>><<if $CampJ.cnOrb == true>>[img[Orb +Navi +Combat|assets/items/combat-Orb_rs.png]] <</if>>
+<<if $CampJ.building > $CampJ.maxbuilding>><<set $CampJ.building = $CampJ.maxbuilding>><<elseif $CampJ.building < 0>><<set $CampJ.building = 0>><</if>>The camp has <<= $CampJ.building>> of maximal <<= $CampJ.maxbuildings>>.</div>
+<div class="index-Sscreens"><div><strong>CYCLES:&nbsp;</strong>
+<<= $days>></div><div><strong>ENERGY:&nbsp;</strong>
+<<if $energy > $maxenergy>><<set $energy = $maxenergy>><<elseif $energy < 0>><<set $energy = 0>><</if>><<= $energy>> of maximal <<= $maxenergy>></div><div><strong>UNIMATTER:&nbsp;</strong>
+<<if $unimatter > $maxunimatter>><<set $unimatter = $maxunimatter>><<elseif $unimatter < 0>><<set unimatter = 0>><</if>><<= $unimatter>> Unimatter</div></div>
+<div class="index-screen"><strong>NUTRIENTS:</strong>
+We have <<= $nutrients>> nutrients in storage. Each person consume one food per cycle. We can only store a quantity of 50.</div>
+<div class="index-Pscreens"><div class="title-profession"><strong>PROFESSIONS:</strong></div><div class="index-professions"><div> Xenology: <<= $xeno>></div> + <div>Combatibility: <<= $combat>></div> + <div>Engineering: <<= $engineering>></div> + <div>Interactibility: <<= $social>></div></div></div></div>
 
-<<if $CampJ.building > $CampJ.maxbuilding>><<set $CampJ.building = $CampJ.maxbuilding>><<elseif $CampJ.building < 0>><<set $CampJ.building = 0>><</if>>
-The camp has <<= $CampJ.building>> of maximal <<= $CampJ.maxbuildings>>.
-
-CYCLES: <<= $days>>
-
-NUTRIENTS:
-We have <<= $nutrients>> nutrients in storage. Each person consume one food per cycle. We can only store a quantity of 50.
-
-ENERGY: <<if $energy > $maxenergy>><<set $energy = $maxenergy>><<elseif $energy < 0>><<set $energy = 0>><</if>>
-<<= $energy>> of maximal <<= $maxenergy>>
-
-UNIMATTER: <<if $unimatter > $maxunimatter>><<set $unimatter = $maxunimatter>><<elseif $unimatter < 0>><<set unimatter = 0>><</if>>
-<<= $unimatter>> Unimatter
-
-PROFESSIONS:
-
-Xenology: <<= $xeno>> + Combatibility: <<= $combat>> + Engineering: <<= $engineering>> + Interactibility: <<= $social>>
-
-ACTIONS:
+<strong>ACTIONS:</strong>
 <<if $energy >=1>>
 [[Train in Engineering|Train Engineering][$energy -= 1; engineering += 0.1]]
 
@@ -718,6 +705,62 @@ img {
 
 #Camp-Jungle {
   color: #2aa22a;
-  padding: 2px,
-  background-color: 
+}
+
+.order-indices {
+  display: flex;
+  flex-flow: column;
+  max-width: 700px;
+}
+
+.index-screen {
+  position: relative;
+  width: 660px;
+  background-color: #248f8f;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 2px solid #8c8c8c;
+}
+
+.index-Sscreens {
+  width: 700px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  border-radius: 10px;
+}
+
+.index-Sscreens>div {
+  background-color: #248f8f;
+  width: 25%;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 2px solid #8c8c8c;
+}
+
+.index-Pscreens {
+  width: 660px;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  background-color: #248f8f;
+  border: 2px solid #8c8c8c;
+}
+
+.title-profession {
+  width: 700px;
+}
+
+.index-professions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: green;
+}
+
+.index-professions>div {
+  border-radius: 3px;
+  width: 20%;
+  background-color: red;
 }
