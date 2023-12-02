@@ -8,24 +8,154 @@ Stranded
   "format": "SugarCube",
   "format-version": "2.36.1",
   "start": "Menu",
-  "zoom": 1
+  "zoom": 0.6
 }
 
 
-:: A New Cycle {"position":"350,475","size":"100,100"}
-<<if random (100) > 50>>
-A new cycle, a new day. Although this planet's rotation is much slower obviously.
-Energy is replenished. Vika has learned some more in engineering, as has Leo in interactibility.
-<<if $CampJ.EHarvesters == true>><<set $energy += 10>><<else>><<set $energy += 5>><</if>>
-<<if $CampJ.Farm == false>><<set $nutrients -= 3>><<else>><<set $food +=1>><</if>>
-<<set $engineering += 0.2>><<set $social += 0.2>>
-[[On to new adventures!|Camp Jungle]]
+:: 1E {"position":"1025,1500","size":"100,100"}
+
+
+
+:: 1N {"position":"900,1375","size":"100,100"}
+
+
+
+:: 1N2E {"position":"1150,1375","size":"100,100"}
+
+
+
+:: 1N2W {"position":"650,1375","size":"100,100"}
+
+
+
+:: 1N3E {"position":"1275,1375","size":"100,100"}
+
+
+
+:: 1NE {"position":"1025,1375","size":"100,100"}
+
+
+
+:: 1NW {"position":"775,1375","size":"100,100"}
+
+
+
+:: 1S {"position":"900,1625","size":"100,100"}
+
+
+
+:: 1S2E {"position":"1150,1625","size":"100,100"}
+
+
+
+:: 1S2W {"position":"650,1625","size":"100,100"}
+
+
+
+:: 1SE {"position":"1025,1625","size":"100,100"}
+
+
+
+:: 1SW {"position":"775,1625","size":"100,100"}
+
+
+
+:: 1W {"position":"775,1500","size":"100,100"}
+
+
+
+:: 2E {"position":"1150,1500","size":"100,100"}
+
+
+
+:: 2N {"position":"900,1250","size":"100,100"}
+
+
+
+:: 2S {"position":"900,1750","size":"100,100"}
+
+
+
+:: 2W {"position":"650,1500","size":"100,100"}
+
+
+
+:: 3E {"position":"1275,1500","size":"100,100"}
+
+
+
+:: 3N {"position":"900,1125","size":"100,100"}
+
+
+
+:: 3S {"position":"900,1875","size":"100,100"}
+
+
+
+:: 3W {"position":"525,1500","size":"100,100"}
+
+
+
+:: 4E {"position":"1400,1500","size":"100,100"}
+
+
+
+:: 4W {"position":"400,1500","size":"100,100"}
+
+
+
+:: 5W {"position":"275,1500","size":"100,100"}
+
+
+
+:: A New Cycle {"position":"750,475","size":"100,100"}
+<<if $maxenergy <= 1 || $nutrients <= 0 || $days >= 30>><<goto "End of Game">><</if>>
+<<if $Camp_J == true>>
+  <<if $CampJ.EHarvesters == true>><<set $energy += 10>><<else>><<set $energy += 5>><</if>>
+  <<if $CampJ.Farm == false>><<set $nutrients -= 3>><<else>><<set $nutrients +=2>><</if>>
+  <<set $engineering += 0.2>><<set $social += 0.2>>
 <<else>>
-
-random Events
-
-[[Camp Jungle]]
+  <<if $CampM.EHarvesters == true>><<set $energy += 15>><<else>><<set $energy += 10>><</if>>
+  <<if $CampM.Farm == false>><<set $nutrients -= 5>><<else>><<set $nutrients += 0>><</if>>
 <</if>>
+<<if random(100) > 50>>
+  A new cycle, a new day. Although this planet's rotation is much slower; obviously.
+  
+  Energy is replenished. Vika has learned some more in engineering, as has Leo in interactibility.<<if $Camp_M == true>>Elva and Abiba in their fields of specialties.<<set $engineering += 0.2>><<set $combat += 0.1>><</if>>
+<<elseif random(100) <= 10 && $CampJ.DefPerimeter == false || random(4) == 0 && $CampM.DefPerimeter == false>>
+  [img[assets/random-events/alien_mammals.png]]
+  
+  Animals!
+  
+  Alien Animals are breaching in. It seems, they only distinctively go for the food. 
+  We have lost some nutrients.<<set $nutrients -= 5>><<set $xeno += 0.1>>
+  <<elseif random(100) > 10 && random(100) <= 20 && $CampJ.DefPerimeter == false || random(4) == 1 && $CampM.DefPerimeter == false>>
+  [img[assets/random-events/aggressive_animal.png]]
+  
+  What a ruckus!
+  
+  Shiiiet! One that attacks us senselessly! It depends much on our Combat Arts.<<set $xeno += 0.1>>
+    <<if $combat > 4>>
+      Yes! That was a good training session, we could defeat that beast.&nbsp;<<set $combat += 0.1>><<if $SubAnalyzer == true>>And have some bit food. The rest can be disintegrated as unimatter.<<set $nutrients += 3>><<set $unimatter += 2>><</if>>
+    <<else>>
+      Ach, such is a hardship here in the stranded planet. The monstruo is wrecking our equipment and damaging the hull; letting our spaceship operates not at the optimum.<<set $unimatter -= 5>><<set $maxenergy -= 2>><</if>>
+  <<elseif random(100) > 20 && random(100) <= 30 && $social > 2 && $SFW_Path == false>>
+  [img[assets/characters/Vika/Vika_6.png]]
+  
+  ... I saw Vika fumbling on her panel. She didn't seem to have noticed me. I was unsure whether to greet her and went on my way. Not without an admiration for the sight.
+  <<elseif random(100) > 30 && random(100) <= 40 && $social > 2 && $Camp_M == true && SFW_Path == false>>
+  [img[assets/characters/Abiba/Abiba11.png]]
+  
+  ... Abiba was showering. Oh boy, what a body. She said nothing, and me as well. Though, on the way back, I waved goodbye and gave a complimentary glimpse anew. She is a woman, she knows. No words were changed.
+  <<elseif random(100) > 40 && random(100) <= 50 && $social > 3 && $SFW_Path == false>>
+  [Img[assets/characters/Vika/Vika9.png]]
+  
+  ... I saw Vika fumbling on her panel. The Nightowl.
+  She noticed me. I greeted her and continue on my way. Clearly, not without an admiration for the gift.
+  <<else>>
+  False Alarm. Or the AI handled it. Anyway, time to rest. A new cycle.
+  <</if>>
+  <<if $Camp_M == true>>[[On to new adventures|Camp Mountain]]<<else>>[[On to new adventures|Camp Jungle]]<</if>>
 
 
 :: A Small Hill {"position":"1600,175","size":"100,100"}
@@ -39,8 +169,20 @@ The antenna is installed on a small hill. But it seems to reach no one. Maybe it
 [[Set up the Camp|Camp Jungle]]
 
 
-:: Ante Explore {"position":"350,725","size":"100,100"}
+:: Ante Explore {"position":"750,725","size":"100,100"}
+Who will accompany me, who can I persuade? <<set $carrycap += 1>><<if $CampJ.Orb || $CampM.Orb>><<set $carrycap += 4>><</if>>
 
+<<if random(10) * $social > 40 || $maxenergy < 3 || $nutrients < 10>>+ Vika will accompany you.<<set $carrycap +=1>><<else>>- Vika is focusing on the communications screen, she rather sit by the radio.<</if>>
+
+<<if random(10) * $social > 30 || $maxenergy < 3 || $nutrients <10>>+ Leo will help you.>><<set $carrycap +=1>><<else>>- Leo is in dialogue with his AI or other AIs. He cannot come with you.<</if>>
+
+<<if $Camp_M == true>><<if random(10) * $social > 38 || $maxenergy < 3 || $nutrients <10>>+ Elva comes with you.<<set $carrycap +=1>><<else>>- Elva is not available. She seems to be occupied.<</if>><</if>>
+
+<<if $Camp_M == true>><<if random(10) * $social > 35 || $maxenergy < 3 || $nutrients < 10>>+ Abiba want some outdoor training.<<set $carrycap +=1>><<else>>- Abiba is in her training mode. Quite intensely. Better not disturb her.<</if>><</if>>
+
+Your capacity to carry is: <strong><<= $carrycap>></strong> (You plus your companions plus an orb)
+
+<<if $Camp_M>>[[On to the Exploring|Start from Base Mountain]]<<else>>[[On to the Exploring|Start from Base Jungle]]<</if>>
 
 
 :: AnteCamp {"position":"1400,300","size":"100,100"}
@@ -125,42 +267,43 @@ Leo has decided.
 
 
 :: Camp Jungle {"position":"350,600","size":"100,100"}
-[img[assets/Ch-Camp/JungleCamp.png]]
+<center>[img[assets/Ch-Camp/JungleCamp.png]]</center>
 <<set $Camp_J = true>><<set $Camp_M = false>>
-<div id="Camp-Jungle"><h2><strong>Camp Jungle</strong></h2></div>
-<div class="order-indices"><div class="index-screen"><strong>Things in the inventory:</strong>
+<div id="Camp-Jungle"><center><h2><strong>Camp Jungle</strong></h2></center></div>
+<div class="order-indices"><div class="index-screens-normal"><strong>Things in the inventory:</strong>
 [img[Materials Printer|assets/items/3D-Printer_rs.png]] [img[Compass|assets/items/compass_rs.png]] <<if $SubAnalyzer == true>>[img[Substance Analyzer|assets/items/Substance-Analyzer_rs.png]]<</if>></div>
-<div class="index-screen"><strong>Components and Buildings operated by your spaceship:</strong>
+<div class="index-screens-normal"><strong>Components and Buildings operated by your spaceship:</strong>
 <<if $CampJ.TransMast == true>>[img[Transmission Mast|assets/items/antenna_CJ_rs.png]] <</if>><<if $CampJ.EHarvester == true>>[img[Energy Harvester|assets/items/sun-collectors_rs.png]] <</if>><<if $CampJ.DefPerimeter == true>>[img[Defense Perimeter|assets/items/defense-perimeter_rs.png]] <</if>><<if $CampJ.Farm == true>>[img[Horticulture|assets/items/farm_rs.png]] <</if>><<if $CampJ.Orb == true>>[img[Flotating Orb|assets/items/The-Orb_rs.png]] <</if>><<if $CampJ.nOrb == true>>[img[Orb +Navigation|assets/items/navigation-Orb_rs.png]] <</if>><<if $CampJ.cOrb == true>>[img[Orb +Combat|assets/items/combat-Orb_rs.png]] <</if>><<if $CampJ.cnOrb == true>>[img[Orb +Navi +Combat|assets/items/combat-Orb_rs.png]] <</if>>
-<<if $CampJ.building > $CampJ.maxbuilding>><<set $CampJ.building = $CampJ.maxbuilding>><<elseif $CampJ.building < 0>><<set $CampJ.building = 0>><</if>>The camp has <<= $CampJ.building>> of maximal <<= $CampJ.maxbuildings>>.</div>
-<div class="index-Sscreens"><div><strong>CYCLES:&nbsp;</strong>
+<<if $CampJ.building > $CampJ.maxbuilding>><<set $CampJ.building = $CampJ.maxbuilding>><<elseif $CampJ.building < 0>><<set $CampJ.building = 0>><</if>>The camp has <<= $CampJ.building>> of maximal <<= $CampJ.maxbuildings>> buildings.</div>
+<div class="index-screens-small"><div><strong>CYCLES:&nbsp;</strong>
 <<= $days>></div><div><strong>ENERGY:&nbsp;</strong>
 <<if $energy > $maxenergy>><<set $energy = $maxenergy>><<elseif $energy < 0>><<set $energy = 0>><</if>><<= $energy>> of maximal <<= $maxenergy>></div><div><strong>UNIMATTER:&nbsp;</strong>
-<<if $unimatter > $maxunimatter>><<set $unimatter = $maxunimatter>><<elseif $unimatter < 0>><<set unimatter = 0>><</if>><<= $unimatter>> Unimatter</div></div>
-<div class="index-screen"><strong>NUTRIENTS:</strong>
-We have <<= $nutrients>> nutrients in storage. Each person consume one food per cycle. We can only store a quantity of 50.</div>
-<div class="index-Pscreens"><div class="title-profession"><strong>PROFESSIONS:</strong></div><div class="index-professions"><div> Xenology: <<= $xeno>></div> + <div>Combatibility: <<= $combat>></div> + <div>Engineering: <<= $engineering>></div> + <div>Interactibility: <<= $social>></div></div></div></div>
+<<if $unimatter > $maxunimatter>><<set $unimatter = $maxunimatter>><<elseif $unimatter < 0>><<set $unimatter = 0>><</if>><<= $unimatter>> Unimatter</div></div>
+<div class="index-screens-normal"><strong>NUTRIENTS:</strong>
+We have <<= $nutrients>> nutrients in storage. Each person consume one unit of nutrients per cycle. We can only store a quantity of 50.</div>
+<div class="index-screens-professions"><div class="title-profession"><strong>PROFESSIONS:</strong></div><div class="index-professions"><div> Xenology: <<= $xeno.toFixed(1)>></div> + <div>Combatibility: <<= $combat.toFixed(1)>></div> + <div>Engineering: <<= $engineering.toFixed(1)>></div> + <div>Interactibility: <<= $social.toFixed(1)>></div></div></div></div>
 
-<strong>ACTIONS:</strong>
-<<if $energy >=1>>
-[[Train in Engineering|Train Engineering][$energy -= 1; engineering += 0.1]]
-
-[[Train in Combat Arts|Train Combat][$energy -= 1; combat += 0.1]]
-
-[[Go Out|Ante Explore][$energy -= 1]]
-
-[[Go to the Materials Printer|Construction Menu][$energy -= 1]]
-
-[[Socialize with your Crew|social Events][$energy -= 1]]
-<</if>>
-[[Rest|A New Cycle][$days += 1]]
-<<if hasVisited("4East") || hasVisited("Foot of a Mountain") || $energy > 4>>
+<strong><center><h3>ACTIONS:</h3></center></strong>
+<div class="actions-table"><div class="actions-row">
+<div><<if $energy >=1>>[[Train in Engineering|Camp Jungle][$energy -= 1; engineering += 0.1]]<</if>></div>
+<div><<if $energy >=1>>[[Train in Combat Arts|Camp Jungle][$energy -= 1; combat += 0.1]]<</if>></div></div>
+<div class="actions-row"><div><<if $energy >=1>>[[Go to the Materials Printer|Construction Menu][$energy -= 1]]<</if>></div>
+<div><<if $energy >=1>>[[Socialize with your Crew|social Events][$energy -= 1]]<</if>></div></div>
+<div class="actions-row"><div><<if $energy >=1>>[[Go Out|Ante Explore][$energy -= 1]]<</if>></div>
+<div>[[Rest|A New Cycle][$days += 1]]</div></div>
+<div class="actions-row"><div><<if $energy > 4 && hasVisited("4East") || hasVisited("Foot of a Mountain") && $energy > 4>>
 [[Move to Camp Mountain|Camp Mountain][$energy -= 5; $maxenergy += 10; $maxnutrients += 50]]
-<</if>>
+<</if>></div></div></div>
 
 
 :: Camp Mountain {"position":"1000,600","size":"100,100"}
+<<if lastVisited("Camp Mountain") is 0>><<set $engineering += (0.2 * $days) && $combat += (0.1 * $days)>>
 
+ChatGPT:
+<<if $visitedCampMountain is 0>>
+    <<set $engineering to $engineering + (0.2 * $days)>>
+    <<set $combat to $combat + (0.1 * $days)>>
+<</if>>
 
 
 :: Check my pod {"position":"925,300","size":"100,100"}
@@ -183,8 +326,30 @@ Ech! Nothing happens. It is boring. Maybe I should try to go out anyway?
 <</if>>
 
 
-:: Construction Menu {"position":"475,725","size":"100,100"}
+:: Construction Menu {"position":"350,725","size":"100,100"}
+<center>[img[assets/items/3D-Printer.png]]</center>
+<div id="blue-title"><center><h3><strong>Construction Menu</strong></h3></center></div>
+<div class="index-screens-small"><div><strong>ENERGY:&nbsp;</strong>
+<<if $energy > $maxenergy>><<set $energy = $maxenergy>><<elseif $energy < 0>><<set $energy = 0>><</if>><<= $energy>> of maximal <<= $maxenergy>></div><div><strong>UNIMATTER:&nbsp;</strong>
+<<if $unimatter > $maxunimatter>><<set $unimatter = $maxunimatter>><<elseif $unimatter < 0>><<set $unimatter = 0>><</if>><<= $unimatter>> Unimatter</div><div><<if $Camp_M == true>>available buildings:
+<<= $CampM.building>> from maximal <<= $CampM.maxbuilding>>
+<<else>>available buildings:
+<<= $CampJ.building>> from maximal <<= $CampJ.maxbuildings>><</if>></div></div>
+<div class="index-screens-small"><div style="width: 100%;">[[Go to Disintegration Menu|Disintegration Menu]]</div></div>
+<div class="index-screens-small"><div style="width: 100%;"><<if $Camp_J == true>>[[Go to Camp|Camp Jungle]]<<else>>[[Go to Camp|Camp Mountain]]<</if>></div></div>
 
+<strong><u>available Templates:</u></strong>
+<<nobr>><h6>Legend: Energy = E | Unimatter = U | Lvl = Engineering Level</h6><</nobr>>
+<ul><li>Repairs <<if $maxenergy < 10>>[[(3E - 3U)|Construction Menu][$energy -= 3; $unimatter -= 3]]<<else>>: all good and functioning.<</if>></li>
+<li>Lvl 2: Substance Analyzer <<if $SubAnalyzer != true && $energy >= 2 && $unimatter >= 5>>[[(2E - 5U)|Construction Menu][$energy -= 2; $unimatter -= 5; $SubAnalyzer = true]]<<elseif $SubAnalyzer == true>>: We have already the Substance Analyzer in our inventory.<<else>>: not enough ressources.<</if>></li>
+<li>Lvl 2: Energy Harvesters <<if $CampJ.EHarvesters != true && $Camp_J == true && $energy >= 5 && $unimatter >= 5>>[[(5E - 5U)|Construction Menu][$energy -= 5; $unimatter -= 5; $CampJ.EnergyHarvesters = true]]<<elseif $CampM.EHarvesters != true && $Camp_M == true && $energy >= 5 && $unimatter >= 5>>[[(5E - 5U)|Construction Menu][$energy -= 5; $unimatter -= 5; $CampM.EnergyHarvesters = true]]<<elseif $CampJ.EHarvesters == true && CampJ == true || $CampM.EHarvesters == true && CampM == true>>: Our Energy Harvester collects all possible energies.<<else>>: not enough ressources.<</if>></li>
+<li>Lvl 3: Defense Perimeter <<if $CampJ.DefPerimeter != true && $Camp_J == true && $energy >= 8 && $unimatter >= 3>>[[(2E - 2U)|Construction Menu][$energy -= 2; $unimatter -= 2; $CampM.TransMast = true]]<<elseif $CampM.DefPerimeter != true && $Camp_M == true && $energy >= 8 && $unimatter >= 3>>[[(8E - 3U)|Construction Menu][$energy -= 8; $unimatter -= 3; $CampM.EnergyHarvesters = true]]<<elseif $CampJ.DefPerimeter == true && CampJ == true || $CampM.DefPerimeter == true && CampM == true>>: The Defense Perimeter is active.<<else>>: not enough ressources.<</if>></li>
+<li>Lvl 3: Antenna <<if $CampJ.TransMast != true  && $Camp_J == true && $energy >= 2 && $unimatter >= 2>> || <<elseif $CampM.TransMast != true && $Camp_M == true && $energy >= 2 && $unimatter >= 2>>[[(2E - 2U)|Construction Menu][$energy -= 2; $unimatter -= 2; $CampM.TransMast = true]]<<elseif $CampJ.TransMast == true  && $Camp_J == true || $CampM.TransMast == true && $Camp_M == true>>: Our transmission mast is sending without interruption.<<else>>: not enough ressources.<</if>></li>
+<li>Lvl 4: Farm <<if $CampJ.Farm != true && $Camp_J == true && $energy >= 4 && $unimatter >= 6>>[[(4E - 6U)|Construction Menu][$energy -= 4; $unimatter -= 6; $CampJ.Farm = true]]<<elseif $CampM.Farm != true && $Camp_M == true && $energy >= 4 && $unimatter >= 6>>[[(4E - 6U)|Construction Menu][$energy -= 4; $unimatter -= 6; $CampM.Farm = true]]<<elseif $CampJ.Farm == true && $Camp_J == true || $CampM.Farm == true && $Camp_M == true>>: Our horticulture produces our nutrients all fine.<<else>>: not enough ressources.<</if>></li>
+<li>Lvl 4: Floating Orb <<if $CampJ.Orb != true && $Camp_J == true && $energy >= 8 && $unimatter >= 4>>[[(8E - 4U)|Construction Menu][$energy -= 8; $unimatter -= 4; $CampJ.Orb = true]]<<elseif $CampM.Orb != true && $Camp_M == true && $energy >= 8 && $unimatter >= 4>>[[(8E - 4U)|Construction Menu][$energy -= 8; $unimatter -= 4; $CampM.Orb = true]]<<elseif $CampJ.Orb == true && $Camp_J == true || $CampM.Orb == true && $Camp_M == true>>: The Orb is recharging at its port.<<else>>: not enough ressources.<</if>></li>
+<ul class="plussign-list">
+    <li>+ Orb Improvement for Exploring <<if $CampJ.nOrb != true && $Camp_J == true && $energy >= 4 && $unimatter >= 4>>[[(4E - 4U)|Construction Menu][$energy -= 4; $unimatter -= 4; $CampJ.nOrb = true]]<<elseif $CampM.nOrb != true && $Camp_M == true && $energy >= 4 && $unimatter >= 4>>[[(4E - 4U)|Construction Menu][$energy -= 4; $unimatter -= 4; $CampM.nOrb = true]]<<elseif $CampJ.nOrb == true && $Camp_J == true || $CampM.nOrb == true && $Camp_M == true>>: The Orb is recharging at its port.<<else>>: not enough ressources.<</if>></li>
+    <li>+ Orb Improvement for Combat <<if $CampJ.cOrb != true && $Camp_J == true && $energy >= 6 && $unimatter >= 6>>[[(6E - 6U)|Construction Menu][$energy -= 6; $unimatter -= 6; $CampJ.cOrb = true]]<<elseif $CampM.cOrb != true && $Camp_M == true && $energy >= 6 && $unimatter >= 6>>[[(6E - 6U)|Construction Menu][$energy -= 6; $unimatter -= 6; $CampM.cOrb = true]]<<elseif $CampJ.cOrb == true && $Camp_J == true || $CampM.cOrb == true && $Camp_M == true>>: The Orb is recharging at its port.<<else>>: not enough ressources.<</if>></li></ul>
 
 
 :: Crash {"position":"800,300","size":"100,100"}
@@ -252,6 +417,55 @@ After many minutes
 [[I am ready|Intro3]]
 
 
+:: Disintegration Menu {"position":"350,850","size":"100,100"}
+<center>[img[assets/items/3D-Printer.png]]</center>
+<div id="red-title"><center><h3><strong>Disintegration Menu</strong></h3></center></div>
+<div class="index-screens-small"><div><strong>ENERGY:&nbsp;</strong>
+<<if $energy > $maxenergy>><<set $energy = $maxenergy>><<elseif $energy < 0>><<set $energy = 0>><</if>><<= $energy>> of maximal <<= $maxenergy>></div><div><strong>UNIMATTER:&nbsp;</strong>
+<<if $unimatter > $maxunimatter>><<set $unimatter = $maxunimatter>><<elseif $unimatter < 0>><<set $unimatter = 0>><</if>><<= $unimatter>> Unimatter</div><div><<if $Camp_M == true>>available buildings:
+<<= $CampM.building>> from maximal <<= $CampM.maxbuilding>>
+<<else>>available buildings:
+<<= $CampJ.building>> from maximal <<= $CampJ.maxbuildings>><</if>></div></div>
+<div class="index-screens-small"><div style="width: 100%;">[[Go to Construction Menu|Construction Menu]]</div></div>
+
+<strong><u>current components/buildings:</u></strong>
+<ul><<if  $SubAnalyzer == true>><li>Lvl 2: [[Substance Analyzer (2E - 5U)|Disintegration Menu][$energy += 2; $unimatter += 5; $SubAnalyzer = false]]</li><</if>>
+<<if $CampJ.EHarvesters == true && $Camp_J == true>><li>Lvl 2: [[Energy Harvesters (5E - 5U)|Disintegration Menu][$energy += 5; $unimatter += 5; $CampJ.EHarvesters = false]]</li><<elseif $CampM.EHarvesters == true && $Camp_M == true>><li>Lvl 2: [[Energy Harvesters (5E - 5U)|Disintegration Menu][$energy += 5; $unimatter += 5; $CampM.EHarvesters = false]]</li><</if>>
+<<if $CampJ.DefPerimeter == true && $Camp_J == true>><li>Lvl 3: [[Defense Perimeter (8E - 3U)|Disintegration Menu][$energy += 8; $unimatter += 3; $CampJ.DefPerimeter = false]]</li><<elseif $CampM.DefPerimeter == true && $Camp_M == true>><li>Lvl 3: [[Defense Perimeter (8E - 3U)|Disintegration Menu][$energy += 8; $unimatter += 3; $CampM.DefPerimeter = false]]</li><</if>>
+<<if $CampJ.TransMast == true  && $Camp_J == true>><li>Lvl 3: [[Antenna (2E - 2U)|Disintegration Menu][$energy += 2; $unimatter += 2; $CampJ.TransMast = false]]</li><<elseif $CampM.TransMast == true && $Camp_M == true>><li>Lvl 3: [[Antenna (2E - 2U)|Disintegration Menu][$energy += 2; $unimatter += 2; $CampM.TransMast = false]]</li><</if>>
+<<if $CampJ.Farm == true && $Camp_J == true>><li>Lvl 4: [[Farm (4E - 6U)|Disintegration Menu][$energy += 4; $unimatter += 6; $CampJ.Farm = false]]</li><<elseif $CampM.Farm == true && $Camp_M == true>><li>Lvl 4: [[Farm (4E - 6U)|Disintegration Menu][$energy += 4; $unimatter += 6; $CampM.Farm = false]]</li><</if>>
+<<if $CampJ.Orb == true && $Camp_J == true>><li>Lvl 4: [[Floating Orb (8E - 4U)|Disintegration Menu][$energy += 8; $unimatter += 4; $CampJ.Orb = false]]</li><<elseif $CampM.Orb == true && $Camp_M == true>><li>Lvl 4: [[Floating Orb (8E - 4U)|Disintegration Menu][$energy += 8; $unimatter += 4; $CampM.Orb = false]]</li><</if>>
+<ul class="plussign-list">
+		<<if $CampJ.nOrb == true && $Camp_J == true>><li>+ [[Orb Improvement for Exploring (4E - 4U)|Disintegration Menu][$energy += 4; $unimatter += 4; $CampJ.nOrb = false]]</li><<elseif $CampM.nOrb == true && $Camp_M == true>><li>+ [[Orb Improvement for Exploring (4E - 4U)|Disintegration Menu][$energy += 4; $unimatter += 4; $CampM.nOrb = false]]</li><</if>>
+        <<if $CampJ.cOrb == true && $Camp_J == true>><li>+ [[Orb Improvement for Combat (6E - 6U)|Disintegration Menu][$energy += 6; $unimatter += 6; $CampJ.cOrb = false]]</li><<elseif $CampM.cOrb == true && $Camp_M == true>><li>+ [[Orb Improvement for Combat (6E - 6U)|Disintegration Menu][$energy += 6; $unimatter += 6; $CampM.cOrb = false]]</li><</if>></ul>
+
+
+:: End of Game {"position":"750,600","size":"100,100"}
+<<if $days <30>>
+
+Such a bad luck! Everything has to be shut down. Our AI is a good for nothing! Or ... you? Or the game designer?
+<<else>>
+
+If you reached 30 days, I think, it is enough (for this version). You should have seen all: 
+- if all professions are over level 6,
+- if you detected Unimatter in the North (2 tiles),
+- if you detected the beach in the West (no events in the west, 5 tiles, rather unimportant)
+- if you detected the camp in the mountains in the East (4 tiles)
+- if you detected the energy balls in the South (3 tiles)
+- if you had all interactions with the ladies (8xE, 11xA & 12xV)
+
+Plans:
+- more events (more variety)
+- one more lady (or more people)
+- expanded exploration (more tiles and events)
+- possibility to extend, upgrade and manage tech, components and buildings (per aspera ad astra) for finding out the mysteries
+- if possible: more events with the current ladies
+- sophisticated gameplay (missions, quests, feedback)
+
+Goodbye. Adiós. Tschüß.
+<</if>>
+
+
 :: EndPoint ChCrash {"position":"1175,300","size":"100,100"}
 <<nobr>><div style="position: relative;">
     <img id="VikaFront" src="assets/characters/Vika_2.png">
@@ -269,7 +483,7 @@ Oh! Am I glad to find another stranded.
 :: Energy Harvester {"position":"1600,550","size":"100,100"}
 [img[assets/items/sun-collectors.png]]
 
-Yes, with our energy harvester, which is in this case the sun collectors, we have raised the energy regeneration rate.
+Yes, with our energy harvester - which "harvest" sun rays, winds, gravitation, molecular dis- and integration, atomic fusion - we have raised the energy regeneration rate.
 
 <<nobr>><<set $energy -= 2>>
 <<set $unimatter -= 5>>
@@ -411,14 +625,17 @@ Choose in which profession you want to master:
 
 
 :: Menu {"position":"100,300","size":"100,100"}
-[img[assets/ui/bg-cover.png]]
+[img[assets/backgrounds/bg-cover.png]]
 
-Hello, words from the developper:
+Hello, notes from the developper:
++ This game is designed to ignore the sidebar except for save, load and restart
 
-Greeting, ancient. Welcome to the future, as it is now, oldtimer.
+Aside from the notes:
 
+Ancient. Greetings. Welcome to the future, as it is already now, oldtimer.
 
 Ready to play a game?
+
 
 [[Yes]]
 [[Yes, but ...|Yes][$SFW_Path = true]]
@@ -495,6 +712,34 @@ Yes! Yes! I am saved
 <</timed>><<timed 26000ms>><<goto "EndPoint ChCrash">><</timed>>
 
 
+:: Start from Base Jungle {"position":"900,1500","size":"100,100"}
+<<if not hasVisited("Start from Base Jungle")>>
+This spot looks good to set a camp.
+<<else>>Info: Exploring cost energy. (Charting new territories depends on your xenology profession.)
+
+How much energy do I want to invest in exploring?
+
+<<set $numero = 0>><<= $numero>><span id="stats-str"><<print $energy>></span>
+<<button "[+]">><<if $numero < $energy>><<set $energy++>><<replace "#stats-str">><<print $energy>><</replace>><</if>><</button>>
+<<button "[-]">><<if $numero > 0>><<set $energy-->><<replace "#stats-str">><<print $energy>><</replace>><</if>><</button>>
+
+<</if>>
+
+[[Go North|1N]]
+
+[[Go East|1E]]
+
+[[Go South|1S]]
+
+[[Go West|1W]]
+
+
+
+
+:: Start from Base Mountain {"position":"1525,1500","size":"100,100"}
+
+
+
 :: StoryInit {"position":"100,25","size":"100,100"}
 <<include [[globalvariables]]>>
 
@@ -513,14 +758,6 @@ With that, we should be able to collect materials nearby. Hopefully, some can be
 [[Set up the Camp|Camp Jungle]]
 
 
-:: Train Combat {"position":"200,725","size":"100,100"}
-
-
-
-:: Train Engineering {"position":"200,600","size":"100,100"}
-
-
-
 :: WhyNothing {"position":"1600,300","size":"100,100"}
 ... energy is too low for any constructions. We need rest.
 
@@ -536,6 +773,7 @@ Since I come from upper middle class, my family invested in a designer baby. Obv
 
 [[Like this]]
 
+[[Skip Intro|Camp Jungle]] 
 
 
 :: globalvariables {"position":"225,25","size":"100,100"}
@@ -584,10 +822,12 @@ Since I come from upper middle class, my family invested in a designer baby. Obv
 
 <<set $passagevisited = false>>
 
+<<set $carrycap = 0>>
+
 <<set $numero = 0>>
 
 
-:: social Events {"position":"475,600","size":"100,100"}
+:: social Events {"position":"75,700","size":"100,100"}
 
 
 
@@ -595,25 +835,24 @@ Since I come from upper middle class, my family invested in a designer baby. Obv
 // appending a div
 $(document).ready(function () {
   // Create your custom content
-  var banner = '<div id="container-banner"><img id="img-banner" src="assets/ui/bg-cover.png"></img></div>';
+  var banner = '<div id="container-banner"><img id="img-banner" src="assets/backgrounds/bg-cover.png"></img></div>';
 
   // Insert the custom content between ui-bar-tray and ui-bar-body
   $('#ui-bar-tray').after(banner);
 });
 
 // Initializing the $CampJ variable as an object
-let $CampJ = {
-    TransMast: false,
-    Farm: false,
-    Orb: false,
-    nOrb: false,
-    cnOrb: false,
-    DefPerimeter: false,
-    building: 0,
-    maxbuildings: 3,
-    EHarvester: false
-};
-
+//let $CampJ = {
+//    TransMast: false,
+//    Farm: false,
+//    Orb: false,
+//    nOrb: false,
+//    cnOrb: false,
+//    DefPerimeter: false,
+//    building: 0,
+//    maxbuildings: 3,
+//    EHarvester: false
+//};
 
 :: StoryStylesheet [stylesheet]
 @font-face {
@@ -634,6 +873,10 @@ body{
 img {
   max-width: 700px;
   max-height: 350px;
+}
+
+h6 {
+  margin: 0;
 }
 
 #ui-bar-tray {
@@ -713,38 +956,37 @@ img {
   max-width: 700px;
 }
 
-.index-screen {
+.index-screens-normal {
   position: relative;
   width: 660px;
-  background-color: #248f8f;
+  background-color: #3a5978;
   padding: 10px 20px;
   border-radius: 10px;
   border: 2px solid #8c8c8c;
 }
 
-.index-Sscreens {
+.index-screens-small {
   width: 700px;
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  border-radius: 10px;
 }
 
-.index-Sscreens>div {
-  background-color: #248f8f;
+.index-screens-small>div {
+  background-color: #3a5978;
   width: 25%;
   padding: 10px 20px;
   border-radius: 10px;
   border: 2px solid #8c8c8c;
 }
 
-.index-Pscreens {
+.index-screens-professions {
   width: 660px;
   padding: 10px 20px;
   display: flex;
   flex-direction: column;
   border-radius: 10px;
-  background-color: #248f8f;
+  background-color: #3a5978;
   border: 2px solid #8c8c8c;
 }
 
@@ -756,11 +998,47 @@ img {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  background-color: green;
 }
 
 .index-professions>div {
-  border-radius: 3px;
-  width: 20%;
-  background-color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px dashed #8c8c8c;
+  border-radius: 5px;
+  width: 22%;
+  line-height: normal;
+}
+
+.actions-table {
+  display: flex;
+  flex-direction: column;
+  line-height: normal;
+}
+
+.actions-row {
+  display: flex;
+  flex-direction: row;
+  width: 700px;
+}
+
+.actions-row>div {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+}
+
+#blue-title {
+  color: #336699;
+}
+
+#red-title {
+  color: #943838;
+}
+
+.plussign-list {
+  list-style-type: none; /* Remove default list styles */
+  padding-left: 10px; /* Add some left padding for the custom symbol */ 
 }
