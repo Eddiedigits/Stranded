@@ -1634,9 +1634,7 @@ Oi! No es mi culpa if the virtual composer does not understand my intentions. I 
 Listening. Reading. Is. HARD.
 So! Take out your contact lenses or your glasses, and all is fine!
 
-endif</tw-passagedata><tw-passagedata pid="58" name="Vika" tags="" position="1900,775" size="100,100">DO NOT FORGET SFW AND NSFW!!!
-
-&lt;&lt;if $social &lt;= 1&gt;&gt;[img[assets/characters/Vika_4.png]]
+endif</tw-passagedata><tw-passagedata pid="58" name="Vika" tags="" position="1900,775" size="100,100">&lt;&lt;if $social &lt;= 1 &amp;&amp; $Vikavisits &lt; 4&gt;&gt;[img[assets/characters/Vika_4.png]]
 
 We both exchanged topics in machines and communications engineerings.&lt;&lt;set $engineering += 0.1 * $social&gt;&gt;
 
@@ -1700,9 +1698,7 @@ She is moaning, panting, twitching, crying, breathing like a steam locomotive. M
 
 (end of content for version 0.1)
 &lt;&lt;else&gt;&gt;
-[[Nothing for now|Camp Jungle]]
-
-[[Go chat with others|Social Events]]
+Check
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;if $Camp_J == true&gt;&gt;[[Back to Camp|Camp Jungle]]&lt;&lt;else&gt;&gt;[[Back to Camp|Camp Mountain]]&gt;&gt;&lt;&lt;endif&gt;&gt;
 
@@ -1720,7 +1716,7 @@ I told him, if it is the overgrown spaceship, there is nothing. But Leo thinks, 
 
 I thank Leo for the chat and &lt;&lt;if $Camp_J == true&gt;&gt;[[go back to Camp|Camp Jungle]] &lt;&lt;else&gt;&gt;[[go back to Camp|Camp Mountain]]&lt;&lt;/if&gt;&gt; or [[I rather want to chat with the others?|Social Events]]
 
-I am in the mood to chat further with [[Leo][$energy -= 1; $social += 0.5]].
+&lt;&lt;if $energy &gt; 0&gt;&gt;I am in the mood to chat further with [[Leo][$energy -= 1; $social += 0.5]].&lt;&lt;/if&gt;&gt;
 &lt;&lt;else&gt;&gt;
 &lt;&lt;set $noLeo == true&gt;&gt;
 Leo is not in the mood. Try another time.
