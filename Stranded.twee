@@ -17,7 +17,7 @@ Stranded
 
 That looks like something. Could it be edible?
 
-<<if hasVisited("1E") >=1 && $SubAnalyzer == true>>Now, it is definitive that those are edible. Those are optimal to be our nutrients.
+<<if hasVisited("1E") >=1 && $SubAnalyzer == true>>After running them through the Substance Analyzer, it is definitive that those are edible. Those are optimal to be our nutrients.
 
 As what do I want to bring them to Camp?
 
@@ -34,7 +34,6 @@ As what do I want to bring them to Camp?
 
 <<if $exploredJB == 100>>[[I explore further, I go West|Start from Base Jungle][$energy -= 0.2]]<</if>>
 
-[[I go back East|2E][$energy -= 0.2]]
 <</if>><<else>>
 Hm, too risky to try it out without a substance analyzer. We can use it as unimatter, though not plentiful.
 
@@ -312,7 +311,7 @@ Sandy Beach! That's gonna be a spot!
 
       A new cycle, a new day. Although this planet's rotation is much slower; obviously.
       
-      Energy is replenished. Vika has learned some more in engineering, as has Leo in interactibility.<<if $Camp_M == true>>Elva and Abiba in their fields of specialties.<<set $engineering += 0.2>><<set $combat += 0.1>><</if>>
+      Energy is replenished. Vika has learned some more in engineering, as has Leo in interactibility.<<if $Camp_M == true>> Elva and Abiba in their fields of specialties.<<set $engineering += 0.2>><<set $combat += 0.1>><</if>>
     <<elseif random(100) <= 10 && $CampJ.DefPerimeter == false || random(4) == 0 && $CampM.DefPerimeter == false>>
       [img[assets/random-events/alien_mammals.png]]
       
@@ -334,7 +333,7 @@ Sandy Beach! That's gonna be a spot!
       [img[assets/characters/Vika/Vika_6.png]]
       
       ... I saw Vika fumbling on her panel. She didn't seem to have noticed me. I was unsure whether to greet her and went on my way. Not without an admiration for the sight.
-      <<elseif random(100) > 30 && random(100) <= 40 && $social > 2 && $Camp_M == true && SFW_Path == false>>
+      <<elseif random(100) > 30 && random(100) <= 40 && $social > 2 && $Camp_M == true && $SFW_Path == false>>
       [img[assets/characters/Abiba/Abiba11.png]]
       
       ... Abiba was showering. Oh boy, what a body. She said nothing, and me as well. Though, on the way back, I waved goodbye and gave a complimentary glimpse anew. She is a woman, she knows. No words were changed.
@@ -361,23 +360,23 @@ The antenna is installed on a small hill. But it seems to reach no one. Maybe it
 
 
 :: Abiba {"position":"1900,1150","size":"100,100"}
-<<if $social < 3 && $Abibavisits < 4>>
+<<if $social < 3>>
   [img[assets/characters/Abiba/Abiba_P.png]]
   
-  Mensch! Do I have hard time concentrating on what she is saying, and, me expressing my intentions.
-  <<elseif $social[3.1, 4] && $Abibavisits < 9>>
+  Mensch! Do I have hard time concentrating on what she is saying, and, me expressing my intentions.<<if $Abibavisits > 3>><<set $Abiba_ICP.AI1 = true>><</if>>
+  <<elseif $social > 4 && $Abiba_ICP.AI1 == true>>
   [img[assets/characters/Abiba/Abiba6.png]]
   
-  We slowly build rapport. It is getting better. Our talk is becoming more fluid.
-  <<elseif $social[4.1, 4.5] && $Abibavisits < 13>>
+  We slowly build rapport. It is getting better. Our talk is becoming more fluid.<<if $Abibavisits > 6>><<set $Abiba_ICP.AI2 = true>><</if>>
+  <<elseif $social > 5 && $Abiba_ICP.AI2 == true>>
   [img[assets/characters/Abiba/Abiba7_1.png]]
   
-  Wow, what was a stuttering start between us, it is now so smooth that I wonder if she flaunting her assets?
-  <<elseif $social[4.6, 5.1] && $Abibavisits < 16>>
+  Wow, what was a stuttering start between us, it is now so smooth that I wonder if she flaunting her assets?<<if $Abibavisits > 9>><<set $Abiba_ICP.AI3 = true>><</if>>
+  <<elseif $social > 6 && $Abiba_ICP.AI3 == true>>
   [img[assets/characters/Abiba/Abiba8.png]]
   
-  I was knocking at her door, as she hollered 'Come in'. She knew it was me. She knew!
-  <<elseif  $social[5.2, 5.6] && $Abibavisits < 19 && $SFW_Path == false>>
+  I was knocking at her door, as she hollered 'Come in'. She knew it was me. She knew!<<if $Abibavisits > 13>><<set $Abiba_ICP.AI4 = true>><</if>>
+  <<elseif  $social > 7 && $SFW_Path == false && $Abiba_ICP.AI4 == true>>
   [img[assets/characters/Abiba/Abiba11.png]]
   
   She shouted she was in the showers. Boy! Was my fantasy running high, this amount of imagination energy would have been enough to catapult me to sky and beyond!
@@ -387,8 +386,8 @@ The antenna is installed on a small hill. But it seems to reach no one. Maybe it
   
   She rolled a bit her eyes. I could hear it, feel it. I felt it! Else why did she command me to come in? 
   But whatever she wanted to say to me, she reconsidered. Probably because my systems went to primal mode, neanderthal reset. Clumsy and idiotic. Not attractive.
-  <</linkappend>>
-  <<elseif $social[5.7, 6.3] && $Abibavisits < 23 && $SFW_Path == false>>
+  <</linkappend>><<if $Abibavisits > 17>><<set $Abiba_ICP.AI5 = true>><</if>>
+  <<elseif $social > 8 && $SFW_Path == false && $Abiba_ICP.AI5 == true>>
   [img[assets/characters/Abiba/Abiba13.png]]
   
   Hey, Abby, how are ywhhooaa!
@@ -403,8 +402,8 @@ The antenna is installed on a small hill. But it seems to reach no one. Maybe it
   [img[assets/characters/Abiba/Abiba13_3.png]]
   
   Boy! Girl! What is happening with my brain, it doesn't work nothing at all. Not a coherent sentence is coming from my mouth.
-  <</linkappend>>
-  <<elseif $social[6.4, 6.7] && $Abibavisits < 25 && $SFW_Path == false>>
+  <</linkappend>><<if $Abibavisits > 19>><<set $Abiba_ICP.AI6 = true>><</if>>
+  <<elseif $social > 9 && $SFW_Path == false && $Abiba_ICP.AI6 == true>>
   [img[assets/characters/Abiba/Abiba19.png]]
   
   Enough! All this clumsiness and stuttering because we barely can focus on while a solution is so simple: Fickifucki!
@@ -419,19 +418,17 @@ The antenna is installed on a small hill. But it seems to reach no one. Maybe it
   [img[assets/characters/Abiba/Abiba21.png]]
   
   Happy, out, it is done, the rabbit is out, no more facadery, maskes. We fucked, we enjoyed, we will talk better.
-  <</linkappend>>
-  <<elseif $social > 6.7 && $Abibavisits >= 25 && $SFW_Path == false>><<if $Abibavisits > 30>><<set $Elvavisits = 30>><<endif>>
+  <</linkappend>><<if $Abibavisits > 22>><<set $Abiba_ICP.AI7 = true>><</if>>
+  <<elseif $social > 10 && $SFW_Path == false && $Abiba_ICP.AI7 == true>><<if $Abibavisits > 25>><<set $Elvavisits = 25>><</if>>
   [img[assets/characters/Abiba/Abiba16.png]]
   
   No! No more talk, our bodies do that!
   
   (end of content for version 0.1)
   <<else>>
-  [[Nothing for now|Camp Jungle]]
-  
-  [[Go chat with others|Social Events]]
+ 
   <<endif>>
-  <<if $Camp_J == true>>[[Back to Camp|Camp Jungle]]<<else>>[[Back to Camp|Camp Mountain]]>><<endif>>
+  <<if $Camp_J == true>>[[Back to Camp|Camp Jungle]]<<else>>[[Back to Camp|Camp Mountain]]<</if>>
   
   [[Go chat with others|Social Events]]
 
@@ -442,19 +439,19 @@ Who will accompany me, who can I persuade? <<set $carrycap = 1>><<if $CampJ.Orb 
 <<linkreplace "Vika">><<if random(10) * $social > 40 || $maxenergy < 3 || $nutrients < 10>>+ Vika will accompany you.<<set $carrycap +=1>><<else>>- Vika is focusing on the communications screen, she rather sit by the radio.<</if>><</linkreplace>>
 
 <<linkreplace "Leo">><<if random(10) * $social > 30 || $maxenergy < 3>>+ Leo will help you.>><<set $carrycap +=1>><<elseif $nutrients <10>>+ Leo will help you. Also he got the information form the AI that somewhere in the east is a field crucial for organic optimum.<<else>>- Leo is in dialogue with his AI or other AIs. He cannot come with you.<</if>><</linkreplace>><<nobr>>
-
+<br>
+<br>
 <<if $Camp_M == true>><<linkreplace "Elva">><<if random(10) * $social > 38 || $maxenergy < 3 || $nutrients <10>>+ Elva comes with you.<<set $carrycap +=1>><<else>>- Elva is not available. She seems to be occupied.<</if>><</linkreplace>><</if>>
-
+<br>
+<br>
 <<if $Camp_M == true>><<linkreplace "Abiba">><<if random(10) * $social > 35 || $maxenergy < 3 || $nutrients < 10>>+ Abiba want some outdoor training.<<set $carrycap +=1>><<else>>- Abiba is in her training mode. Quite intensely. Better not disturb her.<</if>><</linkreplace>><</if>><</nobr>>
-
-Your capacity to carry is: <strong><<= $carrycap>></strong> (You + your companions + an orb)
-
-<<if $Camp_J == true>>[[Ach, nah, I've changed my mind, I will go back.|Camp Jungle]]<<else>>[[Ach, nah, I've changed my mind, I will go back.|Camp Mountain]]<</if>>
 
 [[Go to the Map|The Map]]
 
+<<if $Camp_J == true>>[[Ach, nah, I've changed my mind, I will go back.|Camp Jungle]]<<else>>[[Ach, nah, I've changed my mind, I will go back.|Camp Mountain]]<</if>>
 
-:: AnteCamp {"position":"1400,300","size":"100,100"}
+
+:: AnteCamp {"position":"1425,300","size":"100,100"}
 [img[assets/Ch-Camp/JungleCamp.png]]
 
 <<set $engineering +=1>><<set $social +=1>><<set $unimatter += 5>>
@@ -617,7 +614,7 @@ Ech! Nothing happens. It is boring. Maybe I should try to go out anyway?
 <div class="index-screens-small"><div><strong>ENERGY:&nbsp;</strong>
 <<if $energy > $maxenergy>><<set $energy = $maxenergy>><<elseif $energy < 0>><<set $energy = 0>><</if>><<= $energy.toFixed(1)>> of maximal <<= $maxenergy>></div><div><strong>UNIMATTER:&nbsp;</strong>
 <<if $unimatter > $maxunimatter>><<set $unimatter = $maxunimatter>><<elseif $unimatter < 0>><<set $unimatter = 0>><</if>><<= $unimatter.toFixed(1)>> Unimatter</div><div><<if $Camp_M == true>>available buildings:
-<<= $CampM.building>> from maximal <<= $CampM.maxbuilding>>
+<<= $CampM.building>> from maximal <<= $CampM.maxbuildings>>
 <<else>>available buildings:
 <<= $CampJ.building>> from maximal <<= $CampJ.maxbuildings>><</if>></div></div>
 <div class="index-screens-small"><div style="width: 100%;">[[Go to Disintegration Menu|Disintegration Menu]]</div></div>
@@ -674,7 +671,7 @@ Ech! Nothing happens. It is boring. Maybe I should try to go out anyway?
 
 
 :: Crash {"position":"800,300","size":"100,100"}
-<em>Moan. Ugh. Oooph</em>, what a ride. It is a miracle that I am still whole and functioning. Although ... will it still be on my side?
+<em>Moan. Ugh. Oooph</em>, what a ride. That I get awake just in the moment of impact, what kind of a dick move is that? It is a miracle that I am still whole and functioning. Although ... will luck still be on my side?
 
 [[Check my pod]]
 
@@ -783,16 +780,16 @@ After many minutes
 
 
 :: Elva {"position":"1900,1025","size":"100,100"}
-<<if $social < 2 && $Elvavisits < 5>>
+<<if $social < 2>>
   [img[assets/characters/Elva/ER_1.png]]
   
   Elva and I were talking about the defenses here and what she did in her training as a marine. I learned something something from her.<<set $combat += 0.05>>
-  
-  <<elseif $social[2, 3] && $Elvavisits > 4>>
+  <<if $Elvavisits > 3>><<set $Elva_ICP.EI1 = true>><</if>>
+  <<elseif $social > 2 && $Elva_ICP.EI1 == true>>
   [img[assets/characters/Elva/ER_2.png]]
   
-  Elva had fun with me training in Combat Arts. She looked at me behind her shoulder while going to showers.<<set $combat += 0.1>>
-  <<elseif $social[3.1, 3.6] && $Elvavisits > 8>>
+  Elva had fun with me training in Combat Arts. She looked at me behind her shoulder while going to showers.<<set $combat += 0.1>><<if $Elvavisits > 5>><<set $Elva_ICP.EI2 = true>><</if>>
+  <<elseif $social > 3 && $Elva_ICP.EI2 == true>>
   [img[assets/characters/Elva/ER_4_1.png]]
   
   She is undressing and want to tease me. Oh, yes! I so have no objections here.
@@ -802,8 +799,8 @@ After many minutes
   
   Oh boy, my heart skipped a beat. Would I lick her body over every pore and. Slap. That. Booty!
   <</linkappend>>
-  
-  <<elseif $social[3.7, 4.4] && $Elvavisits > 8>>
+  <<if $Elvavisits > 8>><<set $Elva_ICP.EI3 = true>><</if>>
+  <<elseif $social > 4 && $Elva_ICP.EI3 == true>>
   [img[assets/characters/Elva/ER_6.png]]
   
   We were talking and talking. The more we did, the more she felt comfortable.
@@ -813,8 +810,8 @@ After many minutes
   
   Now, talking has become not easy. Obviously that my brain is split. My concentration. I need more oxygen.
   <</linkappend>>
-  
-  <<elseif $social[4.5, 5.1] && $Elvavisits && $SFW_Path == false> 12>>
+  <<if $Elvavisits > 10>><<set $Elva_ICP.EI4 = true>><</if>>
+  <<elseif $social > 5 && $Elva_ICP.EI4 == true && $SFW_Path == false>>
   [img[assets/characters/Elva/ER_m3.png]]
   
   I entered her cabin, she wanted to show me something. And yes, it is my second birthday today, And christmas! And new year's eve!
@@ -824,24 +821,23 @@ After many minutes
   
   Like she can read my thoughts, she arches her back and gave me the most sensual curves for since my time here.
   <</linkappend>>
-  <<elseif  $social[5.2, 5.7] && $Elvavisits > 16 && $SFW_Path == false>>
+  <<if $Elvavisits > 14>><<set $Elva_ICP.EI5 = true>><</if>>
+  <<elseif  $social > 5 && $SFW_Path == false && $Elva_ICP.EI5 == true>>
   [img[assets/characters/Elva/ER_m5_2.png]]
   
   Elva wanted to feel me, and I her. A bit of emotional bonding, a bit of intimacy, a bit of comfort, a bit of all and everything.
-  
-  <<elseif $social[5.8, 6.2] && $Elvavisits > 21 && $SFW_Path == false>><<if $Elvavisits > 25>><<set $Elvavisits = 25>><<endif>>
+  <<if $Elvavisits > 16>><<set $Elva_ICP.EI6 = true>><</if>>
+  <<elseif $social > 6 && $SFW_Path == false && $Elva_ICP.EI6 == true>>
   [img[assets/characters/Elva/ER_m5_3.png]]
   
   Now, it is desire; raw, carnal, racy and sweaty!
   <<set $energy -= 2>>
   
-  (end of content for version 0.1)
+  (end of content for version 0.1)<<if $Elvavisits > 20>><<set $Elvavisits = 20>><</if>>
   <<else>>
-  [[Nothing for now|Camp Jungle]]
-  
-  [[Go chat with others|Social Events]]
-  <<endif>>
-  <<if $Camp_J == true>>[[Back to Camp|Camp Jungle]]<<else>>[[Back to Camp|Camp Mountain]]>><<endif>>
+ 
+  <</if>>
+  <<if $Camp_J == true>>[[Back to Camp|Camp Jungle]]<<else>>[[Back to Camp|Camp Mountain]]<</if>>
   
   [[Go chat with others|Social Events]]
 
@@ -889,9 +885,8 @@ Oh! Am I glad to find another stranded.
 
 Yes, with our energy harvester - which "harvest" sun rays, winds, gravitation, molecular dis- and integration, atomic fusion - we have raised the energy regeneration rate.
 
-<<nobr>><<set $energy -= 2>>
-<<set $unimatter -= 5>>
-<<set $CampJ.EHarvesters = true>>
+<<nobr>>
+<<set $CampJ.EHarvester = true>>
 <<set $CampJ.building += 1>>
 <</nobr>>
 It is important to note, that those cannot be transported. Either they gets disintegrated to unimatter, which again can only be transported of maximal 5 units per spaceship. Or they stay at the [[camp|Camp Jungle]].
@@ -902,7 +897,7 @@ It is important to note, that those cannot be transported. Either they gets disi
 
 Since, luckily, I had the compass, I did not spend too much energy. Which gave us an optimal total balance (no forgetti! We are practically machines, too) for a fly.
 We found two spots, one for parking, the other for the antenna. Both in visible distance. 
-It didn't take long after the installation of the antenna until we established contact to another group of stranded, but like us, not in a lucky number: 2 of 5. The small spaceships is designed to house 5 pods with 10 maximum energy to keep us fed and alive for maximal 5x10 cycles. With two spaceships, we have a total of 20 energy now.
+It didn't take long after the installation of the antenna until we established contact to another group of stranded, but like us, not in a lucky number: 2 of 5. The small spaceships is designed to house 5 pods with 10 maximum energy and 5x10 cycles of nutrients. With two spaceships, we have a total of 20 energy now.
 
 But, for me personally, I welcome to have two more ladies: Elva and Abiba.
 <<nobr>>
@@ -1058,9 +1053,10 @@ Choose in which profession you want to master:
 [img[assets/backgrounds/bg-cover.png]]
 
 Hello, notes from the developper:
-+ This game is designed to ignore the sidebar except for save, load and restart
++ The sidebar is only for save, load, restart and rollback
 
 Aside from the notes:
+
 
 Ancient. Greetings. Welcome to the future, as it is already now, oldtimer.
 
@@ -1145,15 +1141,17 @@ Yes! Yes! I am saved
 :: Social Events {"position":"1700,900","size":"100,100"}
 With whom do I want to socialize?
 
-<<if $noVika == false>>[[Vika][$energy -= 1; $social += 0.04; $Vikavisits += 1]]<</if>>
+<<if $noVika == false>>[img[Vika|assets/characters/Vika.png][Vika][$energy -= 1; $social += 0.04; $Vikavisits += 1]]<</if>>
 
-<<if $noLeo == false>>[[Leo][$energy -= 1; $social += 0.1]]<</if>>
+<<if $noLeo == false>>[img[Leo|assets/characters/Leo.png][Leo][$energy -= 1; $social += 0.1]]<</if>>
 
-<<if $Camp_M == true>><<if $noElva == false>>[[Elva][$energy -= 1; $social += 0.06; $Elvavisits += 1]]<</if>>
+<<if $Camp_M == true>><<if $noElva == false>>[img[Elva|assets/characters/Elva.png][Elva][$energy -= 1; $social += 0.06; $Elvavisits += 1]]<</if>>
 
-<<if $noAbiba == false>>[[Abiba][$energy -= 1; $social += 0.08; $Abibavisits += 1]]<</if>><</if>>
+<<if $noAbiba == false>>[img[Abiba|assets/characters/Abiba.png][Abiba][$energy -= 1; $social += 0.08; $Abibavisits += 1]]<</if>><</if>>
 
-<<if $Camp_J == true>>[[Where am I going? Back.|Camp Jungle]]<<else>>[[Where am I going? Back.|Camp Mountain]]<</if>>
+<div class="display-link"><<if $Camp_J == true>><div class="dl_images">[img[Where am I going? Back.|assets/Ch-Camp/JungleCamp_Button.png][Camp Jungle]]</div><<else>><div class="dl_images">[img[Where am I going? Back.|assets/Ch-Camp/MountainCamp_Button.png][Camp Mountain]]</div><</if>></div>
+
+<<= $Vikavisits>><<= $Elvavisits>><<= $Abibavisits>>
 
 
 :: Start from Base Jungle {"position":"900,1500","size":"100,100"}
@@ -1204,8 +1202,6 @@ The substance analyzer is now in our inventory.
 
 With that, we should be able to collect materials nearby. Hopefully, some can be broken down to refuel our energy. If we don't have anymore of it.
 <<nobr>>
-<<set $energy -= 2>>
-<<set $unimatter -= 5>>
 <<set $SubAnalyzer = true>>
 <</nobr>>
 [[Set up the Camp|Camp Jungle]]
@@ -1339,7 +1335,7 @@ With that, we should be able to collect materials nearby. Hopefully, some can be
       </div>
     <</if>>
     
-    <<if $explored3E >= 100 || $exploredMB >= 100>>
+    <<if $explored3E >= 100 || $exploredMB >= 100 || $Camp_M == true>>
       <div id="p4E">
         <<if $energy <= 0>><<if $Camp_J == true>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
         <<else>>
@@ -1523,8 +1519,10 @@ With that, we should be able to collect materials nearby. Hopefully, some can be
       
     </div><</nobr>>
     
+    <div class="index-screens-normal"><strong>Carrying Capacity:</strong>  <<= $carrycap.toFixed(0)>></div>
+
     <div class="index-screens-normal"><strong>Energy Indicator:</strong>  <<= $energy.toFixed(1)>><<if $energy <2>> energy<<else>> energies<</if>></div>
-    
+
     <div class="index-screens-normal"><strong>Xeno Indicator:</strong>  <<= $xeno.toFixed(1)>></div>
     
     <<if $Camp_J == true>>[[Go back to Camp|Camp Jungle]]<<else>>[[Go back to Camp|Camp Mountain]]<</if>>
@@ -1532,97 +1530,92 @@ With that, we should be able to collect materials nearby. Hopefully, some can be
 
 
 :: Vika {"position":"1900,775","size":"100,100"}
-<<if $social <= 1 && $Vikavisits < 4>>[img[assets/characters/Vika_4.png]]
+<<if $social <= 2>>[img[assets/characters/Vika_4.png]]
 
-We both exchanged topics in machines and communications engineerings.<<set $engineering += 0.1 * $social>>
-
-<<elseif $social[1.1, 2] && $Vikavisits > 4>>[img[assets/characters/Vika.png]]
-
-Vika enjoy the time with me. She is smirking at your anecdotes and jokes.
-
-<<elseif $social > 2 && $social <= 3  && $Vikavisits > 7>>[img[assets/characters/Vika9.png]]
-
-Vika wanted some inspirations about engineering, whether I have sufficient engineering or not. Any idea count.
-
-<<elseif $social > 3 && $social <= 2 && $Vikavisits > 11>>[img[assets/characters/Vika_6.png]]
-
-Vika is working on the machinations of the Materials Printer. I chatted with her about the Printer. She told me that some constructions depend on the engineering level.
-
-<<elseif $social > 3.5 && $social <= 4 && $Vikavisits > 13 && $SFW_Path == false>>[img[assets/characters/Vika_9.png]]
-
-Vika feels comfortably around me, as she only wears her tanktop and her overalll at her hips, showing her flat sensual belly.
-
-<<elseif $social > 4 && $social <= 4.5 && $Vikavisits > 16 && $SFW_Path == false>>[img[assets/characters/Vika10.png]]
-
-While talking about the spaceship, we veered towards relationships and body awareness. She was asking me whether I liked it?
-
-<<linkappend "Is she kidding me?" t8n>>
-[img[assets/characters/Vika9_3.png]]
-
-I like ALL of it!
-<</linkappend>>
-
-<<linkappend "Why?" t8n>>
-[img[assets/characters/Vika11.png]]
-
-Why?! Uh ... I am a simple man? Is that reason enough?
-<</linkappend>>
-
-<<elseif $social > 5 && $Vikavisits > 19 && $SFW_Path == false>>[img[assets/characters/Vika13.png]]
-
-She invites me to her room. And, surprise, her comfort zone is vast and expansive.
-
-<<linkappend "She gets up to show me something." t8n>>
-[img[assets/characters/Vika15.png]]
-
-Uh? The book or ...
-<</linkappend>>
-
-<<elseif $social > 6 && $Vikavisits > 23 && $SFW_Path == false>><<if $Elvavisits > 25>><<set $Vikavisits = 25>><<endif>>[img[assets/characters/Vika16.png]]
-
-She has enough of herself cautious maintaining her reputation. She wants what her body and brain urgently demands: SEX!
-
-<<linkappend "Yes!" t8n>>
-[img[assets/characters/Vika17.png]]
-
-Shyly she lets it all happen. I feel that I have to be observant on her bodily feedbacks. 
-<</linkappend>>
-
-<<linkappend "But lust is rising. Rapidly." t8n>>
-[img[assets/characters/Vika18v.png]]
-
-She is moaning, panting, twitching, crying, breathing like a steam locomotive. My, my ... seems that she didn't had sex since years.
-<</linkappend>>
-
-(end of content for version 0.1)
-<<else>>
-Check
-<</if>>
-<<if $Camp_J == true>>[[Back to Camp|Camp Jungle]]<<else>>[[Back to Camp|Camp Mountain]]>><<endif>>
-
-[[Go chat with others|Social Events]]
+  We both exchanged topics in machines and communications engineerings.<<set $engineering += 0.1 * $social>>
+  <<if $Vikavisits > 3>><<set $Vika_ICP.VI1 = true>><</if>>
+  <<elseif $social > 2 && $Vika_ICP.VI1 == true>>[img[assets/characters/Vika.png]]
+  
+  Vika enjoy the time with me. She is smirking at your anecdotes and jokes.
+  <<if $Vikavisits > 6>><<set $Vika_ICP.VI2 = true>><</if>>
+  <<elseif $social > 3 && $Vika_ICP.VI2 == true>>[img[assets/characters/Vika9.png]]
+  
+  Vika wanted some inspirations about engineering, whether I have sufficient engineering or not. Any idea count.
+  <<if $Vikavisits > 8>><<set $Vika_ICP.VI3 = true>><</if>>
+  <<elseif $social > 4 && $Vika_ICP.VI3 == true>>[img[assets/characters/Vika_6.png]]
+  
+  Vika is working on the machinations of the Materials Printer. I chatted with her about the Printer. She told me that some constructions depend on the engineering level.
+  <<if $Vikavisits > 11>><<set $Vika_ICP.VI4 = true>><</if>>
+  <<elseif $social > 5 && $Vika_ICP.VI4 == true && $SFW_Path == false>>[img[assets/characters/Vika_9.png]]
+  
+  Vika feels comfortably around me, as she only wears her tanktop and her overalll at her hips, showing her flat sensual belly.
+  <<if $Vikavisits > 14>><<set $Vika_ICP.VI5 = true>><</if>>
+  <<elseif $social > 6 && $Vika_ICP.VI5 == true && $SFW_Path == false>>[img[assets/characters/Vika10.png]]
+  
+  While talking about the spaceship, we veered towards relationships and body awareness. She was asking me whether I liked it?
+  
+  <<linkappend "Is she kidding me?" t8n>>
+  [img[assets/characters/Vika9_3.png]]
+  
+  I like ALL of it!
+  <</linkappend>>
+  
+  <<linkappend "Why?" t8n>>
+  [img[assets/characters/Vika11.png]]
+  
+  Why?! Uh ... I am a simple man? Is that reason enough?
+  <</linkappend>>
+  <<if $Vikavisits > 17>><<set $Vika_ICP.VI6 = true>><</if>>
+  <<elseif $social > 7 && $Vika_ICP.VI6 == true && $SFW_Path == false>>[img[assets/characters/Vika13.png]]
+  
+  She invites me to her room. And, surprise, her comfort zone is vast and expansive.
+  
+  <<linkappend "She gets up to show me something." t8n>>
+  [img[assets/characters/Vika15.png]]
+  
+  Uh? The book or ...
+  <</linkappend>>
+  <<if $Vikavisits > 19>><<set $Vika_ICP.VI7 = true>><</if>>
+  <<elseif $social > 8 && $Vika_ICP.VI7 == true && $SFW_Path == false>>[img[assets/characters/Vika16.png]]
+  
+  She has enough of herself cautious maintaining her reputation. She wants what her body and brain urgently demands: SEX!
+  
+  <<linkappend "Yes!" t8n>>
+  [img[assets/characters/Vika17.png]]
+  
+  Shyly she lets it all happen. I feel that I have to be observant on her bodily feedbacks. 
+  <</linkappend>>
+  
+  <<linkappend "But lust is rising. Rapidly." t8n>>
+  [img[assets/characters/Vika18v.png]]
+  
+  She is moaning, panting, twitching, crying, breathing like a steam locomotive. My, my ... seems that she didn't had sex since years.
+  <</linkappend>>
+  
+  (end of content for version 0.1)<<if $Elvavisits > 20>><<set $Vikavisits = 20>><</if>>
+  <</if>>
+  <<if $Camp_J == true>>[[Back to Camp|Camp Jungle]]<<else>>[[Back to Camp|Camp Mountain]]<</if>>
+  
+  [[Go chat with others|Social Events]]
 
 
 :: Vote {"position":"1550,300","size":"100,100"}
-<<set $Vikavote = random(1, 3)>><<set $Leovote = random(1, 3)>><<timed 2000ms>>Vika gives in her vote.
-  <</timed>><<timed 4000ms>>
+<<set $Vikavote = random(1, 3)>><<set $Leovote = random(1, 3)>><<timed 1000ms>>Vika gives in her vote.
+  <</timed>><<timed 3000ms>>
   Leo has decided.
   <</timed>>
   
 <<set $vcount = [$numero, $Vikavote, $Leovote]>>
-<<print $vcount.count(1)>>
-<<print $vcount.count(2)>>
-<<print $vcount.count(3)>>
 
-  <<timed 6000ms>>
+  <<timed 5000ms>>
   <div class="Char"><div class="Char-Framer"><img class="Char-img" src="assets/characters/Vika.png"></div><div class="Char-dialogues">Gentlemen. It resulted in for a ...</div></div><</timed>>
-  <<timed 8000ms>>
+  <<timed 7000ms>>
   <div class="Char"><div class="Char-Framer"><img class="Char-img" src="assets/characters/Vika.png"></div><div class="Char-dialogues">
-    <<if $energy > 5 && $vcount.count(1) >= 2>>[[Transmission Mast|Foot of a Mountain]]>>
-    <<elseif $energy < 5 && $energy > 2 && $vcount.count(1) >= 2>>[[Transmission Mast|A Small Hill]]
+    <<if $energy > 5 && $vcount.count(1) >= 2>>[[Transmission Mast|Foot of a Mountain][$energy -= 6; $unimatter -= 2]]
+    <<elseif $energy < 5 && $energy > 2 && $vcount.count(1) >= 2>>[[Transmission Mast|A Small Hill][$energy -= 3; $unimatter -= 2]]
     <<elseif $energy <= 2 && $vcount.count(1) >= 2>>[[Transmission Mast. But ...|WhyNothing]]
-    <<elseif $vcount.count(2) >= 2>>[[Substance Analyzer]]
-    <<elseif $vcount.count(3) >= 2>>[[Energy Harvester]]
+    <<elseif $vcount.count(2) >= 2>>[[Substance Analyzer][$energy -= 2; $unimatter -= 5]]
+    <<elseif $vcount.count(3) >= 2>>[[Energy Harvester][$energy -= 5; $unimatter -= 5]]
     <<else>>Huh ... everyone voted for each of it.<</if>></div></div><</timed>>
     
 
@@ -1657,8 +1650,6 @@ Yep, that's me. Handsome, eh? Like a Roman demi-god, no?
 Since I come from upper middle class, my family invested in a designer baby. Obviously. But surprise, surprise! Like the mayority of humanity (and pets!), we are synthetic beings, Cyborgs. For better space travel, which this story is about, we have to be cyborgs. Only our brain and spine is completely organic; the rest in synthetic materials.
 
 [[Like this]]
-
-[[Skip Intro|Camp Jungle]] 
 
 
 :: globalvariables {"position":"225,25","size":"100,100"}
@@ -1717,6 +1708,42 @@ Since I come from upper middle class, my family invested in a designer baby. Obv
 <<set $noAbiba = false>>
 
 <<set $Vikavisits = 0; $Elvavisits = 0; $Abibavisits = 0>>
+<<set $Vika_ICP to {
+	VI1: false,
+    VI2: false,
+    VI3: false,
+    VI4: false,
+    VI5: false,
+    VI6: false,
+    VI7: false,
+    VI8: false,
+    VI9: false,
+    VI10: false,
+};>>
+<<set $Elva_ICP to {
+	EI1: false,
+    EI2: false,
+    EI3: false,
+    EI4: false,
+    EI5: false,
+    EI6: false,
+    EI7: false,
+    EI8: false,
+    EI9: false,
+    EI10: false,
+};>>
+<<set $Abiba_ICP to {
+	AI1: false,
+    AI2: false,
+    AI3: false,
+    AI4: false,
+    AI5: false,
+    AI6: false,
+    AI7: false,
+    AI8: false,
+    AI9: false,
+    AI10: false,
+};>>
 
 
 :: StoryScript [script]
@@ -1730,316 +1757,336 @@ $(document).ready(function () {
 });
 
 :: StoryStylesheet [stylesheet]
-@font-face {
-  font-family: 'Bahnschrift';
-  src: url('assets/Fonts/bahnschrift.ttf') format('ttf');
-  font-family: 'Corbel';
-  src: url('assets/Fonts/corbel.ttf') format('ttf');
-}
+    @font-face {
+        font-family: 'Bahnschrift';
+        src: url('assets/Fonts/bahnschrift.ttf') format('ttf');
+        font-family: 'Corbel';
+        src: url('assets/Fonts/corbel.ttf') format('ttf');
+      }
+      
+      html {
+       font: 18px/1 Bahnschrift,Corbel,Helmet,Freesans,sans-serif; 
+      }
+      
+      body{
+        color: #A9A9A9;
+      }
+      
+      img {
+        max-width: 700px;
+        max-height: 350px;
+      }
+      
+      h6 {
+        margin: 0;
+      }
+      
+	.display-link {
+      width: 300px;
+      height: 55px;
+      border: 3px solid #ffcc66;
+      border-radius: 20px;
+      content-visibility: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+	}
 
-html {
- font: 18px/1 Bahnschrift,Corbel,Helmet,Freesans,sans-serif; 
-}
+      #ui-bar-tray {
+        position: absolute;
+        top: 0.5%;
+        left: 0;
+        right: 0;
+      }
+      
+      #container-banner {
+        width: 100%;
+        position: absolute;
+        top: 10%;
+      }
+      
+      #img-banner {
+        width: 80%;
+      }
+      
+      #ui-bar-body {
+        position: relative;
+        top: 25%;  
+      }
+      
+      .passage {
+       max-width: 700px;
+      }
+      
+      .Char {
+        max-width: 700px;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content:flex-start;
+        position: relative;
+        background-color: #282828;
+        padding: 5px;
+        border: 1px solid DarkGrey;
+        border-radius: 5px;
+      }
+      
+      .Char-Framer {
+        display: flex;
+        align-items: flex-start;
+      }
+      
+      .Char-img {
+        position: relative;
+        vertical-align: text-top;
+        max-width: 60px;
+        max-height: 60px;
+        border-radius: 3px;
+        display: block; /* Convert the image to a block element */
+        margin: 0; /* Reset margin */
+        padding: 0; /* Reset padding */
+        border: none; /* Reset border */
+      }
+      
+      .Char-dialogues {
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+        margin: 0 10px;
+      }
+      
+      #VikaFront {
+        position: absolute;
+        z-index: 1;
+      }
+      
+      #Camp-Jungle {
+        color: #2aa22a;
+      }
+      
+      #Camp-Mountain {
+        color: #d2a679;
+      }
+      
+      .order-indices {
+        display: flex;
+        flex-flow: column;
+        max-width: 700px;
+      }
+      
+      .index-screens-normal {
+        position: relative;
+        width: 660px;
+        background-color: #3a5978;
+        padding: 10px 20px;
+        border-radius: 10px;
+        border: 2px solid #8c8c8c;
+      }
+      
+      .index-screens-small {
+        width: 700px;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+      }
+      
+      .index-screens-small>div {
+        background-color: #3a5978;
+        width: 25%;
+        padding: 10px 20px;
+        border-radius: 10px;
+        border: 2px solid #8c8c8c;
+      }
+      
+      .index-screens-professions {
+        width: 660px;
+        padding: 10px 20px;
+        display: flex;
+        flex-direction: column;
+        border-radius: 10px;
+        background-color: #3a5978;
+        border: 2px solid #8c8c8c;
+      }
+      
+      .title-profession {
+        width: 700px;
+      }
+      
+      .index-professions {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      
+      .index-professions>div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 2px dashed #8c8c8c;
+        border-radius: 5px;
+        width: 22%;
+        line-height: normal;
+      }
+      
+      .actions-table {
+        display: flex;
+        flex-direction: column;
+        line-height: normal;
+      }
+      
+      .actions-row {
+        display: flex;
+        flex-direction: row;
+        width: 700px;
+      }
+      
+      .actions-row>div {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 0;
+      }
+      
+      #blue-title {
+        color: #336699;
+      }
+      
+      #red-title {
+        color: #943838;
+      }
+      
+      .passage ol, .passage ul {
+          margin-left: 0px;
+          padding-left: 1em;
+      }
+      
+      .plussign-list {
+        list-style-type: none; /* Remove default list styles */
+        padding-left: 10px; /* Add some left padding for the custom symbol */ 
+      }
+      
+      #the_map {
+        display: flex;
+        position: relative;
+        height: 710px;
+        width: 1070px;
+        background-image: url("assets/Ch-Explore/map_evolution17.png");
+        background-repeat: no-repeat;  
+      }
+      
+      #the_map>div {
+        display: flex;
+        position: absolute;
+        justify-content: center;
+        align-items: center;
+        line-height: normal;
+        width: 50px;
+        height: 50px;
+        opacity: 0.7;
+        border-radius: 10px;
+        background-color: orange;
+      }
+      
+      #the_map>div>a {
+        color: white;
+      }
 
-body{
-  color: #A9A9A9;
-}
+      #the_map>div>button {
+        color: white;
+        background-color: orange;
+        border: 0;
+        border-radius: 10px; 
+      }
 
-img {
-  max-width: 700px;
-  max-height: 350px;
-}
+      #the_map>div>button:hover {
+        color: white;
+        background-color: orangered;
+        border: 1px solid orange;    
+      }
 
-h6 {
-  margin: 0;
-}
-
-#ui-bar-tray {
-  position: absolute;
-  top: 0.5%;
-  left: 0;
-  right: 0;
-}
-
-#container-banner {
-  width: 100%;
-  position: absolute;
-  top: 10%;
-}
-
-#img-banner {
-  width: 80%;
-}
-
-#ui-bar-body {
-  position: relative;
-  top: 25%;  
-}
-
-.passage {
- max-width: 700px;
-}
-
-.Char {
-  max-width: 700px;
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content:flex-start;
-  position: relative;
-  background-color: #282828;
-  padding: 5px;
-  border: 1px solid DarkGrey;
-  border-radius: 5px;
-}
-
-.Char-Framer {
-  display: flex;
-  align-items: flex-start;
-}
-
-.Char-img {
-  position: relative;
-  vertical-align: text-top;
-  max-width: 60px;
-  max-height: 60px;
-  border-radius: 3px;
-  display: block; /* Convert the image to a block element */
-  margin: 0; /* Reset margin */
-  padding: 0; /* Reset padding */
-  border: none; /* Reset border */
-}
-
-.Char-dialogues {
-  display: flex;
-  flex-wrap: wrap;
-  align-content: center;
-  margin: 0 10px;
-}
-
-#VikaFront {
-  position: absolute;
-  z-index: 1;
-}
-
-#Camp-Jungle {
-  color: #2aa22a;
-}
-
-#Camp-Mountain {
-  color: #d2a679;
-}
-
-.order-indices {
-  display: flex;
-  flex-flow: column;
-  max-width: 700px;
-}
-
-.index-screens-normal {
-  position: relative;
-  width: 660px;
-  background-color: #3a5978;
-  padding: 10px 20px;
-  border-radius: 10px;
-  border: 2px solid #8c8c8c;
-}
-
-.index-screens-small {
-  width: 700px;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-}
-
-.index-screens-small>div {
-  background-color: #3a5978;
-  width: 25%;
-  padding: 10px 20px;
-  border-radius: 10px;
-  border: 2px solid #8c8c8c;
-}
-
-.index-screens-professions {
-  width: 660px;
-  padding: 10px 20px;
-  display: flex;
-  flex-direction: column;
-  border-radius: 10px;
-  background-color: #3a5978;
-  border: 2px solid #8c8c8c;
-}
-
-.title-profession {
-  width: 700px;
-}
-
-.index-professions {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.index-professions>div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 2px dashed #8c8c8c;
-  border-radius: 5px;
-  width: 22%;
-  line-height: normal;
-}
-
-.actions-table {
-  display: flex;
-  flex-direction: column;
-  line-height: normal;
-}
-
-.actions-row {
-  display: flex;
-  flex-direction: row;
-  width: 700px;
-}
-
-.actions-row>div {
-  width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px 0;
-}
-
-#blue-title {
-  color: #336699;
-}
-
-#red-title {
-  color: #943838;
-}
-
-.passage ol, .passage ul {
-    margin-left: 0px;
-    padding-left: 1em;
-}
-
-.plussign-list {
-  list-style-type: none; /* Remove default list styles */
-  padding-left: 10px; /* Add some left padding for the custom symbol */ 
-}
-
-#the_map {
-  display: flex;
-  position: relative;
-  height: 710px;
-  width: 1070px;
-  background-image: url("assets/Ch-Explore/map_evolution17.png");
-  background-repeat: no-repeat;  
-}
-
-#the_map>div {
-  display: flex;
-  position: absolute;
-  justify-content: center;
-  align-items: center;
-  line-height: normal;
-  width: 50px;
-  height: 50px;
-  opacity: 0.5;
-  border-radius: 10px;
-}
-
-#theJBase {
-    top: 425px;
-    left: 360px;
-    background-color: red;
-}
-
-#theMBase {
-	top: 285px;
-    left: 720px;
-    background-color: brown;
-}
-
-#p1E {
-     top: 390px;
-    left: 430px;
-    background-color: orange;
-}
-
-#p2E {
-	top: 360px;
-    left: 505px;
-    background-color: orange;
-}
-
-#p3E {
-	top: 325px;
-    left: 580px;
-    background-color: orange;
-}
-
-#p4E {
-	top: 300px;
-    left: 650px;
-    background-color: orange;
-}
-
-#p1S {
-	top: 490px;
-    left: 320px;
-    background-color: yellow;
-}
-
-#p2S {
-    top: 520px;
-    left: 255px;
-    background-color: yellow;
-}
-
-#p3S {
-    top: 550px;
-    left: 185px;
-    background-color: yellow;
-}
-
-#p1W {
-    top: 410px;
-    left: 290px;
-    background-color: green;
-}
-
-#p2W {
-    top: 385px;
-    left: 230px;
-    background-color: green;
-}
-
-#p3W {
-    top: 395px;
-    left: 160px;
-    background-color: green;
-}
-
-#p4W {
-    top: 420px;
-    left: 100px;
-    background-color: green;
-}
-
-#p5W {
-    top: 440px;
-    left: 30px;
-    background-color: green;
-}
-
-#p1N {
-    top: 355px;
-    left: 360px;
-    background-color: blue;
-}
-
-#p2N {
-    top: 290px;
-    left: 390px;
-    background-color: blue;
-}
+      #theJBase {
+          top: 425px;
+          left: 360px;
+            background-image: url("assets/Ch-Camp/JungleCamp.png");
+            opacity: 0.8 !important;
+          background-size: cover;
+          background-color: red;
+      }
+      
+      #theMBase {
+          top: 285px;
+          left: 720px;
+          background-image: url("assets/Ch-Camp/MountainCamp.png");
+          background-size: cover;
+          opacity: 0.8 !important;
+      }
+      
+      #p1E {
+           top: 390px;
+          left: 430px;
+      }
+      
+      #p2E {
+          top: 360px;
+          left: 505px;
+      }
+      
+      #p3E {
+          top: 325px;
+          left: 580px;
+      }
+      
+      #p4E {
+          top: 300px;
+          left: 650px;
+      }
+      
+      #p1S {
+          top: 490px;
+          left: 320px;
+      }
+      
+      #p2S {
+          top: 520px;
+          left: 255px;
+      }
+      
+      #p3S {
+          top: 550px;
+          left: 185px;
+      }
+      
+      #p1W {
+          top: 410px;
+          left: 290px;
+      }
+      
+      #p2W {
+          top: 385px;
+          left: 230px;
+      }
+      
+      #p3W {
+          top: 395px;
+          left: 160px;
+      }
+      
+      #p4W {
+          top: 420px;
+          left: 100px;
+      }
+      
+      #p5W {
+          top: 440px;
+          left: 30px;
+      }
+      
+      #p1N {
+          top: 355px;
+          left: 360px;
+      }
+      
+      #p2N {
+          top: 290px;
+          left: 390px;
+      }
