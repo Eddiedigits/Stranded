@@ -13,8 +13,8 @@ Stranded
 
 
 :: 1E {"position":"1025,1500","size":"100,100"}
-[img[assets/Ch-Explore/food.png]]
-
+<center>[img[assets/Ch-Explore/food.png]]
+<blockquote>
 That looks like something. Could it be edible?
 
 <<if hasVisited("1E") >=1 && $SubAnalyzer == true>>After running them through the Substance Analyzer, it is definitive that those are edible. Those are optimal to be our nutrients.
@@ -47,11 +47,12 @@ Do I wish to bring it to Camp?
 <<if $exploredJB == 100>>[[Go West|Start from Base Jungle][$energy -= 0.2]]<</if>>
 
 <<if $explored2E == 100>>[[Go East|2E][$energy -= 0.2]]<</if>>
+</blockquote></center>
 
 
 :: 1N {"position":"900,1375","size":"100,100"}
-[img[assets/Ch-Explore/marshland1.png]]
-
+<center>[img[assets/Ch-Explore/marshland1.png]]
+<blockquote>
 Hm, a swampy area. Nothing useful here.
 
 <<if $explored2N == 100>>[[Go further North|2N][$energy -= 0.2]]<</if>>
@@ -59,6 +60,7 @@ Hm, a swampy area. Nothing useful here.
 <<if $Camp_M == true>>[[Go South|Start from Base Jungle][$energy -= 1.2]]<</if>>
 
 <<if $Camp_J == true>>[[Go back to Base|The Map][$energy -= 0.2]]<<else>>[[Go back to Base|The Map][$energy -= 1.2]]<</if>>
+</blockquote></center>
 
 
 :: 1N2E {"position":"1150,1375","size":"100,100"}
@@ -82,8 +84,8 @@ Hm, a swampy area. Nothing useful here.
 
 
 :: 1S {"position":"900,1625","size":"100,100"}
-[img[assets/Ch-Explore/desert3.png]]
-
+<center>[img[assets/Ch-Explore/desert3.png]]
+<blockquote>
 Dryness. 
 
 Dryness. 
@@ -98,6 +100,7 @@ Water!
 <<if $Camp_J == true>>[[Go North|The Map][$energy -= 0.2]]<<else>>[[Go North|Start from Base Jungle][$energy -= 0.2]]<</if>>
 
 <<if $explored2S == 100>>[[Go further South|2S][$energy -= 0.2]]<</if>>
+</blockquote></center>
 
 
 :: 1S2E {"position":"1150,1625","size":"100,100"}
@@ -117,8 +120,8 @@ Water!
 
 
 :: 1W {"position":"775,1500","size":"100,100"}
-[img[assets/Ch-Explore/jungle1.png]]
-
+<center>[img[assets/Ch-Explore/jungle1.png]]
+<blockquote>
 Nothing but forest, jungle, leaves, green, green, green and more greens. And weirdly silent, that's eerie.
 
 <<if $Camp_J == true>>[[Go back to Base|The Map][$energy -= 0.2]]<<else>>[[Go back to Base|The Map][$energy -= 1.2]]<</if>>
@@ -127,11 +130,12 @@ Nothing but forest, jungle, leaves, green, green, green and more greens. And wei
 [[Go East|Start from Base Jungle][$energy -= 0.2]]
 
 <<if $explored2W == 100>>[[Go further West|2W][$energy -= 0.2]]<</if>>
+</blockquote></center>
 
 
 :: 2E {"position":"1150,1500","size":"100,100"}
-[img[assets/Ch-Explore/jungle4.png]]
-
+<center>[img[assets/Ch-Explore/jungle4.png]]
+<blockquote>
 Nothing but jungle and humidity. And the creepy silence. Not even leaves rustling in the wind.
 
 How to continue?
@@ -141,11 +145,12 @@ How to continue?
 <<if $explored1E == 100>>[[Go West|1E][$energy -= 0.2]]<</if>>
 
 <<if $explored3E == 100>>[[Go East|3E][$energy -= 0.2]]<</if>>
+</blockquote></center>
 
 
 :: 2N {"position":"900,1250","size":"100,100"}
-[img[assets/Ch-Explore/unimatter_deposit.png]]
-
+<center>[img[assets/Ch-Explore/unimatter_deposit.png]]
+<blockquote>
 There is no way to go further north in this swampy area. Possibility to go further north is lost, but something else possibly is gained.
 
 <<if $SubAnalyzer == true>>
@@ -164,11 +169,12 @@ Nothing to do here. A substance analyzer is needed here.
 [[Go South|1N][$energy -= 0.2]]
 
 (Whoa. The longer I look at the picture; I cannot decide whether stones are falling from the sky or it is a shore from a sea?)
+</blockquote></center>
 
 
 :: 2S {"position":"900,1750","size":"100,100"}
-[img[assets/Ch-Explore/desert2.png]]
-
+<center>[img[assets/Ch-Explore/desert2.png]]
+<blockquote>
 Sand. Heat. Weird formations. Sand. Heat. Did I say Heat? Heat! I want a camel!
 
 <<if $Camp_J == true>>[[Go back to Base|The Map][$energy -= 0.2]]<<else>>[[Go back to Base|The Map][$energy -= 1.2]]<</if>>
@@ -177,11 +183,12 @@ Sand. Heat. Weird formations. Sand. Heat. Did I say Heat? Heat! I want a camel!
 [[Go North|2N][$energy -= 0.2]]
 
 <<if $explored3S == 100>>[[Go further South|3S][$energy -= 0.2]]<</if>>
+</blockquote></center>
 
 
 :: 2W {"position":"650,1500","size":"100,100"}
-[img[assets/Ch-Explore/swampy_area_2.png]]
-
+<center>[img[assets/Ch-Explore/swampy_area_2.png]]
+<blockquote>
 Passing on the border of the swamp area.
 
 <<if $SubAnalyzer == true>>
@@ -197,11 +204,12 @@ Bring them to Camp anyway?
 [[Go back East|1W][$energy -= 0.2]]
 
 <<if $explored3W == 100>>[[Go further West|3W][$energy -= 0.2]]<</if>>
+</blockquote></center>
 
 
 :: 3E {"position":"1275,1500","size":"100,100"}
-[img[assets/Ch-Explore/jungle2.png]]
-
+<center>[img[assets/Ch-Explore/jungle2.png]]
+<blockquote>
 Hm, is that a spaceship? Or what is it? (does not mean anything for this version)
 
 Where to go next?
@@ -211,11 +219,12 @@ Where to go next?
 <<if $explored2E == 100>>[[Go West|2E][$energy -= 0.2]]<</if>>
 
 <<if $explored4E == 100>>[[Go East|4E][$energy -= 0.2]]<</if>>
+</blockquote></center>
 
 
 :: 3S {"position":"900,1875","size":"100,100"}
-[img[assets/Ch-Explore/energy_deposit.png]]
-
+<center>[img[assets/Ch-Explore/energy_deposit.png]]
+<blockquote>
 Whoa! That looks intense!
 
 <<if $SubAnalyzer == true>>
@@ -242,11 +251,12 @@ Hmn?!
 <<if $Camp_J == true>>[[Go back to Base|The Map][$energy -= 0.6]]<<else>>[[Go back to Base|The Map][$energy -= 1.6]]<</if>>
 
 [[Go back North|2S][$energy -= 0.2]]
+</blockquote></center>
 
 
 :: 3W {"position":"525,1500","size":"100,100"}
-[img[assets/Ch-Explore/coastline3.png]]
-
+<center>[img[assets/Ch-Explore/coastline3.png]]
+<blockquote>
 Aah. Open space. Open air.
 
 <<if $Camp_J == true>>[[Go back to Base|The Map][$energy -= 0.6]]<<else>>[[Go back to Base|The Map][$energy -= 1.6]]<</if>>
@@ -255,11 +265,12 @@ Aah. Open space. Open air.
 [[Go back East|2W][$energy -= 0.2]]
 
 <<if $explored4W == 100>>[[Go further West|4W][$energy -= 0.2]]<</if>>
+</blockquote></center>
 
 
 :: 4E {"position":"1400,1500","size":"100,100"}
-[img[assets/Ch-Explore/800px-SemienWaterfall.jpeg]]
-
+<center>[img[assets/Ch-Explore/800px-SemienWaterfall.jpeg]]
+<blockquote>
 Oh boy, if I will see a path through this jungle?
 
 Where to go next? 
@@ -269,11 +280,12 @@ Where to go next?
 <<if $explored3E == 100>>[[Go West|3E][$energy -= 0.2]]<</if>>
 
 <<if $exploredMB == 100>>[[Go East|Start from Base Mountain][$energy -= 0.2]]<</if>>
+</blockquote></center>
 
 
 :: 4W {"position":"400,1500","size":"100,100"}
-[img[assets/Ch-Explore/coast1.png]]
-
+<center>[img[assets/Ch-Explore/coast1.png]]
+<blockquote>
 The colors become more and more nicer, friendlier ...
 
 <<if $Camp_J == true>>[[Go back to Base|The Map][$energy -= 0.8]]<<else>>[[Go back to Base|The Map][$energy -= 1.8]]<</if>>
@@ -282,20 +294,23 @@ The colors become more and more nicer, friendlier ...
 [[Go back East|3W][$energy -= 0.2]]
 
 <<if $explored5W == 100>>[[Go to the Beach!|5W][$energy -= 0.2]]<</if>>
+</blockquote></center>
 
 
 :: 5W {"position":"275,1500","size":"100,100"}
-[img[assets/Ch-Explore/coast2island.png]]
-
+<center>[img[assets/Ch-Explore/coast2island.png]]
+<blockquote>
 Sandy Beach! That's gonna be a spot!
 
 <<if $Camp_J == true>>[[Go back to Base|The Map][$energy -= 1]]<<else>>[[Go back to Base|The Map][$energy -= 2]]<</if>>
 <</if>>
 
 [[Go back East|4W][$energy -= 0.2]]
+</blockquote></center>
 
 
 :: A New Cycle {"position":"500,500","size":"100,100"}
+<center><blockquote>
 <<if $maxenergy <= 1 || $nutrients <= 0 || $days >= 30>><<goto "End of Game">><</if>>
   <<if $noLeo == true || $noVika == true || $noElva == true || $noAbiba == true>><<set $noLeo == false || $noVika == false || $noElva == false || $noAbiba == false>><</if>>
     <<if $Camp_J == true>>
@@ -346,20 +361,23 @@ Sandy Beach! That's gonna be a spot!
       False Alarm. Or the AI handled it. Anyway, time to rest. A new cycle.
       <</if>>
       <<if $Camp_M == true>>[[On to new adventures|Camp Mountain]]<<else>>[[On to new adventures|Camp Jungle]]<</if>>
+</blockquote></center>
 
 
 :: A Small Hill {"position":"1700,175","size":"100,100"}
-[img[assets/items/antenna_CJ.png]]
-
+<center>[img[assets/items/antenna_CJ.png]]
+<blockquote>
 The antenna is installed on a small hill. But it seems to reach no one. Maybe it is set too low, or the jungle is too dense.
 <<nobr>>
 <<set $CampJ.TransMast = true>>
 <<set $CampJ.building += 1>>
 <</nobr>>
 [[Set up the Camp|Camp Jungle]]
+</blockquote></center>
 
 
 :: Abiba {"position":"1900,1150","size":"100,100"}
+<center><blockquote>
 <<if $social < 3>>
   [img[assets/characters/Abiba/Abiba_P.png]]
   
@@ -431,9 +449,11 @@ The antenna is installed on a small hill. But it seems to reach no one. Maybe it
   <<if $Camp_J == true>>[[Back to Camp|Camp Jungle]]<<else>>[[Back to Camp|Camp Mountain]]<</if>>
   
   [[Go chat with others|Social Events]]
+  </blockquote></center>
 
 
 :: Ante Explore {"position":"900,700","size":"100,100"}
+<center><blockquote>
 Who will accompany me, who can I persuade? <<set $carrycap = 1>><<if $CampJ.Orb || $CampM.Orb>><<set $carrycap += 4>><</if>>
 
 <<linkreplace "Vika">><<if random(10) * $social > 40 || $maxenergy < 3 || $nutrients < 10>>+ Vika will accompany you.<<set $carrycap +=1>><<else>>- Vika is focusing on the communications screen, she rather sit by the radio.<</if>><</linkreplace>>
@@ -448,12 +468,12 @@ Who will accompany me, who can I persuade? <<set $carrycap = 1>><<if $CampJ.Orb 
 
 [[Go to the Map|The Map]]
 
-<<if $Camp_J == true>>[[Ach, nah, I've changed my mind, I will go back.|Camp Jungle]]<<else>>[[Ach, nah, I've changed my mind, I will go back.|Camp Mountain]]<</if>>
+<<if $Camp_J == true>>[[Ach, nah, I've changed my mind, I will go back.|Camp Jungle]]<<else>>[[Ach, nah, I've changed my mind, I will go back.|Camp Mountain]]<</if>></blockquote></center>
 
 
 :: AnteCamp {"position":"1425,300","size":"100,100"}
-[img[assets/Ch-Camp/JungleCamp.png]]
-
+<center>[img[assets/Ch-Camp/JungleCamp.png]]
+<blockquote>
 <<set $engineering +=1>><<set $social +=1>><<set $unimatter += 5>>
 Vika's spaceship, which is the parent spaceship of our - Leo's and mine - pods, landed upon a clearing in this jungle. Her ride was more smooth than ours. Too smooth by her description, while we almost became wrecks. The AI of this spaceship decided to distribute the risk of losing too many personnel by dispersing us to a wide area. Weird decision, in my opinion. Since we are missing 2 others that our compass doesn't show. Maybe they are what we almost became: wrecks. Everyone should have a compass to reach out to the others, to any others. I hope, we will find out the reason it decided to let us spread out. But for now, the AI is silent. It does sometimes; I have heard, it is to avoid us degenerating our brains, i.e. to keep our neuronal activities steady. I can hope, it - the AI -will  decide to tell us soon enough if our situation turns sticky. Yet, for now, we can assume, there is no imminent danger. Also, it keeps silent about the other stranded. Weird policy.
 
@@ -526,10 +546,11 @@ Have I a change of mind? I want a ...
 
 <<button "Energy Harvester">><<set $numero = 3>><<goto "Vote">><</button>>
 <</if>>
+</blockquote></center>
 
 
 :: Camp Jungle {"position":"400,1125","size":"100,100"}
-<center>[img[assets/Ch-Camp/JungleCamp.png]]</center>
+<center><center>[img[assets/Ch-Camp/JungleCamp.png]]</center>
 <<set $Camp_J = true>><<set $Camp_M = false>>
 <div id="Camp-Jungle"><center><h2><strong>Camp Jungle</strong></h2></center></div>
 <div class="order-indices"><div class="index-screens-normal"><strong>Things in the inventory:</strong>
@@ -545,21 +566,21 @@ Have I a change of mind? I want a ...
 We have <<= $nutrients>> nutrients in storage. Each person consume one unit of nutrients per cycle. We can only store a quantity of 50.</div>
 <div class="index-screens-professions"><div class="title-profession"><strong>PROFESSIONS:</strong></div><div class="index-professions"><div> Xenology: <<= $xeno.toFixed(1)>></div> + <div>Combatibility: <<= $combat.toFixed(1)>></div> + <div>Engineering: <<= $engineering.toFixed(1)>></div> + <div>Interactibility: <<= $social.toFixed(1)>></div></div></div></div>
 
-<strong><center><h3>ACTIONS:</h3></center></strong>
+<div class="Title_Actions"><strong><center><h3>ACTIONS:</h3></center></strong></div>
 <div class="actions-table"><div class="actions-row">
-<div><<if $energy >=1>>[[Train in Engineering|Camp Jungle][$energy -= 1; $engineering += 0.1]]<</if>></div>
-<div><<if $energy >=1>>[[Train in Combat Arts|Camp Jungle][$energy -= 1; $combat += 0.1]]<</if>></div></div>
-<div class="actions-row"><div><<if $energy >=1>>[[Go to the Materials Printer|Construction Menu]]<</if>></div>
-<div><<if $energy >=1>>[[Socialize with your Crew|Social Events]]<</if>></div></div>
-<div class="actions-row"><div><<if $energy >=1>>[[Go Out|Ante Explore]]<</if>></div>
+<<if $energy >=1>><div>[[Train in Engineering|Camp Jungle][$energy -= 1; $engineering += 0.1]]</div><</if>>
+<<if $energy >=1>><div>[[Train in Combat Arts|Camp Jungle][$energy -= 1; $combat += 0.1]]</div><</if>></div>
+<div class="actions-row"><<if $energy >=1>><div>[[Go to the Materials Printer|Construction Menu]]</div><</if>>
+<<if $energy >=1>><div>[[Socialize with your Crew|Social Events]]</div><</if>></div>
+<div class="actions-row"><<if $energy >=1>><div>[[Go Out|Ante Explore]]</div><</if>>
 <div>[[Rest|A New Cycle][$days += 1]]</div></div>
-<div class="actions-row"><div><<if $energy > 4 && hasVisited("Start from Base Mountain") || hasVisited("Foot of a Mountain") && $energy > 4>>
-[[Move to Camp Mountain|Camp Mountain][$energy -= 5; $maxenergy += 10; $maxnutrients += 50]]
-<</if>></div></div></div>
+<div class="actions-row"><<if $energy > 4 && hasVisited("Start from Base Mountain") || hasVisited("Foot of a Mountain") && $energy > 4>><div>
+[[Move to Camp Mountain|Camp Mountain][$energy -= 5; $maxenergy += 10; $maxnutrients += 50]]</div><</if>>
+</div></div></center>
 
 
 :: Camp Mountain {"position":"1500,1125","size":"100,100"}
-<center>[img[assets/Ch-Camp/MountainCamp.png]]</center>
+<center><center>[img[assets/Ch-Camp/MountainCamp.png]]</center>
 <<set $Camp_M = true>><<set $Camp_J = false>>
 <div id="Camp-Mountain"><center><h2><strong>Camp Mountain</strong></h2></center></div>
 <div class="order-indices"><div class="index-screens-normal"><strong>Things in the inventory:</strong>
@@ -575,22 +596,23 @@ We have <<= $nutrients>> nutrients in storage. Each person consume one unit of n
 We have <<= $nutrients>> nutrients in storage. Each person consume one unit of nutrients per cycle. We can only store a quantity of 100.</div>
 <div class="index-screens-professions"><div class="title-profession"><strong>PROFESSIONS:</strong></div><div class="index-professions"><div> Xenology: <<= $xeno.toFixed(1)>></div> + <div>Combatibility: <<= $combat.toFixed(1)>></div> + <div>Engineering: <<= $engineering.toFixed(1)>></div> + <div>Interactibility: <<= $social.toFixed(1)>></div></div></div></div>
 
-<strong><center><h3>ACTIONS:</h3></center></strong>
+<div class="Title_Actions"><strong><center><h3>ACTIONS:</h3></center></strong></div>
 <div class="actions-table"><div class="actions-row">
-<div><<if $energy >=1>>[[Train in Engineering|Camp Mountain][$energy -= 1; $engineering += 0.1]]<</if>></div>
-<div><<if $energy >=1>>[[Train in Combat Arts|Camp Mountain][$energy -= 1; $combat += 0.1]]<</if>></div></div>
-<div class="actions-row"><div><<if $energy >=1>>[[Go to the Materials Printer|Construction Menu]]<</if>></div>
-<div><<if $energy >=1>>[[Socialize with your Crew|Social Events]]<</if>></div></div>
-<div class="actions-row"><div><<if $energy >=1>>[[Go Out|Ante Explore]]<</if>></div>
+<<if $energy >=1>><div>[[Train in Engineering|Camp Mountain][$energy -= 1; $engineering += 0.1]]</div><</if>>
+<<if $energy >=1>><div>[[Train in Combat Arts|Camp Mountain][$energy -= 1; $combat += 0.1]]</div><</if>></div>
+<div class="actions-row"><<if $energy >=1>><div>[[Go to the Materials Printer|Construction Menu]]</div><</if>>
+<<if $energy >=1>><div>[[Socialize with your Crew|Social Events]]</div><</if>></div>
+<div class="actions-row"><<if $energy >=1>><div>[[Go Out|Ante Explore]]</div><</if>>
 <div>[[Rest|A New Cycle][$days += 1]]</div></div>
-<div class="actions-row"><div><<if $energy > 4 && hasVisited("Start from Jungle Base")>>
-[[Move to Camp Jungle|Camp Jungle][$energy -= 5; $maxenergy -= 10; $maxnutrients -= 50]]
-<</if>></div></div></div>
+<div class="actions-row"><<if $energy > 4 && hasVisited("Start from Jungle Base")>><div>
+[[Move to Camp Jungle|Camp Jungle][$energy -= 5; $maxenergy -= 10; $maxnutrients -= 50]]</div>
+<</if>></div></div></center>
 
 
 :: Check my pod {"position":"925,300","size":"100,100"}
+<center>
 [img[assets/Ch-Crash/Pod1.png]]
-
+<blockquote>
 Hm. Nice! Like it is designed to be: sturdy.
 
 Now. What to do? I have <<= $energy>> energy left.
@@ -606,10 +628,11 @@ Ech! Nothing happens. It is boring. Maybe I should try to go out anyway?
 <<else>>
 [[Nope! I wait out|Check my pod][$energy -= 1]]
 <</if>>
+</blockquote></center>
 
 
 :: Construction Menu {"position":"900,500","size":"100,100"}
-<center>[img[assets/items/3D-Printer.png]]</center>
+<center><center>[img[assets/items/3D-Printer.png]]</center>
 <div id="blue-title"><center><h3><strong>Construction Menu</strong></h3></center></div>
 <div class="index-screens-small"><div><strong>ENERGY:&nbsp;</strong>
 <<if $energy > $maxenergy>><<set $energy = $maxenergy>><<elseif $energy < 0>><<set $energy = 0>><</if>><<= $energy.toFixed(1)>> of maximal <<= $maxenergy>></div><div><strong>UNIMATTER:&nbsp;</strong>
@@ -667,16 +690,19 @@ Ech! Nothing happens. It is boring. Maybe I should try to go out anyway?
 </ul>
 <<else>>
   All building slots are full. Consider disintegrate one or more.
-<</if>><</nobr>>
+<</if>><</nobr>></center>
 
 
 :: Crash {"position":"800,300","size":"100,100"}
+<center><blockquote>
 <em>Moan. Ugh. Oooph</em>, what a ride. That I get awake just in the moment of impact, what kind of a dick move is that? It is a miracle that I am still whole and functioning. Although ... will luck still be on my side?
 
 [[Check my pod]]
+</blockquote></center>
 
 
 :: DateFilippina {"position":"475,175","size":"100,100"}
+<center><blockquote>
 <video width="346" height="224" controls loop>
   <source src="assets/Ch-Intro/Indo1.webm" type="video/webm">
   Your browser does not support the video tag.
@@ -733,10 +759,11 @@ After many minutes
 <</timed>>
 
 [[I am ready|Intro3]]
+</blockquote></center>
 
 
 :: Disintegration Menu {"position":"1050,500","size":"100,100"}
-<center>[img[assets/items/3D-Printer.png]]</center>
+<center><center>[img[assets/items/3D-Printer.png]]</center>
 <div id="red-title"><center><h3><strong>Disintegration Menu</strong></h3></center></div>
 <div class="index-screens-small"><div><strong>ENERGY:&nbsp;</strong>
 <<if $energy > $maxenergy>><<set $energy = $maxenergy>><<elseif $energy < 0>><<set $energy = 0>><</if>><<= $energy.toFixed(1)>> of maximal <<= $maxenergy>></div><div><strong>UNIMATTER:&nbsp;</strong>
@@ -776,10 +803,11 @@ After many minutes
     <<if $CampJ.cOrb == true && $Camp_J == true>>
       <li>+ [[Orb Improvement for Combat (6E - 6U)|Disintegration Menu][$energy += 6; $unimatter += 6; $CampJ.cOrb = false]]</li>
     <<elseif $CampM.cOrb == true && $Camp_M == true>>
-      <li>+ [[Orb Improvement for Combat (6E - 6U)|Disintegration Menu][$energy += 6; $unimatter += 6; $CampM.cOrb = false]]</li><</if>></ul>
+      <li>+ [[Orb Improvement for Combat (6E - 6U)|Disintegration Menu][$energy += 6; $unimatter += 6; $CampM.cOrb = false]]</li><</if>></ul></center>
 
 
 :: Elva {"position":"1900,1025","size":"100,100"}
+<center><blockquote>
 <<if $social < 2>>
   [img[assets/characters/Elva/ER_1.png]]
   
@@ -840,9 +868,11 @@ After many minutes
   <<if $Camp_J == true>>[[Back to Camp|Camp Jungle]]<<else>>[[Back to Camp|Camp Mountain]]<</if>>
   
   [[Go chat with others|Social Events]]
+  </blockquote></center>
 
 
 :: End of Game {"position":"625,500","size":"100,100"}
+<center><blockquote>
 <<if $days <30>>
 
 Such a bad luck! Everything has to be shut down. Our AI is a good for nothing! Or ... you? Or the game designer?
@@ -863,10 +893,11 @@ Plans:
 - possibility to extend, upgrade and manage tech, components and buildings (per aspera ad astra) for finding out the mysteries
 - if possible: more events with the current ladies
 - sophisticated gameplay (missions, quests, feedback)
-<</if>>
+<</if>></blockquote></center>
 
 
 :: EndPoint ChCrash {"position":"1175,300","size":"100,100"}
+<center><blockquote>
 <<nobr>><div style="position: relative;">
     <img id="VikaFront" src="assets/characters/Vika_2.png">
     <img src="assets/Ch-Camp/JungleCamp.png">
@@ -878,11 +909,12 @@ Oh! Am I glad to find another stranded.
 <div class="Char-Framer"><img  class="Char-img" src="assets/characters/Vika.png"></div><div class="Char-dialogues"><<if hasVisited("Shutdown")>>Fella! Can I tell you how glad I am to find another one of you?<<else>>Fellas! Can I tell you how glad I am to find the likes of you?<</if>></div></div>
 
  [[Same here, same here|AnteCamp]]
+ </blockquote></center>
 
 
 :: Energy Harvester {"position":"1700,550","size":"100,100"}
-[img[assets/items/sun-collectors.png]]
-
+<center>[img[assets/items/sun-collectors.png]]
+<blockquote>
 Yes, with our energy harvester - which "harvest" sun rays, winds, gravitation, molecular dis- and integration, atomic fusion - we have raised the energy regeneration rate.
 
 <<nobr>>
@@ -890,11 +922,12 @@ Yes, with our energy harvester - which "harvest" sun rays, winds, gravitation, m
 <<set $CampJ.building += 1>>
 <</nobr>>
 It is important to note, that those cannot be transported. Either they gets disintegrated to unimatter, which again can only be transported of maximal 5 units per spaceship. Or they stay at the [[camp|Camp Jungle]].
+</blockquote></center>
 
 
 :: Foot of a Mountain {"position":"1700,50","size":"100,100"}
-[img[assets/items/antenna_CM.png]]
-
+<center>[img[assets/items/antenna_CM.png]]
+<blockquote>
 Since, luckily, I had the compass, I did not spend too much energy. Which gave us an optimal total balance (no forgetti! We are practically machines, too) for a fly.
 We found two spots, one for parking, the other for the antenna. Both in visible distance. 
 It didn't take long after the installation of the antenna until we established contact to another group of stranded, but like us, not in a lucky number: 2 of 5. The small spaceships is designed to house 5 pods with 10 maximum energy and 5x10 cycles of nutrients. With two spaceships, we have a total of 20 energy now.
@@ -912,11 +945,13 @@ But, for me personally, I welcome to have two more ladies: Elva and Abiba.
 <<set $CampM.TransMast = true>>
 <</nobr>>
 [[Set up the Camp|Camp Mountain]]
+</blockquote></center>
 
 
 :: Intro2 {"position":"475,300","size":"100,100"}
+<center>
 [img[assets/backgrounds/Dock_by_Kuldar_Leement.png]]
-
+<blockquote>
 That's the big spacecruiser. Made for voyaging from Earth to other galaxies. Big Chunker, that one. Many engineering feats for fast inter-galactical travels. Like the one I have to take it for the obligatory out-field practice repectively inter-change student program. Which is, practically. in three hours.
 
 <<if $SFW_Path == true>>
@@ -932,11 +967,13 @@ That's the big spacecruiser. Made for voyaging from Earth to other galaxies. Big
  <<else>>
  	[[Enough time to enjoy my filippine date!|DateFilippina]]
 <</if>>
+</blockquote></center>
 
 
 :: Intro3 {"position":"600,300","size":"100,100"}
+<center>
 [img[assets/backgrounds/To_the_Moon_by_Voyager212.png]]
-
+<blockquote>
 I enjoy going out, meet people, have dates; then frustrations and dissappointments. And, on top of all, my prof forces me to cram, cram, cram. Eeech! 
 
 Too much is cramming not good for me, so I go out anew, meet people, have fun, all as much as my hormones allow me. Then frustrations, dissap ... wait ... 
@@ -945,10 +982,11 @@ Too much is cramming not good for me, so I go out anew, meet people, have fun, a
 <</timed>><<timed 3000ms>>
 [[Something is happening!|Crash]]
 <</timed>>
+</blockquote></center>
 
 
 :: Leo {"position":"1900,900","size":"100,100"}
-<<if random(5) >= 1>>[img[assets/characters/2_men_talking.png]]
+<center><blockquote><<if random(5) >= 1>>[img[assets/characters/2_men_talking.png]]
 
 I had an interesting viewpoint from him about AI's and algorithms.
 
@@ -970,12 +1008,12 @@ Leo is not in the mood. Try another time.
 <<if $Camp_J == true>>[[I go back to Camp|Camp Jungle]] <<else>>[[go back to Camp|Camp Mountain]]<</if>>
 
 [[I want to chat with the others|Social Events]]
-<</if>>
+<</if>></blockquote></center>
 
 
 :: Leo Crashsite {"position":"1175,175","size":"100,100"}
-[img[assets/Ch-Crash/Pod2.png]]<<unset $numero>>
-
+<center>[img[assets/Ch-Crash/Pod2.png]]<<unset $numero>>
+<blockquote>
 Another stranded. And this one is quite dilapidated. He has his movement, but barely any limbs (no forgetti, we are inside machines). He will survive, but not up to top. I help him getting up. He thanks me and asks me if I have a compass?
 
 <<if $compass == true>>
@@ -1003,15 +1041,17 @@ Another stranded. And this one is quite dilapidated. He has his movement, but ba
 
 [[Search for Compass]]
 <</if>>
+</center></blockquote>
 
 
 :: Like this {"position":"350,300","size":"100,100"}
+<center>
 [img[assets/characters/cylinder.png]]
-
+<blockquote>
 That's me at birth. Cute, eh? Arms and Legs are missing, though. They come later. Why in virtual age do we need a complete organic body? We are connected to the cloud, internet, parallel world, Peer-to-Peer. Countries are practically virtual now. Borders? Nah, firewalls.
 
 And since we are in the future, or like in the past, every technology is subject to evolution. Despite of advanced technology, no entity - except of (maybe) the universe - has unlimited data storage. Professionals are still in demand like in every time.
-
+</blockquote>
 Choose in which profession you want to master:
 
 [[Xenology (Xenology (archaelogy, exploration/navigation, cataloguing etc.)|Intro2][$xeno = 1]]
@@ -1021,9 +1061,11 @@ Choose in which profession you want to master:
 [[Engineering (mechanics, 3D-printing, electronics, coding etc.)|Intro2][$engineering = 1]]
 
 [[Interactibility (social management, negotiations, leadership, group behavior etc.)|Intro2][$social = 1]]
+</center>
 
 
 :: LostiJ {"position":"1050,300","size":"100,100"}
+<center><blockquote>
 <<if $energy <= 0>><<goto "Shutdown")>><</if>>
 <<if $compass == true>>
 	The compass is a lifesaver, I wonder how I would have done without it ...
@@ -1047,9 +1089,11 @@ Choose in which profession you want to master:
         
         [[West|LostiJ][$energy -= 1]]
 <</if>>
+</blockquote></center>
 
 
 :: Menu {"position":"100,300","size":"100,100"}
+<center>
 [img[assets/backgrounds/bg-cover.png]]
 
 Hello, notes from the developper:
@@ -1065,9 +1109,11 @@ Ready to play a game?
 
 [[Yes]]
 [[Yes, but ...|Yes][$SFW_Path = true]]
+</center>
 
 
 :: Search for Compass {"position":"925,175","size":"100,100"}
+<center><blockquote>
 <<if not hasVisited("Leo Crashsite")>>Are there things I can use?
 <<set $passagevisited = true>>
 <<timed 1000ms>>Anything on the left side?<</timed>><<timed 3000ms>> In the middle?<</timed>><<timed 5000ms>> On the right?<</timed>>
@@ -1109,9 +1155,11 @@ Bien, bien. Now I have the compass. <</timed>>
 [[Go back to Leo|Leo Crashsite][$compass = true]]
 <</if>>
 <</if>>
+</blockquote></center>
 
 
 :: Shutdown {"position":"1050,175","size":"100,100"}
+<center><blockquote>
 <<timed 1000ms>>Shutdown in 3
 Shit?! No! No!<</timed>>
 
@@ -1126,7 +1174,8 @@ Maldición! Oh please, oh please, someone find me!<</timed>>
 <<timed 8000ms>>.<</timed>> <<timed 10000ms>>.<</timed>> <<timed 12000ms>>.<</timed>>
 
 <<timed 14000ms>>(It is not a bug)<</timed>>
-<<timed 18000ms>>It is intended to be annoying<</timed>>
+<<timed 18000ms>>It is intended to be long.
+Relatively.<</timed>>
 <<timed 22000ms>>Hating me?<</timed>>
 <<timed 23000ms>>
 [img[assets/characters/Rescue.png]]
@@ -1136,9 +1185,11 @@ Huh?!
 Yes! Yes! I am saved
 
 <</timed>><<timed 26000ms>><<goto "EndPoint ChCrash">><</timed>>
+</blockquote></center>
 
 
 :: Social Events {"position":"1700,900","size":"100,100"}
+<center><blockquote>
 With whom do I want to socialize?
 
 <<if $noVika == false>>[img[Vika|assets/characters/Vika.png][Vika][$energy -= 1; $social += 0.04; $Vikavisits += 1]]<</if>>
@@ -1152,22 +1203,24 @@ With whom do I want to socialize?
 <div class="display-link"><<if $Camp_J == true>><div class="dl_images">[img[Where am I going? Back.|assets/Ch-Camp/JungleCamp_Button.png][Camp Jungle]]</div><<else>><div class="dl_images">[img[Where am I going? Back.|assets/Ch-Camp/MountainCamp_Button.png][Camp Mountain]]</div><</if>></div>
 
 <<= $Vikavisits>><<= $Elvavisits>><<= $Abibavisits>>
+</blockquote></center>
 
 
 :: Start from Base Jungle {"position":"900,1500","size":"100,100"}
-[img[assets/Ch-Explore/jungle0.png]]
-
+<center>[img[assets/Ch-Explore/jungle0.png]]
+<blockquote>
 <<if $Camp_M == true && lastVisited("Start from Base Jungle") is 0>>
 	That is a good spot to set a new camp. More spacious than up in the mountain. As well as a new base for exploring without descending from the mountains again and again.
     <<else>>
     A good spot to set up a camp.
     <</if>>
+</blockquote></center>
 
 
 :: Start from Base Mountain {"position":"1525,1500","size":"100,100"}
-<<if $seenSfBM == false>><<set $seenSfBM = true>>
+<center><<if $seenSfBM == false>><<set $seenSfBM = true>>
 [img[assets/backgrounds/bg-cover.png]]
-
+<blockquote>
 On a spot of a mountainous area, we found others! Yay! I guess, that is why the AI kept passive, because it knew, we will find the others ...
 
 Both damsels told me that they are less lucky. 3 others of their crewmates didn't make it since <<= $days>> cycles. Both alones make them feel rather lonely. They wish more company. I proposed, if possible, we will set a camp here. The more the merrier. They agreed without hesitation.
@@ -1188,6 +1241,7 @@ I will go back and tell the others about the new option: the resettling to Camp 
     
     <<else>><<goto [[Camp Mountain]]>><</if>>
 <</if>>
+</blockquote></center>
 
 
 :: StoryInit {"position":"100,25","size":"100,100"}
@@ -1196,8 +1250,9 @@ I will go back and tell the others about the new option: the resettling to Camp 
 
 
 :: Substance Analyzer {"position":"1700,425","size":"100,100"}
+<center>
 [img[assets/items/Substance-Analyzer.png]]
-
+<blockquote>
 The substance analyzer is now in our inventory.
 
 With that, we should be able to collect materials nearby. Hopefully, some can be broken down to refuel our energy. If we don't have anymore of it.
@@ -1205,6 +1260,7 @@ With that, we should be able to collect materials nearby. Hopefully, some can be
 <<set $SubAnalyzer = true>>
 <</nobr>>
 [[Set up the Camp|Camp Jungle]]
+</blockquote></center>
 
 
 :: Territories {"position":"350,25","size":"100,100"}
@@ -1238,6 +1294,7 @@ With that, we should be able to collect materials nearby. Hopefully, some can be
 
 
 :: The Map {"position":"900,825","size":"100,100"}
+<center><blockquote>
 <<if $xeno == 0>><<set $xeno = 0.2>><</if>>
   <<if random(80) < 2>>
   
@@ -1527,9 +1584,11 @@ With that, we should be able to collect materials nearby. Hopefully, some can be
     
     <<if $Camp_J == true>>[[Go back to Camp|Camp Jungle]]<<else>>[[Go back to Camp|Camp Mountain]]<</if>>
   <</if>>
+</blockquote></center>
 
 
 :: Vika {"position":"1900,775","size":"100,100"}
+<center><blockquote>
 <<if $social <= 2>>[img[assets/characters/Vika_4.png]]
 
   We both exchanged topics in machines and communications engineerings.<<set $engineering += 0.1 * $social>>
@@ -1597,17 +1656,16 @@ With that, we should be able to collect materials nearby. Hopefully, some can be
   <<if $Camp_J == true>>[[Back to Camp|Camp Jungle]]<<else>>[[Back to Camp|Camp Mountain]]<</if>>
   
   [[Go chat with others|Social Events]]
+</blockquote></center>
 
 
 :: Vote {"position":"1550,300","size":"100,100"}
+<center><blockquote>
 <<set $Vikavote = random(1, 3)>><<set $Leovote = random(1, 3)>><<timed 1000ms>>Vika gives in her vote.
   <</timed>><<timed 3000ms>>
   Leo has decided.
-  <</timed>>
-  
-<<set $vcount = [$numero, $Vikavote, $Leovote]>>
-
-  <<timed 5000ms>>
+  <</timed>><<set $vcount = [$numero, $Vikavote, $Leovote]>>
+<<timed 5000ms>>
   <div class="Char"><div class="Char-Framer"><img class="Char-img" src="assets/characters/Vika.png"></div><div class="Char-dialogues">Gentlemen. It resulted in for a ...</div></div><</timed>>
   <<timed 7000ms>>
   <div class="Char"><div class="Char-Framer"><img class="Char-img" src="assets/characters/Vika.png"></div><div class="Char-dialogues">
@@ -1616,8 +1674,10 @@ With that, we should be able to collect materials nearby. Hopefully, some can be
     <<elseif $energy <= 2 && $vcount.count(1) >= 2>>[[Transmission Mast. But ...|WhyNothing]]
     <<elseif $vcount.count(2) >= 2>>[[Substance Analyzer][$energy -= 2; $unimatter -= 5]]
     <<elseif $vcount.count(3) >= 2>>[[Energy Harvester][$energy -= 5; $unimatter -= 5]]
-    <<else>>Huh ... everyone voted for each of it.<</if>></div></div><</timed>>
+    <<else>>Huh ... everyone voted for each of it. ... Ok! Then we keep the unimatter and decide on a more urgent situation. Let us set our [[Camp here.|Camp Jungle]]<</if>></div></div>
+<</timed>>
     
+</blockquote></center>
 
 
 :: What do I want to say? {"position":"1825,0","size":"100,100"}
@@ -1637,19 +1697,23 @@ endif
 
 
 :: WhyNothing {"position":"1700,300","size":"100,100"}
+<center>
 ... energy is too low for any constructions. We need rest.
 
 [[Set up the Camp|Camp Jungle]]
+</center>
 
 
 :: Yes {"position":"225,300","size":"100,100"}
+<center>
 [img[assets/characters/Me.png]]
-
+<blockquote>
 Yep, that's me. Handsome, eh? Like a Roman demi-god, no?
 
 Since I come from upper middle class, my family invested in a designer baby. Obviously. But surprise, surprise! Like the mayority of humanity (and pets!), we are synthetic beings, Cyborgs. For better space travel, which this story is about, we have to be cyborgs. Only our brain and spine is completely organic; the rest in synthetic materials.
-
+</blockquote>
 [[Like this]]
+</center>
 
 
 :: globalvariables {"position":"225,25","size":"100,100"}
@@ -1756,6 +1820,15 @@ $(document).ready(function () {
   $('#ui-bar-tray').after(banner);
 });
 
+// Story JavaScript
+
+// This function is called after each passage is rendered
+postrender = function (content, task) {
+    // Wrap the content in <center> tags
+    task.content = "<center>" + task.content + "</center>";
+};
+
+
 :: StoryStylesheet [stylesheet]
     @font-face {
         font-family: 'Bahnschrift';
@@ -1852,6 +1925,7 @@ $(document).ready(function () {
         flex-wrap: wrap;
         align-content: center;
         margin: 0 10px;
+        text-align: left;
       }
       
       #VikaFront {
@@ -1861,12 +1935,22 @@ $(document).ready(function () {
       
       #Camp-Jungle {
         color: #2aa22a;
+        border-top: 3px solid #2aa22a;
+        border-bottom: 3px solid #2aa22a;
       }
       
       #Camp-Mountain {
-        color: #d2a679;
+       	color: #d2a679;
+       	border-top: 3px solid #d2a679;
+       	border-bottom: 3px solid #d2a679;
       }
       
+	  .Title_Actions {
+        color: #A9A9A9;
+       	border-top: 3px solid #A9A9A9;
+       	border-bottom: 3px solid #A9A9A9;
+	  }
+
       .order-indices {
         display: flex;
         flex-flow: column;
@@ -1944,7 +2028,12 @@ $(document).ready(function () {
         display: flex;
         justify-content: center;
         align-items: center;
+        margin: 0 5px;
         padding: 10px 0;
+        border: 1px solid #68d;
+        border-radius: 5px;
+        background-color: #1a1a1a;
+        max-width: 340px;
       }
       
       #blue-title {
