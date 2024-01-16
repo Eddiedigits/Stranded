@@ -98,355 +98,371 @@ var LZString={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234
 		<div id="init-lacking"><p>Browser lacks capabilities required to play.</p><p>Upgrade or switch to another browser.</p></div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<tw-storydata name="Stranded" startnode="1" creator="Twine" creator-version="2.8.1" format="SugarCube" format-version="2.36.1" ifid="824F50D1-FCB4-4ECE-938E-7A3C1429622D" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">    @font-face {
-        font-family: 'Bahnschrift';
-        src: url('assets/Fonts/bahnschrift.ttf') format('ttf');
-        font-family: 'Corbel';
-        src: url('assets/Fonts/corbel.ttf') format('ttf');
-      }
-      
-      html {
-       font: 18px/1 Bahnschrift,Corbel,Helmet,Freesans,sans-serif; 
-      }
-      
-      body{
-        color: #A9A9A9;
-      }
-      
-      img {
-        max-width: 700px;
-        max-height: 350px;
-      }
-      
-      h6 {
-        margin: 0;
-      }
-      
-	.display-link {
-      width: 300px;
-      height: 55px;
-      border: 3px solid #ffcc66;
-      border-radius: 20px;
-      content-visibility: auto;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-	}
+	<tw-storydata name="Stranded" startnode="1" creator="Twine" creator-version="2.8.1" format="SugarCube" format-version="2.36.1" ifid="824F50D1-FCB4-4ECE-938E-7A3C1429622D" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* core    ------------------------------------------------------------------------------------- */    
+@font-face {
+  font-family: 'Bahnschrift';
+  src: url('assets/Fonts/bahnschrift.ttf') format('ttf');
+  font-family: 'Corbel';
+  src: url('assets/Fonts/corbel.ttf') format('ttf');
+}
 
-      #ui-bar-tray {
-        position: absolute;
-        top: 0.5%;
-        left: 0;
-        right: 0;
-      }
-      
-      #container-banner {
-        width: 100%;
-        position: absolute;
-        top: 10%;
-      }
-      
-      #img-banner {
-        width: 80%;
-      }
-      
-      #ui-bar-body {
-        position: relative;
-        top: 25%;  
-      }
-      
-      .passage {
-       max-width: 700px;
-      }
-      
-      .Char {
-        max-width: 700px;
-        display: flex;
-        flex-wrap: nowrap;
-        justify-content:flex-start;
-        position: relative;
-        background-color: #282828;
-        padding: 5px;
-        border: 1px solid DarkGrey;
-        border-radius: 5px;
-      }
-      
-      .Char-Framer {
-        display: flex;
-        align-items: flex-start;
-      }
-      
-      .Char-img {
-        position: relative;
-        vertical-align: text-top;
-        max-width: 60px;
-        max-height: 60px;
-        border-radius: 3px;
-        display: block; /* Convert the image to a block element */
-        margin: 0; /* Reset margin */
-        padding: 0; /* Reset padding */
-        border: none; /* Reset border */
-      }
-      
-      .Char-dialogues {
-        display: flex;
-        flex-wrap: wrap;
-        align-content: center;
-        margin: 0 10px;
-        text-align: left;
-      }
-      
-      #VikaFront {
-        position: absolute;
-        z-index: 1;
-      }
-      
-      #Camp-Jungle {
-        color: #2aa22a;
-        border-top: 3px solid #2aa22a;
-        border-bottom: 3px solid #2aa22a;
-      }
-      
-      #Camp-Mountain {
-       	color: #d2a679;
-       	border-top: 3px solid #d2a679;
-       	border-bottom: 3px solid #d2a679;
-      }
-      
-	  .Title_Actions {
-        color: #A9A9A9;
-       	border-top: 3px solid #A9A9A9;
-       	border-bottom: 3px solid #A9A9A9;
-	  }
+html {
+ font: 18px/1 Bahnschrift,Corbel,Helmet,Freesans,sans-serif; 
+}
 
-      .order-indices {
-        display: flex;
-        flex-flow: column;
-        max-width: 700px;
-      }
-      
-      .index-screens-normal {
-        position: relative;
-        width: 660px;
-        background-color: #3a5978;
-        padding: 10px 20px;
-        border-radius: 10px;
-        border: 2px solid #8c8c8c;
-      }
-      
-      .index-screens-small {
-        width: 700px;
-        display: flex;
-        justify-content: space-between;
-        flex-direction: row;
-      }
-      
-      .index-screens-small>div {
-        background-color: #3a5978;
-        width: 25%;
-        padding: 10px 20px;
-        border-radius: 10px;
-        border: 2px solid #8c8c8c;
-      }
-      
-      .index-screens-professions {
-        width: 660px;
-        padding: 10px 20px;
-        display: flex;
-        flex-direction: column;
-        border-radius: 10px;
-        background-color: #3a5978;
-        border: 2px solid #8c8c8c;
-      }
-      
-      .title-profession {
-        width: 700px;
-      }
-      
-      .index-professions {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-      }
-      
-      .index-professions>div {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border: 2px dashed #8c8c8c;
-        border-radius: 5px;
-        width: 22%;
-        line-height: normal;
-      }
-      
-      .actions-table {
-        display: flex;
-        flex-direction: column;
-        line-height: normal;
-      }
-      
-      .actions-row {
-        display: flex;
-        flex-direction: row;
-        width: 700px;
-      }
-      
-      .actions-row>div {
-        width: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 0 5px;
-        padding: 10px 0;
-        border: 1px solid #68d;
-        border-radius: 5px;
-        background-color: #1a1a1a;
-        max-width: 340px;
-      }
-      
-      #blue-title {
-        color: #336699;
-      }
-      
-      #red-title {
-        color: #943838;
-      }
-      
-      .passage ol, .passage ul {
-          margin-left: 0px;
-          padding-left: 1em;
-      }
-      
-      .plussign-list {
-        list-style-type: none; /* Remove default list styles */
-        padding-left: 10px; /* Add some left padding for the custom symbol */ 
-      }
-      
-      #the_map {
-        display: flex;
-        position: relative;
-        height: 710px;
-        width: 1070px;
-        background-image: url("assets/Ch-Explore/map_evolution17.png");
-        background-repeat: no-repeat;  
-      }
-      
-      #the_map>div {
-        display: flex;
-        position: absolute;
-        justify-content: center;
-        align-items: center;
-        line-height: normal;
-        width: 50px;
-        height: 50px;
-        opacity: 0.7;
-        border-radius: 10px;
-        background-color: orange;
-      }
-      
-      #the_map>div>a {
-        color: white;
-      }
+body{
+  color: #A9A9A9;
+}
 
-      #the_map>div>button {
-        color: white;
-        background-color: orange;
-        border: 0;
-        border-radius: 10px; 
-      }
+img {
+  max-width: 700px;
+  max-height: 350px;
+}
 
-      #the_map>div>button:hover {
-        color: white;
-        background-color: orangered;
-        border: 1px solid orange;    
-      }
+h6 {
+  margin: 0;
+}
 
-      #theJBase {
-          top: 425px;
-          left: 360px;
-            background-image: url("assets/Ch-Camp/JungleCamp.png");
-            opacity: 0.8 !important;
-          background-size: cover;
-          background-color: red;
-      }
-      
-      #theMBase {
-          top: 285px;
-          left: 720px;
-          background-image: url("assets/Ch-Camp/MountainCamp.png");
-          background-size: cover;
-          opacity: 0.8 !important;
-      }
-      
-      #p1E {
-           top: 390px;
-          left: 430px;
-      }
-      
-      #p2E {
-          top: 360px;
-          left: 505px;
-      }
-      
-      #p3E {
-          top: 325px;
-          left: 580px;
-      }
-      
-      #p4E {
-          top: 300px;
-          left: 650px;
-      }
-      
-      #p1S {
-          top: 490px;
-          left: 320px;
-      }
-      
-      #p2S {
-          top: 520px;
-          left: 255px;
-      }
-      
-      #p3S {
-          top: 550px;
-          left: 185px;
-      }
-      
-      #p1W {
-          top: 410px;
-          left: 290px;
-      }
-      
-      #p2W {
-          top: 385px;
-          left: 230px;
-      }
-      
-      #p3W {
-          top: 395px;
-          left: 160px;
-      }
-      
-      #p4W {
-          top: 420px;
-          left: 100px;
-      }
-      
-      #p5W {
-          top: 440px;
-          left: 30px;
-      }
-      
-      #p1N {
-          top: 355px;
-          left: 360px;
-      }
-      
-      #p2N {
-          top: 290px;
-          left: 390px;
-      }</style><script role="script" id="twine-user-script" type="text/twine-javascript">// appending a div
+.passage {
+ max-width: 700px;
+}
+
+/* display links design    ------------------------------------------------------------------------------------- */    
+/* .display-link {
+width: 300px;
+height: 55px;
+border: 3px solid transparent;
+border-radius: 20px;
+content-visibility: auto;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.display-link:hover {
+border: 3px solid #ffcc66;
+}
+
+.dl_images {
+display: flex;
+position: absolute;
+z-index: 0;
+} */
+
+/* side bar    ------------------------------------------------------------------------------------- */
+#ui-bar-tray {
+  position: absolute;
+  top: 0.5%;
+  left: 0;
+  right: 0;
+}
+
+#container-banner {
+  width: 100%;
+  position: absolute;
+  top: 10%;
+}
+
+#img-banner {
+  width: 80%;
+}
+
+#ui-bar-body {
+  position: relative;
+  top: 25%;  
+}
+
+/* character z-indexing     ------------------------------------------------------------------------------------- */
+#VikaFront {
+  position: absolute;
+  z-index: 1;
+}
+
+/* characters dialogue design   ------------------------------------------------------------------------------------- */      
+.Char {
+  max-width: 700px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content:flex-start;
+  position: relative;
+  background-color: #282828;
+  padding: 5px;
+  border: 1px solid DarkGrey;
+  border-radius: 5px;
+}
+
+.Char-Framer {
+  display: flex;
+  align-items: flex-start;
+}
+
+.Char-img {
+  position: relative;
+  vertical-align: text-top;
+  max-width: 60px;
+  max-height: 60px;
+  border-radius: 3px;
+  display: block; /* Convert the image to a block element */
+  margin: 0; /* Reset margin */
+  padding: 0; /* Reset padding */
+  border: none; /* Reset border */
+}
+
+.Char-dialogues {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  margin: 0 10px;
+  text-align: left;
+}
+
+/* titles   ------------------------------------------------------------------------------------- */
+.passage-titles {
+  border-top: 3px solid;
+  border-bottom: 3px solid;
+}
+
+.Title_Actions {
+  color: #A9A9A9;
+  border-top: 3px solid #A9A9A9;
+  border-bottom: 3px solid #A9A9A9;
+}
+
+/* indexes   ------------------------------------------------------------------------------------- */
+.order-indices {
+  display: flex;
+  flex-flow: column;
+  max-width: 700px;
+}
+
+.index-screens-normal {
+  position: relative;
+  width: 660px;
+  background-color: #3a5978;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 2px solid #8c8c8c;
+}
+
+.index-screens-small {
+  width: 700px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.index-screens-small>div {
+  background-color: #3a5978;
+  width: 25%;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 2px solid #8c8c8c;
+}
+
+.index-screens-professions {
+  width: 660px;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  background-color: #3a5978;
+  border: 2px solid #8c8c8c;
+}
+
+.title-profession {
+  width: 700px;
+}
+
+.index-professions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.index-professions>div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px dashed #8c8c8c;
+  border-radius: 5px;
+  width: 22%;
+  line-height: normal;
+}
+
+/* actions buttons  ------------------------------------------------------------------------------------- */
+.actions-table {
+  display: flex;
+  flex-direction: column;
+  line-height: normal;
+}
+
+.actions-row {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+}
+
+.actions-row>div {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 5px;
+  padding: 10px 0;
+  border: 1px solid #68d;
+  border-radius: 5px;
+  background-color: #1a1a1a;
+}
+
+/* the con- & destruction list ------------------------------------------------------------------------------------- */
+.passage ol, .passage ul {
+    margin-left: 0px;
+    padding-left: 1em;
+}
+
+.plussign-list {
+  list-style-type: none; /* Remove default list styles */
+  padding-left: 10px; /* Add some left padding for the custom symbol */ 
+}
+
+/* The Map ------------------------------------------------------------------------------------- */    
+#the_map {
+  display: flex;
+  position: relative;
+  height: 710px;
+  width: 1070px;
+  background-image: url("assets/Ch-Explore/map_evolution17.png");
+  background-repeat: no-repeat;  
+}
+
+#the_map>div {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  line-height: normal;
+  width: 50px;
+  height: 50px;
+  border-radius: 75px;
+}
+
+#the_map>div>a {
+  color: white;
+}
+
+#the_map>div>button {
+  color: white;
+  background-color: orange;
+  border: 0;
+  border-radius: 10px; 
+}
+
+#the_map>div>button:hover {
+  color: white;
+  background-color: orangered;
+  border: 1px solid orange;    
+}
+
+.imgs-scaled {
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+    border-radius: 75px;
+}
+
+.imgs-scaled>a,
+.imgs-scaled>a>img {
+  height: 50px;
+  width: auto;
+}
+
+#theJBase {
+    top: 425px;
+    left: 360px;
+      background-image: url("assets/Ch-Camp/JungleCamp.png");
+      opacity: 0.8 !important;
+    background-size: cover;
+    background-color: red;
+}
+
+#theMBase {
+    top: 285px;
+    left: 720px;
+    background-image: url("assets/Ch-Camp/MountainCamp.png");
+    background-size: cover;
+    opacity: 0.8 !important;
+}
+
+#p1E {
+     top: 390px;
+    left: 430px;
+}
+
+#p2E {
+    top: 360px;
+    left: 505px;
+}
+
+#p3E {
+    top: 325px;
+    left: 580px;
+}
+
+#p4E {
+    top: 300px;
+    left: 650px;
+}
+
+#p1S {
+    top: 490px;
+    left: 320px;
+}
+
+#p2S {
+    top: 520px;
+    left: 255px;
+}
+
+#p3S {
+    top: 550px;
+    left: 185px;
+}
+
+#p1W {
+    top: 410px;
+    left: 290px;
+}
+
+#p2W {
+    top: 385px;
+    left: 230px;
+}
+
+#p3W {
+    top: 395px;
+    left: 160px;
+}
+
+#p4W {
+    top: 420px;
+    left: 100px;
+}
+
+#p5W {
+    top: 440px;
+    left: 30px;
+}
+
+#p1N {
+    top: 355px;
+    left: 360px;
+}
+
+#p2N {
+    top: 290px;
+    left: 390px;
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript">// appending a div
 $(document).ready(function () {
   // Create your custom content
   var banner = '<div id="container-banner"><img id="img-banner" src="assets/backgrounds/bg-cover.png"></img></div>';
@@ -596,32 +612,35 @@ Choose in which profession you want to master:
 &lt;/center&gt;</tw-passagedata><tw-passagedata pid="6" name="Intro2" tags="" position="475,300" size="100,100">&lt;center&gt;
 [img[assets/backgrounds/Dock_by_Kuldar_Leement.png]]
 &lt;blockquote&gt;
-That&#39;s the big spacecruiser. Made for voyaging from Earth to other galaxies. Big Chunker, that one. Many engineering feats for fast inter-galactical travels. Like the one I have to take it for the obligatory out-field practice repectively inter-change student program. Which is, practically. in three hours.
+That&#39;s the big spacecruiser. Made for voyaging from Earth to other galaxies. A big Chunker, that one. Many boasted engineering feats werde done to enable a better inter-galactical travel. Hopefully it won&#39;t become our titanic. Ha haaa. But, inter galactic travel is still a long journey. Therefore it is practically a ferrying city, with all its typical elements: bakery, cafeteria, park, university, club, city hall, residential area, apartments, restaurants etc. You get the gist. 
+
+What about Family? Friends? In a way they travel with me, as virtual clones. Same with me, a virtual clone with them, updated in cycles. Funnily, if I rather want not much contact, I virtually clone myself. With time they notice, depending how investive they were to me. Clearly, we do not have endless storage, even in the universe. 
+
+Anyway, as an obligatory out-field practice repectively inter-change student program, I have to partake on this journey, as my professor was commissioned to go there. Am I happy to go? Huh ... I am not quite a believer in active steering of destiny. Yeah, practically: I am lazy. Let see to where it takes me.
 
 &lt;&lt;if $SFW_Path == true&gt;&gt;
-	Enough time to prepare myself for
-    
-    &lt;&lt;timed 1500ms&gt;&gt;
-    	...
-    &lt;&lt;/timed&gt;&gt;
-    &lt;&lt;timed 3000ms&gt;&gt;
-    	[[Whatever!|Intro3]]
-        
-    &lt;&lt;/timed&gt;&gt;
+	But! Not that lazy to have packed, say goodbye and handled all digidocs for departure that is in 3 hours. I am already stacked inside, connected, but I decided to dwell still on the old world. Wondering what I will miss when being afar ... &lt;&lt;timed 3000ms&gt;&gt;ah ... [[whatever!|Intro3]]&lt;&lt;/timed&gt;&gt;
  &lt;&lt;else&gt;&gt;
- 	[[Enough time to enjoy my filippine date!|DateFilippina]]
+ 	But! Definitely not lazy to enjoy [[time with my filippine date!|DateFilippina]]
 &lt;&lt;/if&gt;&gt;
 &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="7" name="Intro3" tags="" position="600,300" size="100,100">&lt;center&gt;
 [img[assets/backgrounds/To_the_Moon_by_Voyager212.png]]
 &lt;blockquote&gt;
-I enjoy going out, meet people, have dates; then frustrations and dissappointments. And, on top of all, my prof forces me to cram, cram, cram. Eeech! 
+Aaand ignition!
 
-Too much is cramming not good for me, so I go out anew, meet people, have fun, all as much as my hormones allow me. Then frustrations, dissap ... wait ... 
-&lt;&lt;timed 2000ms&gt;&gt;
 ...
-&lt;&lt;/timed&gt;&gt;&lt;&lt;timed 3000ms&gt;&gt;
-[[Something is happening!|Crash]]
-&lt;&lt;/timed&gt;&gt;
+
+Come on, that what you see is only the postbot. What tomfoolery would have been to catapult a huge spacewhale out of our solar system from earth! And no, I am sitting - stacked - in a commuter. The chunker is anchored nearby Mars. The solar constellation is good enough to sling the inter-galactic ferry out of solar system. 
+
+If you have noticed. Yes. It is a virgin journey. A galaxis that is not yet established. And therefore not connected to Solaris (the hub of the solar system and an homage to the polish writer). The outpost and further developped colonies in neighbour galaxies clearly get their exchanges by informations, not in materials - or molecules - like the chunker, this half moon.
+
+So. In the journey, in the virtual city I will enjoy going out, meet people, have dates. Only to be met by frustrations and dissappointments. And, on top of all, my prof will force me to cram, cram, cram. Äääch! Hippiyay. Too much cramming cannot be goog, so I go out anew, meet people, have fun, all as much my hormones allows me. Aaaand the cycle repeats: frustrations, dissappointments, cramming. 
+
+It is a big wonder with our technological advancements that we do not live in an neverending bliss.
+
+The answer may be given to &lt;&lt;linkappend &quot;me.&quot; t8n&gt;&gt; Soon.
+
+&lt;&lt;linkappend &quot;As in our route after exiting the neighbor galaxy&quot; t8n&gt;&gt; something [[happens.|Crash]]&lt;&lt;/linkappend&gt;&gt;&lt;&lt;/linkappend&gt;&gt;
 &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="8" name="DateFilippina" tags="" position="475,175" size="100,100">&lt;center&gt;&lt;blockquote&gt;
 &lt;video width=&quot;346&quot; height=&quot;224&quot; controls loop&gt;
   &lt;source src=&quot;assets/Ch-Intro/Indo1.webm&quot; type=&quot;video/webm&quot;&gt;
@@ -661,7 +680,7 @@ Oh yes. Lick it gooood.
     Damn indeed! Is she hot! Wet! And greedy! Whoo!
 &lt;&lt;/linkappend&gt;&gt;
 
-&lt;&lt;linkappend &quot;I am coming to my limit!&quot; t8n&gt;&gt;
+&lt;&lt;linkappend &quot;I am coming at my limit!&quot; t8n&gt;&gt;
 	&lt;video width=&quot;346&quot; height=&quot;224&quot; controls loop&gt;
 		&lt;source src=&quot;assets/Ch-Intro/Indo9.webm&quot; type=&quot;video/webm&quot;&gt;
 		Your browser does not support the video tag.
@@ -680,7 +699,7 @@ After many minutes
 
 [[I am ready|Intro3]]
 &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="9" name="Crash" tags="" position="800,300" size="100,100">&lt;center&gt;&lt;blockquote&gt;
-&lt;em&gt;Moan. Ugh. Oooph&lt;/em&gt;, what a ride. That I get awake just in the moment of impact, what kind of a dick move is that? It is a miracle that I am still whole and functioning. Although ... will luck still be on my side?
+&lt;em&gt;Moan. Ugh. Oooph&lt;/em&gt;, what a ride. That I get awake just in the moment of impact, what kind of a dick move is that? It is a miracle that I am still whole and functioning. Although ... will luck still continue to be on my side?
 
 [[Check my pod]]
 &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="10" name="Check my pod" tags="" position="925,300" size="100,100">&lt;center&gt;
@@ -758,17 +777,17 @@ Maldición! Oh please, oh please, someone find me!&lt;&lt;/timed&gt;&gt;
 &lt;&lt;timed 8000ms&gt;&gt;.&lt;&lt;/timed&gt;&gt; &lt;&lt;timed 10000ms&gt;&gt;.&lt;&lt;/timed&gt;&gt; &lt;&lt;timed 12000ms&gt;&gt;.&lt;&lt;/timed&gt;&gt;
 
 &lt;&lt;timed 14000ms&gt;&gt;(It is not a bug)&lt;&lt;/timed&gt;&gt;
-&lt;&lt;timed 18000ms&gt;&gt;It is intended to be long.
-Relatively.&lt;&lt;/timed&gt;&gt;
+&lt;&lt;timed 18000ms&gt;&gt;It is intended to be long.&lt;&lt;/timed&gt;&gt;
+&lt;&lt;timed 19000ms&gt;&gt;Relatively.&lt;&lt;/timed&gt;&gt;
 &lt;&lt;timed 22000ms&gt;&gt;Hating me?&lt;&lt;/timed&gt;&gt;
-&lt;&lt;timed 23000ms&gt;&gt;
+&lt;&lt;timed 24000ms&gt;&gt;
 [img[assets/characters/Rescue.png]]
 
 Huh?!
 
 Yes! Yes! I am saved
 
-&lt;&lt;/timed&gt;&gt;&lt;&lt;timed 26000ms&gt;&gt;&lt;&lt;goto &quot;EndPoint ChCrash&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;
+&lt;&lt;/timed&gt;&gt;&lt;&lt;timed 27000ms&gt;&gt;&lt;&lt;goto &quot;EndPoint ChCrash&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;
 &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="13" name="EndPoint ChCrash" tags="" position="1175,300" size="100,100">&lt;center&gt;&lt;blockquote&gt;
 &lt;&lt;nobr&gt;&gt;&lt;div style=&quot;position: relative;&quot;&gt;
     &lt;img id=&quot;VikaFront&quot; src=&quot;assets/characters/Vika_2.png&quot;&gt;
@@ -843,7 +862,7 @@ Alas, what will we do?
 
 &lt;div class=&quot;Char&quot;&gt;
 &lt;div class=&quot;Char-Framer&quot;&gt;&lt;img class=&quot;Char-img&quot; src=&quot;assets/characters/Vika.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;Char-dialogues&quot;&gt;Honestly, as a pilot, I can say that we cannot connect to the mothership. In fact. there is nothing but static. So, I conclude the mothership is unreachable or no more. Also, I do not reach the others; the other stranded.
-My suggestion is therefore: As we only have 5 unimatter, we print a portable transmission mast, look for an optimal elevation and reach out to the others..&lt;/div&gt;&lt;/div&gt;
+My suggestion is therefore: As we only have 5 unimatter, we print a transmission mast, look for an optimal elevation and reach out to the others..&lt;/div&gt;&lt;/div&gt;
 
 Only 5 unimatter?! That sucks! That means, I have to strategize wisely.
 
@@ -868,8 +887,8 @@ But then again ... if we are stuck here for long ... food/energy is essential. A
 Not enough to fly.&lt;br&gt;
 And for walk? We gotta see.
 &lt;&lt;set $energy -= 5&gt;&gt;
-&lt;&lt;else&gt;&gt;
-&lt;em&gt;10 minutes later&lt;/em&gt; Enough for some tries.
+&lt;&lt;else&gt;&gt;&lt;br&gt;
+&lt;em&gt;10 minutes later&lt;/em&gt; &amp;nbsp;Enough energies for flying.
 &lt;&lt;/if&gt;&gt;&lt;&lt;/nobr&gt;&gt;
 
 &lt;div class=&quot;Char&quot;&gt;
@@ -960,7 +979,7 @@ Yes, with our energy harvester - which &quot;harvest&quot; sun rays, winds, grav
 It is important to note, that those cannot be transported. Either they gets disintegrated to unimatter, which again can only be transported of maximal 5 units per spaceship. Or they stay at the [[camp|Camp Jungle]].
 &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="22" name="Camp Jungle" tags="" position="400,1125" size="100,100">&lt;center&gt;&lt;center&gt;[img[assets/Ch-Camp/JungleCamp.png]]&lt;/center&gt;
 &lt;&lt;set $Camp_J = true&gt;&gt;&lt;&lt;set $Camp_M = false&gt;&gt;
-&lt;div id=&quot;Camp-Jungle&quot;&gt;&lt;center&gt;&lt;h2&gt;&lt;strong&gt;Camp Jungle&lt;/strong&gt;&lt;/h2&gt;&lt;/center&gt;&lt;/div&gt;
+&lt;div class=&quot;passage-titles&quot; style=&quot;color:#2aa22a; border-bottom-color: #2aa22a; border-top-color: #2aa22a;&quot;&gt;&lt;center&gt;&lt;h2&gt;&lt;strong&gt;Camp Jungle&lt;/strong&gt;&lt;/h2&gt;&lt;/center&gt;&lt;/div&gt;
 &lt;div class=&quot;order-indices&quot;&gt;&lt;div class=&quot;index-screens-normal&quot;&gt;&lt;strong&gt;Things in the inventory:&lt;/strong&gt;
 [img[Materials Printer|assets/items/3D-Printer_rs.png]] [img[Compass|assets/items/compass_rs.png]] &lt;&lt;if $SubAnalyzer == true&gt;&gt;[img[Substance Analyzer|assets/items/Substance-Analyzer_rs.png]]&lt;&lt;/if&gt;&gt;&lt;/div&gt;
 &lt;div class=&quot;index-screens-normal&quot;&gt;&lt;strong&gt;Components and Buildings operated by your spaceship:&lt;/strong&gt;
@@ -986,7 +1005,7 @@ We have &lt;&lt;= $nutrients&gt;&gt; nutrients in storage. Each person consume o
 [[Move to Camp Mountain|Camp Mountain][$energy -= 5; $maxenergy += 10; $maxnutrients += 50]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
 &lt;/div&gt;&lt;/div&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="23" name="Camp Mountain" tags="" position="1500,1125" size="100,100">&lt;center&gt;&lt;center&gt;[img[assets/Ch-Camp/MountainCamp.png]]&lt;/center&gt;
 &lt;&lt;set $Camp_M = true&gt;&gt;&lt;&lt;set $Camp_J = false&gt;&gt;
-&lt;div id=&quot;Camp-Mountain&quot;&gt;&lt;center&gt;&lt;h2&gt;&lt;strong&gt;Camp Mountain&lt;/strong&gt;&lt;/h2&gt;&lt;/center&gt;&lt;/div&gt;
+&lt;div class=&quot;passage-titles&quot; style=&quot;color: #d2a679; border-bottom-color: #d2a679; border-top-color: #d2a679;&quot;&gt;&lt;center&gt;&lt;h2&gt;&lt;strong&gt;Camp Mountain&lt;/strong&gt;&lt;/h2&gt;&lt;/center&gt;&lt;/div&gt;
 &lt;div class=&quot;order-indices&quot;&gt;&lt;div class=&quot;index-screens-normal&quot;&gt;&lt;strong&gt;Things in the inventory:&lt;/strong&gt;
 [img[Materials Printer|assets/items/3D-Printer_rs.png]] [img[Compass|assets/items/compass_rs.png]] &lt;&lt;if $SubAnalyzer == true&gt;&gt;[img[Substance Analyzer|assets/items/Substance-Analyzer_rs.png]]&lt;&lt;/if&gt;&gt;&lt;/div&gt;
 &lt;div class=&quot;index-screens-normal&quot;&gt;&lt;strong&gt;Components and Buildings operated by your spaceship:&lt;/strong&gt;
@@ -1015,7 +1034,7 @@ Who will accompany me, who can I persuade? &lt;&lt;set $carrycap = 1&gt;&gt;&lt;
 
 &lt;&lt;linkreplace &quot;Vika&quot;&gt;&gt;&lt;&lt;if random(10) * $social &gt; 40 || $maxenergy &lt; 3 || $nutrients &lt; 10&gt;&gt;+ Vika will accompany you.&lt;&lt;set $carrycap +=1&gt;&gt;&lt;&lt;else&gt;&gt;- Vika is focusing on the communications screen, she rather sit by the radio.&lt;&lt;/if&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;
 
-&lt;&lt;linkreplace &quot;Leo&quot;&gt;&gt;&lt;&lt;if random(10) * $social &gt; 30 || $maxenergy &lt; 3&gt;&gt;+ Leo will help you.&gt;&gt;&lt;&lt;set $carrycap +=1&gt;&gt;&lt;&lt;elseif $nutrients &lt;10&gt;&gt;+ Leo will help you. Also he got the information form the AI that somewhere in the east is a field crucial for organic optimum.&lt;&lt;else&gt;&gt;- Leo is in dialogue with his AI or other AIs. He cannot come with you.&lt;&lt;/if&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;nobr&gt;&gt;
+&lt;&lt;linkreplace &quot;Leo&quot;&gt;&gt;&lt;&lt;if random(10) * $social &gt; 30 || $maxenergy &lt; 3&gt;&gt;+ Leo will help you.&lt;&lt;set $carrycap +=1&gt;&gt;&lt;&lt;elseif $nutrients &lt;10&gt;&gt;+ Leo will help you. Also he got the information form the AI that somewhere in the east is a field crucial for organic optimum.&lt;&lt;else&gt;&gt;- Leo is in dialogue with his AI or other AIs. He cannot come with you.&lt;&lt;/if&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;nobr&gt;&gt;
 &lt;br&gt;
 &lt;br&gt;
 &lt;&lt;if $Camp_M == true&gt;&gt;&lt;&lt;linkreplace &quot;Elva&quot;&gt;&gt;&lt;&lt;if random(10) * $social &gt; 38 || $maxenergy &lt; 3 || $nutrients &lt;10&gt;&gt;+ Elva comes with you.&lt;&lt;set $carrycap +=1&gt;&gt;&lt;&lt;else&gt;&gt;- Elva is not available. She seems to be occupied.&lt;&lt;/if&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/if&gt;&gt;
@@ -1023,10 +1042,9 @@ Who will accompany me, who can I persuade? &lt;&lt;set $carrycap = 1&gt;&gt;&lt;
 &lt;br&gt;
 &lt;&lt;if $Camp_M == true&gt;&gt;&lt;&lt;linkreplace &quot;Abiba&quot;&gt;&gt;&lt;&lt;if random(10) * $social &gt; 35 || $maxenergy &lt; 3 || $nutrients &lt; 10&gt;&gt;+ Abiba want some outdoor training.&lt;&lt;set $carrycap +=1&gt;&gt;&lt;&lt;else&gt;&gt;- Abiba is in her training mode. Quite intensely. Better not disturb her.&lt;&lt;/if&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/nobr&gt;&gt;
 
-[[Go to the Map|The Map]]
-
-&lt;&lt;if $Camp_J == true&gt;&gt;[[Ach, nah, I&#39;ve changed my mind, I will go back.|Camp Jungle]]&lt;&lt;else&gt;&gt;[[Ach, nah, I&#39;ve changed my mind, I will go back.|Camp Mountain]]&lt;&lt;/if&gt;&gt;&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="25" name="Construction Menu" tags="" position="900,500" size="100,100">&lt;center&gt;&lt;center&gt;[img[assets/items/3D-Printer.png]]&lt;/center&gt;
-&lt;div id=&quot;blue-title&quot;&gt;&lt;center&gt;&lt;h3&gt;&lt;strong&gt;Construction Menu&lt;/strong&gt;&lt;/h3&gt;&lt;/center&gt;&lt;/div&gt;
+&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go to the Map|The Map]]&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;actions-row&quot;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;div&gt;[[Ach, nah, I&#39;ve changed my mind, I will go back.|Camp Jungle]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div&gt;[[Ach, nah, I&#39;ve changed my mind, I will go back.|Camp Mountain]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/div&gt;&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="25" name="Construction Menu" tags="" position="900,500" size="100,100">&lt;center&gt;&lt;center&gt;[img[assets/items/3D-Printer.png]]&lt;/center&gt;
+&lt;div class=&quot;passage-titles&quot; style=&quot;color: #336699; border-bottom-color: #336699; border-top-color: #336699;&quot;&gt;&lt;center&gt;&lt;h3&gt;&lt;strong&gt;Construction Menu&lt;/strong&gt;&lt;/h3&gt;&lt;/center&gt;&lt;/div&gt;
 &lt;div class=&quot;index-screens-small&quot;&gt;&lt;div&gt;&lt;strong&gt;ENERGY:&amp;nbsp;&lt;/strong&gt;
 &lt;&lt;if $energy &gt; $maxenergy&gt;&gt;&lt;&lt;set $energy = $maxenergy&gt;&gt;&lt;&lt;elseif $energy &lt; 0&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;= $energy.toFixed(1)&gt;&gt; of maximal &lt;&lt;= $maxenergy&gt;&gt;&lt;/div&gt;&lt;div&gt;&lt;strong&gt;UNIMATTER:&amp;nbsp;&lt;/strong&gt;
 &lt;&lt;if $unimatter &gt; $maxunimatter&gt;&gt;&lt;&lt;set $unimatter = $maxunimatter&gt;&gt;&lt;&lt;elseif $unimatter &lt; 0&gt;&gt;&lt;&lt;set $unimatter = 0&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;= $unimatter.toFixed(1)&gt;&gt; Unimatter&lt;/div&gt;&lt;div&gt;&lt;&lt;if $Camp_M == true&gt;&gt;available buildings:
@@ -1035,7 +1053,7 @@ Who will accompany me, who can I persuade? &lt;&lt;set $carrycap = 1&gt;&gt;&lt;
 &lt;&lt;= $CampJ.building&gt;&gt; from maximal &lt;&lt;= $CampJ.maxbuildings&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;div class=&quot;index-screens-small&quot;&gt;&lt;div style=&quot;width: 100%;&quot;&gt;[[Go to Disintegration Menu|Disintegration Menu]]&lt;/div&gt;&lt;/div&gt;
 &lt;div class=&quot;index-screens-small&quot;&gt;&lt;div style=&quot;width: 100%;&quot;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;[[Go to Camp|Camp Jungle]]&lt;&lt;else&gt;&gt;[[Go to Camp|Camp Mountain]]&lt;&lt;/if&gt;&gt;&lt;/div&gt;&lt;/div&gt;
-
+&lt;/center&gt;
 &lt;strong&gt;&lt;u&gt;available Templates:&lt;/u&gt;&lt;/strong&gt;
 &lt;&lt;nobr&gt;&gt;&lt;h6&gt;Legend: Energy = E | Unimatter = U | Lvl = Engineering Level&lt;/h6&gt;
 &lt;ul&gt;&lt;li&gt;Repairs (3E - 3U): &lt;&lt;if $energy &gt;= 3 &amp;&amp; $unimatter &gt;= 3 &amp;&amp; $Camp_J == true &amp;&amp; $maxenergy &lt; 10&gt;&gt;[[Action it|Construction Menu][$energy -= 3; $unimatter -= 3; $maxenergy = 10]]
@@ -1083,7 +1101,7 @@ Who will accompany me, who can I persuade? &lt;&lt;set $carrycap = 1&gt;&gt;&lt;
 &lt;/ul&gt;
 &lt;&lt;else&gt;&gt;
   All building slots are full. Consider disintegrate one or more.
-&lt;&lt;/if&gt;&gt;&lt;&lt;/nobr&gt;&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="26" name="Social Events" tags="" position="1700,900" size="100,100">&lt;center&gt;&lt;blockquote&gt;
+&lt;&lt;/if&gt;&gt;&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="26" name="Social Events" tags="" position="1700,900" size="100,100">&lt;center&gt;&lt;blockquote&gt;
 With whom do I want to socialize?
 
 &lt;&lt;if $noVika == false&gt;&gt;[img[Vika|assets/characters/Vika.png][Vika][$energy -= 1; $social += 0.04; $Vikavisits += 1]]&lt;&lt;/if&gt;&gt;
@@ -1094,64 +1112,66 @@ With whom do I want to socialize?
 
 &lt;&lt;if $noAbiba == false&gt;&gt;[img[Abiba|assets/characters/Abiba.png][Abiba][$energy -= 1; $social += 0.08; $Abibavisits += 1]]&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt;
 
-&lt;div class=&quot;display-link&quot;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;div class=&quot;dl_images&quot;&gt;[img[Where am I going? Back.|assets/Ch-Camp/JungleCamp_Button.png][Camp Jungle]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;dl_images&quot;&gt;[img[Where am I going? Back.|assets/Ch-Camp/MountainCamp_Button.png][Camp Mountain]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/div&gt;
+&lt;div class=&quot;actions-row&quot;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;div&gt;[[Back to the camp|Camp Jungle]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div&gt;[[Back to the camp|Camp Mountain]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/div&gt;
 
 &lt;&lt;= $Vikavisits&gt;&gt;&lt;&lt;= $Elvavisits&gt;&gt;&lt;&lt;= $Abibavisits&gt;&gt;
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="27" name="A New Cycle" tags="" position="500,500" size="100,100">&lt;center&gt;&lt;blockquote&gt;
-&lt;&lt;if $maxenergy &lt;= 1 || $nutrients &lt;= 0 || $days &gt;= 30&gt;&gt;&lt;&lt;goto &quot;End of Game&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
-  &lt;&lt;if $noLeo == true || $noVika == true || $noElva == true || $noAbiba == true&gt;&gt;&lt;&lt;set $noLeo == false || $noVika == false || $noElva == false || $noAbiba == false&gt;&gt;&lt;&lt;/if&gt;&gt;
-    &lt;&lt;if $Camp_J == true&gt;&gt;
-      &lt;&lt;if $CampJ.EHarvester == true&gt;&gt;&lt;&lt;set $energy += 10&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;set $energy += 5&gt;&gt;&lt;&lt;/if&gt;&gt;
-      &lt;&lt;if $CampJ.Farm == false&gt;&gt;&lt;&lt;set $nutrients -= 3&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;set $nutrients +=2&gt;&gt;&lt;&lt;/if&gt;&gt;
-      &lt;&lt;set $engineering += 0.2&gt;&gt;&lt;&lt;set $social += 0.2&gt;&gt;
-    &lt;&lt;else&gt;&gt;
-      &lt;&lt;if $CampM.EHarvester == true&gt;&gt;&lt;&lt;set $energy += 15&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;set $energy += 10&gt;&gt;&lt;&lt;/if&gt;&gt;
-      &lt;&lt;if $CampM.Farm == false&gt;&gt;&lt;&lt;set $nutrients -= 5&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;set $nutrients += 0&gt;&gt;&lt;&lt;/if&gt;&gt;
-    &lt;&lt;/if&gt;&gt;
-    &lt;&lt;if random(100) &gt; 50&gt;&gt;
-      &lt;&lt;if random(4) &gt; 2&gt;&gt;[img[assets/Ch-Camp/Rest1.png]]&lt;&lt;else&gt;&gt;[img[assets/Ch-Camp/Rest2.png]]&lt;&lt;/if&gt;&gt;
-
-      A new cycle, a new day. Although this planet&#39;s rotation is much slower; obviously.
-      
-      Energy is replenished. Vika has learned some more in engineering, as has Leo in interactibility.&lt;&lt;if $Camp_M == true&gt;&gt; Elva and Abiba in their fields of specialties.&lt;&lt;set $engineering += 0.2&gt;&gt;&lt;&lt;set $combat += 0.1&gt;&gt;&lt;&lt;/if&gt;&gt;
-    &lt;&lt;elseif random(100) &lt;= 10 &amp;&amp; $CampJ.DefPerimeter == false || random(4) == 0 &amp;&amp; $CampM.DefPerimeter == false&gt;&gt;
-      [img[assets/random-events/alien_mammals.png]]
-      
-      Animals!
-      
-      Alien Animals are breaching in. It seems, they only distinctively go for the food. 
-      We have lost some nutrients.&lt;&lt;set $nutrients -= 5&gt;&gt;&lt;&lt;set $xeno += 0.1&gt;&gt;
-      &lt;&lt;elseif random(100) &gt; 10 &amp;&amp; random(100) &lt;= 20 &amp;&amp; $CampJ.DefPerimeter == false || random(4) == 1 &amp;&amp; $CampM.DefPerimeter == false&gt;&gt;
-      [img[assets/random-events/aggressive_animal.png]]
-      
-      What a ruckus!
-      
-      Shiiiet! One that attacks us relentless! It depends much on our Combat Arts.&lt;&lt;set $xeno += 0.1&gt;&gt;
-        &lt;&lt;if $combat &gt; 4&gt;&gt;
-          Yes! That was a good training session, we could defeat that beast.&amp;nbsp;&lt;&lt;set $combat += 0.1&gt;&gt;&lt;&lt;if $SubAnalyzer == true&gt;&gt;And have some bit food. The rest can be disintegrated as unimatter.&lt;&lt;set $nutrients += 3&gt;&gt;&lt;&lt;set $unimatter += 2&gt;&gt;&lt;&lt;/if&gt;&gt;
-        &lt;&lt;else&gt;&gt;
-          Ach, such is a hardship here in the stranded planet. The monstruo is wrecking our equipment and damaging the hull; letting our spaceship operates not at the optimum.&lt;&lt;set $unimatter -= 5&gt;&gt;&lt;&lt;set $maxenergy -= 2&gt;&gt;&lt;&lt;/if&gt;&gt;
-      &lt;&lt;elseif random(100) &gt; 20 &amp;&amp; random(100) &lt;= 30 &amp;&amp; $social &gt; 2 &amp;&amp; $SFW_Path == false&gt;&gt;
-      [img[assets/characters/Vika/Vika_6.png]]
-      
-      ... I saw Vika fumbling on her panel. She didn&#39;t seem to have noticed me. I was unsure whether to greet her and went on my way. Not without an admiration for the sight.
-      &lt;&lt;elseif random(100) &gt; 30 &amp;&amp; random(100) &lt;= 40 &amp;&amp; $social &gt; 2 &amp;&amp; $Camp_M == true &amp;&amp; $SFW_Path == false&gt;&gt;
-      [img[assets/characters/Abiba/Abiba11.png]]
-      
-      ... Abiba was showering. Oh boy, what a body. She said nothing, and me as well. Though, on the way back, I waved goodbye and gave a complimentary glimpse anew. She is a woman, she knows. No words were changed.
-      &lt;&lt;elseif random(100) &gt; 40 &amp;&amp; random(100) &lt;= 50 &amp;&amp; $social &gt; 3 &amp;&amp; $SFW_Path == false&gt;&gt;
-      [Img[assets/characters/Vika/Vika9.png]]
-      
-      ... I saw Vika fumbling on her panel. The Nightowl.
-      She noticed me. I greeted her and continue on my way. Clearly, not without an admiration for the gift.
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="27" name="A New Cycle" tags="" position="500,500" size="100,100">&lt;center&gt;&lt;blockquote&gt;&lt;&lt;nobr&gt;&gt;
+  &lt;&lt;if $maxenergy &lt;= 1 || $nutrients &lt;= 0 || $days &gt;= 30&gt;&gt;&lt;&lt;goto &quot;End of Game&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
+  &lt;&lt;if $noLeo == true || $noVika == true || $noElva == true || $noAbiba == true&gt;&gt;&lt;&lt;set $noLeo = false&gt;&gt;&lt;&lt;set $noVika = false&gt;&gt;&lt;&lt;set $noElva = false&gt;&gt;&lt;&lt;set $noAbiba = false&gt;&gt;&lt;&lt;/if&gt;&gt;
+      &lt;&lt;if $Camp_J == true&gt;&gt;
+        &lt;&lt;if $CampJ.EHarvester == true&gt;&gt;&lt;&lt;set $energy += 10&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;set $energy += 5&gt;&gt;&lt;&lt;/if&gt;&gt;
+        &lt;&lt;if $CampJ.Farm == false&gt;&gt;&lt;&lt;set $nutrients -= 3&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;set $nutrients +=2&gt;&gt;&lt;&lt;/if&gt;&gt;
+        &lt;&lt;set $engineering += 0.2&gt;&gt;&lt;&lt;set $social += 0.2&gt;&gt;
       &lt;&lt;else&gt;&gt;
-      False Alarm. Or the AI handled it. Anyway, time to rest. A new cycle.
-      &lt;&lt;/if&gt;&gt;
-      &lt;&lt;if $Camp_M == true&gt;&gt;[[On to new adventures|Camp Mountain]]&lt;&lt;else&gt;&gt;[[On to new adventures|Camp Jungle]]&lt;&lt;/if&gt;&gt;
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="28" name="End of Game" tags="" position="625,500" size="100,100">&lt;center&gt;&lt;blockquote&gt;
+        &lt;&lt;if $CampM.EHarvester == true&gt;&gt;&lt;&lt;set $energy += 15&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;set $energy += 10&gt;&gt;&lt;&lt;/if&gt;&gt;
+        &lt;&lt;if $CampM.Farm == false&gt;&gt;&lt;&lt;set $nutrients -= 5&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;set $nutrients += 0&gt;&gt;&lt;&lt;/if&gt;&gt;
+      &lt;&lt;/if&gt;&gt;&lt;&lt;/nobr&gt;&gt;
+      &lt;&lt;if random(100) &gt; 50&gt;&gt;
+        &lt;&lt;if random(4) &gt; 2&gt;&gt;[img[assets/Ch-Camp/Rest1.png]]&lt;&lt;else&gt;&gt;[img[assets/Ch-Camp/Rest2.png]]&lt;&lt;/if&gt;&gt;
+  
+        A new cycle, a new day. Although this planet&#39;s rotation is much slower.
+        
+        Energy is replenished. Vika has learned some more in engineering, as has Leo in interactibility.&lt;&lt;if $Camp_M == true&gt;&gt; Elva and Abiba in their fields of specialties.&lt;&lt;set $engineering += 0.2&gt;&gt;&lt;&lt;set $combat += 0.1&gt;&gt;&lt;&lt;/if&gt;&gt;
+      &lt;&lt;elseif random(100) &lt;= 10 &amp;&amp; $CampJ.DefPerimeter == false || random(4) == 0 &amp;&amp; $CampM.DefPerimeter == false&gt;&gt;
+        [img[assets/random-events/alien_mammals.png]]
+        
+        Animals!
+        
+        Alien Animals are breaching in. It seems, they only distinctively go for the food. 
+        We have lost some nutrients.&lt;&lt;set $nutrients -= 5&gt;&gt;&lt;&lt;set $xeno += 0.1&gt;&gt;
+        &lt;&lt;elseif random(100) &gt; 10 &amp;&amp; random(100) &lt;= 20 &amp;&amp; $CampJ.DefPerimeter == false || random(4) == 1 &amp;&amp; $CampM.DefPerimeter == false&gt;&gt;
+        [img[assets/random-events/aggressive_animal.png]]
+        
+        What a ruckus!
+        
+        Shiiiet! One that attacks us relentless! It depends much on our Combat Arts.&lt;&lt;set $xeno += 0.1&gt;&gt;
+          &lt;&lt;if $combat &gt; 4&gt;&gt;
+            Yes! That was a good training session, we could defeat that beast.&amp;nbsp;&lt;&lt;set $combat += 0.1&gt;&gt;&lt;&lt;if $SubAnalyzer == true&gt;&gt;And have some bit food. The rest can be disintegrated as unimatter.&lt;&lt;set $nutrients += 3&gt;&gt;&lt;&lt;set $unimatter += 2&gt;&gt;&lt;&lt;/if&gt;&gt;
+          &lt;&lt;else&gt;&gt;
+            Ach, such is a hardship here in the stranded planet. The monstruo is wrecking our equipment and damaging the hull; letting our spaceship operates not at the optimum.&lt;&lt;set $unimatter -= 5&gt;&gt;&lt;&lt;set $maxenergy -= 2&gt;&gt;&lt;&lt;/if&gt;&gt;
+        &lt;&lt;elseif random(100) &gt; 20 &amp;&amp; random(100) &lt;= 30 &amp;&amp; $social &gt; 2 &amp;&amp; $SFW_Path == false&gt;&gt;
+        [img[assets/characters/Vika/Vika_6.png]]
+        
+        ... I saw Vika fumbling on her panel. She didn&#39;t seem to have noticed me. I was unsure whether to greet her and went on my way. Not without an admiration for the sight.
+        &lt;&lt;elseif random(100) &gt; 30 &amp;&amp; random(100) &lt;= 40 &amp;&amp; $social &gt; 2 &amp;&amp; $Camp_M == true &amp;&amp; $SFW_Path == false&gt;&gt;
+        [img[assets/characters/Abiba/Abiba11.png]]
+        
+        ... Abiba was showering. Oh boy, what a body. She said nothing, and me as well. Though, on the way back, I waved goodbye and gave a complimentary glimpse anew. She is a woman, she knows. No words were changed.
+        &lt;&lt;elseif random(100) &gt; 40 &amp;&amp; random(100) &lt;= 50 &amp;&amp; $social &gt; 3 &amp;&amp; $SFW_Path == false&gt;&gt;
+        [Img[assets/characters/Vika/Vika9.png]]
+        
+        ... I saw Vika fumbling on her panel. The Nightowl.
+        She noticed me. I greeted her and continue on my way. Clearly, not without an admiration for the gift.
+        &lt;&lt;else&gt;&gt;
+        False Alarm. Or the AI handled it. Anyway, time to rest. A new cycle.
+        &lt;&lt;/if&gt;&gt;
+        &lt;div class=&quot;actions-row&quot;&gt;&lt;&lt;if $Camp_M == true&gt;&gt;&lt;div&gt;[[On to new adventures|Camp Mountain]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div&gt;[[On to new adventures|Camp Jungle]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/div&gt;
+  &lt;/blockquote&gt;&lt;/center&gt;	</tw-passagedata><tw-passagedata pid="28" name="End of Game" tags="" position="625,500" size="100,100">&lt;center&gt;&lt;blockquote&gt;
 &lt;&lt;if $days &lt;30&gt;&gt;
 
 Such a bad luck! Everything has to be shut down. Our AI is a good for nothing! Or ... you? Or the game designer?
+
+Restart the game from the sidebar, or close the window.
 &lt;&lt;else&gt;&gt;
 
 If you reached 30 days, I think, it is enough (for this version). You should have seen all: 
@@ -1169,8 +1189,10 @@ Plans:
 - possibility to extend, upgrade and manage tech, components and buildings (per aspera ad astra) for finding out the mysteries
 - if possible: more events with the current ladies
 - sophisticated gameplay (missions, quests, feedback)
+
+You can close the window.
 &lt;&lt;/if&gt;&gt;&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="29" name="Disintegration Menu" tags="" position="1050,500" size="100,100">&lt;center&gt;&lt;center&gt;[img[assets/items/3D-Printer.png]]&lt;/center&gt;
-&lt;div id=&quot;red-title&quot;&gt;&lt;center&gt;&lt;h3&gt;&lt;strong&gt;Disintegration Menu&lt;/strong&gt;&lt;/h3&gt;&lt;/center&gt;&lt;/div&gt;
+&lt;div class=&quot;passage-titles&quot; style=&quot;color: #943838; border-bottom-color: #943838; border-top-color: #943838;&quot;&gt;&lt;center&gt;&lt;h3&gt;&lt;strong&gt;Disintegration Menu&lt;/strong&gt;&lt;/h3&gt;&lt;/center&gt;&lt;/div&gt;
 &lt;div class=&quot;index-screens-small&quot;&gt;&lt;div&gt;&lt;strong&gt;ENERGY:&amp;nbsp;&lt;/strong&gt;
 &lt;&lt;if $energy &gt; $maxenergy&gt;&gt;&lt;&lt;set $energy = $maxenergy&gt;&gt;&lt;&lt;elseif $energy &lt; 0&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;= $energy.toFixed(1)&gt;&gt; of maximal &lt;&lt;= $maxenergy&gt;&gt;&lt;/div&gt;&lt;div&gt;&lt;strong&gt;UNIMATTER:&amp;nbsp;&lt;/strong&gt;
 &lt;&lt;if $unimatter &gt; $maxunimatter&gt;&gt;&lt;&lt;set $unimatter = $maxunimatter&gt;&gt;&lt;&lt;elseif $unimatter &lt; 0&gt;&gt;&lt;&lt;set $unimatter = 0&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;= $unimatter.toFixed(1)&gt;&gt; Unimatter&lt;/div&gt;&lt;div&gt;&lt;&lt;if $Camp_M == true&gt;&gt;available buildings:
@@ -1178,7 +1200,7 @@ Plans:
 &lt;&lt;else&gt;&gt;available buildings:
 &lt;&lt;= $CampJ.building&gt;&gt; from maximal &lt;&lt;= $CampJ.maxbuildings&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;div class=&quot;index-screens-small&quot;&gt;&lt;div style=&quot;width: 100%;&quot;&gt;[[Go to Construction Menu|Construction Menu]]&lt;/div&gt;&lt;/div&gt;
-
+&lt;/center&gt;
 &lt;strong&gt;&lt;u&gt;current components/buildings:&lt;/u&gt;&lt;/strong&gt;
 &lt;ul&gt;&lt;&lt;if  $SubAnalyzer == true&gt;&gt;&lt;li&gt;Lvl 2: [[Substance Analyzer (2E - 5U)|Disintegration Menu][$energy += 2; $unimatter += 5; $SubAnalyzer = false]]&lt;/li&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $CampJ.EHarvester == true &amp;&amp; $Camp_J == true&gt;&gt;
@@ -1209,7 +1231,7 @@ Plans:
     &lt;&lt;if $CampJ.cOrb == true &amp;&amp; $Camp_J == true&gt;&gt;
       &lt;li&gt;+ [[Orb Improvement for Combat (6E - 6U)|Disintegration Menu][$energy += 6; $unimatter += 6; $CampJ.cOrb = false]]&lt;/li&gt;
     &lt;&lt;elseif $CampM.cOrb == true &amp;&amp; $Camp_M == true&gt;&gt;
-      &lt;li&gt;+ [[Orb Improvement for Combat (6E - 6U)|Disintegration Menu][$energy += 6; $unimatter += 6; $CampM.cOrb = false]]&lt;/li&gt;&lt;&lt;/if&gt;&gt;&lt;/ul&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="30" name="Start from Base Mountain" tags="" position="1525,1500" size="100,100">&lt;center&gt;&lt;&lt;if $seenSfBM == false&gt;&gt;&lt;&lt;set $seenSfBM = true&gt;&gt;
+      &lt;li&gt;+ [[Orb Improvement for Combat (6E - 6U)|Disintegration Menu][$energy += 6; $unimatter += 6; $CampM.cOrb = false]]&lt;/li&gt;&lt;&lt;/if&gt;&gt;&lt;/ul&gt;</tw-passagedata><tw-passagedata pid="30" name="Start from Base Mountain" tags="" position="1525,1500" size="100,100">&lt;center&gt;&lt;&lt;if $seenSfBM == false&gt;&gt;&lt;&lt;set $seenSfBM = true&gt;&gt;
 [img[assets/backgrounds/bg-cover.png]]
 &lt;blockquote&gt;
 On a spot of a mountainous area, we found others! Yay! I guess, that is why the AI kept passive, because it knew, we will find the others ...
@@ -1218,17 +1240,17 @@ Both damsels told me that they are less lucky. 3 others of their crewmates didn&
 
 I will go back and tell the others about the new option: the resettling to Camp Mountain.
 
-[[Go to East|4E][$energy -= 0.2]]
+&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go to East|4E][$energy -= 0.2]]&lt;/div&gt;&lt;/div&gt;
 
-&lt;&lt;if $Camp_J == true&gt;&gt;[[Go back to Camp|Camp Jungle][$energy -= 1]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $Camp_J == true&gt;&gt;[[Go back to Camp|Camp Jungle][$energy -= 1]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
 
 &lt;&lt;else&gt;&gt;
 &lt;&lt;if $Camp_M == true&gt;&gt;[img[assets/Ch-Camp/MountainCamp.png]]&lt;&lt;else&gt;&gt;[img[assets/backgrounds/bg-cover.png]]&lt;&lt;/if&gt;&gt;
     &lt;&lt;if $energy != 0&gt;&gt;
       
-      &lt;&lt;if $Camp_J == true&gt;&gt;[[Go back to Base|The Map][$energy -= 1]]&lt;&lt;else&gt;&gt;[[Go back to Base|The Map][$energy -= 1]]&lt;&lt;/if&gt;&gt;
+      &lt;&lt;if $Camp_J == true&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go back to Base|The Map][$energy -= 1]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go back to Base|The Map][$energy -= 1]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
       
-     &lt;&lt;if $Camp_J == true&gt;&gt; [[Go East|4E][$energy -= 0.2]]&lt;&lt;/if&gt;&gt;
+     &lt;&lt;if $Camp_J == true&gt;&gt; &lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go East|4E][$energy -= 0.2]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
     
     &lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
@@ -1245,53 +1267,53 @@ Nothing but jungle and humidity. And the creepy silence. Not even leaves rustlin
 
 How to continue?
 
-&lt;&lt;if $Camp_J == true&gt;&gt;[[Go back to Camp|Camp Jungle][$energy -= 0.4]]&lt;&lt;else&gt;&gt;[[Go back to Base|The Map][$energy -= 0.6]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $Camp_J == true&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go back to Base|The Map][$energy -= 0.4]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go back to Base|The Map][$energy -= 0.6]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
 
-&lt;&lt;if $explored1E == 100&gt;&gt;[[Go West|1E][$energy -= 0.2]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $explored1E == 100&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go West|1E][$energy -= 0.2]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
 
-&lt;&lt;if $explored3E == 100&gt;&gt;[[Go East|3E][$energy -= 0.2]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $explored3E == 100&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go East|3E][$energy -= 0.2]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
 &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="33" name="1NE" tags="" position="1025,1375" size="100,100"></tw-passagedata><tw-passagedata pid="34" name="3E" tags="" position="1275,1500" size="100,100">&lt;center&gt;[img[assets/Ch-Explore/jungle2.png]]
 &lt;blockquote&gt;
 Hm, is that a spaceship? Or what is it? (does not mean anything for this version)
 
 Where to go next?
 
-&lt;&lt;if $Camp_J == true&gt;&gt;[[Go back to Camp|Camp Jungle][$energy -= 0.6]]&lt;&lt;else&gt;&gt;[[Go back to Base|The Map][$energy -= 0.4]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $Camp_J == true&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go back to Camp|Camp Jungle][$energy -= 0.6]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go back to Base|The Map][$energy -= 0.4]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
 
-&lt;&lt;if $explored2E == 100&gt;&gt;[[Go West|2E][$energy -= 0.2]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $explored2E == 100&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go West|2E][$energy -= 0.2]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
 
-&lt;&lt;if $explored4E == 100&gt;&gt;[[Go East|4E][$energy -= 0.2]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $explored4E == 100&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go East|4E][$energy -= 0.2]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
 &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="35" name="1SE" tags="" position="1025,1625" size="100,100"></tw-passagedata><tw-passagedata pid="36" name="4E" tags="" position="1400,1500" size="100,100">&lt;center&gt;[img[assets/Ch-Explore/800px-SemienWaterfall.jpeg]]
 &lt;blockquote&gt;
 Oh boy, if I will see a path through this jungle?
 
 Where to go next? 
 
-&lt;&lt;if $Camp_J == true&gt;&gt;[[Go back to Camp|Camp Jungle][$energy -= 0.8]]&lt;&lt;else&gt;&gt;[[Go back to Base|The Map][$energy -= 0.2]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $Camp_J == true&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go back to Camp|Camp Jungle][$energy -= 0.8]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go back to Base|The Map][$energy -= 0.2]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
 
-&lt;&lt;if $explored3E == 100&gt;&gt;[[Go West|3E][$energy -= 0.2]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $explored3E == 100&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go West|3E][$energy -= 0.2]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
 
-&lt;&lt;if $exploredMB == 100&gt;&gt;[[Go East|Start from Base Mountain][$energy -= 0.2]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $exploredMB == 100&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go East|Start from Base Mountain][$energy -= 0.2]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
 &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="37" name="1N3E" tags="" position="1275,1375" size="100,100"></tw-passagedata><tw-passagedata pid="38" name="1S2E" tags="" position="1150,1625" size="100,100"></tw-passagedata><tw-passagedata pid="39" name="1N2E" tags="" position="1150,1375" size="100,100"></tw-passagedata><tw-passagedata pid="40" name="3W" tags="" position="525,1500" size="100,100">&lt;center&gt;[img[assets/Ch-Explore/coastline3.png]]
 &lt;blockquote&gt;
 Aah. Open space. Open air.
 
-&lt;&lt;if $Camp_J == true&gt;&gt;[[Go back to Base|The Map][$energy -= 0.6]]&lt;&lt;else&gt;&gt;[[Go back to Base|The Map][$energy -= 1.6]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $Camp_J == true&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go back to Base|The Map][$energy -= 0.6]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;else&gt;&gt;[[Go back to Base|The Map][$energy -= 1.6]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 
-[[Go back East|2W][$energy -= 0.2]]
+&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go back East|2W][$energy -= 0.2]]&lt;/div&gt;&lt;/div&gt;
 
-&lt;&lt;if $explored4W == 100&gt;&gt;[[Go further West|4W][$energy -= 0.2]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $explored4W == 100&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go further West|4W][$energy -= 0.2]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
 &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="41" name="1S2W" tags="" position="650,1625" size="100,100"></tw-passagedata><tw-passagedata pid="42" name="4W" tags="" position="400,1500" size="100,100">&lt;center&gt;[img[assets/Ch-Explore/coast1.png]]
 &lt;blockquote&gt;
 The colors become more and more nicer, friendlier ...
 
-&lt;&lt;if $Camp_J == true&gt;&gt;[[Go back to Base|The Map][$energy -= 0.8]]&lt;&lt;else&gt;&gt;[[Go back to Base|The Map][$energy -= 1.8]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $Camp_J == true&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go back to Base|The Map][$energy -= 0.8]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go back to Base|The Map][$energy -= 1.8]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 
-[[Go back East|3W][$energy -= 0.2]]
+&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go back East|3W][$energy -= 0.2]]&lt;/div&gt;&lt;/div&gt;
 
-&lt;&lt;if $explored5W == 100&gt;&gt;[[Go to the Beach!|5W][$energy -= 0.2]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $explored5W == 100&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go to the Beach!|5W][$energy -= 0.2]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
 &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="43" name="2N" tags="" position="900,1250" size="100,100">&lt;center&gt;[img[assets/Ch-Explore/unimatter_deposit.png]]
 &lt;blockquote&gt;
 There is no way to go further north in this swampy area. Possibility to go further north is lost, but something else possibly is gained.
@@ -1301,35 +1323,34 @@ Since, naturally, there is a substance analyzer our inventory, we can determine 
 
 Go to Camp, depositing the unimatter?
 
-&lt;&lt;if $Camp_J == true&gt;&gt;[[Yes|Camp Jungle][$energy -= 0.4; $unimatter += $carrycap]]&lt;&lt;else&gt;&gt;[[Yes|Camp Jungle][$energy -= 1.4; $unimatter += $carrycap]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $Camp_J == true&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Yes|Camp Jungle][$energy -= 0.4; $unimatter += $carrycap]]&lt;&lt;else&gt;&gt;[[Yes|Camp Jungle][$energy -= 1.4; $unimatter += $carrycap]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
 
-&lt;&lt;if $Camp_J == true&gt;&gt;[[Nah, I go back to the Base|The Map][$energy -= 0.4]]&lt;&lt;else&gt;&gt;[[Nah, I go back to the Base|The Map][$energy -= 1.4]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $Camp_J == true&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Nah, I go back to the Base|The Map][$energy -= 0.4]]&lt;&lt;else&gt;&gt;[[Nah, I go back to the Base|The Map][$energy -= 1.4]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;else&gt;&gt;
 Nothing to do here. A substance analyzer is needed here.
 
-&lt;&lt;if $Camp_J == true&gt;&gt;[[Go back to Base|The Map][$energy -= 0.4]]&lt;&lt;else&gt;&gt;[[Go back to Base|The Map][$energy -= 1.4]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $Camp_J == true&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go back to Base|The Map][$energy -= 0.4]]&lt;&lt;else&gt;&gt;[[Go back to Base|The Map][$energy -= 1.4]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
-[[Go South|1N][$energy -= 0.2]]
+&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go South|1N][$energy -= 0.2]]&lt;/div&gt;&lt;/div&gt;
 
 (Whoa. The longer I look at the picture; I cannot decide whether stones are falling from the sky or it is a shore from a sea?)
 &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="44" name="2S" tags="" position="900,1750" size="100,100">&lt;center&gt;[img[assets/Ch-Explore/desert2.png]]
-&lt;blockquote&gt;
-Sand. Heat. Weird formations. Sand. Heat. Did I say Heat? Heat! I want a camel!
-
-&lt;&lt;if $Camp_J == true&gt;&gt;[[Go back to Base|The Map][$energy -= 0.2]]&lt;&lt;else&gt;&gt;[[Go back to Base|The Map][$energy -= 1.2]]&lt;&lt;/if&gt;&gt;
-&lt;&lt;/if&gt;&gt;
-
-[[Go North|2N][$energy -= 0.2]]
-
-&lt;&lt;if $explored3S == 100&gt;&gt;[[Go further South|3S][$energy -= 0.2]]&lt;&lt;/if&gt;&gt;
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="45" name="5W" tags="" position="275,1500" size="100,100">&lt;center&gt;[img[assets/Ch-Explore/coast2island.png]]
+  &lt;blockquote&gt;
+  Sand. Heat. Weird formations. Sand. Heat. Did I say Heat? Heat! I want a camel!
+  
+  &lt;&lt;if $Camp_J == true&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go back to Base|The Map][$energy -= 0.2]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go back to Base|The Map][$energy -= 1.2]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+  
+  &lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go North|2N][$energy -= 0.2]]&lt;/div&gt;&lt;/div&gt;
+  
+  &lt;&lt;if $explored3S == 100&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go further South|3S][$energy -= 0.2]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+  &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="45" name="5W" tags="" position="275,1500" size="100,100">&lt;center&gt;[img[assets/Ch-Explore/coast2island.png]]
 &lt;blockquote&gt;
 Sandy Beach! That&#39;s gonna be a spot!
 
-&lt;&lt;if $Camp_J == true&gt;&gt;[[Go back to Base|The Map][$energy -= 1]]&lt;&lt;else&gt;&gt;[[Go back to Base|The Map][$energy -= 2]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $Camp_J == true&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go back to Base|The Map][$energy -= 1]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go back to Base|The Map][$energy -= 2]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 
-[[Go back East|4W][$energy -= 0.2]]
+&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go back East|4W][$energy -= 0.2]]&lt;/div&gt;&lt;/div&gt;
 &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="46" name="3S" tags="" position="900,1875" size="100,100">&lt;center&gt;[img[assets/Ch-Explore/energy_deposit.png]]
 &lt;blockquote&gt;
 Whoa! That looks intense!
@@ -1340,7 +1361,7 @@ And, yes, it is an energy globe. Naturally forming in this barren land; or becau
 
 Do I want to take it to the Camp?
 
-&lt;&lt;if $Camp_J == true&gt;&gt;[[Take it to the Camp|Camp Jungle][$energy += ($carrycap*2.5)-0.6]]&lt;&lt;else&gt;&gt;[[Take it to the Camp|Camp Jungle][$energy += ($carrycap*2.5)-1.6]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $Camp_J == true&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Take it to the Camp|Camp Jungle][$energy += ($carrycap*2.5)-0.6]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Take it to the Camp|Camp Jungle][$energy += ($carrycap*2.5)-1.6]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
 
 &lt;&lt;else&gt;&gt; 
 
@@ -1355,9 +1376,9 @@ Are you nitpicking me?!
 Hmn?!
 &lt;&lt;/if&gt;&gt;
 
-&lt;&lt;if $Camp_J == true&gt;&gt;[[Go back to Base|The Map][$energy -= 0.6]]&lt;&lt;else&gt;&gt;[[Go back to Base|The Map][$energy -= 1.6]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $Camp_J == true&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go back to Base|The Map][$energy -= 0.6]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go back to Base|The Map][$energy -= 1.6]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
 
-[[Go back North|2S][$energy -= 0.2]]
+&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go back North|2S][$energy -= 0.2]]&lt;/div&gt;&lt;/div&gt;
 &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="47" name="1NW" tags="" position="775,1375" size="100,100"></tw-passagedata><tw-passagedata pid="48" name="1N2W" tags="" position="650,1375" size="100,100"></tw-passagedata><tw-passagedata pid="49" name="1SW" tags="" position="775,1625" size="100,100"></tw-passagedata><tw-passagedata pid="50" name="2W" tags="" position="650,1500" size="100,100">&lt;center&gt;[img[assets/Ch-Explore/swampy_area_2.png]]
 &lt;blockquote&gt;
 Passing on the border of the swamp area.
@@ -1368,22 +1389,22 @@ Those clay-like bubbles can be used as unimatter, though of inferior quality.
 
 Bring them to Camp anyway?
 
-&lt;&lt;if $Camp_J == true&gt;&gt;[[Yes|Camp Jungle][$energy -= 0.4; $unimatter += $carrycap/4]]&lt;&lt;else&gt;&gt;[[Yes|Camp Jungle][$energy -= 1.4; $unimatter += $carrycap/4]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $Camp_J == true&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Yes|Camp Jungle][$energy -= 0.4; $unimatter += $carrycap/4]]&lt;&lt;else&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Yes|Camp Jungle][$energy -= 1.4; $unimatter += $carrycap/4]]&lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
-&lt;&lt;if $Camp_J == true&gt;&gt;[[I go back to the Base|The Map][$energy -= 0.4]]&lt;&lt;else&gt;&gt;[[I go back to the Base|The Map][$energy -= 1.4]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $Camp_J == true&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[I go back to the Base|The Map][$energy -= 0.4]]&lt;&lt;else&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[I go back to the Base|The Map][$energy -= 1.4]]&lt;&lt;/if&gt;&gt;
 
-[[Go back East|1W][$energy -= 0.2]]
+&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go back East|1W][$energy -= 0.2]]
 
-&lt;&lt;if $explored3W == 100&gt;&gt;[[Go further West|3W][$energy -= 0.2]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $explored3W == 100&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go further West|3W][$energy -= 0.2]]&lt;&lt;/if&gt;&gt;
 &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="51" name="1N" tags="" position="900,1375" size="100,100">&lt;center&gt;[img[assets/Ch-Explore/marshland1.png]]
 &lt;blockquote&gt;
 Hm, a swampy area. Nothing useful here.
 
-&lt;&lt;if $explored2N == 100&gt;&gt;[[Go further North|2N][$energy -= 0.2]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $explored2N == 100&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go further North|2N][$energy -= 0.2]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
 
-&lt;&lt;if $Camp_M == true&gt;&gt;[[Go South|Start from Base Jungle][$energy -= 1.2]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $Camp_M == true&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go South|Start from Base Jungle][$energy -= 1.2]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
 
-&lt;&lt;if $Camp_J == true&gt;&gt;[[Go back to Base|The Map][$energy -= 0.2]]&lt;&lt;else&gt;&gt;[[Go back to Base|The Map][$energy -= 1.2]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $Camp_J == true&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go back to Base|The Map][$energy -= 0.2]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;else&gt;&gt;[[Go back to Base|The Map][$energy -= 1.2]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
 &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="52" name="Territories" tags="" position="350,25" size="100,100">&lt;&lt;set $exploredJB = 0&gt;&gt;
 &lt;&lt;set $exploredMB = 0&gt;&gt;
 &lt;&lt;set $explored1N = 0&gt;&gt;
@@ -1411,49 +1432,50 @@ Hm, a swampy area. Nothing useful here.
 &lt;&lt;set $explored4W = 0&gt;&gt;
 &lt;&lt;set $explored5E = 0&gt;&gt;
 &lt;&lt;set $explored5W = 0&gt;&gt;</tw-passagedata><tw-passagedata pid="53" name="1E" tags="" position="1025,1500" size="100,100">&lt;center&gt;[img[assets/Ch-Explore/food.png]]
-&lt;blockquote&gt;
-That looks like something. Could it be edible?
-
-&lt;&lt;if hasVisited(&quot;1E&quot;) &gt;=1 &amp;&amp; $SubAnalyzer == true&gt;&gt;After running them through the Substance Analyzer, it is definitive that those are edible. Those are optimal to be our nutrients.
-
-As what do I want to bring them to Camp?
-
-&lt;&lt;if $Camp_J == true&gt;&gt;
-[[As Nutrients|Camp Jungle][$energy -= 0.2; $nutrients += $carrycap*3]]
-
-[[As Unimatter|Camp Jungle][$energy -= 0.2; $unimatter += $carrycap/3]]
-
-&lt;&lt;if $explored2E == 100&gt;&gt;[[I explore further, I go East|2E][$energy -= 0.2]]&lt;&lt;/if&gt;&gt;
-&lt;&lt;else&gt;&gt;
-[[As Nutrients|Camp Mountain][$energy -= 0.8; $nutrients += $carrycap*3]]
-
-[[As Unimatter|Camp Mountain][$energy -= 0.8; $unimatter += $carrycap/3]]
-
-&lt;&lt;if $exploredJB == 100&gt;&gt;[[I explore further, I go West|Start from Base Jungle][$energy -= 0.2]]&lt;&lt;/if&gt;&gt;
-
-&lt;&lt;/if&gt;&gt;&lt;&lt;else&gt;&gt;
-Hm, too risky to try it out without a substance analyzer. We can use it as unimatter, though not plentiful.
-
-Do I wish to bring it to Camp?
-
-&lt;&lt;if $Camp_J == true&gt;&gt;[[Yes|Camp Jungle][$energy -= 0.2; $unimatter += $carrycap/3]]&lt;&lt;else&gt;&gt;[[Yes|Camp Mountain][$energy -= 1; $unimatter += $carrycap/3]]&lt;&lt;/if&gt;&gt;
-&lt;&lt;endif&gt;&gt;
-
-&lt;&lt;if $Camp_J == true&gt;&gt;[[Go back to Base|The Map][$energy -= 0.2]]&lt;&lt;else&gt;&gt;[[Go back to Base|The Map][$energy -= 0.8]]&lt;&lt;/if&gt;&gt;
-
-&lt;&lt;if $exploredJB == 100&gt;&gt;[[Go West|Start from Base Jungle][$energy -= 0.2]]&lt;&lt;/if&gt;&gt;
-
-&lt;&lt;if $explored2E == 100&gt;&gt;[[Go East|2E][$energy -= 0.2]]&lt;&lt;/if&gt;&gt;
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="54" name="1W" tags="" position="775,1500" size="100,100">&lt;center&gt;[img[assets/Ch-Explore/jungle1.png]]
+  &lt;blockquote&gt;
+  That looks like something. Could it be edible?
+  
+  &lt;&lt;if hasVisited(&quot;1E&quot;) &gt;= 1 &amp;&amp; $SubAnalyzer == true&gt;&gt;After running them through the Substance Analyzer, it is definitive that those are edible. Those are optimal to be our nutrients.
+  
+  As what do I want to bring them to Camp?
+  
+    &lt;&lt;nobr&gt;&gt;
+    &lt;&lt;if $Camp_J == true&gt;&gt;
+    &lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[As Nutrients|Camp Jungle][$energy -= 0.2; $nutrients += $carrycap*3]]&lt;/div&gt;&lt;/div&gt;
+    &lt;br&gt;
+    &lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[As Unimatter|Camp Jungle][$energy -= 0.2; $unimatter += $carrycap/3]]&lt;/div&gt;&lt;/div&gt;
+    &lt;br&gt;
+      &lt;&lt;if $explored2E == 100&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[I explore further, I go East|2E][$energy -= 0.2]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+    &lt;&lt;else&gt;&gt;
+    &lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[As Nutrients|Camp Mountain][$energy -= 0.8; $nutrients += $carrycap*3]]&lt;/div&gt;&lt;/div&gt;
+    &lt;br&gt;
+    &lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[As Unimatter|Camp Mountain][$energy -= 0.8; $unimatter += $carrycap/3]]&lt;/div&gt;&lt;/div&gt;
+    &lt;br&gt;
+      &lt;&lt;if $exploredJB == 100&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[I explore further, I go West|Start from Base Jungle][$energy -= 0.2]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+    &lt;&lt;/if&gt;&gt;&lt;&lt;/nobr&gt;&gt;
+  &lt;&lt;else&gt;&gt;
+  Hm, too risky to try it out without a substance analyzer. We can use it as unimatter, though not plentiful.
+  
+  Do I wish to bring it to Camp?
+  
+    &lt;&lt;if $Camp_J == true&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Yes|Camp Jungle][$energy -= 0.2; $unimatter += $carrycap/3]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Yes|Camp Mountain][$energy -= 1; $unimatter += $carrycap/3]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+  &lt;&lt;/if&gt;&gt;&lt;&lt;nobr&gt;&gt;
+    &lt;br&gt;
+    &lt;&lt;if $Camp_J == true&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go back to Base|The Map][$energy -= 0.2]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go back to Base|The Map][$energy -= 0.8]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+    &lt;br&gt;
+    &lt;&lt;if $exploredJB == 100&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go West|Start from Base Jungle][$energy -= 0.2]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+    &lt;br&gt;
+    &lt;&lt;if $explored2E == 100&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go East|2E][$energy -= 0.2]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+  &lt;&lt;/nobr&gt;&gt;&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="54" name="1W" tags="" position="775,1500" size="100,100">&lt;center&gt;[img[assets/Ch-Explore/jungle1.png]]
 &lt;blockquote&gt;
 Nothing but forest, jungle, leaves, green, green, green and more greens. And weirdly silent, that&#39;s eerie.
 
-&lt;&lt;if $Camp_J == true&gt;&gt;[[Go back to Base|The Map][$energy -= 0.2]]&lt;&lt;else&gt;&gt;[[Go back to Base|The Map][$energy -= 1.2]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $Camp_J == true&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go back to Base|The Map][$energy -= 0.2]]&lt;&lt;else&gt;&gt;[[Go back to Base|The Map][$energy -= 1.2]]&lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 
-[[Go East|Start from Base Jungle][$energy -= 0.2]]
+&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go East|Start from Base Jungle][$energy -= 0.2]]
 
-&lt;&lt;if $explored2W == 100&gt;&gt;[[Go further West|2W][$energy -= 0.2]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $explored2W == 100&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go further West|2W][$energy -= 0.2]]&lt;&lt;/if&gt;&gt;
 &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="55" name="1S" tags="" position="900,1625" size="100,100">&lt;center&gt;[img[assets/Ch-Explore/desert3.png]]
 &lt;blockquote&gt;
 Dryness. 
@@ -1464,303 +1486,302 @@ Dryness!
 
 Water!
 
-&lt;&lt;if $Camp_J == true&gt;&gt;[[Go back to Base|The Map][$energy -= 0.2]]&lt;&lt;else&gt;&gt;[[Go back to Base|The Map][$energy -= 1.2]]&lt;&lt;/if&gt;&gt;
-&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $Camp_J == true&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go back to Base|The Map][$energy -= 0.2]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go back to Base|The Map][$energy -= 1.2]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
 
-&lt;&lt;if $Camp_J == true&gt;&gt;[[Go North|The Map][$energy -= 0.2]]&lt;&lt;else&gt;&gt;[[Go North|Start from Base Jungle][$energy -= 0.2]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $Camp_J == true&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go North|The Map][$energy -= 0.2]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go North|Start from Base Jungle][$energy -= 0.2]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
 
-&lt;&lt;if $explored2S == 100&gt;&gt;[[Go further South|2S][$energy -= 0.2]]&lt;&lt;/if&gt;&gt;
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="56" name="The Map" tags="" position="900,825" size="100,100">&lt;center&gt;&lt;blockquote&gt;
-&lt;&lt;if $xeno == 0&gt;&gt;&lt;&lt;set $xeno = 0.2&gt;&gt;&lt;&lt;/if&gt;&gt;
-  &lt;&lt;if random(80) &lt; 2&gt;&gt;
-  
-      [img[assets/Ch-Explore/hostile_encounter1.png]]
+&lt;&lt;if $explored2S == 100&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go further South|2S][$energy -= 0.2]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="56" name="The Map" tags="" position="900,825" size="100,100">&lt;center&gt;
+  &lt;&lt;if $xeno == 0&gt;&gt;&lt;&lt;set $xeno = 0.2&gt;&gt;&lt;&lt;/if&gt;&gt;
+    &lt;&lt;if random(80) &lt; 2&gt;&gt;
     
-      Damn! Some mother alien, animal, four-legger seems to be in aggressive stance.
-    
-      &lt;&lt;if $xeno &lt; 5&gt;&gt;The outcome depends on my combat ability. Hence: how lucky the mother will be.
-        &lt;&lt;if $combat &gt;= 5&gt;&gt;No damage, successfully coming out unscathed.
-        &lt;&lt;elseif $combat &gt;= 4&gt;&gt;Slight damage, that need constant maintaining until repaired. &lt;&lt;set $maxenergy -= 1&gt;&gt;&lt;&lt;set $combat += 0.2&gt;&gt;
-        &lt;&lt;elseif $combat &gt;= 3&gt;&gt;Moderate damage. Not so good. That need a repair.&lt;&lt;set $maxenergy -= 2&gt;&gt;&lt;&lt;set $combat += 0.5&gt;&gt;
-        &lt;&lt;elseif $combat &gt;= 2&gt;&gt;Severe damage, It doesn&#39;t look good. The only consolation is the data collection of combat.&lt;&lt;set $maxenergy -= 3&gt;&gt;&lt;&lt;set $combat += 0.8&gt;&gt;
-        &lt;&lt;else&gt;&gt;
-          &lt;&lt;if $combat &gt; $xeno&gt;&gt;
-            &lt;&lt;if random(10)*$combat &gt; 10&gt;&gt;Lucky! Escape run successful. Although, some damages were taken in, that drains our constant energy use.&lt;&lt;set $maxenergy -= 1&gt;&gt;&lt;&lt;set $combat += 0.3&gt;&gt;
-              &lt;&lt;if $unimatter &gt; 0&gt;&gt;&lt;&lt;set $unimatter -= 1&gt;&gt;&lt;&lt;/if&gt;&gt;
-            &lt;&lt;else&gt;&gt;Failure! Emergency mode. Hanging on a thin thread.&lt;&lt;set $maxenergy -= 5&gt;&gt;&lt;&lt;set $combat += 0.5&gt;&gt;
-              &lt;&lt;if $unimatter &gt; 0&gt;&gt;&lt;&lt;set $unimatter -= 6&gt;&gt;&lt;&lt;/if&gt;&gt;
-            &lt;&lt;/if&gt;&gt;
+        [img[assets/Ch-Explore/hostile_encounter1.png]]
+      
+        Damn! Some mother alien, animal, four-legger seems to be in aggressive stance.
+      
+        &lt;&lt;if $xeno &lt; 5&gt;&gt;The outcome depends on my combat ability. Hence: how lucky the mother will be.
+          &lt;&lt;if $combat &gt;= 5&gt;&gt;No damage, successfully coming out unscathed.
+          &lt;&lt;elseif $combat &gt;= 4&gt;&gt;Slight damage, that need constant maintaining until repaired. &lt;&lt;set $maxenergy -= 1&gt;&gt;&lt;&lt;set $energy -= 1&gt;&gt;&lt;&lt;set $combat += 0.2&gt;&gt;
+          &lt;&lt;elseif $combat &gt;= 3&gt;&gt;Moderate damage. Not so good. That need a repair.&lt;&lt;set $maxenergy -= 2&gt;&gt;&lt;&lt;set $energy -= 2&gt;&gt;&lt;&lt;set $combat += 0.5&gt;&gt;
+          &lt;&lt;elseif $combat &gt;= 2&gt;&gt;Severe damage, It doesn&#39;t look good. The only consolation is the data collection of combat.&lt;&lt;set $maxenergy -= 3&gt;&gt;&lt;&lt;set $energy -= 3&gt;&gt;&lt;&lt;set $combat += 0.8&gt;&gt;
           &lt;&lt;else&gt;&gt;
-            &lt;&lt;if random(10)*$xeno &gt; 10&gt;&gt;Trick! I throw something over them, making a landing sound behind them and run as fast as I can.&lt;&lt;set $nutrients -= 8&gt;&gt;
-            &lt;&lt;else&gt;&gt;Failure! Emergency mode. Hanging on a thin thread.&lt;&lt;set $maxenergy -= 5&gt;&gt;&lt;&lt;set $combat += 0.5&gt;&gt;
-              &lt;&lt;if $unimatter &gt; 0&gt;&gt;&lt;&lt;set $unimatter -= 6&gt;&gt;&lt;&lt;/if&gt;&gt;
+            &lt;&lt;if $combat &gt; $xeno&gt;&gt;
+              &lt;&lt;if random(10)*$combat &gt; 10&gt;&gt;Lucky! Escape run successful. Although, some damages were taken in, that drains our constant energy use.&lt;&lt;set $maxenergy -= 1&gt;&gt;&lt;&lt;set $energy -= 1&gt;&gt;&lt;&lt;set $combat += 0.3&gt;&gt;
+                &lt;&lt;if $unimatter &gt; 0&gt;&gt;&lt;&lt;set $unimatter -= 1&gt;&gt;&lt;&lt;/if&gt;&gt;
+              &lt;&lt;else&gt;&gt;Failure! Intense Damage.&lt;&lt;set $maxenergy -= 5&gt;&gt;&lt;&lt;set $energy -= 5&gt;&gt;&lt;&lt;set $combat += 0.5&gt;&gt;
+                &lt;&lt;if $unimatter &gt; 0&gt;&gt;&lt;&lt;set $unimatter -= 6&gt;&gt;&lt;&lt;/if&gt;&gt;
+              &lt;&lt;/if&gt;&gt;
+            &lt;&lt;else&gt;&gt;
+              &lt;&lt;if random(10)*$xeno &gt; 10&gt;&gt;Trick! I throw something over them, making a landing sound behind them and run as fast as I can.&lt;&lt;set $nutrients -= 8&gt;&gt;
+              &lt;&lt;else&gt;&gt;Failure! Intense Damage.&lt;&lt;set $maxenergy -= 5&gt;&gt;&lt;&lt;set $energy -= 5&gt;&gt;&lt;&lt;set $combat += 0.5&gt;&gt;
+                &lt;&lt;if $unimatter &gt; 0&gt;&gt;&lt;&lt;set $unimatter -= 6&gt;&gt;&lt;&lt;/if&gt;&gt;
+              &lt;&lt;/if&gt;&gt;
             &lt;&lt;/if&gt;&gt;
           &lt;&lt;/if&gt;&gt;
+        &lt;&lt;else&gt;&gt;With enough knowledge in alien life, it is interpreted that the alien animals can be kept at distance if food is thrown to them. I guess, these are our tax collectors, or highwaymen.&lt;&lt;set $nutrients -= 5&gt;&gt;
         &lt;&lt;/if&gt;&gt;
-      &lt;&lt;else&gt;&gt;With enough knowledge in alien life, it is interpreted that the alien animals can be kept at distance if food is thrown to them. I guess, these are our tax collectors, or highwaymen.&lt;&lt;set $nutrients -= 5&gt;&gt;
+    
+        [[Not good, not good. Surviving here is harsh!|The Map]]
+    
+    &lt;&lt;else&gt;&gt;
+      &lt;&lt;nobr&gt;&gt;
+      &lt;div id=&quot;the_map&quot;&gt;
+      
+      &lt;&lt;if $Camp_J == true || $explored1E &gt;= 100&gt;&gt;
+        &lt;div id=&quot;theJBase&quot;&gt;
+          &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
+          &lt;&lt;else&gt;&gt;
+            &lt;&lt;if $Camp_M == true&gt;&gt;
+              &lt;&lt;if $exploredJB &gt;= 100&gt;&gt;&lt;&lt;set $exploredJB = 100&gt;&gt;[[JB|Start from Base Jungle][$energy -= 1]]
+              &lt;&lt;else&gt;&gt;
+                &lt;&lt;button &quot;&lt;&lt;print $exploredJB.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
+                  &lt;&lt;set $exploredJB += random(1,25)*$xeno; $energy -= 1; $xeno += 0.02&gt;&gt;
+                  &lt;&lt;goto [[The Map]]&gt;&gt;
+                &lt;&lt;/button&gt;&gt;
+              &lt;&lt;/if&gt;&gt;
+            &lt;&lt;/if&gt;&gt;
+          &lt;&lt;/if&gt;&gt;
+        &lt;/div&gt;
       &lt;&lt;/if&gt;&gt;
-  
-      [[Not good, not good. Surviving here is harsh!|The Map]]
-  
-  &lt;&lt;else&gt;&gt;
-    &lt;&lt;nobr&gt;&gt;
-    &lt;div id=&quot;the_map&quot;&gt;
-    
-    &lt;&lt;if $Camp_J == true || $explored1E &gt;= 100&gt;&gt;
-      &lt;div id=&quot;theJBase&quot;&gt;
-        &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-        &lt;&lt;else&gt;&gt;
-          &lt;&lt;if $Camp_M == true&gt;&gt;
-            &lt;&lt;if $exploredJB &gt;= 100&gt;&gt;&lt;&lt;set $exploredJB = 100&gt;&gt;[[JB|Start from Base Jungle][$energy -= 1]]
+      
+      &lt;&lt;if $Camp_J == true || $explored2E &gt;= 100&gt;&gt;
+        &lt;div id=&quot;p1E&quot;&gt;
+          &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
+          &lt;&lt;else&gt;&gt;
+            &lt;&lt;if $explored1E &gt;= 100&gt;&gt;&lt;&lt;set $explored1E = 100&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/food.png][1E][$energy -= 0.2]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/food.png][1E][$energy -= 0.8]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
             &lt;&lt;else&gt;&gt;
-              &lt;&lt;button &quot;&lt;&lt;print $exploredJB.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-                &lt;&lt;set $exploredJB += random(1,25)*$xeno; $energy -= 1; $xeno += 0.02&gt;&gt;
+              &lt;&lt;button &quot;&lt;&lt;print $explored1E.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
+                &lt;&lt;set $explored1E += random(1,30)*$xeno; $energy -= 1; $xeno += 0.05&gt;&gt;
                 &lt;&lt;goto [[The Map]]&gt;&gt;
               &lt;&lt;/button&gt;&gt;
             &lt;&lt;/if&gt;&gt;
           &lt;&lt;/if&gt;&gt;
-        &lt;&lt;/if&gt;&gt;
-      &lt;/div&gt;
-    &lt;&lt;/if&gt;&gt;
-    
-    &lt;&lt;if $Camp_J == true || $explored2E &gt;= 100&gt;&gt;
-      &lt;div id=&quot;p1E&quot;&gt;
-        &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-        &lt;&lt;else&gt;&gt;
-          &lt;&lt;if $explored1E &gt;= 100&gt;&gt;&lt;&lt;set $explored1E = 100&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;[[1E][$energy -= 0.2]]&lt;&lt;else&gt;&gt;[[1E][$energy -= 0.8]]&lt;&lt;/if&gt;&gt;
+        &lt;/div&gt;
+      &lt;&lt;/if&gt;&gt;
+      
+      &lt;&lt;if $explored1E &gt;= 100 || $explored3E &gt;= 100&gt;&gt;
+        &lt;div id=&quot;p2E&quot;&gt;
+          &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
           &lt;&lt;else&gt;&gt;
-            &lt;&lt;button &quot;&lt;&lt;print $explored1E.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-              &lt;&lt;set $explored1E += random(1,30)*$xeno; $energy -= 1; $xeno += 0.05&gt;&gt;
-              &lt;&lt;goto [[The Map]]&gt;&gt;
-            &lt;&lt;/button&gt;&gt;
-          &lt;&lt;/if&gt;&gt;
-        &lt;&lt;/if&gt;&gt;
-      &lt;/div&gt;
-    &lt;&lt;/if&gt;&gt;
-    
-    &lt;&lt;if $explored1E &gt;= 100 || $explored3E &gt;= 100&gt;&gt;
-      &lt;div id=&quot;p2E&quot;&gt;
-        &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-        &lt;&lt;else&gt;&gt;
-          &lt;&lt;if $explored2E &gt;= 100&gt;&gt;&lt;&lt;set $explored2E = 100&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;[[2E][$energy -= 0.4]]&lt;&lt;else&gt;&gt;[[2E][$energy -= 0.6]]&lt;&lt;/if&gt;&gt;
-          &lt;&lt;else&gt;&gt;
-            &lt;&lt;button &quot;&lt;&lt;print $explored2E.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-              &lt;&lt;set $explored2E += random(1,25)*$xeno; $energy -= 1; $xeno += 0.05&gt;&gt;
-              &lt;&lt;goto [[The Map]]&gt;&gt;
-            &lt;&lt;/button&gt;&gt;
-          &lt;&lt;/if&gt;&gt;
-        &lt;&lt;/if&gt;&gt;
-      &lt;/div&gt;
-    &lt;&lt;/if&gt;&gt;
-    
-    &lt;&lt;if $explored2E &gt;= 100 || $explored4E &gt;= 100&gt;&gt;
-      &lt;div id=&quot;p3E&quot;&gt;
-        &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-        &lt;&lt;else&gt;&gt;
-          &lt;&lt;if $explored3E &gt;= 100&gt;&gt;&lt;&lt;set $explored3E = 100&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;[[3E][$energy -= 0.6]]&lt;&lt;else&gt;&gt;[[3E][$energy -= 0.4]]&lt;&lt;/if&gt;&gt;
-          &lt;&lt;else&gt;&gt;
-            &lt;&lt;button &quot;&lt;&lt;print $explored3E.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-              &lt;&lt;set $explored3E += random(1,25)*$xeno; $energy -= 1; $xeno += 0.05&gt;&gt;
-              &lt;&lt;goto [[The Map]]&gt;&gt;
-            &lt;&lt;/button&gt;&gt;
-          &lt;&lt;/if&gt;&gt;
-        &lt;&lt;/if&gt;&gt;
-      &lt;/div&gt;
-    &lt;&lt;/if&gt;&gt;
-    
-    &lt;&lt;if $explored3E &gt;= 100 || $exploredMB &gt;= 100 || $Camp_M == true&gt;&gt;
-      &lt;div id=&quot;p4E&quot;&gt;
-        &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-        &lt;&lt;else&gt;&gt;
-          &lt;&lt;if $explored4E &gt;= 100&gt;&gt;&lt;&lt;set $explored4E = 100&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;[[4E][$energy -= 0.8]]&lt;&lt;else&gt;&gt;[[4E][$energy -= 0.2]]&lt;&lt;/if&gt;&gt;
-          &lt;&lt;else&gt;&gt;
-            &lt;&lt;button &quot;&lt;&lt;print $explored4E.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-              &lt;&lt;set $explored4E += random(1,25)*$xeno; $energy -= 1; $xeno += 0.05&gt;&gt;
-              &lt;&lt;goto [[The Map]]&gt;&gt;
-            &lt;&lt;/button&gt;&gt;
-          &lt;&lt;/if&gt;&gt;
-        &lt;&lt;/if&gt;&gt;
-      &lt;/div&gt;
-    &lt;&lt;/if&gt;&gt;
-  
-    &lt;&lt;if $Camp_M == true || $explored4E &gt;= 100&gt;&gt;
-      &lt;div id=&quot;theMBase&quot;&gt;
-        &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-        &lt;&lt;else&gt;&gt;
-          &lt;&lt;if $Camp_J == true&gt;&gt;
-            &lt;&lt;if $exploredMB &gt;= 100&gt;&gt;&lt;&lt;set $exploredMB = 100&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;[[MB|Start from Base Mountain][$energy -= 1]]&lt;&lt;else&gt;&gt;[[MB|Start from Base Mountain]]&lt;&lt;/if&gt;&gt;
+            &lt;&lt;if $explored2E &gt;= 100&gt;&gt;&lt;&lt;set $explored2E = 100&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/jungle4.png][2E][$energy -= 0.4]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/jungle4.png][2E][$energy -= 0.6]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
             &lt;&lt;else&gt;&gt;
-              &lt;&lt;button &quot;&lt;&lt;print $exploredMB.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-                &lt;&lt;set $exploredMB += random(1,15)*$xeno; $energy -= 1; $xeno += 0.05&gt;&gt;
+              &lt;&lt;button &quot;&lt;&lt;print $explored2E.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
+                &lt;&lt;set $explored2E += random(1,25)*$xeno; $energy -= 1; $xeno += 0.05&gt;&gt;
                 &lt;&lt;goto [[The Map]]&gt;&gt;
               &lt;&lt;/button&gt;&gt;
             &lt;&lt;/if&gt;&gt;
           &lt;&lt;/if&gt;&gt;
-        &lt;&lt;/if&gt;&gt;
-      &lt;/div&gt;
-    &lt;&lt;/if&gt;&gt;
+        &lt;/div&gt;
+      &lt;&lt;/if&gt;&gt;
+      
+      &lt;&lt;if $explored2E &gt;= 100 || $explored4E &gt;= 100&gt;&gt;
+        &lt;div id=&quot;p3E&quot;&gt;
+          &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
+          &lt;&lt;else&gt;&gt;
+            &lt;&lt;if $explored3E &gt;= 100&gt;&gt;&lt;&lt;set $explored3E = 100&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/jungle2.png][3E][$energy -= 0.6]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/jungle2.png][3E][$energy -= 0.4]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+            &lt;&lt;else&gt;&gt;
+              &lt;&lt;button &quot;&lt;&lt;print $explored3E.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
+                &lt;&lt;set $explored3E += random(1,25)*$xeno; $energy -= 1; $xeno += 0.05&gt;&gt;
+                &lt;&lt;goto [[The Map]]&gt;&gt;
+              &lt;&lt;/button&gt;&gt;
+            &lt;&lt;/if&gt;&gt;
+          &lt;&lt;/if&gt;&gt;
+        &lt;/div&gt;
+      &lt;&lt;/if&gt;&gt;
+      
+      &lt;&lt;if $explored3E &gt;= 100 || $exploredMB &gt;= 100 || $Camp_M == true&gt;&gt;
+        &lt;div id=&quot;p4E&quot;&gt;
+          &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
+          &lt;&lt;else&gt;&gt;
+            &lt;&lt;if $explored4E &gt;= 100&gt;&gt;&lt;&lt;set $explored4E = 100&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/800px-SemienWaterfall.jpeg][4E][$energy -= 0.8]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/800px-SemienWaterfall.jpeg][4E][$energy -= 0.2]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+            &lt;&lt;else&gt;&gt;
+              &lt;&lt;button &quot;&lt;&lt;print $explored4E.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
+                &lt;&lt;set $explored4E += random(1,25)*$xeno; $energy -= 1; $xeno += 0.05&gt;&gt;
+                &lt;&lt;goto [[The Map]]&gt;&gt;
+              &lt;&lt;/button&gt;&gt;
+            &lt;&lt;/if&gt;&gt;
+          &lt;&lt;/if&gt;&gt;
+        &lt;/div&gt;
+      &lt;&lt;/if&gt;&gt;
+    
+      &lt;&lt;if $Camp_M == true || $explored4E &gt;= 100&gt;&gt;
+        &lt;div id=&quot;theMBase&quot;&gt;
+          &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
+          &lt;&lt;else&gt;&gt;
+            &lt;&lt;if $Camp_J == true&gt;&gt;
+              &lt;&lt;if $exploredMB &gt;= 100&gt;&gt;&lt;&lt;set $exploredMB = 100&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;[[MB|Start from Base Mountain][$energy -= 1]]&lt;&lt;else&gt;&gt;[[MB|Start from Base Mountain]]&lt;&lt;/if&gt;&gt;
+              &lt;&lt;else&gt;&gt;
+                &lt;&lt;button &quot;&lt;&lt;print $exploredMB.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
+                  &lt;&lt;set $exploredMB += random(1,15)*$xeno; $energy -= 1; $xeno += 0.05&gt;&gt;
+                  &lt;&lt;goto [[The Map]]&gt;&gt;
+                &lt;&lt;/button&gt;&gt;
+              &lt;&lt;/if&gt;&gt;
+            &lt;&lt;/if&gt;&gt;
+          &lt;&lt;/if&gt;&gt;
+        &lt;/div&gt;
+      &lt;&lt;/if&gt;&gt;
+    
+      &lt;&lt;if $Camp_J == true || $exploredJB &gt;= 100&gt;&gt;
+        &lt;div id=&quot;p1S&quot;&gt;
+          &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
+          &lt;&lt;else&gt;&gt;
+            &lt;&lt;if $explored1S &gt;= 100&gt;&gt;&lt;&lt;set $explored1S = 100&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/desert3.png][1S][$energy -= 0.2]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/desert3.png][1S][$energy -= 1.2]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+            &lt;&lt;else&gt;&gt;
+              &lt;&lt;button &quot;&lt;&lt;print $explored1S.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
+                &lt;&lt;set $explored1S += random(1,20)*$xeno; $energy -= 1; $xeno += 0.02&gt;&gt;
+                &lt;&lt;goto [[The Map]]&gt;&gt;
+              &lt;&lt;/button&gt;&gt;
+            &lt;&lt;/if&gt;&gt;
+          &lt;&lt;/if&gt;&gt;
+        &lt;/div&gt;
+      &lt;&lt;/if&gt;&gt;
+      
+      &lt;&lt;if $explored1S &gt;= 100&gt;&gt;
+        &lt;div id=&quot;p2S&quot;&gt;
+          &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
+          &lt;&lt;else&gt;&gt;
+            &lt;&lt;if $explored2S &gt;= 100&gt;&gt;&lt;&lt;set $explored2S = 100&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/desert2.png][2S][$energy -= 0.4]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/desert2.png][2S][$energy -= 1.4]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+            &lt;&lt;else&gt;&gt;
+              &lt;&lt;button &quot;&lt;&lt;print $explored2S.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
+                &lt;&lt;set $explored2S += random(1,15)*$xeno; $energy -= 1; $xeno += 0.02&gt;&gt;
+                &lt;&lt;goto [[The Map]]&gt;&gt;
+              &lt;&lt;/button&gt;&gt;
+            &lt;&lt;/if&gt;&gt;
+          &lt;&lt;/if&gt;&gt;
+        &lt;/div&gt;
+      &lt;&lt;/if&gt;&gt;
+        
+      &lt;&lt;if $explored2S &gt;= 100&gt;&gt;
+        &lt;div id=&quot;p3S&quot;&gt;
+          &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
+          &lt;&lt;else&gt;&gt;
+            &lt;&lt;if $explored3S &gt;= 100&gt;&gt;&lt;&lt;set $explored3S = 100&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/energy_deposit.png][3S][$energy -= 0.6]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/energy_deposit.png][3S][$energy -= 1.6]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+            &lt;&lt;else&gt;&gt;
+              &lt;&lt;button &quot;&lt;&lt;print $explored3S.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
+                &lt;&lt;set $explored3S += random(1,15)*$xeno; $energy -= 1; $xeno += 0.02&gt;&gt;
+                &lt;&lt;goto [[The Map]]&gt;&gt;
+              &lt;&lt;/button&gt;&gt;
+            &lt;&lt;/if&gt;&gt;
+          &lt;&lt;/if&gt;&gt;
+        &lt;/div&gt;
+      &lt;&lt;/if&gt;&gt;
+      
+      &lt;&lt;if $Camp_J == true || $exploredJB &gt;= 100&gt;&gt;
+        &lt;div id=&quot;p1W&quot;&gt;
+          &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
+          &lt;&lt;else&gt;&gt;
+            &lt;&lt;if $explored1W &gt;= 100&gt;&gt;&lt;&lt;set $explored1W = 100&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/jungle1.png][1W][$energy -= 0.2]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/jungle1.png][1W][$energy -= 1.2]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+            &lt;&lt;else&gt;&gt;
+              &lt;&lt;button &quot;&lt;&lt;print $explored1W.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
+                &lt;&lt;set $explored1W += random(1,20)*$xeno; $energy -= 1; $xeno += 0.02&gt;&gt;
+                &lt;&lt;goto [[The Map]]&gt;&gt;
+              &lt;&lt;/button&gt;&gt;
+            &lt;&lt;/if&gt;&gt;
+          &lt;&lt;/if&gt;&gt;
+        &lt;/div&gt;
+      &lt;&lt;/if&gt;&gt;
+      
+      &lt;&lt;if $explored1W &gt;= 100&gt;&gt;
+        &lt;div id=&quot;p2W&quot;&gt;
+          &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
+          &lt;&lt;else&gt;&gt;
+            &lt;&lt;if $explored2W &gt;= 100&gt;&gt;&lt;&lt;set $explored2W = 100&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/swampy_area_2.png][2W][$energy -= 0.4]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/swampy_area_2.png][2W][$energy -= 1.4]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+            &lt;&lt;else&gt;&gt;
+              &lt;&lt;button &quot;&lt;&lt;print $explored2W.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
+                &lt;&lt;set $explored2W += random(1,25)*$xeno; $energy -= 1; $xeno += 0.02&gt;&gt;
+                &lt;&lt;goto [[The Map]]&gt;&gt;
+              &lt;&lt;/button&gt;&gt;
+            &lt;&lt;/if&gt;&gt;
+          &lt;&lt;/if&gt;&gt;
+        &lt;/div&gt;
+      &lt;&lt;/if&gt;&gt;
+      
+      &lt;&lt;if $explored2W &gt;= 100&gt;&gt;
+        &lt;div id=&quot;p3W&quot;&gt;
+          &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
+          &lt;&lt;else&gt;&gt;
+            &lt;&lt;if $explored3W &gt;= 100&gt;&gt;&lt;&lt;set $explored3W = 100&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/coastline3.png][3W][$energy -= 0.6]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/coastline3.png][3W][$energy -= 1.6]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+            &lt;&lt;else&gt;&gt;
+              &lt;&lt;button &quot;&lt;&lt;print $explored3W.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
+                &lt;&lt;set $explored3W += random(1,30)*$xeno; $energy -= 1; $xeno += 0.02&gt;&gt;
+                &lt;&lt;goto [[The Map]]&gt;&gt;
+              &lt;&lt;/button&gt;&gt;
+            &lt;&lt;/if&gt;&gt;
+          &lt;&lt;/if&gt;&gt;
+        &lt;/div&gt;
+      &lt;&lt;/if&gt;&gt;
+      
+      &lt;&lt;if $explored3W &gt;= 100&gt;&gt;
+        &lt;div id=&quot;p4W&quot;&gt;
+          &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
+          &lt;&lt;else&gt;&gt;
+            &lt;&lt;if $explored4W &gt;= 100&gt;&gt;&lt;&lt;set $explored4W = 100&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/coast1.png][4W][$energy -= 0.8]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/coast1.png][4W][$energy -= 1.8]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+            &lt;&lt;else&gt;&gt;
+              &lt;&lt;button &quot;&lt;&lt;print $explored4W.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
+                &lt;&lt;set $explored4W += random(1,30)*$xeno; $energy -= 1; $xeno += 0.02&gt;&gt;
+                &lt;&lt;goto [[The Map]]&gt;&gt;
+              &lt;&lt;/button&gt;&gt;
+            &lt;&lt;/if&gt;&gt;
+          &lt;&lt;/if&gt;&gt;
+        &lt;/div&gt;
+      &lt;&lt;/if&gt;&gt;
+      
+      &lt;&lt;if $explored4W &gt;= 100&gt;&gt;
+        &lt;div id=&quot;p5W&quot;&gt;
+          &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
+          &lt;&lt;else&gt;&gt;
+            &lt;&lt;if $explored5W &gt;= 100&gt;&gt;&lt;&lt;set $explored5W = 100&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/coast2island.png][5W][$energy -= 1]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/coast2island.png][5W][$energy -= 2]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+            &lt;&lt;else&gt;&gt;
+              &lt;&lt;button &quot;&lt;&lt;print $explored5W.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
+                &lt;&lt;set $explored5W += random(1,30)*$xeno; $energy -= 1; $xeno += 0.05&gt;&gt;
+                &lt;&lt;goto [[The Map]]&gt;&gt;
+              &lt;&lt;/button&gt;&gt;
+            &lt;&lt;/if&gt;&gt;
+          &lt;&lt;/if&gt;&gt;
+        &lt;/div&gt;
+      &lt;&lt;/if&gt;&gt;
+      
+      &lt;&lt;if $Camp_J == true  || $exploredJB &gt;= 100&gt;&gt;
+        &lt;div id=&quot;p1N&quot;&gt;
+          &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
+          &lt;&lt;else&gt;&gt;
+            &lt;&lt;if $explored1N &gt;= 100&gt;&gt;&lt;&lt;set $explored1N = 100&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/marshland1.png][1N][$energy -= 0.2]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/marshland1.png][1N][$energy -= 1.2]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+            &lt;&lt;else&gt;&gt;
+              &lt;&lt;button &quot;&lt;&lt;print $explored1N.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
+                &lt;&lt;set $explored1N += random(1,30)*$xeno; $energy -= 1; $xeno += 0.05&gt;&gt;
+                &lt;&lt;goto [[The Map]]&gt;&gt;
+              &lt;&lt;/button&gt;&gt;
+            &lt;&lt;/if&gt;&gt;
+          &lt;&lt;/if&gt;&gt;
+        &lt;/div&gt;
+      &lt;&lt;/if&gt;&gt;
+      
+      &lt;&lt;if $explored1N &gt;= 100&gt;&gt;
+        &lt;div id=&quot;p2N&quot;&gt;
+          &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
+          &lt;&lt;else&gt;&gt;
+            &lt;&lt;if $explored2N &gt;= 100&gt;&gt;&lt;&lt;set $explored2N = 100&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/unimatter_deposit.png][2N][$energy -= 0.4]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/unimatter_deposit.png][2N][$energy -= 1.4]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+            &lt;&lt;else&gt;&gt;
+              &lt;&lt;button &quot;&lt;&lt;print $explored2N.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
+                &lt;&lt;set $explored2N += random(1,20)*$xeno; $energy -= 1; $xeno += 0.05&gt;&gt;
+                &lt;&lt;goto [[The Map]]&gt;&gt;
+              &lt;&lt;/button&gt;&gt;
+            &lt;&lt;/if&gt;&gt;
+          &lt;&lt;/if&gt;&gt;
+        &lt;/div&gt;
+      &lt;&lt;/if&gt;&gt;
+        
+      &lt;/div&gt;&lt;&lt;/nobr&gt;&gt;
+      
+      &lt;div class=&quot;index-screens-normal&quot;&gt;&lt;strong&gt;Carrying Capacity:&lt;/strong&gt;  &lt;&lt;= $carrycap.toFixed(0)&gt;&gt;&lt;/div&gt;
   
-    &lt;&lt;if $Camp_J == true || $exploredJB &gt;= 100&gt;&gt;
-      &lt;div id=&quot;p1S&quot;&gt;
-        &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-        &lt;&lt;else&gt;&gt;
-          &lt;&lt;if $explored1S &gt;= 100&gt;&gt;&lt;&lt;set $explored1S = 100&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;[[1S][$energy -= 0.2]]&lt;&lt;else&gt;&gt;[[1S][$energy -= 1.2]]&lt;&lt;/if&gt;&gt;
-          &lt;&lt;else&gt;&gt;
-            &lt;&lt;button &quot;&lt;&lt;print $explored1S.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-              &lt;&lt;set $explored1S += random(1,20)*$xeno; $energy -= 1; $xeno += 0.02&gt;&gt;
-              &lt;&lt;goto [[The Map]]&gt;&gt;
-            &lt;&lt;/button&gt;&gt;
-          &lt;&lt;/if&gt;&gt;
-        &lt;&lt;/if&gt;&gt;
-      &lt;/div&gt;
-    &lt;&lt;/if&gt;&gt;
-    
-    &lt;&lt;if $explored1S &gt;= 100&gt;&gt;
-      &lt;div id=&quot;p2S&quot;&gt;
-        &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-        &lt;&lt;else&gt;&gt;
-          &lt;&lt;if $explored2S &gt;= 100&gt;&gt;&lt;&lt;set $explored2S = 100&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;[[2S][$energy -= 0.4]]&lt;&lt;else&gt;&gt;[[2S][$energy -= 1.4]]&lt;&lt;/if&gt;&gt;
-          &lt;&lt;else&gt;&gt;
-            &lt;&lt;button &quot;&lt;&lt;print $explored2S.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-              &lt;&lt;set $explored2S += random(1,15)*$xeno; $energy -= 1; $xeno += 0.02&gt;&gt;
-              &lt;&lt;goto [[The Map]]&gt;&gt;
-            &lt;&lt;/button&gt;&gt;
-          &lt;&lt;/if&gt;&gt;
-        &lt;&lt;/if&gt;&gt;
-      &lt;/div&gt;
-    &lt;&lt;/if&gt;&gt;
+      &lt;div class=&quot;index-screens-normal&quot;&gt;&lt;strong&gt;Energy Indicator:&lt;/strong&gt;  &lt;&lt;= $energy.toFixed(1)&gt;&gt;&lt;&lt;if $energy &lt;2&gt;&gt; energy&lt;&lt;else&gt;&gt; energies&lt;&lt;/if&gt;&gt;&lt;/div&gt;
+  
+      &lt;div class=&quot;index-screens-normal&quot;&gt;&lt;strong&gt;Xeno Indicator:&lt;/strong&gt;  &lt;&lt;= $xeno.toFixed(1)&gt;&gt;&lt;/div&gt;
       
-    &lt;&lt;if $explored2S &gt;= 100&gt;&gt;
-      &lt;div id=&quot;p3S&quot;&gt;
-        &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-        &lt;&lt;else&gt;&gt;
-          &lt;&lt;if $explored3S &gt;= 100&gt;&gt;&lt;&lt;set $explored3S = 100&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;[[3S][$energy -= 0.6]]&lt;&lt;else&gt;&gt;[[3S][$energy -= 1.6]]&lt;&lt;/if&gt;&gt;
-          &lt;&lt;else&gt;&gt;
-            &lt;&lt;button &quot;&lt;&lt;print $explored3S.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-              &lt;&lt;set $explored3S += random(1,15)*$xeno; $energy -= 1; $xeno += 0.02&gt;&gt;
-              &lt;&lt;goto [[The Map]]&gt;&gt;
-            &lt;&lt;/button&gt;&gt;
-          &lt;&lt;/if&gt;&gt;
-        &lt;&lt;/if&gt;&gt;
-      &lt;/div&gt;
+      &lt;div class=&quot;actions-row&quot;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;div&gt;[[Go back to Camp|Camp Jungle]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div&gt;[[Go back to Camp|Camp Mountain]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/div&gt;
     &lt;&lt;/if&gt;&gt;
-    
-    &lt;&lt;if $Camp_J == true || $exploredJB &gt;= 100&gt;&gt;
-      &lt;div id=&quot;p1W&quot;&gt;
-        &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-        &lt;&lt;else&gt;&gt;
-          &lt;&lt;if $explored1W &gt;= 100&gt;&gt;&lt;&lt;set $explored1W = 100&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;[[1W][$energy -= 0.2]]&lt;&lt;else&gt;&gt;[[1W][$energy -= 1.2]]&lt;&lt;/if&gt;&gt;
-          &lt;&lt;else&gt;&gt;
-            &lt;&lt;button &quot;&lt;&lt;print $explored1W.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-              &lt;&lt;set $explored1W += random(1,20)*$xeno; $energy -= 1; $xeno += 0.02&gt;&gt;
-              &lt;&lt;goto [[The Map]]&gt;&gt;
-            &lt;&lt;/button&gt;&gt;
-          &lt;&lt;/if&gt;&gt;
-        &lt;&lt;/if&gt;&gt;
-      &lt;/div&gt;
-    &lt;&lt;/if&gt;&gt;
-    
-    &lt;&lt;if $explored1W &gt;= 100&gt;&gt;
-      &lt;div id=&quot;p2W&quot;&gt;
-        &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-        &lt;&lt;else&gt;&gt;
-          &lt;&lt;if $explored2W &gt;= 100&gt;&gt;&lt;&lt;set $explored2W = 100&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;[[2W][$energy -= 0.4]]&lt;&lt;else&gt;&gt;[[2W][$energy -= 1.4]]&lt;&lt;/if&gt;&gt;
-          &lt;&lt;else&gt;&gt;
-            &lt;&lt;button &quot;&lt;&lt;print $explored2W.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-              &lt;&lt;set $explored2W += random(1,25)*$xeno; $energy -= 1; $xeno += 0.02&gt;&gt;
-              &lt;&lt;goto [[The Map]]&gt;&gt;
-            &lt;&lt;/button&gt;&gt;
-          &lt;&lt;/if&gt;&gt;
-        &lt;&lt;/if&gt;&gt;
-      &lt;/div&gt;
-    &lt;&lt;/if&gt;&gt;
-    
-    &lt;&lt;if $explored2W &gt;= 100&gt;&gt;
-      &lt;div id=&quot;p3W&quot;&gt;
-        &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-        &lt;&lt;else&gt;&gt;
-          &lt;&lt;if $explored3W &gt;= 100&gt;&gt;&lt;&lt;set $explored3W = 100&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;[[3W][$energy -= 0.6]]&lt;&lt;else&gt;&gt;[[3W][$energy -= 1.6]]&lt;&lt;/if&gt;&gt;
-          &lt;&lt;else&gt;&gt;
-            &lt;&lt;button &quot;&lt;&lt;print $explored3W.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-              &lt;&lt;set $explored3W += random(1,30)*$xeno; $energy -= 1; $xeno += 0.02&gt;&gt;
-              &lt;&lt;goto [[The Map]]&gt;&gt;
-            &lt;&lt;/button&gt;&gt;
-          &lt;&lt;/if&gt;&gt;
-        &lt;&lt;/if&gt;&gt;
-      &lt;/div&gt;
-    &lt;&lt;/if&gt;&gt;
-    
-    &lt;&lt;if $explored3W &gt;= 100&gt;&gt;
-      &lt;div id=&quot;p4W&quot;&gt;
-        &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-        &lt;&lt;else&gt;&gt;
-          &lt;&lt;if $explored4W &gt;= 100&gt;&gt;&lt;&lt;set $explored4W = 100&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;[[4W][$energy -= 0.8]]&lt;&lt;else&gt;&gt;[[4W][$energy -= 1.8]]&lt;&lt;/if&gt;&gt;
-          &lt;&lt;else&gt;&gt;
-            &lt;&lt;button &quot;&lt;&lt;print $explored4W.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-              &lt;&lt;set $explored4W += random(1,30)*$xeno; $energy -= 1; $xeno += 0.02&gt;&gt;
-              &lt;&lt;goto [[The Map]]&gt;&gt;
-            &lt;&lt;/button&gt;&gt;
-          &lt;&lt;/if&gt;&gt;
-        &lt;&lt;/if&gt;&gt;
-      &lt;/div&gt;
-    &lt;&lt;/if&gt;&gt;
-    
-    &lt;&lt;if $explored4W &gt;= 100&gt;&gt;
-      &lt;div id=&quot;p5W&quot;&gt;
-        &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-        &lt;&lt;else&gt;&gt;
-          &lt;&lt;if $explored5W &gt;= 100&gt;&gt;&lt;&lt;set $explored5W = 100&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;[[5W][$energy -= 1]]&lt;&lt;else&gt;&gt;[[5W][$energy -= 2]]&lt;&lt;/if&gt;&gt;
-          &lt;&lt;else&gt;&gt;
-            &lt;&lt;button &quot;&lt;&lt;print $explored5W.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-              &lt;&lt;set $explored5W += random(1,30)*$xeno; $energy -= 1; $xeno += 0.05&gt;&gt;
-              &lt;&lt;goto [[The Map]]&gt;&gt;
-            &lt;&lt;/button&gt;&gt;
-          &lt;&lt;/if&gt;&gt;
-        &lt;&lt;/if&gt;&gt;
-      &lt;/div&gt;
-    &lt;&lt;/if&gt;&gt;
-    
-    &lt;&lt;if $Camp_J == true  || $exploredJB &gt;= 100&gt;&gt;
-      &lt;div id=&quot;p1N&quot;&gt;
-        &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-        &lt;&lt;else&gt;&gt;
-          &lt;&lt;if $explored1N &gt;= 100&gt;&gt;&lt;&lt;set $explored1N = 100&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;[[1N][$energy -= 0.2]]&lt;&lt;else&gt;&gt;[[1N][$energy -= 1.2]]&lt;&lt;/if&gt;&gt;
-          &lt;&lt;else&gt;&gt;
-            &lt;&lt;button &quot;&lt;&lt;print $explored1N.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-              &lt;&lt;set $explored1N += random(1,30)*$xeno; $energy -= 1; $xeno += 0.05&gt;&gt;
-              &lt;&lt;goto [[The Map]]&gt;&gt;
-            &lt;&lt;/button&gt;&gt;
-          &lt;&lt;/if&gt;&gt;
-        &lt;&lt;/if&gt;&gt;
-      &lt;/div&gt;
-    &lt;&lt;/if&gt;&gt;
-    
-    &lt;&lt;if $explored1N &gt;= 100&gt;&gt;
-      &lt;div id=&quot;p2N&quot;&gt;
-        &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-        &lt;&lt;else&gt;&gt;
-          &lt;&lt;if $explored2N &gt;= 100&gt;&gt;&lt;&lt;set $explored2N = 100&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;[[2N][$energy -= 0.4]]&lt;&lt;else&gt;&gt;[[2N][$energy -= 1.4]]&lt;&lt;/if&gt;&gt;
-          &lt;&lt;else&gt;&gt;
-            &lt;&lt;button &quot;&lt;&lt;print $explored2N.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-              &lt;&lt;set $explored2N += random(1,20)*$xeno; $energy -= 1; $xeno += 0.05&gt;&gt;
-              &lt;&lt;goto [[The Map]]&gt;&gt;
-            &lt;&lt;/button&gt;&gt;
-          &lt;&lt;/if&gt;&gt;
-        &lt;&lt;/if&gt;&gt;
-      &lt;/div&gt;
-    &lt;&lt;/if&gt;&gt;
-      
-    &lt;/div&gt;&lt;&lt;/nobr&gt;&gt;
-    
-    &lt;div class=&quot;index-screens-normal&quot;&gt;&lt;strong&gt;Carrying Capacity:&lt;/strong&gt;  &lt;&lt;= $carrycap.toFixed(0)&gt;&gt;&lt;/div&gt;
-
-    &lt;div class=&quot;index-screens-normal&quot;&gt;&lt;strong&gt;Energy Indicator:&lt;/strong&gt;  &lt;&lt;= $energy.toFixed(1)&gt;&gt;&lt;&lt;if $energy &lt;2&gt;&gt; energy&lt;&lt;else&gt;&gt; energies&lt;&lt;/if&gt;&gt;&lt;/div&gt;
-
-    &lt;div class=&quot;index-screens-normal&quot;&gt;&lt;strong&gt;Xeno Indicator:&lt;/strong&gt;  &lt;&lt;= $xeno.toFixed(1)&gt;&gt;&lt;/div&gt;
-    
-    &lt;&lt;if $Camp_J == true&gt;&gt;[[Go back to Camp|Camp Jungle]]&lt;&lt;else&gt;&gt;[[Go back to Camp|Camp Mountain]]&lt;&lt;/if&gt;&gt;
-  &lt;&lt;/if&gt;&gt;
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="57" name="What do I want to say?" tags="" position="1825,0" size="100,100">&lt;&lt;if $days &gt;30&gt;&gt;
+  &lt;/center&gt;</tw-passagedata><tw-passagedata pid="57" name="What do I want to say?" tags="" position="1825,0" size="100,100">&lt;&lt;if $days &gt;30&gt;&gt;
 
 All pictures of these fine ladies should be seen all by having reached interactibility to around 6.
 
@@ -1773,74 +1794,76 @@ Listening. Reading. Is. HARD.
 So! Take out your contact lenses or your glasses, and all is fine!
 
 endif</tw-passagedata><tw-passagedata pid="58" name="Vika" tags="" position="1900,775" size="100,100">&lt;center&gt;&lt;blockquote&gt;
-&lt;&lt;if $social &lt;= 2&gt;&gt;[img[assets/characters/Vika_4.png]]
-
-  We both exchanged topics in machines and communications engineerings.&lt;&lt;set $engineering += 0.1 * $social&gt;&gt;
-  &lt;&lt;if $Vikavisits &gt; 3&gt;&gt;&lt;&lt;set $Vika_ICP.VI1 = true&gt;&gt;&lt;&lt;/if&gt;&gt;
+  &lt;&lt;if $social &lt;= 2 || $Vikavisits &lt;= 3&gt;&gt;[img[assets/characters/Vika_4.png]]
+  
+    We both exchanged topics in machines and communications engineerings.&lt;&lt;set $engineering += 0.1 * $social&gt;&gt;
+    &lt;&lt;if $Vikavisits &gt; 3&gt;&gt;&lt;&lt;set $Vika_ICP.VI1 = true&gt;&gt;&lt;&lt;/if&gt;&gt;
   &lt;&lt;elseif $social &gt; 2 &amp;&amp; $Vika_ICP.VI1 == true&gt;&gt;[img[assets/characters/Vika.png]]
-  
-  Vika enjoy the time with me. She is smirking at your anecdotes and jokes.
-  &lt;&lt;if $Vikavisits &gt; 6&gt;&gt;&lt;&lt;set $Vika_ICP.VI2 = true&gt;&gt;&lt;&lt;/if&gt;&gt;
-  &lt;&lt;elseif $social &gt; 3 &amp;&amp; $Vika_ICP.VI2 == true&gt;&gt;[img[assets/characters/Vika9.png]]
-  
-  Vika wanted some inspirations about engineering, whether I have sufficient engineering or not. Any idea count.
-  &lt;&lt;if $Vikavisits &gt; 8&gt;&gt;&lt;&lt;set $Vika_ICP.VI3 = true&gt;&gt;&lt;&lt;/if&gt;&gt;
-  &lt;&lt;elseif $social &gt; 4 &amp;&amp; $Vika_ICP.VI3 == true&gt;&gt;[img[assets/characters/Vika_6.png]]
-  
-  Vika is working on the machinations of the Materials Printer. I chatted with her about the Printer. She told me that some constructions depend on the engineering level.
-  &lt;&lt;if $Vikavisits &gt; 11&gt;&gt;&lt;&lt;set $Vika_ICP.VI4 = true&gt;&gt;&lt;&lt;/if&gt;&gt;
-  &lt;&lt;elseif $social &gt; 5 &amp;&amp; $Vika_ICP.VI4 == true &amp;&amp; $SFW_Path == false&gt;&gt;[img[assets/characters/Vika_9.png]]
-  
-  Vika feels comfortably around me, as she only wears her tanktop and her overalll at her hips, showing her flat sensual belly.
-  &lt;&lt;if $Vikavisits &gt; 14&gt;&gt;&lt;&lt;set $Vika_ICP.VI5 = true&gt;&gt;&lt;&lt;/if&gt;&gt;
-  &lt;&lt;elseif $social &gt; 6 &amp;&amp; $Vika_ICP.VI5 == true &amp;&amp; $SFW_Path == false&gt;&gt;[img[assets/characters/Vika10.png]]
-  
-  While talking about the spaceship, we veered towards relationships and body awareness. She was asking me whether I liked it?
-  
-  &lt;&lt;linkappend &quot;Is she kidding me?&quot; t8n&gt;&gt;
-  [img[assets/characters/Vika9_3.png]]
-  
-  I like ALL of it!
-  &lt;&lt;/linkappend&gt;&gt;
-  
-  &lt;&lt;linkappend &quot;Why?&quot; t8n&gt;&gt;
-  [img[assets/characters/Vika11.png]]
-  
-  Why?! Uh ... I am a simple man? Is that reason enough?
-  &lt;&lt;/linkappend&gt;&gt;
-  &lt;&lt;if $Vikavisits &gt; 17&gt;&gt;&lt;&lt;set $Vika_ICP.VI6 = true&gt;&gt;&lt;&lt;/if&gt;&gt;
-  &lt;&lt;elseif $social &gt; 7 &amp;&amp; $Vika_ICP.VI6 == true &amp;&amp; $SFW_Path == false&gt;&gt;[img[assets/characters/Vika13.png]]
-  
-  She invites me to her room. And, surprise, her comfort zone is vast and expansive.
-  
-  &lt;&lt;linkappend &quot;She gets up to show me something.&quot; t8n&gt;&gt;
-  [img[assets/characters/Vika15.png]]
-  
-  Uh? The book or ...
-  &lt;&lt;/linkappend&gt;&gt;
-  &lt;&lt;if $Vikavisits &gt; 19&gt;&gt;&lt;&lt;set $Vika_ICP.VI7 = true&gt;&gt;&lt;&lt;/if&gt;&gt;
-  &lt;&lt;elseif $social &gt; 8 &amp;&amp; $Vika_ICP.VI7 == true &amp;&amp; $SFW_Path == false&gt;&gt;[img[assets/characters/Vika16.png]]
-  
-  She has enough of herself cautious maintaining her reputation. She wants what her body and brain urgently demands: SEX!
-  
-  &lt;&lt;linkappend &quot;Yes!&quot; t8n&gt;&gt;
-  [img[assets/characters/Vika17.png]]
-  
-  Shyly she lets it all happen. I feel that I have to be observant on her bodily feedbacks. 
-  &lt;&lt;/linkappend&gt;&gt;
-  
-  &lt;&lt;linkappend &quot;But lust is rising. Rapidly.&quot; t8n&gt;&gt;
-  [img[assets/characters/Vika18v.png]]
-  
-  She is moaning, panting, twitching, crying, breathing like a steam locomotive. My, my ... seems that she didn&#39;t had sex since years.
-  &lt;&lt;/linkappend&gt;&gt;
-  
-  (end of content for version 0.1)&lt;&lt;if $Elvavisits &gt; 20&gt;&gt;&lt;&lt;set $Vikavisits = 20&gt;&gt;&lt;&lt;/if&gt;&gt;
+    
+    Vika enjoy the time with me. She is smirking at your anecdotes and jokes.
+    &lt;&lt;if $Vikavisits &gt; 6&gt;&gt;&lt;&lt;set $Vika_ICP.VI2 = true&gt;&gt;&lt;&lt;/if&gt;&gt;
+    &lt;&lt;elseif $social &gt; 3 &amp;&amp; $Vika_ICP.VI2 == true&gt;&gt;[img[assets/characters/Vika9.png]]
+    
+    Vika wanted some inspirations about engineering, whether I have sufficient engineering or not. Any idea count.
+    &lt;&lt;if $Vikavisits &gt; 8&gt;&gt;&lt;&lt;set $Vika_ICP.VI3 = true&gt;&gt;&lt;&lt;/if&gt;&gt;
+    &lt;&lt;elseif $social &gt; 4 &amp;&amp; $Vika_ICP.VI3 == true&gt;&gt;[img[assets/characters/Vika_6.png]]
+    
+    Vika is working on the machinations of the Materials Printer. I chatted with her about the Printer. She told me that some constructions depend on the engineering level.
+    &lt;&lt;if $Vikavisits &gt; 11&gt;&gt;&lt;&lt;set $Vika_ICP.VI4 = true&gt;&gt;&lt;&lt;/if&gt;&gt;
+    &lt;&lt;elseif $social &gt; 5 &amp;&amp; $Vika_ICP.VI4 == true &amp;&amp; $SFW_Path == false&gt;&gt;[img[assets/characters/Vika_9.png]]
+    
+    Vika feels comfortably around me, as she only wears her tanktop and her overalll at her hips, showing her flat sensual belly.
+    &lt;&lt;if $Vikavisits &gt; 14&gt;&gt;&lt;&lt;set $Vika_ICP.VI5 = true&gt;&gt;&lt;&lt;/if&gt;&gt;
+    &lt;&lt;elseif $social &gt; 6 &amp;&amp; $Vika_ICP.VI5 == true &amp;&amp; $SFW_Path == false&gt;&gt;[img[assets/characters/Vika10.png]]
+    
+    While talking about the spaceship, we veered towards relationships and body awareness. She was asking me whether I liked it?
+    
+    &lt;&lt;linkappend &quot;Is she kidding me?&quot; t8n&gt;&gt;
+    [img[assets/characters/Vika9_3.png]]
+    
+    I like ALL of it!
+    &lt;&lt;/linkappend&gt;&gt;
+    
+    &lt;&lt;linkappend &quot;Why?&quot; t8n&gt;&gt;
+    [img[assets/characters/Vika11.png]]
+    
+    Why?! Uh ... I am a simple man? Is that reason enough?
+    &lt;&lt;/linkappend&gt;&gt;
+    &lt;&lt;if $Vikavisits &gt; 17&gt;&gt;&lt;&lt;set $Vika_ICP.VI6 = true&gt;&gt;&lt;&lt;/if&gt;&gt;
+    &lt;&lt;elseif $social &gt; 7 &amp;&amp; $Vika_ICP.VI6 == true &amp;&amp; $SFW_Path == false&gt;&gt;[img[assets/characters/Vika13.png]]
+    
+    She invites me to her room. And, surprise, her comfort zone is vast and expansive.
+    
+    &lt;&lt;linkappend &quot;She gets up to show me something.&quot; t8n&gt;&gt;
+    [img[assets/characters/Vika15.png]]
+    
+    Uh? The book or ...
+    &lt;&lt;/linkappend&gt;&gt;
+    &lt;&lt;if $Vikavisits &gt; 19&gt;&gt;&lt;&lt;set $Vika_ICP.VI7 = true&gt;&gt;&lt;&lt;/if&gt;&gt;
+    &lt;&lt;elseif $social &gt; 8 &amp;&amp; $Vika_ICP.VI7 == true &amp;&amp; $SFW_Path == false&gt;&gt;[img[assets/characters/Vika16.png]]
+    
+    She has enough of herself cautious maintaining her reputation. She wants what her body and brain urgently demands: SEX!
+    
+    &lt;&lt;linkappend &quot;Yes!&quot; t8n&gt;&gt;
+    [img[assets/characters/Vika17.png]]
+    
+    Shyly she lets it all happen. I feel that I have to be observant on her bodily feedbacks. 
+    &lt;&lt;/linkappend&gt;&gt;
+    
+    &lt;&lt;linkappend &quot;But lust is rising. Rapidly.&quot; t8n&gt;&gt;
+    [img[assets/characters/Vika18v.png]]
+    
+    She is moaning, panting, twitching, crying, breathing like a steam locomotive. My, my ... seems that she didn&#39;t had sex since years.
+    &lt;&lt;/linkappend&gt;&gt;
+    
+    (end of content for version 0.1)&lt;&lt;if $Elvavisits &gt; 20&gt;&gt;&lt;&lt;set $Vikavisits = 20&gt;&gt;&lt;&lt;/if&gt;&gt;
+  &lt;&lt;else&gt;&gt;
+    Vika is not in the mood now. I should try another time. &lt;&lt;set $noVika = true&gt;&gt;
   &lt;&lt;/if&gt;&gt;
-  &lt;&lt;if $Camp_J == true&gt;&gt;[[Back to Camp|Camp Jungle]]&lt;&lt;else&gt;&gt;[[Back to Camp|Camp Mountain]]&lt;&lt;/if&gt;&gt;
-  
-  [[Go chat with others|Social Events]]
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="59" name="Leo" tags="" position="1900,900" size="100,100">&lt;center&gt;&lt;blockquote&gt;&lt;&lt;if random(5) &gt;= 1&gt;&gt;[img[assets/characters/2_men_talking.png]]
+  &lt;div class=&quot;actions-row&quot;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;div&gt;[[Back to Camp|Camp Jungle]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div&gt;[[Back to Camp|Camp Mountain]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/div&gt;
+    
+  &lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go chat with others|Social Events]]&lt;/div&gt;&lt;/div&gt;
+  &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="59" name="Leo" tags="" position="1900,900" size="100,100">&lt;center&gt;&lt;blockquote&gt;&lt;&lt;if random(5) &gt;= 1&gt;&gt;[img[assets/characters/2_men_talking.png]]
 
 I had an interesting viewpoint from him about AI&#39;s and algorithms.
 
@@ -1854,14 +1877,14 @@ I told him, if it is the overgrown spaceship, there is nothing. But Leo thinks, 
 
 I thank Leo for the chat and &lt;&lt;if $Camp_J == true&gt;&gt;[[go back to Camp|Camp Jungle]] &lt;&lt;else&gt;&gt;[[go back to Camp|Camp Mountain]]&lt;&lt;/if&gt;&gt; or [[I rather want to chat with the others?|Social Events]]
 
-&lt;&lt;if $energy &gt; 0&gt;&gt;I am in the mood to chat further with [[Leo][$energy -= 1; $social += 0.5]].&lt;&lt;/if&gt;&gt;
+ &lt;&lt;if $energy &gt; 0&gt;&gt;I am in the mood to chat further with [[Leo][$energy -= 1; $social += 0.5]].&lt;&lt;/if&gt;&gt;
 &lt;&lt;else&gt;&gt;
 &lt;&lt;set $noLeo == true&gt;&gt;
 Leo is not in the mood. Try another time.
 
-&lt;&lt;if $Camp_J == true&gt;&gt;[[I go back to Camp|Camp Jungle]] &lt;&lt;else&gt;&gt;[[go back to Camp|Camp Mountain]]&lt;&lt;/if&gt;&gt;
-
-[[I want to chat with the others|Social Events]]
+  &lt;div class=&quot;actions-row&quot;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;div&gt;[[Back to Camp|Camp Jungle]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div&gt;[[Back to Camp|Camp Mountain]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/div&gt;
+    
+  &lt;div class=&quot;actions-row&quot;&gt;[[Go chat with others|Social Events]]&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="60" name="Elva" tags="" position="1900,1025" size="100,100">&lt;center&gt;&lt;blockquote&gt;
 &lt;&lt;if $social &lt; 2&gt;&gt;
   [img[assets/characters/Elva/ER_1.png]]
@@ -1920,9 +1943,9 @@ Leo is not in the mood. Try another time.
   &lt;&lt;else&gt;&gt;
  
   &lt;&lt;/if&gt;&gt;
-  &lt;&lt;if $Camp_J == true&gt;&gt;[[Back to Camp|Camp Jungle]]&lt;&lt;else&gt;&gt;[[Back to Camp|Camp Mountain]]&lt;&lt;/if&gt;&gt;
-  
-  [[Go chat with others|Social Events]]
+  &lt;div class=&quot;actions-row&quot;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;div&gt;[[Back to Camp|Camp Jungle]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div&gt;[[Back to Camp|Camp Mountain]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/div&gt;
+    
+  &lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go chat with others|Social Events]]&lt;/div&gt;&lt;/div&gt;
   &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="61" name="Abiba" tags="" position="1900,1150" size="100,100">&lt;center&gt;&lt;blockquote&gt;
 &lt;&lt;if $social &lt; 3&gt;&gt;
   [img[assets/characters/Abiba/Abiba_P.png]]
@@ -1992,9 +2015,9 @@ Leo is not in the mood. Try another time.
   &lt;&lt;else&gt;&gt;
  
   &lt;&lt;endif&gt;&gt;
-  &lt;&lt;if $Camp_J == true&gt;&gt;[[Back to Camp|Camp Jungle]]&lt;&lt;else&gt;&gt;[[Back to Camp|Camp Mountain]]&lt;&lt;/if&gt;&gt;
-  
-  [[Go chat with others|Social Events]]
+  &lt;div class=&quot;actions-row&quot;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;div&gt;[[Back to Camp|Camp Jungle]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div&gt;[[Back to Camp|Camp Mountain]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/div&gt;
+    
+  &lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go chat with others|Social Events]]&lt;/div&gt;&lt;/div&gt;
   &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="62" name="Vote" tags="" position="1550,300" size="100,100">&lt;center&gt;&lt;blockquote&gt;
 &lt;&lt;set $Vikavote = random(1, 3)&gt;&gt;&lt;&lt;set $Leovote = random(1, 3)&gt;&gt;&lt;&lt;timed 1000ms&gt;&gt;Vika gives in her vote.
   &lt;&lt;/timed&gt;&gt;&lt;&lt;timed 3000ms&gt;&gt;
