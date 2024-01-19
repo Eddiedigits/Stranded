@@ -1,0 +1,6 @@
+- Orb improvement (condition doesn't work properly, it should not show possible if the standard orb is not built)
+
+- check again with Construction Menu and building slots
+	- also do orb improvements takes up building slots? Which shouldn't.
+
+- socialising doesn't work, structural problem ==> divide events in passages?
