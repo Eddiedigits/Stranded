@@ -283,7 +283,6 @@ Where to go next?
 The colors become more and more nicer, friendlier ...
 
 <<if $Camp_J == true>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 0.8]]</div></div><<else>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 1.8]]</div></div><</if>>
-<</if>>
 
 <div class="actions-row"><div>[[Go back East|3W][$energy -= 0.2]]</div></div>
 
@@ -297,7 +296,6 @@ The colors become more and more nicer, friendlier ...
 Sandy Beach! That's gonna be a spot!
 
 <<if $Camp_J == true>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 1]]</div></div><<else>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 2]]</div></div><</if>>
-<</if>>
 
 <div class="actions-row"><div>[[Go back East|4W][$energy -= 0.2]]</div></div>
 </blockquote></center>
@@ -439,7 +437,7 @@ The antenna is installed on a small hill. But it seems to reach no one. Maybe it
   (end of content for version 0.1)
   <<else>>
      Abiba doesn't react, I guess now is not the time. <<set $noAbiba = true>><<set $Abibavisits -= 1>>
-  <<endif>>
+  <</if>>
   <div class="actions-row"><<if $Camp_J == true>><div>[[Back to Camp|Camp Jungle]]</div><<else>><div>[[Back to Camp|Camp Mountain]]</div><</if>></div>
     
   <div class="actions-row"><div>[[Go chat with others|Social Events]]</div></div>
@@ -601,15 +599,6 @@ We have <<= $nutrients>> nutrients in storage. Each person consume one unit of n
 <div class="actions-row"><<if $energy > 4 && hasVisited("Start from Base Jungle")>><div>
 [[Move to Camp Jungle|Camp Jungle][$energy -= 5; $maxenergy -= 10; $maxnutrients -= 50; $nutrients /= 2]]</div>
 <</if>></div></div></center>
-
-
-:: Check conditions {"position":"175,625","size":"100,100"}
-<<set $No1 = false>><<set $No2 = true>><<set No3 = false>><<set No4 = true>>
-
-<<if $No1 == true && No3 == false || §No4 == true && No3 == false>>
-$No1 == true && No3 == false || §No4 == true
-
-<<elseif 
 
 
 :: Check my pod {"position":"925,300","size":"100,100"}
@@ -1088,7 +1077,7 @@ Choose in which profession you want to master:
 
 :: LostiJ {"position":"1050,300","size":"100,100"}
 <center><blockquote>
-<<if $energy <= 0>><<goto "Shutdown")>><</if>>
+<<if $energy <= 0>><<goto "Shutdown">><</if>>
 <<if $compass == true>>
 	The compass is a lifesaver, I wonder how I would have done without it ...
 
@@ -1812,7 +1801,7 @@ Oi! No es mi culpa if the virtual composer does not understand my intentions. I 
 Listening. Reading. Is. HARD.
 So! Take out your contact lenses or your glasses, and all is fine!
 
-endif
+<</if>>
 
 
 :: WhyNothing {"position":"1700,300","size":"100,100"}
