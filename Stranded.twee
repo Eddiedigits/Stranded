@@ -297,36 +297,34 @@ Sandy Beach! That's gonna be a spot!
 
 <<if $Camp_J == true>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 1]]</div></div><<else>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 2]]</div></div><</if>>
 
+
 <div class="actions-row"><div>[[Go back East|4W][$energy -= 0.2]]</div></div>
 </blockquote></center>
 
 
 :: A New Cycle {"position":"500,500","size":"100,100"}
 <center><blockquote><<nobr>>
+<<set $rNr = random(100)>>
   <<if $maxenergy <= 1 || $nutrients <= 0 || $days >= 30>><<goto "End of Game">><</if>>
   <<if $noLeo == true || $noVika == true || $noElva == true || $noAbiba == true>><<set $noLeo = false>><<set $noVika = false>><<set $noElva = false>><<set $noAbiba = false>><</if>>
       <<if $Camp_J == true>>
         <<if $CampJ.EHarvester == true>><<set $energy += 10>><<else>><<set $energy += 5>><</if>>
         <<if $CampJ.Farm == false>><<set $nutrients -= 3>><<else>><<set $nutrients +=2>><</if>>
-        <<set $engineering += 0.2>><<set $social += 0.2>>
+        <<set $engineering += 0.3; $combat += 0.1; $social += 0.2>>
       <<else>>
         <<if $CampM.EHarvester == true>><<set $energy += 15>><<else>><<set $energy += 10>><</if>>
         <<if $CampM.Farm == false>><<set $nutrients -= 5>><<else>><<set $nutrients += 0>><</if>>
       <</if>><</nobr>>
-      <<if random(100) > 50>>
-        <<if random(4) > 2>>[img[assets/Ch-Camp/Rest1.png]]<<else>>[img[assets/Ch-Camp/Rest2.png]]<</if>>
-  
-        A new cycle, a new day. Although this planet's rotation is much slower.
-        
-        Energy is replenished. Vika has learned some more in engineering, as has Leo in interactibility.<<if $Camp_M == true>> Elva and Abiba in their fields of specialties.<<set $engineering += 0.2>><<set $combat += 0.1>><</if>>
-      <<elseif random(100) <= 10 && $CampJ.DefPerimeter == false || random(4) == 0 && $CampM.DefPerimeter == false>>
+      <<if $rNr[0, 50]>>
+        False Alarm. Or the AI handled it. Anyway, time to rest. A new cycle.
+      <<elseif $rNr[61, 69] && $CampJ.DefPerimeter == false && $Camp_J || $rNr[61, 63] && $CampM.DefPerimeter == false && $Camp_M>>
         [img[assets/random-events/alien_mammals.png]]
         
         Animals!
         
         Alien Animals are breaching in. It seems, they only distinctively go for the food. 
         We have lost some nutrients.<<set $nutrients -= 5>><<set $xeno += 0.1>>
-        <<elseif random(100) > 10 && random(100) <= 20 && $CampJ.DefPerimeter == false || random(4) == 1 && $CampM.DefPerimeter == false>>
+        <<elseif $rNr[51, 60] && $CampJ.DefPerimeter == false && $Camp_J|| $rNr[51, 55] && $CampM.DefPerimeter == false && $Camp_M>>
         [img[assets/random-events/aggressive_animal.png]]
         
         What a ruckus!
@@ -336,24 +334,28 @@ Sandy Beach! That's gonna be a spot!
             Yes! That was a good training session, we could defeat that beast.&nbsp;<<set $combat += 0.1>><<if $SubAnalyzer == true>>And have some bit food. The rest can be disintegrated as unimatter.<<set $nutrients += 3>><<set $unimatter += 2>><</if>>
           <<else>>
             Ach, such is a hardship here in the stranded planet. The monstruo is wrecking our equipment and damaging the hull; letting our spaceship operates not at the optimum.<<set $unimatter -= 5>><<set $maxenergy -= 2>><</if>>
-        <<elseif random(100) > 20 && random(100) <= 30 && $social > 2 && $SFW_Path == false>>
+        <<elseif $rNr[70, 79] && $social > 2 && $SFW_Path == false>>
         [img[assets/characters/Vika/Vika_6.png]]
         
         ... I saw Vika fumbling on her panel. She didn't seem to have noticed me. I was unsure whether to greet her and went on my way. Not without an admiration for the sight.
-        <<elseif random(100) > 30 && random(100) <= 40 && $social > 2 && $Camp_M == true && $SFW_Path == false>>
+        <<elseif $rNr[80, 89] && $social > 2 && $Camp_M == true && $SFW_Path == false>>
         [img[assets/characters/Abiba/Abiba11.png]]
         
         ... Abiba was showering. Oh boy, what a body. She said nothing, and me as well. Though, on the way back, I waved goodbye and gave a complimentary glimpse anew. She is a woman, she knows. No words were changed.
-        <<elseif random(100) > 40 && random(100) <= 50 && $social > 3 && $SFW_Path == false>>
+        <<elseif $rNr[90, 100] && $social > 3 && $SFW_Path == false>>
         [Img[assets/characters/Vika/Vika9.png]]
         
         ... I saw Vika fumbling on her panel. The Nightowl.
         She noticed me. I greeted her and continue on my way. Clearly, not without an admiration for the gift.
         <<else>>
-        False Alarm. Or the AI handled it. Anyway, time to rest. A new cycle.
+          <<if random(4) > 2>>[img[assets/Ch-Camp/Rest1.png]]<<else>>[img[assets/Ch-Camp/Rest2.png]]<</if>>
+    
+          A new cycle, a new day. Although this planet's rotation is much slower.
+          
+          Energy is replenished. Vika has learned some more in engineering, as has Leo in interactibility.<<if $Camp_M>> Elva and Abiba in their fields of specialties.<</if>>
         <</if>>
         <div class="actions-row"><<if $Camp_M == true>><div>[[On to new adventures|Camp Mountain]]</div><<else>><div>[[On to new adventures|Camp Jungle]]</div><</if>></div>
-  </blockquote></center>	
+  </blockquote></center>
 
 
 :: A Small Hill {"position":"1700,175","size":"100,100"}
@@ -445,8 +447,8 @@ The antenna is installed on a small hill. But it seems to reach no one. Maybe it
 
 
 :: Ante Explore {"position":"900,700","size":"100,100"}
-<center><blockquote><<= $carrycap>>
-Who will accompany me, who can I persuade? <<set $carrycap = 1>><<if $CampJ.Orb || $CampM.Orb>><<set $carrycap += 4>><</if>>
+<center><blockquote>
+Who will accompany me, who can I persuade? <<set $carrycap = 1>><<if $CampJ.Orb || $CampM.Orb>><<set $carrycap += 3>><</if>>
 
 <<linkreplace "Vika">><<if random(10) * $social > 40 || $maxenergy < 3 || $nutrients < 10>>+ Vika will accompany you.<<set $carrycap +=1>><<else>>- Vika is focusing on the communications screen, she rather sit by the radio.<</if>><</linkreplace>>
 
@@ -597,7 +599,7 @@ We have <<= $nutrients>> nutrients in storage. Each person consume one unit of n
 <div class="actions-row"><<if $energy >=1>><div>[[Go Out|Ante Explore]]</div><</if>>
 <div>[[Rest|A New Cycle][$days += 1]]</div></div>
 <div class="actions-row"><<if $energy > 4 && hasVisited("Start from Base Jungle")>><div>
-[[Move to Camp Jungle|Camp Jungle][$energy -= 5; $maxenergy -= 10; $maxnutrients -= 50; $nutrients /= 2]]</div>
+[[Move to Camp Jungle|Camp Jungle][$energy /= 2; $maxenergy -= 10; $maxnutrients -= 50; $nutrients /= 2; $unimatter /= 2]]</div>
 <</if>></div></div></center>
 
 
@@ -639,59 +641,61 @@ Ech! Nothing happens. It is boring. Maybe I should try to go out anyway?
 <<nobr>><h6>Legend: Energy = E | Unimatter = U | Lvl = Engineering Level</h6>
 <ul><li>Repairs (3E - 3U): <<if $energy >= 3 && $unimatter >= 3 && $Camp_J == true && $maxenergy < 10>>[[Action it|Construction Menu][$energy -= 3; $unimatter -= 3; $maxenergy = 10]]
   <<elseif $energy >= 3 && $unimatter >= 3 && $Camp_M == true && $maxenergy < 20>>[[Action it|Construction Menu][$energy -= 3; $unimatter -= 3; $maxenergy = 20]]
-  <<elseif $unimatter < 3 && $energy < 3>>insufficient ressources
-  <<else>>all good and functioning.<</if>></li></ul>
+  <<elseif $unimatter < 3 && $energy < 3>><div class="color-red">insufficient ressources</div>
+  <<else>><div class="color-green">all good and functioning.</div><</if>></li></ul>
 <<if $Camp_J == true && $CampJ.building < $CampJ.maxbuildings || $Camp_M == true && $CampM.building < $CampM.maxbuildings>>
 <ul>
 <li>Lvl 2: Substance Analyzer (2E - 5U): 
   <<if $engineering >= 2 && $SubAnalyzer != true && $energy >= 2 && $unimatter >= 5>>[[Print|Construction Menu][$energy -= 2; $unimatter -= 5; $SubAnalyzer = true]]
-  <<elseif $SubAnalyzer == true>><br>We have already the Substance Analyzer in our inventory.
-  <<else>>insufficient ressources<</if>></li>
+  <<elseif $SubAnalyzer == true>><br><div class="color-green">We have already the Substance Analyzer in our inventory.</div>
+  <<else>><div class="color-red">insufficient ressources</div><</if>></li>
 <li>Lvl 2: Energy Harvester (5E - 5U): 
   <<if $engineering >= 2 && $CampJ.EHarvester != true && $Camp_J == true && $energy >= 5 && $unimatter >= 5>>[[Print|Construction Menu][$energy -= 5; $unimatter -= 5; $CampJ.EHarvester = true; $CampJ.building += 1]]
   <<elseif $engineering >= 2 && $CampM.EHarvester != true && $Camp_M == true && $energy >= 5 && $unimatter >= 5>>[[Print|Construction Menu][$energy -= 5; $unimatter -= 5; $CampM.EHarvester = true; $CampM.building += 1]]
-  <<elseif $CampJ.EHarvester == true && $Camp_J == true || $CampM.EHarvester == true && $Camp_M == true>><br>Our Energy Harvester collects all possible energies.
-  <<else>>insufficient ressources<</if>></li>
+  <<elseif $CampJ.EHarvester == true && $Camp_J == true || $CampM.EHarvester == true && $Camp_M == true>><br><div class="color-green">Our Energy Harvester collects all possible energies.</div>
+  <<else>><div class="color-red">insufficient ressources</div><</if>></li>
 <li>Lvl 3: Defense Perimeter (2E - 2U): 
-  <<if $engineering >= 2 && $CampJ.DefPerimeter != true && $Camp_J == true && $energy >= 8 && $unimatter >= 3>>[[Print|Construction Menu][$energy -= 2; $unimatter -= 2; $CampM.DefPerimeter = true; $CampJ.building += 1]]
-  <<elseif $engineering >= 2 && $CampM.DefPerimeter != true && $Camp_M == true && $energy >= 8 && $unimatter >= 3>>[[Print|Construction Menu][$energy -= 8; $unimatter -= 3; $CampM.DefPerimeter = true; $CampM.building += 1]]
-  <<elseif $CampJ.DefPerimeter == true && $Camp_J == true || $CampM.DefPerimeter == true && $Camp_M == true>><br>The Defense Perimeter is active.
-  <<else>>insufficient ressources<</if>></li>
+  <<if $engineering >= 2 && $CampJ.DefPerimeter != true && $Camp_J == true && $energy >= 2 && $unimatter >= 2>>[[Print|Construction Menu][$energy -= 2; $unimatter -= 2; $CampJ.DefPerimeter = true; $CampJ.building += 1]]
+  <<elseif $engineering >= 2 && $CampM.DefPerimeter != true && $Camp_M == true && $energy >= 2 && $unimatter >= 2>>[[Print|Construction Menu][$energy -= 8; $unimatter -= 3; $CampM.DefPerimeter = true; $CampM.building += 1]]
+  <<elseif $CampJ.DefPerimeter == true && $Camp_J == true || $CampM.DefPerimeter == true && $Camp_M == true>><br><div class="color-green">The Defense Perimeter is active.</div>
+  <<else>><div class="color-red">insufficient ressources</div><</if>></li>
 <li>Lvl 3: Antenna (2E - 2U): 
   <<if $engineering >= 3 && $CampJ.TransMast != true  && $Camp_J == true && $energy >= 2 && $unimatter >= 2>>[[Print|Construction Menu][$energy -= 2; $unimatter -= 2; $CampJ.TransMast = true; $CampJ.building += 1]]
   <<elseif $engineering >= 3 && $CampM.TransMast != true && $Camp_M == true && $energy >= 2 && $unimatter >= 2>>[[Print|Construction Menu][$energy -= 2; $unimatter -= 2; $CampM.TransMast = true; $CampM.building += 1]]
-  <<elseif $CampJ.TransMast == true  && $Camp_J == true || $CampM.TransMast == true && $Camp_M == true>><br>Our transmission mast is sending without interruption.
-  <<else>>insufficient ressources<</if>></li>
+  <<elseif $CampJ.TransMast == true  && $Camp_J == true || $CampM.TransMast == true && $Camp_M == true>><br><div class="color-green">Our transmission mast is sending without interruption.</div>
+  <<else>><div class="color-red">insufficient ressources</div><</if>></li>
 <li>Lvl 4: Farm (4E - 6U): 
   <<if $engineering >= 4 && $CampJ.Farm != true && $Camp_J == true && $energy >= 4 && $unimatter >= 6>>[[Print|Construction Menu][$energy -= 4; $unimatter -= 6; $CampJ.Farm = true; $CampJ.building += 1]]
   <<elseif $engineering >= 4 && $CampM.Farm != true && $Camp_M == true && $energy >= 4 && $unimatter >= 6>>[[Print|Construction Menu][$energy -= 4; $unimatter -= 6; $CampM.Farm = true; $CampM.building += 1]]
-  <<elseif $CampJ.Farm == true && $Camp_J == true || $CampM.Farm == true && $Camp_M == true>><br>Our horticulture produces our nutrients all fine.<<else>>insufficient ressources<</if>></li>
+  <<elseif $CampJ.Farm == true && $Camp_J == true || $CampM.Farm == true && $Camp_M == true>><br><div class="color-green">Our horticulture produces our nutrients all fine.</div><<else>><div class="color-red">insufficient ressources</div><</if>></li>
 <li>Lvl 4: Floating Orb (8E - 4U): 
   <<if $engineering >= 4 && $CampJ.Orb != true && $Camp_J == true && $energy >= 8 && $unimatter >= 4>>[[Print|Construction Menu][$energy -= 8; $unimatter -= 4; $CampJ.Orb = true; $CampJ.building += 1]]
   <<elseif $engineering >= 4 && $CampM.Orb != true && $Camp_M == true && $energy >= 8 && $unimatter >= 4>>[[Print|Construction Menu][$energy -= 8; $unimatter -= 4; $CampM.Orb = true; $CampM.building += 1]]
-  <<elseif $CampJ.Orb == true && $Camp_J == true || $CampM.Orb == true && $Camp_M == true>><br>The Orb is recharging at its port.<<else>>insufficient ressources<</if>></li>
+  <<elseif $CampJ.Orb == true && $Camp_J == true || $CampM.Orb == true && $Camp_M == true>><br><div class="color-green">The Orb is recharging at its port.</div><<else>><div class="color-red">insufficient ressources</div><</if>></li>
 </ul>
+<<if $CampJ.Orb && $Camp_J || $CampM.Orb && $Camp_M>>
 <ul class="plussign-list"><li>+ Orb Improvement for Exploring (4E - 4U): 
   <<if $engineering >= 4 && $CampJ.nOrb != true && $Camp_J == true && $energy >= 4 && $unimatter >= 4>>[[Print|Construction Menu][$energy -= 4; $unimatter -= 4; $CampJ.nOrb = true]]
   <<elseif $engineering >= 4 && $CampM.nOrb != true && $Camp_M == true && $energy >= 4 && $unimatter >= 4>>[[Print|Construction Menu][$energy -= 4; $unimatter -= 4; $CampM.nOrb = true]]
-  <<elseif $CampJ.nOrb == true && $Camp_J == true || $CampM.nOrb == true && $Camp_M == true>><br>The Orb is recharging at its port.<<else>>insufficient ressources<</if>></li>
+  <<elseif $CampJ.nOrb == true && $Camp_J == true || $CampM.nOrb == true && $Camp_M == true>><br><div class="color-green">The Orb is recharging at its port.</div><<else>><div class="color-red">insufficient ressources</div><</if>></li>
 <li>+ Orb Improvement for Combat (6E - 6U): 
   <<if $engineering >= 4 && $CampJ.cOrb != true && $Camp_J == true && $energy >= 6 && $unimatter >= 6>>[[Print|Construction Menu][$energy -= 6; $unimatter -= 6; $CampJ.cOrb = true]]
   <<elseif $engineering >= 4 && $CampM.cOrb != true && $Camp_M == true && $energy >= 6 && $unimatter >= 6>>[[Print|Construction Menu][$energy -= 6; $unimatter -= 6; $CampM.cOrb = true]]
-  <<elseif $CampJ.cOrb == true && $Camp_J == true || $CampM.cOrb == true && $Camp_M == true>><br>The Orb is recharging at its port.<<else>>insufficient ressources<</if>></li>
+  <<elseif $CampJ.cOrb == true && $Camp_J == true || $CampM.cOrb == true && $Camp_M == true>><br><div class="color-green">The Orb is recharging at its port.</div><<else>><div class="color-red">insufficient ressources</div><</if>></li>
 </ul>
+<</if>>
 <<else>>
   All building slots are full. Consider disintegrate one or more.
-<<if $CampJ.Orb == true || $CampM.Orb == true>>
+<<if $CampJ.Orb && $Camp_J || $CampM.Orb && $Camp_M>>
   Orb improvement templates:
   <ul class="plussign-list"><li>+ Orb Improvement for Exploring (4E - 4U): 
     <<if $engineering >= 4 && $CampJ.nOrb != true && $Camp_J == true && $energy >= 4 && $unimatter >= 4>>[[Print|Construction Menu][$energy -= 4; $unimatter -= 4; $CampJ.nOrb = true]]
     <<elseif $engineering >= 4 && $CampM.nOrb != true && $Camp_M == true && $energy >= 4 && $unimatter >= 4>>[[Print|Construction Menu][$energy -= 4; $unimatter -= 4; $CampM.nOrb = true]]
-    <<elseif $CampJ.nOrb == true && $Camp_J == true || $CampM.nOrb == true && $Camp_M == true>><br>The Orb is recharging at its port.<<else>>insufficient ressources<</if>></li>
+    <<elseif $CampJ.nOrb == true && $Camp_J == true || $CampM.nOrb == true && $Camp_M == true>><br><div class="color-green">The Orb is recharging at its port.</div><<else>><div class="color-red">insufficient ressources</div><</if>></li>
   <li>+ Orb Improvement for Combat (6E - 6U): 
     <<if $engineering >= 4 && $CampJ.cOrb != true && $Camp_J == true && $energy >= 6 && $unimatter >= 6>>[[Print|Construction Menu][$energy -= 6; $unimatter -= 6; $CampJ.cOrb = true]]
     <<elseif $engineering >= 4 && $CampM.cOrb != true && $Camp_M == true && $energy >= 6 && $unimatter >= 6>>[[Print|Construction Menu][$energy -= 6; $unimatter -= 6; $CampM.cOrb = true]]
-    <<elseif $CampJ.cOrb == true && $Camp_J == true || $CampM.cOrb == true && $Camp_M == true>><br>The Orb is recharging at its port.<<else>>insufficient ressources<</if>></li>
+    <<elseif $CampJ.cOrb == true && $Camp_J == true || $CampM.cOrb == true && $Camp_M == true>><br><div class="color-green">The Orb is recharging at its port.</div><<else>><div class="color-red">insufficient ressources</div><</if>></li>
   </ul>
 <</if>>
 <</if>><</nobr>>
@@ -1121,8 +1125,6 @@ Ready to play a game?
 [[Yes]]
 [[Yes, but ...|Yes][$SFW_Path = true]]
 </center>
-
-[[Check conditions]]
 
 
 :: Search for Compass {"position":"925,175","size":"100,100"}
@@ -1940,7 +1942,6 @@ postrender = function (content, task) {
     task.content = "<center>" + task.content + "</center>";
 };
 
-
 :: StoryStylesheet [stylesheet]
 /* core    ------------------------------------------------------------------------------------- */    
 @font-face {
@@ -1950,12 +1951,25 @@ postrender = function (content, task) {
   src: url('assets/Fonts/corbel.ttf') format('ttf');
 }
 
+#story {
+  display: flex;
+  width: fit-content;
+  max-width: 100%;
+  justify-content: center;
+}
+
+#passages {
+  width: 700px;
+}
+
 html {
  font: 18px/1 Bahnschrift,Corbel,Helmet,Freesans,sans-serif; 
 }
 
 body{
+  display: flex;
   color: #A9A9A9;
+  justify-content: center;
 }
 
 img {
@@ -1965,10 +1979,6 @@ img {
 
 h6 {
   margin: 0;
-}
-
-.passage {
- max-width: 700px;
 }
 
 /* display links design    ------------------------------------------------------------------------------------- */    
@@ -2076,12 +2086,12 @@ z-index: 0;
 .order-indices {
   display: flex;
   flex-flow: column;
-  max-width: 700px;
+  /* max-width: 700px; */
 }
 
 .index-screens-normal {
   position: relative;
-  width: 660px;
+  /* width: 660px; */
   background-color: #3a5978;
   padding: 10px 20px;
   border-radius: 10px;
@@ -2148,7 +2158,7 @@ z-index: 0;
 }
 
 .actions-row>div {
-  width: 50%;
+  width: 66%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -2157,6 +2167,15 @@ z-index: 0;
   border: 1px solid #68d;
   border-radius: 5px;
   background-color: #1a1a1a;
+}
+
+/* the con- & destruction color markers ------------------------------------------------------------------------------------- */
+.color-green {
+  color: green;
+}
+
+.color-red {
+  color: #ff6633;
 }
 
 /* the con- & destruction list ------------------------------------------------------------------------------------- */

@@ -1,6 +1,3 @@
-- Orb improvement (condition doesn't work properly, it should not show possible if the standard orb is not built)
-
-- check again with Construction Menu and building slots
-	- also do orb improvements takes up building slots? Which shouldn't.
+- div story; the format lean to the left instead of centering the content if switched to mobile
 
 - socialising doesn't work, structural problem ==> divide events in passages?
