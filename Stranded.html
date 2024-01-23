@@ -767,75 +767,85 @@ The antenna is installed on a small hill. But it seems to reach no one. Maybe it
 &lt;&lt;/nobr&gt;&gt;
 [[Set up the Camp|Camp Jungle]]
 &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="26" name="Abiba" tags="" position="1900,1150" size="100,100">&lt;center&gt;&lt;blockquote&gt;
-&lt;&lt;if $social &lt; 3&gt;&gt;
+&lt;&lt;if random(10) &gt;1&gt;&gt;
+&lt;&lt;if $social &gt; 0 || $Abiba_ICP.AI1&gt;&gt;
   [img[assets/characters/Abiba/Abiba_P.png]]
   
-  Mensch! Do I have hard time concentrating on what she is saying, and, me expressing my intentions.&lt;&lt;if $Abibavisits &gt; 3&gt;&gt;&lt;&lt;set $Abiba_ICP.AI1 = true&gt;&gt;&lt;&lt;/if&gt;&gt;
-  &lt;&lt;elseif $social[4, 5] &amp;&amp; $Abiba_ICP.AI1 == true&gt;&gt;
+  Mensch! Do I have hard time concentrating on what she is saying, and, me expressing my intentions.&lt;&lt;if $Abibavisits &gt; 5&gt;&gt;&lt;&lt;set $Abiba_ICP.AI2 = true; $Abiba_ICP.AI1 = false; $Abibavisits = 6&gt;&gt;&lt;&lt;/if&gt;&gt;
+  &lt;&lt;elseif $social &gt; 3 &amp;&amp; $$Abiba_ICP.AI2&gt;&gt;
   [img[assets/characters/Abiba/Abiba6.png]]
   
-  We slowly build rapport. It is getting better. Our talk is becoming more fluid.&lt;&lt;if $Abibavisits &gt; 6&gt;&gt;&lt;&lt;set $Abiba_ICP.AI2 = true&gt;&gt;&lt;&lt;/if&gt;&gt;
-  &lt;&lt;elseif $social[5, 6] &amp;&amp; $Abiba_ICP.AI2 == true&gt;&gt;
+  We slowly build rapport. It is getting better. Our talk is becoming more fluid.&lt;&lt;if $Abibavisits &gt; 8&gt;&gt;&lt;&lt;set $Abiba_ICP.AI3 = true; $Abiba_ICP.AI2 = false; $Abibavisits = 9&gt;&gt;&lt;&lt;/if&gt;&gt;
+  &lt;&lt;elseif $social &gt; 4 &amp;&amp; $$Abiba_ICP.AI3&gt;&gt;
   [img[assets/characters/Abiba/Abiba7_1.png]]
   
-  Wow, what was a stuttering start between us, it is now so smooth that I wonder if she flaunting her assets?&lt;&lt;if $Abibavisits &gt; 9&gt;&gt;&lt;&lt;set $Abiba_ICP.AI3 = true&gt;&gt;&lt;&lt;/if&gt;&gt;
-  &lt;&lt;elseif $social[6, 7] &amp;&amp; $Abiba_ICP.AI3 == true&gt;&gt;
+  Wow, what was a stuttering start between us, it is now so smooth that I wonder if she flaunting her assets?&lt;&lt;if $Abibavisits &gt; 11&gt;&gt;&lt;&lt;set $Abiba_ICP.AI4 = true; $Abiba_ICP.AI3 = false; $Abibavisits = 12&gt;&gt;&lt;&lt;/if&gt;&gt;
+  &lt;&lt;elseif $social &gt; 5 &amp;&amp; $$Abiba_ICP.AI4&gt;&gt;
   [img[assets/characters/Abiba/Abiba8.png]]
   
-  I was knocking at her door, as she hollered &#39;Come in&#39;. She knew it was me. She knew!&lt;&lt;if $Abibavisits &gt; 13&gt;&gt;&lt;&lt;set $Abiba_ICP.AI4 = true&gt;&gt;&lt;&lt;/if&gt;&gt;
-  &lt;&lt;elseif  $social[7, 8] &amp;&amp; $SFW_Path == false &amp;&amp; $Abiba_ICP.AI4 == true&gt;&gt;
-  [img[assets/characters/Abiba/Abiba11.png]]
-  
-  She shouted she was in the showers. Boy! Was my fantasy running high, this amount of imagination energy would have been enough to catapult me to sky and beyond!
-  
-  &lt;&lt;linkappend &quot;I couldn&#39;t listen to what she was saying.&quot; t8n&gt;&gt;
-  [img[assets/characters/Abiba/Abiba10.png]]
-  
-  She rolled a bit her eyes. I could hear it, feel it. I felt it! Else why did she command me to come in? 
-  But whatever she wanted to say to me, she reconsidered. Probably because my systems went to primal mode, neanderthal reset. Clumsy and idiotic. Not attractive.
-  &lt;&lt;/linkappend&gt;&gt;&lt;&lt;if $Abibavisits &gt; 17&gt;&gt;&lt;&lt;set $Abiba_ICP.AI5 = true&gt;&gt;&lt;&lt;/if&gt;&gt;
-  &lt;&lt;elseif $social[8, 9] &amp;&amp; $SFW_Path == false &amp;&amp; $Abiba_ICP.AI5 == true&gt;&gt;
-  [img[assets/characters/Abiba/Abiba13.png]]
-  
-  Hey, Abby, how are ywhhooaa!
-  
-  &lt;&lt;linkappend &quot;Whoof!&quot; t8n&gt;&gt;
-  [img[assets/characters/Abiba/Abiba13_2.png]]
-  
-  She is laughing at my surprised reaction. Radiantly happy that she made me happy ...
-  &lt;&lt;/linkappend&gt;&gt;
-  
-  &lt;&lt;linkappend &quot;As it was not enough, she gives another one!&quot; t8n&gt;&gt;
-  [img[assets/characters/Abiba/Abiba13_3.png]]
-  
-  Boy! Girl! What is happening with my brain, it doesn&#39;t work nothing at all. Not a coherent sentence is coming from my mouth.
-  &lt;&lt;/linkappend&gt;&gt;&lt;&lt;if $Abibavisits &gt; 19&gt;&gt;&lt;&lt;set $Abiba_ICP.AI6 = true&gt;&gt;&lt;&lt;/if&gt;&gt;
-  &lt;&lt;elseif $social[9, 10] &amp;&amp; $SFW_Path == false &amp;&amp; $Abiba_ICP.AI6 == true&gt;&gt;
-  [img[assets/characters/Abiba/Abiba19.png]]
-  
-  Enough! All this clumsiness and stuttering because we barely can focus on while a solution is so simple: Fickifucki!
-  
-  The clumsy our communication was,&lt;&lt;linkappend &quot;the more do we seem to understand in our body language!&quot; t8n&gt;&gt;
-  [img[assets/characters/Abiba/Abiba14.png]]
-  
-  And, yes! The best solution EVER! I thought that aloud while gave her a pound that gave her a blackout and a pleasant surprise. I mean, look at that face!
-  &lt;&lt;/linkappend&gt;&gt;
-  
-  &lt;&lt;linkappend &quot;Yes, that face!&quot; t8n&gt;&gt;
-  [img[assets/characters/Abiba/Abiba21.png]]
-  
-  Happy, out, it is done, the rabbit is out, no more facadery, maskes. We fucked, we enjoyed, we will talk better.
-  &lt;&lt;/linkappend&gt;&gt;&lt;&lt;if $Abibavisits &gt; 22&gt;&gt;&lt;&lt;set $Abiba_ICP.AI7 = true&gt;&gt;&lt;&lt;/if&gt;&gt;
-  &lt;&lt;elseif $social[10, 11] &amp;&amp; $SFW_Path == false &amp;&amp; $Abiba_ICP.AI7 == true&gt;&gt;&lt;&lt;if $Abibavisits &gt; 25&gt;&gt;&lt;&lt;set $Elvavisits = 25&gt;&gt;&lt;&lt;/if&gt;&gt;
-  [img[assets/characters/Abiba/Abiba16.png]]
-  
-  No! No more talk, our bodies do that!
-  
-  (end of content for version 0.1)
+  I was knocking at her door, as she hollered &#39;Come in&#39;. She knew it was me. She knew!&lt;&lt;if $Abibavisits &gt; 14&gt;&gt;&lt;&lt;set $Abiba_ICP.AI5 = true; $Abiba_ICP.AI4 = false; $Abibavisits = 15&gt;&gt;&lt;&lt;/if&gt;&gt;
+  &lt;&lt;elseif $SFW_Path == false&gt;&gt;
+    &lt;&lt;if $social &gt; 6 &amp;&amp; $$Abiba_ICP.AI5&gt;&gt;
+    [img[assets/characters/Abiba/Abiba11.png]]
+    
+    She shouted she was in the showers. Boy! Was my fantasy running high, this amount of imagination energy would have been enough to catapult me to sky and beyond!&lt;&lt;if $Abibavisits &gt; 18&gt;&gt;&lt;&lt;set $Abiba_ICP.AI6 = true; $Abiba_ICP.AI5 = false; $Abibavisits = 19&gt;&gt;&lt;&lt;/if&gt;&gt;
+    
+    &lt;&lt;linkappend &quot;I couldn&#39;t listen to what she was saying.&quot; t8n&gt;&gt;
+    [img[assets/characters/Abiba/Abiba10.png]]
+    
+    She rolled a bit her eyes. I could hear it, feel it. I felt it! Else why did she command me to come in? 
+    But whatever she wanted to say to me, she reconsidered. Probably because my systems went to primal mode, neanderthal reset. Clumsy and idiotic. Not attractive.
+    &lt;&lt;/linkappend&gt;&gt;
+    &lt;&lt;elseif $social &gt; 7 &amp;&amp; $$Abiba_ICP.AI6&gt;&gt;
+    [img[assets/characters/Abiba/Abiba13.png]]
+    
+    Hey, Abby, how are ywhhooaa!&lt;&lt;if $Abibavisits &gt; 22&gt;&gt;&lt;&lt;set $Abiba_ICP.AI7 = true; $Abiba_ICP.AI6 = false; $Abibavisits = 23&gt;&gt;&lt;&lt;/if&gt;&gt;
+    
+    &lt;&lt;linkappend &quot;Whoof!&quot; t8n&gt;&gt;
+    [img[assets/characters/Abiba/Abiba13_2.png]]
+    
+    She is laughing at my surprised reaction. Radiantly happy that she made me happy ...
+    &lt;&lt;/linkappend&gt;&gt;
+    
+    &lt;&lt;linkappend &quot;As it was not enough, she gives another one!&quot; t8n&gt;&gt;
+    [img[assets/characters/Abiba/Abiba13_3.png]]
+    
+    Boy! Girl! What is happening with my brain, it doesn&#39;t work nothing at all. Not a coherent sentence is coming from my mouth.
+    &lt;&lt;/linkappend&gt;&gt;
+    &lt;&lt;elseif $social &gt; 8 &amp;&amp; $$Abiba_ICP.AI7&gt;&gt;
+    [img[assets/characters/Abiba/Abiba19.png]]
+    
+    Enough! All this clumsiness and stuttering because we barely can focus on while a solution is so simple: Fickifucki!&lt;&lt;if $Abibavisits &gt; 25&gt;&gt;&lt;&lt;set $Abiba_ICP.AI8 = true; $Abiba_ICP.AI7 = false; $Abibavisits = 26&gt;&gt;&lt;&lt;/if&gt;&gt;
+    
+    The clumsy our communication was, &lt;&lt;linkappend &quot;the more do we seem to understand in our body language!&quot; t8n&gt;&gt;
+    [img[assets/characters/Abiba/Abiba14.png]]
+    
+    And, yes! The best solution EVER! I thought that aloud while gave her a pound that gave her a blackout and a pleasant surprise. I mean, look at that face!
+    &lt;&lt;/linkappend&gt;&gt;
+    
+    &lt;&lt;linkappend &quot;Yes, that face!&quot; t8n&gt;&gt;
+    [img[assets/characters/Abiba/Abiba21.png]]
+    
+    Happy, out, it is done, the rabbit is out, no more facadery, maskes. We fucked, we enjoyed, we will talk better.
+    &lt;&lt;/linkappend&gt;&gt;
+    &lt;&lt;elseif $social &gt; 9 &amp;&amp; $$Abiba_ICP.AI8&gt;&gt;&lt;&lt;if $Abibavisits &gt; 30&gt;&gt;&lt;&lt;set $Abibavisits = 30&gt;&gt;&lt;&lt;/if&gt;&gt;
+    [img[assets/characters/Abiba/Abiba16.png]]
+    
+    No! No more talk, our bodies do that!
+    
+    (end of content for version 0.1)
+    &lt;&lt;else&gt;&gt;
+      [img[assets/characters/Abiba/Abiba6.png]]
+
+      Okay, it is kind slow and muddy talk. It is okay. More or less.
+    &lt;&lt;/if&gt;&gt;
   &lt;&lt;else&gt;&gt;
      Abiba doesn&#39;t react, I guess now is not the time. &lt;&lt;set $noAbiba = true&gt;&gt;&lt;&lt;set $Abibavisits -= 1&gt;&gt;
   &lt;&lt;/if&gt;&gt;
-  &lt;div class=&quot;actions-row&quot;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;div&gt;[[Back to Camp|Camp Jungle]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div&gt;[[Back to Camp|Camp Mountain]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/div&gt;
+  &lt;&lt;else&gt;&gt;
+    Abiba is in training. Better not disturbing her. &lt;&lt;set $noAbiba = true&gt;&gt;&lt;&lt;set $Abibavisits -= 1&gt;&gt;
+  &lt;&lt;/if&gt;&gt;
+  &lt;div class=&quot;actions-row&quot;&gt;&lt;&lt;if $Camp_J&gt;&gt;&lt;div&gt;[[Back to Camp|Camp Jungle]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div&gt;[[Back to Camp|Camp Mountain]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/div&gt;
     
   &lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go chat with others|Social Events]]&lt;/div&gt;&lt;/div&gt;
   &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="27" name="Ante Explore" tags="" position="900,700" size="100,100">&lt;center&gt;&lt;blockquote&gt;
@@ -960,7 +970,7 @@ We have &lt;&lt;= $nutrients&gt;&gt; nutrients in storage. Each person consume o
 [img[Materials Printer|assets/items/3D-Printer_rs.png]] [img[Compass|assets/items/compass_rs.png]] &lt;&lt;if $SubAnalyzer == true&gt;&gt;[img[Substance Analyzer|assets/items/Substance-Analyzer_rs.png]]&lt;&lt;/if&gt;&gt;&lt;/div&gt;
 &lt;div class=&quot;index-screens-normal&quot;&gt;&lt;strong&gt;Components and Buildings operated by your spaceship:&lt;/strong&gt;
 &lt;&lt;if $CampM.TransMast == true&gt;&gt;[img[Transmission Mast|assets/items/antenna_CM_rs.png]] &lt;&lt;/if&gt;&gt;&lt;&lt;if $CampM.EHarvester == true&gt;&gt;[img[Energy Harvester|assets/items/sun-collectors_rs.png]] &lt;&lt;/if&gt;&gt;&lt;&lt;if $CampM.DefPerimeter == true&gt;&gt;[img[Defense Perimeter|assets/items/defense-perimeter_rs.png]] &lt;&lt;/if&gt;&gt;&lt;&lt;if $CampM.Farm == true&gt;&gt;[img[Horticulture|assets/items/farm_rs.png]] &lt;&lt;/if&gt;&gt;&lt;&lt;if $CampJ.Orb == true&gt;&gt;[img[Floating Orb|assets/items/The-Orb_rs.png]]&amp;nbsp;&lt;&lt;elseif $CampJ.nOrb == true&gt;&gt;[img[Orb +Navigation|assets/items/navigation-Orb_rs.png]]&amp;nbsp;&lt;&lt;elseif $CampJ.cOrb == true&gt;&gt;[img[Orb +Combat|assets/items/combat-Orb_rs.png]]&amp;nbsp;&lt;&lt;elseif $CampJ.cnOrb == true&gt;&gt;[img[Orb +Navi +Combat|assets/items/combat-Orb_rs.png]]&amp;nbsp;&lt;&lt;/if&gt;&gt;
-&lt;&lt;if $CampM.building &gt; $CampM.maxbuilding&gt;&gt;&lt;&lt;set $CampM.building = $CampM.maxbuilding&gt;&gt;&lt;&lt;elseif $CampM.building &lt; 0&gt;&gt;&lt;&lt;set $CampM.building = 0&gt;&gt;&lt;&lt;/if&gt;&gt;The camp has &lt;&lt;= $CampM.building&gt;&gt; of maximal &lt;&lt;= $CampM.maxbuildings&gt;&gt; buildings.&lt;/div&gt;
+&lt;&lt;if $CampM.building &gt; $CampM.maxbuildings&gt;&gt;&lt;&lt;set $CampM.building = $CampM.maxbuildings&gt;&gt;&lt;&lt;elseif $CampM.building &lt; 0&gt;&gt;&lt;&lt;set $CampM.building = 0&gt;&gt;&lt;&lt;/if&gt;&gt;The camp has &lt;&lt;= $CampM.building&gt;&gt; of maximal &lt;&lt;= $CampM.maxbuildings&gt;&gt; buildings.&lt;/div&gt;
 &lt;div class=&quot;index-screens-small&quot;&gt;&lt;div&gt;&lt;strong&gt;CYCLES:&amp;nbsp;&lt;/strong&gt;
 &lt;&lt;= $days&gt;&gt;&lt;/div&gt;&lt;div&gt;&lt;strong&gt;ENERGY:&amp;nbsp;&lt;/strong&gt;
 &lt;&lt;if $maxenergy &lt; 0&gt;&gt;&lt;&lt;set $maxenergy = 0&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if $energy &gt; $maxenergy&gt;&gt;&lt;&lt;set $energy = $maxenergy&gt;&gt;&lt;&lt;elseif $energy &lt; 0&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;= $energy.toFixed(1)&gt;&gt; of maximal &lt;&lt;= $maxenergy&gt;&gt;&lt;/div&gt;&lt;div&gt;&lt;strong&gt;UNIMATTER:&amp;nbsp;&lt;/strong&gt;
@@ -1001,58 +1011,58 @@ Ech! Nothing happens. It is boring. Maybe I should try to go out anyway?
 &lt;div class=&quot;passage-titles&quot; style=&quot;color: #336699; border-bottom-color: #336699; border-top-color: #336699;&quot;&gt;&lt;center&gt;&lt;h3&gt;&lt;strong&gt;Construction Menu&lt;/strong&gt;&lt;/h3&gt;&lt;/center&gt;&lt;/div&gt;
 &lt;div class=&quot;index-screens-small&quot;&gt;&lt;div&gt;&lt;strong&gt;ENERGY:&amp;nbsp;&lt;/strong&gt;
 &lt;&lt;if $energy &gt; $maxenergy&gt;&gt;&lt;&lt;set $energy = $maxenergy&gt;&gt;&lt;&lt;elseif $energy &lt; 0&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;= $energy.toFixed(1)&gt;&gt; of maximal &lt;&lt;= $maxenergy&gt;&gt;&lt;/div&gt;&lt;div&gt;&lt;strong&gt;UNIMATTER:&amp;nbsp;&lt;/strong&gt;
-&lt;&lt;if $unimatter &gt; $maxunimatter&gt;&gt;&lt;&lt;set $unimatter = $maxunimatter&gt;&gt;&lt;&lt;elseif $unimatter &lt; 0&gt;&gt;&lt;&lt;set $unimatter = 0&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;= $unimatter.toFixed(1)&gt;&gt; Unimatter&lt;/div&gt;&lt;div&gt;&lt;&lt;if $Camp_M == true&gt;&gt;available buildings:
+&lt;&lt;if $unimatter &gt; $maxunimatter&gt;&gt;&lt;&lt;set $unimatter = $maxunimatter&gt;&gt;&lt;&lt;elseif $unimatter &lt; 0&gt;&gt;&lt;&lt;set $unimatter = 0&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;= $unimatter.toFixed(1)&gt;&gt; Unimatter&lt;/div&gt;&lt;div&gt;&lt;&lt;if $Camp_M&gt;&gt;available buildings:
 &lt;&lt;= $CampM.building&gt;&gt; from maximal &lt;&lt;= $CampM.maxbuildings&gt;&gt;
 &lt;&lt;else&gt;&gt;available buildings:
 &lt;&lt;= $CampJ.building&gt;&gt; from maximal &lt;&lt;= $CampJ.maxbuildings&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;div class=&quot;index-screens-small&quot;&gt;&lt;div style=&quot;width: 100%;&quot;&gt;[[Go to Disintegration Menu|Disintegration Menu]]&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&quot;index-screens-small&quot;&gt;&lt;div style=&quot;width: 100%;&quot;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;[[Go to Camp|Camp Jungle]]&lt;&lt;else&gt;&gt;[[Go to Camp|Camp Mountain]]&lt;&lt;/if&gt;&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;index-screens-small&quot;&gt;&lt;div style=&quot;width: 100%;&quot;&gt;&lt;&lt;if $Camp_J&gt;&gt;[[Go to Camp|Camp Jungle]]&lt;&lt;else&gt;&gt;[[Go to Camp|Camp Mountain]]&lt;&lt;/if&gt;&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;/center&gt;
 &lt;strong&gt;&lt;u&gt;available Templates:&lt;/u&gt;&lt;/strong&gt;
 &lt;&lt;nobr&gt;&gt;&lt;h6&gt;Legend: Energy = E | Unimatter = U | Lvl = Engineering Level&lt;/h6&gt;
-&lt;ul&gt;&lt;li&gt;Repairs (3E - 3U): &lt;&lt;if $energy &gt;= 3 &amp;&amp; $unimatter &gt;= 3 &amp;&amp; $Camp_J == true &amp;&amp; $maxenergy &lt; 10&gt;&gt;[[Action it|Construction Menu][$energy -= 3; $unimatter -= 3; $maxenergy = 10]]
-  &lt;&lt;elseif $energy &gt;= 3 &amp;&amp; $unimatter &gt;= 3 &amp;&amp; $Camp_M == true &amp;&amp; $maxenergy &lt; 20&gt;&gt;[[Action it|Construction Menu][$energy -= 3; $unimatter -= 3; $maxenergy = 20]]
-  &lt;&lt;elseif $unimatter &lt; 3 &amp;&amp; $energy &lt; 3&gt;&gt;&lt;div class=&quot;color-red&quot;&gt;insufficient ressources&lt;/div&gt;
-  &lt;&lt;else&gt;&gt;&lt;div class=&quot;color-green&quot;&gt;all good and functioning.&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/li&gt;&lt;/ul&gt;
-&lt;&lt;if $Camp_J == true &amp;&amp; $CampJ.building &lt; $CampJ.maxbuildings || $Camp_M == true &amp;&amp; $CampM.building &lt; $CampM.maxbuildings&gt;&gt;
-&lt;ul&gt;
+&lt;ul&gt;&lt;li&gt;Repairs (3E - 3U): &lt;&lt;if $energy &gt;= 3 &amp;&amp; $unimatter &gt;= 3 &amp;&amp; $Camp_J &amp;&amp; $maxenergy &lt; 10&gt;&gt;[[Action it|Construction Menu][$energy -= 3; $unimatter -= 3; $maxenergy = 10]]
+  &lt;&lt;elseif $energy &gt;= 3 &amp;&amp; $unimatter &gt;= 3 &amp;&amp; $Camp_M &amp;&amp; $maxenergy &lt; 20&gt;&gt;[[Action it|Construction Menu][$energy -= 3; $unimatter -= 3; $maxenergy = 20]]
+  &lt;&lt;elseif $unimatter &lt; 3 &amp;&amp; $energy &lt; 3&gt;&gt;&lt;div class=&quot;color-red&quot;&gt;insufficient level or ressources&lt;/div&gt;
+  &lt;&lt;else&gt;&gt;&lt;div class=&quot;color-green&quot;&gt;all good and functioning.&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/li&gt;
 &lt;li&gt;Lvl 2: Substance Analyzer (2E - 5U): 
   &lt;&lt;if $engineering &gt;= 2 &amp;&amp; $SubAnalyzer != true &amp;&amp; $energy &gt;= 2 &amp;&amp; $unimatter &gt;= 5&gt;&gt;[[Print|Construction Menu][$energy -= 2; $unimatter -= 5; $SubAnalyzer = true]]
-  &lt;&lt;elseif $SubAnalyzer == true&gt;&gt;&lt;br&gt;&lt;div class=&quot;color-green&quot;&gt;We have already the Substance Analyzer in our inventory.&lt;/div&gt;
-  &lt;&lt;else&gt;&gt;&lt;div class=&quot;color-red&quot;&gt;insufficient ressources&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/li&gt;
+  &lt;&lt;elseif $SubAnalyzer&gt;&gt;&lt;br&gt;&lt;div class=&quot;color-green&quot;&gt;We have already the Substance Analyzer in our inventory.&lt;/div&gt;
+  &lt;&lt;else&gt;&gt;&lt;div class=&quot;color-red&quot;&gt;insufficient level or ressources&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/li&gt;&lt;/ul&gt;
+&lt;&lt;if $Camp_J &amp;&amp; $CampJ.building &lt; $CampJ.maxbuildings || $Camp_M &amp;&amp; $CampM.building &lt; $CampM.maxbuildings&gt;&gt;
+&lt;ul&gt;
 &lt;li&gt;Lvl 2: Energy Harvester (5E - 5U): 
-  &lt;&lt;if $engineering &gt;= 2 &amp;&amp; $CampJ.EHarvester != true &amp;&amp; $Camp_J == true &amp;&amp; $energy &gt;= 5 &amp;&amp; $unimatter &gt;= 5&gt;&gt;[[Print|Construction Menu][$energy -= 5; $unimatter -= 5; $CampJ.EHarvester = true; $CampJ.building += 1]]
-  &lt;&lt;elseif $engineering &gt;= 2 &amp;&amp; $CampM.EHarvester != true &amp;&amp; $Camp_M == true &amp;&amp; $energy &gt;= 5 &amp;&amp; $unimatter &gt;= 5&gt;&gt;[[Print|Construction Menu][$energy -= 5; $unimatter -= 5; $CampM.EHarvester = true; $CampM.building += 1]]
-  &lt;&lt;elseif $CampJ.EHarvester == true &amp;&amp; $Camp_J == true || $CampM.EHarvester == true &amp;&amp; $Camp_M == true&gt;&gt;&lt;br&gt;&lt;div class=&quot;color-green&quot;&gt;Our Energy Harvester collects all possible energies.&lt;/div&gt;
-  &lt;&lt;else&gt;&gt;&lt;div class=&quot;color-red&quot;&gt;insufficient ressources&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/li&gt;
+  &lt;&lt;if $engineering &gt;= 2 &amp;&amp; $CampJ.EHarvester != true &amp;&amp; $Camp_J &amp;&amp; $energy &gt;= 5 &amp;&amp; $unimatter &gt;= 5&gt;&gt;[[Print|Construction Menu][$energy -= 5; $unimatter -= 5; $CampJ.EHarvester = true; $CampJ.building += 1]]
+  &lt;&lt;elseif $engineering &gt;= 2 &amp;&amp; $CampM.EHarvester != true &amp;&amp; $Camp_M &amp;&amp; $energy &gt;= 5 &amp;&amp; $unimatter &gt;= 5&gt;&gt;[[Print|Construction Menu][$energy -= 5; $unimatter -= 5; $CampM.EHarvester = true; $CampM.building += 1]]
+  &lt;&lt;elseif $CampJ.EHarvester &amp;&amp; $Camp_J || $CampM.EHarvester &amp;&amp; $Camp_M&gt;&gt;&lt;br&gt;&lt;div class=&quot;color-green&quot;&gt;Our Energy Harvester collects all possible energies.&lt;/div&gt;
+  &lt;&lt;else&gt;&gt;&lt;div class=&quot;color-red&quot;&gt;insufficient level or ressources&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/li&gt;
 &lt;li&gt;Lvl 3: Defense Perimeter (2E - 2U): 
-  &lt;&lt;if $engineering &gt;= 2 &amp;&amp; $CampJ.DefPerimeter != true &amp;&amp; $Camp_J == true &amp;&amp; $energy &gt;= 2 &amp;&amp; $unimatter &gt;= 2&gt;&gt;[[Print|Construction Menu][$energy -= 2; $unimatter -= 2; $CampJ.DefPerimeter = true; $CampJ.building += 1]]
-  &lt;&lt;elseif $engineering &gt;= 2 &amp;&amp; $CampM.DefPerimeter != true &amp;&amp; $Camp_M == true &amp;&amp; $energy &gt;= 2 &amp;&amp; $unimatter &gt;= 2&gt;&gt;[[Print|Construction Menu][$energy -= 8; $unimatter -= 3; $CampM.DefPerimeter = true; $CampM.building += 1]]
-  &lt;&lt;elseif $CampJ.DefPerimeter == true &amp;&amp; $Camp_J == true || $CampM.DefPerimeter == true &amp;&amp; $Camp_M == true&gt;&gt;&lt;br&gt;&lt;div class=&quot;color-green&quot;&gt;The Defense Perimeter is active.&lt;/div&gt;
-  &lt;&lt;else&gt;&gt;&lt;div class=&quot;color-red&quot;&gt;insufficient ressources&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/li&gt;
+  &lt;&lt;if $engineering &gt;= 2 &amp;&amp; $CampJ.DefPerimeter != true &amp;&amp; $Camp_J &amp;&amp; $energy &gt;= 2 &amp;&amp; $unimatter &gt;= 2&gt;&gt;[[Print|Construction Menu][$energy -= 2; $unimatter -= 2; $CampJ.DefPerimeter = true; $CampJ.building += 1]]
+  &lt;&lt;elseif $engineering &gt;= 2 &amp;&amp; $CampM.DefPerimeter != true &amp;&amp; $Camp_M &amp;&amp; $energy &gt;= 2 &amp;&amp; $unimatter &gt;= 2&gt;&gt;[[Print|Construction Menu][$energy -= 8; $unimatter -= 3; $CampM.DefPerimeter = true; $CampM.building += 1]]
+  &lt;&lt;elseif $CampJ.DefPerimeter &amp;&amp; $Camp_J || $CampM.DefPerimeter &amp;&amp; $Camp_M&gt;&gt;&lt;br&gt;&lt;div class=&quot;color-green&quot;&gt;The Defense Perimeter is active.&lt;/div&gt;
+  &lt;&lt;else&gt;&gt;&lt;div class=&quot;color-red&quot;&gt;insufficient level or ressources&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/li&gt;
 &lt;li&gt;Lvl 3: Antenna (2E - 2U): 
-  &lt;&lt;if $engineering &gt;= 3 &amp;&amp; $CampJ.TransMast != true  &amp;&amp; $Camp_J == true &amp;&amp; $energy &gt;= 2 &amp;&amp; $unimatter &gt;= 2&gt;&gt;[[Print|Construction Menu][$energy -= 2; $unimatter -= 2; $CampJ.TransMast = true; $CampJ.building += 1]]
-  &lt;&lt;elseif $engineering &gt;= 3 &amp;&amp; $CampM.TransMast != true &amp;&amp; $Camp_M == true &amp;&amp; $energy &gt;= 2 &amp;&amp; $unimatter &gt;= 2&gt;&gt;[[Print|Construction Menu][$energy -= 2; $unimatter -= 2; $CampM.TransMast = true; $CampM.building += 1]]
-  &lt;&lt;elseif $CampJ.TransMast == true  &amp;&amp; $Camp_J == true || $CampM.TransMast == true &amp;&amp; $Camp_M == true&gt;&gt;&lt;br&gt;&lt;div class=&quot;color-green&quot;&gt;Our transmission mast is sending without interruption.&lt;/div&gt;
-  &lt;&lt;else&gt;&gt;&lt;div class=&quot;color-red&quot;&gt;insufficient ressources&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/li&gt;
+  &lt;&lt;if $engineering &gt;= 3 &amp;&amp; $CampJ.TransMast != true  &amp;&amp; $Camp_J &amp;&amp; $energy &gt;= 2 &amp;&amp; $unimatter &gt;= 2&gt;&gt;[[Print|Construction Menu][$energy -= 2; $unimatter -= 2; $CampJ.TransMast = true; $CampJ.building += 1]]
+  &lt;&lt;elseif $engineering &gt;= 3 &amp;&amp; $CampM.TransMast != true &amp;&amp; $Camp_M &amp;&amp; $energy &gt;= 2 &amp;&amp; $unimatter &gt;= 2&gt;&gt;[[Print|Construction Menu][$energy -= 2; $unimatter -= 2; $CampM.TransMast = true; $CampM.building += 1]]
+  &lt;&lt;elseif $CampJ.TransMast  &amp;&amp; $Camp_J || $CampM.TransMast &amp;&amp; $Camp_M&gt;&gt;&lt;br&gt;&lt;div class=&quot;color-green&quot;&gt;Our transmission mast is sending without interruption.&lt;/div&gt;
+  &lt;&lt;else&gt;&gt;&lt;div class=&quot;color-red&quot;&gt;insufficient level or ressources&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/li&gt;
 &lt;li&gt;Lvl 4: Farm (4E - 6U): 
-  &lt;&lt;if $engineering &gt;= 4 &amp;&amp; $CampJ.Farm != true &amp;&amp; $Camp_J == true &amp;&amp; $energy &gt;= 4 &amp;&amp; $unimatter &gt;= 6&gt;&gt;[[Print|Construction Menu][$energy -= 4; $unimatter -= 6; $CampJ.Farm = true; $CampJ.building += 1]]
-  &lt;&lt;elseif $engineering &gt;= 4 &amp;&amp; $CampM.Farm != true &amp;&amp; $Camp_M == true &amp;&amp; $energy &gt;= 4 &amp;&amp; $unimatter &gt;= 6&gt;&gt;[[Print|Construction Menu][$energy -= 4; $unimatter -= 6; $CampM.Farm = true; $CampM.building += 1]]
-  &lt;&lt;elseif $CampJ.Farm == true &amp;&amp; $Camp_J == true || $CampM.Farm == true &amp;&amp; $Camp_M == true&gt;&gt;&lt;br&gt;&lt;div class=&quot;color-green&quot;&gt;Our horticulture produces our nutrients all fine.&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;color-red&quot;&gt;insufficient ressources&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/li&gt;
+  &lt;&lt;if $engineering &gt;= 4 &amp;&amp; $CampJ.Farm != true &amp;&amp; $Camp_J &amp;&amp; $energy &gt;= 4 &amp;&amp; $unimatter &gt;= 6&gt;&gt;[[Print|Construction Menu][$energy -= 4; $unimatter -= 6; $CampJ.Farm = true; $CampJ.building += 1]]
+  &lt;&lt;elseif $engineering &gt;= 4 &amp;&amp; $CampM.Farm != true &amp;&amp; $Camp_M &amp;&amp; $energy &gt;= 4 &amp;&amp; $unimatter &gt;= 6&gt;&gt;[[Print|Construction Menu][$energy -= 4; $unimatter -= 6; $CampM.Farm = true; $CampM.building += 1]]
+  &lt;&lt;elseif $CampJ.Farm &amp;&amp; $Camp_J || $CampM.Farm &amp;&amp; $Camp_M&gt;&gt;&lt;br&gt;&lt;div class=&quot;color-green&quot;&gt;Our horticulture produces our nutrients all fine.&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;color-red&quot;&gt;insufficient level or ressources&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/li&gt;
 &lt;li&gt;Lvl 4: Floating Orb (8E - 4U): 
-  &lt;&lt;if $engineering &gt;= 4 &amp;&amp; $CampJ.Orb != true &amp;&amp; $Camp_J == true &amp;&amp; $energy &gt;= 8 &amp;&amp; $unimatter &gt;= 4&gt;&gt;[[Print|Construction Menu][$energy -= 8; $unimatter -= 4; $CampJ.Orb = true; $CampJ.building += 1]]
-  &lt;&lt;elseif $engineering &gt;= 4 &amp;&amp; $CampM.Orb != true &amp;&amp; $Camp_M == true &amp;&amp; $energy &gt;= 8 &amp;&amp; $unimatter &gt;= 4&gt;&gt;[[Print|Construction Menu][$energy -= 8; $unimatter -= 4; $CampM.Orb = true; $CampM.building += 1]]
-  &lt;&lt;elseif $CampJ.Orb == true &amp;&amp; $Camp_J == true || $CampM.Orb == true &amp;&amp; $Camp_M == true&gt;&gt;&lt;br&gt;&lt;div class=&quot;color-green&quot;&gt;The Orb is recharging at its port.&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;color-red&quot;&gt;insufficient ressources&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/li&gt;
+  &lt;&lt;if $engineering &gt;= 4 &amp;&amp; $CampJ.Orb != true &amp;&amp; $Camp_J &amp;&amp; $energy &gt;= 8 &amp;&amp; $unimatter &gt;= 4&gt;&gt;[[Print|Construction Menu][$energy -= 8; $unimatter -= 4; $CampJ.Orb = true; $CampJ.building += 1]]
+  &lt;&lt;elseif $engineering &gt;= 4 &amp;&amp; $CampM.Orb != true &amp;&amp; $Camp_M &amp;&amp; $energy &gt;= 8 &amp;&amp; $unimatter &gt;= 4&gt;&gt;[[Print|Construction Menu][$energy -= 8; $unimatter -= 4; $CampM.Orb = true; $CampM.building += 1]]
+  &lt;&lt;elseif $CampJ.Orb &amp;&amp; $Camp_J || $CampM.Orb &amp;&amp; $Camp_M&gt;&gt;&lt;br&gt;&lt;div class=&quot;color-green&quot;&gt;The Orb is recharging at its port.&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;color-red&quot;&gt;insufficient level or ressources&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;&lt;if $CampJ.Orb &amp;&amp; $Camp_J || $CampM.Orb &amp;&amp; $Camp_M&gt;&gt;
 &lt;ul class=&quot;plussign-list&quot;&gt;&lt;li&gt;+ Orb Improvement for Exploring (4E - 4U): 
-  &lt;&lt;if $engineering &gt;= 4 &amp;&amp; $CampJ.nOrb != true &amp;&amp; $Camp_J == true &amp;&amp; $energy &gt;= 4 &amp;&amp; $unimatter &gt;= 4&gt;&gt;[[Print|Construction Menu][$energy -= 4; $unimatter -= 4; $CampJ.nOrb = true]]
-  &lt;&lt;elseif $engineering &gt;= 4 &amp;&amp; $CampM.nOrb != true &amp;&amp; $Camp_M == true &amp;&amp; $energy &gt;= 4 &amp;&amp; $unimatter &gt;= 4&gt;&gt;[[Print|Construction Menu][$energy -= 4; $unimatter -= 4; $CampM.nOrb = true]]
-  &lt;&lt;elseif $CampJ.nOrb == true &amp;&amp; $Camp_J == true || $CampM.nOrb == true &amp;&amp; $Camp_M == true&gt;&gt;&lt;br&gt;&lt;div class=&quot;color-green&quot;&gt;The Orb is recharging at its port.&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;color-red&quot;&gt;insufficient ressources&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/li&gt;
+  &lt;&lt;if $engineering &gt;= 4 &amp;&amp; $CampJ.nOrb != true &amp;&amp; $Camp_J &amp;&amp; $energy &gt;= 4 &amp;&amp; $unimatter &gt;= 4&gt;&gt;[[Print|Construction Menu][$energy -= 4; $unimatter -= 4; $CampJ.nOrb = true]]
+  &lt;&lt;elseif $engineering &gt;= 4 &amp;&amp; $CampM.nOrb != true &amp;&amp; $Camp_M &amp;&amp; $energy &gt;= 4 &amp;&amp; $unimatter &gt;= 4&gt;&gt;[[Print|Construction Menu][$energy -= 4; $unimatter -= 4; $CampM.nOrb = true]]
+  &lt;&lt;elseif $CampJ.nOrb &amp;&amp; $Camp_J || $CampM.nOrb &amp;&amp; $Camp_M&gt;&gt;&lt;br&gt;&lt;div class=&quot;color-green&quot;&gt;The Orb is recharging at its port.&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;color-red&quot;&gt;insufficient level or ressources&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/li&gt;
 &lt;li&gt;+ Orb Improvement for Combat (6E - 6U): 
-  &lt;&lt;if $engineering &gt;= 4 &amp;&amp; $CampJ.cOrb != true &amp;&amp; $Camp_J == true &amp;&amp; $energy &gt;= 6 &amp;&amp; $unimatter &gt;= 6&gt;&gt;[[Print|Construction Menu][$energy -= 6; $unimatter -= 6; $CampJ.cOrb = true]]
-  &lt;&lt;elseif $engineering &gt;= 4 &amp;&amp; $CampM.cOrb != true &amp;&amp; $Camp_M == true &amp;&amp; $energy &gt;= 6 &amp;&amp; $unimatter &gt;= 6&gt;&gt;[[Print|Construction Menu][$energy -= 6; $unimatter -= 6; $CampM.cOrb = true]]
-  &lt;&lt;elseif $CampJ.cOrb == true &amp;&amp; $Camp_J == true || $CampM.cOrb == true &amp;&amp; $Camp_M == true&gt;&gt;&lt;br&gt;&lt;div class=&quot;color-green&quot;&gt;The Orb is recharging at its port.&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;color-red&quot;&gt;insufficient ressources&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/li&gt;
+  &lt;&lt;if $engineering &gt;= 4 &amp;&amp; $CampJ.cOrb != true &amp;&amp; $Camp_J &amp;&amp; $energy &gt;= 6 &amp;&amp; $unimatter &gt;= 6&gt;&gt;[[Print|Construction Menu][$energy -= 6; $unimatter -= 6; $CampJ.cOrb = true]]
+  &lt;&lt;elseif $engineering &gt;= 4 &amp;&amp; $CampM.cOrb != true &amp;&amp; $Camp_M &amp;&amp; $energy &gt;= 6 &amp;&amp; $unimatter &gt;= 6&gt;&gt;[[Print|Construction Menu][$energy -= 6; $unimatter -= 6; $CampM.cOrb = true]]
+  &lt;&lt;elseif $CampJ.cOrb &amp;&amp; $Camp_J || $CampM.cOrb &amp;&amp; $Camp_M&gt;&gt;&lt;br&gt;&lt;div class=&quot;color-green&quot;&gt;The Orb is recharging at its port.&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;color-red&quot;&gt;insufficient level or ressources&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;else&gt;&gt;
@@ -1060,13 +1070,13 @@ Ech! Nothing happens. It is boring. Maybe I should try to go out anyway?
 &lt;&lt;if $CampJ.Orb &amp;&amp; $Camp_J || $CampM.Orb &amp;&amp; $Camp_M&gt;&gt;
   Orb improvement templates:
   &lt;ul class=&quot;plussign-list&quot;&gt;&lt;li&gt;+ Orb Improvement for Exploring (4E - 4U): 
-    &lt;&lt;if $engineering &gt;= 4 &amp;&amp; $CampJ.nOrb != true &amp;&amp; $Camp_J == true &amp;&amp; $energy &gt;= 4 &amp;&amp; $unimatter &gt;= 4&gt;&gt;[[Print|Construction Menu][$energy -= 4; $unimatter -= 4; $CampJ.nOrb = true]]
-    &lt;&lt;elseif $engineering &gt;= 4 &amp;&amp; $CampM.nOrb != true &amp;&amp; $Camp_M == true &amp;&amp; $energy &gt;= 4 &amp;&amp; $unimatter &gt;= 4&gt;&gt;[[Print|Construction Menu][$energy -= 4; $unimatter -= 4; $CampM.nOrb = true]]
-    &lt;&lt;elseif $CampJ.nOrb == true &amp;&amp; $Camp_J == true || $CampM.nOrb == true &amp;&amp; $Camp_M == true&gt;&gt;&lt;br&gt;&lt;div class=&quot;color-green&quot;&gt;The Orb is recharging at its port.&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;color-red&quot;&gt;insufficient ressources&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/li&gt;
+    &lt;&lt;if $engineering &gt;= 4 &amp;&amp; $CampJ.nOrb != true &amp;&amp; $Camp_J &amp;&amp; $energy &gt;= 4 &amp;&amp; $unimatter &gt;= 4&gt;&gt;[[Print|Construction Menu][$energy -= 4; $unimatter -= 4; $CampJ.nOrb = true]]
+    &lt;&lt;elseif $engineering &gt;= 4 &amp;&amp; $CampM.nOrb != true &amp;&amp; $Camp_M &amp;&amp; $energy &gt;= 4 &amp;&amp; $unimatter &gt;= 4&gt;&gt;[[Print|Construction Menu][$energy -= 4; $unimatter -= 4; $CampM.nOrb = true]]
+    &lt;&lt;elseif $CampJ.nOrb &amp;&amp; $Camp_J || $CampM.nOrb &amp;&amp; $Camp_M&gt;&gt;&lt;br&gt;&lt;div class=&quot;color-green&quot;&gt;The Orb is recharging at its port.&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;color-red&quot;&gt;insufficient level or ressources&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/li&gt;
   &lt;li&gt;+ Orb Improvement for Combat (6E - 6U): 
-    &lt;&lt;if $engineering &gt;= 4 &amp;&amp; $CampJ.cOrb != true &amp;&amp; $Camp_J == true &amp;&amp; $energy &gt;= 6 &amp;&amp; $unimatter &gt;= 6&gt;&gt;[[Print|Construction Menu][$energy -= 6; $unimatter -= 6; $CampJ.cOrb = true]]
-    &lt;&lt;elseif $engineering &gt;= 4 &amp;&amp; $CampM.cOrb != true &amp;&amp; $Camp_M == true &amp;&amp; $energy &gt;= 6 &amp;&amp; $unimatter &gt;= 6&gt;&gt;[[Print|Construction Menu][$energy -= 6; $unimatter -= 6; $CampM.cOrb = true]]
-    &lt;&lt;elseif $CampJ.cOrb == true &amp;&amp; $Camp_J == true || $CampM.cOrb == true &amp;&amp; $Camp_M == true&gt;&gt;&lt;br&gt;&lt;div class=&quot;color-green&quot;&gt;The Orb is recharging at its port.&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;color-red&quot;&gt;insufficient ressources&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/li&gt;
+    &lt;&lt;if $engineering &gt;= 4 &amp;&amp; $CampJ.cOrb != true &amp;&amp; $Camp_J &amp;&amp; $energy &gt;= 6 &amp;&amp; $unimatter &gt;= 6&gt;&gt;[[Print|Construction Menu][$energy -= 6; $unimatter -= 6; $CampJ.cOrb = true]]
+    &lt;&lt;elseif $engineering &gt;= 4 &amp;&amp; $CampM.cOrb != true &amp;&amp; $Camp_M &amp;&amp; $energy &gt;= 6 &amp;&amp; $unimatter &gt;= 6&gt;&gt;[[Print|Construction Menu][$energy -= 6; $unimatter -= 6; $CampM.cOrb = true]]
+    &lt;&lt;elseif $CampJ.cOrb &amp;&amp; $Camp_J || $CampM.cOrb &amp;&amp; $Camp_M&gt;&gt;&lt;br&gt;&lt;div class=&quot;color-green&quot;&gt;The Orb is recharging at its port.&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;color-red&quot;&gt;insufficient level or ressources&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/li&gt;
   &lt;/ul&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="33" name="Crash" tags="" position="800,300" size="100,100">&lt;center&gt;&lt;blockquote&gt;
@@ -1171,67 +1181,72 @@ After many minutes
       &lt;li&gt;+ [[Orb Improvement for Combat (6E - 6U)|Disintegration Menu][$energy += 6; $unimatter += 6; $CampJ.cOrb = false]]&lt;/li&gt;
     &lt;&lt;elseif $CampM.cOrb == true &amp;&amp; $Camp_M == true&gt;&gt;
       &lt;li&gt;+ [[Orb Improvement for Combat (6E - 6U)|Disintegration Menu][$energy += 6; $unimatter += 6; $CampM.cOrb = false]]&lt;/li&gt;&lt;&lt;/if&gt;&gt;&lt;/ul&gt;</tw-passagedata><tw-passagedata pid="36" name="Elva" tags="" position="1900,1025" size="100,100">&lt;center&gt;&lt;blockquote&gt;
-&lt;&lt;if $social &lt; 2&gt;&gt;
-  [img[assets/characters/Elva/ER_1.png]]
-  
-  Elva and I were talking about the defenses here and what she did in her training as a marine. I learned something something from her.&lt;&lt;set $combat += 0.05&gt;&gt;
-  &lt;&lt;if $Elvavisits &gt; 3&gt;&gt;&lt;&lt;set $Elva_ICP.EI1 = true&gt;&gt;&lt;&lt;/if&gt;&gt;
-  &lt;&lt;elseif $social &gt; 3 &amp;&amp; $Elva_ICP.EI1 == true&gt;&gt;
-  [img[assets/characters/Elva/ER_2.png]]
-  
-  Elva had fun with me training in Combat Arts. She looked at me behind her shoulder while going to showers.&lt;&lt;set $combat += 0.1&gt;&gt;&lt;&lt;if $Elvavisits &gt; 5&gt;&gt;&lt;&lt;set $Elva_ICP.EI2 = true&gt;&gt;&lt;&lt;/if&gt;&gt;
-  &lt;&lt;elseif $social &gt; 4 &amp;&amp; $Elva_ICP.EI2 == true&gt;&gt;
-  [img[assets/characters/Elva/ER_4_1.png]]
-  
-  She is undressing and want to tease me. Oh, yes! I so have no objections here.
-  
-  &lt;&lt;linkappend &quot;She undresses her jacket.&quot; t8n&gt;&gt;
-  [img[assets/characters/Elva/ER_m2_1.png]]
-  
-  Oh boy, my heart skipped a beat. Would I lick her body over every pore and. Slap. That. Booty!
-  &lt;&lt;/linkappend&gt;&gt;
-  &lt;&lt;if $Elvavisits &gt; 8&gt;&gt;&lt;&lt;set $Elva_ICP.EI3 = true&gt;&gt;&lt;&lt;/if&gt;&gt;
-  &lt;&lt;elseif $social &gt; 5 &amp;&amp; $Elva_ICP.EI3 == true&gt;&gt;
-  [img[assets/characters/Elva/ER_6.png]]
-  
-  We were talking and talking. The more we did, the more she felt comfortable.
-  
-  &lt;&lt;linkappend &quot;More so that she shows no inhibitions.&quot; t8n&gt;&gt;
-  [img[assets/characters/Elva/ER_8.png]]
-  
-  Now, talking has become not easy. Obviously that my brain is split. My concentration. I need more oxygen.
-  &lt;&lt;/linkappend&gt;&gt;
-  &lt;&lt;if $Elvavisits &gt; 10&gt;&gt;&lt;&lt;set $Elva_ICP.EI4 = true&gt;&gt;&lt;&lt;/if&gt;&gt;
-  &lt;&lt;elseif $social[5, 6] &amp;&amp; $Elva_ICP.EI4 == true &amp;&amp; $SFW_Path == false&gt;&gt;
-  [img[assets/characters/Elva/ER_m3.png]]
-  
-  I entered her cabin, she wanted to show me something. And yes, it is my second birthday today, And christmas! And new year&#39;s eve!
-  
-  &lt;&lt;linkappend &quot;Oh, ya sweet milkers!&quot; t8n&gt;&gt;
-  [img[assets/characters/Elva/ER_m5.png]]
-  
-  Like she can read my thoughts, she arches her back and gave me the most sensual curves for since my time here.
-  &lt;&lt;/linkappend&gt;&gt;
-  &lt;&lt;if $Elvavisits &gt; 14&gt;&gt;&lt;&lt;set $Elva_ICP.EI5 = true&gt;&gt;&lt;&lt;/if&gt;&gt;
-  &lt;&lt;elseif  $social[5, 6] &amp;&amp; $SFW_Path == false &amp;&amp; $Elva_ICP.EI5 == true&gt;&gt;
-  [img[assets/characters/Elva/ER_m5_2.png]]
-  
-  Elva wanted to feel me, and I her. A bit of emotional bonding, a bit of intimacy, a bit of comfort, a bit of all and everything.
-  &lt;&lt;if $Elvavisits &gt; 16&gt;&gt;&lt;&lt;set $Elva_ICP.EI6 = true&gt;&gt;&lt;&lt;/if&gt;&gt;
-  &lt;&lt;elseif $social[6, 7] &amp;&amp; $SFW_Path == false &amp;&amp; $Elva_ICP.EI6 == true&gt;&gt;
-  [img[assets/characters/Elva/ER_m5_3.png]]
-  
-  Now, it is desire; raw, carnal, racy and sweaty!
-  &lt;&lt;set $energy -= 2&gt;&gt;
-  
-  (end of content for version 0.1)&lt;&lt;if $Elvavisits &gt; 20&gt;&gt;&lt;&lt;set $Elvavisits = 20&gt;&gt;&lt;&lt;/if&gt;&gt;
-  &lt;&lt;else&gt;&gt;
-     Elva cannot now. Another time. &lt;&lt;set $noElva = true&gt;&gt;&lt;&lt;set $Elvavisits -= 1&gt;&gt;
-  &lt;&lt;/if&gt;&gt;
-  &lt;div class=&quot;actions-row&quot;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;div&gt;[[Back to Camp|Camp Jungle]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div&gt;[[Back to Camp|Camp Mountain]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/div&gt;
+&lt;&lt;if random(10) &gt; 3&gt;&gt;
+  &lt;&lt;if $social &gt; 0 &amp;&amp; $Elva_ICP.EI1&gt;&gt;
+    [img[assets/characters/Elva/ER_1.png]]
+    &lt;&lt;if $Elvavisits &gt; 4&gt;&gt;&lt;&lt;set $Elva_ICP.EI2 = true; $Elva_ICP.EI1 = false; $Elvavisits = 5&gt;&gt;&lt;&lt;/if&gt;&gt;
+    Elva and I were talking about the defenses here and what she did in her training as a marine. I learned something something from her.&lt;&lt;set $combat += 0.05&gt;&gt;&lt;&lt;if $Elvavisits &gt; 4&gt;&gt;&lt;&lt;set $Elva_ICP.EI2 = true; $Elva_ICP.EI1 = false; $Elvavisits = 5&gt;&gt;&lt;&lt;/if&gt;&gt;
+  &lt;&lt;elseif $social &gt; 2 &amp;&amp; $Elva_ICP.EI2&gt;&gt;
+    [img[assets/characters/Elva/ER_2.png]]
     
-  &lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go chat with others|Social Events]]&lt;/div&gt;&lt;/div&gt;
-  &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="37" name="End of Game" tags="" position="625,500" size="100,100">&lt;center&gt;&lt;blockquote&gt;
+    Elva had fun with me training in Combat Arts. She looked at me behind her shoulder while going to showers.&lt;&lt;set $combat += 0.1&gt;&gt;&lt;&lt;if $Elvavisits &gt; 6&gt;&gt;&lt;&lt;set $Elva_ICP.EI3 = true; $Elva_ICP.EI2 = false; $Elvavisits = 7&gt;&gt;&lt;&lt;/if&gt;&gt;
+  &lt;&lt;elseif $social &gt; 3 &amp;&amp; $Elva_ICP.E3&gt;&gt;
+    [img[assets/characters/Elva/ER_4_1.png]]
+    
+    She is undressing and want to tease me. Oh, yes! I so have no objections here.&lt;&lt;if $Elvavisits &gt; 9&gt;&gt;&lt;&lt;set $Elva_ICP.EI4 = true; $Elva_ICP.EI3 = false; $Elvavisits = 10&gt;&gt;&lt;&lt;/if&gt;&gt;
+    
+    &lt;&lt;linkappend &quot;She undresses her jacket.&quot; t8n&gt;&gt;
+    [img[assets/characters/Elva/ER_m2_1.png]]
+    
+    Oh boy, my heart skipped a beat. Would I lick her body over every pore and. Slap. That. Booty!
+    &lt;&lt;/linkappend&gt;&gt;
+  &lt;&lt;elseif $social &gt; 4 &amp;&amp; $Elva_ICP.E4&gt;&gt;
+    [img[assets/characters/Elva/ER_6.png]]
+    
+    We were talking and talking. The more we did, the more she felt comfortable.&lt;&lt;if $Elvavisits &gt; 13&gt;&gt;&lt;&lt;set $Elva_ICP.EI5 = true; $Elva_ICP.EI4 = false; $Elvavisits = 14&gt;&gt;&lt;&lt;/if&gt;&gt;
+    
+    &lt;&lt;linkappend &quot;More so that she shows no inhibitions.&quot; t8n&gt;&gt;
+    [img[assets/characters/Elva/ER_8.png]]
+    
+    Now, talking has become not easy. Obviously that my brain is split. My concentration is dispersed. I need more oxygen.
+    &lt;&lt;/linkappend&gt;&gt;
+  &lt;&lt;elseif $SFW_Path == false&gt;&gt;
+    &lt;&lt;if $social &gt; 5 &amp;&amp; $Elva_ICP.E5&gt;&gt;
+      [img[assets/characters/Elva/ER_m3.png]]
+      
+      I entered her cabin, she wanted to show me something. And yes, it is my second birthday today, And christmas! And new year&#39;s eve!&lt;&lt;if $Elvavisits &gt; 16&gt;&gt;&lt;&lt;set $Elva_ICP.EI6 = true; $Elva_ICP.EI5 = false; $Elvavisits = 17&gt;&gt;&lt;&lt;/if&gt;&gt;
+      
+      &lt;&lt;linkappend &quot;Oh, ya sweet milkers!&quot; t8n&gt;&gt;
+      [img[assets/characters/Elva/ER_m5.png]]
+      
+      Like she can read my thoughts, she arches her back and gave me the most sensual curves for since my time here.
+      &lt;&lt;/linkappend&gt;&gt;
+    &lt;&lt;elseif  $social &gt; 6 &amp;&amp; $Elva_ICP.E6&gt;&gt;
+      [img[assets/characters/Elva/ER_m5_2.png]]
+      
+      Elva wanted to feel me, and I her. A bit of emotional bonding, a bit of intimacy, a bit of comfort, a bit of all and everything.&lt;&lt;if $Elvavisits &gt; 19&gt;&gt;&lt;&lt;set $Elva_ICP.EI7 = true; $Elva_ICP.EI6 = false; $Elvavisits = 20&gt;&gt;&lt;&lt;/if&gt;&gt;
+    &lt;&lt;elseif $social &gt; 7 &amp;&amp; $Elva_ICP.E7&gt;&gt;
+      [img[assets/characters/Elva/ER_m5_3.png]]
+      
+      Now, it is desire; raw, carnal, racy and sweaty!
+      &lt;&lt;set $energy -= 2&gt;&gt;
+      
+      (end of content for version 0.1)&lt;&lt;if $Elvavisits &gt; 25&gt;&gt;&lt;&lt;set $Elvavisits = 25&gt;&gt;&lt;&lt;/if&gt;&gt;
+    &lt;&lt;else&gt;&gt;
+      [img[assets/characters/Elva/ER_1.png]]
+      
+      We were chatting about our situation here and generally about our life.
+    &lt;&lt;/if&gt;&gt;
+  &lt;&lt;else&gt;&gt;
+    She cannot now. Another time. But she was glad that I came by. &lt;&lt;set $noElva = true&gt;&gt;&lt;&lt;set $Elvavisits -= 1&gt;&gt;
+  &lt;&lt;/if&gt;&gt;
+&lt;&lt;else&gt;&gt;
+  Not now. Better tomorrow again. &lt;&lt;set $noElva = true&gt;&gt;&lt;&lt;set $Elvavisits -= 1&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+&lt;div class=&quot;actions-row&quot;&gt;&lt;&lt;if $Camp_J&gt;&gt;&lt;div&gt;[[Back to Camp|Camp Jungle]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div&gt;[[Back to Camp|Camp Mountain]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/div&gt;
+  
+&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go chat with others|Social Events]]&lt;/div&gt;&lt;/div&gt;
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="37" name="End of Game" tags="" position="625,500" size="100,100">&lt;center&gt;&lt;blockquote&gt;
 &lt;&lt;if $days &lt;30&gt;&gt;
 
 Such a bad luck! Everything has to be shut down. Our AI is a good for nothing! Or ... you? Or the game designer?
@@ -1280,7 +1295,7 @@ It is important to note, that those cannot be transported. Either they gets disi
 &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="40" name="Foot of a Mountain" tags="" position="1700,50" size="100,100">&lt;center&gt;[img[assets/items/antenna_CM.png]]
 &lt;blockquote&gt;
 Since, luckily, I had the compass, I did not spend too much energy. Which gave us an optimal total balance (no forgetti! We are practically machines, too) for a fly.
-We found two spots, one for parking, the other for the antenna. Both in visible distance. 
+We found two spots on the mountaineous ridge, one for parking, the other one for the antenna. Both in visible distance. 
 It didn&#39;t take long after the installation of the antenna until we established contact to another group of stranded, but like us, not in a lucky number: 2 of 5. The small spaceships is designed to house 5 pods with 10 maximum energy and 5x10 cycles of nutrients. With two spaceships, we have a total of 20 energy now.
 
 But, for me personally, I welcome to have two more ladies: Elva and Abiba.
@@ -1317,11 +1332,14 @@ Aaand ignition!
 
 ...
 
-Come on, that what you see is only the postbot. What tomfoolery would have been to catapult a huge spacewhale out of our solar system from earth! And no, I am sitting - stacked - in a commuter. The chunker is anchored nearby Mars. The solar constellation is good enough to sling the inter-galactic ferry out of solar system. 
+Come on, that what you see is only the postbot. What tomfoolery would that be to catapult a huge spacewhale out of our solar system from the earthen soil! And no, I am sitting - stacked - in a commuter; on the way to the big chunker that is anchored nearby Mars. The solar constellation is good enough to sling the inter-galactic Hokule&#39;a (or Mayflower) out of solar system. 
 
-If you have noticed. Yes. It is a virgin journey. A galaxis that is not yet established. And therefore not connected to Solaris (the hub of the solar system and an homage to the polish writer). The outpost and further developped colonies in neighbour galaxies clearly get their exchanges by informations, not in materials - or molecules - like the chunker, this half moon.
+If you have noticed. Yes. It is a virgin journey. A galaxis that is not yet established. And therefore not connected to Solaris (the hub of the solar system and an homage to the polish writer). The outpost and further developped colonies in neighbour galaxies clearly get their exchanges by informations, not in materials - or molecules - like in this form of the chunker, this half moon.
 
-So. In the journey, in the virtual city I will enjoy going out, meet people, have dates. Only to be met by frustrations and dissappointments. And, on top of all, my prof will force me to cram, cram, cram. Äääch! Hippiyay. Too much cramming cannot be goog, so I go out anew, meet people, have fun, all as much my hormones allows me. Aaaand the cycle repeats: frustrations, dissappointments, cramming. 
+Whether the chunker has a name? Enough of reading &quot;big chunker&quot;? Fine, the name of this mobile polymer-ceramic planetoid: Triangulum.
+
+So. 
+In this journey, in the virtual city I will enjoy going out, meet people, have dates. Only to be met by frustrations and dissappointments. And, on top of all, my prof will force me to cram, cram, cram. Äääch! Hippiyay. Too much cramming cannot be goog, so I go out anew, meet people, have fun, all as much my hormones allows me. Aaaand the cycle repeats: frustrations, dissappointments, cramming. 
 
 It is a big wonder with our technological advancements that we do not live in an neverending bliss.
 
@@ -1344,7 +1362,7 @@ I thank Leo for the chat and &lt;&lt;if $Camp_J == true&gt;&gt;[[go back to Camp
 
  &lt;&lt;if $energy &gt; 0&gt;&gt;I am in the mood to chat further with [[Leo][$energy -= 1; $social += 0.5]].&lt;&lt;/if&gt;&gt;
 &lt;&lt;else&gt;&gt;
-&lt;&lt;set $noLeo == true&gt;&gt;
+&lt;&lt;set $noLeo = true&gt;&gt;
 Leo is not in the mood. Try another time.
 
   &lt;div class=&quot;actions-row&quot;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;div&gt;[[Back to Camp|Camp Jungle]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div&gt;[[Back to Camp|Camp Mountain]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/div&gt;
@@ -1379,7 +1397,7 @@ Another stranded. And this one is quite dilapidated. He has his movement, but ba
 
 [[Search for Compass]]
 &lt;&lt;/if&gt;&gt;
-&lt;/center&gt;&lt;/blockquote&gt;</tw-passagedata><tw-passagedata pid="45" name="Like this" tags="" position="350,300" size="100,100">&lt;center&gt;
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="45" name="Like this" tags="" position="350,300" size="100,100">&lt;center&gt;
 [img[assets/characters/cylinder.png]]
 &lt;blockquote&gt;
 That&#39;s me at birth. Cute, eh? Arms and Legs are missing, though. They come later. Why in virtual age do we need a complete organic body? We are connected to the cloud, internet, parallel world, Peer-to-Peer. Countries are practically virtual now. Borders? Nah, firewalls.
@@ -1968,76 +1986,77 @@ With that, we should be able to collect materials nearby. Hopefully, some can be
       &lt;div class=&quot;actions-row&quot;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;div&gt;[[Go back to Camp|Camp Jungle]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div&gt;[[Go back to Camp|Camp Mountain]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/div&gt;
     &lt;&lt;/if&gt;&gt;
   &lt;/center&gt;</tw-passagedata><tw-passagedata pid="57" name="Vika" tags="" position="1900,775" size="100,100">&lt;center&gt;&lt;blockquote&gt;
-  &lt;&lt;if $social &lt;= 2 || $Vikavisits &lt;= 3&gt;&gt;[img[assets/characters/Vika/Vika_4.png]]
-  
-    We both exchanged topics in machines and communications engineerings.&lt;&lt;set $engineering += 0.1 * $social&gt;&gt;
-    &lt;&lt;if $Vikavisits &gt; 3&gt;&gt;&lt;&lt;set $Vika_ICP.VI1 = true&gt;&gt;&lt;&lt;/if&gt;&gt;
-  &lt;&lt;elseif $social[2, 3] &amp;&amp; $Vika_ICP.VI1 == true&gt;&gt;[img[assets/characters/Vika/Vika_3.png]]
+  &lt;&lt;if random(10) &gt; 1&gt;&gt;
+    &lt;&lt;if $social &gt; 0 &amp;&amp; $Vika_ICP.VI1&gt;&gt;[img[assets/characters/Vika/Vika_4.png]]
     
-    Vika enjoy the time with me. She is smirking at your anecdotes and jokes.
-    &lt;&lt;if $Vikavisits &gt; 6&gt;&gt;&lt;&lt;set $Vika_ICP.VI2 = true&gt;&gt;&lt;&lt;/if&gt;&gt;
-    &lt;&lt;elseif $social[3, 4] &amp;&amp; $Vika_ICP.VI2 == true&gt;&gt;[img[assets/characters/Vika/Vika9.png]]
-    
-    Vika wanted some inspirations about engineering, whether I have sufficient engineering or not. Any idea count.
-    &lt;&lt;if $Vikavisits &gt; 8&gt;&gt;&lt;&lt;set $Vika_ICP.VI3 = true&gt;&gt;&lt;&lt;/if&gt;&gt;
-    &lt;&lt;elseif $social[4, 5] &amp;&amp; $Vika_ICP.VI3 == true&gt;&gt;[img[assets/characters/Vika/Vika_6.png]]
-    
-    Vika is working on the machinations of the Materials Printer. I chatted with her about the Printer. She told me that some constructions depend on the engineering level.
-    &lt;&lt;if $Vikavisits &gt; 11&gt;&gt;&lt;&lt;set $Vika_ICP.VI4 = true&gt;&gt;&lt;&lt;/if&gt;&gt;
-    &lt;&lt;elseif $social[5, 6] &amp;&amp; $Vika_ICP.VI4 == true &amp;&amp; $SFW_Path == false&gt;&gt;[img[assets/characters/Vika/Vika_9.png]]
-    
-    Vika feels comfortably around me, as she only wears her tanktop and her overalll at her hips, showing her flat sensual belly.
-    &lt;&lt;if $Vikavisits &gt; 14&gt;&gt;&lt;&lt;set $Vika_ICP.VI5 = true&gt;&gt;&lt;&lt;/if&gt;&gt;
-    &lt;&lt;elseif $social[6, 7] &amp;&amp; $Vika_ICP.VI5 == true &amp;&amp; $SFW_Path == false&gt;&gt;[img[assets/characters/Vika/Vika10.png]]
-    
-    While talking about the spaceship, we veered towards relationships and body awareness. She was asking me whether I liked it?
-    
-    &lt;&lt;linkappend &quot;Is she kidding me?&quot; t8n&gt;&gt;
-    [img[assets/characters/Vika/Vika9_3.png]]
-    
-    I like ALL of it!
-    &lt;&lt;/linkappend&gt;&gt;
-    
-    &lt;&lt;linkappend &quot;Why?&quot; t8n&gt;&gt;
-    [img[assets/characters/Vika/Vika11.png]]
-    
-    Why?! Uh ... I am a simple man? Is that reason enough?
-    &lt;&lt;/linkappend&gt;&gt;
-    &lt;&lt;if $Vikavisits &gt; 17&gt;&gt;&lt;&lt;set $Vika_ICP.VI6 = true&gt;&gt;&lt;&lt;/if&gt;&gt;
-    &lt;&lt;elseif $social[7, 8] &amp;&amp; $Vika_ICP.VI6 == true &amp;&amp; $SFW_Path == false&gt;&gt;[img[assets/characters/Vika/Vika13.png]]
-    
-    She invites me to her room. And, surprise, her comfort zone is vast and expansive.
-    
-    &lt;&lt;linkappend &quot;She gets up to show me something.&quot; t8n&gt;&gt;
-    [img[assets/characters/Vika/Vika15.png]]
-    
-    Uh? The book or ...
-    &lt;&lt;/linkappend&gt;&gt;
-    &lt;&lt;if $Vikavisits &gt; 19&gt;&gt;&lt;&lt;set $Vika_ICP.VI7 = true&gt;&gt;&lt;&lt;/if&gt;&gt;
-    &lt;&lt;elseif $social[8, 9] &amp;&amp; $Vika_ICP.VI7 == true &amp;&amp; $SFW_Path == false&gt;&gt;[img[assets/characters/Vika/Vika16.png]]
-    
-    She has enough of herself cautious maintaining her reputation. She wants what her body and brain urgently demands: SEX!
-    
-    &lt;&lt;linkappend &quot;Yes!&quot; t8n&gt;&gt;
-    [img[assets/characters/Vika/Vika17.png]]
-    
-    Shyly she lets it all happen. I feel that I have to be observant on her bodily feedbacks. 
-    &lt;&lt;/linkappend&gt;&gt;
-    
-    &lt;&lt;linkappend &quot;But lust is rising. Rapidly.&quot; t8n&gt;&gt;
-    [img[assets/characters/Vika/Vika18v.png]]
-    
-    She is moaning, panting, twitching, crying, breathing like a steam locomotive. My, my ... seems that she didn&#39;t had sex since years.
-    &lt;&lt;/linkappend&gt;&gt;
-    
-    (end of content for version 0.1)&lt;&lt;if $Elvavisits &gt; 20&gt;&gt;&lt;&lt;set $Vikavisits = 20&gt;&gt;&lt;&lt;/if&gt;&gt;
+      We both exchanged topics in machines and communications engineerings.&lt;&lt;set $engineering += 0.1 * $social&gt;&gt;&lt;&lt;if $Vikavisits &gt; 4&gt;&gt;&lt;&lt;set $Vika_ICP.VI2 = true; $Vika_ICP.VI1 = false; $Vikavisits = 5&gt;&gt;&lt;&lt;/if&gt;&gt;
+    &lt;&lt;elseif $social &gt; 2 &amp;&amp; $Vika_ICP.VI2&gt;&gt;[img[assets/characters/Vika/Vika_3.png]]
+      
+      Vika enjoy the time with me. She is smirking at your anecdotes and jokes.&lt;&lt;if $Vikavisits &gt; 7&gt;&gt;&lt;&lt;set $Vika_ICP.VI3 = true; $Vika_ICP.VI2 = false; $Vikavisits = 8&gt;&gt;&lt;&lt;/if&gt;&gt;
+    &lt;&lt;elseif $social &gt; 3 &amp;&amp; $Vika_ICP.VI3&gt;&gt;[img[assets/characters/Vika/Vika9.png]]
+      
+      Vika wanted some inspirations about engineering, whether I have sufficient engineering or not. Any idea counts.&lt;&lt;if $Vikavisits &gt; 10&gt;&gt;&lt;&lt;set $Vika_ICP.VI4 = true; $Vika_ICP.VI3 = false; $Vikavisits = 11&gt;&gt;&lt;&lt;/if&gt;&gt;
+    &lt;&lt;elseif $social &gt; 4 &amp;&amp; $Vika_ICP.VI4&gt;&gt;[img[assets/characters/Vika/Vika_6.png]]
+      
+      Vika is working on the machinations of the Materials Printer. I chatted with her about the Printer. She told me that some constructions depend on the engineering level.&lt;&lt;if $Vikavisits &gt; 13&gt;&gt;&lt;&lt;set $Vika_ICP.VI5 = true; $Vika_ICP.VI4 = false; $Vikavisits = 14&gt;&gt;&lt;&lt;/if&gt;&gt;
+    &lt;&lt;elseif $SFW_Path == false&gt;&gt;
+      &lt;&lt;if $social &gt; 5 &amp;&amp; $Vika_ICP.VI5&gt;&gt;[img[assets/characters/Vika/Vika_9.png]]
+      
+        Vika feels comfortably around me, as she only wears her tanktop and her overalll at her hips, showing her flat sensual belly.&lt;&lt;if $Vikavisits &gt; 16&gt;&gt;&lt;&lt;set $Vika_ICP.VI6 = true; $Vika_ICP.VI5 = false; $Vikavisits = 17&gt;&gt;&lt;&lt;/if&gt;&gt;
+      &lt;&lt;elseif $social &gt; 6 &amp;&amp; $Vika_ICP.VI6&gt;&gt;[img[assets/characters/Vika/Vika10.png]]
+        
+        While talking about the spaceship, we veered towards relationships and body awareness. She was asking me whether I liked it?&lt;&lt;if $Vikavisits &gt; 19&gt;&gt;&lt;&lt;set $Vika_ICP.VI7 = true; $Vika_ICP.VI6 = false; $Vikavisits = 20&gt;&gt;&lt;&lt;/if&gt;&gt;
+        
+        &lt;&lt;linkappend &quot;Is she kidding me?&quot; t8n&gt;&gt;
+        [img[assets/characters/Vika/Vika9_3.png]]
+        
+        I like ALL of it!
+        &lt;&lt;/linkappend&gt;&gt;
+        
+        &lt;&lt;linkappend &quot;Why?&quot; t8n&gt;&gt;
+        [img[assets/characters/Vika/Vika11.png]]
+        
+        Why?! Uh ... I am a simple man? Is that reason enough?
+        &lt;&lt;/linkappend&gt;&gt;
+      &lt;&lt;elseif $social &gt; 7 &amp;&amp; $Vika_ICP.VI7&gt;&gt;[img[assets/characters/Vika/Vika13.png]]
+        
+        She invites me to her room. And, surprise, her comfort zone is vast and expansive.&lt;&lt;if $Vikavisits &gt; 22&gt;&gt;&lt;&lt;set $Vika_ICP.VI8 = true; $Vika_ICP.VI7 = false; $Vikavisits = 23&gt;&gt;&lt;&lt;/if&gt;&gt;
+        
+        &lt;&lt;linkappend &quot;She gets up to show me something.&quot; t8n&gt;&gt;
+        [img[assets/characters/Vika/Vika15.png]]
+        
+        Uh? The book or ...
+        &lt;&lt;/linkappend&gt;&gt;
+      &lt;&lt;elseif $social &gt; 8 &amp;&amp; $Vika_ICP.VI8&gt;&gt;[img[assets/characters/Vika/Vika16.png]]
+        
+        She has enough of herself cautious maintaining her reputation. She wants what her body and brain urgently demands: SEX!
+        
+        &lt;&lt;linkappend &quot;Yes!&quot; t8n&gt;&gt;
+        [img[assets/characters/Vika/Vika17.png]]
+        
+        Shyly she lets it all happen. I feel that I have to be observant on her bodily feedbacks. 
+        &lt;&lt;/linkappend&gt;&gt;
+        
+        &lt;&lt;linkappend &quot;But lust is rising. Rapidly.&quot; t8n&gt;&gt;
+        [img[assets/characters/Vika/Vika18v.png]]
+        
+        She is moaning, panting, twitching, crying, breathing like a steam locomotive. My, my ... seems that she didn&#39;t had sex since years.
+        &lt;&lt;/linkappend&gt;&gt;
+        
+        (end of content for version 0.1)&lt;&lt;if $Vikavisits &gt; 25&gt;&gt;&lt;&lt;set $Vikavisits = 25&gt;&gt;&lt;&lt;/if&gt;&gt;
+      &lt;&lt;else&gt;&gt;
+        [img[assets/characters/Vika/Vika_3.png]]
+        
+        We had a nice chat. We enjoyed that.
+        &lt;&lt;/if&gt;&gt;
+    &lt;&lt;/if&gt;&gt;
   &lt;&lt;else&gt;&gt;
     Vika is not in the mood now. I should try another time. &lt;&lt;set $noVika = true&gt;&gt;&lt;&lt;set $Vikavisits -= 1&gt;&gt;
   &lt;&lt;/if&gt;&gt;
-  &lt;div class=&quot;actions-row&quot;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;div&gt;[[Back to Camp|Camp Jungle]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div&gt;[[Back to Camp|Camp Mountain]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/div&gt;
-    
-  &lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go chat with others|Social Events]]&lt;/div&gt;&lt;/div&gt;
-  &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="58" name="Vote" tags="" position="1550,300" size="100,100">&lt;center&gt;&lt;blockquote&gt;
+&lt;div class=&quot;actions-row&quot;&gt;&lt;&lt;if $Camp_J&gt;&gt;&lt;div&gt;[[Back to Camp|Camp Jungle]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div&gt;[[Back to Camp|Camp Mountain]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/div&gt;
+  
+&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go chat with others|Social Events]]&lt;/div&gt;&lt;/div&gt;
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="58" name="Vote" tags="" position="1550,300" size="100,100">&lt;center&gt;&lt;blockquote&gt;
 &lt;&lt;set $Vikavote = random(1, 3)&gt;&gt;&lt;&lt;set $Leovote = random(1, 3)&gt;&gt;&lt;&lt;timed 1000ms&gt;&gt;Vika gives in her vote.
   &lt;&lt;/timed&gt;&gt;&lt;&lt;timed 3000ms&gt;&gt;
   Leo has decided.
@@ -2105,8 +2124,6 @@ Since I come from upper middle class, my family invested in a designer baby. Obv
     building: 0,
     maxbuildings: 5,
     EHarvester: false,
-};&gt;&gt;
-&lt;&lt;set $CampJ to {
 	Orb: false,
 	nOrb: false,
     cnOrb: false,
@@ -2118,8 +2135,6 @@ Since I come from upper middle class, my family invested in a designer baby. Obv
     building: 0,
     maxbuildings: 3,
     EHarvester: false,
-};&gt;&gt;
-&lt;&lt;set $CampM to {
 	Orb: false,
 	nOrb: false,
     cnOrb: false,
@@ -2138,7 +2153,7 @@ Since I come from upper middle class, my family invested in a designer baby. Obv
 
 &lt;&lt;set $Vikavisits = 0; $Elvavisits = 0; $Abibavisits = 0&gt;&gt;
 &lt;&lt;set $Vika_ICP to {
-	VI1: false,
+	VI1: true,
     VI2: false,
     VI3: false,
     VI4: false,
@@ -2150,7 +2165,7 @@ Since I come from upper middle class, my family invested in a designer baby. Obv
     VI10: false,
 };&gt;&gt;
 &lt;&lt;set $Elva_ICP to {
-	EI1: false,
+	EI1: true,
     EI2: false,
     EI3: false,
     EI4: false,
@@ -2162,7 +2177,7 @@ Since I come from upper middle class, my family invested in a designer baby. Obv
     EI10: false,
 };&gt;&gt;
 &lt;&lt;set $Abiba_ICP to {
-	AI1: false,
+	AI1: true,
     AI2: false,
     AI3: false,
     AI4: false,
