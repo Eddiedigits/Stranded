@@ -1,3 +1,18 @@
 a full body scene of a seductive levantine lady NOOR ASSEMANI,  working on the plants,  curvy body,  28 years old,  post-apocalyptic setting,  an slightly dirty simple blouse,  linen pants,  short wavy black hairs,  smiling slightly,  in a greenhouse,  close-up portrait,  bokeh,  b-horror film screencap,  cinematic shot,  dynamic lighting,  75mm,  Technicolor,  Panavision,  cinemascope,  sharp focus,  fine details,  8k,  HDR,  realism,  realistic,  key visual,  film still,  superb cinematic color grading,  depth of field,  natural beauty, photo r3al, detailmaster2, <lora:detailmaster2.0:0.800000>
 Negative prompt: EasyNegative,  ugly teeth,  disfigured hands, ,  bad lighting,  low-quality,  deformed,  text,  poorly drawn,  bad art,  bad angle,  boring,  low-resolution,  worst quality,  bad composition,  disfigured,  ugly,  amputee,  deformed
 Steps: 23, Sampler: DPM++ 2M SDE Karras, CFG scale: 7.0, Seed: 2487057332, Size: 1152x768, Model: sd_xl_base_1.0: 6935cc01ad38", Version: v1.6.0.40-2-gbf9b3cf, TaskID: 651334260048887030
+
+
+
+
+
+
+a full body scene of a seductive levantine lady NOOR ASSEMANI on an alien beach, curvy body,  28 years old,  lying with her body down, unconsciously, eyes closed, head on the sand, science fiction setting, wearing a red white and green futuristic space travelling outdoor overall,  short wavy black hairs,  smiling slightly,  on an alien beach,  close-up portrait,  bokeh,  blockbuster film screencap,  cinematic shot,  dynamic lighting,  75mm,  Technicolor,  Panavision,  cinemascope,  sharp focus,  fine details,  8k,  HDR,  realism,  realistic,  key visual,  film still,  superb cinematic color grading,  depth of field,  natural beauty,
+
+EasyNegative, make-up, cosmetics, bikini, swimsuit, double heads, helmet, tight clothes, cleavage, visible skin on breasts, ugly teeth,  disfigured hands, bad lighting,  low-quality,  deformed,  text,  poorly drawn,  bad art, bad angle,  boring,  low-resolution,  worst quality,  bad composition,  disfigured,  ugly,  amputee,  deformed, circles behind heads, 
+
+DPM++ 2M SDE KARRAS
+
+25
+
+7
