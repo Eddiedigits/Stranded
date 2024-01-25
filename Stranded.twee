@@ -1080,7 +1080,7 @@ Another stranded. And this one is quite dilapidated. He has his movement, but ba
 <center>
 [img[assets/characters/cylinder.png]]
 <blockquote>
-That's me at birth. Cute, eh? Arms and Legs are missing, though. They come later. Why in virtual age do we need a complete organic body? We are connected to the cloud, internet, parallel world, Peer-to-Peer. Countries are practically virtual now. Borders? Nah, firewalls.
+That's me at birth. Cute, eh? Arms and Legs are missing, though. They come later. Why in virtual age do we need a complete organic body? We are connected to the cloud, internet, parallel world, peer-to-peer. Countries are practically virtual now. Borders? Nah, firewalls.
 
 And since we are in the future, or like in the past, every technology is subject to evolution. Despite of advanced technology, no entity - except of (maybe) the universe - has unlimited data storage. Professionals are still in demand like in every time.
 </blockquote>
@@ -1128,19 +1128,24 @@ Choose in which profession you want to master:
 <center>
 [img[assets/backgrounds/bg-cover.png]]
 
-Hello, notes from the developper:
-+ The sidebar is only for save, load, restart and rollback
+Hello. Hola. Moin. Salve. 
 
-Aside from the notes:
+Huzzah! My first game!
+
+This game is designed for desktop and mobile version. The sidebar therefore is only for rollback, saving, loading and restarting. As I tested a hundredfold, I am satisfied with the outcome. Although I fear, some skewed layout will happen to some of you. Hopefully not you, eh. Anyway, if you want to support me by giving me feedbacks, ideas, suggestions, co-authoring, tips, corrections etc., please do: pi.nola@tutanota.com.
+
+IMPORTANT:
+
+The game has erotic elements. But they are pretty vanilla for me. No fetishes or kinks. And don't get me started with Futas, maldición! So, as obviously, you should be at the age of your country to use erotica. If you are not, you may enjoy this game by going the SFW-route.
 
 
-Ancient. Greetings. Welcome to the future, as it is already now, oldtimer.
+Aside from formalities:
 
-Ready to play a game?
+Well then, ancient. Welcome to the future, as it is already now, oldtimer. Ready to play?
 
 
 <div class="actions-row"><div>[[Yes]]</div></div>
-<div class="actions-row"><div>[[Yes, but ...|Yes][$SFW_Path = true]]</div></div>
+<div class="actions-row"><div>[[Yes, but ...(SFW)|Yes][$SFW_Path = true]]</div></div>
 </center>
 
 
