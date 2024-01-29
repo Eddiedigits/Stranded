@@ -86,7 +86,7 @@ Hm, a swampy area. Nothing useful here.
 <blockquote>
 Dryness. 
 
-Dryness. 
+Dryness.
 
 Dryness!
 
@@ -205,8 +205,12 @@ Bring them to Camp anyway?
 :: 3E {"position":"1275,1500","size":"100,100"}
 <center>[img[assets/Ch-Explore/jungle2.png]]
 <blockquote>
-Hm, is that a spaceship? Or what is it? (does not mean anything for this version)
-
+Hm, is that a spaceship? Or what is it? 
+<<nobr>>
+<<if $xeno > 8>>I need to get a better picture. It is too overgrown by vegetation. How to get up?.<br>
+<<if $CampM.Orb || $CampJ.Orb || $CampJ.nOrb || $CampM.nOrb || $CampJ.cOrb || $CampM.cOrb || $CampJ.cnOrb || CampM.cnOrb>><<set $scanned3E = 3>>Ok, before I print something, I send the orb to scan as much as possible. With enough informations I can design more to the point. Also, I will know whether there is danger or where to get in ...<</if>>
+<</if>>
+<</nobr>>
 Where to go next?
 
 <<if $Camp_J == true>><div class="actions-row"><div>[[Go back to Camp|Camp Jungle][$energy -= 0.6]]</div></div><<else>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 0.4]]</div></div><</if>>
@@ -304,7 +308,7 @@ Sandy Beach! That's gonna be a spot!
 
 :: A New Cycle {"position":"500,500","size":"100,100"}
 <center><blockquote><<nobr>>
-<<set $rNr = random(10)>><<= $rNr>>
+<<set $rNr = random(10)>>
   <<if $maxenergy <= 1 || $nutrients <= 0 || $days >= 30>><<goto "End of Game">><</if>>
   <<if $noLeo == true || $noVika == true || $noElva == true || $noAbiba == true>><<set $noLeo = false>><<set $noVika = false>><<set $noElva = false>><<set $noAbiba = false>><</if>>
       <<if $Camp_J == true>>
@@ -358,7 +362,7 @@ Sandy Beach! That's gonna be a spot!
   </blockquote></center>
 
 
-:: A Small Hill {"position":"1700,175","size":"100,100"}
+:: A Small Hill {"position":"1950,200","size":"100,100"}
 <center>[img[assets/items/antenna_CJ.png]]
 <blockquote>
 The antenna is installed on a small hill. But it seems to reach no one. Maybe it is set too low, or the jungle is too dense.
@@ -613,6 +617,11 @@ We have <<= $nutrients>> nutrients in storage. Each person consume one unit of n
 <</if>></div></div></center>
 
 
+:: Chapter2 {"position":"475,25","size":"100,100"}
+<<set $scanned3E = 1>>
+<<set $brainstorm3E = 0>>
+
+
 :: Check my pod {"position":"925,300","size":"100,100"}
 <center>
 [img[assets/Ch-Crash/Pod1.png]]
@@ -651,15 +660,15 @@ Ech! Nothing happens. It is boring. Maybe I should try to go out anyway?
 <<nobr>><h6>Legend: Energy = E | Unimatter = U | Lvl = Engineering Level</h6>
 <ul><li>Repairs (3E - 3U): <<if $energy >= 3 && $unimatter >= 3 && $Camp_J && $maxenergy < 10>>[[Action it|Construction Menu][$energy -= 3; $unimatter -= 3; $maxenergy = 10]]
   <<elseif $energy >= 3 && $unimatter >= 3 && $Camp_M && $maxenergy < 20>>[[Action it|Construction Menu][$energy -= 3; $unimatter -= 3; $maxenergy = 20]]
-  <<elseif $unimatter < 3 && $energy < 3>><div class="color-red">insufficient level or ressources</div>
+  <<elseif $unimatter < 3 && $energy < 3>><div class="color-red">insufficient ressources</div>
+  <<elseif $Camp_J && $maxenergy < 10 || $Camp_M && $maxenergy < 20>><div class="color-red">insufficient ressources</div>
   <<else>><div class="color-green">all good and functioning.</div><</if>></li>
 <li>Lvl 2: Substance Analyzer (2E - 5U): 
   <<if $engineering >= 2 && $SubAnalyzer != true && $energy >= 2 && $unimatter >= 5>>[[Print|Construction Menu][$energy -= 2; $unimatter -= 5; $SubAnalyzer = true]]
   <<elseif $SubAnalyzer>><br><div class="color-green">We have already the Substance Analyzer in our inventory.</div>
   <<else>><div class="color-red">insufficient level or ressources</div><</if>></li></ul>
 <<if $Camp_J && $CampJ.building < $CampJ.maxbuildings || $Camp_M && $CampM.building < $CampM.maxbuildings>>
-<ul>
-<li>Lvl 2: Energy Harvester (5E - 5U): 
+<ul><li>Lvl 2: Energy Harvester (5E - 5U): 
   <<if $engineering >= 2 && $CampJ.EHarvester != true && $Camp_J && $energy >= 5 && $unimatter >= 5>>[[Print|Construction Menu][$energy -= 5; $unimatter -= 5; $CampJ.EHarvester = true; $CampJ.building += 1]]
   <<elseif $engineering >= 2 && $CampM.EHarvester != true && $Camp_M && $energy >= 5 && $unimatter >= 5>>[[Print|Construction Menu][$energy -= 5; $unimatter -= 5; $CampM.EHarvester = true; $CampM.building += 1]]
   <<elseif $CampJ.EHarvester && $Camp_J || $CampM.EHarvester && $Camp_M>><br><div class="color-green">Our Energy Harvester collects all possible energies.</div>
@@ -715,7 +724,7 @@ Ech! Nothing happens. It is boring. Maybe I should try to go out anyway?
 <center><blockquote>
 <em>Moan. Ugh. Oooph</em>, what a ride. That I get awake just in the moment of impact, what kind of a dick move is that? It is a miracle that I am still whole and functioning. Although ... will luck still continue to be on my side?
 
-<div class="actions-row"><div>[[Check my pod]]
+<div class="actions-row"><div>[[Check my pod]]</div></div>
 </blockquote></center>
 
 
@@ -939,7 +948,7 @@ Oh! Am I glad to find another stranded.
  </blockquote></center>
 
 
-:: Energy Harvester {"position":"1700,550","size":"100,100"}
+:: Energy Harvester {"position":"2325,200","size":"100,100"}
 <center>[img[assets/items/sun-collectors.png]]
 <blockquote>
 Yes, with our energy harvester - which "harvest" sun rays, winds, gravitation, molecular dis- and integration, atomic fusion - we have raised the energy regeneration rate.
@@ -952,7 +961,7 @@ It is important to note, that those cannot be transported. Either they gets disi
 </blockquote></center>
 
 
-:: Foot of a Mountain {"position":"1700,50","size":"100,100"}
+:: Foot of a Mountain {"position":"1825,200","size":"100,100"}
 <center>[img[assets/items/antenna_CM.png]]
 <blockquote>
 Since, luckily, I had the compass, I did not spend too much energy. Which gave us an optimal total balance (no forgetti! We are practically machines, too) for a fly.
@@ -1008,7 +1017,7 @@ If you have noticed. Yes. It is a virgin journey. A galaxis that is not yet esta
 Whether the chunker has a name? Enough of reading "big chunker"? Fine, the name of this mobile polymer-ceramic planetoid: Triangulum.
 
 So. 
-In this journey, in the virtual city I will enjoy going out, meet people, have dates. Only to be met by frustrations and dissappointments. And, on top of all, my prof will force me to cram, cram, cram. Äääch! Hippiyay. Too much cramming cannot be goog, so I go out anew, meet people, have fun, all as much my hormones allows me. Aaaand the cycle repeats: frustrations, dissappointments, cramming. 
+In this journey, in the virtual city I will enjoy going out, meet people, have dates. Only to be met by frustrations and dissappointments. And, on top of all, my prof will force me to cram, cram, cram. Äääch! Hippiyay. Too much cramming cannot be good, so I go out anew, meet people, have fun, all as much my hormones allows me. Aaaand the cycle repeats: frustrations, dissappointments, cramming. 
 
 It is a big wonder with our technological advancements that we do not live in an neverending bliss.
 
@@ -1086,7 +1095,7 @@ And since we are in the future, or like in the past, every technology is subject
 </blockquote>
 Choose in which profession you want to master:
 
-<div class="actions-row"><div>[[Xenology (Xenology (archaelogy, exploration/navigation, cataloguing etc.)|Intro2][$xeno = 1]]</div></div>
+<div class="actions-row"><div>[[Xenology (archaelogy, exploration/navigation, cataloguing etc.)|Intro2][$xeno = 1]]</div></div>
 
 <div class="actions-row"><div>[[Combatability (martial arts, endurance, attack, defense etc.)|Intro2][$combat = 1]]</div></div>
 
@@ -1239,7 +1248,6 @@ With whom do I want to socialize?
 
 <div class="actions-row"><<if $Camp_J == true>><div>[[Back to the camp|Camp Jungle]]</div><<else>><div>[[Back to the camp|Camp Mountain]]</div><</if>></div>
 
-<<= $Vikavisits>> <<= $Elvavisits>> <<= $Abibavisits>>
 </blockquote></center>
 
 
@@ -1295,9 +1303,10 @@ I will go back and tell the others about the new option: the resettling to Camp 
 :: StoryInit {"position":"100,25","size":"100,100"}
 <<include [[globalvariables]]>>
 <<include [[Territories]]>>
+<<include [[Chapter2]]>>
 
 
-:: Substance Analyzer {"position":"1700,425","size":"100,100"}
+:: Substance Analyzer {"position":"2200,200","size":"100,100"}
 <center>
 [img[assets/items/Substance-Analyzer.png]]
 <blockquote>
@@ -1829,7 +1838,7 @@ So! Take out your contact lenses or your glasses, and all is fine!
 <</if>>
 
 
-:: WhyNothing {"position":"1700,300","size":"100,100"}
+:: WhyNothing {"position":"2075,200","size":"100,100"}
 <center>
 ... energy is too low for any constructions. We need rest.
 
@@ -1944,25 +1953,17 @@ Since I come from upper middle class, my family invested in a designer baby. Obv
 
 
 :: StoryScript [script]
-// appending a div
-$(document).ready(function () {
-  // Create your custom content
-  var banner = '<div id="container-banner"><img id="img-banner" src="assets/backgrounds/bg-cover.png"></img></div>';
-
-  // Insert the custom content between ui-bar-tray and ui-bar-body
-  $('#ui-bar-tray').after(banner);
+Object.defineProperty(Number.prototype,'range',{
+    configurable : true,
+    writable     : true,
+    value(min,max) {
+        return this >= min && this <= max;
+    }
 });
 
-// Story JavaScript
-
-// This function is called after each passage is rendered
-postrender = function (content, task) {
-    // Wrap the content in <center> tags
-    task.content = "<center>" + task.content + "</center>";
-};
-
 :: StoryStylesheet [stylesheet]
-/* core    ------------------------------------------------------------------------------------- */    
+
+/* core ------------------------------------------------------------------------------------- */    
 @font-face {
   font-family: 'Bahnschrift';
   src: url('assets/Fonts/bahnschrift.ttf') format('ttf');
@@ -1972,13 +1973,27 @@ postrender = function (content, task) {
 
 #story {
   display: flex;
-  width: fit-content;
-  max-width: 100%;
+  width: 95vw;
+  max-width: 700px;
   justify-content: center;
+  margin: 3em 0 0 0;
 }
 
 #passages {
-  width: 700px;
+  width: 95vw;
+  max-width: 700px;
+}
+
+.passage {
+  display: flex;
+  line-height: 1.75;
+  text-align: left;
+  -webkit-transition: opacity .4s ease-in;
+  -o-transition: opacity .4s ease-in;
+  transition: opacity .4s ease-in;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
 }
 
 html {
@@ -1992,69 +2007,45 @@ body{
 }
 
 img {
-  max-width: 700px;
-  max-height: 350px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 1em;
+  max-width: 85vw;
+  max-height: 50vh;
+  overflow-clip-margin: padding-box;
+  overflow: hidden;
 }
 
 h6 {
   margin: 0;
 }
 
-/* ui bar    ------------------------------------------------------------------------------------- */    
-#ui-bar {
-  width: 7em;
-}
-
-
-/* display links design    ------------------------------------------------------------------------------------- */    
-/* .display-link {
-width: 300px;
-height: 55px;
-border: 3px solid transparent;
-border-radius: 20px;
-content-visibility: auto;
-display: flex;
-justify-content: center;
-align-items: center;
-}
-
-.display-link:hover {
-border: 3px solid #ffcc66;
-}
-
-.dl_images {
-display: flex;
-position: absolute;
-z-index: 0;
-} */
-
-/* side bar    ------------------------------------------------------------------------------------- */
-#ui-bar-tray {
-  position: absolute;
-  top: 0.5%;
-  left: 0;
-  right: 0;
-}
-
-#container-banner {
-  width: 100%;
-  position: absolute;
-  top: 10%;
+blockquote {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 40px;
+    margin-inline-end: 40px;
 }
 
 #img-banner {
-  width: 80%;
+  width: 100%;
+  border-radius: inherit;
 }
 
-#ui-bar-body {
-  position: relative;
-  top: 25%;  
+button[id|=history-backward]::before {
+  content: "⬅"; /* Unicode character for arrow left */
+}
+
+button[id|=history-forward]::before {
+  content: "⮕"; /* Unicode character for arrow right */  
 }
 
 /* character z-indexing     ------------------------------------------------------------------------------------- */
 #VikaFront {
   position: absolute;
   z-index: 1;
+  max-width: 45vw;
 }
 
 /* characters dialogue design   ------------------------------------------------------------------------------------- */      
@@ -2099,10 +2090,14 @@ z-index: 0;
 .passage-titles {
   border-top: 3px solid;
   border-bottom: 3px solid;
+width: 95vw;
+  max-width: 700px;
 }
 
 .Title_Actions {
   color: #A9A9A9;
+width: 95vw;
+  max-width: 700px;
   border-top: 3px solid #A9A9A9;
   border-bottom: 3px solid #A9A9A9;
 }
@@ -2111,20 +2106,24 @@ z-index: 0;
 .order-indices {
   display: flex;
   flex-flow: column;
-  /* max-width: 700px; */
+  width: 95vw;
+  max-width: 700px;
 }
 
 .index-screens-normal {
   position: relative;
-  /* width: 660px; */
+  width: 95vw;
+  max-width: 700px;
   background-color: #3a5978;
+  box-sizing: border-box;
   padding: 10px 20px;
   border-radius: 10px;
   border: 2px solid #8c8c8c;
 }
 
 .index-screens-small {
-  width: 700px;
+  width: 95vw;
+  max-width: 700px;
   display: flex;
   justify-content: space-between;
   flex-direction: row;
@@ -2139,17 +2138,15 @@ z-index: 0;
 }
 
 .index-screens-professions {
-  width: 660px;
+  width: 95vw;
+  max-width: 700px;
+  box-sizing: border-box;
   padding: 10px 20px;
   display: flex;
   flex-direction: column;
   border-radius: 10px;
   background-color: #3a5978;
   border: 2px solid #8c8c8c;
-}
-
-.title-profession {
-  width: 700px;
 }
 
 .index-professions {
@@ -2166,11 +2163,25 @@ z-index: 0;
   border-radius: 5px;
   width: 22%;
   line-height: normal;
+box-sizing: border-box;
+  font-size: 0.8em;
+}
+
+@media screen and (max-width:385px) {
+  .index-screens-small>div {
+    padding: 5px;
+    font-size: 0.6em;
+  }
+  .index-professions>div {
+    font-size: 0.6em;
+  } 
 }
 
 /* actions buttons  ------------------------------------------------------------------------------------- */
 .actions-table {
   display: flex;
+  width: 95vw;
+  max-width: 700px;
   flex-direction: column;
   line-height: normal;
 }
@@ -2178,7 +2189,8 @@ z-index: 0;
 .actions-row {
   display: flex;
   flex-direction: row;
-  width: 100%;
+  width: 95vw;
+  max-width: 700px;
   justify-content: center;
 }
 
@@ -2223,6 +2235,10 @@ z-index: 0;
   background-image: url("assets/Ch-Explore/map_evolution17.png");
   background-repeat: no-repeat;  
 }
+
+@media screen and (max-width:1070px) {#the_map {
+  left: 25%;
+}}
 
 #the_map>div {
   display: flex;
@@ -2364,3 +2380,5 @@ z-index: 0;
     top: 290px;
     left: 390px;
 }
+
+/* placeholder ----------------------------------------------*/
