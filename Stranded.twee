@@ -145,7 +145,7 @@ How to continue?
 
 
 :: 2N {"position":"900,1250","size":"100,100"}
-<center>[img[assets/Ch-Explore/unimatter_deposit.png]]
+<center><<if random(2) > 1>>[img[assets/Ch-Explore/unimatter_deposit.png]]<<else>>[img[assets/Ch-Explore/unimatter_deposit_2.png]]<</if>>
 <blockquote>
 There is no way to go further north in this swampy area. Possibility to go further north is lost, but something else possibly is gained.
 
@@ -203,14 +203,115 @@ Bring them to Camp anyway?
 
 
 :: 3E {"position":"1275,1500","size":"100,100"}
-<center>[img[assets/Ch-Explore/jungle2.png]]
-<blockquote>
-Hm, is that a spaceship? Or what is it? 
 <<nobr>>
-<<if $xeno > 8>>I need to get a better picture. It is too overgrown by vegetation. How to get up?.<br>
-<<if $CampM.Orb || $CampJ.Orb || $CampJ.nOrb || $CampM.nOrb || $CampJ.cOrb || $CampM.cOrb || $CampJ.cnOrb || CampM.cnOrb>><<set $scanned3E = 3>>Ok, before I print something, I send the orb to scan as much as possible. With enough informations I can design more to the point. Also, I will know whether there is danger or where to get in ...<</if>>
+<<script>>
+
+// Function to check conditions and save progress
+function checkAndSaveProgress() {
+    // Check your conditions here
+    if ($CampM.Orb || $CampJ.Orb || $CampJ.nOrb || $CampM.nOrb || $CampJ.cOrb || $CampM.cOrb || $CampJ.cnOrb || $CampM.cnOrb) {
+        // If both conditions are met, save the game
+        saveGame();
+        // Optionally, you can provide feedback to the player
+        alert('Progress saved!');
+    }
+}
+
+// Save the game state
+function saveGame() {
+    var gameState = {
+        // Include relevant game state variables here
+        // For example:
+        currentScene: State.variables.currentScene
+    };
+
+    // Save the game state to the browser's local storage
+    localStorage.setItem('savedGame', JSON.stringify(gameState));
+}
+
+// Load the saved game state
+function loadGame() {
+    var savedGame = localStorage.getItem('savedGame');
+    if (savedGame !== null) {
+        var gameState = JSON.parse(savedGame);
+
+        // Restore relevant game state variables
+        // For example:
+        State.variables.currentScene = gameState.currentScene;
+
+        // Display a message indicating that the game has been loaded
+        // You might also need to update the UI to reflect the loaded state
+        alert('Game loaded!');
+    } else {
+        // Handle the case where no saved game is found
+        alert('No saved game found!');
+    }
+}
+
+
+<</script>>
+<</nobr>><center>[img[assets/Ch-Explore/jungle2.png]]
+<blockquote>
+Hm, is that a spaceship? Or what is it? <<nobr>>
+/* Content1 of Chapter 2 ---------------------- */
+<<if $xeno > 8>>I need to get a better picture. It is too overgrown by vegetation. But ... how to get up?<br><br>
+
+<<if $CampM.Orb || $CampJ.Orb || $CampJ.nOrb || $CampM.nOrb || $CampJ.cOrb || $CampM.cOrb || $CampJ.cnOrb || $CampM.cnOrb>><<set $scanned3E = 3>><br>
+<<linkappend "Use the Orb" t8n>>[img[assets/backgrounds/floatingOrb.png]]
+
+Ok, before I print something, I send the orb to scan as much as possible. With enough informations I can design more to the point. Also, I will know whether there is danger or where to get in ...
+
+<<linkappend "Oookay, off it goes" t8n>>
+[img[assets/backgrounds/levOrb1.png]]
+
+With a whirring sound it swooshed upward and went off to scan.<<= _seconds>>
+
+<<set _seconds = 23>>
+	<<repeat 3s>>
+		<<set _seconds = _seconds-3>>
+		<<if _seconds.range(20,18)>>
+			.
+    <<elseif _seconds.range(17,15)>>
+      ..
+    <<elseif _seconds.range(14,12)>>
+      ...
+    <<elseif _seconds.range(11,8)>>
+     Shouldn't take long. Unless ... it cannot get in.
+    <<elseif _seconds.range(7,5)>>
+      Oh yeah, I heard a creaking sound. The hatch.
+    <<elseif _seconds.range(4,2)>>
+      Whoa! That was crack! ... And a dull plop. Hm? What happened?
+
+      <div class="actions-row"><div>[[Go check out|End of Game][$deathin3E = true]]</div></div>
+		<<else>>
+			Suddenly there are tremors. The whole area is vibrating; accompanied by a whooshing and buzzing sound.
+      <br>
+      <span id="react"><<if $energy > 0.2>><<if $Camp_J == true>><div class="actions-row"><div>[[RUN!|2E][$energy -= 0.2]]</div></div><<else>><div class="actions-row"><div>[[RUN!|4E][$energy -= 0.2]]</div></div><</if>>
+      <br>
+      <div class="actions-row"><div>[[WAIT!|End of Game][$deathin3E = true]]</div></div>
+      <<else>><<goto [[End of Game][$deathin3E = true]]>><</if>>
+      </span>
+      <<set _react = 6>>
+			<<silently>>
+        <<repeat 2s>>
+          <<set _react to _react - 2>>
+          <<if _react <= 0>>
+            <<replace "#react">><<goto [[End of Game]]>><</replace>>
+            /* do something useful here */
+            <<stop>>
+          <</if>>
+        <</repeat>>
+      <</silently>>
+      <<stop>>
+		<</if>>
+	<</repeat>>
+
+<</linkappend>><</linkappend>>
 <</if>>
-<</nobr>>
+<</if>>
+<</nobr>>/* End of Content1 of Chapter 2 ---- */
+
+
 Where to go next?
 
 <<if $Camp_J == true>><div class="actions-row"><div>[[Go back to Camp|Camp Jungle][$energy -= 0.6]]</div></div><<else>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 0.4]]</div></div><</if>>
@@ -267,7 +368,7 @@ Aah. Open space. Open air.
 
 
 :: 4E {"position":"1400,1500","size":"100,100"}
-<center>[img[assets/Ch-Explore/800px-SemienWaterfall.jpeg]]
+<center>[img[assets/Ch-Explore/4E_waterfall.png]]
 <blockquote>
 Oh boy, if I will see a path through this jungle?
 
@@ -591,17 +692,12 @@ We have <<= $nutrients>> nutrients in storage. Each person consume one unit of n
 <center><center>[img[assets/Ch-Camp/MountainCamp.png]]</center>
 <<set $Camp_M = true>><<set $Camp_J = false>>
 <div class="passage-titles" style="color: #d2a679; border-bottom-color: #d2a679; border-top-color: #d2a679;"><center><h2><strong>Camp Mountain</strong></h2></center></div>
-<div class="order-indices"><div class="index-screens-normal"><strong>Things in the inventory:</strong>
-[img[Materials Printer|assets/items/3D-Printer_rs.png]] [img[Compass|assets/items/compass_rs.png]] <<if $SubAnalyzer == true>>[img[Substance Analyzer|assets/items/Substance-Analyzer_rs.png]]<</if>></div>
-<div class="index-screens-normal"><strong>Components and Buildings operated by your spaceship:</strong>
-<<if $CampM.TransMast == true>>[img[Transmission Mast|assets/items/antenna_CM_rs.png]] <</if>><<if $CampM.EHarvester == true>>[img[Energy Harvester|assets/items/sun-collectors_rs.png]] <</if>><<if $CampM.DefPerimeter == true>>[img[Defense Perimeter|assets/items/defense-perimeter_rs.png]] <</if>><<if $CampM.Farm == true>>[img[Horticulture|assets/items/farm_rs.png]] <</if>><<if $CampJ.Orb == true>>[img[Floating Orb|assets/items/The-Orb_rs.png]]&nbsp;<<elseif $CampJ.nOrb == true>>[img[Orb +Navigation|assets/items/navigation-Orb_rs.png]]&nbsp;<<elseif $CampJ.cOrb == true>>[img[Orb +Combat|assets/items/combat-Orb_rs.png]]&nbsp;<<elseif $CampJ.cnOrb == true>>[img[Orb +Navi +Combat|assets/items/combat-Orb_rs.png]]&nbsp;<</if>>
-<<if $CampM.building > $CampM.maxbuildings>><<set $CampM.building = $CampM.maxbuildings>><<elseif $CampM.building < 0>><<set $CampM.building = 0>><</if>>The camp has <<= $CampM.building>> of maximal <<= $CampM.maxbuildings>> buildings.</div>
-<div class="index-screens-small"><div><strong>CYCLES:&nbsp;</strong>
-<<= $days>></div><div><strong>ENERGY:&nbsp;</strong>
-<<if $maxenergy < 0>><<set $maxenergy = 0>><</if>><<if $energy > $maxenergy>><<set $energy = $maxenergy>><<elseif $energy < 0>><<set $energy = 0>><</if>><<= $energy.toFixed(1)>> of maximal <<= $maxenergy>></div><div><strong>UNIMATTER:&nbsp;</strong>
-  <<if $unimatter < 0>><<set $unimatter = 0>><</if>><<if $unimatter > $maxunimatter>><<set $unimatter = $maxunimatter>><<elseif $unimatter < 0>><<set $unimatter = 0>><</if>><<= $unimatter.toFixed(1)>> Unimatter</div></div>
-<div class="index-screens-normal"><strong>NUTRIENTS:</strong>
-We have <<= $nutrients>> nutrients in storage. Each person consume one unit of nutrients per cycle. We can only store a quantity of 100.</div>
+<div class="order-indices">
+<div class="index-screens-normal"><div><strong>Things in the inventory:</strong></div><div>[img[Materials Printer|assets/items/3D-Printer_rs.png]] [img[Compass|assets/items/compass_rs.png]] <<if $SubAnalyzer == true>>[img[Substance Analyzer|assets/items/Substance-Analyzer_rs.png]]<</if>></div></div>
+<div class="index-screens-normal"><div><strong>Components and Buildings operated by your spaceship:</strong></div><div><<if $CampM.TransMast == true>>[img[Transmission Mast|assets/items/antenna_CM_rs.png]] <</if>><<if $CampM.EHarvester == true>>[img[Energy Harvester|assets/items/sun-collectors_rs.png]] <</if>><<if $CampM.DefPerimeter == true>>[img[Defense Perimeter|assets/items/defense-perimeter_rs.png]] <</if>><<if $CampM.Farm == true>>[img[Horticulture|assets/items/farm_rs.png]] <</if>><<if $CampJ.Orb == true>>[img[Floating Orb|assets/items/The-Orb_rs.png]]&nbsp;<<elseif $CampJ.nOrb == true>>[img[Orb +Navigation|assets/items/navigation-Orb_rs.png]]&nbsp;<<elseif $CampJ.cOrb == true>>[img[Orb +Combat|assets/items/combat-Orb_rs.png]]&nbsp;<<elseif $CampJ.cnOrb == true>>[img[Orb +Navi +Combat|assets/items/combat-Orb_rs.png]]&nbsp;<</if>></div><div><<if $CampM.building > $CampM.maxbuildings>><<set $CampM.building = $CampM.maxbuildings>><<elseif $CampM.building < 0>><<set $CampM.building = 0>><</if>>The camp has <<= $CampM.building>> of maximal <<= $CampM.maxbuildings>> buildings.</div></div>
+<div class="index-screens-small"><div><strong>CYCLES:&nbsp;</strong><br><<= $days>></div><div><strong>ENERGY:&nbsp;</strong>
+<<if $maxenergy < 0>><<set $maxenergy = 0>><</if>><<if $energy > $maxenergy>><<set $energy = $maxenergy>><<elseif $energy < 0>><<set $energy = 0>><</if>><<= $energy.toFixed(1)>> of maximal <<= $maxenergy>></div><div><strong>UNIMATTER:&nbsp;</strong><br><<if $unimatter < 0>><<set $unimatter = 0>><</if>><<if $unimatter > $maxunimatter>><<set $unimatter = $maxunimatter>><<elseif $unimatter < 0>><<set $unimatter = 0>><</if>><<= $unimatter.toFixed(1)>> Unimatter</div></div>
+<div class="index-screens-normal"><div><strong>NUTRIENTS:</strong></div><div>We have <<= $nutrients>> nutrients in storage. Each person consume one unit of nutrients per cycle. We can only store a quantity of 100.</div></div>
 <div class="index-screens-professions"><div class="title-profession"><strong>PROFESSIONS:</strong></div><div class="index-professions"><div> Xenology: <<= $xeno.toFixed(1)>></div> + <div>Combatibility: <<= $combat.toFixed(1)>></div> + <div>Engineering: <<= $engineering.toFixed(1)>></div> + <div>Interactibility: <<= $social.toFixed(1)>></div></div></div></div>
 
 <div class="Title_Actions"><strong><center><h3>ACTIONS:</h3></center></strong></div>
@@ -620,6 +716,8 @@ We have <<= $nutrients>> nutrients in storage. Each person consume one unit of n
 :: Chapter2 {"position":"475,25","size":"100,100"}
 <<set $scanned3E = 1>>
 <<set $brainstorm3E = 0>>
+
+<<set $deathin3E = false>>
 
 
 :: Check my pod {"position":"925,300","size":"100,100"}
@@ -663,6 +761,13 @@ Ech! Nothing happens. It is boring. Maybe I should try to go out anyway?
   <<elseif $unimatter < 3 && $energy < 3>><div class="color-red">insufficient ressources</div>
   <<elseif $Camp_J && $maxenergy < 10 || $Camp_M && $maxenergy < 20>><div class="color-red">insufficient ressources</div>
   <<else>><div class="color-green">all good and functioning.</div><</if>></li>
+
+<li>Brainstorm (1E): <<if $explored3E == 100>> + Access to the spaceship on the slope to the ridge || $energy > 0>>[[Action it|Construction Menu][$energy -= 3; $unimatter -= 3; $maxenergy = 10]]
+  <<elseif $energy >= 3 && $unimatter >= 3 && $Camp_M && $maxenergy < 20>>[[Action it|Construction Menu][$energy -= 3; $unimatter -= 3; $maxenergy = 20]]
+  <<elseif $unimatter < 3 && $energy < 3>><div class="color-red">insufficient ressources</div>
+  <<elseif $Camp_J && $maxenergy < 10 || $Camp_M && $maxenergy < 20>><div class="color-red">insufficient ressources</div>
+  <<else>><div class="color-green">all good and functioning.</div><</if>><</if>></li>
+
 <li>Lvl 2: Substance Analyzer (2E - 5U): 
   <<if $engineering >= 2 && $SubAnalyzer != true && $energy >= 2 && $unimatter >= 5>>[[Print|Construction Menu][$energy -= 2; $unimatter -= 5; $SubAnalyzer = true]]
   <<elseif $SubAnalyzer>><br><div class="color-green">We have already the Substance Analyzer in our inventory.</div>
@@ -995,7 +1100,7 @@ What about Family? Friends? In a way they travel with me, as virtual clones. Sam
 Anyway, as an obligatory out-field practice repectively inter-change student program, I have to partake on this journey, as my professor was commissioned to go there. Am I happy to go? Huh ... I am not quite a believer in active steering of destiny. Yeah, practically: I am lazy. Let see to where it takes me.
 
 <<if $SFW_Path == true>>
-	But! Not that lazy to have packed, say goodbye and handled all digidocs for departure that is in 3 hours. I am already stacked inside, connected, but I decided to dwell still on the old world. Wondering what I will miss when being afar ... <<timed 3000ms>>ah ... [[whatever!|Intro3]]<</timed>>
+	But! Not that lazy to have packed, say goodbye and handled all digidocs for departure that is in 3 hours. I am already stacked inside, connected, but I decided to dwell still on the old world. Wondering what I will miss when being afar ... <<timed 3000ms>>ah, [[whatever!|Intro3]]<</timed>>
  <<else>>
  	But! Definitely not lazy to enjoy [[time with my filippine date!|DateFilippina]]
 <</if>>
@@ -1478,9 +1583,9 @@ With that, we should be able to collect materials nearby. Hopefully, some can be
           <<else>>
             <<if $explored4E >= 100>><<set $explored4E = 100>>
               <<if $Camp_J == true>>
-                <<if $energy < 0.9>><div class="imgs-opaqued">[img[assets/Ch-Explore/800px-SemienWaterfall.jpeg]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/800px-SemienWaterfall.jpeg][4E][$energy -= 0.8]]</div><</if>>
+                <<if $energy < 0.9>><div class="imgs-opaqued">[img[assets/Ch-Explore/4E_waterfall.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/4E_waterfall.png][4E][$energy -= 0.8]]</div><</if>>
               <<else>>
-                <<if $energy < 0.2>><div class="imgs-opaqued">[img[assets/Ch-Explore/800px-SemienWaterfall.jpeg]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/800px-SemienWaterfall.jpeg][4E][$energy -= 0.2]]</div><</if>>
+                <<if $energy < 0.2>><div class="imgs-opaqued">[img[assets/Ch-Explore/4E_waterfall.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/4E_waterfall.png][4E][$energy -= 0.2]]</div><</if>>
               <</if>>
             <<else>>
               <<if $energy >= 1>><<button "<<print $explored4E.toFixed(0)>>%">>
@@ -2050,6 +2155,7 @@ button[id|=history-forward]::before {
 
 /* characters dialogue design   ------------------------------------------------------------------------------------- */      
 .Char {
+  width: 80vw;
   max-width: 700px;
   display: flex;
   flex-wrap: nowrap;
@@ -2119,6 +2225,21 @@ width: 95vw;
   padding: 10px 20px;
   border-radius: 10px;
   border: 2px solid #8c8c8c;
+}
+
+.index-screens-normal>div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.index-screens-normal>div>img {
+  position: relative;
+  margin: 0.5em 1em;
+  border-radius: 1em;
 }
 
 .index-screens-small {

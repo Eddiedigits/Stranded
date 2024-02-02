@@ -186,6 +186,7 @@ button[id|=history-forward]::before {
 
 /* characters dialogue design   ------------------------------------------------------------------------------------- */      
 .Char {
+  width: 80vw;
   max-width: 700px;
   display: flex;
   flex-wrap: nowrap;
@@ -255,6 +256,21 @@ width: 95vw;
   padding: 10px 20px;
   border-radius: 10px;
   border: 2px solid #8c8c8c;
+}
+
+.index-screens-normal>div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.index-screens-normal>div>img {
+  position: relative;
+  margin: 0.5em 1em;
+  border-radius: 1em;
 }
 
 .index-screens-small {
@@ -599,7 +615,7 @@ How to continue?
 &lt;&lt;if $explored1E == 100&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go West|1E][$energy -= 0.2]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
 
 &lt;&lt;if $explored3E == 100&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go East|3E][$energy -= 0.2]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="15" name="2N" tags="" position="900,1250" size="100,100">&lt;center&gt;[img[assets/Ch-Explore/unimatter_deposit.png]]
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="15" name="2N" tags="" position="900,1250" size="100,100">&lt;center&gt;&lt;&lt;if random(2) &gt; 1&gt;&gt;[img[assets/Ch-Explore/unimatter_deposit.png]]&lt;&lt;else&gt;&gt;[img[assets/Ch-Explore/unimatter_deposit_2.png]]&lt;&lt;/if&gt;&gt;
 &lt;blockquote&gt;
 There is no way to go further north in this swampy area. Possibility to go further north is lost, but something else possibly is gained.
 
@@ -645,14 +661,115 @@ Bring them to Camp anyway?
 &lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go back East|1W][$energy -= 0.2]]&lt;/div&gt;&lt;/div&gt;
 
 &lt;&lt;if $explored3W == 100&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go further West|3W][$energy -= 0.2]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="18" name="3E" tags="" position="1275,1500" size="100,100">&lt;center&gt;[img[assets/Ch-Explore/jungle2.png]]
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="18" name="3E" tags="" position="1275,1500" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;&lt;script&gt;&gt;
+
+// Function to check conditions and save progress
+function checkAndSaveProgress() {
+    // Check your conditions here
+    if ($CampM.Orb || $CampJ.Orb || $CampJ.nOrb || $CampM.nOrb || $CampJ.cOrb || $CampM.cOrb || $CampJ.cnOrb || $CampM.cnOrb) {
+        // If both conditions are met, save the game
+        saveGame();
+        // Optionally, you can provide feedback to the player
+        alert(&#39;Progress saved!&#39;);
+    }
+}
+
+// Save the game state
+function saveGame() {
+    var gameState = {
+        // Include relevant game state variables here
+        // For example:
+        currentScene: State.variables.currentScene
+    };
+
+    // Save the game state to the browser&#39;s local storage
+    localStorage.setItem(&#39;savedGame&#39;, JSON.stringify(gameState));
+}
+
+// Load the saved game state
+function loadGame() {
+    var savedGame = localStorage.getItem(&#39;savedGame&#39;);
+    if (savedGame !== null) {
+        var gameState = JSON.parse(savedGame);
+
+        // Restore relevant game state variables
+        // For example:
+        State.variables.currentScene = gameState.currentScene;
+
+        // Display a message indicating that the game has been loaded
+        // You might also need to update the UI to reflect the loaded state
+        alert(&#39;Game loaded!&#39;);
+    } else {
+        // Handle the case where no saved game is found
+        alert(&#39;No saved game found!&#39;);
+    }
+}
+
+
+&lt;&lt;/script&gt;&gt;
+&lt;&lt;/nobr&gt;&gt;&lt;center&gt;[img[assets/Ch-Explore/jungle2.png]]
 &lt;blockquote&gt;
-Hm, is that a spaceship? Or what is it? 
-&lt;&lt;nobr&gt;&gt;
-&lt;&lt;if $xeno &gt; 8&gt;&gt;I need to get a better picture. It is too overgrown by vegetation. How to get up?.&lt;br&gt;
-&lt;&lt;if $CampM.Orb || $CampJ.Orb || $CampJ.nOrb || $CampM.nOrb || $CampJ.cOrb || $CampM.cOrb || $CampJ.cnOrb || CampM.cnOrb&gt;&gt;&lt;&lt;set $scanned3E = 3&gt;&gt;Ok, before I print something, I send the orb to scan as much as possible. With enough informations I can design more to the point. Also, I will know whether there is danger or where to get in ...&lt;&lt;/if&gt;&gt;
+Hm, is that a spaceship? Or what is it? &lt;&lt;nobr&gt;&gt;
+/* Content1 of Chapter 2 ---------------------- */
+&lt;&lt;if $xeno &gt; 8&gt;&gt;I need to get a better picture. It is too overgrown by vegetation. But ... how to get up?&lt;br&gt;&lt;br&gt;
+
+&lt;&lt;if $CampM.Orb || $CampJ.Orb || $CampJ.nOrb || $CampM.nOrb || $CampJ.cOrb || $CampM.cOrb || $CampJ.cnOrb || $CampM.cnOrb&gt;&gt;&lt;&lt;set $scanned3E = 3&gt;&gt;&lt;br&gt;
+&lt;&lt;linkappend &quot;Use the Orb&quot; t8n&gt;&gt;[img[assets/backgrounds/floatingOrb.png]]
+
+Ok, before I print something, I send the orb to scan as much as possible. With enough informations I can design more to the point. Also, I will know whether there is danger or where to get in ...
+
+&lt;&lt;linkappend &quot;Oookay, off it goes&quot; t8n&gt;&gt;
+[img[assets/backgrounds/levOrb1.png]]
+
+With a whirring sound it swooshed upward and went off to scan.&lt;&lt;= _seconds&gt;&gt;
+
+&lt;&lt;set _seconds = 23&gt;&gt;
+	&lt;&lt;repeat 3s&gt;&gt;
+		&lt;&lt;set _seconds = _seconds-3&gt;&gt;
+		&lt;&lt;if _seconds.range(20,18)&gt;&gt;
+			.
+    &lt;&lt;elseif _seconds.range(17,15)&gt;&gt;
+      ..
+    &lt;&lt;elseif _seconds.range(14,12)&gt;&gt;
+      ...
+    &lt;&lt;elseif _seconds.range(11,8)&gt;&gt;
+     Shouldn&#39;t take long. Unless ... it cannot get in.
+    &lt;&lt;elseif _seconds.range(7,5)&gt;&gt;
+      Oh yeah, I heard a creaking sound. The hatch.
+    &lt;&lt;elseif _seconds.range(4,2)&gt;&gt;
+      Whoa! That was crack! ... And a dull plop. Hm? What happened?
+
+      &lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go check out|End of Game][$deathin3E = true]]&lt;/div&gt;&lt;/div&gt;
+		&lt;&lt;else&gt;&gt;
+			Suddenly there are tremors. The whole area is vibrating; accompanied by a whooshing and buzzing sound.
+      &lt;br&gt;
+      &lt;span id=&quot;react&quot;&gt;&lt;&lt;if $energy &gt; 0.2&gt;&gt;&lt;&lt;if $Camp_J == true&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[RUN!|2E][$energy -= 0.2]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[RUN!|4E][$energy -= 0.2]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+      &lt;br&gt;
+      &lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[WAIT!|End of Game][$deathin3E = true]]&lt;/div&gt;&lt;/div&gt;
+      &lt;&lt;else&gt;&gt;&lt;&lt;goto [[End of Game][$deathin3E = true]]&gt;&gt;&lt;&lt;/if&gt;&gt;
+      &lt;/span&gt;
+      &lt;&lt;set _react = 6&gt;&gt;
+			&lt;&lt;silently&gt;&gt;
+        &lt;&lt;repeat 2s&gt;&gt;
+          &lt;&lt;set _react to _react - 2&gt;&gt;
+          &lt;&lt;if _react &lt;= 0&gt;&gt;
+            &lt;&lt;replace &quot;#react&quot;&gt;&gt;&lt;&lt;goto [[End of Game]]&gt;&gt;&lt;&lt;/replace&gt;&gt;
+            /* do something useful here */
+            &lt;&lt;stop&gt;&gt;
+          &lt;&lt;/if&gt;&gt;
+        &lt;&lt;/repeat&gt;&gt;
+      &lt;&lt;/silently&gt;&gt;
+      &lt;&lt;stop&gt;&gt;
+		&lt;&lt;/if&gt;&gt;
+	&lt;&lt;/repeat&gt;&gt;
+
+&lt;&lt;/linkappend&gt;&gt;&lt;&lt;/linkappend&gt;&gt;
 &lt;&lt;/if&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+&lt;&lt;/nobr&gt;&gt;/* End of Content1 of Chapter 2 ---- */
+
+
 Where to go next?
 
 &lt;&lt;if $Camp_J == true&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go back to Camp|Camp Jungle][$energy -= 0.6]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go back to Base|The Map][$energy -= 0.4]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
@@ -697,7 +814,7 @@ Aah. Open space. Open air.
 &lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go back East|2W][$energy -= 0.2]]&lt;/div&gt;&lt;/div&gt;
 
 &lt;&lt;if $explored4W == 100&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go further West|4W][$energy -= 0.2]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="21" name="4E" tags="" position="1400,1500" size="100,100">&lt;center&gt;[img[assets/Ch-Explore/800px-SemienWaterfall.jpeg]]
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="21" name="4E" tags="" position="1400,1500" size="100,100">&lt;center&gt;[img[assets/Ch-Explore/4E_waterfall.png]]
 &lt;blockquote&gt;
 Oh boy, if I will see a path through this jungle?
 
@@ -985,17 +1102,12 @@ We have &lt;&lt;= $nutrients&gt;&gt; nutrients in storage. Each person consume o
 &lt;/div&gt;&lt;/div&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="30" name="Camp Mountain" tags="" position="1500,1125" size="100,100">&lt;center&gt;&lt;center&gt;[img[assets/Ch-Camp/MountainCamp.png]]&lt;/center&gt;
 &lt;&lt;set $Camp_M = true&gt;&gt;&lt;&lt;set $Camp_J = false&gt;&gt;
 &lt;div class=&quot;passage-titles&quot; style=&quot;color: #d2a679; border-bottom-color: #d2a679; border-top-color: #d2a679;&quot;&gt;&lt;center&gt;&lt;h2&gt;&lt;strong&gt;Camp Mountain&lt;/strong&gt;&lt;/h2&gt;&lt;/center&gt;&lt;/div&gt;
-&lt;div class=&quot;order-indices&quot;&gt;&lt;div class=&quot;index-screens-normal&quot;&gt;&lt;strong&gt;Things in the inventory:&lt;/strong&gt;
-[img[Materials Printer|assets/items/3D-Printer_rs.png]] [img[Compass|assets/items/compass_rs.png]] &lt;&lt;if $SubAnalyzer == true&gt;&gt;[img[Substance Analyzer|assets/items/Substance-Analyzer_rs.png]]&lt;&lt;/if&gt;&gt;&lt;/div&gt;
-&lt;div class=&quot;index-screens-normal&quot;&gt;&lt;strong&gt;Components and Buildings operated by your spaceship:&lt;/strong&gt;
-&lt;&lt;if $CampM.TransMast == true&gt;&gt;[img[Transmission Mast|assets/items/antenna_CM_rs.png]] &lt;&lt;/if&gt;&gt;&lt;&lt;if $CampM.EHarvester == true&gt;&gt;[img[Energy Harvester|assets/items/sun-collectors_rs.png]] &lt;&lt;/if&gt;&gt;&lt;&lt;if $CampM.DefPerimeter == true&gt;&gt;[img[Defense Perimeter|assets/items/defense-perimeter_rs.png]] &lt;&lt;/if&gt;&gt;&lt;&lt;if $CampM.Farm == true&gt;&gt;[img[Horticulture|assets/items/farm_rs.png]] &lt;&lt;/if&gt;&gt;&lt;&lt;if $CampJ.Orb == true&gt;&gt;[img[Floating Orb|assets/items/The-Orb_rs.png]]&amp;nbsp;&lt;&lt;elseif $CampJ.nOrb == true&gt;&gt;[img[Orb +Navigation|assets/items/navigation-Orb_rs.png]]&amp;nbsp;&lt;&lt;elseif $CampJ.cOrb == true&gt;&gt;[img[Orb +Combat|assets/items/combat-Orb_rs.png]]&amp;nbsp;&lt;&lt;elseif $CampJ.cnOrb == true&gt;&gt;[img[Orb +Navi +Combat|assets/items/combat-Orb_rs.png]]&amp;nbsp;&lt;&lt;/if&gt;&gt;
-&lt;&lt;if $CampM.building &gt; $CampM.maxbuildings&gt;&gt;&lt;&lt;set $CampM.building = $CampM.maxbuildings&gt;&gt;&lt;&lt;elseif $CampM.building &lt; 0&gt;&gt;&lt;&lt;set $CampM.building = 0&gt;&gt;&lt;&lt;/if&gt;&gt;The camp has &lt;&lt;= $CampM.building&gt;&gt; of maximal &lt;&lt;= $CampM.maxbuildings&gt;&gt; buildings.&lt;/div&gt;
-&lt;div class=&quot;index-screens-small&quot;&gt;&lt;div&gt;&lt;strong&gt;CYCLES:&amp;nbsp;&lt;/strong&gt;
-&lt;&lt;= $days&gt;&gt;&lt;/div&gt;&lt;div&gt;&lt;strong&gt;ENERGY:&amp;nbsp;&lt;/strong&gt;
-&lt;&lt;if $maxenergy &lt; 0&gt;&gt;&lt;&lt;set $maxenergy = 0&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if $energy &gt; $maxenergy&gt;&gt;&lt;&lt;set $energy = $maxenergy&gt;&gt;&lt;&lt;elseif $energy &lt; 0&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;= $energy.toFixed(1)&gt;&gt; of maximal &lt;&lt;= $maxenergy&gt;&gt;&lt;/div&gt;&lt;div&gt;&lt;strong&gt;UNIMATTER:&amp;nbsp;&lt;/strong&gt;
-  &lt;&lt;if $unimatter &lt; 0&gt;&gt;&lt;&lt;set $unimatter = 0&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if $unimatter &gt; $maxunimatter&gt;&gt;&lt;&lt;set $unimatter = $maxunimatter&gt;&gt;&lt;&lt;elseif $unimatter &lt; 0&gt;&gt;&lt;&lt;set $unimatter = 0&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;= $unimatter.toFixed(1)&gt;&gt; Unimatter&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&quot;index-screens-normal&quot;&gt;&lt;strong&gt;NUTRIENTS:&lt;/strong&gt;
-We have &lt;&lt;= $nutrients&gt;&gt; nutrients in storage. Each person consume one unit of nutrients per cycle. We can only store a quantity of 100.&lt;/div&gt;
+&lt;div class=&quot;order-indices&quot;&gt;
+&lt;div class=&quot;index-screens-normal&quot;&gt;&lt;div&gt;&lt;strong&gt;Things in the inventory:&lt;/strong&gt;&lt;/div&gt;&lt;div&gt;[img[Materials Printer|assets/items/3D-Printer_rs.png]] [img[Compass|assets/items/compass_rs.png]] &lt;&lt;if $SubAnalyzer == true&gt;&gt;[img[Substance Analyzer|assets/items/Substance-Analyzer_rs.png]]&lt;&lt;/if&gt;&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;index-screens-normal&quot;&gt;&lt;div&gt;&lt;strong&gt;Components and Buildings operated by your spaceship:&lt;/strong&gt;&lt;/div&gt;&lt;div&gt;&lt;&lt;if $CampM.TransMast == true&gt;&gt;[img[Transmission Mast|assets/items/antenna_CM_rs.png]] &lt;&lt;/if&gt;&gt;&lt;&lt;if $CampM.EHarvester == true&gt;&gt;[img[Energy Harvester|assets/items/sun-collectors_rs.png]] &lt;&lt;/if&gt;&gt;&lt;&lt;if $CampM.DefPerimeter == true&gt;&gt;[img[Defense Perimeter|assets/items/defense-perimeter_rs.png]] &lt;&lt;/if&gt;&gt;&lt;&lt;if $CampM.Farm == true&gt;&gt;[img[Horticulture|assets/items/farm_rs.png]] &lt;&lt;/if&gt;&gt;&lt;&lt;if $CampJ.Orb == true&gt;&gt;[img[Floating Orb|assets/items/The-Orb_rs.png]]&amp;nbsp;&lt;&lt;elseif $CampJ.nOrb == true&gt;&gt;[img[Orb +Navigation|assets/items/navigation-Orb_rs.png]]&amp;nbsp;&lt;&lt;elseif $CampJ.cOrb == true&gt;&gt;[img[Orb +Combat|assets/items/combat-Orb_rs.png]]&amp;nbsp;&lt;&lt;elseif $CampJ.cnOrb == true&gt;&gt;[img[Orb +Navi +Combat|assets/items/combat-Orb_rs.png]]&amp;nbsp;&lt;&lt;/if&gt;&gt;&lt;/div&gt;&lt;div&gt;&lt;&lt;if $CampM.building &gt; $CampM.maxbuildings&gt;&gt;&lt;&lt;set $CampM.building = $CampM.maxbuildings&gt;&gt;&lt;&lt;elseif $CampM.building &lt; 0&gt;&gt;&lt;&lt;set $CampM.building = 0&gt;&gt;&lt;&lt;/if&gt;&gt;The camp has &lt;&lt;= $CampM.building&gt;&gt; of maximal &lt;&lt;= $CampM.maxbuildings&gt;&gt; buildings.&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;index-screens-small&quot;&gt;&lt;div&gt;&lt;strong&gt;CYCLES:&amp;nbsp;&lt;/strong&gt;&lt;br&gt;&lt;&lt;= $days&gt;&gt;&lt;/div&gt;&lt;div&gt;&lt;strong&gt;ENERGY:&amp;nbsp;&lt;/strong&gt;
+&lt;&lt;if $maxenergy &lt; 0&gt;&gt;&lt;&lt;set $maxenergy = 0&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if $energy &gt; $maxenergy&gt;&gt;&lt;&lt;set $energy = $maxenergy&gt;&gt;&lt;&lt;elseif $energy &lt; 0&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;= $energy.toFixed(1)&gt;&gt; of maximal &lt;&lt;= $maxenergy&gt;&gt;&lt;/div&gt;&lt;div&gt;&lt;strong&gt;UNIMATTER:&amp;nbsp;&lt;/strong&gt;&lt;br&gt;&lt;&lt;if $unimatter &lt; 0&gt;&gt;&lt;&lt;set $unimatter = 0&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if $unimatter &gt; $maxunimatter&gt;&gt;&lt;&lt;set $unimatter = $maxunimatter&gt;&gt;&lt;&lt;elseif $unimatter &lt; 0&gt;&gt;&lt;&lt;set $unimatter = 0&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;= $unimatter.toFixed(1)&gt;&gt; Unimatter&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;index-screens-normal&quot;&gt;&lt;div&gt;&lt;strong&gt;NUTRIENTS:&lt;/strong&gt;&lt;/div&gt;&lt;div&gt;We have &lt;&lt;= $nutrients&gt;&gt; nutrients in storage. Each person consume one unit of nutrients per cycle. We can only store a quantity of 100.&lt;/div&gt;&lt;/div&gt;
 &lt;div class=&quot;index-screens-professions&quot;&gt;&lt;div class=&quot;title-profession&quot;&gt;&lt;strong&gt;PROFESSIONS:&lt;/strong&gt;&lt;/div&gt;&lt;div class=&quot;index-professions&quot;&gt;&lt;div&gt; Xenology: &lt;&lt;= $xeno.toFixed(1)&gt;&gt;&lt;/div&gt; + &lt;div&gt;Combatibility: &lt;&lt;= $combat.toFixed(1)&gt;&gt;&lt;/div&gt; + &lt;div&gt;Engineering: &lt;&lt;= $engineering.toFixed(1)&gt;&gt;&lt;/div&gt; + &lt;div&gt;Interactibility: &lt;&lt;= $social.toFixed(1)&gt;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;div class=&quot;Title_Actions&quot;&gt;&lt;strong&gt;&lt;center&gt;&lt;h3&gt;ACTIONS:&lt;/h3&gt;&lt;/center&gt;&lt;/strong&gt;&lt;/div&gt;
@@ -1009,7 +1121,9 @@ We have &lt;&lt;= $nutrients&gt;&gt; nutrients in storage. Each person consume o
 &lt;div class=&quot;actions-row&quot;&gt;&lt;&lt;if $energy &gt; 4 &amp;&amp; hasVisited(&quot;Start from Base Jungle&quot;)&gt;&gt;&lt;div&gt;
 [[Move to Camp Jungle|Camp Jungle][$energy /= 2; $maxenergy -= 10; $maxnutrients -= 50; $nutrients /= 2; $unimatter /= 2]]&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="31" name="Chapter2" tags="" position="475,25" size="100,100">&lt;&lt;set $scanned3E = 1&gt;&gt;
-&lt;&lt;set $brainstorm3E = 0&gt;&gt;</tw-passagedata><tw-passagedata pid="32" name="Check my pod" tags="" position="925,300" size="100,100">&lt;center&gt;
+&lt;&lt;set $brainstorm3E = 0&gt;&gt;
+
+&lt;&lt;set $deathin3E = false&gt;&gt;</tw-passagedata><tw-passagedata pid="32" name="Check my pod" tags="" position="925,300" size="100,100">&lt;center&gt;
 [img[assets/Ch-Crash/Pod1.png]]
 &lt;blockquote&gt;
 Hm. Nice! Like it is designed to be: sturdy.
@@ -1045,6 +1159,13 @@ Ech! Nothing happens. It is boring. Maybe I should try to go out anyway?
   &lt;&lt;elseif $unimatter &lt; 3 &amp;&amp; $energy &lt; 3&gt;&gt;&lt;div class=&quot;color-red&quot;&gt;insufficient ressources&lt;/div&gt;
   &lt;&lt;elseif $Camp_J &amp;&amp; $maxenergy &lt; 10 || $Camp_M &amp;&amp; $maxenergy &lt; 20&gt;&gt;&lt;div class=&quot;color-red&quot;&gt;insufficient ressources&lt;/div&gt;
   &lt;&lt;else&gt;&gt;&lt;div class=&quot;color-green&quot;&gt;all good and functioning.&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/li&gt;
+
+&lt;li&gt;Brainstorm (1E): &lt;&lt;if $explored3E == 100&gt;&gt; + Access to the spaceship on the slope to the ridge || $energy &gt; 0&gt;&gt;[[Action it|Construction Menu][$energy -= 3; $unimatter -= 3; $maxenergy = 10]]
+  &lt;&lt;elseif $energy &gt;= 3 &amp;&amp; $unimatter &gt;= 3 &amp;&amp; $Camp_M &amp;&amp; $maxenergy &lt; 20&gt;&gt;[[Action it|Construction Menu][$energy -= 3; $unimatter -= 3; $maxenergy = 20]]
+  &lt;&lt;elseif $unimatter &lt; 3 &amp;&amp; $energy &lt; 3&gt;&gt;&lt;div class=&quot;color-red&quot;&gt;insufficient ressources&lt;/div&gt;
+  &lt;&lt;elseif $Camp_J &amp;&amp; $maxenergy &lt; 10 || $Camp_M &amp;&amp; $maxenergy &lt; 20&gt;&gt;&lt;div class=&quot;color-red&quot;&gt;insufficient ressources&lt;/div&gt;
+  &lt;&lt;else&gt;&gt;&lt;div class=&quot;color-green&quot;&gt;all good and functioning.&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;/li&gt;
+
 &lt;li&gt;Lvl 2: Substance Analyzer (2E - 5U): 
   &lt;&lt;if $engineering &gt;= 2 &amp;&amp; $SubAnalyzer != true &amp;&amp; $energy &gt;= 2 &amp;&amp; $unimatter &gt;= 5&gt;&gt;[[Print|Construction Menu][$energy -= 2; $unimatter -= 5; $SubAnalyzer = true]]
   &lt;&lt;elseif $SubAnalyzer&gt;&gt;&lt;br&gt;&lt;div class=&quot;color-green&quot;&gt;We have already the Substance Analyzer in our inventory.&lt;/div&gt;
@@ -1341,7 +1462,7 @@ What about Family? Friends? In a way they travel with me, as virtual clones. Sam
 Anyway, as an obligatory out-field practice repectively inter-change student program, I have to partake on this journey, as my professor was commissioned to go there. Am I happy to go? Huh ... I am not quite a believer in active steering of destiny. Yeah, practically: I am lazy. Let see to where it takes me.
 
 &lt;&lt;if $SFW_Path == true&gt;&gt;
-	But! Not that lazy to have packed, say goodbye and handled all digidocs for departure that is in 3 hours. I am already stacked inside, connected, but I decided to dwell still on the old world. Wondering what I will miss when being afar ... &lt;&lt;timed 3000ms&gt;&gt;ah ... [[whatever!|Intro3]]&lt;&lt;/timed&gt;&gt;
+	But! Not that lazy to have packed, say goodbye and handled all digidocs for departure that is in 3 hours. I am already stacked inside, connected, but I decided to dwell still on the old world. Wondering what I will miss when being afar ... &lt;&lt;timed 3000ms&gt;&gt;ah, [[whatever!|Intro3]]&lt;&lt;/timed&gt;&gt;
  &lt;&lt;else&gt;&gt;
  	But! Definitely not lazy to enjoy [[time with my filippine date!|DateFilippina]]
 &lt;&lt;/if&gt;&gt;
@@ -1764,9 +1885,9 @@ With that, we should be able to collect materials nearby. Hopefully, some can be
           &lt;&lt;else&gt;&gt;
             &lt;&lt;if $explored4E &gt;= 100&gt;&gt;&lt;&lt;set $explored4E = 100&gt;&gt;
               &lt;&lt;if $Camp_J == true&gt;&gt;
-                &lt;&lt;if $energy &lt; 0.9&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/800px-SemienWaterfall.jpeg]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/800px-SemienWaterfall.jpeg][4E][$energy -= 0.8]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+                &lt;&lt;if $energy &lt; 0.9&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/4E_waterfall.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/4E_waterfall.png][4E][$energy -= 0.8]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
               &lt;&lt;else&gt;&gt;
-                &lt;&lt;if $energy &lt; 0.2&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/800px-SemienWaterfall.jpeg]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/800px-SemienWaterfall.jpeg][4E][$energy -= 0.2]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+                &lt;&lt;if $energy &lt; 0.2&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/4E_waterfall.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/4E_waterfall.png][4E][$energy -= 0.2]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
               &lt;&lt;/if&gt;&gt;
             &lt;&lt;else&gt;&gt;
               &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored4E.toFixed(0)&gt;&gt;%&quot;&gt;&gt;

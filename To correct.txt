@@ -1,3 +1,0 @@
-- div story; the format lean to the left instead of centering the content when switched to mobile
-
-- socialising doesn't work, structural problem ==> divide events in passages?
