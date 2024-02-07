@@ -15,37 +15,46 @@ Stranded
 :: 1E {"position":"1025,1500","size":"100,100"}
 <center>[img[assets/Ch-Explore/food.png]]
   <blockquote>
-  That looks like something. Could it be edible?
-  
-  <<if hasVisited("1E") >= 1 && $SubAnalyzer == true>>After running them through the Substance Analyzer, it is definitive that those are edible. Those are optimal to be our nutrients.
-  
-  As what do I want to bring them to Camp?
-  
-    <<nobr>>
-    <<if $Camp_J == true>>
-    <div class="actions-row"><div>[[As Nutrients|Camp Jungle][$energy -= 0.2; $nutrients += $carrycap*3]]</div></div>
-    <br>
-    <div class="actions-row"><div>[[As Unimatter|Camp Jungle][$energy -= 0.2; $unimatter += $carrycap/3]]</div></div>
-    <br>
+    <<if $eventfrom3E>>
+      <<if $energy > 0.2>>
+        A devil will I do to stop here again! <div class="actions-row"><div>[[RUN!|3E-Event][$energy -= 0.2; $eventfrom3E = true]]</div></div>
+      <<else>>
+        <<goto [[End of Game][$deathin3E = true]]>>
+      <</if>>
     <<else>>
-    <div class="actions-row"><div>[[As Nutrients|Camp Mountain][$energy -= 0.8; $nutrients += $carrycap*3]]</div></div>
-    <br>
-    <div class="actions-row"><div>[[As Unimatter|Camp Mountain][$energy -= 0.8; $unimatter += $carrycap/3]]</div></div>
-    <</if>><</nobr>>
-  <<else>>
-  Hm, too risky to try it out without a substance analyzer. We can use it as unimatter, though not plentiful.
-  
-  Do I wish to bring it to Camp?
-  
-    <<if $Camp_J == true>><div class="actions-row"><div>[[Yes|Camp Jungle][$energy -= 0.2; $unimatter += $carrycap/3]]</div></div><<else>><div class="actions-row"><div>[[Yes|Camp Mountain][$energy -= 1; $unimatter += $carrycap/3]]</div></div><</if>>
-  <</if>><<nobr>>
-    <br>
-    <<if $Camp_J == true>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 0.2]]</div></div><<else>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 0.8]]</div></div><</if>>
-    <br>
-    <<if $exploredJB == 100>><div class="actions-row"><div>[[Go West|Start from Base Jungle][$energy -= 0.2]]</div></div><</if>>
-    <br>
-    <<if $explored2E == 100>><div class="actions-row"><div>[[Go East|2E][$energy -= 0.2]]</div></div><</if>>
-  <</nobr>></blockquote></center>
+      That looks like something. Could it be edible?
+      
+      <<if hasVisited("1E") >= 1 && $SubAnalyzer == true>>After running them through the Substance Analyzer, it is definitive that those are edible. Those are optimal to be our nutrients.
+      
+      As what do I want to bring them to Camp?
+      
+        <<nobr>><<if $Camp_J == true>>
+          <div class="actions-row"><div>[[As Nutrients|Camp Jungle][$energy -= 0.2; $nutrients += $carrycap*3]]</div></div>
+          <br>
+          <div class="actions-row"><div>[[As Unimatter|Camp Jungle][$energy -= 0.2; $unimatter += $carrycap/3]]</div></div>
+          <br>
+          <<else>>
+          <div class="actions-row"><div>[[As Nutrients|Camp Mountain][$energy -= 0.8; $nutrients += $carrycap*3]]</div></div>
+          <br>
+          <div class="actions-row"><div>[[As Unimatter|Camp Mountain][$energy -= 0.8; $unimatter += $carrycap/3]]</div></div>
+        <</if>><</nobr>>
+      <<else>>
+      Hm, too risky to try it out without a substance analyzer. We can use it as unimatter, though not plentiful.
+      
+      Do I wish to bring it to Camp?
+      
+        <<if $Camp_J == true>><div class="actions-row"><div>[[Yes|Camp Jungle][$energy -= 0.2; $unimatter += $carrycap/3]]</div></div><<else>><div class="actions-row"><div>[[Yes|Camp Mountain][$energy -= 1; $unimatter += $carrycap/3]]</div></div><</if>>
+      <</if>><<nobr>>
+        <br>
+        <<if $Camp_J == true>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 0.2]]</div></div><<else>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 0.8]]</div></div><</if>>
+        <br>
+        <<if $exploredJB == 100>><div class="actions-row"><div>[[Go West|Start from Base Jungle][$energy -= 0.2]]</div></div><</if>>
+        <br>
+        <<if $explored2E == 100>><div class="actions-row"><div>[[Go East|2E][$energy -= 0.2]]</div></div><</if>>
+      <</nobr>>
+    <</if>>  
+  </blockquote>
+</center>
 
 
 :: 1N {"position":"900,1375","size":"100,100"}
@@ -84,7 +93,7 @@ Hm, a swampy area. Nothing useful here.
 :: 1S {"position":"900,1625","size":"100,100"}
 <center>[img[assets/Ch-Explore/desert3.png]]
 <blockquote>
-Dryness. 
+Dryness.
 
 Dryness.
 
@@ -131,17 +140,36 @@ Nothing but forest, jungle, leaves, green, green, green and more greens. And wei
 
 :: 2E {"position":"1150,1500","size":"100,100"}
 <center>[img[assets/Ch-Explore/jungle4.png]]
-<blockquote>
-Nothing but jungle and humidity. And the creepy silence. Not even leaves rustling in the wind.
+<blockquote><<nobr>>
+<<if $eventfrom3E>>
+<<set _run = 6>>
+<span id="run">Whoa! That was scary!</span>!\
+  <<repeat 1s>>
+		<<set _run-->>
+		<<if _run.range(4,6)>>
+			<<replace "#run">>The tremors are getting stronger?! Is it coming?!<</replace>>
+		<<else>>
+			<<replace "#run">>
+        <<if $energy > 0.2>>
+          <div class="actions-row"><div>[[RUN!|1E][$energy -= 0.2; $eventfrom3E = true]]</div></div>
+        <<else>>
+          <<goto [[End of Game][$deathin3E = true]]>>
+        <</if>>
+      <</replace>>
+			<<stop>>
+		<</if>>
+	<</repeat>>
+<<else>>
+  Nothing but jungle and humidity. And the creepy silence. Not even leaves rustling in the wind.<br><br>
 
-How to continue?
+  How to continue?<br><br>
 
-<<if $Camp_J == true>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 0.4]]</div></div><<else>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 0.6]]</div></div><</if>>
+  <<if $Camp_J == true>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 0.4]]</div></div><<else>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 0.6]]</div></div><</if>><br><br>
 
-<<if $explored1E == 100>><div class="actions-row"><div>[[Go West|1E][$energy -= 0.2]]</div></div><</if>>
+  <<if $explored1E == 100>><div class="actions-row"><div>[[Go West|1E][$energy -= 0.2]]</div></div><</if>><br><br>
 
-<<if $explored3E == 100>><div class="actions-row"><div>[[Go East|3E][$energy -= 0.2]]</div></div><</if>>
-</blockquote></center>
+  <<if $explored3E == 100>><div class="actions-row"><div>[[Go East|3E][$energy -= 0.2]]</div></div><</if>>
+<</nobr>></blockquote></center>
 
 
 :: 2N {"position":"900,1250","size":"100,100"}
@@ -163,8 +191,6 @@ Nothing to do here. A substance analyzer is needed here.
 <<if $Camp_J == true>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 0.4]]</div></div><<else>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 1.4]]</div></div><</if>>
 <</if>>
 <div class="actions-row"><div>[[Go South|1N][$energy -= 0.2]]</div></div>
-
-(Whoa. The longer I look at the picture; I cannot decide whether stones are falling from the sky or it is a shore from a sea?)
 </blockquote></center>
 
 
@@ -203,123 +229,86 @@ Bring them to Camp anyway?
 
 
 :: 3E {"position":"1275,1500","size":"100,100"}
-<<nobr>>
-<<script>>
-
-// Function to check conditions and save progress
-function checkAndSaveProgress() {
-    // Check your conditions here
-    if ($CampM.Orb || $CampJ.Orb || $CampJ.nOrb || $CampM.nOrb || $CampJ.cOrb || $CampM.cOrb || $CampJ.cnOrb || $CampM.cnOrb) {
-        // If both conditions are met, save the game
-        saveGame();
-        // Optionally, you can provide feedback to the player
-        alert('Progress saved!');
-    }
-}
-
-// Save the game state
-function saveGame() {
-    var gameState = {
-        // Include relevant game state variables here
-        // For example:
-        currentScene: State.variables.currentScene
-    };
-
-    // Save the game state to the browser's local storage
-    localStorage.setItem('savedGame', JSON.stringify(gameState));
-}
-
-// Load the saved game state
-function loadGame() {
-    var savedGame = localStorage.getItem('savedGame');
-    if (savedGame !== null) {
-        var gameState = JSON.parse(savedGame);
-
-        // Restore relevant game state variables
-        // For example:
-        State.variables.currentScene = gameState.currentScene;
-
-        // Display a message indicating that the game has been loaded
-        // You might also need to update the UI to reflect the loaded state
-        alert('Game loaded!');
-    } else {
-        // Handle the case where no saved game is found
-        alert('No saved game found!');
-    }
-}
-
-
-<</script>>
-<</nobr>><center>[img[assets/Ch-Explore/jungle2.png]]
+<center>[img[assets/Ch-Explore/jungle2.png]]
 <blockquote>
 Hm, is that a spaceship? Or what is it? <<nobr>>
 /* Content1 of Chapter 2 ---------------------- */
-<<if $xeno > 8>>I need to get a better picture. It is too overgrown by vegetation. But ... how to get up?<br><br>
+<<if $xeno > 8 && $eventfrom3E == false>>I need to get a better picture. It is too overgrown by vegetation. But ... how to get up?<br><br>
 
-<<if $CampM.Orb || $CampJ.Orb || $CampJ.nOrb || $CampM.nOrb || $CampJ.cOrb || $CampM.cOrb || $CampJ.cnOrb || $CampM.cnOrb>><<set $scanned3E = 3>><br>
-<<linkappend "Use the Orb" t8n>>[img[assets/backgrounds/floatingOrb.png]]
+  <<if $CampM.Orb || $CampJ.Orb || $CampJ.nOrb || $CampM.nOrb || $CampJ.cOrb || $CampM.cOrb || $CampJ.cnOrb || $CampM.cnOrb>><br>
+    <<linkappend '<div class="actions-row"><div>Use the Orb</div></div>' t8n>>[img[assets/backgrounds/floatingOrb.png]]<<replace "#ABhidden">><</replace>>
 
-Ok, before I print something, I send the orb to scan as much as possible. With enough informations I can design more to the point. Also, I will know whether there is danger or where to get in ...
+    Ok, before I print something, I send the orb to scan as much as possible. With enough informations I can design more to the point. Also, I will know whether there is danger or where to get in ...<br><br>
 
-<<linkappend "Oookay, off it goes" t8n>>
-[img[assets/backgrounds/levOrb1.png]]
+      <<linkappend '<div class="actions-row"><div>Oookay, off it goes</div></div>' t8n>>
+      [img[assets/backgrounds/levOrb1.png]]
 
-With a whirring sound it swooshed upward and went off to scan.<<= _seconds>>
+      With a whirring sound it swooshed upward and went off to scan.<br><br>
 
-<<set _seconds = 23>>
-	<<repeat 3s>>
-		<<set _seconds = _seconds-3>>
-		<<if _seconds.range(20,18)>>
-			.
-    <<elseif _seconds.range(17,15)>>
-      ..
-    <<elseif _seconds.range(14,12)>>
-      ...
-    <<elseif _seconds.range(11,8)>>
-     Shouldn't take long. Unless ... it cannot get in.
-    <<elseif _seconds.range(7,5)>>
-      Oh yeah, I heard a creaking sound. The hatch.
-    <<elseif _seconds.range(4,2)>>
-      Whoa! That was crack! ... And a dull plop. Hm? What happened?
-
-      <div class="actions-row"><div>[[Go check out|End of Game][$deathin3E = true]]</div></div>
-		<<else>>
-			Suddenly there are tremors. The whole area is vibrating; accompanied by a whooshing and buzzing sound.
-      <br>
-      <span id="react"><<if $energy > 0.2>><<if $Camp_J == true>><div class="actions-row"><div>[[RUN!|2E][$energy -= 0.2]]</div></div><<else>><div class="actions-row"><div>[[RUN!|4E][$energy -= 0.2]]</div></div><</if>>
-      <br>
-      <div class="actions-row"><div>[[WAIT!|End of Game][$deathin3E = true]]</div></div>
-      <<else>><<goto [[End of Game][$deathin3E = true]]>><</if>>
-      </span>
-      <<set _react = 6>>
-			<<silently>>
-        <<repeat 2s>>
-          <<set _react to _react - 2>>
-          <<if _react <= 0>>
-            <<replace "#react">><<goto [[End of Game]]>><</replace>>
-            /* do something useful here */
+      <<set _seconds = 20>>
+      <span id="wait"></span>
+        <<repeat 1s>>
+          <<set _seconds-->>
+          <<if _seconds.range(18,20)>>
+            <<replace "#wait">>.<</replace>>
+          <<elseif _seconds.range(15,17)>>
+            <<replace "#wait">>..<</replace>>
+          <<elseif _seconds.range(11,14)>>
+            <<replace "#wait">>...<</replace>>
+          <<elseif _seconds.range(8,10)>>
+            <<replace "#wait">>Shouldn't take long. Unless ... it cannot get in.<</replace>>
+          <<elseif _seconds.range(5,7)>>
+            <<replace "#wait">>A creaking sound. I guess: the hatch.<</replace>>
+          <<elseif _seconds.range(2,4)>>
+            <<replace "#wait">>Whoa! That was crack! ... And a dull plop. What happened?!<<set $CampJ.Orb = false; $CampM.Orb = false>><</replace>>
+          <<else>>
+            <<replace "#wait">>Suddenly there are tremors. The whole area is vibrating; accompanied by a whooshing and buzzing sound.<<set _react = 6>>
+            
+              <span id="react"></span>
+                <<repeat 1s>>
+                  <<set _react-->>
+                  <<if _react > 0>>
+                    <<replace "#react">>
+                      <<if $energy > 0.2>>
+                        <br><br>
+                        <<if $Camp_J>><div class="actions-row"><div>[[RUN!|2E][$energy -= 0.2; $eventfrom3E = true]]</div></div>
+                        <<else>><div class="actions-row"><div>[[RUN!|4E][$energy -= 0.2; $eventfrom3E = true]]</div></div>
+                        <</if>>
+                        <br>                    
+                        <div class="actions-row"><div>[[WAIT!|End of Game][$deathin3E = true]]</div></div>
+                      <<else>><<goto [[End of Game][$deathin3E = true]]>>
+                      <</if>>
+                    <</replace>>
+                  <<else>>
+                    <<replace "#react">><<goto [[End of Game][$deathin3E = true]]>><</replace>>
+                    <<stop>>
+                  <</if>>                
+                <</repeat>>
+            <</replace>>
             <<stop>>
           <</if>>
         <</repeat>>
-      <</silently>>
-      <<stop>>
-		<</if>>
-	<</repeat>>
 
-<</linkappend>><</linkappend>>
-<</if>>
+      <</linkappend>>
+    <</linkappend>>
+  <</if>>
 <</if>>
 <</nobr>>/* End of Content1 of Chapter 2 ---- */
 
-
+<span id="ABhidden">
 Where to go next?
 
-<<if $Camp_J == true>><div class="actions-row"><div>[[Go back to Camp|Camp Jungle][$energy -= 0.6]]</div></div><<else>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 0.4]]</div></div><</if>>
+<<if $Camp_J>><div class="actions-row"><div>[[Go back to Camp|Camp Jungle][$energy -= 0.6]]</div></div><<else>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 0.4]]</div></div><</if>>
 
 <<if $explored2E == 100>><div class="actions-row"><div>[[Go West|2E][$energy -= 0.2]]</div></div><</if>>
 
 <<if $explored4E == 100>><div class="actions-row"><div>[[Go East|4E][$energy -= 0.2]]</div></div><</if>>
+</span>
 </blockquote></center>
+
+
+:: 3E-Event {"position":"1900,1400","size":"100,100"}
+
 
 
 :: 3S {"position":"900,1875","size":"100,100"}
@@ -370,15 +359,35 @@ Aah. Open space. Open air.
 :: 4E {"position":"1400,1500","size":"100,100"}
 <center>[img[assets/Ch-Explore/4E_waterfall.png]]
 <blockquote>
-Oh boy, if I will see a path through this jungle?
+<<if $eventfrom3E>>
+  <<set _run = 6>>
+  <span id="run">Whoa! That was scary!</span>
+    <<repeat 1s>>
+      <<set _run-->>
+      <<if _run.range(4,6)>>
+        <<replace "#run">>The tremors are getting stronger?! Is it coming?!<</replace>>
+      <<else>>
+        <<replace "#run">>
+          <<if $energy > 0.2>>
+            <div class="actions-row"><div>[[RUN!|3E-Event][$energy -= 0.2; $eventfrom3E = true]]</div></div>
+          <<else>>
+            <<goto [[End of Game][$deathin3E = true]]>>
+          <</if>>
+        <</replace>>
+        <<stop>>
+      <</if>>
+    <</repeat>>
+<<else>>
+  Oh boy, if I will see a path through this jungle?
 
-Where to go next? 
+  Where to go next?
 
-<<if $Camp_J == true>><div class="actions-row"><div>[[Go back to Camp|Camp Jungle][$energy -= 0.8]]</div></div><<else>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 0.2]]</div></div><</if>>
+  <<if $Camp_J == true>><div class="actions-row"><div>[[Go back to Camp|Camp Jungle][$energy -= 0.8]]</div></div><<else>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 0.2]]</div></div><</if>>
 
-<<if $explored3E == 100>><div class="actions-row"><div>[[Go West|3E][$energy -= 0.2]]</div></div><</if>>
+  <<if $explored3E == 100>><div class="actions-row"><div>[[Go West|3E][$energy -= 0.2]]</div></div><</if>>
 
-<<if $exploredMB == 100>><div class="actions-row"><div>[[Go East|Start from Base Mountain][$energy -= 0.2]]</div></div><</if>>
+  <<if $exploredMB == 100>><div class="actions-row"><div>[[Go East|Start from Base Mountain][$energy -= 0.2]]</div></div><</if>>
+<</if>>
 </blockquote></center>
 
 
@@ -661,18 +670,11 @@ Have I a change of mind? I want a ...
 <center><center>[img[assets/Ch-Camp/JungleCamp.png]]</center>
 <<set $Camp_J = true>><<set $Camp_M = false>>
 <div class="passage-titles" style="color:#2aa22a; border-bottom-color: #2aa22a; border-top-color: #2aa22a;"><center><h2><strong>Camp Jungle</strong></h2></center></div>
-<div class="order-indices"><div class="index-screens-normal"><strong>Things in the inventory:</strong>
-[img[Materials Printer|assets/items/3D-Printer_rs.png]] [img[Compass|assets/items/compass_rs.png]] <<if $SubAnalyzer == true>>[img[Substance Analyzer|assets/items/Substance-Analyzer_rs.png]]<</if>></div>
-<div class="index-screens-normal"><strong>Components and Buildings operated by your spaceship:</strong>
-<<if $CampJ.TransMast == true>>[img[Transmission Mast|assets/items/antenna_CJ_rs.png]] <</if>><<if $CampJ.EHarvester == true>>[img[Energy Harvester|assets/items/sun-collectors_rs.png]] <</if>><<if $CampJ.DefPerimeter == true>>[img[Defense Perimeter|assets/items/defense-perimeter_rs.png]] <</if>><<if $CampJ.Farm == true>>[img[Horticulture|assets/items/farm_rs.png]] <</if>><<if $CampJ.Orb == true>>[img[Floating Orb|assets/items/The-Orb_rs.png]]&nbsp;<<elseif $CampJ.nOrb == true>>[img[Orb +Navigation|assets/items/navigation-Orb_rs.png]]&nbsp;<<elseif $CampJ.cOrb == true>>[img[Orb +Combat|assets/items/combat-Orb_rs.png]]&nbsp;<<elseif $CampJ.cnOrb == true>>[img[Orb +Navi +Combat|assets/items/combat-Orb_rs.png]]&nbsp;<</if>>
-
-<<if $CampJ.building > $CampJ.maxbuilding>><<set $CampJ.building = $CampJ.maxbuilding>><<elseif $CampJ.building < 0>><<set $CampJ.building = 0>><</if>>The camp has <<= $CampJ.building>> of maximal <<= $CampJ.maxbuildings>> buildings.</div>
-<div class="index-screens-small"><div><strong>CYCLES:&nbsp;</strong>
-<<= $days>></div><div><strong>ENERGY:&nbsp;</strong>
-<<if $maxenergy < 0>><<set $maxenergy = 0>><</if>><<if $energy > $maxenergy>><<set $energy = $maxenergy>><<elseif $energy < 0>><<set $energy = 0>><</if>><<= $energy.toFixed(1)>> of maximal <<= $maxenergy>></div><div><strong>UNIMATTER:&nbsp;</strong>
-  <<if $unimatter < 0>><<set $unimatter = 0>><</if>><<if $unimatter > $maxunimatter>><<set $unimatter = $maxunimatter>><<elseif $unimatter < 0>><<set $unimatter = 0>><</if>><<= $unimatter.toFixed(1)>> Unimatter</div></div>
-<div class="index-screens-normal"><strong>NUTRIENTS:</strong>
-We have <<= $nutrients>> nutrients in storage. Each person consume one unit of nutrients per cycle. We can only store a quantity of 50.</div>
+<div class="order-indices">
+<div class="index-screens-normal"><div><strong>Things in the inventory:</strong></div><div>[img[Materials Printer|assets/items/3D-Printer_rs.png]] [img[Compass|assets/items/compass_rs.png]] <<if $SubAnalyzer == true>>[img[Substance Analyzer|assets/items/Substance-Analyzer_rs.png]]<</if>></div></div>
+<div class="index-screens-normal"><div><strong>Components and Buildings operated by your spaceship:</strong></div><div><<if $CampJ.TransMast == true>>[img[Transmission Mast|assets/items/antenna_CJ_rs.png]] <</if>><<if $CampJ.EHarvester == true>>[img[Energy Harvester|assets/items/sun-collectors_rs.png]] <</if>><<if $CampJ.DefPerimeter == true>>[img[Defense Perimeter|assets/items/defense-perimeter_rs.png]] <</if>><<if $CampJ.Farm == true>>[img[Horticulture|assets/items/farm_rs.png]] <</if>><<if $CampJ.Orb == true>>[img[Floating Orb|assets/items/The-Orb_rs.png]]&nbsp;<<elseif $CampJ.nOrb == true>>[img[Orb +Navigation|assets/items/navigation-Orb_rs.png]]&nbsp;<<elseif $CampJ.cOrb == true>>[img[Orb +Combat|assets/items/combat-Orb_rs.png]]&nbsp;<<elseif $CampJ.cnOrb == true>>[img[Orb +Navi +Combat|assets/items/combat-Orb_rs.png]]&nbsp;<</if>></div><div><<if $CampJ.building > $CampJ.maxbuilding>><<set $CampJ.building = $CampJ.maxbuilding>><<elseif $CampJ.building < 0>><<set $CampJ.building = 0>><</if>>The camp has <<= $CampJ.building>> of maximal <<= $CampJ.maxbuildings>> buildings.</div></div>
+<div class="index-screens-small"><div><div><strong>CYCLES:&nbsp;</strong></div><div><<= $days>></div></div><div><div><strong>ENERGY:&nbsp;</strong></div><div><<if $maxenergy < 0>><<set $maxenergy = 0>><</if>><<if $energy > $maxenergy>><<set $energy = $maxenergy>><<elseif $energy < 0>><<set $energy = 0>><</if>><<= $energy.toFixed(1)>> of maximal <<= $maxenergy>></div></div><div><div><strong>UNIMATTER:&nbsp;</strong></div><div><<if $unimatter < 0>><<set $unimatter = 0>><</if>><<if $unimatter > $maxunimatter>><<set $unimatter = $maxunimatter>><<elseif $unimatter < 0>><<set $unimatter = 0>><</if>><<= $unimatter.toFixed(1)>> Unimatter</div></div></div>
+<div class="index-screens-normal"><div><strong>NUTRIENTS:</strong></div><div>We have <<= $nutrients>> nutrients in storage. Each person consume one unit of nutrients per cycle. We can only store a quantity of 50.</div></div>
 <div class="index-screens-professions"><div class="title-profession"><strong>PROFESSIONS:</strong></div><div class="index-professions"><div> Xenology: <<= $xeno.toFixed(1)>></div> + <div>Combatibility: <<= $combat.toFixed(1)>></div> + <div>Engineering: <<= $engineering.toFixed(1)>></div> + <div>Interactibility: <<= $social.toFixed(1)>></div></div></div></div>
 
 <div class="Title_Actions"><strong><center><h3>ACTIONS:</h3></center></strong></div>
@@ -695,8 +697,7 @@ We have <<= $nutrients>> nutrients in storage. Each person consume one unit of n
 <div class="order-indices">
 <div class="index-screens-normal"><div><strong>Things in the inventory:</strong></div><div>[img[Materials Printer|assets/items/3D-Printer_rs.png]] [img[Compass|assets/items/compass_rs.png]] <<if $SubAnalyzer == true>>[img[Substance Analyzer|assets/items/Substance-Analyzer_rs.png]]<</if>></div></div>
 <div class="index-screens-normal"><div><strong>Components and Buildings operated by your spaceship:</strong></div><div><<if $CampM.TransMast == true>>[img[Transmission Mast|assets/items/antenna_CM_rs.png]] <</if>><<if $CampM.EHarvester == true>>[img[Energy Harvester|assets/items/sun-collectors_rs.png]] <</if>><<if $CampM.DefPerimeter == true>>[img[Defense Perimeter|assets/items/defense-perimeter_rs.png]] <</if>><<if $CampM.Farm == true>>[img[Horticulture|assets/items/farm_rs.png]] <</if>><<if $CampJ.Orb == true>>[img[Floating Orb|assets/items/The-Orb_rs.png]]&nbsp;<<elseif $CampJ.nOrb == true>>[img[Orb +Navigation|assets/items/navigation-Orb_rs.png]]&nbsp;<<elseif $CampJ.cOrb == true>>[img[Orb +Combat|assets/items/combat-Orb_rs.png]]&nbsp;<<elseif $CampJ.cnOrb == true>>[img[Orb +Navi +Combat|assets/items/combat-Orb_rs.png]]&nbsp;<</if>></div><div><<if $CampM.building > $CampM.maxbuildings>><<set $CampM.building = $CampM.maxbuildings>><<elseif $CampM.building < 0>><<set $CampM.building = 0>><</if>>The camp has <<= $CampM.building>> of maximal <<= $CampM.maxbuildings>> buildings.</div></div>
-<div class="index-screens-small"><div><strong>CYCLES:&nbsp;</strong><br><<= $days>></div><div><strong>ENERGY:&nbsp;</strong>
-<<if $maxenergy < 0>><<set $maxenergy = 0>><</if>><<if $energy > $maxenergy>><<set $energy = $maxenergy>><<elseif $energy < 0>><<set $energy = 0>><</if>><<= $energy.toFixed(1)>> of maximal <<= $maxenergy>></div><div><strong>UNIMATTER:&nbsp;</strong><br><<if $unimatter < 0>><<set $unimatter = 0>><</if>><<if $unimatter > $maxunimatter>><<set $unimatter = $maxunimatter>><<elseif $unimatter < 0>><<set $unimatter = 0>><</if>><<= $unimatter.toFixed(1)>> Unimatter</div></div>
+<div class="index-screens-small"><div><div><strong>CYCLES:&nbsp;</strong></div><div><<= $days>></div></div><div><div><strong>ENERGY:&nbsp;</strong></div><div><<if $maxenergy < 0>><<set $maxenergy = 0>><</if>><<if $energy > $maxenergy>><<set $energy = $maxenergy>><<elseif $energy < 0>><<set $energy = 0>><</if>><<= $energy.toFixed(1)>> of maximal <<= $maxenergy>></div></div><div><div><strong>UNIMATTER:&nbsp;</strong></div><div><<if $unimatter < 0>><<set $unimatter = 0>><</if>><<if $unimatter > $maxunimatter>><<set $unimatter = $maxunimatter>><<elseif $unimatter < 0>><<set $unimatter = 0>><</if>><<= $unimatter.toFixed(1)>> Unimatter</div></div></div>
 <div class="index-screens-normal"><div><strong>NUTRIENTS:</strong></div><div>We have <<= $nutrients>> nutrients in storage. Each person consume one unit of nutrients per cycle. We can only store a quantity of 100.</div></div>
 <div class="index-screens-professions"><div class="title-profession"><strong>PROFESSIONS:</strong></div><div class="index-professions"><div> Xenology: <<= $xeno.toFixed(1)>></div> + <div>Combatibility: <<= $combat.toFixed(1)>></div> + <div>Engineering: <<= $engineering.toFixed(1)>></div> + <div>Interactibility: <<= $social.toFixed(1)>></div></div></div></div>
 
@@ -714,9 +715,7 @@ We have <<= $nutrients>> nutrients in storage. Each person consume one unit of n
 
 
 :: Chapter2 {"position":"475,25","size":"100,100"}
-<<set $scanned3E = 1>>
-<<set $brainstorm3E = 0>>
-
+<<set $eventfrom3E = false>>
 <<set $deathin3E = false>>
 
 
@@ -761,13 +760,6 @@ Ech! Nothing happens. It is boring. Maybe I should try to go out anyway?
   <<elseif $unimatter < 3 && $energy < 3>><div class="color-red">insufficient ressources</div>
   <<elseif $Camp_J && $maxenergy < 10 || $Camp_M && $maxenergy < 20>><div class="color-red">insufficient ressources</div>
   <<else>><div class="color-green">all good and functioning.</div><</if>></li>
-
-<li>Brainstorm (1E): <<if $explored3E == 100>> + Access to the spaceship on the slope to the ridge || $energy > 0>>[[Action it|Construction Menu][$energy -= 3; $unimatter -= 3; $maxenergy = 10]]
-  <<elseif $energy >= 3 && $unimatter >= 3 && $Camp_M && $maxenergy < 20>>[[Action it|Construction Menu][$energy -= 3; $unimatter -= 3; $maxenergy = 20]]
-  <<elseif $unimatter < 3 && $energy < 3>><div class="color-red">insufficient ressources</div>
-  <<elseif $Camp_J && $maxenergy < 10 || $Camp_M && $maxenergy < 20>><div class="color-red">insufficient ressources</div>
-  <<else>><div class="color-green">all good and functioning.</div><</if>><</if>></li>
-
 <li>Lvl 2: Substance Analyzer (2E - 5U): 
   <<if $engineering >= 2 && $SubAnalyzer != true && $energy >= 2 && $unimatter >= 5>>[[Print|Construction Menu][$energy -= 2; $unimatter -= 5; $SubAnalyzer = true]]
   <<elseif $SubAnalyzer>><br><div class="color-green">We have already the Substance Analyzer in our inventory.</div>
@@ -940,7 +932,7 @@ After many minutes
 
 :: Elva {"position":"1900,1025","size":"100,100"}
 <center><blockquote>
-<<if random(5) > 2>>
+<<if random(5) > 1>>
   <<if $Elva_ICP.EI1>>
     [img[assets/characters/Elva/ER_1.png]]
 
@@ -1015,6 +1007,8 @@ After many minutes
 Such a bad luck! Everything has to be shut down. Our AI is a good for nothing! Or ... you? Or the game designer?
 
 Restart the game from the sidebar, or close the window.
+<<elseif $deathin3E>>
+Whatever this was, it killed you. And you don't have a backup. Backups are still too costly in dimensions of human brains; only clones - which are obviously sponsored - from the best brains and genes. You. Are not.
 <<else>>
 
 If you reached 30 days, I think, it is enough (for this version). You should have seen all: 
@@ -1908,21 +1902,20 @@ With that, we should be able to collect materials nearby. Hopefully, some can be
 
 :: Vote {"position":"1550,300","size":"100,100"}
 <center><blockquote>
-<<set $Vikavote = random(1, 3)>><<set $Leovote = random(1, 3)>><<timed 1000ms>>Vika gives in her vote.
+<<set $Vikavote = random(1, 3)>><<set $Leovote = random(1, 3)>><<timed 1000ms>>Vika gives in her vote
   <</timed>><<timed 3000ms>>
-  Leo has decided.
+  Leo has decided
   <</timed>><<set $vcount = [$numero, $Vikavote, $Leovote]>>
 <<timed 5000ms>>
-  <div class="Char"><div class="Char-Framer"><img class="Char-img" src="assets/characters/Vika.png"></div><div class="Char-dialogues">Gentlemen. It resulted in for a ...</div></div><</timed>>
-  <<timed 7000ms>>
-  <div class="Char"><div class="Char-Framer"><img class="Char-img" src="assets/characters/Vika.png"></div><div class="Char-dialogues">
-    <<if $energy > 5 && $vcount.count(1) >= 2>><div class="actions-row"><div>[[Transmission Mast|Foot of a Mountain][$energy -= 6; $unimatter -= 2]]</div></div>
-    <<elseif $energy < 5 && $energy > 2 && $vcount.count(1) >= 2>><div class="actions-row"><div>[[Transmission Mast|A Small Hill][$energy -= 3; $unimatter -= 2]]
-    <<elseif $energy <= 2 && $vcount.count(1) >= 2>><div class="actions-row"><div>[[Transmission Mast. But ...|WhyNothing]]</div></div>
-    <<elseif $vcount.count(2) >= 2>><div class="actions-row"><div>[[Substance Analyzer][$energy -= 2; $unimatter -= 5]]</div></div>
-    <<elseif $vcount.count(3) >= 2>><div class="actions-row"><div>[[Energy Harvester][$energy -= 5; $unimatter -= 5]]</div></div>
-    <<else>>Huh ... everyone voted for each of it. ... Ok! Then we keep the unimatter and decide on a more urgent situation. Let us set our <div class="actions-row"><div>[[Camp here.|Camp Jungle]]</div></div><</if>></div></div>
-<</timed>>
+  <div class="Char"><div class="Char-Framer"><img class="Char-img" src="assets/characters/Vika.png"></div><div class="Char-dialogues">Gentlemen. It resulted in for a <div id="replace3points" style="align-content:center;">&nbsp;...</div><<timed 7000ms>>
+    <<if $energy > 5 && $vcount.count(1) >= 2>><<replace "#replace3points">>&nbsp;[[Transmission Mast.|Foot of a Mountain][$energy -= 6; $unimatter -= 2]]<</replace>>
+    <<elseif $energy < 5 && $energy > 2 && $vcount.count(1) >= 2>><<replace "#replace3points">>&nbsp;[[Transmission Mast.|A Small Hill][$energy -= 3; $unimatter -= 2]]<</replace>>
+    <<elseif $energy <= 2 && $vcount.count(1) >= 2>><<replace "#replace3points">>&nbsp;[[Transmission Mast. But ...|WhyNothing]]<</replace>>
+    <<elseif $vcount.count(2) >= 2>><<replace "#replace3points">>&nbsp;[[Substance Analyzer.|Substance Analyzer][$energy -= 2; $unimatter -= 5]]<</replace>>
+    <<elseif $vcount.count(3) >= 2>><<replace "#replace3points">>&nbsp;[[Energy Harvester.|Energy Harvester][$energy -= 5; $unimatter -= 5]]<</replace>>
+    <<else>><<replace "#replace3points">> ... huh ... everyone voted for each of it. ... Ok! Then we keep the unimatter and decide on a more urgent situation. Let us set our [[Camp here.|Camp Jungle]]<</replace>><</if>>
+<</timed>></div></div><</timed>>
+
     
 </blockquote></center>
 
@@ -2188,6 +2181,7 @@ button[id|=history-forward]::before {
   display: flex;
   flex-wrap: wrap;
   align-content: center;
+  align-items: center;
   margin: 0 10px;
   text-align: left;
 }
@@ -2321,7 +2315,7 @@ box-sizing: border-box;
   justify-content: center;
   align-items: center;
   margin: 0 5px;
-  padding: 10px 0;
+  padding: 10px 1em;
   border: 1px solid #68d;
   border-radius: 5px;
   background-color: #1a1a1a;
@@ -2338,13 +2332,19 @@ box-sizing: border-box;
 
 /* the con- & destruction list ------------------------------------------------------------------------------------- */
 .passage ol, .passage ul {
-    margin-left: 0px;
-    padding-left: 1em;
+  display: flex;
+  margin: 0;
+  margin-left: 0px;
+  padding-left: 1em;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  width: 50vw;
+  max-width: 700px;
+  align-items: flex-start;
 }
 
 .plussign-list {
   list-style-type: none; /* Remove default list styles */
-  padding-left: 10px; /* Add some left padding for the custom symbol */ 
 }
 
 /* The Map ------------------------------------------------------------------------------------- */    
