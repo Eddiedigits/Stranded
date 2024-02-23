@@ -5,9 +5,12 @@ Stranded
 :: StoryData
 {
   "ifid": "824F50D1-FCB4-4ECE-938E-7A3C1429622D",
-  "format": "SugarCube",
-  "format-version": "2.36.1",
+  "format": "modified SC",
+  "format-version": "2.0.0",
   "start": "Menu",
+  "tag-colors": {
+    "autosave": "yellow"
+  },
   "zoom": 0.6
 }
 
@@ -15,7 +18,7 @@ Stranded
 :: 1E {"position":"1025,1500","size":"100,100"}
 <center>[img[assets/Ch-Explore/food.png]]
   <blockquote>
-    <<if $eventfrom3E>>
+    <<if $eventfrom3E && not hasVisited("3E-Event")>>
       <<if $energy > 0.2>>
         A devil will I do to stop here again! <div class="actions-row"><div>[[RUN!|3E-Event][$energy -= 0.2; $eventfrom3E = true]]</div></div>
       <<else>>
@@ -24,33 +27,35 @@ Stranded
     <<else>>
       That looks like something. Could it be edible?
       
-      <<if hasVisited("1E") >= 1 && $SubAnalyzer == true>>After running them through the Substance Analyzer, it is definitive that those are edible. Those are optimal to be our nutrients.
+      <<if hasVisited("1E") >= 1 && $SubAnalyzer>>After running them through the Substance Analyzer, it is definitive that those are edible. Those are optimal to be our nutrients.
       
       As what do I want to bring them to Camp?
       
-        <<nobr>><<if $Camp_J == true>>
-          <div class="actions-row"><div>[[As Nutrients|Camp Jungle][$energy -= 0.2; $nutrients += $carrycap*3]]</div></div>
+        <<nobr>><<if $Camp_J>>
+          <div class="actions-row"><div>[[As Nutrients|Camp Jungle][$energy -= 0.2+$Oeu; $nutrients += $carrycap*3]]</div></div>
           <br>
-          <div class="actions-row"><div>[[As Unimatter|Camp Jungle][$energy -= 0.2; $unimatter += $carrycap/3]]</div></div>
+          <div class="actions-row"><div>[[As Unimatter|Camp Jungle][$energy -= 0.2+$Oeu; $unimatter += $carrycap/3]]</div></div>
           <br>
           <<else>>
-          <div class="actions-row"><div>[[As Nutrients|Camp Mountain][$energy -= 0.8; $nutrients += $carrycap*3]]</div></div>
+          <div class="actions-row"><div>[[As Nutrients|Camp Mountain][$energy -= 4*(0.2+$Oeu); $nutrients += $carrycap*3]]</div></div>
           <br>
-          <div class="actions-row"><div>[[As Unimatter|Camp Mountain][$energy -= 0.8; $unimatter += $carrycap/3]]</div></div>
+          <div class="actions-row"><div>[[As Unimatter|Camp Mountain][$energy -= 4*(0.2+$Oeu); $unimatter += $carrycap/3]]</div></div>
         <</if>><</nobr>>
       <<else>>
       Hm, too risky to try it out without a substance analyzer. We can use it as unimatter, though not plentiful.
       
       Do I wish to bring it to Camp?
       
-        <<if $Camp_J == true>><div class="actions-row"><div>[[Yes|Camp Jungle][$energy -= 0.2; $unimatter += $carrycap/3]]</div></div><<else>><div class="actions-row"><div>[[Yes|Camp Mountain][$energy -= 1; $unimatter += $carrycap/3]]</div></div><</if>>
+        <<if $Camp_J>><div class="actions-row"><div>[[Yes|Camp Jungle][$energy -= 0.2+$Oeu; $unimatter += $carrycap/3]]</div></div><<else>><div class="actions-row"><div>[[Yes|Camp Mountain][$energy -= 4*(0.2+$Oeu); $unimatter += $carrycap/3]]</div></div><</if>>
       <</if>><<nobr>>
         <br>
-        <<if $Camp_J == true>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 0.2]]</div></div><<else>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 0.8]]</div></div><</if>>
+        <<if $Camp_J>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 0.2*$Oeu]]</div></div><<else>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 4*(0.2+$Oeu)]]</div></div><</if>>
         <br>
-        <<if $exploredJB == 100>><div class="actions-row"><div>[[Go West|Start from Base Jungle][$energy -= 0.2]]</div></div><</if>>
+        <<if $explored1NE == 100 && hasVisited("3E-Event")>><div class="actions-row"><div>[[Go North|1NE][$energy -= 0.2+$Oeu]]</div></div><</if>>
         <br>
-        <<if $explored2E == 100>><div class="actions-row"><div>[[Go East|2E][$energy -= 0.2]]</div></div><</if>>
+        <<if $exploredJB == 100>><div class="actions-row"><div>[[Go West|Start from Base Jungle][$energy -= 0.2+$Oeu]]</div></div><</if>>
+        <br>
+        <<if $explored2E == 100>><div class="actions-row"><div>[[Go East|2E][$energy -= 0.2+$Oeu]]</div></div><</if>>
       <</nobr>>
     <</if>>  
   </blockquote>
@@ -62,16 +67,29 @@ Stranded
 <blockquote>
 Hm, a swampy area. Nothing useful here.
 
-<<if $explored2N == 100>><div class="actions-row"><div>[[Go further North|2N][$energy -= 0.2]]</div></div><</if>>
+<<if $Camp_J == true>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 0.2]]</div></div><<else>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 6*(0.2+$Oeu)]]</div></div><</if>>
 
-<<if $Camp_M == true>><div class="actions-row"><div>[[Go South|Start from Base Jungle][$energy -= 1.2]]</div></div><<else>><div class="actions-row"><div>[[Go South|Start from Base Jungle][$energy -= 0.2]]</div></div><</if>>
+<<if $explored2N == 100>><div class="actions-row"><div>[[Go further North|2N][$energy -= 0.2+$Oeu]]</div></div><</if>>
 
-<<if $Camp_J == true>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 0.2]]</div></div><<else>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 1.2]]</div></div><</if>>
+<<if $explored1NE == 100 && hasVisited("3E-Event")>><div class="actions-row"><div>[[Go East|1NE][$energy -= 0.2+$Oeu]]</div></div><</if>>
+
+<<if $Camp_M == true>><div class="actions-row"><div>[[Go South|Start from Base Jungle][$energy -= 6*(0.2+$Oeu)]]</div></div><<else>><div class="actions-row"><div>[[Go South|Start from Base Jungle][$energy -= 0.2+$Oeu]]</div></div><</if>>
 </blockquote></center>
 
 
 :: 1N2E {"position":"1150,1375","size":"100,100"}
+<center>[img[assets/Ch-Explore/scenery1N2E.png]]
+<blockquote>
 
+    <<if $Camp_J>><div class="actions-row"><div>[[Go back to Base|Camp Jungle][$energy -= 3*(0.2+$Oeu)]]</div></div><<else>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 4*(0.2+$Oeu)]]</div></div><</if>>
+  
+    <<if $explored1N3E == 100>><div class="actions-row"><div>[[Go East|1N3E][$energy -= 0.2+$Oeu]]</div></div><</if>><br><br>
+  
+    <<if $explored2E == 100>><div class="actions-row"><div>[[Go South|2E][$energy -= 0.2+$Oeu]]</div></div><</if>><br><br>
+  
+    <<if $explored1NE == 100>><div class="actions-row"><div>[[Go West|1NE][$energy -= 0.2+$Oeu]]</div></div><</if>>
+
+</blockquote></center>
 
 
 :: 1N2W {"position":"650,1375","size":"100,100"}
@@ -79,19 +97,60 @@ Hm, a swampy area. Nothing useful here.
 
 
 :: 1N3E {"position":"1275,1375","size":"100,100"}
+<center>[img[assets/Ch-Explore/scenery1N3E.png]]
+<blockquote>
 
+    <<if $Camp_J>><div class="actions-row"><div>[[Go back to Base|Camp Jungle][$energy -= 4*(0.2+$Oeu)]]</div></div><<else>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 3*(0.2+$Oeu)]]</div></div><</if>>
+  
+    <<if $explored1N4E == 100>><div class="actions-row"><div>[[Go East|1N4E][$energy -= 0.2+$Oeu]]</div></div><</if>><br><br>
+    
+    <<if $explored1N2E == 100>><div class="actions-row"><div>[[Go West|1N2E][$energy -= 0.2+$Oeu]]</div></div><</if>>
+
+</blockquote></center>
 
 
 :: 1N4E {"position":"1400,1375","size":"100,100"}
+<center>[img[assets/Ch-Explore/scenery1N4E.png]]
+<blockquote>
 
+    <<if $Camp_J>><div class="actions-row"><div>[[Go back to Base|Camp Jungle][$energy -= 5*(0.2+$Oeu)]]</div></div><<else>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 2*(0.2+$Oeu)]]</div></div><</if>>
+  
+    <<if $explored1N5E == 100>><div class="actions-row"><div>[[Go East|1N5E][$energy -= 0.2+$Oeu]]</div></div><</if>><br><br>
+
+    <<if $explored4E == 100>><div class="actions-row"><div>[[Go South|4E][$energy -= 0.2+$Oeu]]</div></div><</if>><br><br>
+
+    <<if $explored1N3E == 100>><div class="actions-row"><div>[[Go West|1N3E][$energy -= 0.2+$Oeu]]</div></div><</if>>
+
+</blockquote></center>
 
 
 :: 1N5E {"position":"1525,1375","size":"100,100"}
+<center>[img[assets/Ch-Explore/scenery1N5E.png]]
+<blockquote>
 
+    <<if $Camp_J>><div class="actions-row"><div>[[Go back to Base|Camp Jungle][$energy -= 6*(0.2+$Oeu)]]</div></div><<else>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 0.2+$Oeu]]</div></div><</if>>
+
+    <<if $exploredMB == 100>><div class="actions-row"><div>[[Go South|Start from Base Mountain][$energy -= 0.2+$Oeu]]</div></div><</if>><br><br>
+
+    <<if $explored1N4E == 100>><div class="actions-row"><div>[[Go West|1N4E][$energy -= 0.2+$Oeu]]</div></div><</if>>
+  
+</blockquote></center>
 
 
 :: 1NE {"position":"1025,1375","size":"100,100"}
-
+<center>[img[assets/Ch-Explore/scenery1NE.png]]
+  <blockquote>
+  
+    <<if $Camp_J>><div class="actions-row"><div>[[Go back to Base|Camp Jungle][$energy -= 2*(0.2+$Oeu)]]</div></div><<else>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 5*(0.2+$Oeu)]]</div></div><</if>>
+  
+    <<if $explored1N2E == 100>><div class="actions-row"><div>[[Go East|1N2E][$energy -= 0.2+$Oeu]]</div></div><</if>><br><br>
+  
+    <<if $explored1E == 100>><div class="actions-row"><div>[[Go South|1E][$energy -= 0.2+$Oeu]]</div></div><</if>><br><br>
+  
+    <<if $explored1N == 100>><div class="actions-row"><div>[[Go West|1N][$energy -= 0.2+$Oeu]]</div></div><</if>>
+  
+  </blockquote>
+</center>
 
 
 :: 1NW {"position":"775,1375","size":"100,100"}
@@ -109,11 +168,11 @@ Dryness!
 
 Water!
 
-<<if $Camp_J == true>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 0.2]]</div></div><<else>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 1.2]]</div></div><</if>>
+<<if $Camp_J == true>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 0.2+$Oeu]]</div></div><<else>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 6*(0.2+$Oeu)]]</div></div><</if>>
 
-<<if $Camp_J == true>><div class="actions-row"><div>[[Go North|The Map][$energy -= 0.2]]</div></div><<else>><div class="actions-row"><div>[[Go North|Start from Base Jungle][$energy -= 0.2]]</div></div><</if>>
+<<if $Camp_J == true>><div class="actions-row"><div>[[Go North|The Map][$energy -= 0.2+$Oeu]]</div></div><<else>><div class="actions-row"><div>[[Go North|Start from Base Jungle][$energy -= 0.2+$Oeu]]</div></div><</if>>
 
-<<if $explored2S == 100>><div class="actions-row"><div>[[Go further South|2S][$energy -= 0.2]]</div></div><</if>>
+<<if $explored2S == 100>><div class="actions-row"><div>[[Go further South|2S][$energy -= 0.2+$Oeu]]</div></div><</if>>
 </blockquote></center>
 
 
@@ -138,18 +197,18 @@ Water!
 <blockquote>
 Nothing but forest, jungle, leaves, green, green, green and more greens. And weirdly silent, that's eerie.
 
-<<if $Camp_J == true>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 0.2]]</div></div><<else>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 1.2]]</div></div><</if>>
+<<if $Camp_J == true>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 0.2+$Oeu]]</div></div><<else>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 6*(0.2+$Oeu)]]</div></div><</if>>
 
-<div class="actions-row"><div>[[Go East|Start from Base Jungle][$energy -= 0.2]]</div></div>
+<div class="actions-row"><div>[[Go East|Start from Base Jungle][$energy -= 0.2+$Oeu]]</div></div>
 
-<<if $explored2W == 100>><div class="actions-row"><div>[[Go further West|2W][$energy -= 0.2]]</div></div><</if>>
+<<if $explored2W == 100>><div class="actions-row"><div>[[Go further West|2W][$energy -= 0.2+$Oeu]]</div></div><</if>>
 </blockquote></center>
 
 
 :: 2E {"position":"1150,1500","size":"100,100"}
 <center>[img[assets/Ch-Explore/jungle4.png]]
 <blockquote><<nobr>>
-<<if $eventfrom3E>>
+<<if not hasVisited("3E-Event") && $eventfrom3E>>
 <<set _run = 6>>
 <span id="run">Whoa! That was scary!</span>!\
   <<repeat 1s>>
@@ -172,11 +231,17 @@ Nothing but forest, jungle, leaves, green, green, green and more greens. And wei
 
   How to continue?<br><br>
 
-  <<if $Camp_J == true>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 0.4]]</div></div><<else>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 0.6]]</div></div><</if>><br><br>
+  <<if $Camp_J == true>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 2*(0.2+$Oeu)]]</div></div><<else>>
+    <<if $eventfrom3E && hasVisited("3E-Event")>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 5*(0.2+$Oeu)]]</div></div><<else>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 3*(0.2+$Oeu)]]</div></div><</if>>
+  <</if>><br><br>
 
-  <<if $explored1E == 100>><div class="actions-row"><div>[[Go West|1E][$energy -= 0.2]]</div></div><</if>><br><br>
+  <<if $eventfrom3E && hasVisited("3E-Event")>>
+    <<if $explored1N2E == 100>><div class="actions-row"><div>[[Go North|1N2E][$energy -= 0.2+$Oeu]]</div></div><</if>><br><br>
+    
+    <<linkappend '<div class="actions-row"><div>Go West</div></div>'>>Hold your horses! Am I an adrenaline-junkie?! If so, that's surely a one time ticket to oblivion! For now, let us go around.<</linkappend>><<else>><<if $explored3E == 100>><div class="actions-row"><div>[[Go East|3E][$energy -= 0.2+$Oeu]]</div></div><</if>><</if>><br><br>
 
-  <<if $explored3E == 100>><div class="actions-row"><div>[[Go East|3E][$energy -= 0.2]]</div></div><</if>>
+  <<if $explored1E == 100>><div class="actions-row"><div>[[Go West|1E][$energy -= 0.2+$Oeu]]</div></div><</if>><br><br>
+
 <</if>><</nobr>></blockquote></center>
 
 
@@ -190,15 +255,15 @@ Since, naturally, there is a substance analyzer our inventory, we can determine 
 
 Go to Camp, depositing the unimatter?
 
-<<if $Camp_J == true>><div class="actions-row"><div>[[Yes|Camp Jungle][$energy -= 0.4; $unimatter += $carrycap]]</div></div><<else>><div class="actions-row"><div>[[Yes|Camp Mountain][$energy -= 1.4; $unimatter += $carrycap]]</div></div><</if>>
+<<if $Camp_J == true>><div class="actions-row"><div>[[Yes|Camp Jungle][$energy -= 2*(0.2+$Oeu); $unimatter += $carrycap]]</div></div><<else>><div class="actions-row"><div>[[Yes|Camp Mountain][$energy -= 7*(0.2+$Oeu); $unimatter += $carrycap]]</div></div><</if>>
 
-<<if $Camp_J == true>><div class="actions-row"><div>[[Nah, I go back to the Base|The Map][$energy -= 0.4]]</div></div><<else>><div class="actions-row"><div>[[Nah, I go back to the Base|The Map][$energy -= 1.4]]</div></div><</if>>
+<<if $Camp_J == true>><div class="actions-row"><div>[[Nah, I go back to the Base|The Map][$energy -= 2*(0.2+$Oeu)]]</div></div><<else>><div class="actions-row"><div>[[Nah, I go back to the Base|The Map][$energy -= 7*(0.2+$Oeu)]]</div></div><</if>>
 <<else>>
 Nothing to do here. A substance analyzer is needed here.
 
-<<if $Camp_J == true>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 0.4]]</div></div><<else>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 1.4]]</div></div><</if>>
+<<if $Camp_J == true>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 2*(0.2+$Oeu)]]</div></div><<else>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 7*(0.2+$Oeu)]]</div></div><</if>>
 <</if>>
-<div class="actions-row"><div>[[Go South|1N][$energy -= 0.2]]</div></div>
+<div class="actions-row"><div>[[Go South|1N][$energy -= 0.2+$Oeu]]</div></div>
 </blockquote></center>
 
 
@@ -207,11 +272,11 @@ Nothing to do here. A substance analyzer is needed here.
   <blockquote>
   Sand. Heat. Weird formations. Sand. Heat. Did I say Heat? Heat! I want a camel!
   
-  <<if $Camp_J == true>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 0.2]]</div></div><<else>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 1.2]]</div></div><</if>>
+  <<if $Camp_J == true>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 0.2+$Oeu]]</div></div><<else>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 6*(0.2+$Oeu)]]</div></div><</if>>
   
-  <div class="actions-row"><div>[[Go North|1S][$energy -= 0.2]]</div></div>
+  <div class="actions-row"><div>[[Go North|1S][$energy -= 0.2+$Oeu]]</div></div>
   
-  <<if $explored3S == 100>><div class="actions-row"><div>[[Go further South|3S][$energy -= 0.2]]</div></div><</if>>
+  <<if $explored3S == 100>><div class="actions-row"><div>[[Go further South|3S][$energy -= 0.2+$Oeu]]</div></div><</if>>
   </blockquote></center>
 
 
@@ -226,13 +291,13 @@ Those clay-like bubbles can be used as unimatter, though of inferior quality.
 
 Bring them to Camp anyway?
 
-<<if $Camp_J == true>><div class="actions-row"><div>[[Yes|Camp Jungle][$energy -= 0.4; $unimatter += $carrycap/4]]</div></div><<else>><div class="actions-row"><div>[[Yes|Camp Jungle][$energy -= 1.4; $unimatter += $carrycap/4]]</div></div><</if>>
+<<if $Camp_J == true>><div class="actions-row"><div>[[Yes|Camp Jungle][$energy -= 2*(0.2+$Oeu); $unimatter += $carrycap/4]]</div></div><<else>><div class="actions-row"><div>[[Yes|Camp Jungle][$energy -= 7*(0.2+$Oeu); $unimatter += $carrycap/4]]</div></div><</if>>
 <</if>>
-<<if $Camp_J == true>><div class="actions-row"><div>[[I go back to the Base|The Map][$energy -= 0.4]]</div></div><<else>><div class="actions-row"><div>[[I go back to the Base|The Map][$energy -= 1.4]]</div></div><</if>>
+<<if $Camp_J == true>><div class="actions-row"><div>[[I go back to the Base|The Map][$energy -= 2*(0.2+$Oeu)]]</div></div><<else>><div class="actions-row"><div>[[I go back to the Base|The Map][$energy -= 7*(0.2+$Oeu)]]</div></div><</if>>
 
-<div class="actions-row"><div>[[Go back East|1W][$energy -= 0.2]]</div></div>
+<div class="actions-row"><div>[[Go back East|1W][$energy -= 0.2+$Oeu]]</div></div>
 
-<<if $explored3W == 100>><div class="actions-row"><div>[[Go further West|3W][$energy -= 0.2]]</div></div><</if>>
+<<if $explored3W == 100>><div class="actions-row"><div>[[Go further West|3W][$energy -= 0.2+$Oeu]]</div></div><</if>>
 </blockquote></center>
 
 
@@ -306,17 +371,23 @@ Hm, is that a spaceship? Or what is it? <<nobr>>
 <span id="ABhidden">
 Where to go next?
 
-<<if $Camp_J>><div class="actions-row"><div>[[Go back to Camp|Camp Jungle][$energy -= 0.6]]</div></div><<else>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 0.4]]</div></div><</if>>
+<<if $Camp_J>><div class="actions-row"><div>[[Go back to Base|Camp Jungle][$energy -= 3*(0.2+$Oeu)]]</div></div><<else>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 2*(0.2+$Oeu)]]</div></div><</if>>
 
-<<if $explored2E == 100>><div class="actions-row"><div>[[Go West|2E][$energy -= 0.2]]</div></div><</if>>
+<<if $explored2E == 100>><div class="actions-row"><div>[[Go West|2E][$energy -= 0.2+$Oeu]]</div></div><</if>>
 
-<<if $explored4E == 100>><div class="actions-row"><div>[[Go East|4E][$energy -= 0.2]]</div></div><</if>>
+<<if $explored4E == 100>><div class="actions-row"><div>[[Go East|4E][$energy -= 0.2+$Oeu]]</div></div><</if>>
 </span>
 </blockquote></center>
 
 
 :: 3E-Event {"position":"1900,1400","size":"100,100"}
+<center>[img[assets/Ch-Explore/3E_Event.png]]
+  <blockquote>
+  
 
+  
+  </blockquote>
+</center>
 
 
 :: 3S {"position":"900,1875","size":"100,100"}
@@ -345,9 +416,9 @@ Are you nitpicking me?!
 Hmn?!
 <</if>>
 
-<<if $Camp_J == true>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 0.6]]</div></div><<else>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 1.6]]</div></div><</if>>
+<<if $Camp_J == true>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 3*(0.2+$Oeu)]]</div></div><<else>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 8*(0.2+$Oeu)]]</div></div><</if>>
 
-<div class="actions-row"><div>[[Go back North|2S][$energy -= 0.2]]</div></div>
+<div class="actions-row"><div>[[Go back North|2S][$energy -= 0.2+$Oeu]]</div></div>
 </blockquote></center>
 
 
@@ -356,18 +427,18 @@ Hmn?!
 <blockquote>
 Aah. Open space. Open air.
 
-<<if $Camp_J == true>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 0.6]]</div></div><<else>>[[Go back to Base|The Map][$energy -= 1.6]]</div></div><</if>>
+<<if $Camp_J == true>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 3*(0.2+$Oeu)]]</div></div><<else>>[[Go back to Base|The Map][$energy -= 8*(0.2+$Oeu)]]</div></div><</if>>
 
-<div class="actions-row"><div>[[Go back East|2W][$energy -= 0.2]]</div></div>
+<div class="actions-row"><div>[[Go back East|2W][$energy -= 0.2+$Oeu]]</div></div>
 
-<<if $explored4W == 100>><div class="actions-row"><div>[[Go further West|4W][$energy -= 0.2]]</div></div><</if>>
+<<if $explored4W == 100>><div class="actions-row"><div>[[Go further West|4W][$energy -= 0.2+$Oeu]]</div></div><</if>>
 </blockquote></center>
 
 
 :: 4E {"position":"1400,1500","size":"100,100"}
 <center>[img[assets/Ch-Explore/4E_waterfall.png]]
 <blockquote>
-<<if $eventfrom3E>>
+<<if not hasVisited("3E-Event") && $eventfrom3E>>
   <<set _run = 6>>
   <span id="run">Whoa! That was scary!</span>
     <<repeat 1s>>
@@ -390,11 +461,14 @@ Aah. Open space. Open air.
 
   Where to go next?
 
-  <<if $Camp_J == true>><div class="actions-row"><div>[[Go back to Camp|Camp Jungle][$energy -= 0.8]]</div></div><<else>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 0.2]]</div></div><</if>>
+  <<if $Camp_J>><<if $eventfrom3E>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 6*(0.2+$Oeu)]]</div></div><<else>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 4*(0.2+$Oeu)]]</div></div><</if>><<else>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 0.2+$Oeu]]</div></div><</if>>
 
-  <<if $explored3E == 100>><div class="actions-row"><div>[[Go West|3E][$energy -= 0.2]]</div></div><</if>>
+  <<if $explored1N4E == 100 && $eventfrom3E>><div class="actions-row"><div>[[Go North|1N4E][$energy -= 0.2+$Oeu]]</div></div><</if>><br><br>
 
-  <<if $exploredMB == 100>><div class="actions-row"><div>[[Go East|Start from Base Mountain][$energy -= 0.2]]</div></div><</if>>
+  <<if $exploredMB == 100>><div class="actions-row"><div>[[Go East|Start from Base Mountain][$energy -= 0.2+$Oeu]]</div></div><</if>><br><br>
+
+  <<if $eventfrom3E && hasVisited("3E-Event")>><<linkappend '<div class="actions-row"><div>Go West</div></div>'>>Whoa! Hold on! Do I have a screw loose?! Come on! I will enter again only after knowing more. For now, go around.<</linkappend>><<else>><<if $explored3E == 100>><div class="actions-row"><div>[[Go West|3E][$energy -= 0.2+$Oeu]]</div></div><</if>><</if>>
+
 <</if>>
 </blockquote></center>
 
@@ -404,11 +478,11 @@ Aah. Open space. Open air.
 <blockquote>
 The colors become more and more nicer, friendlier ...
 
-<<if $Camp_J == true>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 0.8]]</div></div><<else>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 1.8]]</div></div><</if>>
+<<if $Camp_J == true>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 4*(0.2+$Oeu)]]</div></div><<else>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 9*(0.2+$Oeu)]]</div></div><</if>>
 
-<div class="actions-row"><div>[[Go back East|3W][$energy -= 0.2]]</div></div>
+<div class="actions-row"><div>[[Go back East|3W][$energy -= 0.2+$Oeu]]</div></div>
 
-<<if $explored5W == 100>><div class="actions-row"><div>[[Go to the Beach!|5W][$energy -= 0.2]]</div></div><</if>>
+<<if $explored5W == 100>><div class="actions-row"><div>[[Go to the Beach!|5W][$energy -= 0.2+$Oeu]]</div></div><</if>>
 </blockquote></center>
 
 
@@ -417,67 +491,79 @@ The colors become more and more nicer, friendlier ...
 <blockquote>
 Sandy Beach! That's gonna be a spot!
 
-<<if $Camp_J == true>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 1]]</div></div><<else>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 2]]</div></div><</if>>
+<<if $Camp_J == true>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 5*(0.2+$Oeu)]]</div></div><<else>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 10*(0.2+$Oeu)]]</div></div><</if>>
 
 
-<div class="actions-row"><div>[[Go back East|4W][$energy -= 0.2]]</div></div>
+<div class="actions-row"><div>[[Go back East|4W][$energy -= 0.2+$Oeu]]</div></div>
 </blockquote></center>
 
 
-:: A New Cycle {"position":"500,500","size":"100,100"}
+:: A New Cycle [autosave] {"position":"500,500","size":"100,100"}
 <center><blockquote><<nobr>>
+<<script>>
+Config.saves.autosave = ["autosave"]
+<</script>>
 <<set $rNr = random(10)>>
-  <<if $maxenergy <= 1 || $nutrients <= 0 || $days >= 30>><<goto "End of Game">><</if>>
-  <<if $noLeo == true || $noVika == true || $noElva == true || $noAbiba == true>><<set $noLeo = false>><<set $noVika = false>><<set $noElva = false>><<set $noAbiba = false>><</if>>
-      <<if $Camp_J == true>>
-        <<if $CampJ.EHarvester == true>><<set $energy += 10>><<else>><<set $energy += 5>><</if>>
-        <<if $CampJ.Farm == false>><<set $nutrients -= 3>><<else>><<set $nutrients +=2>><</if>>
-        <<set $engineering += 0.3; $combat += 0.1; $social += 0.2>>
-      <<else>>
-        <<if $CampM.EHarvester == true>><<set $energy += 15>><<else>><<set $energy += 10>><</if>>
-        <<if $CampM.Farm == false>><<set $nutrients -= 5>><<else>><<set $nutrients += 0>><</if>>
-      <</if>><</nobr>>
-      <<if $rNr == 4>>
-        False Alarm. Or the AI handled it. Anyway, time to rest. A new cycle.
-      <<elseif $rNr == 5 && $CampJ.DefPerimeter == false && $Camp_J || $rNr == 5 && $CampM.DefPerimeter == false && $Camp_M>>
-        [img[assets/random-events/alien_mammals.png]]
-        
-        Animals!
-        
-        Alien Animals are breaching in. It seems, they only distinctively go for the food. 
-        We have lost some nutrients.<<set $nutrients -= 5>><<set $xeno += 0.1>>
-        <<elseif $rNr == 6 && $CampJ.DefPerimeter == false && $Camp_J|| $rNr == 6 && $CampM.DefPerimeter == false && $Camp_M>>
-        [img[assets/random-events/aggressive_animal.png]]
-        
-        What a ruckus!
-        
-        Shiiiet! One that attacks us relentless! It depends much on our Combat Arts.<<set $xeno += 0.1>>
-          <<if $combat > 4>>
-            Yes! That was a good training session, we could defeat that beast.&nbsp;<<set $combat += 0.1>><<if $SubAnalyzer == true>>And have some bit food. The rest can be disintegrated as unimatter.<<set $nutrients += 3>><<set $unimatter += 2>><</if>>
-          <<else>>
-            Ach, such is a hardship here in the stranded planet. The monstruo is wrecking our equipment and damaging the hull; letting our spaceship operates not at the optimum.<<set $unimatter -= 5>><<set $maxenergy -= 2>><</if>>
-        <<elseif $rNr == 7&& $social > 2 && $SFW_Path == false>>
-        [img[assets/characters/Vika/Vika_6.png]]
-        
-        ... I saw Vika fumbling on her panel. She didn't seem to have noticed me. I was unsure whether to greet her and went on my way. Not without an admiration for the sight.
-        <<elseif $rNr == 8 && $social > 2 && $Camp_M == true && $SFW_Path == false>>
-        [img[assets/characters/Abiba/Abiba11.png]]
-        
-        ... Abiba was showering. Oh boy, what a body. She said nothing, and me as well. Though, on the way back, I waved goodbye and gave a complimentary glimpse anew. She is a woman, she knows. No words were changed.
-        <<elseif $rNr == 9 && $social > 3 && $SFW_Path == false>>
-        [Img[assets/characters/Vika/Vika9.png]]
-        
-        ... I saw Vika fumbling on her panel. The Nightowl.
-        She noticed me. I greeted her and continue on my way. Clearly, not without an admiration for the gift.
-        <<else>>
-          <<if random(1) == 1>>[img[assets/Ch-Camp/Rest1.png]]<<else>>[img[assets/Ch-Camp/Rest2.png]]<</if>>
-    
-          A new cycle, a new day. Although this planet's rotation is much slower.
-          
-          Energy is replenished. Vika has learned some more in engineering, as has Leo in interactibility.<<if $Camp_M>> Elva and Abiba in their fields of specialties.<</if>>
-        <</if>>
-        <div class="actions-row"><<if $Camp_M == true>><div>[[On to new adventures|Camp Mountain]]</div><<else>><div>[[On to new adventures|Camp Jungle]]</div><</if>></div>
-  </blockquote></center>
+<<if $energy < 0 || $nutrients <= 0 || $days >= 30>><<goto "End of Game">><</if>>
+<<if $noLeo || $noVika || $noElva || $noAbiba>><<set $noLeo = false, $noVika = false, $noElva = false, $noAbiba = false>><</if>>
+
+<<if $Camp_J && $TransMast3 == false>>
+  <<if $CampJ.EHarvester>><<set $energy += 10 - $notrepaired + $OrbTransport.count("encomp")>><<else>><<set $energy += 5 - $notrepaired + $OrbTransport.count("encomp")>><</if>>
+  <<if $CampJ.Farm == false>><<set $nutrients -= 3 + $OrbTransport.count("nutrients")>><<else>><<set $nutrients += 2 + $OrbTransport.count("nutrients")>><</if>>
+  <<if $CampM.Farm == false>><<set $CampM.nutrients -= 2  + $OrbTransport.count("CMNutrients")>><<else>><<set $CampM.nutrients += 3 + $OrbTransport.count("CMNutrients")>><</if>>
+  <<set $engineering += 0.3; $social += 0.2, $unimatter += $OrbTransport.count("unimatter")>>
+<<elseif $Camp_M && $TransMast3 == false>>
+  <<if $CampM.EHarvester>><<set $energy += 15 - $notrepaired + $OrbTransport.count("encomp")>><<else>><<set $energy += 10 - $notrepaired + $OrbTransport.count("encomp")>><</if>>
+  <<if $CampM.Farm == false>><<set $nutrients -= 5 + $OrbTransport.count("nutrients")>><<else>><<set $nutrients += 0 + $OrbTransport.count("nutrients")>><</if>>
+  <<set $engineering += 0.5; $combat += 0.1; $social += 0.2, $unimatter += $OrbTransport.count("unimatter")>>
+<<elseif $TransMast3>>
+  <<if $CampJ.EHarvester != true && $CampJ.EHarvester2 != true>><<set $energy += 5 - $notrepaired + $OrbTransport.count("encomp")>><<elseif $CampJ.EHarvester && $CampJ.EHarvester2 != true>><<set $energy += 10 - $notrepaired + $OrbTransport.count("encomp")>><<elseif $CampJ.EHarvester && $CampJ.EHarvester2>><<set $energy += 15 - $notrepaired + $OrbTransport.count("encomp")>><</if>>
+  <<if $CampM.EHarvester != true && $CampM.EHarvester2 != true>><<set $energy += 5 - $notrepaired + $OrbTransport.count("encomp")>><<elseif $CampM.EHarvester && $CampM.EHarvester2 != true>><<set $energy += 10 - $notrepaired + $OrbTransport.count("encomp")>><<elseif $CampM.EHarvester && $CampM.EHarvester2>><<set $energy += 15 - $notrepaired + $OrbTransport.count("encomp")>><</if>>
+  <<if $Camp_J>><<if $CampJ.Farm == false>><<set $nutrients -= 3 + $OrbTransport.count("nutrients")>><<else>><<set $nutrients += 2 + $OrbTransport.count("nutrients")>><</if>>
+  <<else>><<if $CampM.Farm == false>><<set $nutrients -= 5 + $OrbTransport.count("nutrients")>><<else>><<set $nutrients += 0 + $OrbTransport.count("nutrients")>><</if>><</if>>
+  <<set $engineering += 0.5; $combat += 0.1; $social += 0.2, $unimatter += $OrbTransport.count("unimatter")>>
+<</if>><</nobr>>
+<<if $rNr == 4>>
+False Alarm. Or the AI handled it. Anyway, time to rest. A new cycle.
+<<elseif $rNr == 5 && $CampJ.DefPerimeter == false && $Camp_J || $rNr == 5 && $CampM.DefPerimeter == false && $Camp_M>>
+[img[assets/random-events/alien_mammals.png]]
+
+Animals!
+
+Alien Animals are breaching in. It seems, they only distinctively go for the food. 
+We have lost some nutrients.<<set $nutrients -= 5>><<set $xeno += 0.1>>
+<<elseif $rNr == 6 && $CampJ.DefPerimeter == false && $Camp_J|| $rNr == 6 && $CampM.DefPerimeter == false && $Camp_M>>
+[img[assets/random-events/aggressive_animal.png]]
+
+What a ruckus!
+
+Shiiiet! One that attacks us relentless! It depends much on our Combat Arts.<<set $xeno += 0.1>>
+  <<if $combat*$cbtOrb > 5>>
+    Yes! That was a good training session, we could defeat that beast.&nbsp;<<set $combat += 0.5>><<if $SubAnalyzer>>And have some bit food. The rest can be disintegrated as unimatter.<<set $nutrients += 3>><<set $unimatter += 2>><</if>>
+  <<else>>
+    Ach, such is a hardship here in the stranded planet. The monstruo is wrecking our equipment and damaging the hull; letting our spaceship operates not at the optimum.<<set $unimatter -= 5, $energy -= 2, $notrepaired += 2>><</if>>
+<<elseif $rNr == 7 && $social > 2 && $SFW_Path == false>>
+[img[assets/characters/Vika/Vika_6.png]]
+
+... I saw Vika fumbling on her panel. She didn't seem to have noticed me. I was unsure whether to greet her and went on my way. Not without an admiration for the sight.
+<<elseif $rNr == 8 && $social > 2 && $Camp_M && $SFW_Path == false>>
+[img[assets/characters/Abiba/Abiba11.png]]
+
+... Abiba was showering. Oh boy, what a body. She said nothing, and me as well. Though, on the way back, I waved goodbye and gave a complimentary glimpse anew. She is a woman, she knows. No words were changed.
+<<elseif $rNr == 9 && $social > 3 && $SFW_Path == false>>
+[Img[assets/characters/Vika/Vika9.png]]
+
+... I saw Vika fumbling on her panel. The Nightowl.
+She noticed me. I greeted her and continue on my way. Clearly, not without an admiration for the gift.
+<<else>>
+  <<if random(1) == 1>>[img[assets/Ch-Camp/Rest1.png]]<<else>>[img[assets/Ch-Camp/Rest2.png]]<</if>>
+
+  A new cycle, a new day. Although this planet's rotation is much slower.
+  
+  Energy is replenished. Vika has learned some more in engineering, as has Leo in interactibility.<<if $Camp_M>> Elva and Abiba in their fields of specialties.<</if>>
+<</if>>
+  <div class="actions-row"><<if $Camp_M>><div>[[On to new adventures|Camp Mountain][$OrbTransport = []]]</div><<else>><div>[[On to new adventures|Camp Jungle][$OrbTransport = []]]</div><</if>></div>
+</blockquote></center>
 
 
 :: A Small Hill {"position":"1950,200","size":"100,100"}
@@ -580,20 +666,25 @@ The antenna is installed on a small hill. But it seems to reach no one. Maybe it
 
 :: Ante Explore {"position":"900,700","size":"100,100"}
 <center><blockquote>
-Who will accompany me, who can I persuade? <<set $carrycap = 1>><<if $CampJ.Orb || $CampM.Orb>><<set $carrycap += 3>><</if>>
+Who will accompany me, who can I persuade?
 
-<<linkreplace "Vika">><<if random(10) * $social > 40 || $maxenergy < 3 || $nutrients < 10>>+ Vika will accompany you.<<set $carrycap +=1>><<else>>- Vika is focusing on the communications screen, she rather sit by the radio.<</if>><</linkreplace>>
+<<linkreplace "Vika">><<if random(10) * $social > 40 || (($CampJ.EHarvester != true || $CampJ.EHarvester != true) && $notrepaired > 2) || $nutrients < 10>>+ Vika will accompany you.<<set $carrycap +=1>><<else>>- Vika is focusing on the communications screen, she rather sit by the radio.<</if>><</linkreplace>>
 
-<<linkreplace "Leo">><<if random(10) * $social > 30 || $maxenergy < 3>>+ Leo will help you.<<set $carrycap +=1>><<elseif $nutrients <10>>+ Leo will help you. Also he got the information form the AI that somewhere in the east is a field crucial for organic optimum.<<else>>- Leo is in dialogue with his AI or other AIs. He cannot come with you.<</if>><</linkreplace>><<nobr>>
+<<linkreplace "Leo">><<if random(10) * $social > 30 || (($CampJ.EHarvester != true || $CampJ.EHarvester != true) && $notrepaired > 2)>>+ Leo will help you.<<set $carrycap +=1>><<elseif $nutrients <10>>+ Leo will help you. Also he got the information form the AI that somewhere in the east is a field crucial for organic optimum.<<else>>- Leo is in dialogue with his AI or other AIs. He cannot come with you.<</if>><</linkreplace>><<nobr>>
 <br>
 <br>
-<<if $Camp_M == true>><<linkreplace "Elva">><<if random(10) * $social > 38 || $maxenergy < 3 || $nutrients <10>>+ Elva comes with you.<<set $carrycap +=1>><<else>>- Elva is not available. She seems to be occupied.<</if>><</linkreplace>><</if>>
+<<if $Camp_M == true>><<linkreplace "Elva">><<if random(10) * $social > 38 || (($CampJ.EHarvester != true || $CampJ.EHarvester != true) && $notrepaired > 2) || $nutrients <10>>+ Elva comes with you.<<set $carrycap +=1>><<else>>- Elva is not available. She seems to be occupied.<</if>><</linkreplace>><</if>>
 <br>
 <br>
-<<if $Camp_M == true>><<linkreplace "Abiba">><<if random(10) * $social > 35 || $maxenergy < 3 || $nutrients < 10>>+ Abiba want some outdoor training.<<set $carrycap +=1>><<else>>- Abiba is in her training mode. Quite intensely. Better not disturb her.<</if>><</linkreplace>><</if>><</nobr>>
+<<if $Camp_M == true>><<linkreplace "Abiba">><<if random(10) * $social > 35 || (($CampJ.EHarvester != true || $CampJ.EHarvester != true) && $notrepaired > 2) || $nutrients < 10>>+ Abiba want some outdoor training, she comes with me.<<set $carrycap +=1>><<else>>- Abiba is in her training mode. Quite intensely. Better not disturb her.<</if>><</linkreplace>><</if>><</nobr>>
+
+<<if ($CampJ.Orb == 3 && $Camp_J) || ($CampM.Orb == 3 && $Camp_M)>>Do I activate the floating Orb?
+
+<<linkreplace "Floating Orb">><<set $carrycap += 3, $Oeu = 0.3>>The floating Orb decouples from the port and is swirring by your side.<</linkreplace>><</if>>
 
 <div class="actions-row"><div>[[Go to the Map|The Map]]</div></div>
-<div class="actions-row"><<if $Camp_J == true>><div>[[Ach, nah, I've changed my mind, I will go back.|Camp Jungle]]</div><<else>><div>[[Ach, nah, I've changed my mind, I will go back.|Camp Mountain]]</div><</if>></div></blockquote></center>
+<div class="actions-row"><<if $Camp_J>><div>[[Ach, nah, I've changed my mind, I will go back.|Camp Jungle]]</div><<else>><div>[[Ach, nah, I've changed my mind, I will go back.|Camp Mountain]]</div><</if>></div>
+</blockquote></center>
 
 
 :: AnteCamp {"position":"1425,300","size":"100,100"}
@@ -674,16 +765,20 @@ Have I a change of mind? I want a ...
 </blockquote></center>
 
 
-:: Camp Jungle {"position":"400,1125","size":"100,100"}
-<center><center>[img[assets/Ch-Camp/JungleCamp.png]]</center>
-<<set $Camp_J = true>><<set $Camp_M = false>>
+:: Camp Jungle {"position":"400,900","size":"100,100"}
+<<nobr>>
+  <<if $CampJ.nOrb && $Camp_J>><<set $navOrb = $CampJ.nOrb>><<else>><<set $navOrb = 1>><</if>>
+  <<if $CampJ.cOrb && $Camp_J>><<set $cbtOrb = $CampJ.cOrb>><<else>><<set $cbtOrb = 1>><</if>>
+  <<set $Camp_J = true, $Camp_M = false, $carrycap = 1>>
+<</nobr>><center><center>[img[assets/Ch-Camp/JungleCamp.png]]</center>
+
 <div class="passage-titles" style="color:#2aa22a; border-bottom-color: #2aa22a; border-top-color: #2aa22a;"><center><h2><strong>Camp Jungle</strong></h2></center></div>
 <div class="order-indices">
 <div class="index-screens-normal"><div><strong>Things in the inventory:</strong></div><div>[img[Materials Printer|assets/items/3D-Printer_rs.png]] [img[Compass|assets/items/compass_rs.png]] <<if $SubAnalyzer == true>>[img[Substance Analyzer|assets/items/Substance-Analyzer_rs.png]]<</if>></div></div>
-<div class="index-screens-normal"><div><strong>Components and Buildings operated by your spaceship:</strong></div><div><<if $CampJ.TransMast == true>>[img[Transmission Mast|assets/items/antenna_CJ_rs.png]] <</if>><<if $CampJ.EHarvester == true>>[img[Energy Harvester|assets/items/sun-collectors_rs.png]] <</if>><<if $CampJ.DefPerimeter == true>>[img[Defense Perimeter|assets/items/defense-perimeter_rs.png]] <</if>><<if $CampJ.Farm == true>>[img[Horticulture|assets/items/farm_rs.png]] <</if>><<if $CampJ.Orb == true>>[img[Floating Orb|assets/items/The-Orb_rs.png]]&nbsp;<<elseif $CampJ.nOrb == true>>[img[Orb +Navigation|assets/items/navigation-Orb_rs.png]]&nbsp;<<elseif $CampJ.cOrb == true>>[img[Orb +Combat|assets/items/combat-Orb_rs.png]]&nbsp;<<elseif $CampJ.cnOrb == true>>[img[Orb +Navi +Combat|assets/items/combat-Orb_rs.png]]&nbsp;<</if>></div><div><<if $CampJ.building > $CampJ.maxbuilding>><<set $CampJ.building = $CampJ.maxbuilding>><<elseif $CampJ.building < 0>><<set $CampJ.building = 0>><</if>>The camp has <<= $CampJ.building>> of maximal <<= $CampJ.maxbuildings>> buildings.</div></div>
+<div class="index-screens-normal"><div><strong>Components and Buildings operated by your spaceship:</strong></div><div><<if $CampJ.TransMast == true>>[img[Transmission Mast|assets/items/antenna_CJ_rs.png]] <</if>><<if $CampJ.EHarvester == true>>[img[Energy Harvester|assets/items/sun-collectors_rs.png]] <</if>><<if $CampJ.DefPerimeter == true>>[img[Defense Perimeter|assets/items/defense-perimeter_rs.png]] <</if>><<if $CampJ.Farm == true>>[img[Horticulture|assets/items/farm_rs.png]] <</if>><<if $CampJ.Orb == 3>>[img[Floating Orb|assets/items/The-Orb_rs.png]]&nbsp;<<elseif  $CampJ.nOrb == 3 && $CampJ.cOrb == 1>>[img[Orb +Navigation|assets/items/navigation-Orb_rs.png]]&nbsp;<<elseif $CampJ.nOrb == 1 && $CampJ.cOrb == 3>>[img[Orb +Combat|assets/items/combat-Orb_rs.png]]&nbsp;<<elseif $CampJ.nOrb == 3 && $CampJ.cOrb == 3>>[img[Orb +Navi +Combat|assets/items/nc-Orb_rs.png]]&nbsp;<</if>></div><div><<if $CampJ.building > $CampJ.maxbuilding>><<set $CampJ.building = $CampJ.maxbuilding>><<elseif $CampJ.building < 0>><<set $CampJ.building = 0>><</if>>The camp has <<= $CampJ.building>> of maximal <<= $CampJ.maxbuildings>> buildings.</div></div>
 <div class="index-screens-small"><div><div><strong>CYCLES:&nbsp;</strong></div><div><<= $days>></div></div><div><div><strong>ENERGY:&nbsp;</strong></div><div><<if $maxenergy < 0>><<set $maxenergy = 0>><</if>><<if $energy > $maxenergy>><<set $energy = $maxenergy>><<elseif $energy < 0>><<set $energy = 0>><</if>><<= $energy.toFixed(1)>> of maximal <<= $maxenergy>></div></div><div><div><strong>UNIMATTER:&nbsp;</strong></div><div><<if $unimatter < 0>><<set $unimatter = 0>><</if>><<if $unimatter > $maxunimatter>><<set $unimatter = $maxunimatter>><<elseif $unimatter < 0>><<set $unimatter = 0>><</if>><<= $unimatter.toFixed(1)>> Unimatter</div></div></div>
 <div class="index-screens-normal"><div><strong>NUTRIENTS:</strong></div><div>We have <<= $nutrients>> nutrients in storage. Each person consume one unit of nutrients per cycle. We can only store a quantity of 50.</div></div>
-<div class="index-screens-professions"><div class="title-profession"><strong>PROFESSIONS:</strong></div><div class="index-professions"><div> Xenology: <<= $xeno.toFixed(1)>></div> + <div>Combatibility: <<= $combat.toFixed(1)>></div> + <div>Engineering: <<= $engineering.toFixed(1)>></div> + <div>Interactibility: <<= $social.toFixed(1)>></div></div></div></div>
+<div class="index-screens-professions"><div class="title-profession"><strong>PROFESSIONS:</strong></div><div class="index-professions"><div> Xenology: <<= ($xeno*$navOrb).toFixed(1)>></div> + <div>Combatibility: <<= ($combat*$cbtOrb).toFixed(1)>></div> + <div>Engineering: <<= $engineering.toFixed(1)>></div> + <div>Interactibility: <<= $social.toFixed(1)>></div></div></div></div>
 
 <div class="Title_Actions"><strong><center><h3>ACTIONS:</h3></center></strong></div>
 <div class="actions-table"><div class="actions-row">
@@ -693,21 +788,33 @@ Have I a change of mind? I want a ...
 <<if $energy >=1>><div>[[Socialize with your Crew|Social Events]]</div><</if>></div>
 <div class="actions-row"><<if $energy >=1>><div>[[Go Out|Ante Explore]]</div><</if>>
 <div>[[Rest|A New Cycle][$days += 1]]</div></div>
-<div class="actions-row"><<if $energy > 4 && hasVisited("Start from Base Mountain") || hasVisited("Foot of a Mountain") && $energy > 4>><div>
-[[Move to Camp Mountain|Camp Mountain][$energy -= 5; $maxenergy += 10; $maxnutrients += 50]]</div><</if>>
-</div></div></center>
+<div class="actions-row"><<if $eventfrom3E == false>><<if $energy > 4 && (hasVisited("Start from Base Mountain") || hasVisited("Foot of a Mountain")) && $TransMast3 == false>><div>[[Move to Camp Mountain|Camp Mountain][$energy -= 5; $maxenergy += 10; $maxnutrients += 50; $nutrients += $CampM.nutrients-($days*2); $CampM.nutrients = 0; $engineering += $days*0.3; $combat += $days*0.1; $unimatter += $CampM.unimatter; $CampM.unimatter = 0]]</div><<else>>[[Move to Camp Mountain|Camp Mountain][$nutrients += $CampM.nutrients-($days*2); $CampM.nutrients = 0; $unimatter += $CampM.unimatter; $CampM.unimatter = 0]]<</if>><</if>></div></div></center>
+
+DEVELOPPER: [[Testing]]
 
 
-:: Camp Mountain {"position":"1500,1125","size":"100,100"}
-<center><center>[img[assets/Ch-Camp/MountainCamp.png]]</center>
-<<set $Camp_M = true>><<set $Camp_J = false>>
+:: Camp Mountain {"position":"1400,900","size":"100,100"}
+<<nobr>>
+  <<if $CampJ.Orb && $Camp_J>><<set $navOrb = $CampJ.nOrb>><<elseif $CampM.Orb && $Camp_M>><<set $navOrb = $CampM.nOrb>><<else>><<set $navOrb = 1>><</if>>
+  <<if $CampJ.Orb && $Camp_J>><<set $cbtOrb = $CampJ.cOrb>><<elseif $CampM.Orb && $Camp_M>><<set $navOrb = $CampM.cOrb>><<else>><<set $cbtOrb = 1>><</if>>
+  <<set $Camp_M = true, $Camp_J = false, $carrycap = 1>>
+<</nobr>><center><center>[img[assets/Ch-Camp/MountainCamp.png]]</center>
+
+<div class="passage-titles" style="color: #d2a679; border-bottom-color: #d2a679; border-top-color: #d2a679;"><center><h2><strong>Camp Mountain</strong></h2></center></div>
+<div class="order-indices">
+<div class="index-screens-normal"><div><strong>Things in the in<<nobr>>
+  <<if $CampM.nOrb && $Camp_M>><<set $navOrb = $CampM.nOrb>><<else>><<set $navOrb = 1>><</if>>
+  <<if $CampM.cOrb && $Camp_M>><<set $cbtOrb = $CampM.cOrb>><<else>><<set $cbtOrb = 1>><</if>>
+  <<set $Camp_M = true, $Camp_J = false>>
+<</nobr>><center><center>[img[assets/Ch-Camp/MountainCamp.png]]</center>
+
 <div class="passage-titles" style="color: #d2a679; border-bottom-color: #d2a679; border-top-color: #d2a679;"><center><h2><strong>Camp Mountain</strong></h2></center></div>
 <div class="order-indices">
 <div class="index-screens-normal"><div><strong>Things in the inventory:</strong></div><div>[img[Materials Printer|assets/items/3D-Printer_rs.png]] [img[Compass|assets/items/compass_rs.png]] <<if $SubAnalyzer == true>>[img[Substance Analyzer|assets/items/Substance-Analyzer_rs.png]]<</if>></div></div>
-<div class="index-screens-normal"><div><strong>Components and Buildings operated by your spaceship:</strong></div><div><<if $CampM.TransMast == true>>[img[Transmission Mast|assets/items/antenna_CM_rs.png]] <</if>><<if $CampM.EHarvester == true>>[img[Energy Harvester|assets/items/sun-collectors_rs.png]] <</if>><<if $CampM.DefPerimeter == true>>[img[Defense Perimeter|assets/items/defense-perimeter_rs.png]] <</if>><<if $CampM.Farm == true>>[img[Horticulture|assets/items/farm_rs.png]] <</if>><<if $CampJ.Orb == true>>[img[Floating Orb|assets/items/The-Orb_rs.png]]&nbsp;<<elseif $CampJ.nOrb == true>>[img[Orb +Navigation|assets/items/navigation-Orb_rs.png]]&nbsp;<<elseif $CampJ.cOrb == true>>[img[Orb +Combat|assets/items/combat-Orb_rs.png]]&nbsp;<<elseif $CampJ.cnOrb == true>>[img[Orb +Navi +Combat|assets/items/combat-Orb_rs.png]]&nbsp;<</if>></div><div><<if $CampM.building > $CampM.maxbuildings>><<set $CampM.building = $CampM.maxbuildings>><<elseif $CampM.building < 0>><<set $CampM.building = 0>><</if>>The camp has <<= $CampM.building>> of maximal <<= $CampM.maxbuildings>> buildings.</div></div>
+<div class="index-screens-normal"><div><strong>Components and Buildings operated by your spaceship:</strong></div><div><<if $CampM.TransMast == true>>[img[Transmission Mast|assets/items/antenna_CM_rs.png]] <</if>><<if $CampM.EHarvester == true>>[img[Energy Harvester|assets/items/sun-collectors_rs.png]] <</if>><<if $CampM.DefPerimeter == true>>[img[Defense Perimeter|assets/items/defense-perimeter_rs.png]] <</if>><<if $CampM.Farm == true>>[img[Horticulture|assets/items/farm_rs.png]] <</if>><<if $CampM.Orb == 3>>[img[Floating Orb|assets/items/The-Orb_rs.png]]&nbsp;<<elseif $CampM.nOrb == 3 && $CampM.cOrb == 1>>[img[Orb +Navigation|assets/items/navigation-Orb_rs.png]]&nbsp;<<elseif $CampM.nOrb == 1 && $CampM.cOrb == 3>>[img[Orb +Combat|assets/items/combat-Orb_rs.png]]&nbsp;<<elseif $CampM.nOrb == 3 && $CampM.cOrb == 3>>[img[Orb +Navi +Combat|assets/items/nc-Orb_rs.png]]&nbsp;<</if>></div><div><<if $CampM.building > $CampM.maxbuildings>><<set $CampM.building = $CampM.maxbuildings>><<elseif $CampM.building < 0>><<set $CampM.building = 0>><</if>>The camp has <<= $CampM.building>> of maximal <<= $CampM.maxbuildings>> buildings.</div></div>
 <div class="index-screens-small"><div><div><strong>CYCLES:&nbsp;</strong></div><div><<= $days>></div></div><div><div><strong>ENERGY:&nbsp;</strong></div><div><<if $maxenergy < 0>><<set $maxenergy = 0>><</if>><<if $energy > $maxenergy>><<set $energy = $maxenergy>><<elseif $energy < 0>><<set $energy = 0>><</if>><<= $energy.toFixed(1)>> of maximal <<= $maxenergy>></div></div><div><div><strong>UNIMATTER:&nbsp;</strong></div><div><<if $unimatter < 0>><<set $unimatter = 0>><</if>><<if $unimatter > $maxunimatter>><<set $unimatter = $maxunimatter>><<elseif $unimatter < 0>><<set $unimatter = 0>><</if>><<= $unimatter.toFixed(1)>> Unimatter</div></div></div>
 <div class="index-screens-normal"><div><strong>NUTRIENTS:</strong></div><div>We have <<= $nutrients>> nutrients in storage. Each person consume one unit of nutrients per cycle. We can only store a quantity of 100.</div></div>
-<div class="index-screens-professions"><div class="title-profession"><strong>PROFESSIONS:</strong></div><div class="index-professions"><div> Xenology: <<= $xeno.toFixed(1)>></div> + <div>Combatibility: <<= $combat.toFixed(1)>></div> + <div>Engineering: <<= $engineering.toFixed(1)>></div> + <div>Interactibility: <<= $social.toFixed(1)>></div></div></div></div>
+<div class="index-screens-professions"><div class="title-profession"><strong>PROFESSIONS:</strong></div><div class="index-professions"><div> Xenology: <<= ($xeno*$navOrb).toFixed(1)>></div> + <div>Combatibility: <<= ($combat*$cbtOrb).toFixed(1)>></div> + <div>Engineering: <<= $engineering.toFixed(1)>></div> + <div>Interactibility: <<= $social.toFixed(1)>></div></div></div></div>
 
 <div class="Title_Actions"><strong><center><h3>ACTIONS:</h3></center></strong></div>
 <div class="actions-table"><div class="actions-row">
@@ -717,14 +824,31 @@ Have I a change of mind? I want a ...
 <<if $energy >=1>><div>[[Socialize with your Crew|Social Events]]</div><</if>></div>
 <div class="actions-row"><<if $energy >=1>><div>[[Go Out|Ante Explore]]</div><</if>>
 <div>[[Rest|A New Cycle][$days += 1]]</div></div>
-<div class="actions-row"><<if $energy > 4 && hasVisited("Start from Base Jungle")>><div>
+<div class="actions-row"><<if $energy > 4 && hasVisited("Start from Base Jungle") && $eventfrom3E == false>><div>
 [[Move to Camp Jungle|Camp Jungle][$energy /= 2; $maxenergy -= 10; $maxnutrients -= 50; $nutrients /= 2; $unimatter /= 2]]</div>
 <</if>></div></div></center>
 
+DEVELOPPER: [[Testing]]ventory:</strong></div><div>[img[Materials Printer|assets/items/3D-Printer_rs.png]] [img[Compass|assets/items/compass_rs.png]] <<if $SubAnalyzer == true>>[img[Substance Analyzer|assets/items/Substance-Analyzer_rs.png]]<</if>></div></div>
+<div class="index-screens-normal"><div><strong>Components and Buildings operated by your spaceship:</strong></div><div><<if $CampM.TransMast == true>>[img[Transmission Mast|assets/items/antenna_CM_rs.png]] <</if>><<if $CampM.EHarvester == true>>[img[Energy Harvester|assets/items/sun-collectors_rs.png]] <</if>><<if $CampM.DefPerimeter == true>>[img[Defense Perimeter|assets/items/defense-perimeter_rs.png]] <</if>><<if $CampM.Farm == true>>[img[Horticulture|assets/items/farm_rs.png]] <</if>><<if $CampM.Orb == 3>>[img[Floating Orb|assets/items/The-Orb_rs.png]]&nbsp;<<elseif $CampM.nOrb == 3 && $CampM.cOrb == 1>>[img[Orb +Navigation|assets/items/navigation-Orb_rs.png]]&nbsp;<<elseif $CampM.nOrb == 1 && $CampM.cOrb == 3>>[img[Orb +Combat|assets/items/combat-Orb_rs.png]]&nbsp;<<elseif $CampM.nOrb == 3 && $CampM.cOrb == 3>>[img[Orb +Navi +Combat|assets/items/nc-Orb_rs.png]]&nbsp;<</if>></div><div><<if $CampM.building > $CampM.maxbuildings>><<set $CampM.building = $CampM.maxbuildings>><<elseif $CampM.building < 0>><<set $CampM.building = 0>><</if>>The camp has <<= $CampM.building>> of maximal <<= $CampM.maxbuildings>> buildings.</div></div>
+<div class="index-screens-small"><div><div><strong>CYCLES:&nbsp;</strong></div><div><<= $days>></div></div><div><div><strong>ENERGY:&nbsp;</strong></div><div><<if $maxenergy < 0>><<set $maxenergy = 0>><</if>><<if $energy > $maxenergy>><<set $energy = $maxenergy>><<elseif $energy < 0>><<set $energy = 0>><</if>><<= $energy.toFixed(1)>> of maximal <<= $maxenergy>></div></div><div><div><strong>UNIMATTER:&nbsp;</strong></div><div><<if $unimatter < 0>><<set $unimatter = 0>><</if>><<if $unimatter > $maxunimatter>><<set $unimatter = $maxunimatter>><<elseif $unimatter < 0>><<set $unimatter = 0>><</if>><<= $unimatter.toFixed(1)>> Unimatter</div></div></div>
+<div class="index-screens-normal"><div><strong>NUTRIENTS:</strong></div><div>We have <<= $nutrients>> nutrients in storage. Each person consume one unit of nutrients per cycle. We can only store a quantity of 100.</div></div>
+<div class="index-screens-professions"><div class="title-profession"><strong>PROFESSIONS:</strong></div><div class="index-professions"><div> Xenology: <<= ($xeno*$navOrb).toFixed(1)>></div> + <div>Combatibility: <<= ($combat*$cbtOrb).toFixed(1)>></div> + <div>Engineering: <<= $engineering.toFixed(1)>></div> + <div>Interactibility: <<= $social.toFixed(1)>></div></div></div></div>
 
-:: Chapter2 {"position":"475,25","size":"100,100"}
-<<set $eventfrom3E = false>>
-<<set $deathin3E = false>>
+<div class="Title_Actions"><strong><center><h3>ACTIONS:</h3></center></strong></div>
+<div class="actions-table"><div class="actions-row">
+<<if $energy >=1>><div>[[Train in Engineering|Camp Mountain][$energy -= 1; $engineering += 0.1]]</div><</if>>
+<<if $energy >=1>><div>[[Train in Combat Arts|Camp Mountain][$energy -= 1; $combat += 0.1]]</div><</if>></div>
+<div class="actions-row"><<if $energy >=1>><div>[[Go to the Materials Printer|Construction Menu]]</div><</if>>
+<<if $energy >=1>><div>[[Socialize with your Crew|Social Events]]</div><</if>></div>
+<div class="actions-row"><<if $energy >=1>><div>[[Go Out|Ante Explore]]</div><</if>>
+<div>[[Rest|A New Cycle][$days += 1]]</div></div>
+<div class="actions-row"><<if $eventfrom3E == false && $energy > 4 && hasVisited("Start from Base Jungle") && $TransMast3 == false>><div>
+[[Move to Camp Jungle|Camp Jungle][$energy /= 2; $maxenergy -= 10; $maxnutrients -= 50; $nutrients /= 2; $unimatter /= 2; $engineering -= $days*0.3; $combat -= $days*0.1]]</div><<else>>[[Move to Camp Jungle|Camp Jungle][$nutrients /= 2; $unimatter /= 2]]<</if>><</if>>
+</div></div>
+
+</center>
+
+DEVELOPPER: [[Testing]]
 
 
 :: Check my pod {"position":"925,300","size":"100,100"}
@@ -750,78 +874,110 @@ Ech! Nothing happens. It is boring. Maybe I should try to go out anyway?
 
 
 :: Construction Menu {"position":"900,500","size":"100,100"}
-<center><center>[img[assets/items/3D-Printer.png]]</center>
-<div class="passage-titles" style="color: #336699; border-bottom-color: #336699; border-top-color: #336699;"><center><h3><strong>Construction Menu</strong></h3></center></div>
-<div class="index-screens-small"><div><strong>ENERGY:&nbsp;</strong>
-<<if $energy > $maxenergy>><<set $energy = $maxenergy>><<elseif $energy < 0>><<set $energy = 0>><</if>><<= $energy.toFixed(1)>> of maximal <<= $maxenergy>></div><div><strong>UNIMATTER:&nbsp;</strong>
-<<if $unimatter > $maxunimatter>><<set $unimatter = $maxunimatter>><<elseif $unimatter < 0>><<set $unimatter = 0>><</if>><<= $unimatter.toFixed(1)>> Unimatter</div><div><<if $Camp_M>>available buildings:
-<<= $CampM.building>> from maximal <<= $CampM.maxbuildings>>
-<<else>>available buildings:
-<<= $CampJ.building>> from maximal <<= $CampJ.maxbuildings>><</if>></div></div>
+<center>/* <<nobr>>
+    <<set $anyorbtrueCJ = [$CampJ.Orb, $CampJ.nOrb, $CampJ.cOrb, $CampJ.cnOrb]; $anyorbtrueCM = [$CampM.Orb, $CampM.nOrb, $CampM.cOrb, $CampM.cnOrb]>>
+<</nobr>> */<center>[img[assets/items/3D-Printer.png]]</center>
+  <div class="passage-titles" style="color: #336699; border-bottom-color: #336699; border-top-color: #336699;"><center><h3><strong>Construction Menu</strong></h3></center></div>
+  <div class="index-screens-small"><div><strong>ENERGY:&nbsp;</strong>
+    <<if $energy > $maxenergy>><<set $energy = $maxenergy>><<elseif $energy < 0>><<set $energy = 0>><</if>><<= $energy.toFixed(1)>> of maximal <<= $maxenergy>></div>
+    <div><strong>UNIMATTER:&nbsp;</strong>
+    <<if $unimatter > $maxunimatter>><<set $unimatter = $maxunimatter>><<elseif $unimatter < 0>><<set $unimatter = 0>><</if>><<= $unimatter.toFixed(1)>> Unimatter</div>
+    <div><<if $Camp_M>>available buildings:
+    <<= $CampM.building>> from maximal <<= $CampM.maxbuildings>>
+    <<else>>available buildings:
+    <<= $CampJ.building>> from maximal <<= $CampJ.maxbuildings>><</if>></div>
+  </div>
+<<if $OrbAutoCJ && $Camp_J || $OrbAutoCM && $Camp_M || $TransMast3 && ($OrbAutoCJ || $OrbAutoCM)>><div class="index-screens-small"><div style="width: 100%;">[[Configure the Orb|Orb Configuration]]</div></div><</if>>
 <div class="index-screens-small"><div style="width: 100%;">[[Go to Disintegration Menu|Disintegration Menu]]</div></div>
 <div class="index-screens-small"><div style="width: 100%;"><<if $Camp_J>>[[Go to Camp|Camp Jungle]]<<else>>[[Go to Camp|Camp Mountain]]<</if>></div></div>
+
 </center>
+
 <strong><u>available Templates:</u></strong>
-<<nobr>><h6>Legend: Energy = E | Unimatter = U | Lvl = Engineering Level</h6>
-<ul><li>Repairs (3E - 3U): <<if $energy >= 3 && $unimatter >= 3 && $Camp_J && $maxenergy < 10>>[[Action it|Construction Menu][$energy -= 3; $unimatter -= 3; $maxenergy = 10]]
-  <<elseif $energy >= 3 && $unimatter >= 3 && $Camp_M && $maxenergy < 20>>[[Action it|Construction Menu][$energy -= 3; $unimatter -= 3; $maxenergy = 20]]
-  <<elseif $unimatter < 3 && $energy < 3>><div class="color-red">insufficient ressources</div>
-  <<elseif $Camp_J && $maxenergy < 10 || $Camp_M && $maxenergy < 20>><div class="color-red">insufficient ressources</div>
-  <<else>><div class="color-green">all good and functioning.</div><</if>></li>
-<li>Lvl 2: Substance Analyzer (2E - 5U): 
+<<nobr>><h6>Legend: Energy = E | Unimatter = U | Lvl = Engineering Level</h6><br>
+  <ul><li>Repairs (3E - 3U): <<if $energy >= 3 && $unimatter >= 3 && $Camp_J && $notrepaired > 0>>[[Action it|Construction Menu][$energy -= 3; $unimatter -= 3; $notrepaired -= 2]]
+    <<elseif $unimatter < 3 && $energy < 3>><div class="color-red">insufficient ressources</div>
+    <<elseif $Camp_J && $maxenergy < 10 || $Camp_M && $maxenergy < 20>><div class="color-red">insufficient ressources</div>
+    <<else>><div class="color-green">all good and functioning.</div><</if>></li>
+  <li>Lvl 2: Substance Analyzer (2E - 5U): 
   <<if $engineering >= 2 && $SubAnalyzer != true && $energy >= 2 && $unimatter >= 5>>[[Print|Construction Menu][$energy -= 2; $unimatter -= 5; $SubAnalyzer = true]]
   <<elseif $SubAnalyzer>><br><div class="color-green">We have already the Substance Analyzer in our inventory.</div>
   <<else>><div class="color-red">insufficient level or ressources</div><</if>></li></ul>
 <<if $Camp_J && $CampJ.building < $CampJ.maxbuildings || $Camp_M && $CampM.building < $CampM.maxbuildings>>
-<ul><li>Lvl 2: Energy Harvester (5E - 5U): 
-  <<if $engineering >= 2 && $CampJ.EHarvester != true && $Camp_J && $energy >= 5 && $unimatter >= 5>>[[Print|Construction Menu][$energy -= 5; $unimatter -= 5; $CampJ.EHarvester = true; $CampJ.building += 1]]
-  <<elseif $engineering >= 2 && $CampM.EHarvester != true && $Camp_M && $energy >= 5 && $unimatter >= 5>>[[Print|Construction Menu][$energy -= 5; $unimatter -= 5; $CampM.EHarvester = true; $CampM.building += 1]]
-  <<elseif $CampJ.EHarvester && $Camp_J || $CampM.EHarvester && $Camp_M>><br><div class="color-green">Our Energy Harvester collects all possible energies.</div>
-  <<else>><div class="color-red">insufficient level or ressources</div><</if>></li>
-<li>Lvl 3: Defense Perimeter (2E - 2U): 
-  <<if $engineering >= 2 && $CampJ.DefPerimeter != true && $Camp_J && $energy >= 2 && $unimatter >= 2>>[[Print|Construction Menu][$energy -= 2; $unimatter -= 2; $CampJ.DefPerimeter = true; $CampJ.building += 1]]
-  <<elseif $engineering >= 2 && $CampM.DefPerimeter != true && $Camp_M && $energy >= 2 && $unimatter >= 2>>[[Print|Construction Menu][$energy -= 8; $unimatter -= 3; $CampM.DefPerimeter = true; $CampM.building += 1]]
-  <<elseif $CampJ.DefPerimeter && $Camp_J || $CampM.DefPerimeter && $Camp_M>><br><div class="color-green">The Defense Perimeter is active.</div>
-  <<else>><div class="color-red">insufficient level or ressources</div><</if>></li>
-<li>Lvl 3: Antenna (2E - 2U): 
-  <<if $engineering >= 3 && $CampJ.TransMast != true  && $Camp_J && $energy >= 2 && $unimatter >= 2>>[[Print|Construction Menu][$energy -= 2; $unimatter -= 2; $CampJ.TransMast = true; $CampJ.building += 1]]
-  <<elseif $engineering >= 3 && $CampM.TransMast != true && $Camp_M && $energy >= 2 && $unimatter >= 2>>[[Print|Construction Menu][$energy -= 2; $unimatter -= 2; $CampM.TransMast = true; $CampM.building += 1]]
-  <<elseif $CampJ.TransMast  && $Camp_J || $CampM.TransMast && $Camp_M>><br><div class="color-green">Our transmission mast is sending without interruption.</div>
-  <<else>><div class="color-red">insufficient level or ressources</div><</if>></li>
-<li>Lvl 4: Farm (4E - 6U): 
-  <<if $engineering >= 4 && $CampJ.Farm != true && $Camp_J && $energy >= 4 && $unimatter >= 6>>[[Print|Construction Menu][$energy -= 4; $unimatter -= 6; $CampJ.Farm = true; $CampJ.building += 1]]
-  <<elseif $engineering >= 4 && $CampM.Farm != true && $Camp_M && $energy >= 4 && $unimatter >= 6>>[[Print|Construction Menu][$energy -= 4; $unimatter -= 6; $CampM.Farm = true; $CampM.building += 1]]
-  <<elseif $CampJ.Farm && $Camp_J || $CampM.Farm && $Camp_M>><br><div class="color-green">Our horticulture produces our nutrients all fine.</div><<else>><div class="color-red">insufficient level or ressources</div><</if>></li>
-<li>Lvl 4: Floating Orb (8E - 4U): 
-  <<if $engineering >= 4 && $CampJ.Orb != true && $Camp_J && $energy >= 8 && $unimatter >= 4>>[[Print|Construction Menu][$energy -= 8; $unimatter -= 4; $CampJ.Orb = true; $CampJ.building += 1]]
-  <<elseif $engineering >= 4 && $CampM.Orb != true && $Camp_M && $energy >= 8 && $unimatter >= 4>>[[Print|Construction Menu][$energy -= 8; $unimatter -= 4; $CampM.Orb = true; $CampM.building += 1]]
-  <<elseif $CampJ.Orb && $Camp_J || $CampM.Orb && $Camp_M>><br><div class="color-green">The Orb is recharging at its port.</div><<else>><div class="color-red">insufficient level or ressources</div><</if>></li>
-</ul>
-<<if $CampJ.Orb && $Camp_J || $CampM.Orb && $Camp_M>>
-<ul class="plussign-list"><li>+ Orb Improvement for Exploring (4E - 4U): 
-  <<if $engineering >= 4 && $CampJ.nOrb != true && $Camp_J && $energy >= 4 && $unimatter >= 4>>[[Print|Construction Menu][$energy -= 4; $unimatter -= 4; $CampJ.nOrb = true]]
-  <<elseif $engineering >= 4 && $CampM.nOrb != true && $Camp_M && $energy >= 4 && $unimatter >= 4>>[[Print|Construction Menu][$energy -= 4; $unimatter -= 4; $CampM.nOrb = true]]
-  <<elseif $CampJ.nOrb && $Camp_J || $CampM.nOrb && $Camp_M>><br><div class="color-green">The Orb is recharging at its port.</div><<else>><div class="color-red">insufficient level or ressources</div><</if>></li>
-<li>+ Orb Improvement for Combat (6E - 6U): 
-  <<if $engineering >= 4 && $CampJ.cOrb != true && $Camp_J && $energy >= 6 && $unimatter >= 6>>[[Print|Construction Menu][$energy -= 6; $unimatter -= 6; $CampJ.cOrb = true]]
-  <<elseif $engineering >= 4 && $CampM.cOrb != true && $Camp_M && $energy >= 6 && $unimatter >= 6>>[[Print|Construction Menu][$energy -= 6; $unimatter -= 6; $CampM.cOrb = true]]
-  <<elseif $CampJ.cOrb && $Camp_J || $CampM.cOrb && $Camp_M>><br><div class="color-green">The Orb is recharging at its port.</div><<else>><div class="color-red">insufficient level or ressources</div><</if>></li>
-</ul>
-<</if>>
+  <ul>
+  <li>Lvl 2: Energy Harvester (5E - 5U): 
+    <<if $engineering >= 2 && $CampJ.EHarvester != true && $Camp_J && $energy >= 5 && $unimatter >= 5>>[[Print|Construction Menu][$energy -= 5; $unimatter -= 5; $CampJ.EHarvester = true; $CampJ.building += 1]]
+    <<elseif $engineering >= 2 && $CampM.EHarvester != true && $Camp_M && $energy >= 5 && $unimatter >= 5>>[[Print|Construction Menu][$energy -= 5; $unimatter -= 5; $CampM.EHarvester = true; $CampM.building += 1]]
+    <<elseif $CampJ.EHarvester && $Camp_J || $CampM.EHarvester && $Camp_M>><br><div class="color-green">Our Energy Harvester collects all possible energies.</div>
+    <<else>><div class="color-red">insufficient level or ressources</div>
+    <</if>>
+  </li>
+      <ul class="plussign-list">
+      <li>Lvl 5: + Energy Generation Upgrade (6E - 5U): 
+        <<if $engineering >= 5 && $energy >= 6 && $unimatter >= 5 && ($CampJ.EHarvester && $Camp_J || $CampM.EHarvester && $Camp_M)>><<if $Camp_J>>[[Print|Construction Menu][$energy -= 6; $unimatter -= 5; $CampJ.EHarvester2 = true]]<<else>>[[Print|Construction Menu][$energy -= 6; $unimatter -= 5; $CampM.EHarvester2 = true]]<</if>>
+        <<elseif ($CampJ.EHarvester2 && $Camp_J) || ($CampM.EHarvester2 && $Camp_M)>><br><div class="color-green">Our energy regeneration rate is raised +10.</div><<else>><div class="color-red">insufficient level or ressources</div>
+        <</if>>
+      </li>
+  <li>Lvl 3: Defense Perimeter (2E - 2U): 
+    <<if $engineering >= 2 && $CampJ.DefPerimeter != true && $Camp_J && $energy >= 2 && $unimatter >= 2>>[[Print|Construction Menu][$energy -= 2; $unimatter -= 2; $CampJ.DefPerimeter = true; $CampJ.building += 1]]
+    <<elseif $engineering >= 2 && $CampM.DefPerimeter != true && $Camp_M && $energy >= 2 && $unimatter >= 2>>[[Print|Construction Menu][$energy -= 8; $unimatter -= 3; $CampM.DefPerimeter = true; $CampM.building += 1]]
+    <<elseif $CampJ.DefPerimeter && $Camp_J || $CampM.DefPerimeter && $Camp_M>><br><div class="color-green">The Defense Perimeter is active.</div>
+    <<else>><div class="color-red">insufficient level or ressources</div>
+    <</if>>
+  </li>
+  <li>Lvl 3: Antenna (2E - 2U): 
+    <<if $engineering >= 3 && $CampJ.TransMast != true  && $Camp_J && $energy >= 2 && $unimatter >= 2>>[[Print|Construction Menu][$energy -= 2; $unimatter -= 2; $CampJ.TransMast = true; $CampJ.building += 1]]
+    <<elseif $engineering >= 3 && $CampM.TransMast != true && $Camp_M && $energy >= 2 && $unimatter >= 2>>[[Print|Construction Menu][$energy -= 2; $unimatter -= 2; $CampM.TransMast = true; $CampM.building += 1]]
+    <<elseif $CampJ.TransMast && $Camp_J || $CampM.TransMast && $Camp_M>><br><div class="color-green">Our transmission mast is sending without interruption.</div>
+    <<else>><div class="color-red">insufficient level or ressources</div>
+    <</if>>
+  </li>
+      <<if $Camp_M && hasVisited("Start from Base Jungle") || $Camp_J && hasVisited("Start from Base Mountain")>>
+        <ul class="plussign-list">
+        <li>Lvl 8: + Transmission Mast Upgrade (7E - 4U - Orb): 
+          <<if $engineering >= 8 && $CampJ.TransMast && $TransMast2 != true  && $CampM.TransMast && $energy >= 7 && $unimatter >= 4 && ($CampJ.Orb && $Camp_J || $CampM.Orb && $Camp_M)>>[[Execute|Construction Menu][$energy -= 7; $unimatter -= 4; $TransMast2 = true]]
+          <<elseif $CampM.TransMast && $CampJ.TransMast != true || $CampM.TransMast != true && $CampJ.TransMast>><br><div class="color-red">One of the camps has not built a mast.</div>
+          <<elseif $TransMast2>><br><div class="color-green">Our bandwith is enlarged.</div><<else>><div class="color-red">insufficient level or ressources</div>
+          <</if>>
+        </li>
+        <li>Lvl 10: + Spaceship Energy Sharing (4E - 6U - Orb): 
+          <<if $engineering >= 10 && $CampJ.TransMast && $CampM.TransMast && $TransMast2 && $TransMast3 != true && $energy >= 4 && $unimatter >= 6 && ($CampJ.Orb && $Camp_J || $CampM.Orb && $Camp_M)>>[[Execute|Construction Menu][$energy -= 4; $unimatter -= 6; $TransMast3 = true]]
+          <<elseif $CampM.TransMast && $CampJ.TransMast != true || $CampM.TransMast != true && $CampJ.TransMast>><br><div class="color-red">One of the camps has not built a mast.</div>
+          <<elseif $TransMast2 != true>><br><div class="color-red">Transmission Mast Upgrade required.</div>
+          <<elseif $TransMast3>><br><div class="color-green">We are interlinked.</div><<else>><div class="color-red">insufficient level or ressources</div>
+          <</if>>
+        </li>
+        </ul>
+      <</if>>
+  <li>Lvl 4: Farm (4E - 6U): 
+    <<if $engineering >= 4 && $CampJ.Farm != true && $Camp_J && $energy >= 4 && $unimatter >= 6>>[[Print|Construction Menu][$energy -= 4; $unimatter -= 6; $CampJ.Farm = true; $CampJ.building += 1]]
+    <<elseif $engineering >= 4 && $CampM.Farm != true && $Camp_M && $energy >= 4 && $unimatter >= 6>>[[Print|Construction Menu][$energy -= 4; $unimatter -= 6; $CampM.Farm = true; $CampM.building += 1]]
+    <<elseif $CampJ.Farm && $Camp_J || $CampM.Farm && $Camp_M>><br><div class="color-green">Our horticulture produces our nutrients all fine.</div><<else>><div class="color-red">insufficient level or ressources</div>
+    <</if>>
+  </li>
+  <li>Lvl 4: Floating Orb (8E - 4U): 
+    <<if $engineering >= 4 && $CampJ.Orb != 3 && $Camp_J && $energy >= 8 && $unimatter >= 4>>[[Print|Construction Menu][$energy -= 8; $unimatter -= 4; $CampJ.Orb = 3; $CampJ.building += 1]]
+    <<elseif $engineering >= 4 && $CampM.Orb != 3 && $Camp_M && $energy >= 8 && $unimatter >= 4>>[[Print|Construction Menu][$energy -= 8; $unimatter -= 4; $CampM.Orb = 3; $CampM.building += 1]]
+    <<elseif $CampJ.Orb == 3 && $Camp_J || $CampM.Orb == 3 && $Camp_M>><br><div class="color-green">The Orb is recharging at its port.</div><<else>><div class="color-red">insufficient level or ressources</div>
+    <</if>>
+  </li>
+  </ul>
+  <<if $CampJ.Orb == 3 && $Camp_J || $CampM.Orb == 3 && $Camp_M>>
+    <ul class="plussign-list"><li>+ Lvl 5: Orb Improvement for Exploring (4E - 4U): 
+      <<if $engineering >= 5 && $CampJ.nOrb != 3 && $Camp_J && $energy >= 4 && $unimatter >= 4>>[[Print|Construction Menu][$energy -= 4; $unimatter -= 4; $CampJ.nOrb = 3]]
+      <<elseif $engineering >= 5 && $CampM.nOrb != 3 && $Camp_M && $energy >= 4 && $unimatter >= 4>>[[Print|Construction Menu][$energy -= 4; $unimatter -= 4; $CampM.nOrb = 3]]
+      <<elseif $CampJ.nOrb == 3 && $Camp_J || $CampM.nOrb == 3 && $Camp_M>><br><div class="color-green">The Orb +navigation is implemented.</div><<else>><div class="color-red">insufficient level or ressources</div><</if>></li>
+    <li>+ Lvl 7: Orb Improvement for Combat (6E - 6U): 
+      <<if $engineering >= 7 && $CampJ.cOrb != 3 && $Camp_J && $energy >= 6 && $unimatter >= 6>>[[Print|Construction Menu][$energy -= 6; $unimatter -= 6; $CampJ.cOrb = 3]]
+      <<elseif $engineering >= 7 && $CampM.cOrb != 3 && $Camp_M && $energy >= 6 && $unimatter >= 6>>[[Print|Construction Menu][$energy -= 6; $unimatter -= 6; $CampM.cOrb = 3]]
+      <<elseif $CampJ.cOrb == 3 && $Camp_J || $CampM.cOrb == 3 && $Camp_M>><br><div class="color-green">The Orb +combat is implemented.</div><<else>><div class="color-red">insufficient level or ressources</div><</if>></li>
+    <li>+ Lvl 6: Orb Automation (1E - 1U): 
+      <<if $engineering >= 6 && $OrbAutoCJ != true && $Camp_J && $energy >= 6 && $unimatter >= 6>>[[Print|Construction Menu][$energy -= 1; $unimatter -= 1; $OrbAutoCJ = true]]
+      <<elseif $engineering >= 6 && $OrbAutoCM != true && $Camp_M && $energy >= 6 && $unimatter >= 6>>[[Print|Construction Menu][$energy -= 1; $unimatter -= 1; $OrbAutoCM = true]]
+      <<elseif $OrbAutoCJ && $Camp_J || $OrbAutoCM && $Camp_M>><br><div class="color-green">The options panel is available in the Construction Menu.</div><<else>><div class="color-red">insufficient level or ressources</div><</if>></li>
+    </ul><</if>>
 <<else>>
   All building slots are full. Consider disintegrate one or more.
-<<if $CampJ.Orb && $Camp_J || $CampM.Orb && $Camp_M>>
-  Orb improvement templates:
-  <ul class="plussign-list"><li>+ Orb Improvement for Exploring (4E - 4U): 
-    <<if $engineering >= 4 && $CampJ.nOrb != true && $Camp_J && $energy >= 4 && $unimatter >= 4>>[[Print|Construction Menu][$energy -= 4; $unimatter -= 4; $CampJ.nOrb = true]]
-    <<elseif $engineering >= 4 && $CampM.nOrb != true && $Camp_M && $energy >= 4 && $unimatter >= 4>>[[Print|Construction Menu][$energy -= 4; $unimatter -= 4; $CampM.nOrb = true]]
-    <<elseif $CampJ.nOrb && $Camp_J || $CampM.nOrb && $Camp_M>><br><div class="color-green">The Orb is recharging at its port.</div><<else>><div class="color-red">insufficient level or ressources</div><</if>></li>
-  <li>+ Orb Improvement for Combat (6E - 6U): 
-    <<if $engineering >= 4 && $CampJ.cOrb != true && $Camp_J && $energy >= 6 && $unimatter >= 6>>[[Print|Construction Menu][$energy -= 6; $unimatter -= 6; $CampJ.cOrb = true]]
-    <<elseif $engineering >= 4 && $CampM.cOrb != true && $Camp_M && $energy >= 6 && $unimatter >= 6>>[[Print|Construction Menu][$energy -= 6; $unimatter -= 6; $CampM.cOrb = true]]
-    <<elseif $CampJ.cOrb && $Camp_J || $CampM.cOrb && $Camp_M>><br><div class="color-green">The Orb is recharging at its port.</div><<else>><div class="color-red">insufficient level or ressources</div><</if>></li>
-  </ul>
-<</if>>
 <</if>><</nobr>>
 
 
@@ -899,43 +1055,61 @@ After many minutes
 <div class="passage-titles" style="color: #943838; border-bottom-color: #943838; border-top-color: #943838;"><center><h3><strong>Disintegration Menu</strong></h3></center></div>
 <div class="index-screens-small"><div><strong>ENERGY:&nbsp;</strong>
 <<if $energy > $maxenergy>><<set $energy = $maxenergy>><<elseif $energy < 0>><<set $energy = 0>><</if>><<= $energy.toFixed(1)>> of maximal <<= $maxenergy>></div><div><strong>UNIMATTER:&nbsp;</strong>
-<<if $unimatter > $maxunimatter>><<set $unimatter = $maxunimatter>><<elseif $unimatter < 0>><<set $unimatter = 0>><</if>><<= $unimatter.toFixed(1)>> Unimatter</div><div><<if $Camp_M == true>>available buildings:
+<<if $unimatter > $maxunimatter>><<set $unimatter = $maxunimatter>><<elseif $unimatter < 0>><<set $unimatter = 0>><</if>><<= $unimatter.toFixed(1)>> Unimatter</div><div><<if $Camp_M>>available buildings:
 <<= $CampM.building>> from maximal <<= $CampM.maxbuilding>>
 <<else>>available buildings:
 <<= $CampJ.building>> from maximal <<= $CampJ.maxbuildings>><</if>></div></div>
 <div class="index-screens-small"><div style="width: 100%;">[[Go to Construction Menu|Construction Menu]]</div></div>
 </center>
 <strong><u>current components/buildings:</u></strong>
-<ul><<if  $SubAnalyzer == true>><li>Lvl 2: [[Substance Analyzer (2E - 5U)|Disintegration Menu][$energy += 2; $unimatter += 5; $SubAnalyzer = false]]</li><</if>>
-<<if $CampJ.EHarvester == true && $Camp_J == true>>
-  <li>Lvl 2: [[Energy Harvester (5E - 5U)|Disintegration Menu][$energy += 5; $unimatter += 5; $CampJ.EHarvester = false; $CampJ.building -= 1]]</li>
-<<elseif $CampM.EHarvester == true && $Camp_M == true>>
-  <li>Lvl 2: [[Energy Harvester (5E - 5U)|Disintegration Menu][$energy += 5; $unimatter += 5; $CampM.EHarvester = false; $CampM.building -= 1]]</li><</if>>
-<<if $CampJ.DefPerimeter == true && $Camp_J == true>>
-  <li>Lvl 3: [[Defense Perimeter (8E - 3U)|Disintegration Menu][$energy += 8; $unimatter += 3; $CampJ.DefPerimeter = false; $CampJ.building -= 1]]</li>
-<<elseif $CampM.DefPerimeter == true && $Camp_M == true>>
-  <li>Lvl 3: [[Defense Perimeter (8E - 3U)|Disintegration Menu][$energy += 8; $unimatter += 3; $CampM.DefPerimeter = false; $CampM.building -= 1]]</li><</if>>
-<<if $CampJ.TransMast == true  && $Camp_J == true>>
-  <li>Lvl 3: [[Antenna (2E - 2U)|Disintegration Menu][$energy += 2; $unimatter += 2; $CampJ.TransMast = false; $CampJ.building -= 1]]</li>
-<<elseif $CampM.TransMast == true && $Camp_M == true>>
-  <li>Lvl 3: [[Antenna (2E - 2U)|Disintegration Menu][$energy += 2; $unimatter += 2; $CampM.TransMast = false; $CampM.building -= 1]]</li><</if>>
-<<if $CampJ.Farm == true && $Camp_J == true>>
-  <li>Lvl 4: [[Farm (4E - 6U)|Disintegration Menu][$energy += 4; $unimatter += 6; $CampJ.Farm = false; $CampJ.building -= 1]]</li>
-<<elseif $CampM.Farm == true && $Camp_M == true>>
-  <li>Lvl 4: [[Farm (4E - 6U)|Disintegration Menu][$energy += 4; $unimatter += 6; $CampM.Farm = false; $CampM.building -= 1]]</li><</if>>
-<<if $CampJ.Orb == true && $Camp_J == true>>
-  <li>Lvl 4: [[Floating Orb (8E - 4U)|Disintegration Menu][$energy += 8; $unimatter += 4; $CampJ.Orb = false; $CampJ.nOrb = false; $CampJ.cOrb = false; $CampJ.cnOrb = false; $CampJ.building -= 1]]</li>
-<<elseif $CampM.Orb == true && $Camp_M == true>>
-  <li>Lvl 4: [[Floating Orb (8E - 4U)|Disintegration Menu][$energy += 8; $unimatter += 4; $CampM.Orb = false; $CampM.nOrb = false; $CampM.cOrb = false; $CampM.cnOrb = false; $CampM.building -= 1]]</li><</if>>
-<ul class="plussign-list">
-		<<if $CampJ.nOrb == true && $Camp_J == true>>
-      <li>+ [[Orb Improvement for Exploring (4E - 4U)|Disintegration Menu][$energy += 4; $unimatter += 4; $CampJ.nOrb = false]]</li>
-    <<elseif $CampM.nOrb == true && $Camp_M == true>>
-      <li>+ [[Orb Improvement for Exploring (4E - 4U)|Disintegration Menu][$energy += 4; $unimatter += 4; $CampM.nOrb = false]]</li><</if>>
-    <<if $CampJ.cOrb == true && $Camp_J == true>>
-      <li>+ [[Orb Improvement for Combat (6E - 6U)|Disintegration Menu][$energy += 6; $unimatter += 6; $CampJ.cOrb = false]]</li>
-    <<elseif $CampM.cOrb == true && $Camp_M == true>>
-      <li>+ [[Orb Improvement for Combat (6E - 6U)|Disintegration Menu][$energy += 6; $unimatter += 6; $CampM.cOrb = false]]</li><</if>></ul>
+<<if $CampM.building > 0 || $CampJ.building > 0 || $SubAnalyzer>>
+  <ul><<if $SubAnalyzer>><li>[[Substance Analyzer (2E - 5U)|Disintegration Menu][$energy += 2; $unimatter += 5; $SubAnalyzer = false]]</li><</if>>
+  <<if $CampJ.EHarvester && $CampJ.EHarvester2 != true && $Camp_J>>
+    <li>[[Energy Harvester (5E - 5U)|Disintegration Menu][$energy += 5; $unimatter += 5; $CampJ.EHarvester = false; $CampJ.building -= 1]]</li>
+    <<if $CampJ.EHarvester && $CampJ.EHarvester2 && $Camp_J>>
+      <ul class="plussign-list"><li>Energy Generation Upgrade (6E - 5U): [[Print|Construction Menu][$energy += 6; $unimatter += 5; $CampJ.EHarvester2 = false]]</li><</if>>
+  <<elseif $CampM.EHarvester && $CampM.EHarvester2 != true && $Camp_M>>
+    <li>[[Energy Harvester (5E - 5U)|Disintegration Menu][$energy += 5; $unimatter += 5; $CampM.EHarvester = false; $CampM.building -= 1]]</li>
+    <<if $CampM.EHarvester && $CampM.EHarvester2 && $Camp_M>>
+      <ul class="plussign-list"><li>Energy Generation Upgrade (6E - 5U): [[Print|Construction Menu][$energy += 6; $unimatter += 5; $CampM.EHarvester2 = false]]<</if>>
+  <<elseif ($CampJ.EHarvester && $CampJ.EHarvester2 && $Camp_J) || ($CampM.EHarvester && $CampM.EHarvester2 && $Camp_M)>>
+  <li>The Energy Regeneration Upgrade has to be dismantled first.</li><</if>>
+  <<if $CampJ.DefPerimeter && $Camp_J>>
+    <li>[[Defense Perimeter (8E - 3U)|Disintegration Menu][$energy += 8; $unimatter += 3; $CampJ.DefPerimeter = false; $CampJ.building -= 1]]</li>
+  <<elseif $CampM.DefPerimeter && $Camp_M>>
+    <li>[[Defense Perimeter (8E - 3U)|Disintegration Menu][$energy += 8; $unimatter += 3; $CampM.DefPerimeter = false; $CampM.building -= 1]]</li><</if>>
+  <<if $CampJ.TransMast && $Camp_J && $TransMast2 != true && $TransMast3 != true>>
+    <li>[[Antenna (2E - 2U)|Disintegration Menu][$energy += 2; $unimatter += 2; $CampJ.TransMast = false; $CampJ.building -= 1]]</li>
+  <<elseif $CampM.TransMast && $Camp_M && $TransMast2 != true && $TransMast3 != true>>
+    <li>[[Antenna (2E - 2U)|Disintegration Menu][$energy += 2; $unimatter += 2; $CampM.TransMast = false; $CampM.building -= 1]]</li><<elseif ($CampM.TransMast || $CampM.TransMast) && $TransMast2>><div class="color-yellow"><li>Downgrade the Transmission Mast first.</li></div><</if>>
+  <ul class="plussign-list">
+  <<if $TransMast2 && $TransMast3 != true>>
+    <li>[[Transmission Mast Downgrade (7E - 4U)|Disintegration Menu][$energy += 7; $unimatter += 4; $TransMast2 = false]]</li><<elseif $TransMast2 && $TransMast3>><div class="color-yellow"><li>The Network has to be shut down and disintegrated beforehand.</li></div><</if>>
+  <<if $TransMast3>>
+    <li>[[Disintegrate the Network|Disintegration Menu][$energy += 4; $unimatter += 6; $TransMast3 = false]]</li><</if>>
+  </ul>
+  <<if $CampJ.Farm && $Camp_J>>
+    <li>[[Farm (4E - 6U)|Disintegration Menu][$energy += 4; $unimatter += 6; $CampJ.Farm = false; $CampJ.building -= 1]]</li>
+  <<elseif $CampM.Farm && $Camp_M>>
+    <li>[[Farm (4E - 6U)|Disintegration Menu][$energy += 4; $unimatter += 6; $CampM.Farm = false; $CampM.building -= 1]]</li><</if>>
+  <<if $CampJ.Orb == 3 && $Camp_J && $CampJ.nOrb == 1 && $CampJ.cOrb == 1 && $OrbAutoCJ != true>>
+    <li>[[Floating Orb (8E - 4U)|Disintegration Menu][$energy += 8; $unimatter += 4; $CampJ.Orb = 1; $CampJ.building -= 1]]</li>
+  <<elseif $CampM.Orb == 3 && $Camp_M && $CampM.nOrb == 1 && $CampM.cOrb == 1 && $OrbAutoCM != true>>
+    <li>[[Floating Orb (8E - 4U)|Disintegration Menu][$energy += 8; $unimatter += 4; $CampM.Orb = 1; $CampM.building -= 1]]</li><<elseif ($CampJ.Orb == 3 || $CampM.Orb == 3) && ($CampJ.nOrb == 3 || $CampJ.cOrb == 3 || $OrbAutoCJ || $CampM.nOrb == 3 || $CampM.cOrb == 3 || $OrbAutoCM)>><div class="color-yellow"><li>Disintegrate the implementations first.</li></div><</if>>
+  <ul class="plussign-list">
+      <<if $CampJ.nOrb == 3 && $Camp_J>>
+        <li>+ [[Orb Improvement for Exploring (4E - 4U)|Disintegration Menu][$energy += 4; $unimatter += 4; $CampJ.nOrb = 1]]</li>
+      <<elseif $CampM.nOrb == 3 && $Camp_M>>
+        <li>+ [[Orb Improvement for Exploring (4E - 4U)|Disintegration Menu][$energy += 4; $unimatter += 4; $CampM.nOrb = 1]]</li><</if>>
+      <<if $CampJ.cOrb == 3 && $Camp_J>>
+        <li>+ [[Orb Improvement for Combat (6E - 6U)|Disintegration Menu][$energy += 6; $unimatter += 6; $CampJ.cOrb = 1]]</li>
+      <<elseif $CampM.cOrb == 3 && $Camp_M>>
+        <li>+ [[Orb Improvement for Combat (6E - 6U)|Disintegration Menu][$energy += 6; $unimatter += 6; $CampM.cOrb = 1]]</li><</if>>
+      <<if $OrbAutoCJ && $Camp_J>>
+        <li>+ [[Orb Improvement for Combat (1E - 1U)|Disintegration Menu][$energy += 1; $unimatter += 1; $OrbAutoCJ = false]]</li>
+      <<elseif $OrbAutoCM && $Camp_M>>
+        <li>+ [[Orb Improvement for Combat (1E - 1U)|Disintegration Menu][$energy += 1; $unimatter += 1; $OrbAutoCM = false]]</li><</if>></ul>
+<<else>><div class="color-yellow">There is nothing built or printed.</div><</if>>
 
 
 :: Elva {"position":"1900,1025","size":"100,100"}
@@ -1064,7 +1238,7 @@ Yes, with our energy harvester - which "harvest" sun rays, winds, gravitation, m
 <<set $CampJ.EHarvester = true>>
 <<set $CampJ.building += 1>>
 <</nobr>>
-It is important to note, that those cannot be transported. Either they gets disintegrated to unimatter, which again can only be transported of maximal 5 units per spaceship. Or they stay at the [[camp|Camp Jungle]].
+It is important to note, that those cannot be transported. Either they gets disintegrated to unimatter - which again can only be transported of maximal 5 units per spaceship - or they stay at the [[camp|Camp Jungle]].
 </blockquote></center>
 
 
@@ -1100,7 +1274,6 @@ That's the big spacecruiser. Made for voyaging from Earth to other galaxies. A b
 What about Family? Friends? In a way they travel with me, as virtual clones. Same with me, a virtual clone with them, updated in cycles. Funnily, if I rather want not much contact, I virtually clone myself. With time they notice, depending how investive they were to me. Clearly, we do not have endless storage, even in the universe. 
 
 Anyway, as an obligatory out-field practice repectively inter-change student program, I have to partake on this journey, as my professor was commissioned to go there. Am I happy to go? Huh ... I am not quite a believer in active steering of destiny. Yeah, practically: I am lazy. Let see to where it takes me.
-
 <<if $SFW_Path == true>>
 	But! Not that lazy to have packed, say goodbye and handled all digidocs for departure that is in 3 hours. I am already stacked inside, connected, but I decided to dwell still on the old world. Wondering what I will miss when being afar ... <<timed 3000ms>>ah, [[whatever!|Intro3]]<</timed>>
  <<else>>
@@ -1252,7 +1425,7 @@ This game is designed for desktop and mobile version. The sidebar therefore is o
 
 IMPORTANT:
 
-The game has erotic elements. But they are pretty vanilla for me. No fetishes or kinks. And don't get me started with Futas, maldición! So, as obviously, you should be at the age of your country to use erotica. If you are not, you may enjoy this game by going the SFW-route.
+The game has erotic elements. But they are pretty vanilla for me. No fetishes or kinks. And don't get me started with Futas, maldición! So, as obviously, you should be at the age of your country to consume erotica. If you are not, you may enjoy this game by going the SFW-route.
 
 
 Aside from formalities:
@@ -1262,6 +1435,103 @@ Well then, ancient. Welcome to the future, as it is already now, oldtimer. Ready
 
 <div class="actions-row"><div>[[Yes]]</div></div>
 <div class="actions-row"><div>[[Yes, but ...(SFW)|Yes][$SFW_Path = true]]</div></div>
+</center>
+
+
+:: Orb Configuration {"position":"1400,500","size":"100,100"}
+<center><center>[img[assets/backgrounds/Orb_automated.png]]</center>
+<blockquote>
+
+  <div class="passage-titles" style="color: #ac3939; border-bottom-color: #ac3939; border-top-color: #ac3939;"><center><h3><strong>Orb Automation Configuration</strong></h3></center></div>
+  <div class="index-screens-small"><div><strong>ENERGY:&nbsp;</strong>
+    <<if $energy > $maxenergy>><<set $energy = $maxenergy>><<elseif $energy < 0>><<set $energy = 0>><</if>><<= $energy.toFixed(1)>> of maximal <<= $maxenergy>></div></div>
+
+What do I want automated?
+<<if $energy > 0 && $Camp_J>>
+  <<if $explored2N>>
+    <div class="index-screens-small" style="background-color:#ac3939"><div><strong>Unimatter Transport</strong>
+    <div><<= 3 * $OrbTransport.count("unimatter")>>Unimatter for <<= (1.2 * $OrbTransport.count("unimatter")).toFixed(1)>>Energy </div>
+    <<if $energy > $maxenergy>><<set $energy = $maxenergy>><<elseif $energy < 0>><<set $energy = 0>><</if>><<= $energy.toFixed(1)>> of maximal <<= $maxenergy>></div>
+    <<button "+1 dispatch">><<set $energy -= 1.2>><<set $OrbTransport.push("unimatter")>><<goto "Orb Configuration">><</button>>
+    <<button "-1 dispatch">><<set $energy += 1.2>><<set $OrbTransport.pluck("unimatter")>><<goto "Orb Configuration">><</button>>
+  <</if>>
+  <<if $explored1E>>
+    <div class="index-screens-small" style="background-color:#ac3939"><div><strong>Nutrients Transport</strong>
+    <div><<= 6 * $OrbTransport.count("nutrients")>>Nutrients for <<= (0.6 * $OrbTransport.count("nutrients")).toFixed(1)>>Energy </div>
+    <<if $energy > $maxenergy>><<set $energy = $maxenergy>><<elseif $energy < 0>><<set $energy = 0>><</if>><<= $energy.toFixed(1)>> of maximal <<= $maxenergy>></div>
+    <<button "+1 dispatch">><<set $energy -= 0.6>><<set $OrbTransport.push("nutrients")>><<goto "Orb Configuration">><</button>>
+    <<button "-1 dispatch">><<set $energy += 0.6>><<set $OrbTransport.pluck("nutrients")>><<goto "Orb Configuration">><</button>>
+  <</if>>
+  <<if $explored3S>>
+    <div class="index-screens-small" style="background-color:#ac3939"><div><strong>Energy Composite Transport</strong>
+    <div><<= (2.5 * $OrbTransport.count("encomp")).toFixed(1)>>Nutrients for <<= (1.8 * $OrbTransport.count("encomp")).toFixed(1)>>Energy </div>
+    <<if $energy > $maxenergy>><<set $energy = $maxenergy>><<elseif $energy < 0>><<set $energy = 0>><</if>><<= $energy.toFixed(1)>> of maximal <<= $maxenergy>></div>
+    <<button "+1 dispatch">><<set $energy -= 1.8>><<set $OrbTransport.push("encomp")>><<goto "Orb Configuration">><</button>>
+    <<button "-1 dispatch">><<set $energy += 1.8>><<set $OrbTransport.pluck("encomp")>><<goto "Orb Configuration">><</button>>    
+  <</if>>
+  <<if ($TransMast3 && $CampM.Orb && Camp_M) || (Camp_J && $CampJ.Orb && hasVisited("Start from Base Mountain"))>>
+    <div class="index-screens-small" style="background-color:#ac3939"><div><strong>Nutrients Transport to Camp Mountain</strong>
+    <div><<= (6 * $OrbTransport.count("CMNutrients")).toFixed(1)>>Nutrients for <<= (3 * $OrbTransport.count("CMNutrients")).toFixed(1)>>Energy </div>
+    <<if $energy > $maxenergy>><<set $energy = $maxenergy>><<elseif $energy < 0>><<set $energy = 0>><</if>><<= $energy.toFixed(1)>> of maximal <<= $maxenergy>></div>
+    <<button "+1 dispatch">><<set $energy -= 3>><<set $OrbTransport.push("CMNutrients")>><<goto "Orb Configuration">><</button>>
+    <<button "-1 dispatch">><<set $energy += 3>><<set $OrbTransport.pluck("CMNutrients")>><<goto "Orb Configuration">><</button>>   
+  <<elseif hasVisited("3E-Event") && ($TransMast3 && $CampM.Orb && Camp_M) || (Camp_J && $CampJ.Orb && hasVisited("Start from Base Mountain"))>>
+    <div class="index-screens-small" style="background-color:#ac3939"><div><strong>Nutrients Transport to Camp Mountain (passaround)</strong>
+    <div><<= (6 * $OrbTransport.count("CMNutrients")).toFixed(1)>>Nutrients for <<= (4.2 * $OrbTransport.count("CMNutrients")).toFixed(1)>>Energy </div>
+    <<if $energy > $maxenergy>><<set $energy = $maxenergy>><<elseif $energy < 0>><<set $energy = 0>><</if>><<= $energy.toFixed(1)>> of maximal <<= $maxenergy>></div>
+    <<button "+1 dispatch">><<set $energy -= 4.2>><<set $OrbTransport.push("CMNutrients")>><<goto "Orb Configuration">><</button>>
+    <<button "-1 dispatch">><<set $energy += 4.2>><<set $OrbTransport.pluck("CMNutrients")>><<goto "Orb Configuration">><</button>>   
+  <</if>>
+<<elseif $energy > 0 && $Camp_M && not hasVisited("3E-Event")>>
+  <<if $explored2N>>
+    <div class="index-screens-small" style="background-color:#ac3939"><div><strong>Unimatter Transport</strong>
+    <div><<= 3 * $OrbTransport.count("unimatter")>>Unimatter for <<= (4.2 * $OrbTransport.count("unimatter")).toFixed(1)>>Energy </div>
+    <<if $energy > $maxenergy>><<set $energy = $maxenergy>><<elseif $energy < 0>><<set $energy = 0>><</if>><<= $energy.toFixed(1)>> of maximal <<= $maxenergy>></div>
+    <<button "+1 dispatch">><<set $energy -= 4.2>><<set $OrbTransport.push("unimatter")>><<goto "Orb Configuration">><</button>>
+    <<button "-1 dispatch">><<set $energy += 4.2>><<set $OrbTransport.pluck("unimatter")>><<goto "Orb Configuration">><</button>>
+  <</if>>
+  <<if $explored1E>>
+    <div class="index-screens-small" style="background-color:#ac3939"><div><strong>Nutrients Transport</strong>
+    <div><<= 6 * $OrbTransport.count("nutrients")>>Nutrients for <<= (2.4 * $OrbTransport.count("nutrients")).toFixed(1)>>Energy </div>
+    <<if $energy > $maxenergy>><<set $energy = $maxenergy>><<elseif $energy < 0>><<set $energy = 0>><</if>><<= $energy.toFixed(1)>> of maximal <<= $maxenergy>></div>
+    <<button "+1 dispatch">><<set $energy -= 2.4>><<set $OrbTransport.push("nutrients")>><<goto "Orb Configuration">><</button>>
+    <<button "-1 dispatch">><<set $energy += 2.4>><<set $OrbTransport.pluck("nutrients")>><<goto "Orb Configuration">><</button>>
+  <</if>>
+  <<if $explored3S>>
+    <div class="index-screens-small" style="background-color:#ac3939"><div><strong>Energy Composite Transport</strong>
+    <div><<= (2.5 * $OrbTransport.count("encomp")).toFixed(1)>>Nutrients for <<= (4.8 * $OrbTransport.count("encomp")).toFixed(1)>>Energy </div>
+    <<if $energy > $maxenergy>><<set $energy = $maxenergy>><<elseif $energy < 0>><<set $energy = 0>><</if>><<= $energy.toFixed(1)>> of maximal <<= $maxenergy>></div>
+    <<button "+1 dispatch">><<set $energy -= 4.8>><<set $OrbTransport.push("encomp")>><<goto "Orb Configuration">><</button>>
+    <<button "-1 dispatch">><<set $energy += 4.8>><<set $OrbTransport.pluck("encomp")>><<goto "Orb Configuration">><</button>>    
+  <</if>>
+<<elseif $energy > 0 && $Camp_M && hasVisited("3E-Event")>>
+  <<if $explored2N>>
+    <div class="index-screens-small" style="background-color:#ac3939"><div><strong>Unimatter Transport (passaround)</strong>
+    <div><<= 3 * $OrbTransport.count("unimatter")>>Unimatter for <<= (5.4 * $OrbTransport.count("unimatter")).toFixed(1)>>Energy </div>
+    <<if $energy > $maxenergy>><<set $energy = $maxenergy>><<elseif $energy < 0>><<set $energy = 0>><</if>><<= $energy.toFixed(1)>> of maximal <<= $maxenergy>></div>
+    <<button "+1 dispatch">><<set $energy -= 5.4>><<set $OrbTransport.push("unimatter")>><<goto "Orb Configuration">><</button>>
+    <<button "-1 dispatch">><<set $energy += 5.4>><<set $OrbTransport.pluck("unimatter")>><<goto "Orb Configuration">><</button>>
+  <</if>>
+  <<if $explored1E>>
+    <div class="index-screens-small" style="background-color:#ac3939"><div><strong>Nutrients Transport (passaround)</strong>
+    <div><<= 6 * $OrbTransport.count("nutrients")>>Nutrients for <<= (3.6 * $OrbTransport.count("nutrients")).toFixed(1)>>Energy </div>
+    <<if $energy > $maxenergy>><<set $energy = $maxenergy>><<elseif $energy < 0>><<set $energy = 0>><</if>><<= $energy.toFixed(1)>> of maximal <<= $maxenergy>></div>
+    <<button "+1 dispatch">><<set $energy -= 3.6>><<set $OrbTransport.push("nutrients")>><<goto "Orb Configuration">><</button>>
+    <<button "-1 dispatch">><<set $energy += 3.6>><<set $OrbTransport.pluck("nutrients")>><<goto "Orb Configuration">><</button>>
+  <</if>>
+  <<if $explored3S>>
+    <div class="index-screens-small" style="background-color:#ac3939"><div><strong>Energy Composite Transport (passaround)</strong>
+    <div><<= (2.5 * $OrbTransport.count("encomp")).toFixed(1)>>Nutrients for <<= (4.8 * $OrbTransport.count("encomp")).toFixed(1)>>Energy </div>
+    <<if $energy > $maxenergy>><<set $energy = $maxenergy>><<elseif $energy < 0>><<set $energy = 0>><</if>><<= $energy.toFixed(1)>> of maximal <<= $maxenergy>></div>
+    <<button "+1 dispatch">><<set $energy -= 4.8>><<set $OrbTransport.push("encomp")>><<goto "Orb Configuration">><</button>>
+    <<button "-1 dispatch">><<set $energy += 4.8>><<set $OrbTransport.pluck("encomp")>><<goto "Orb Configuration">><</button>>    
+  <</if>>
+<<else>>
+  All energy spent. Either reduce the energy input or rest.
+<</if>>
+<div class="actions-row"><<if $Camp_J>><div>[[Go back to Camp|Camp Jungle]]</div><<else>><div>[[Go back to Camp|Camp Mountain]]</div><</if>></div>
+
+</blockquote>
 </center>
 
 
@@ -1311,6 +1581,18 @@ Bien, bien. Now I have the compass. <</timed>>
 </blockquote></center>
 
 
+:: SecondTester {"position":"225,825","size":"100,100"}
+<<= $calculation>><<= $unimatter>>
+
+[[Testing]]
+
+
+:: Setter {"position":"100,825","size":"100,100"}
+<<set $calculation = 0>><<set $unimatter = 5>>
+
+[[Testing]]
+
+
 :: Shutdown {"position":"1050,175","size":"100,100"}
 <center><blockquote>
 <<timed 1000ms>>Shutdown in 3
@@ -1342,14 +1624,14 @@ Yes! Yes! I am saved
 
 
 :: Social Events {"position":"1700,900","size":"100,100"}
-<center><blockquote><<if $energy <= 0>><<if $Camp_J>><<goto "Camp Jungle">><<else>><<goto "Camp Mountain">><</if>><</if>>
+<center><blockquote><<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>><</if>>
 With whom do I want to socialize?
 
 <<if $noVika == false>>[img[Vika|assets/characters/Vika.png][Vika][$energy -= 1; $social += 0.04; $Vikavisits += 1]]<</if>>
 
 <<if $noLeo == false>>[img[Leo|assets/characters/Leo.png][Leo][$energy -= 1; $social += 0.1]]<</if>>
 
-<<if $Camp_M>><<if $noElva == false>>[img[Elva|assets/characters/Elva.png][Elva][$energy -= 1; $social += 0.06; $Elvavisits += 1]]<</if>>
+<<if $Camp_M || $TransMast2>><<if $noElva == false>>[img[Elva|assets/characters/Elva.png][Elva][$energy -= 1; $social += 0.06; $Elvavisits += 1]]<</if>>
 
 <<if $noAbiba == false>>[img[Abiba|assets/characters/Abiba.png][Abiba][$energy -= 1; $social += 0.08; $Abibavisits += 1]]<</if>><</if>>
 
@@ -1367,40 +1649,56 @@ With whom do I want to socialize?
     A good spot to set up a camp.
     <</if>>
 
-<<if $Camp_J == true>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 0.2]]</div></div><<else>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 1.2]]</div></div><</if>>
+<<if $Camp_J == true>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 0.2+$Oeu]]</div></div><<else>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 6*(0.2+$Oeu)]]</div></div><</if>>
  
-<<if $explored1N == 100>><div class="actions-row"><div>[[Go North|1N][$energy -= 0.2]]</div></div><</if>>
+<<if $explored1N == 100>><div class="actions-row"><div>[[Go North|1N][$energy -= 0.2+$Oeu]]</div></div><</if>>
 
-<<if $explored1W == 100>><div class="actions-row"><div>[[Go West|1W][$energy -= 0.2]]</div></div><</if>>
+<<if $explored1W == 100>><div class="actions-row"><div>[[Go West|1W][$energy -= 0.2+$Oeu]]</div></div><</if>>
 
-<<if $explored1S == 100>><div class="actions-row"><div>[[Go South|1S][$energy -= 0.2]]</div></div><</if>>
+<<if $explored1S == 100>><div class="actions-row"><div>[[Go South|1S][$energy -= 0.2+$Oeu]]</div></div><</if>>
 
-<<if $explored1E == 100>><div class="actions-row"><div>[[Go East|1E][$energy -= 0.2]]</div></div><</if>>
+<<if $explored1E == 100>><div class="actions-row"><div>[[Go East|1E][$energy -= 0.2+$Oeu]]</div></div><</if>>
  
 </blockquote></center>
 
 
 :: Start from Base Mountain {"position":"1525,1500","size":"100,100"}
-<center><blockquote><<if $seenSfBM == false>><<set $seenSfBM = true>>
+<center><blockquote><<if $seenSfBM == false>><<set $seenSfBM = true>><<if $days < 5>><<set $CampM.unimatter = 5>><</if>>
 [img[assets/backgrounds/bg-cover.png]]
+<<if $CampM.nutrients > 0>>
+  On a spot of a mountainous area, I found others! Yay! I guess, that is why the AI kept passive, because it knew, we will find the others ...
 
-On a spot of a mountainous area, we found others! Yay! I guess, that is why the AI kept passive, because it knew, we will find the others ...
+  Both damsels told me that they are less lucky. 3 others of their crewmates didn't make it since <<= $days>> cycles. Both alones make them feel rather lonely. They wish more company. I proposed, if possible, we will set a camp here. The more the merrier. They agreed without hesitation.
 
-Both damsels told me that they are less lucky. 3 others of their crewmates didn't make it since <<= $days>> cycles. Both alones make them feel rather lonely. They wish more company. I proposed, if possible, we will set a camp here. The more the merrier. They agreed without hesitation.
+  I will go back and tell the others about the new option: the resettling to Camp Mountain.
+<<elseif $CampM.nutrients < 0 && $CMfood == 0>><<set $CampM.nutrients = 0, $CMfood = 1, $CampM.unimatter = 0>>
+  On a spot of a mountainous area, I found another spaceship - like ours! Other stranded. 
+  
+  ...
 
-I will go back and tell the others about the new option: the resettling to Camp Mountain.
+  But it is silent. I try to direct-radio them, even knocking on the hatch - which is quite brutally deformed. But no reaction. As I wanted to go befuddled, I hear a whirring and a cracking sound. The hatch! It opens, but painfully. I guess here was someone hostile. Immediately I reposition myself for better oversight and check around, if the cause for this silence is around. 
 
-<div class="actions-row"><div>[[Go to West|4E][$energy -= 0.2]]</div></div>
+  ...
 
-<<if $Camp_J == true>>[[Go back to Camp|Camp Jungle][$energy -= 1]]</div></div><</if>>
+  I see no movement, and no one comes out. Typical AI, silent since we are on this new planet. Boy, oh boy, never had I this much adrenaline! And the silence is more unnerving than an AI imforming me what could be wrong.
+
+  Slowly I near the hatch sidewyas, check it from the distance, no movement. So? Does it mean, no one made it? All were deceased, lost, shut down or at other places? With this hunch, I have a better feeling. 
+  Then! Inside should be some nutrients and unimatter! I hope. As I enter the spaceship, and went to the central, it informed me that there is no unimatter - although a Substance Analyzer is in the inventory - and no nutrients! Whoa, what happened here?!
+  Hold on, no nutrients?! Then ... I gotta check ... oh yes, there are two in cryostasis. Luckily, the energy regenerator on this spaceship is funcioning, more or less, which keeps the cryochambers on. Okay, then that means they need nutrients to let them release out of the chambers. For that I need a floating Orb, or I convince Vika and Leo to come with me.
+<</if>>
+<div class="actions-row"><div>[[Go to West|4E][$energy -= 0.2+$Oeu]]</div></div>
+
+<<if $Camp_J == true>>[[Go back to Camp|Camp Jungle][$energy -= 5*(0.2+$Oeu)]]</div></div><</if>>
 
 <<else>>
 <<if $Camp_M == true>>[img[assets/Ch-Camp/MountainCamp.png]]<<else>>[img[assets/backgrounds/bg-cover.png]]<</if>>
     <<if $energy != 0>>
       
-      <<if $Camp_J == true>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 1]]</div></div><<else>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 1]]</div></div><</if>>
+      <<if $Camp_J == true>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 5*(0.2+$Oeu)]]</div></div><<else>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 5*(0.2+$Oeu)]]</div></div><</if>>
       
-     <<if $Camp_J == true>> <div class="actions-row"><div>[[Go West|4E][$energy -= 0.2]]</div></div><</if>>
+          <<if $explored1N5E == 100 && hasVisited("3E-Event")>><div class="actions-row"><div>[[Go North|1N5E][$energy -= 0.2+$Oeu]]</div></div><</if>><br><br>
+      
+     <<if $Camp_J == true>> <div class="actions-row"><div>[[Go West|4E][$energy -= 0.2+$Oeu]]</div></div><</if>>
     
     <<else>><<goto [[Camp Mountain]]>><</if>>
 <</if>>
@@ -1410,8 +1708,6 @@ I will go back and tell the others about the new option: the resettling to Camp 
 :: StoryInit {"position":"100,25","size":"100,100"}
 <<include [[globalvariables]]>>
 <<include [[Territories]]>>
-<<include [[Chapter2]]>>
-
 
 
 :: Substance Analyzer {"position":"2200,200","size":"100,100"}
@@ -1465,9 +1761,36 @@ With that, we should be able to collect materials nearby. Hopefully, some can be
 <<set $explored5W = 0>>
 
 
+:: Testing {"position":"100,700","size":"100,100"}
+<<button "Xeno+10">><<set $xeno = 10>><<goto [[Testing]]>><</button>>
+<<button "Unimatter+10">><<set $unimatter = 10>><<goto [[Testing]]>><</button>>
+<<button "Energy+10">><<set $energy = 10>><<goto [[Testing]]>><</button>>
+-----------------------------------------
+<<button "+1 Unimatter">><<set $energy -= 1>><<set $OrbTransport.push("unimatter")>><<goto [[Testing]]>><</button>>
+<<= $OrbTransport>>
+<<button "+1 Unimatter">><<set $energy -= 1>><<set $OrbTransport.pluck("unimatter")>><<goto [[Testing]]>><</button>>
+<<= $OrbTransport>>
+
+
+[[Setter]]
+
+[[SecondTester][$calculation += $unimatter; $unimatter = 0]]
+
+
+[[Camp Jungle]]
+
+[[Camp Mountain]] 
+
+[[Camp Jungle]]
+
+[[Camp Mountain]]
+
+
 :: The Map {"position":"900,825","size":"100,100"}
-<center>
-  <<if $xeno == 0>><<set $xeno = 0.2>><</if>>
+<center><<nobr>>
+  <<if $days != 0>><<set _randomNumber = random(20)/$days>><<else>><<set _randomNumber = random(20)/1>><</if>>
+<</nobr>>
+  <<if $xeno == 0>><<set $xeno = 0.05>><</if>>
     <<if random(80) < 2>>
     
         [img[assets/Ch-Explore/hostile_encounter1.png]]
@@ -1475,21 +1798,21 @@ With that, we should be able to collect materials nearby. Hopefully, some can be
         Damn! Some mother alien, animal, four-legger seems to be in aggressive stance.
       
         <<if $xeno < 5>>The outcome depends on my combat ability. Hence: how lucky the mother will be.
-          <<if $combat >= 5>>No damage, successfully coming out unscathed.
-          <<elseif $combat >= 4>>Slight damage, that need constant maintaining until repaired. <<set $maxenergy -= 1>><<set $energy -= 1>><<set $combat += 0.2>>
-          <<elseif $combat >= 3>>Moderate damage. Not so good. That need a repair.<<set $maxenergy -= 2>><<set $energy -= 2>><<set $combat += 0.5>>
-          <<elseif $combat >= 2>>Severe damage, It doesn't look good. The only consolation is the data collection of combat.<<set $maxenergy -= 3>><<set $energy -= 3>><<set $combat += 0.8>>
+          <<if $combat*$cbtOrb >= 5>>No damage, successfully coming out unscathed.
+          <<elseif $combat*$cbtOrb >= 4>>Slight damage, that need constant maintaining until repaired. <<set $energy -= 1; $notrepaired += 1; $combat += 0.2>>
+          <<elseif $combat*$cbtOrb >= 3>>Moderate damage. Not so good. That need a repair.<<set $energy -= 2; $notrepaired += 2; $combat += 0.5>>
+          <<elseif $combat*$cbtOrb >= 2>>Severe damage, It doesn't look good. The only consolation is the data collection of combat.<<set $energy -= 3; $notrepaired += 3; $combat += 0.8>>
           <<else>>
-            <<if $combat > $xeno>>
-              <<if random(10)*$combat > 10>>Lucky! Escape run successful. Although, some damages were taken in, that drains our constant energy use.<<set $maxenergy -= 1>><<set $energy -= 1>><<set $combat += 0.3>>
+            <<if $combat*$cbtOrb > $xeno>>
+              <<if random(10)*$combat*$cbtOrb > 10>>Lucky! Escape run successful. Although, I received some damages; damages that drains our constant energy use.<<set $energy -= 1; $notrepaired += 1; $combat += 0.3>>
                 <<if $unimatter > 0>><<set $unimatter -= 1>><</if>>
-              <<else>>Failure! Intense Damage.<<set $maxenergy -= 5>><<set $energy -= 5>><<set $combat += 0.5>>
-                <<if $unimatter > 0>><<set $unimatter -= 6>><</if>>
+              <<else>>Failure! Intense Damage.<<set $energy -= 5; $notrepaired += 5; $combat += 0.5>>
+                <<if $unimatter > 0>><<set $unimatter -= 5>><</if>>
               <</if>>
             <<else>>
-              <<if random(10)*$xeno > 10>>Trick! I throw something over them, making a landing sound behind them and run as fast as I can.<<set $nutrients -= 8>>
-              <<else>>Failure! Intense Damage.<<set $maxenergy -= 5>><<set $energy -= 5>><<set $combat += 0.5>>
-                <<if $unimatter > 0>><<set $unimatter -= 6>><</if>>
+              <<if random(10)*$xeno*$navOrb > 10>>Trick! I throw something over them, making a landing sound behind them and run as fast as I can.<<set $nutrients -= 8>>
+              <<else>>Failure! Intense Damage.<<set $energy -= 5; $notrepaired += 5; $combat += 0.5>>
+                <<if $unimatter > 0>><<set $unimatter -= 5>><</if>>
               <</if>>
             <</if>>
           <</if>>
@@ -1502,15 +1825,15 @@ With that, we should be able to collect materials nearby. Hopefully, some can be
       <<nobr>><<if hasVisited("Camp Mountain")>><<set $exploredMB = 100>><</if>>
       <div id="the_map">
       
-      <<if $Camp_J == true || $explored1E >= 100>>
+      <<if $Camp_J || $explored1E >= 100>>
         <div id="theJBase">
-          <<if $energy <= 0>><<if $Camp_J == true>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
+          <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
           <<else>>
-            <<if $Camp_M == true>><<if $exploredJB >= 100>><<set $exploredJB = 100>>
-                <<if $energy < 1>><div class="imgs-opaqued">[img[assets/Ch-Camp/JungleCamp.png]]</div><<else>>[[JB|Start from Base Jungle][$energy -= 1]]<</if>>
+            <<if $Camp_M>><<if $exploredJB >= 100>><<set $exploredJB = 100>>
+                <<if $energy < 1>><div class="imgs-opaqued">[img[assets/Ch-Camp/JungleCamp.png]]</div><<else>>[[JB|Start from Base Jungle][$energy -= 5*(0.2+$Oeu)]]<</if>>
               <<else>>
                 <<if $energy >= 1>><<button "<<print $exploredJB.toFixed(0)>>%">>
-                  <<set $exploredJB += random(1,25)*$xeno; $energy -= 1; $xeno += 0.02>>
+                  <<set $exploredJB += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.02>>
                   <<goto [[The Map]]>>
                 <</button>><</if>>
               <</if>>
@@ -1519,23 +1842,23 @@ With that, we should be able to collect materials nearby. Hopefully, some can be
         </div>
       <</if>>
       
-      <<if $Camp_J == true || $explored2E >= 100>>
+      <<if $Camp_J || $explored2E >= 100>>
         <div id="p1E">
-          <<if $energy <= 0>><<if $Camp_J == true>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
+          <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
           <<else>>
             <<if $explored1E >= 100>><<set $explored1E = 100>>
-              <<if $Camp_J == true>>
+              <<if $Camp_J>>
                 <<if $energy < 0.2>><div class="imgs-opaqued">[img[assets/Ch-Explore/food.png]]</div>
-                <<else>><div class="imgs-scaled">[img[assets/Ch-Explore/food.png][1E][$energy -= 0.2]]</div>
+                <<else>><div class="imgs-scaled">[img[assets/Ch-Explore/food.png][1E][$energy -= 0.2+$Oeu]]</div>
                 <</if>>
               <<else>>
                 <<if $energy < 0.8>><div class="imgs-opaqued">[img[assets/Ch-Explore/food.png]]</div>
-                <<else>><div class="imgs-scaled">[img[assets/Ch-Explore/food.png][1E][$energy -= 0.8]]</div>
+                <<else>><div class="imgs-scaled">[img[assets/Ch-Explore/food.png][1E][$energy -= 4*(0.2+$Oeu)]]</div>
                 <</if>>
               <</if>>
             <<else>>
               <<if $energy >= 1>><<button "<<print $explored1E.toFixed(0)>>%">>
-                <<set $explored1E += random(1,30)*$xeno; $energy -= 1; $xeno += 0.05>>
+                <<set $explored1E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05>>
                 <<goto [[The Map]]>>
               <</button>><</if>>
             <</if>>
@@ -1545,21 +1868,21 @@ With that, we should be able to collect materials nearby. Hopefully, some can be
       
       <<if $explored1E >= 100 || $explored3E >= 100>>
         <div id="p2E">
-          <<if $energy <= 0>><<if $Camp_J == true>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
+          <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
           <<else>>
             <<if $explored2E >= 100>><<set $explored2E = 100>>
-              <<if $Camp_J == true>>
+              <<if $Camp_J>>
                 <<if $energy < 0.4>><div class="imgs-opaqued">[img[assets/Ch-Explore/jungle4.png]]</div>
-                <<else>><div class="imgs-scaled">[img[assets/Ch-Explore/jungle4.png][2E][$energy -= 0.4]]</div>
+                <<else>><div class="imgs-scaled">[img[assets/Ch-Explore/jungle4.png][2E][$energy -= 2*(0.2+$Oeu)]]</div>
                 <</if>>
               <<else>>
                 <<if $energy < 0.6>><div class="imgs-opaqued">[img[assets/Ch-Explore/jungle4.png]]</div>
-                <<else>><div class="imgs-scaled">[img[assets/Ch-Explore/jungle4.png][2E][$energy -= 0.6]]</div>
+                <<else>><div class="imgs-scaled">[img[assets/Ch-Explore/jungle4.png][2E][$energy -= 3*(0.2+$Oeu)]]</div>
                 <</if>>
               <</if>>
             <<else>>
               <<if $energy >= 1>><<button "<<print $explored2E.toFixed(0)>>%">>
-                <<set $explored2E += random(1,25)*$xeno; $energy -= 1; $xeno += 0.05>>
+                <<set $explored2E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05>>
                 <<goto [[The Map]]>>
               <</button>><</if>>
             <</if>>
@@ -1567,39 +1890,45 @@ With that, we should be able to collect materials nearby. Hopefully, some can be
         </div>
       <</if>>
       
-      <<if $explored2E >= 100 || $explored4E >= 100>>
-        <div id="p3E">
-          <<if $energy <= 0>><<if $Camp_J == true>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
-          <<else>>
-            <<if $explored3E >= 100>><<set $explored3E = 100>>
-              <<if $Camp_J == true>>
-                <<if $energy < 0.6>><div class="imgs-opaqued">[img[assets/Ch-Explore/jungle2.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/jungle2.png][3E][$energy -= 0.6]]</div><</if>>
-              <<else>>
-                <<if $energy < 0.4>><div class="imgs-opaqued">[img[assets/Ch-Explore/jungle2.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/jungle2.png][3E][$energy -= 0.4]]</div><</if>>
-              <</if>>
+      <<if $eventfrom3E == false>>
+        <<if $explored2E >= 100 || $explored4E >= 100>>
+          <div id="p3E">
+            <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
             <<else>>
-              <<if $energy >= 1>><<button "<<print $explored3E.toFixed(0)>>%">>
-                <<set $explored3E += random(1,25)*$xeno; $energy -= 1; $xeno += 0.05>>
-                <<goto [[The Map]]>>
-              <</button>><</if>>
+              <<if $explored3E >= 100>><<set $explored3E = 100>>
+                <<if $Camp_J>>
+                  <<if $energy < 0.6>><div class="imgs-opaqued">[img[assets/Ch-Explore/jungle2.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/jungle2.png][3E][$energy -= 3*(0.2+$Oeu)]]</div><</if>>
+                <<else>>
+                  <<if $energy < 0.4>><div class="imgs-opaqued">[img[assets/Ch-Explore/jungle2.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/jungle2.png][3E][$energy -= 2*(0.2+$Oeu)]]</div><</if>>
+                <</if>>
+              <<else>>
+                <<if $energy >= 1>><<button "<<print $explored3E.toFixed(0)>>%">>
+                  <<set $explored3E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05>>
+                  <<goto [[The Map]]>>
+                <</button>><</if>>
+              <</if>>
             <</if>>
-          <</if>>
+          </div>
+        <</if>>
+      <<else>>
+        <div id="p3E">
+          <div class="imgs-opaqued">[img[assets/Ch-Explore/jungle2.png]]</div>
         </div>
       <</if>>
       
-      <<if $explored3E >= 100 || $exploredMB >= 100 || $Camp_M == true>>
+      <<if $explored3E >= 100 || $exploredMB >= 100 || $Camp_M>>
         <div id="p4E">
-          <<if $energy <= 0>><<if $Camp_J == true>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
+          <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
           <<else>>
             <<if $explored4E >= 100>><<set $explored4E = 100>>
-              <<if $Camp_J == true>>
-                <<if $energy < 0.9>><div class="imgs-opaqued">[img[assets/Ch-Explore/4E_waterfall.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/4E_waterfall.png][4E][$energy -= 0.8]]</div><</if>>
+              <<if $Camp_J>>
+                <<if $energy < 0.9>><div class="imgs-opaqued">[img[assets/Ch-Explore/4E_waterfall.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/4E_waterfall.png][4E][$energy -= 4*(0.2+$Oeu)]]</div><</if>>
               <<else>>
-                <<if $energy < 0.2>><div class="imgs-opaqued">[img[assets/Ch-Explore/4E_waterfall.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/4E_waterfall.png][4E][$energy -= 0.2]]</div><</if>>
+                <<if $energy < 0.2>><div class="imgs-opaqued">[img[assets/Ch-Explore/4E_waterfall.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/4E_waterfall.png][4E][$energy -= 0.2+$Oeu]]</div><</if>>
               <</if>>
             <<else>>
               <<if $energy >= 1>><<button "<<print $explored4E.toFixed(0)>>%">>
-                <<set $explored4E += random(1,25)*$xeno; $energy -= 1; $xeno += 0.05>>
+                <<set $explored4E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05>>
                 <<goto [[The Map]]>>
               <</button>><</if>>
             <</if>>
@@ -1607,19 +1936,19 @@ With that, we should be able to collect materials nearby. Hopefully, some can be
         </div>
       <</if>>
     
-      <<if $Camp_M == true || $explored4E >= 100>>
+      <<if $Camp_M || $explored4E >= 100>>
         <div id="theMBase">
-          <<if $energy <= 0>><<if $Camp_J == true>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
+          <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
           <<else>>
-            <<if $Camp_J == true>>
+            <<if $Camp_J>>
               <<if $exploredMB >= 100>><<set $exploredMB = 100>>
-                <<if $Camp_J == true>>
-                  <<if $energy < 0.2>><div class="imgs-opaqued">[img[assets/Ch-Camp/MountainCamp.png]]]</div><<else>>[[MB|Start from Base Mountain][$energy -= 1]]<</if>>
+                <<if $Camp_J>>
+                  <<if $energy < 0.2>><div class="imgs-opaqued">[img[assets/Ch-Camp/MountainCamp.png]]]</div><<else>>[[MB|Start from Base Mountain][$energy -= 5*(0.2+$Oeu)]]<</if>>
                 <<else>>[[MB|Start from Base Mountain]]
                 <</if>>
               <<else>>
                 <<if $energy >= 1>><<button "<<print $exploredMB.toFixed(0)>>%">>
-                  <<set $exploredMB += random(1,15)*$xeno; $energy -= 1; $xeno += 0.05>>
+                  <<set $exploredMB += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05>>
                   <<goto [[The Map]]>>
                 <</button>><</if>>
               <</if>>
@@ -1628,19 +1957,19 @@ With that, we should be able to collect materials nearby. Hopefully, some can be
         </div>
       <</if>>
     
-      <<if $Camp_J == true || $exploredJB >= 100>>
+      <<if $Camp_J || $exploredJB >= 100>>
         <div id="p1S">
-          <<if $energy <= 0>><<if $Camp_J == true>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
+          <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
           <<else>>
             <<if $explored1S >= 100>><<set $explored1S = 100>>
-              <<if $Camp_J == true>>
-                <<if $energy < 0.2>><div class="imgs-opaqued">[img[assets/Ch-Explore/desert3.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/desert3.png][1S][$energy -= 0.2]]</div><</if>>
+              <<if $Camp_J>>
+                <<if $energy < 0.2>><div class="imgs-opaqued">[img[assets/Ch-Explore/desert3.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/desert3.png][1S][$energy -= 0.2+$Oeu]]</div><</if>>
               <<else>>
-                <<if $energy < 1.2>><div class="imgs-opaqued">[img[assets/Ch-Explore/desert3.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/desert3.png][1S][$energy -= 1.2]]</div><</if>>
+                <<if $energy < 1.2>><div class="imgs-opaqued">[img[assets/Ch-Explore/desert3.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/desert3.png][1S][$energy -= 6*(0.2+$Oeu)]]</div><</if>>
               <</if>>
             <<else>>
               <<if $energy >= 1>><<button "<<print $explored1S.toFixed(0)>>%">>
-                <<set $explored1S += random(1,20)*$xeno; $energy -= 1; $xeno += 0.02>>
+                <<set $explored1S += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.02>>
                 <<goto [[The Map]]>>
               <</button>><</if>>
             <</if>>
@@ -1650,17 +1979,17 @@ With that, we should be able to collect materials nearby. Hopefully, some can be
       
       <<if $explored1S >= 100>>
         <div id="p2S">
-          <<if $energy <= 0>><<if $Camp_J == true>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
+          <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
           <<else>>
             <<if $explored2S >= 100>><<set $explored2S = 100>>
-              <<if $Camp_J == true>>
-                <<if $energy < 0.4>><div class="imgs-opaqued">[img[assets/Ch-Explore/desert2.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/desert2.png][2S][$energy -= 0.4]]</div><</if>>
+              <<if $Camp_J>>
+                <<if $energy < 0.4>><div class="imgs-opaqued">[img[assets/Ch-Explore/desert2.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/desert2.png][2S][$energy -= 2*(0.2+$Oeu)]]</div><</if>>
               <<else>>
-                <<if $energy < 1.4>><div class="imgs-opaqued">[img[assets/Ch-Explore/desert2.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/desert2.png][2S][$energy -= 1.4]]</div><</if>>
+                <<if $energy < 1.4>><div class="imgs-opaqued">[img[assets/Ch-Explore/desert2.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/desert2.png][2S][$energy -= 7*(0.2+$Oeu)]]</div><</if>>
               <</if>>
             <<else>>
               <<if $energy >= 1>><<button "<<print $explored2S.toFixed(0)>>%">>
-                <<set $explored2S += random(1,15)*$xeno; $energy -= 1; $xeno += 0.02>>
+                <<set $explored2S += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.02>>
                 <<goto [[The Map]]>>
               <</button>><</if>>
             <</if>>
@@ -1670,17 +1999,17 @@ With that, we should be able to collect materials nearby. Hopefully, some can be
         
       <<if $explored2S >= 100>>
         <div id="p3S">
-          <<if $energy <= 0>><<if $Camp_J == true>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
+          <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
           <<else>>
             <<if $explored3S >= 100>><<set $explored3S = 100>>
-              <<if $Camp_J == true>>
-                <<if $energy < 0.6>><div class="imgs-opaqued">[img[assets/Ch-Explore/energy_deposit.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/energy_deposit.png][3S][$energy -= 0.6]]</div><</if>>
+              <<if $Camp_J>>
+                <<if $energy < 0.6>><div class="imgs-opaqued">[img[assets/Ch-Explore/energy_deposit.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/energy_deposit.png][3S][$energy -= 3*(0.2+$Oeu)]]</div><</if>>
               <<else>>
-                <<if $energy < 1.6>><div class="imgs-opaqued">[img[assets/Ch-Explore/energy_deposit.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/energy_deposit.png][3S][$energy -= 1.6]]</div><</if>>
+                <<if $energy < 1.6>><div class="imgs-opaqued">[img[assets/Ch-Explore/energy_deposit.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/energy_deposit.png][3S][$energy -= 8*(0.2+$Oeu)]]</div><</if>>
               <</if>>
             <<else>>
               <<if $energy >= 1>><<button "<<print $explored3S.toFixed(0)>>%">>
-                <<set $explored3S += random(1,15)*$xeno; $energy -= 1; $xeno += 0.02>>
+                <<set $explored3S += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.02>>
                 <<goto [[The Map]]>>
               <</button>><</if>>
             <</if>>
@@ -1688,19 +2017,19 @@ With that, we should be able to collect materials nearby. Hopefully, some can be
         </div>
       <</if>>
       
-      <<if $Camp_J == true || $exploredJB >= 100>>
+      <<if $Camp_J || $exploredJB >= 100>>
         <div id="p1W">
-          <<if $energy <= 0>><<if $Camp_J == true>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
+          <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
           <<else>>
             <<if $explored1W >= 100>><<set $explored1W = 100>>
-              <<if $Camp_J == true>>
-                <<if $energy < 0.2>><div class="imgs-opaqued">[img[assets/Ch-Explore/jungle1.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/jungle1.png][1W][$energy -= 0.2]]</div><</if>>
+              <<if $Camp_J>>
+                <<if $energy < 0.2>><div class="imgs-opaqued">[img[assets/Ch-Explore/jungle1.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/jungle1.png][1W][$energy -= 0.2+$Oeu]]</div><</if>>
               <<else>>
-                <<if $energy < 1.2>><div class="imgs-opaqued">[img[assets/Ch-Explore/jungle1.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/jungle1.png][1W][$energy -= 1.2]]</div><</if>>
+                <<if $energy < 1.2>><div class="imgs-opaqued">[img[assets/Ch-Explore/jungle1.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/jungle1.png][1W][$energy -= 6*(0.2+$Oeu)]]</div><</if>>
               <</if>>
             <<else>>
               <<if $energy >= 1>><<button "<<print $explored1W.toFixed(0)>>%">>
-                <<set $explored1W += random(1,20)*$xeno; $energy -= 1; $xeno += 0.02>>
+                <<set $explored1W += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.02>>
                 <<goto [[The Map]]>>
               <</button>><</if>>
             <</if>>
@@ -1710,17 +2039,17 @@ With that, we should be able to collect materials nearby. Hopefully, some can be
       
       <<if $explored1W >= 100>>
         <div id="p2W">
-          <<if $energy <= 0>><<if $Camp_J == true>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
+          <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
           <<else>>
             <<if $explored2W >= 100>><<set $explored2W = 100>>
-              <<if $Camp_J == true>>
-                <<if $energy < 0.4>><div class="imgs-opaqued">[img[assets/Ch-Explore/swampy_area_2.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/swampy_area_2.png][2W][$energy -= 0.4]]</div><</if>>
+              <<if $Camp_J>>
+                <<if $energy < 0.4>><div class="imgs-opaqued">[img[assets/Ch-Explore/swampy_area_2.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/swampy_area_2.png][2W][$energy -= 2*(0.2+$Oeu)]]</div><</if>>
               <<else>>
-                <<if $energy < 1.4>><div class="imgs-opaqued">[img[assets/Ch-Explore/swampy_area_2.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/swampy_area_2.png][2W][$energy -= 1.4]]</div><</if>>
+                <<if $energy < 1.4>><div class="imgs-opaqued">[img[assets/Ch-Explore/swampy_area_2.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/swampy_area_2.png][2W][$energy -= 7*(0.2+$Oeu)]]</div><</if>>
               <</if>>
             <<else>>
               <<if $energy >= 1>><<button "<<print $explored2W.toFixed(0)>>%">>
-                <<set $explored2W += random(1,25)*$xeno; $energy -= 1; $xeno += 0.02>>
+                <<set $explored2W += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.02>>
                 <<goto [[The Map]]>>
               <</button>><</if>>
             <</if>>
@@ -1730,17 +2059,17 @@ With that, we should be able to collect materials nearby. Hopefully, some can be
       
       <<if $explored2W >= 100>>
         <div id="p3W">
-          <<if $energy <= 0>><<if $Camp_J == true>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
+          <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
           <<else>>
             <<if $explored3W >= 100>><<set $explored3W = 100>>
-              <<if $Camp_J == true>>
-                <<if $energy < 0.6>><div class="imgs-opaqued">[img[assets/Ch-Explore/coastline3.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/coastline3.png][3W][$energy -= 0.6]]</div><</if>>
+              <<if $Camp_J>>
+                <<if $energy < 0.6>><div class="imgs-opaqued">[img[assets/Ch-Explore/coastline3.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/coastline3.png][3W][$energy -= 3*(0.2+$Oeu)]]</div><</if>>
               <<else>>
-                <<if $energy < 1.6>><div class="imgs-opaqued">[img[assets/Ch-Explore/coastline3.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/coastline3.png][3W][$energy -= 1.6]]</div><</if>>
+                <<if $energy < 1.6>><div class="imgs-opaqued">[img[assets/Ch-Explore/coastline3.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/coastline3.png][3W][$energy -= 8*(0.2+$Oeu)]]</div><</if>>
               <</if>>
             <<else>>
               <<if $energy >= 1>><<button "<<print $explored3W.toFixed(0)>>%">>
-                <<set $explored3W += random(1,30)*$xeno; $energy -= 1; $xeno += 0.02>>
+                <<set $explored3W += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.02>>
                 <<goto [[The Map]]>>
               <</button>><</if>>
             <</if>>
@@ -1750,17 +2079,17 @@ With that, we should be able to collect materials nearby. Hopefully, some can be
       
       <<if $explored3W >= 100>>
         <div id="p4W">
-          <<if $energy <= 0>><<if $Camp_J == true>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
+          <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
           <<else>>
             <<if $explored4W >= 100>><<set $explored4W = 100>>
-              <<if $Camp_J == true>>
-                <<if $energy < 0.8>><div class="imgs-opaqued">[img[assets/Ch-Explore/coast1.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/coast1.png][4W][$energy -= 0.8]]</div><</if>>
+              <<if $Camp_J>>
+                <<if $energy < 0.8>><div class="imgs-opaqued">[img[assets/Ch-Explore/coast1.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/coast1.png][4W][$energy -= 4*(0.2+$Oeu)]]</div><</if>>
               <<else>>
-                <<if $energy < 1.8>><div class="imgs-opaqued">[img[assets/Ch-Explore/coast1.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/coast1.png][4W][$energy -= 1.8]]</div><</if>>
+                <<if $energy < 1.8>><div class="imgs-opaqued">[img[assets/Ch-Explore/coast1.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/coast1.png][4W][$energy -= 9*(0.2+$Oeu)]]</div><</if>>
               <</if>>
             <<else>>
               <<if $energy >= 1>><<button "<<print $explored4W.toFixed(0)>>%">>
-                <<set $explored4W += random(1,30)*$xeno; $energy -= 1; $xeno += 0.02>>
+                <<set $explored4W += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.02>>
                 <<goto [[The Map]]>>
               <</button>><</if>>
             <</if>>
@@ -1770,17 +2099,17 @@ With that, we should be able to collect materials nearby. Hopefully, some can be
       
       <<if $explored4W >= 100>>
         <div id="p5W">
-          <<if $energy <= 0>><<if $Camp_J == true>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
+          <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
           <<else>>
             <<if $explored5W >= 100>><<set $explored5W = 100>>
-              <<if $Camp_J == true>>
-                <<if $energy < 1>><div class="imgs-opaqued">[img[assets/Ch-Explore/coast2island.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/coast2island.png][5W][$energy -= 1]]</div><</if>>
+              <<if $Camp_J>>
+                <<if $energy < 1>><div class="imgs-opaqued">[img[assets/Ch-Explore/coast2island.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/coast2island.png][5W][$energy -= 5*(0.2+$Oeu)]]</div><</if>>
               <<else>>
                 <<if $energy < 2>><div class="imgs-opaqued">[img[assets/Ch-Explore/coast2island.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/coast2island.png][5W][$energy -= 2]]</div><</if>>
               <</if>>
             <<else>>
               <<if $energy >= 1>><<button "<<print $explored5W.toFixed(0)>>%">>
-                <<set $explored5W += random(1,30)*$xeno; $energy -= 1; $xeno += 0.05>>
+                <<set $explored5W += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05>>
                 <<goto [[The Map]]>>
               <</button>><</if>>
             <</if>>
@@ -1788,19 +2117,19 @@ With that, we should be able to collect materials nearby. Hopefully, some can be
         </div>
       <</if>>
       
-      <<if $Camp_J == true  || $exploredJB >= 100>>
+      <<if $Camp_J  || $exploredJB >= 100>>
         <div id="p1N">
-          <<if $energy <= 0>><<if $Camp_J == true>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
+          <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
           <<else>>
             <<if $explored1N >= 100>><<set $explored1N = 100>>
-              <<if $Camp_J == true>>
-                <<if $energy < 0.2>><div class="imgs-opaqued">[img[assets/Ch-Explore/marshland1.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/marshland1.png][1N][$energy -= 0.2]]</div><</if>>
+              <<if $Camp_J>>
+                <<if $energy < 0.2>><div class="imgs-opaqued">[img[assets/Ch-Explore/marshland1.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/marshland1.png][1N][$energy -= 0.2+$Oeu]]</div><</if>>
               <<else>>
-                <<if $energy < 1.2>><div class="imgs-opaqued">[img[assets/Ch-Explore/marshland1.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/marshland1.png][1N][$energy -= 1.2]]</div><</if>>
+                <<if $energy < 1.2>><div class="imgs-opaqued">[img[assets/Ch-Explore/marshland1.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/marshland1.png][1N][$energy -= 6*(0.2+$Oeu)]]</div><</if>>
               <</if>>
             <<else>>
               <<if $energy >= 1>><<button "<<print $explored1N.toFixed(0)>>%">>
-                <<set $explored1N += random(1,30)*$xeno; $energy -= 1; $xeno += 0.05>>
+                <<set $explored1N += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05>>
                 <<goto [[The Map]]>>
               <</button>><</if>>
             <</if>>
@@ -1810,17 +2139,17 @@ With that, we should be able to collect materials nearby. Hopefully, some can be
       
       <<if $explored1N >= 100>>
         <div id="p2N">
-          <<if $energy <= 0>><<if $Camp_J == true>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
+          <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
           <<else>>
             <<if $explored2N >= 100>><<set $explored2N = 100>>
-              <<if $Camp_J == true>>
-                <<if $energy < 0.4>><div class="imgs-opaqued">[img[assets/Ch-Explore/unimatter_deposit.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/unimatter_deposit.png][2N][$energy -= 0.4]]</div><</if>>
+              <<if $Camp_J>>
+                <<if $energy < 0.4>><div class="imgs-opaqued">[img[assets/Ch-Explore/unimatter_deposit.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/unimatter_deposit.png][2N][$energy -= 2*(0.2+$Oeu)]]</div><</if>>
               <<else>>
-                <<if $energy < 1.4>><div class="imgs-opaqued">[img[assets/Ch-Explore/unimatter_deposit.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/unimatter_deposit.png][2N][$energy -= 1.4]]</div><</if>>
+                <<if $energy < 1.4>><div class="imgs-opaqued">[img[assets/Ch-Explore/unimatter_deposit.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/unimatter_deposit.png][2N][$energy -= 7*(0.2+$Oeu)]]</div><</if>>
               <</if>>
             <<else>>
               <<if $energy >= 1>><<button "<<print $explored2N.toFixed(0)>>%">>
-                <<set $explored2N += random(1,20)*$xeno; $energy -= 1; $xeno += 0.05>>
+                <<set $explored2N += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05>>
                 <<goto [[The Map]]>>
               <</button>><</if>>
             <</if>>
@@ -1832,17 +2161,17 @@ With that, we should be able to collect materials nearby. Hopefully, some can be
 
         <<if $explored1N >= 100 || $explored1N2E >= 100>>
         <div id="1NE">
-          <<if $energy <= 0>><<if $Camp_J == true>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
+          <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
           <<else>>
             <<if $explored1NE >= 100>><<set $explored1NE = 100>>
-              <<if $Camp_J == true>>
-                <<if $energy < 0.4>><div class="imgs-opaqued">[img[assets/Ch-Explore/scenery1NE.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/scenery1NE.png][2N][$energy -= 0.4]]</div><</if>>
+              <<if $Camp_J>>
+                <<if $energy < 0.4>><div class="imgs-opaqued">[img[assets/Ch-Explore/scenery1NE.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/scenery1NE.png][2N][$energy -= 2*(0.2+$Oeu)]]</div><</if>>
               <<else>>
-                <<if $energy < 1.4>><div class="imgs-opaqued">[img[assets/Ch-Explore/scenery1NE.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/scenery1NE.png][2N][$energy -= 1.4]]</div><</if>>
+                <<if $energy < 1>><div class="imgs-opaqued">[img[assets/Ch-Explore/scenery1NE.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/scenery1NE.png][2N][$energy -= 5*(0.2+$Oeu)]]</div><</if>>
               <</if>>
             <<else>>
               <<if $energy >= 1>><<button "<<print $explored1NE.toFixed(0)>>%">>
-                <<set $explored1NE += random(1,5)*$xeno; $energy -= 1; $xeno += 0.05>>
+                <<set $explored1NE += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05>>
                 <<goto [[The Map]]>>
               <</button>><</if>>
             <</if>>
@@ -1852,17 +2181,17 @@ With that, we should be able to collect materials nearby. Hopefully, some can be
 
         <<if $explored1NE >= 100 || $explored1N3E >= 100>>
         <div id="1N2E">
-          <<if $energy <= 0>><<if $Camp_J == true>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
+          <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
           <<else>>
             <<if $explored1N2E >= 100>><<set $explored1N2E = 100>>
-              <<if $Camp_J == true>>
-                <<if $energy < 0.4>><div class="imgs-opaqued">[img[assets/Ch-Explore/scenery1N2E.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/scenery1N2E.png][2N][$energy -= 0.4]]</div><</if>>
+              <<if $Camp_J>>
+                <<if $energy < 0.6>><div class="imgs-opaqued">[img[assets/Ch-Explore/scenery1N2E.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/scenery1N2E.png][2N][$energy -= 3*(0.2+$Oeu)]]</div><</if>>
               <<else>>
-                <<if $energy < 1.4>><div class="imgs-opaqued">[img[assets/Ch-Explore/scenery1N2E.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/scenery1N2E.png][2N][$energy -= 1.4]]</div><</if>>
+                <<if $energy < 0.8>><div class="imgs-opaqued">[img[assets/Ch-Explore/scenery1N2E.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/scenery1N2E.png][2N][$energy -= 4*(0.2+$Oeu)]]</div><</if>>
               <</if>>
             <<else>>
               <<if $energy >= 1>><<button "<<print $explored1N2E.toFixed(0)>>%">>
-                <<set $explored1N2E += random(1,4)*$xeno; $energy -= 1; $xeno += 0.05>>
+                <<set $explored1N2E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05>>
                 <<goto [[The Map]]>>
               <</button>><</if>>
             <</if>>
@@ -1872,17 +2201,17 @@ With that, we should be able to collect materials nearby. Hopefully, some can be
 
         <<if $explored1N2E >= 100 || $explored1N4E >= 100>>
         <div id="1N3E">
-          <<if $energy <= 0>><<if $Camp_J == true>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
+          <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
           <<else>>
             <<if $explored1N3E >= 100>><<set $explored1N3E = 100>>
-              <<if $Camp_J == true>>
-                <<if $energy < 0.4>><div class="imgs-opaqued">[img[assets/Ch-Explore/scenery1N3E.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/scenery1N3E.png][2N][$energy -= 0.4]]</div><</if>>
+              <<if $Camp_J>>
+                <<if $energy < 0.8>><div class="imgs-opaqued">[img[assets/Ch-Explore/scenery1N3E.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/scenery1N3E.png][2N][$energy -= 4*(0.2+$Oeu)]]</div><</if>>
               <<else>>
-                <<if $energy < 1.4>><div class="imgs-opaqued">[img[assets/Ch-Explore/scenery1N3E.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/scenery1N3E.png][2N][$energy -= 1.4]]</div><</if>>
+                <<if $energy < 0.6>><div class="imgs-opaqued">[img[assets/Ch-Explore/scenery1N3E.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/scenery1N3E.png][2N][$energy -= 3*(0.2+$Oeu)]]</div><</if>>
               <</if>>
             <<else>>
               <<if $energy >= 1>><<button "<<print $explored1N3E.toFixed(0)>>%">>
-                <<set $explored1N3E += random(1,3)*$xeno; $energy -= 1; $xeno += 0.05>>
+                <<set $explored1N3E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05>>
                 <<goto [[The Map]]>>
               <</button>><</if>>
             <</if>>
@@ -1892,17 +2221,17 @@ With that, we should be able to collect materials nearby. Hopefully, some can be
 
         <<if $explored1N3E >= 100 || $explored1N5E >= 100>>
         <div id="1N4E">
-          <<if $energy <= 0>><<if $Camp_J == true>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
+          <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
           <<else>>
             <<if $explored1N4E >= 100>><<set $explored1N4E = 100>>
-              <<if $Camp_J == true>>
-                <<if $energy < 0.4>><div class="imgs-opaqued">[img[assets/Ch-Explore/scenery1N4E.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/scenery1N4E.png][2N][$energy -= 0.4]]</div><</if>>
+              <<if $Camp_J>>
+                <<if $energy < 1>><div class="imgs-opaqued">[img[assets/Ch-Explore/scenery1N4E.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/scenery1N4E.png][2N][$energy -= 5*(0.2+$Oeu)]]</div><</if>>
               <<else>>
-                <<if $energy < 1.4>><div class="imgs-opaqued">[img[assets/Ch-Explore/scenery1N4E.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/scenery1N4E.png][2N][$energy -= 1.4]]</div><</if>>
+                <<if $energy < 0.4>><div class="imgs-opaqued">[img[assets/Ch-Explore/scenery1N4E.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/scenery1N4E.png][2N][$energy -= 2*(0.2+$Oeu)]]</div><</if>>
               <</if>>
             <<else>>
               <<if $energy >= 1>><<button "<<print $explored1N4E.toFixed(0)>>%">>
-                <<set $explored1N4E += random(1,4)*$xeno; $energy -= 1; $xeno += 0.05>>
+                <<set $explored1N4E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05>>
                 <<goto [[The Map]]>>
               <</button>><</if>>
             <</if>>
@@ -1912,17 +2241,17 @@ With that, we should be able to collect materials nearby. Hopefully, some can be
 
         <<if $explored1N4E >= 100 || $Camp_M>>
         <div id="1N5E">
-          <<if $energy <= 0>><<if $Camp_J == true>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
+          <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
           <<else>>
             <<if $explored1N5E >= 100>><<set $explored1N5E = 100>>
-              <<if $Camp_J == true>>
-                <<if $energy < 0.4>><div class="imgs-opaqued">[img[assets/Ch-Explore/scenery1N5E.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/scenery1N5E.png][2N][$energy -= 0.4]]</div><</if>>
+              <<if $Camp_J>>
+                <<if $energy < 1.2>><div class="imgs-opaqued">[img[assets/Ch-Explore/scenery1N5E.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/scenery1N5E.png][2N][$energy -= 6*(0.2+$Oeu)]]</div><</if>>
               <<else>>
-                <<if $energy < 1.4>><div class="imgs-opaqued">[img[assets/Ch-Explore/scenery1N5E.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/scenery1N5E.png][2N][$energy -= 1.4]]</div><</if>>
+                <<if $energy < 0.2>><div class="imgs-opaqued">[img[assets/Ch-Explore/scenery1N5E.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/scenery1N5E.png][2N][$energy -= 0.2+$Oeu]]</div><</if>>
               <</if>>
             <<else>>
               <<if $energy >= 1>><<button "<<print $explored1N5E.toFixed(0)>>%">>
-                <<set $explored1N5E += random(1,20)*$xeno; $energy -= 1; $xeno += 0.05>>
+                <<set $explored1N5E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05>>
                 <<goto [[The Map]]>>
               <</button>><</if>>
             <</if>>
@@ -1940,7 +2269,7 @@ With that, we should be able to collect materials nearby. Hopefully, some can be
   
       <div class="index-screens-normal"><strong>Xeno Indicator:</strong>  <<= $xeno.toFixed(1)>></div>
       
-      <div class="actions-row"><<if $Camp_J == true>><div>[[Go back to Camp|Camp Jungle]]</div><<else>><div>[[Go back to Camp|Camp Mountain]]</div><</if>></div>
+      <div class="actions-row"><<if $Camp_J>><div>[[Go back to Camp|Camp Jungle]]</div><<else>><div>[[Go back to Camp|Camp Mountain]]</div><</if>></div>
     <</if>>
   </center>
 
@@ -2092,6 +2421,8 @@ Since I come from upper middle class, my family invested in a designer baby. Obv
 <<set $maxnutrients = 50>>
 <<set $days = 0>>
 
+<<set $notrepaired = 0>>
+
 <<set $compass = false>>
 <<set $SubAnalyzer = false>>
 
@@ -2104,25 +2435,33 @@ Since I come from upper middle class, my family invested in a designer baby. Obv
     building: 0,
     maxbuildings: 5,
     EHarvester: false,
-	Orb: false,
-	nOrb: false,
-    cnOrb: false,
+    EHarvester2: false,
+    Orb: 1,
+    nOrb: 1,
+    cOrb: 1,
 };>>
 <<set $CampM to {
 	TransMast: false,
 	Farm: false,
+    nutrients: 50,
+    unimatter: 5,
     DefPerimeter: false,
     building: 0,
     maxbuildings: 3,
     EHarvester: false,
-	Orb: false,
-	nOrb: false,
-    cnOrb: false,
+    EHarvester2: false,
+    Orb: 1,
+    nOrb: 1,
+    cOrb: 1,
 };>>
 
 <<set $passagevisited = false>>
 
-<<set $carrycap = 0>>
+<<set $carrycap = 1>>
+<<set $navOrb = 1>>
+<<set $cbtOrb = 1>>
+<<set $Oeu = 0>>
+<<set $OrbTransport = []>>
 
 <<set $numero = 0>>
 
@@ -2169,6 +2508,18 @@ Since I come from upper middle class, my family invested in a designer baby. Obv
     AI10: false,
 };>>
 
+/* Chapter 2 */
+
+<<set $eventfrom3E = false>>
+<<set $deathin3E = false>>
+
+<<set $TransMast2 = false; $TransMast3 = false;>>
+
+<<set $OrbAutoCM = false>>
+<<set $OrbAutoCJ = false>>
+
+<<set $CMfood = 0>>
+
 
 :: StoryScript [script]
 //--------- range in conditionals, works fabulously
@@ -2182,7 +2533,6 @@ Object.defineProperty(Number.prototype,'range',{
 });
 
 :: StoryStylesheet [stylesheet]
-
 /* core ------------------------------------------------------------------------------------- */    
 @font-face {
   font-family: 'Bahnschrift';
@@ -2260,15 +2610,6 @@ button[id|=history-backward]::before {
 button[id|=history-forward]::before {
   content: "⮕"; /* Unicode character for arrow right */  
 }
-
-/* ui side bar     ------------------------------------------------------------------------------------- */
-/* button{cursor:pointer;color:#eee;background-color:cadetblue;border:1px solid #999;border-radius:0.5em;line-height:normal;padding:.4em;-webkit-transition-duration:.2s;-o-transition-duration:.2s;transition-duration:.2s;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
-
-button[id|=history]{cursor:pointer;color:#eee;background-color:transparent;border:0;border-radius:.5em;line-height:normal;padding:.4em;}
-
-button:hover{background-color:#57c;border-color:#79e}
-
-button:disabled{background-color:transparent;border:0} */
 
 /* character z-indexing     ------------------------------------------------------------------------------------- */
 #VikaFront {
@@ -2459,6 +2800,10 @@ box-sizing: border-box;
 
 .color-red {
   color: #ff6633;
+}
+
+.color-yellow {
+  color: #ffcc00;
 }
 
 /* the con- & destruction list ------------------------------------------------------------------------------------- */
