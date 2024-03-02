@@ -380,11 +380,36 @@ Where to go next?
 </blockquote></center>
 
 
+:: 3E Event Aftermath {"position":"1900,1525","size":"100,100"}
+<center>[img[assets/Ch-Explore/3E_Event_Aftermath.png]]
+  <blockquote>
+
+<<timed 3000 ms>>.<<timed 1000ms>>.<</timed>><<timed 2000ms>>.<</timed>>
+
+<<timed 5000 ms>>.<</timed>><<timed 6000ms>>.<</timed>><<timed 7000ms>>.<</timed>>
+
+<<timed 10000 ms>>
+<<linkappend "Nfh!">>
+
+
+
+<</linkappend>>
+<</timed>><</timed>>
+  
+  </blockquote>
+</center>
+
+
 :: 3E-Event {"position":"1900,1400","size":"100,100"}
 <center>[img[assets/Ch-Explore/3E_Event.png]]
   <blockquote>
   
+I run and run and run and run and run, my pump, my heart, is overclocking. As soon as I see the spaceship, I radio to the spaceship to be ready to close the hatch and even fly away. But Leo is already on the hatch and as soon as I run to a distance he seemt fit, he close the hatch. As it is closing, I jump in and hear a loud clack and thuck and more. We are running inside and hear the machines humming. Vika is in the cockpit, pressing all buttons to levitate the spaceship out of place in short time. From all sides comes the roaring of the motor and the thucks against the hull. 
+Silence. Even, the roars are now humming. Leo and I look at each other, wondering if we can relax now? We listen intently, we can feel the spaceship distancing more and more from the surface.
+Then, with a loud crash, a crystalline stele brutally penetrates the through the hull, one thrust through the ship, that hard, that fast, it manages not to break the ship apart, spread barbs and suddenly with the same brute force it pulls on the spaceship.
+The last we realize was a loud crash and blackout.
 
+[[...|3E Event Aftermath]]
   
   </blockquote>
 </center>
@@ -503,12 +528,12 @@ Sandy Beach! That's gonna be a spot!
 <<script>>
 Config.saves.autosave = ["autosave"]
 <</script>>
+
 <<set $rNr = random(10)>>
 <<if hasVisited("3E-Event")>><<set $extra3E = 1.2>><</if>>
 <<set _TMconstant = []>><<if $TransMast3>><<set _TMconstant.push($CampM.EHarvester, 5, 0.2, 0.1)>><<else>><</if>>
 <<if $noLeo || $noVika || $noElva || $noAbiba>><<set $noLeo = false, $noVika = false, $noElva = false, $noAbiba = false>><</if>>
 <<if $energy < 0 || $nutrients <= 0 || $days >= 30>><<goto "End of Game">>
-
 <<elseif $Camp_J>>
   <<set $energy += 5 + (_TMconstant.count(5)*5) + $CampJ.EHarvester + (($OrbTransport.count("encomp")*(2.5/1.8)) + ($OrbTransport.count("unimatter")*1.2) + ($OrbTransport.count("nutrients")*0.6) + ($OrbTransport.count("CJMNutrients")*(3 + $extra3E)) + ($OrbTransport.count("CMNutrients")*(2.4 + $extra3E))) - $notrepaired>>
   <<set $nutrients -= 3 + $CampJ.Farm + ($OrbTransport.count("nutrients")*9)>>
@@ -769,23 +794,30 @@ Have I a change of mind? I want a ...
 <</nobr>><center><center>[img[assets/Ch-Camp/JungleCamp.png]]</center>
 
 <div class="passage-titles" style="color:#2aa22a; border-bottom-color: #2aa22a; border-top-color: #2aa22a;"><center><h2><strong>Camp Jungle</strong></h2></center></div>
-<div class="order-indices">
-<div class="index-screens-normal"><div><strong>Things in the inventory:</strong></div><div>[img[Materials Printer|assets/items/3D-Printer_rs.png]] [img[Compass|assets/items/compass_rs.png]] <<if $SubAnalyzer == true>>[img[Substance Analyzer|assets/items/Substance-Analyzer_rs.png]]<</if>></div></div>
-<div class="index-screens-normal"><div><strong>Components and Buildings operated by your spaceship:</strong></div><div><<if $CampJ.TransMast == true>>[img[Transmission Mast|assets/items/antenna_CJ_rs.png]] <</if>><<if $CampJ.EHarvester != 0>>[img[Energy Harvester|assets/items/sun-collectors_rs.png]] <</if>><<if $CampJ.DefPerimeter == true>>[img[Defense Perimeter|assets/items/defense-perimeter_rs.png]] <</if>><<if $CampJ.Farm == true>>[img[Horticulture|assets/items/farm_rs.png]] <</if>><<if $CampJ.Orb == 3>>[img[Floating Orb|assets/items/The-Orb_rs.png]]&nbsp;<<elseif  $CampJ.nOrb == 3 && $CampJ.cOrb == 1>>[img[Orb +Navigation|assets/items/navigation-Orb_rs.png]]&nbsp;<<elseif $CampJ.nOrb == 1 && $CampJ.cOrb == 3>>[img[Orb +Combat|assets/items/combat-Orb_rs.png]]&nbsp;<<elseif $CampJ.nOrb == 3 && $CampJ.cOrb == 3>>[img[Orb +Navi +Combat|assets/items/nc-Orb_rs.png]]&nbsp;<</if>></div><div><<if $CampJ.building > $CampJ.maxbuilding>><<set $CampJ.building = $CampJ.maxbuilding>><<elseif $CampJ.building < 0>><<set $CampJ.building = 0>><</if>>The camp has <<= $CampJ.building>> of maximal <<= $CampJ.maxbuildings>> buildings.</div></div>
-<div class="index-screens-small"><div><div><strong>CYCLES:&nbsp;</strong></div><div><<= $days>></div></div><div><div><strong>ENERGY:&nbsp;</strong></div><div><<if $maxenergy < 0>><<set $maxenergy = 0>><</if>><<if $energy > $maxenergy>><<set $energy = $maxenergy>><<elseif $energy < 0>><<set $energy = 0>><</if>><<= $energy.toFixed(1)>> of maximal <<= $maxenergy>></div></div><div><div><strong>UNIMATTER:&nbsp;</strong></div><div><<if $unimatter < 0>><<set $unimatter = 0>><</if>><<if $unimatter > $maxunimatter>><<set $unimatter = $maxunimatter>><<elseif $unimatter < 0>><<set $unimatter = 0>><</if>><<= $unimatter.toFixed(1)>> Unimatter</div></div></div>
-<div class="index-screens-normal"><div><strong>NUTRIENTS:</strong></div><div>We have <<= $nutrients>> nutrients in storage. Each person consume one unit of nutrients per cycle. We can only store a quantity of 50.</div></div>
-<div class="index-screens-professions"><div class="title-profession"><strong>PROFESSIONS:</strong></div><div class="index-professions"><div> Xenology: <<= ($xeno*$navOrb).toFixed(1)>></div> + <div>Combatibility: <<= ($combat*$cbtOrb).toFixed(1)>></div> + <div>Engineering: <<= $engineering.toFixed(1)>></div> + <div>Interactibility: <<= $social.toFixed(1)>></div></div></div></div>
+<div class="order-indices"><div class="index-screens-normal"><div><strong>Things in the inventory:</strong></div>
+<div>[img[Materials Printer|assets/items/3D-Printer_rs.png]] [img[Compass|assets/items/compass_rs.png]] <<if $SubAnalyzer == true>>[img[Substance Analyzer|assets/items/Substance-Analyzer_rs.png]]<</if>></div></div>
+<div class="index-screens-normal"><div><strong>Components and Buildings operated by your spaceship:</strong></div>
+<div><<if $CampJ.TransMast == true>>[img[Transmission Mast|assets/items/antenna_CJ_rs.png]] <</if>><<if $CampJ.EHarvester != 0>>[img[Energy Harvester|assets/items/sun-collectors_rs.png]] <</if>><<if $CampJ.DefPerimeter == true>>[img[Defense Perimeter|assets/items/defense-perimeter_rs.png]] <</if>><<if $CampJ.Farm == true>>[img[Horticulture|assets/items/farm_rs.png]] <</if>><<if $CampJ.Orb == 3>>[img[Floating Orb|assets/items/The-Orb_rs.png]]&nbsp;<<elseif  $CampJ.nOrb == 3 && $CampJ.cOrb == 1>>[img[Orb +Navigation|assets/items/navigation-Orb_rs.png]]&nbsp;<<elseif $CampJ.nOrb == 1 && $CampJ.cOrb == 3>>[img[Orb +Combat|assets/items/combat-Orb_rs.png]]&nbsp;<<elseif $CampJ.nOrb == 3 && $CampJ.cOrb == 3>>[img[Orb +Navi +Combat|assets/items/nc-Orb_rs.png]]&nbsp;<</if>></div><div><<if $CampJ.building > $CampJ.maxbuilding>><<set $CampJ.building = $CampJ.maxbuilding>><<elseif $CampJ.building < 0>><<set $CampJ.building = 0>><</if>>The camp has <<= $CampJ.building>> of maximal <<= $CampJ.maxbuildings>> buildings.</div></div>
+<div class="index-screens-small"><div><div><strong>CYCLES:&nbsp;</strong></div><div><<= $days>></div></div>
+<div><div><strong>ENERGY:&nbsp;</strong></div><div><<if $maxenergy < 0>><<set $maxenergy = 0>><</if>><<if $energy > $maxenergy>><<set $energy = $maxenergy>><<elseif $energy < 0>><<set $energy = 0>><</if>><<= $energy.toFixed(1)>> of maximal <<= $maxenergy>></div></div>
+<div><div><strong>UNIMATTER:&nbsp;</strong></div><div><<if $unimatter < 0>><<set $unimatter = 0>><</if>><<if $unimatter > $maxunimatter>><<set $unimatter = $maxunimatter>><<elseif $unimatter < 0>><<set $unimatter = 0>><</if>><<= $unimatter.toFixed(1)>> Unimatter</div></div></div>
+<div class="index-screens-normal"><div><strong>NUTRIENTS:</strong></div>
+<div>We have <<= $nutrients>> nutrients in storage. Each person consume one unit of nutrients per cycle. We can only store a quantity of 50.</div></div>
+<div class="index-screens-professions"><div class="title-profession"><strong>PROFESSIONS:</strong></div>
+<div class="index-professions"><div> Xenology: <<= ($xeno*$navOrb).toFixed(1)>></div> + <div>Combatibility: <<= ($combat*$cbtOrb).toFixed(1)>></div> + <div>Engineering: <<= $engineering.toFixed(1)>></div> + <div>Interactibility: <<= $social.toFixed(1)>></div></div></div></div>
 
 <div class="Title_Actions"><strong><center><h3>ACTIONS:</h3></center></strong></div>
-<div class="actions-table"><div class="actions-row">
-<<if $energy >=1>><div>[[Train in Engineering|Camp Jungle][$energy -= 1; $engineering += 0.1]]</div><</if>>
-<<if $energy >=1>><div>[[Train in Combat Arts|Camp Jungle][$energy -= 1; $combat += 0.1]]</div><</if>></div>
+<div class="actions-table">
+<div class="actions-row"><<if $energy >=1>><div>[[Train in Engineering|Camp Jungle][$energy -= 1; $engineering += 0.1]]</div><</if>>
+  <<if $energy >=1>><div>[[Train in Combat Arts|Camp Jungle][$energy -= 1; $combat += 0.1]]</div><</if>></div>
 <div class="actions-row"><<if $energy >=1>><div>[[Go to the Materials Printer|Construction Menu]]</div><</if>>
-<<if $energy >=1>><div>[[Socialize with your Crew|Social Events]]</div><</if>></div>
+  <<if $energy >=1>><div>[[Socialize with your Crew|Social Events]]</div><</if>></div>
 <div class="actions-row"><<if $energy >=1>><div>[[Go Out|Ante Explore]]</div><</if>>
-<div>[[Rest|A New Cycle][$days += 1]]</div></div>
-<div class="actions-row"><<if $eventfrom3E == false>><div><<if $energy > 4 && (hasVisited("Start from Base Mountain") || hasVisited("Foot of a Mountain")) && $TransMast3 == false>>[[Move to Camp Mountain|Camp Mountain][$energy -= 5; $maxenergy += 10; $maxnutrients += 50; $nutrients += $CampM.nutrients-($days*2); $CampM.nutrients = 0; $engineering += $days*0.3; $combat += $days*0.1; $unimatter += $CampM.unimatter; $CampM.unimatter = 0; $OrbTransport = []]]<<elseif $TransMast3 && $energy > 4>>[[Move to Camp Mountain|Camp Mountain][$nutrients += $CampM.nutrients-($days*2); $CampM.nutrients = 0; $unimatter += $CampM.unimatter; $CampM.unimatter = 0; $OrbTransport = []]]<</if>><<else>><<linkappend "Move to Camp Jungle" t8n>>We do not want to fly over before we know more about what attacked us.<</linkappend>></div><</if>>
-<<if $CMfoodQuest == 1>><div>[[Go to Quest Management|Quest Management]]</div><</if>>
+  <div>[[Rest|A New Cycle][$days += 1]]</div></div>
+<div class="actions-row"><<if $eventfrom3E == false>>
+  <<if $energy > 4 && (hasVisited("Start from Base Mountain") || hasVisited("Foot of a Mountain")) && $TransMast3 == false>><div>[[Move to Camp Mountain|Camp Mountain][$energy -= 5; $maxenergy += 10; $maxnutrients += 50; $nutrients += $CampM.nutrients-($days*2); $CampM.nutrients = 0; $engineering += $days*0.3; $combat += $days*0.1; $unimatter += $CampM.unimatter; $CampM.unimatter = 0; $OrbTransport = []]]</div><<elseif $TransMast3 && $energy > 4>><div>[[Move to Camp Mountain|Camp Mountain][$nutrients += $CampM.nutrients-($days*2); $CampM.nutrients = 0; $unimatter += $CampM.unimatter; $CampM.unimatter = 0; $OrbTransport = []]]</div><</if>>
+  <<else>><div><<linkappend "Move to Camp Jungle" t8n>>We do not want to fly over before we know more about what attacked us.<</linkappend>></div><</if>>
+  <<if $CMfoodQuest == 1>><div>[[Go to Quest Management|Quest Management]]</div><</if>></div>
 </div></center>
 
 DEVELOPPER: [[Testing]]
@@ -823,7 +855,7 @@ DEVELOPPER: [[Testing]]
 <div class="actions-row"><<if $energy >=1>><div>[[Go Out|Ante Explore]]</div><</if>>
 <div>[[Rest|A New Cycle][$days += 1]]</div></div>
 <div class="actions-row"><<if $eventfrom3E == false && $energy > 4 && hasVisited("Start from Base Jungle") && $TransMast3 == false>><div>
-[[Move to Camp Jungle|Camp Jungle][$energy /= 2; $maxenergy -= 10; $maxnutrients -= 50; $nutrients /= 2; $unimatter /= 2; $engineering -= $days*0.3; $combat -= $days*0.1; $OrbTransport = []]]</div><<elseif $energy > 4 && $TransMast3>><div>[[Move to Camp Jungle|Camp Jungle][$nutrients /= 2; $unimatter /= 2; $OrbTransport = []]]</div><<elseif hasVisited("3E-Event")>><<linkappend "Move to Camp Jungle" t8n>>We do not want to fly over before we know more about what attacked us.<</linkappend>><</if>>
+[[Move to Camp Jungle|Camp Jungle][$energy /= 2; $maxenergy -= 10; $maxnutrients -= 50; $nutrients /= 2; $unimatter /= 2; $engineering -= $days*0.3; $combat -= $days*0.1; $OrbTransport = []]]</div><<elseif $energy > 4 && $TransMast3>><div>[[Move to Camp Jungle|Camp Jungle][$nutrients /= 2; $unimatter /= 2; $OrbTransport = []]]</div><<elseif hasVisited("3E-Event")>><div><<linkappend "Move to Camp Jungle" t8n>>We do not want to fly over before we know more about what attacked us.<</linkappend>></div><</if>>
 </div></div>
 
 </center>
@@ -1376,12 +1408,12 @@ Choose in which profession you want to master:
 <<else>>
 	[img[assets/Ch-Explore/lostinjungle.png]]
     
-    I have <<= $energy>> energy. I cannot be lost! Otherwise, I am at mercy of others to find me. <<set _numero += 1>><<= _numero>>
-  <<nobr>><<if $xeno >= 1 && visited("LostiJ") is 5>>My "professional" guts are telling me it should be somewhere north and east.<<elseif $xeno >= 1 && $numero >= 8>><<goto "Leo Crashsite">><<elseif $energy < 3>>Oh no no. Please, Fortuna, be on my side!<<elseif $numero >= 6 && random(6) > 5>><<goto "Leo Crashsite">><</if>><</nobr>>
+    I have <<= $energy>> energy. I cannot be lost! Otherwise, I am at mercy of others to find me. 
+  <<nobr>><<if $xeno >= 1 && visited("LostiJ") is 5>>My "professional" guts are telling me it should be somewhere north and east.<<elseif $xeno >= 1 && _numero >= 8>><<goto "Leo Crashsite">><<elseif $energy < 3>>Oh no no. Please, Fortuna, be on my side!<<elseif _numero >= 6 && random(6) > 5>><<goto "Leo Crashsite">><</if>><</nobr>>
 
-		<div class="actions-row"><div>[[North|LostiJ][$energy -= 1; $numero += 1]]</div></div>
+		<div class="actions-row"><div>[[North|LostiJ][$energy -= 1; _numero += 1]]</div></div>
     
-    	<div class="actions-row"><div>[[East|LostiJ][$energy -= 1; $numero += 1]]</div></div>
+    	<div class="actions-row"><div>[[East|LostiJ][$energy -= 1; _numero += 1]]</div></div>
 
 		<div class="actions-row"><div>[[South|LostiJ][$energy -= 1]]</div></div>
         
@@ -1416,7 +1448,7 @@ Well then, ancient. Welcome to the future, as it is already now, oldtimer. Ready
 
 
 :: Orb Configuration {"position":"1400,500","size":"100,100"}
-<center><center>[img[assets/backgrounds/Orb_automated.png]]</center>
+<center><center>[img[assets/backgrounds/Orb_Config_3.png]]</center>
 <blockquote>
 
   <div class="passage-titles" style="color: #ff5c33; border-bottom-color: #ff5c33; border-top-color: #ff5c33;"><center><h3><strong>Orb Automation Configuration</strong></h3></center></div>
@@ -1557,7 +1589,8 @@ What do I want for the Orb to collect?
 
 
 :: Quest Management {"position":"1700,500","size":"100,100"}
-<center><blockquote>
+<center>[img[assets/backgrounds/todo-list.png]]
+<blockquote>
 
 <<if $CMfoodQuest == 2>>
 
@@ -2502,6 +2535,7 @@ Since I come from upper middle class, my family invested in a designer baby. Obv
 <<set $OrbTransport = [$energy]>>
 <<set $OrbTA = false>>
 <<set $readOC = false>>
+<<set $extra3E = 0>>
 
 <<set $numero = 0>>
 
