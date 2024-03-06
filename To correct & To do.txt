@@ -31,8 +31,6 @@ Chapter 2:
 + DONE: 1x for Quest Management
 + DONE: 1x for 3E Event aftermath
 
-- side bar
-+ make it sticky, keep it on screen
-
-- Shutdown passage:
-+ shutting down with simple animation, black "curtain" down
+- for future:
++ AI audio generated
++ AI voice generated (although: consistency!)

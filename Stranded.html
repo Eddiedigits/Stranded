@@ -176,6 +176,12 @@ button[id|=history-forward]::before {
   content: "⮕"; /* Unicode character for arrow right */  
 }
 
+/* sidebar     ------------------------------------------------------------------------------------- */
+
+#ui-bar {
+  position: fixed;
+}
+
 /* character z-indexing     ------------------------------------------------------------------------------------- */
 #VikaFront {
   position: absolute;
@@ -543,6 +549,101 @@ box-sizing: border-box;
     left: 390px;
 }
 
+/* Animation ----------------------------------------------*/
+
+@keyframes shutdown {
+  from {background-color: transparent; height:0px;}
+  to {background-color: #111; height:670px;}
+}
+
+.anilightsout {
+  position: absolute;
+  top:0;
+  left:0;
+  z-index: 10;
+  width: 100%;
+  height: 670px;
+  background-color: transparent;
+  animation-name: shutdown;
+  animation-duration: 1s;
+  animation-delay: 4s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes poking {
+  0% {rotate: 0deg;}
+  10% {rotate: -5deg;}
+  11% {rotate: -5deg;}
+  13% {rotate: 0deg;}
+  23% {rotate: 0deg;}
+  25% {rotate: -10deg;}
+  27% {rotate: 0deg;}
+  44% {rotate: 0deg;}
+  45% {rotate: -8deg;}
+  47% {rotate: 0deg;}
+  74% {rotate: 0deg;}
+  75% {rotate: -10deg;}
+  78% {rotate: -2deg;}
+  94% {rotate: 0deg;}
+  95% {rotate: -12deg;}
+  100% {rotate: 0deg;}
+}
+
+#anilowshake {
+  display: flex;
+  width: 95vw;
+  max-width: 700px;
+  justify-content: center;
+  margin: 3em 0 0 0;
+  z-index: 1;
+  animation-name: poking;
+  animation-duration: 4s;
+  animation-delay: 1s;
+  animation-iteration-count: 3;
+}
+
+@keyframes bigthrust {
+  0% {rotate: 0deg;}
+  77% {rotate: 0deg;}
+  79% {rotate: -20deg;}
+  80% {rotate: -2deg;}
+  89% {rotate: -2deg;}
+  90% {rotate: -14deg;}
+  100% {rotate: -3deg;}
+}
+
+#anilowsab {
+  display: flex;
+  width: 95vw;
+  max-width: 700px;
+  justify-content: center;
+  margin: 3em 0 0 0;
+
+  animation-name: bigthrust;
+  animation-duration: 0.5s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes wakingup {
+  from {background-color: #111; height:800px;}
+  to {background-color: #111; height:0px;}
+}
+
+#aniwakingup {
+  position: absolute;
+  top:0;
+  left:0;
+  z-index: 10;
+  width: 100%;
+  height: 800px;
+  background-color: #111;
+  animation-name: wakingup;
+  animation-duration: 3s;
+  animation-delay: 3s;
+  animation-fill-mode: both;
+}
+
 /* placeholder ----------------------------------------------*/</style><script role="script" id="twine-user-script" type="text/twine-javascript">//--------- range in conditionals, works fabulously
 
 Object.defineProperty(Number.prototype,'range',{
@@ -836,15 +937,14 @@ Where to go next?
 
 &lt;&lt;if $explored4E == 100&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go East|4E][$energy -= 0.2+$Oeu]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
 &lt;/span&gt;
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="21" name="3E-Event" tags="" position="1900,1400" size="100,100">&lt;center&gt;[img[assets/Ch-Explore/3E_Event.png]]
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="21" name="3E-Event" tags="" position="1900,1400" size="100,100">&lt;center&gt;[img[assets/backgrounds/Placeholder.png]]
   &lt;blockquote&gt;
-  
-I run and run and run and run and run, my pump, my heart, is overclocking. As soon as I see the spaceship, I radio to the spaceship to be ready to close the hatch and even fly away. But Leo is already on the hatch and as soon as I run to a distance he seemt fit, he close the hatch. As it is closing, I jump in and hear a loud clack and thuck and more. We are running inside and hear the machines humming. Vika is in the cockpit, pressing all buttons to levitate the spaceship out of place in short time. From all sides comes the roaring of the motor and the thucks against the hull. 
-Silence. Even, the roars are now humming. Leo and I look at each other, wondering if we can relax now? We listen intently, we can feel the spaceship distancing more and more from the surface.
-Then, with a loud crash, a crystalline stele brutally penetrates the through the hull, one thrust through the ship, that hard, that fast, it manages not to break the ship apart, spread barbs and suddenly with the same brute force it pulls on the spaceship.
-The last we realize was a loud crash and blackout.
 
-[[...|3E Event Aftermath]]
+I run and run and run and run and run, my pump, my heart, is overclocking. As soon as I see the spaceship, I radio to the spaceship to be ready to close the hatch and even fly away. But Leo is already on the hatch and as soon as I run to a distance he seemt fit, he close the hatch. As it is closing, &lt;&lt;linkappend &#39;I jump in&#39;&gt;&gt;&lt;div id=&quot;anilowshake&quot;&gt;and hear a loud clack and thuck and more collision noises. We are running inside and hear the machines humming. Vika is in the cockpit, pressing all buttons to levitate the spaceship out of place in short time. From all sides comes the roaring of the motor and the thucks against the hull.&lt;/div&gt;
+&lt;&lt;linkappend &#39;Silence.&#39;&gt;&gt; The roars once are now humming. Leo and I look at each other, wondering if we can relax now? We listen intently, we can feel the spaceship distancing more and more from the surface.
+&lt;&lt;linkappend &#39;Then,&#39;&gt;&gt;&lt;div id=&quot;anilowsab&quot;&gt;&lt;&lt;nobr&gt;&gt;&lt;script&gt;
+window.scrollBy(0,120)&lt;/script&gt;&lt;&lt;/nobr&gt;&gt; with a loud crash, a crystalline stele brutally penetrates through the hull, one thrust through the ship, that hard, that fast, it manages not to break the ship apart, spread barbs and suddenly with the same brute force it pulls on the spaceship.&lt;/div&gt;
+&lt;&lt;linkappend &quot;The last&quot;&gt;&gt; we realize was a loud crash and bl...&lt;&lt;timed 1s&gt;&gt;&lt;&lt;goto &quot;3E Event Aftermath&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;&lt;&lt;/linkappend&gt;&gt;&lt;&lt;/linkappend&gt;&gt;&lt;&lt;/linkappend&gt;&gt;&lt;&lt;/linkappend&gt;&gt;
   
   &lt;/blockquote&gt;
 &lt;/center&gt;</tw-passagedata><tw-passagedata pid="22" name="3S" tags="" position="900,1875" size="100,100">&lt;center&gt;[img[assets/Ch-Explore/energy_deposit.png]]
@@ -1211,7 +1311,9 @@ Have I a change of mind? I want a ...
   &lt;&lt;if $CMfoodQuest == 1&gt;&gt;&lt;div&gt;[[Go to Quest Management|Quest Management]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;/center&gt;
 
-DEVELOPPER: [[Testing]]</tw-passagedata><tw-passagedata pid="33" name="Camp Mountain" tags="" position="1400,900" size="100,100">&lt;&lt;nobr&gt;&gt;
+DEVELOPPER: [[Testing]]
+
+TESTING: [[3E-Event]]</tw-passagedata><tw-passagedata pid="33" name="Camp Mountain" tags="" position="1400,900" size="100,100">&lt;&lt;nobr&gt;&gt;
   &lt;&lt;if $CampJ.Orb &amp;&amp; $Camp_J&gt;&gt;&lt;&lt;set $navOrb = $CampJ.nOrb&gt;&gt;&lt;&lt;elseif $CampM.Orb &amp;&amp; $Camp_M&gt;&gt;&lt;&lt;set $navOrb = $CampM.nOrb&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;set $navOrb = 1&gt;&gt;&lt;&lt;/if&gt;&gt;
   &lt;&lt;if $CampJ.Orb &amp;&amp; $Camp_J&gt;&gt;&lt;&lt;set $cbtOrb = $CampJ.cOrb&gt;&gt;&lt;&lt;elseif $CampM.Orb &amp;&amp; $Camp_M&gt;&gt;&lt;&lt;set $navOrb = $CampM.cOrb&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;set $cbtOrb = 1&gt;&gt;&lt;&lt;/if&gt;&gt;
   &lt;&lt;set $Camp_M = true, $Camp_J = false, $carrycap = 1&gt;&gt;
@@ -1968,29 +2070,34 @@ Bien, bien. Now I have the compass. &lt;&lt;/timed&gt;&gt;
 &lt;&lt;= $OrbTransport&gt;&gt;
 
 [[Testing]]</tw-passagedata><tw-passagedata pid="55" name="Shutdown" tags="" position="1050,175" size="100,100">&lt;center&gt;&lt;blockquote&gt;
+
 &lt;&lt;timed 1000ms&gt;&gt;Shutdown in 3
-Shit?! No! No!&lt;&lt;/timed&gt;&gt;
+&lt;div class=&quot;Char&quot;&gt;&lt;div class=&quot;Char-Framer&quot;&gt;&lt;img class=&quot;Char-img&quot; src=&quot;assets/characters/RD.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;Char-dialogues&quot;&gt;Shit?! No! No!&lt;/div&gt;&lt;/div&gt;&lt;&lt;/timed&gt;&gt;
 
 &lt;&lt;timed 2000ms&gt;&gt;2
-&lt;em&gt;Eeeech!&lt;/em&gt;&lt;&lt;/timed&gt;&gt;
+&lt;div class=&quot;Char&quot;&gt;&lt;div class=&quot;Char-Framer&quot;&gt;&lt;img class=&quot;Char-img&quot; src=&quot;assets/characters/RD.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;Char-dialogues&quot;&gt;&lt;em&gt;Eeeech!&lt;/em&gt;&lt;/div&gt;&lt;/div&gt;&lt;&lt;/timed&gt;&gt;
 
 &lt;&lt;timed 3000ms&gt;&gt;1
-Maldición! Oh please, oh please, someone find me!&lt;&lt;/timed&gt;&gt;
+&lt;div class=&quot;Char&quot;&gt;&lt;div class=&quot;Char-Framer&quot;&gt;&lt;img class=&quot;Char-img&quot; src=&quot;assets/characters/RD.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;Char-dialogues&quot;&gt;Maldición! Oh please, oh please, someone find me!&lt;/div&gt;&lt;/div&gt;&lt;&lt;/timed&gt;&gt;
 
 &lt;&lt;timed 4000ms&gt;&gt;Shutting Down&lt;&lt;/timed&gt;&gt;
-
+&lt;div class=&quot;anilightsout&quot;&gt;&lt;/div&gt;
 &lt;&lt;timed 8000ms&gt;&gt;.&lt;&lt;/timed&gt;&gt; &lt;&lt;timed 10000ms&gt;&gt;.&lt;&lt;/timed&gt;&gt; &lt;&lt;timed 12000ms&gt;&gt;.&lt;&lt;/timed&gt;&gt;
 
 &lt;&lt;timed 14000ms&gt;&gt;(It is not a bug)&lt;&lt;/timed&gt;&gt;
 &lt;&lt;timed 18000ms&gt;&gt;It is intended to be long.&lt;&lt;/timed&gt;&gt;
 &lt;&lt;timed 19000ms&gt;&gt;Relatively.&lt;&lt;/timed&gt;&gt;
 &lt;&lt;timed 22000ms&gt;&gt;Hating me?&lt;&lt;/timed&gt;&gt;
-&lt;&lt;timed 24000ms&gt;&gt;
+&lt;&lt;timed 24000ms&gt;&gt;&lt;&lt;nobr&gt;&gt;&lt;&lt;script&gt;&gt;
+      setTimeout(function() {
+        window.scrollTo(0, document.body.scrollHeight);
+      }, 50); // Adjust delay as needed
+    &lt;&lt;/script&gt;&gt;&lt;&lt;/nobr&gt;&gt;
 [img[assets/characters/Rescue.png]]
 
-Huh?!
+&lt;div class=&quot;Char&quot;&gt;&lt;div class=&quot;Char-Framer&quot;&gt;&lt;img class=&quot;Char-img&quot; src=&quot;assets/characters/RD.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;Char-dialogues&quot;&gt;Huh?!
 
-Yes! Yes! I am saved
+Yes! Yes! I am saved&lt;/div&gt;&lt;/div&gt;
 
 &lt;&lt;/timed&gt;&gt;&lt;&lt;timed 27000ms&gt;&gt;&lt;&lt;goto &quot;EndPoint ChCrash&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;
 &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="56" name="Social Events" tags="" position="1700,900" size="100,100">&lt;center&gt;&lt;blockquote&gt;&lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt;
@@ -2835,20 +2942,20 @@ Since I come from upper middle class, my family invested in a designer baby. Obv
 &lt;&lt;set $OrbAutoCM = false&gt;&gt;
 &lt;&lt;set $OrbAutoCJ = false&gt;&gt;
 
-&lt;&lt;set $CMfoodQuest = 0&gt;&gt;</tw-passagedata><tw-passagedata pid="70" name="3E Event Aftermath" tags="" position="1900,1525" size="100,100">&lt;center&gt;[img[assets/Ch-Explore/3E_Event_Aftermath.png]]
+&lt;&lt;set $CMfoodQuest = 0&gt;&gt;</tw-passagedata><tw-passagedata pid="70" name="3E Event Aftermath" tags="" position="1900,1525" size="100,100">&lt;center&gt;[img[assets/backgrounds/Placeholder.png]]
   &lt;blockquote&gt;
+&lt;div id=&quot;aniwakingup&quot;&gt;&lt;/div&gt;
+&lt;&lt;linkappend &quot;&lt;em&gt;Nfh!&lt;/em&gt;&quot;&gt;&gt; 
 
-&lt;&lt;timed 3000 ms&gt;&gt;.&lt;&lt;timed 1000ms&gt;&gt;.&lt;&lt;/timed&gt;&gt;&lt;&lt;timed 2000ms&gt;&gt;.&lt;&lt;/timed&gt;&gt;
+...
 
-&lt;&lt;timed 5000 ms&gt;&gt;.&lt;&lt;/timed&gt;&gt;&lt;&lt;timed 6000ms&gt;&gt;.&lt;&lt;/timed&gt;&gt;&lt;&lt;timed 7000ms&gt;&gt;.&lt;&lt;/timed&gt;&gt;
+Whoa! Destruction and chaos everywhere.
 
-&lt;&lt;timed 10000 ms&gt;&gt;
-&lt;&lt;linkappend &quot;Nfh!&quot;&gt;&gt;
+That can&#39;t be good!
 
-
+&lt;&lt;set $maxenergy = 2; $energy = 2; $unimatter = 1; &gt;&gt;
 
 &lt;&lt;/linkappend&gt;&gt;
-&lt;&lt;/timed&gt;&gt;&lt;&lt;/timed&gt;&gt;
   
   &lt;/blockquote&gt;
 &lt;/center&gt;</tw-passagedata></tw-storydata>

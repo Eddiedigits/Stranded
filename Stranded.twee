@@ -381,35 +381,34 @@ Where to go next?
 
 
 :: 3E Event Aftermath {"position":"1900,1525","size":"100,100"}
-<center>[img[assets/Ch-Explore/3E_Event_Aftermath.png]]
+<center>[img[assets/backgrounds/Placeholder.png]]
   <blockquote>
+<div id="aniwakingup"></div>
+<<linkappend "<em>Nfh!</em>">> 
 
-<<timed 3000 ms>>.<<timed 1000ms>>.<</timed>><<timed 2000ms>>.<</timed>>
+...
 
-<<timed 5000 ms>>.<</timed>><<timed 6000ms>>.<</timed>><<timed 7000ms>>.<</timed>>
+Whoa! Destruction and chaos everywhere.
 
-<<timed 10000 ms>>
-<<linkappend "Nfh!">>
+That can't be good!
 
-
+<<set $maxenergy = 2; $energy = 2; $unimatter = 1; >>
 
 <</linkappend>>
-<</timed>><</timed>>
   
   </blockquote>
 </center>
 
 
 :: 3E-Event {"position":"1900,1400","size":"100,100"}
-<center>[img[assets/Ch-Explore/3E_Event.png]]
+<center>[img[assets/backgrounds/Placeholder.png]]
   <blockquote>
-  
-I run and run and run and run and run, my pump, my heart, is overclocking. As soon as I see the spaceship, I radio to the spaceship to be ready to close the hatch and even fly away. But Leo is already on the hatch and as soon as I run to a distance he seemt fit, he close the hatch. As it is closing, I jump in and hear a loud clack and thuck and more. We are running inside and hear the machines humming. Vika is in the cockpit, pressing all buttons to levitate the spaceship out of place in short time. From all sides comes the roaring of the motor and the thucks against the hull. 
-Silence. Even, the roars are now humming. Leo and I look at each other, wondering if we can relax now? We listen intently, we can feel the spaceship distancing more and more from the surface.
-Then, with a loud crash, a crystalline stele brutally penetrates the through the hull, one thrust through the ship, that hard, that fast, it manages not to break the ship apart, spread barbs and suddenly with the same brute force it pulls on the spaceship.
-The last we realize was a loud crash and blackout.
 
-[[...|3E Event Aftermath]]
+I run and run and run and run and run, my pump, my heart, is overclocking. As soon as I see the spaceship, I radio to the spaceship to be ready to close the hatch and even fly away. But Leo is already on the hatch and as soon as I run to a distance he seemt fit, he close the hatch. As it is closing, <<linkappend 'I jump in'>><div id="anilowshake">and hear a loud clack and thuck and more collision noises. We are running inside and hear the machines humming. Vika is in the cockpit, pressing all buttons to levitate the spaceship out of place in short time. From all sides comes the roaring of the motor and the thucks against the hull.</div>
+<<linkappend 'Silence.'>> The roars once are now humming. Leo and I look at each other, wondering if we can relax now? We listen intently, we can feel the spaceship distancing more and more from the surface.
+<<linkappend 'Then,'>><div id="anilowsab"><<nobr>><script>
+window.scrollBy(0,120)</script><</nobr>> with a loud crash, a crystalline stele brutally penetrates through the hull, one thrust through the ship, that hard, that fast, it manages not to break the ship apart, spread barbs and suddenly with the same brute force it pulls on the spaceship.</div>
+<<linkappend "The last">> we realize was a loud crash and bl...<<timed 1s>><<goto "3E Event Aftermath">><</timed>><</linkappend>><</linkappend>><</linkappend>><</linkappend>>
   
   </blockquote>
 </center>
@@ -821,6 +820,8 @@ Have I a change of mind? I want a ...
 </div></center>
 
 DEVELOPPER: [[Testing]]
+
+TESTING: [[3E-Event]]
 
 
 :: Camp Mountain {"position":"1400,900","size":"100,100"}
@@ -1669,29 +1670,34 @@ Bien, bien. Now I have the compass. <</timed>>
 
 :: Shutdown {"position":"1050,175","size":"100,100"}
 <center><blockquote>
+
 <<timed 1000ms>>Shutdown in 3
-Shit?! No! No!<</timed>>
+<div class="Char"><div class="Char-Framer"><img class="Char-img" src="assets/characters/RD.png"></div><div class="Char-dialogues">Shit?! No! No!</div></div><</timed>>
 
 <<timed 2000ms>>2
-<em>Eeeech!</em><</timed>>
+<div class="Char"><div class="Char-Framer"><img class="Char-img" src="assets/characters/RD.png"></div><div class="Char-dialogues"><em>Eeeech!</em></div></div><</timed>>
 
 <<timed 3000ms>>1
-Maldición! Oh please, oh please, someone find me!<</timed>>
+<div class="Char"><div class="Char-Framer"><img class="Char-img" src="assets/characters/RD.png"></div><div class="Char-dialogues">Maldición! Oh please, oh please, someone find me!</div></div><</timed>>
 
 <<timed 4000ms>>Shutting Down<</timed>>
-
+<div class="anilightsout"></div>
 <<timed 8000ms>>.<</timed>> <<timed 10000ms>>.<</timed>> <<timed 12000ms>>.<</timed>>
 
 <<timed 14000ms>>(It is not a bug)<</timed>>
 <<timed 18000ms>>It is intended to be long.<</timed>>
 <<timed 19000ms>>Relatively.<</timed>>
 <<timed 22000ms>>Hating me?<</timed>>
-<<timed 24000ms>>
+<<timed 24000ms>><<nobr>><<script>>
+      setTimeout(function() {
+        window.scrollTo(0, document.body.scrollHeight);
+      }, 50); // Adjust delay as needed
+    <</script>><</nobr>>
 [img[assets/characters/Rescue.png]]
 
-Huh?!
+<div class="Char"><div class="Char-Framer"><img class="Char-img" src="assets/characters/RD.png"></div><div class="Char-dialogues">Huh?!
 
-Yes! Yes! I am saved
+Yes! Yes! I am saved</div></div>
 
 <</timed>><<timed 27000ms>><<goto "EndPoint ChCrash">><</timed>>
 </blockquote></center>
@@ -2685,6 +2691,12 @@ button[id|=history-forward]::before {
   content: "⮕"; /* Unicode character for arrow right */  
 }
 
+/* sidebar     ------------------------------------------------------------------------------------- */
+
+#ui-bar {
+  position: fixed;
+}
+
 /* character z-indexing     ------------------------------------------------------------------------------------- */
 #VikaFront {
   position: absolute;
@@ -3050,6 +3062,101 @@ box-sizing: border-box;
 #p2N {
     top: 290px;
     left: 390px;
+}
+
+/* Animation ----------------------------------------------*/
+
+@keyframes shutdown {
+  from {background-color: transparent; height:0px;}
+  to {background-color: #111; height:670px;}
+}
+
+.anilightsout {
+  position: absolute;
+  top:0;
+  left:0;
+  z-index: 10;
+  width: 100%;
+  height: 670px;
+  background-color: transparent;
+  animation-name: shutdown;
+  animation-duration: 1s;
+  animation-delay: 4s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes poking {
+  0% {rotate: 0deg;}
+  10% {rotate: -5deg;}
+  11% {rotate: -5deg;}
+  13% {rotate: 0deg;}
+  23% {rotate: 0deg;}
+  25% {rotate: -10deg;}
+  27% {rotate: 0deg;}
+  44% {rotate: 0deg;}
+  45% {rotate: -8deg;}
+  47% {rotate: 0deg;}
+  74% {rotate: 0deg;}
+  75% {rotate: -10deg;}
+  78% {rotate: -2deg;}
+  94% {rotate: 0deg;}
+  95% {rotate: -12deg;}
+  100% {rotate: 0deg;}
+}
+
+#anilowshake {
+  display: flex;
+  width: 95vw;
+  max-width: 700px;
+  justify-content: center;
+  margin: 3em 0 0 0;
+  z-index: 1;
+  animation-name: poking;
+  animation-duration: 4s;
+  animation-delay: 1s;
+  animation-iteration-count: 3;
+}
+
+@keyframes bigthrust {
+  0% {rotate: 0deg;}
+  77% {rotate: 0deg;}
+  79% {rotate: -20deg;}
+  80% {rotate: -2deg;}
+  89% {rotate: -2deg;}
+  90% {rotate: -14deg;}
+  100% {rotate: -3deg;}
+}
+
+#anilowsab {
+  display: flex;
+  width: 95vw;
+  max-width: 700px;
+  justify-content: center;
+  margin: 3em 0 0 0;
+
+  animation-name: bigthrust;
+  animation-duration: 0.5s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes wakingup {
+  from {background-color: #111; height:800px;}
+  to {background-color: #111; height:0px;}
+}
+
+#aniwakingup {
+  position: absolute;
+  top:0;
+  left:0;
+  z-index: 10;
+  width: 100%;
+  height: 800px;
+  background-color: #111;
+  animation-name: wakingup;
+  animation-duration: 3s;
+  animation-delay: 3s;
+  animation-fill-mode: both;
 }
 
 /* placeholder ----------------------------------------------*/
