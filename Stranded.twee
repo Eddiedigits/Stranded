@@ -9,13 +9,14 @@ Stranded
   "format-version": "2.0.0",
   "start": "Menu",
   "tag-colors": {
-    "autosave": "yellow"
+    "autosave": "yellow",
+    "widget": "purple"
   },
   "zoom": 0.6
 }
 
 
-:: 1E {"position":"1025,1500","size":"100,100"}
+:: 1E {"position":"1000,2175","size":"100,100"}
 <center>[img[assets/Ch-Explore/food.png]]
   <blockquote>
     <<if $eventfrom3E && not hasVisited("3E-Event")>>
@@ -62,7 +63,7 @@ Stranded
 </center>
 
 
-:: 1N {"position":"900,1375","size":"100,100"}
+:: 1N {"position":"875,2050","size":"100,100"}
 <center>[img[assets/Ch-Explore/marshland1.png]]
 <blockquote>
 Hm, a swampy area. Nothing useful here.
@@ -77,7 +78,7 @@ Hm, a swampy area. Nothing useful here.
 </blockquote></center>
 
 
-:: 1N2E {"position":"1150,1375","size":"100,100"}
+:: 1N2E {"position":"1125,2050","size":"100,100"}
 <center>[img[assets/Ch-Explore/scenery1N2E.png]]
 <blockquote>
 
@@ -92,11 +93,11 @@ Hm, a swampy area. Nothing useful here.
 </blockquote></center>
 
 
-:: 1N2W {"position":"650,1375","size":"100,100"}
+:: 1N2W {"position":"625,2050","size":"100,100"}
 
 
 
-:: 1N3E {"position":"1275,1375","size":"100,100"}
+:: 1N3E {"position":"1250,2050","size":"100,100"}
 <center>[img[assets/Ch-Explore/scenery1N3E.png]]
 <blockquote>
 
@@ -109,7 +110,7 @@ Hm, a swampy area. Nothing useful here.
 </blockquote></center>
 
 
-:: 1N4E {"position":"1400,1375","size":"100,100"}
+:: 1N4E {"position":"1375,2050","size":"100,100"}
 <center>[img[assets/Ch-Explore/scenery1N4E.png]]
 <blockquote>
 
@@ -124,7 +125,7 @@ Hm, a swampy area. Nothing useful here.
 </blockquote></center>
 
 
-:: 1N5E {"position":"1525,1375","size":"100,100"}
+:: 1N5E {"position":"1500,2050","size":"100,100"}
 <center>[img[assets/Ch-Explore/scenery1N5E.png]]
 <blockquote>
 
@@ -137,7 +138,7 @@ Hm, a swampy area. Nothing useful here.
 </blockquote></center>
 
 
-:: 1NE {"position":"1025,1375","size":"100,100"}
+:: 1NE {"position":"1000,2050","size":"100,100"}
 <center>[img[assets/Ch-Explore/scenery1NE.png]]
   <blockquote>
   
@@ -153,11 +154,11 @@ Hm, a swampy area. Nothing useful here.
 </center>
 
 
-:: 1NW {"position":"775,1375","size":"100,100"}
+:: 1NW {"position":"750,2050","size":"100,100"}
 
 
 
-:: 1S {"position":"900,1625","size":"100,100"}
+:: 1S {"position":"875,2300","size":"100,100"}
 <center>[img[assets/Ch-Explore/desert3.png]]
 <blockquote>
 Dryness.
@@ -176,23 +177,23 @@ Water!
 </blockquote></center>
 
 
-:: 1S2E {"position":"1150,1625","size":"100,100"}
+:: 1S2E {"position":"1125,2300","size":"100,100"}
 
 
 
-:: 1S2W {"position":"650,1625","size":"100,100"}
+:: 1S2W {"position":"625,2300","size":"100,100"}
 
 
 
-:: 1SE {"position":"1025,1625","size":"100,100"}
+:: 1SE {"position":"1000,2300","size":"100,100"}
 
 
 
-:: 1SW {"position":"775,1625","size":"100,100"}
+:: 1SW {"position":"750,2300","size":"100,100"}
 
 
 
-:: 1W {"position":"775,1500","size":"100,100"}
+:: 1W {"position":"750,2175","size":"100,100"}
 <center>[img[assets/Ch-Explore/jungle1.png]]
 <blockquote>
 Nothing but forest, jungle, leaves, green, green, green and more greens. And weirdly silent, that's eerie.
@@ -205,7 +206,7 @@ Nothing but forest, jungle, leaves, green, green, green and more greens. And wei
 </blockquote></center>
 
 
-:: 2E {"position":"1150,1500","size":"100,100"}
+:: 2E {"position":"1125,2175","size":"100,100"}
 <center>[img[assets/Ch-Explore/jungle4.png]]
 <blockquote><<nobr>>
 <<if not hasVisited("3E-Event") && $eventfrom3E>>
@@ -245,7 +246,7 @@ Nothing but forest, jungle, leaves, green, green, green and more greens. And wei
 <</if>><</nobr>></blockquote></center>
 
 
-:: 2N {"position":"900,1250","size":"100,100"}
+:: 2N {"position":"875,1925","size":"100,100"}
 <center><<if random(2) > 1>>[img[assets/Ch-Explore/unimatter_deposit.png]]<<else>>[img[assets/Ch-Explore/unimatter_deposit_2.png]]<</if>>
 <blockquote>
 There is no way to go further north in this swampy area. Possibility to go further north is lost, but something else possibly is gained.
@@ -267,7 +268,7 @@ Nothing to do here. A substance analyzer is needed here.
 </blockquote></center>
 
 
-:: 2S {"position":"900,1750","size":"100,100"}
+:: 2S {"position":"875,2425","size":"100,100"}
 <center>[img[assets/Ch-Explore/desert2.png]]
   <blockquote>
   Sand. Heat. Weird formations. Sand. Heat. Did I say Heat? Heat! I want a camel!
@@ -280,7 +281,7 @@ Nothing to do here. A substance analyzer is needed here.
   </blockquote></center>
 
 
-:: 2W {"position":"650,1500","size":"100,100"}
+:: 2W {"position":"625,2175","size":"100,100"}
 <center>[img[assets/Ch-Explore/swampy_area_2.png]]
 <blockquote>
 Passing on the border of the swamp area.
@@ -301,7 +302,7 @@ Bring them to Camp anyway?
 </blockquote></center>
 
 
-:: 3E {"position":"1275,1500","size":"100,100"}
+:: 3E {"position":"1250,2175","size":"100,100"}
 <center>[img[assets/Ch-Explore/jungle2.png]]
 <blockquote>
 Hm, is that a spaceship? Or what is it? <<nobr>>
@@ -380,27 +381,55 @@ Where to go next?
 </blockquote></center>
 
 
-:: 3E Event Aftermath {"position":"1900,1525","size":"100,100"}
-<center>[img[assets/backgrounds/Placeholder.png]]
-  <blockquote>
-<div id="aniwakingup"></div>
+:: 3E Event Aftermath {"position":"3050,1450","size":"100,100"}
+<center><blockquote>
 <<linkappend "<em>Nfh!</em>">> 
 
-...
+<div id="aniwakingup"></div>
+[img[assets/backgrounds/Placeholder.png]]
 
-Whoa! Destruction and chaos everywhere.
+<<timed 6s>><<linkappend "Whoa!">> Destruction and chaos everywhere.
 
-That can't be good!
+<<timed 2s>>That is not good! Everything is bent, shattered, battered. Cables loose or ripped, sparks jumping from one end to another. Glasses, metals, polymers, ceramics, synthetics, all disordered. How strong was that ... thing that could penetrate graphene coated polymers?!
 
-<<set $maxenergy = 2; $energy = 2; $unimatter = 1; >>
+<<timed 3s>>Also, it didn't kill us. I mean ... or I think, I feel like it could have killed us with its barbs. But ... rather decided to stomp the spaceship back to ground.
+
+<<timed 3s>><<linkappend "Assess the outcome">>
+
+It is huge setback. The hull is broken. The cockpit, our life maintenance modules, the nutrients converter, the energy generator and worse of all: our Printer! Leo is shaken, but compared to his first landing, but still good. Last but not least, Vika is in coma, in emergency mode. That makes me the luckiest of all, as I need only a bit of polishing, not more. 
+<<if $Camp_J>>
+<<say "Leo">>By the croniest nose of the dark universe! What. Was. That?<</say>>
+
+<<say "RD">>What are you looking at me? I have no idea. I sent the orb to prospect the spaceship overgrown with vegetation, and then it happened so fast, I decided to run. Looking at the capable violence, I would have been smashed to smithereens.<</say>>
+
+Leo gestikulates to calm down. 
+
+<<say "Leo">>Mate, sorry. It was more a rhetorical question. I knew ...<</say>>
+
+<<say "RD">>By the way, how did you knew?<</say>>
+
+<<say "Leo">>... that something is coming. Our Watcher warned us.<</say>>
+
+<<say "RD">>Huh! The first time, it took initiative. Then it was something, quite.<</say>>
+
+<<say "Leo">>You tell me. With this wreck, it is!<</say>>
+
+<<else>>
+<</if>>
 
 <</linkappend>>
+<</timed>><</timed>><</timed>>
+
+
+<<set $maxenergy = 2; $energy = 2; $unimatter = 1; $Quest3E = 1>>
+
+<</linkappend>><</timed>><</linkappend>>
   
   </blockquote>
-</center>
+</center> 
 
 
-:: 3E-Event {"position":"1900,1400","size":"100,100"}
+:: 3E-Event {"position":"3050,1325","size":"100,100"}
 <center>[img[assets/backgrounds/Placeholder.png]]
   <blockquote>
 
@@ -414,7 +443,7 @@ window.scrollBy(0,120)</script><</nobr>> with a loud crash, a crystalline stele 
 </center>
 
 
-:: 3S {"position":"900,1875","size":"100,100"}
+:: 3S {"position":"875,2550","size":"100,100"}
 <center>[img[assets/Ch-Explore/energy_deposit.png]]
 <blockquote>
 Whoa! That looks intense!
@@ -446,7 +475,7 @@ Hmn?!
 </blockquote></center>
 
 
-:: 3W {"position":"525,1500","size":"100,100"}
+:: 3W {"position":"500,2175","size":"100,100"}
 <center>[img[assets/Ch-Explore/coastline3.png]]
 <blockquote>
 Aah. Open space. Open air.
@@ -459,7 +488,7 @@ Aah. Open space. Open air.
 </blockquote></center>
 
 
-:: 4E {"position":"1400,1500","size":"100,100"}
+:: 4E {"position":"1375,2175","size":"100,100"}
 <center>[img[assets/Ch-Explore/4E_waterfall.png]]
 <blockquote>
 <<if not hasVisited("3E-Event") && $eventfrom3E>>
@@ -497,7 +526,7 @@ Aah. Open space. Open air.
 </blockquote></center>
 
 
-:: 4W {"position":"400,1500","size":"100,100"}
+:: 4W {"position":"375,2175","size":"100,100"}
 <center>[img[assets/Ch-Explore/coast1.png]]
 <blockquote>
 The colors become more and more nicer, friendlier ...
@@ -510,7 +539,7 @@ The colors become more and more nicer, friendlier ...
 </blockquote></center>
 
 
-:: 5W {"position":"275,1500","size":"100,100"}
+:: 5W {"position":"250,2175","size":"100,100"}
 <center>[img[assets/Ch-Explore/coast2island.png]]
 <blockquote>
 Sandy Beach! That's gonna be a spot!
@@ -522,7 +551,7 @@ Sandy Beach! That's gonna be a spot!
 </blockquote></center>
 
 
-:: A New Cycle [autosave] {"position":"500,500","size":"100,100"}
+:: A New Cycle [autosave] {"position":"2900,1975","size":"100,100"}
 <center><blockquote><<nobr>>
 <<script>>
 Config.saves.autosave = ["autosave"]
@@ -586,7 +615,7 @@ She noticed me. I greeted her and continue on my way. Clearly, not without an ad
 </blockquote></center>
 
 
-:: A Small Hill {"position":"1950,200","size":"100,100"}
+:: A Small Hill {"position":"1925,300","size":"100,100"}
 <center>[img[assets/items/antenna_CJ.png]]
 <blockquote>
 The antenna is installed on a small hill. But it seems to reach no one. Maybe it is set too low, or the jungle is too dense.
@@ -598,7 +627,7 @@ The antenna is installed on a small hill. But it seems to reach no one. Maybe it
 </blockquote></center>
 
 
-:: Abiba {"position":"1900,1150","size":"100,100"}
+:: Abiba {"position":"3525,600","size":"100,100"}
 <center><blockquote>
 <<if random(5) > 1>>
 <<if $Abiba_ICP.AI1>>
@@ -684,7 +713,7 @@ The antenna is installed on a small hill. But it seems to reach no one. Maybe it
   </blockquote></center>
 
 
-:: Ante Explore {"position":"900,700","size":"100,100"}
+:: Ante Explore {"position":"875,1375","size":"100,100"}
 <center><blockquote>
 Who will accompany me, who can I persuade?
 
@@ -707,7 +736,7 @@ Who will accompany me, who can I persuade?
 </blockquote></center>
 
 
-:: AnteCamp {"position":"1425,300","size":"100,100"}
+:: AnteVote {"position":"1425,300","size":"100,100"}
 <center>[img[assets/Ch-Camp/JungleCamp.png]]
 <blockquote>
 <<set $engineering +=1>><<set $social +=1>><<set $unimatter += 5>>
@@ -715,26 +744,23 @@ Vika's spaceship, which is the parent spaceship of our - Leo's and mine - pods, 
 
 Alas, what will we do?
 
-<div class="Char">
-<div class="Char-Framer"><img class="Char-img" src="assets/characters/Vika.png"></div><div class="Char-dialogues">Honestly, as a pilot, I can say that we cannot connect to the mothership. In fact. there is nothing but static. So, I conclude the mothership is unreachable or no more. Also, I do not reach the others; the other stranded.
-My suggestion is therefore: As we only have 5 unimatter, we print a transmission mast, look for an optimal elevation and reach out to the others..</div></div>
+<<say "Vika">>Honestly, as a pilot, I can say that we cannot connect to the mothership. In fact. there is nothing but static. So, I conclude the mothership is unreachable or no more. Also, I do not reach the others; the other stranded.
+My suggestion is therefore: As we only have 5 unimatter, we print a transmission mast, look for an optimal elevation and reach out to the others..<</say>>
 
 Only 5 unimatter?! That sucks! That means, I have to strategize wisely.
 
-<div class="Char">
-<div class="Char-Framer"><img class="Char-img" src="assets/characters/Leo.png"></div><div class="Char-dialogues"><em>groan</em> I would hoard food. What Vika said doesn't sound good. I fear, we are stuck here. At least for a while.
+<<say "Leo">><em>groan</em> I would hoard food. What Vika said doesn't sound good. I fear, we are stuck here. At least for a while.
 Oh, by the dark universe! Please, give us hope!
-Ah, ye'. I would like to repair myself and have a substance analyzer.</div></div>
+Ah, ye'. I would like to repair myself and have a substance analyzer.<</say>>
 
 Oh, I do not have much problems being stuck here for a while. <em>glancing at Vika</em>
 But then again ... if we are stuck here for long ... food/energy is essential. A substance analyzer enables us to know which things are edible or can be used as materials, like unimatter.
 
-<div class="Char">
-<div class="Char-Framer"><img class="Char-img" src="assets/characters/RD.png"></div><div class="Char-dialogues"><em>Hrm!</em>&nbsp;Let me check. Do we have enough energy?</div></div>
+<<say "RD">><em>Hrm!</em>&nbsp;Let me check. Do we have enough energy?<</say>>
 <<nobr>>
 <<if $engineering >= 2>>
 <div class="Char">
-<div class="Char-Framer"><img class="Char-img" src="assets/characters/RD.png"></div><div class="Char-dialogues">I could salvage one more energy.</div></div>
+<<say "RD">>I could salvage one more energy.<</say>>
 <<set $energy += 1>>
 <</if>>
 
@@ -746,15 +772,12 @@ And for walk? We gotta see.
 <em>10 minutes later</em> &nbsp;Enough energies for flying.
 <</if>><</nobr>>
 
-<div class="Char">
-<div class="Char-Framer"><img class="Char-img" src="assets/characters/RD.png"></div><div class="Char-dialogues">Alright. Anyway. I suggest we use these 5 unimatter to build an energy harvester.</div></div>
+<<say "RD">>Alright. Anyway. I suggest we use these 5 unimatter to build an energy harvester.<</say>>
 ... some pause ...
 
-<div class="Char">
-<div class="Char-Framer"><img class="Char-img" src="assets/characters/Leo.png"></div><div class="Char-dialogues"><em>Mh.</em>&nbsp;To me, all reasons seem to be sensible. I say, we vote.</div></div>
+<<say "Leo">><em>Mh.</em>&nbsp;To me, all reasons seem to be sensible. I say, we vote.<</say>>
 
-<div class="Char">
-<div class="Char-Framer"><img class="Char-img" src="assets/characters/Vika.png"></div><div class="Char-dialogues">I agree.</div></div>
+<<say "Vika">>I agree.<</say>>
 
 <strong>What?! I am the protagonist!
 
@@ -774,7 +797,7 @@ Ugh. FIne. Voting it is.
 
 ...
 
-Have I a change of mind? I want a ...
+Have I a change of mind? Do I want a ...
 
 <<button "Transmission Mast">><<set $numero = 1>><<goto "Vote">><</button>>
 
@@ -785,7 +808,7 @@ Have I a change of mind? I want a ...
 </blockquote></center>
 
 
-:: Camp Jungle {"position":"400,900","size":"100,100"}
+:: Camp Jungle {"position":"750,925","size":"100,100"}
 <<nobr>>
   <<if $CampJ.nOrb && $Camp_J>><<set $navOrb = $CampJ.nOrb>><<else>><<set $navOrb = 1>><</if>>
   <<if $CampJ.cOrb && $Camp_J>><<set $cbtOrb = $CampJ.cOrb>><<else>><<set $cbtOrb = 1>><</if>>
@@ -824,7 +847,7 @@ DEVELOPPER: [[Testing]]
 TESTING: [[3E-Event]]
 
 
-:: Camp Mountain {"position":"1400,900","size":"100,100"}
+:: Camp Mountain {"position":"1050,925","size":"100,100"}
 <<nobr>>
   <<if $CampJ.Orb && $Camp_J>><<set $navOrb = $CampJ.nOrb>><<elseif $CampM.Orb && $Camp_M>><<set $navOrb = $CampM.nOrb>><<else>><<set $navOrb = 1>><</if>>
   <<if $CampJ.Orb && $Camp_J>><<set $cbtOrb = $CampJ.cOrb>><<elseif $CampM.Orb && $Camp_M>><<set $navOrb = $CampM.cOrb>><<else>><<set $cbtOrb = 1>><</if>>
@@ -886,7 +909,7 @@ Ech! Nothing happens. It is boring. Maybe I should try to go out anyway?
 </blockquote></center>
 
 
-:: Construction Menu {"position":"900,500","size":"100,100"}
+:: Construction Menu {"position":"2950,975","size":"100,100"}
 <center>/* <<nobr>>
     <<set $anyorbtrueCJ = [$CampJ.Orb, $CampJ.nOrb, $CampJ.cOrb, $CampJ.cnOrb]; $anyorbtrueCM = [$CampM.Orb, $CampM.nOrb, $CampM.cOrb, $CampM.cnOrb]>>
 <</nobr>> */<center>[img[assets/items/3D-Printer.png]]</center>
@@ -907,7 +930,7 @@ Ech! Nothing happens. It is boring. Maybe I should try to go out anyway?
 </center>
 
 <strong><u>available Templates:</u></strong>
-<<nobr>><h6>Legend: Energy = E | Unimatter = U | Lvl = Engineering Level</h6><br>
+<<nobr>><center><h6>Legend:<br>Energy = E | Unimatter = U | Lvl = Engineering Level</h6></center><br>
   <ul><li>Repairs (3E - 3U): <<if $energy >= 3 && $unimatter >= 3 && $Camp_J && $notrepaired > 0>>[[Action it|Construction Menu][$energy -= 3; $unimatter -= 3; $notrepaired -= 2]]
     <<elseif $unimatter < 3 && $energy < 3>><div class="color-red">insufficient ressources</div>
     <<elseif $Camp_J && $maxenergy < 10 || $Camp_M && $maxenergy < 20>><div class="color-red">insufficient ressources</div>
@@ -925,12 +948,13 @@ Ech! Nothing happens. It is boring. Maybe I should try to go out anyway?
     <<else>><div class="color-red">insufficient level or ressources</div>
     <</if>>
   </li>
+      <<if $CampJ.EHarvester == 1 && $Camp_J || $CampM.EHarvester == 1 && $Camp_M>>
       <ul class="plussign-list">
       <li>Lvl 5: + Energy Generation Upgrade (5E - 5U): 
         <<if $engineering >= 5 && $energy >= 5 && $unimatter >= 5 && ($CampJ.EHarvester == 5 && $Camp_J || $CampM.EHarvester == 5 && $Camp_M)>><<if $Camp_J>>[[Print|Construction Menu][$energy -= 5; $unimatter -= 5; $CampJ.EHarvester = 10]]<<else>>[[Print|Construction Menu][$energy -= 5; $unimatter -= 5; $CampM.EHarvester = 10]]<</if>>
         <<elseif ($CampJ.EHarvester == 10 && $Camp_J) || ($CampM.EHarvester == 10 && $Camp_M)>><br><div class="color-green">Our energy regeneration rate is raised by +10.</div><<else>><div class="color-red">insufficient level or ressources</div>
         <</if>>
-      </li>
+      </li><</if>>
   <li>Lvl 3: Defense Perimeter (2E - 2U): 
     <<if $engineering >= 2 && $CampJ.DefPerimeter != true && $Camp_J && $energy >= 2 && $unimatter >= 2>>[[Print|Construction Menu][$energy -= 2; $unimatter -= 2; $CampJ.DefPerimeter = true; $CampJ.building += 1]]
     <<elseif $engineering >= 2 && $CampM.DefPerimeter != true && $Camp_M && $energy >= 2 && $unimatter >= 2>>[[Print|Construction Menu][$energy -= 8; $unimatter -= 3; $CampM.DefPerimeter = true; $CampM.building += 1]]
@@ -1063,7 +1087,7 @@ After many minutes
 </blockquote></center>
 
 
-:: Disintegration Menu {"position":"1050,500","size":"100,100"}
+:: Disintegration Menu {"position":"3100,975","size":"100,100"}
 <center><center>[img[assets/items/3D-Printer.png]]</center>
 <div class="passage-titles" style="color: #943838; border-bottom-color: #943838; border-top-color: #943838;"><center><h3><strong>Disintegration Menu</strong></h3></center></div>
 <div class="index-screens-small"><div><strong>ENERGY:&nbsp;</strong>
@@ -1120,7 +1144,7 @@ After many minutes
 <<else>><div class="color-yellow">There is nothing built or printed.</div><</if>>
 
 
-:: Elva {"position":"1900,1025","size":"100,100"}
+:: Elva {"position":"3525,475","size":"100,100"}
 <center><blockquote>
 <<if random(5) > 1>>
   <<if $Elva_ICP.EI1>>
@@ -1190,7 +1214,7 @@ After many minutes
 </blockquote></center>
 
 
-:: End of Game {"position":"625,500","size":"100,100"}
+:: End of Game {"position":"3025,1975","size":"100,100"}
 <center><blockquote>
 <<if $days <30>>
 
@@ -1233,11 +1257,11 @@ Oh! Am I glad to find another stranded.
 <div class="Char">
 <div class="Char-Framer"><img  class="Char-img" src="assets/characters/Vika.png"></div><div class="Char-dialogues"><<if hasVisited("Shutdown")>>Fella! Can I tell you how glad I am to find another one of you?<<else>>Fellas! Can I tell you how glad I am to find the likes of you?<</if>></div></div>
 
-<div class="actions-row"><div> [[Same here, same here|AnteCamp]]</div></div>
+<div class="actions-row"><div> [[Same here, same here|AnteVote]]</div></div>
  </blockquote></center>
 
 
-:: Energy Harvester {"position":"2325,200","size":"100,100"}
+:: Energy Harvester {"position":"2300,300","size":"100,100"}
 <center>[img[assets/items/sun-collectors.png]]
 <blockquote>
 Yes, with our energy harvester - which "harvest" sun rays, winds, gravitation, molecular dis- and integration, atomic fusion - we have raised the energy regeneration rate.
@@ -1250,7 +1274,7 @@ It is important to note, that those cannot be transported. Either they gets disi
 </blockquote></center>
 
 
-:: Foot of a Mountain {"position":"1825,200","size":"100,100"}
+:: Foot of a Mountain {"position":"1800,300","size":"100,100"}
 <center>[img[assets/items/antenna_CM.png]]
 <blockquote>
 Since, luckily, I had the compass, I did not spend too much energy. Which gave us an optimal total balance (no forgetti! We are practically machines, too) for a fly.
@@ -1316,7 +1340,7 @@ window.scrollBy(0,120)</script><</nobr>>
 </blockquote></center>
 
 
-:: Leo {"position":"1900,900","size":"100,100"}
+:: Leo {"position":"3525,350","size":"100,100"}
 <center><blockquote><<if random(5) >= 1>>[img[assets/characters/2_men_talking.png]]
 
 I had an interesting viewpoint from him about AI's and algorithms.
@@ -1448,7 +1472,7 @@ Well then, ancient. Welcome to the future, as it is already now, oldtimer. Ready
 </center>
 
 
-:: Orb Configuration {"position":"1400,500","size":"100,100"}
+:: Orb Configuration {"position":"3300,975","size":"100,100"}
 <center><center>[img[assets/backgrounds/Orb_Config_3.png]]</center>
 <blockquote>
 
@@ -1589,7 +1613,29 @@ What do I want for the Orb to collect?
 </center>
 
 
-:: Quest Management {"position":"1700,500","size":"100,100"}
+:: Quest 2 {"position":"3200,1600","size":"100,100"}
+  On a spot of a mountainous area, I found others! Yay! I guess, that is why the AI kept passive, because it knew, we will find the others ...
+
+  Both damsels told me that they are less lucky. 3 others of their crewmates didn't make it since <<= $days>> cycles. Both alones make them feel rather lonely. They wish more company. I proposed, if possible, we will set a camp here. The more the merrier. They agreed without hesitation.
+
+  I will go back and tell the others about the new option: the resettling to Camp Mountain.
+<<elseif $CampM.nutrients < 0 && $CMfoodQuest == 0>><<set $CampM.nutrients = 0, $CMfoodQuest = 1, $CampM.unimatter = 0>>
+  On a spot of a mountainous area, I found another spaceship - like ours! Other stranded. 
+  
+  ...
+
+  But it is silent. I try to direct-radio them, even knocking on the hatch - which is quite brutally deformed. But no reaction. As I wanted to go befuddled, I hear a whirring and a cracking sound. The hatch! It opens, but painfully. I guess here was someone hostile. Immediately I reposition myself for better oversight and check around, if the cause for this silence is around. 
+
+  ...
+
+  I see no movement, and no one comes out. Typical AI, silent since we are on this new planet. Boy, oh boy, never had I this much adrenaline! And the silence is more unnerving than an AI imforming me what could be wrong.
+
+  Slowly I near the hatch sidewyas, check it from the distance, no movement. So? Does it mean, no one made it? All were deceased, lost, shut down or at other places? With this hunch, I have a better feeling. 
+  Then! Inside should be some nutrients and unimatter! I hope. As I enter the spaceship, and went to the central, it informed me that there is no unimatter - although a Substance Analyzer is in the inventory - and no nutrients! Whoa, what happened here?!
+  Hold on, no nutrients?! Then ... I gotta check ... oh yes, there are two in cryostasis. Luckily, the energy regenerator on this spaceship is funcioning, more or less, which keeps the cryochambers on. Okay, then that means they need nutrients to let them release out of the chambers. For that I need a floating Orb, or I convince Vika and Leo to come with me.
+
+
+:: Quest Management {"position":"2900,1600","size":"100,100"}
 <center>[img[assets/backgrounds/todo-list.png]]
 <blockquote>
 
@@ -1613,6 +1659,23 @@ Mininum Nutrients:
 <div class="actions-row"><div>[[Go back to Camp|Camp Jungle]]</div></div>
 
 </blockquote></center>
+
+
+:: QuestTracker {"position":"475,25","size":"100,100"}
+<<set $QuestNumber = 0>>
+<<set $QuestArray = []>>
+
+/* Quest Tracker
+
+1 = condition: IF Camp_J && Camp_M && 3E Event Aftermath; quest: go to Camp Mountain and ask for help
+2 = condition: IF Camp_J && NOT Camp_M && 3E Event Aftermath; quest: go to East, a tip from AI to Leo, 
+3 = condition: IF Camp_M && 3E Event Aftermatch; quest: do repairs
+3A = condition: Vika unconscious; quest: priority 1 - repair Vika with Abiba and Leo within 2 days, else enfreeze her
+3B = condition: Leo cracked; quest: priority 2 - repair Leo
+3C = condition: IF Camp_M && broken spaceship; quest: priority 3 - print a dock for repairs or forego (one more building slot)
+3D = condition: IF Camp_J && broken spaceship; quest: priority 3 - print a dock or forego it or an Orb docking station for transport of buildings (two more building slots)
+
+ */
 
 
 :: Search for Compass {"position":"925,175","size":"100,100"}
@@ -1661,7 +1724,7 @@ Bien, bien. Now I have the compass. <</timed>>
 </blockquote></center>
 
 
-:: Setter {"position":"100,825","size":"100,100"}
+:: Setter {"position":"2200,1125","size":"100,100"}
 <<set $OrbTransport = []>>
 <<= $OrbTransport>>
 
@@ -1703,7 +1766,7 @@ Yes! Yes! I am saved</div></div>
 </blockquote></center>
 
 
-:: Social Events {"position":"1700,900","size":"100,100"}
+:: Social Events {"position":"3325,350","size":"100,100"}
 <center><blockquote><<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>><</if>>
 With whom do I want to socialize?
 
@@ -1720,7 +1783,7 @@ With whom do I want to socialize?
 </blockquote></center>
 
 
-:: Start from Base Jungle {"position":"900,1500","size":"100,100"}
+:: Start from Base Jungle {"position":"875,2175","size":"100,100"}
 <center>[img[assets/Ch-Explore/jungle0.png]]
 <blockquote>
 <<if $Camp_M == true && lastVisited("Start from Base Jungle") is 0>>
@@ -1742,29 +1805,11 @@ With whom do I want to socialize?
 </blockquote></center>
 
 
-:: Start from Base Mountain {"position":"1525,1500","size":"100,100"}
+:: Start from Base Mountain {"position":"1500,2175","size":"100,100"}
 <center><blockquote><<if $seenSfBM == false>><<set $seenSfBM = true>><<if $days < 5>><<set $CampM.unimatter = 5>><</if>>
 [img[assets/backgrounds/bg-cover.png]]
 <<if $CampM.nutrients > 0>>
-  On a spot of a mountainous area, I found others! Yay! I guess, that is why the AI kept passive, because it knew, we will find the others ...
-
-  Both damsels told me that they are less lucky. 3 others of their crewmates didn't make it since <<= $days>> cycles. Both alones make them feel rather lonely. They wish more company. I proposed, if possible, we will set a camp here. The more the merrier. They agreed without hesitation.
-
-  I will go back and tell the others about the new option: the resettling to Camp Mountain.
-<<elseif $CampM.nutrients < 0 && $CMfoodQuest == 0>><<set $CampM.nutrients = 0, $CMfoodQuest = 1, $CampM.unimatter = 0>>
-  On a spot of a mountainous area, I found another spaceship - like ours! Other stranded. 
-  
-  ...
-
-  But it is silent. I try to direct-radio them, even knocking on the hatch - which is quite brutally deformed. But no reaction. As I wanted to go befuddled, I hear a whirring and a cracking sound. The hatch! It opens, but painfully. I guess here was someone hostile. Immediately I reposition myself for better oversight and check around, if the cause for this silence is around. 
-
-  ...
-
-  I see no movement, and no one comes out. Typical AI, silent since we are on this new planet. Boy, oh boy, never had I this much adrenaline! And the silence is more unnerving than an AI imforming me what could be wrong.
-
-  Slowly I near the hatch sidewyas, check it from the distance, no movement. So? Does it mean, no one made it? All were deceased, lost, shut down or at other places? With this hunch, I have a better feeling. 
-  Then! Inside should be some nutrients and unimatter! I hope. As I enter the spaceship, and went to the central, it informed me that there is no unimatter - although a Substance Analyzer is in the inventory - and no nutrients! Whoa, what happened here?!
-  Hold on, no nutrients?! Then ... I gotta check ... oh yes, there are two in cryostasis. Luckily, the energy regenerator on this spaceship is funcioning, more or less, which keeps the cryochambers on. Okay, then that means they need nutrients to let them release out of the chambers. For that I need a floating Orb, or I convince Vika and Leo to come with me.
+<<include [[Quest 2]]>>
 <</if>>
 <div class="actions-row"><div>[[Go to West|4E][$energy -= 0.2+$Oeu]]</div></div>
 
@@ -1788,9 +1833,10 @@ With whom do I want to socialize?
 :: StoryInit {"position":"100,25","size":"100,100"}
 <<include [[globalvariables]]>>
 <<include [[Territories]]>>
+<<include [[QuestTracker]]>>
 
 
-:: Substance Analyzer {"position":"2200,200","size":"100,100"}
+:: Substance Analyzer {"position":"2175,300","size":"100,100"}
 <center>
 [img[assets/items/Substance-Analyzer.png]]
 <blockquote>
@@ -1841,7 +1887,7 @@ With that, we should be able to collect materials nearby. Hopefully, some can be
 <<set $explored5W = 0>>
 
 
-:: Testing {"position":"100,700","size":"100,100"}
+:: Testing {"position":"2200,1000","size":"100,100"}
 <<button "Xeno+10">><<set $xeno = 10>><<goto [[Testing]]>><</button>>
 <<button "Unimatter+10">><<set $unimatter = 10>><<goto [[Testing]]>><</button>>
 <<button "Energy+10">><<set $energy = 10>><<goto [[Testing]]>><</button>>
@@ -1865,7 +1911,7 @@ With that, we should be able to collect materials nearby. Hopefully, some can be
 [[Camp Mountain]]
 
 
-:: The Map {"position":"900,825","size":"100,100"}
+:: The Map {"position":"875,1500","size":"100,100"}
 <center><<nobr>>
   <<if $days != 0>><<set _randomNumber = random(20)/$days>><<else>><<set _randomNumber = random(20)/1>><</if>>
 <</nobr>>
@@ -2353,7 +2399,7 @@ With that, we should be able to collect materials nearby. Hopefully, some can be
   </center>
 
 
-:: Vika {"position":"1900,775","size":"100,100"}
+:: Vika {"position":"3525,225","size":"100,100"}
 <center><blockquote>
   <<if random(4) > 1>>
     <<if $Vika_ICP.VI1>>[img[assets/characters/Vika/Vika_4.png]]
@@ -2464,12 +2510,19 @@ So! Take out your contact lenses or your glasses, and all is fine!
 <</if>>
 
 
-:: WhyNothing {"position":"2075,200","size":"100,100"}
+:: WhyNothing {"position":"2050,300","size":"100,100"}
 <center>
 ... energy is too low for any constructions. We need rest.
 
 <div class="actions-row"><div>[[Set up the Camp|Camp Jungle]]</div></div>
 </center>
+
+
+:: Widgets [widget] {"position":"625,25","size":"100,100"}
+<<widget "say" container>>
+<div class="Char">
+<div class="Char-Framer"><img class="Char-img" @src="'assets/characters/' + _args[0].toLowerCase() + '.png'"></div><div class="Char-dialogues">_contents</div></div>
+<</widget>>
 
 
 :: Yes {"position":"225,300","size":"100,100"}
@@ -2482,6 +2535,8 @@ Since I come from upper middle class, my family invested in a designer baby. Obv
 </blockquote>
 <div class="actions-row"><div>[[Like this]]</div></div>
 </center>
+
+Developper: Skip to [[AnteVote]]
 
 
 :: globalvariables {"position":"225,25","size":"100,100"}
@@ -2599,6 +2654,7 @@ Since I come from upper middle class, my family invested in a designer baby. Obv
 <<set $OrbAutoCJ = false>>
 
 <<set $CMfoodQuest = 0>>
+<<set $Quest3E = 0>>
 
 
 :: StoryScript [script]
@@ -2611,6 +2667,9 @@ Object.defineProperty(Number.prototype,'range',{
       return this >= min && this <= max;
   }
 });
+
+
+
 
 :: StoryStylesheet [stylesheet]
 /* core ------------------------------------------------------------------------------------- */    
@@ -3141,8 +3200,12 @@ box-sizing: border-box;
 }
 
 @keyframes wakingup {
-  from {background-color: #111; height:800px;}
-  to {background-color: #111; height:0px;}
+  0% {background-color: #111; height:100%;}
+  10% {background-color: #111; height:80%;}
+  15% {background-color: #111; height:85%;}
+  40% {background-color: #111; height:30%;}
+  70% {background-color: #111; height:50%;}
+  100% {background-color: #111; height:0%;}
 }
 
 #aniwakingup {
@@ -3151,12 +3214,12 @@ box-sizing: border-box;
   left:0;
   z-index: 10;
   width: 100%;
-  height: 800px;
+  height: 100%;
   background-color: #111;
   animation-name: wakingup;
   animation-duration: 3s;
-  animation-delay: 3s;
-  animation-fill-mode: both;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
 }
 
 /* placeholder ----------------------------------------------*/

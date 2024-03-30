@@ -4,6 +4,8 @@ Chapter 2:
 
 - NOT FINISHED: Scenario if Camp Mountain is not detected after its nutrients depleted
 
+- DONE: list in construction menu is not orderly
+
 - 3E scenario:
 + and give some damage to the bases, 1x scene where player glimpse something silvery
 + a component need to build, or a reconnaissance beforehand, or for a while upgrade the Transmission Mast
@@ -34,3 +36,6 @@ Chapter 2:
 - for future:
 + AI audio generated
 + AI voice generated (although: consistency!)
+
+- ideas:
++ flying humans (but drones, and orb already do that, therefore just a link is sufficient)
