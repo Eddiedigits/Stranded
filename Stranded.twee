@@ -12,7 +12,7 @@ Stranded
     "autosave": "yellow",
     "widget": "purple"
   },
-  "zoom": 0.6
+  "zoom": 0.3
 }
 
 
@@ -381,7 +381,7 @@ Where to go next?
 </blockquote></center>
 
 
-:: 3E Event Aftermath {"position":"3050,1450","size":"100,100"}
+:: 3E Event Aftermath {"position":"3200,1475","size":"100,100"}
 <center><blockquote>
 <<linkappend "<em>Nfh!</em>">> 
 
@@ -394,42 +394,12 @@ Where to go next?
 
 <<timed 3s>>Also, it didn't kill us. I mean ... or I think, I feel like it could have killed us with its barbs. But ... rather decided to stomp the spaceship back to ground.
 
-<<timed 3s>><<linkappend "Assess the outcome">>
+<<timed 3s>><div class="actions-row"><div>[[Assess the outcome]]</div></div><</timed>><</timed>><</timed>><</linkappend>><</timed>><</linkappend>>
 
-It is huge setback. The hull is broken. The cockpit, our life maintenance modules, the nutrients converter, the energy generator and worse of all: our Printer! Leo is shaken, but compared to his first landing, but still good. Last but not least, Vika is in coma, in emergency mode. That makes me the luckiest of all, as I need only a bit of polishing, not more. 
-<<if $Camp_J>>
-<<say "Leo">>By the croniest nose of the dark universe! What. Was. That?<</say>>
-
-<<say "RD">>What are you looking at me? I have no idea. I sent the orb to prospect the spaceship overgrown with vegetation, and then it happened so fast, I decided to run. Looking at the capable violence, I would have been smashed to smithereens.<</say>>
-
-Leo gestikulates to calm down. 
-
-<<say "Leo">>Mate, sorry. It was more a rhetorical question. I knew ...<</say>>
-
-<<say "RD">>By the way, how did you knew?<</say>>
-
-<<say "Leo">>... that something is coming. Our Watcher warned us.<</say>>
-
-<<say "RD">>Huh! The first time, it took initiative. Then it was something, quite.<</say>>
-
-<<say "Leo">>You tell me. With this wreck, it is!<</say>>
-
-<<else>>
-<</if>>
-
-<</linkappend>>
-<</timed>><</timed>><</timed>>
+</blockquote></center> 
 
 
-<<set $maxenergy = 2; $energy = 2; $unimatter = 1; $Quest3E = 1>>
-
-<</linkappend>><</timed>><</linkappend>>
-  
-  </blockquote>
-</center> 
-
-
-:: 3E-Event {"position":"3050,1325","size":"100,100"}
+:: 3E-Event {"position":"3200,1350","size":"100,100"}
 <center>[img[assets/backgrounds/Placeholder.png]]
   <blockquote>
 
@@ -804,6 +774,75 @@ Have I a change of mind? Do I want a ...
 <<button "Substance Analyzer">><<set $numero = 2>><<goto "Vote">><</button>>
 
 <<button "Energy Harvester">><<set $numero = 3>><<goto "Vote">><</button>>
+<</if>>
+</blockquote></center>
+
+
+:: Assess the outcome {"position":"3200,1600","size":"100,100"}
+<center><blockquote>[img[assets/backgrounds/Placeholder.png]]
+
+It is a huge setback. The hull is broken. As are the cockpit, our life maintenance modules, the nutrients converter, the energy generator, the outbuildings and worse of all: our Printer! Leo is shaken, but compared to his first landing, still good. Last but not least, Vika is in coma, in emergency mode. That makes me the luckiest of all, as I need only a bit of polishing, not more. 
+<<if $Camp_J>><<set $CampJ to {TransMast: false,Farm: 0,DefPerimeter: false,building: 0,maxbuildings: 0,EHarvester: 0,Orb: 1,nOrb: 1,cOrb: 1,}; $energy = 2; $unimatter = 1; $nutrients = 4>>
+  <<say "Leo">>By the coldness in the dark universe! What. Was. That?<</say>>
+  <<say "RD">><em>I gesticulate wildly.</em>What are you looking at me? I have no idea.<br> I sent the orb to prospect the spaceship - that one overgrown with vegetation -, and then ... it happened so fast, I decided to run. Looking at the capable violence, I would have been smashed to smithereens.<</say>>
+  Leo gesticulates to calm me down.<br>
+  <<say "Leo">>Mate, sorry. It was more a rhetorical question. I knew ...<</say>>
+  <<say "RD">>By the way, how did you knew?<</say>>
+  <<say "Leo">>... that something was coming. Our Watcher warned us.<</say>>
+  <<say "RD">>Huh! <br>The first time, it took initiative. Then it was something. Quite.<</say>>
+  <<say "Leo">>You tell me. With this wreck, it is!<</say>>
+  ...<br>
+  <<say "RD">>So ... we have ...<</say>>
+  <<say "Leo">>We have to call for help.<</say>>
+  <<say "RD">>Yeapp<</say>>
+ /* Start Quest 3E Event Aftermath */
+ <<if hasVisited("Start from Base Mountain")>><<set $QuestPool.push($Q1)>>
+  <<say "RD">>I will go to the others at the mountain and came back with them.<</say>>
+  Leo nods
+  <<say "RD">>Or did our Watcher, our AI, send an emergeny alert?!<</say>>
+  <<say "Leo">>Not that I know of.<</say>>
+  <<say "RD">>Sometimes it is so hard to understand their reasnoning!<</say>>
+  <<say "Leo">>Mmmh! I believe there is a reason for it. It will eventually pop int our minds.<</say>>
+  <<say "RD">>There better be!<</say>>
+  <<ab>>[[Go East|1E]]<</ab>>
+ <<else>><<set $QuestPool.push($Q2)>>
+  <<say "Leo">>Our Watcher once hinted that there is something on the east, or some else.<</say>>
+  <<say "RD">>Great! Mystic and reticent as always.<</say>>
+  <<say "Leo">>Young Boy. Well! Go!<</say>>
+  <<say "RD">>Oi! What about ...<</say>>
+  <<say "Leo">>Don't debate. Go! And yes, I am that old. C'mon.<</say>>
+  <<say "RD">>Huh! That's powerplay!<</say>>
+  <<say "Leo">>By zero Kelvin! You have more experience in the outside field and are the less broken one of all of us.<</say>>
+  <<say "RD">>...<</say>>
+  <<say "Leo">>Mach den Abgang!&nbsp;<em>gesticulating to go</em><br><</say>>
+  <<say "RD">>Wha?! Yeah, damn! Couldn't you have been nicer!?<</say>>
+  What language was that?
+  <<ab>>[[Go East|1E]]<</ab>>
+  <</if>>
+<<else>><<set $CampM to {TransMast: false,Farm: 0,DefPerimeter: false,building: 0,maxbuildings: 0,EHarvester: 0,Orb: 1,nOrb: 1,cOrb: 1,}; $nutrients /= 2; $unimatter /= 2; $energy /= 2; $QuestPool.push($Q3); $maxenergy -= 8; $maxunimatter -= 12; $maxnutrients -= 37>>
+  Elva and Abiba's ship return. It hasn't attacked them. If their watcher knows what that was that attacked us? 
+
+  With jetting forces their ship land on the same spot. The hatch opens, both of them run out and hugs us, asking what that was? What I did? I did nothing. 
+  <<say "Leo">>Guys! Let us bring Vika in and stabilize her.<</say>>
+  Ashamed, I fret at myself that Vika's priority didn't came to my mind first, instead to Leo's. Am I selfish?
+  We all carry her into their spaceship, to one of the unfilled pod <<nobr>>
+    <<if $CampM.unimatter > 2>><<set $CampM.unimatter -= 3>>, but the watcher directed us to the costruction chamber and already is on to repair her module, as printing the replacement tools. I guess, it is too urgent to let us diagnose and creating a solution. It notified us that it should only take some days.<<else>><<set $QuestPool.push($Q3AB); $QuestPool.push($Q3A)>>and the watcher stabilized her, but urges us to find unimatter as of now. At latest two days.<</if>><br>
+    <<if $QuestPool.count($Q3AB) != 1 && $CampM.nutrients > 4>><<set $CampM.nutrients -= 5>>It notified us also that it will infuse her with enough medicine to neutralize the damages on the internal composition. <<else>><<set $QuestPool.push($Q3AA); $QuestPool.push($Q3A)>>Same for medicine. She needs nutrients, also within two days. Else she has to be enfreezed, which uses regularly energy that we also need.<</if>><br>
+    <<if $CampM.unimatter > 0 && $CampM.nutrients > 1 && $QuestPool.count($Q3A) == 0>><<set $CampM.nutrients -= 2; $CampM.unimatter -= 1>>Leo's case is quite mild and is done in few hours.<<else>><<set $QuestPool.push($Q3B)>>Leo's case is quite mild and can wait some days, he only needs to be inside a pod and let himself stabilized. Until then Vika has to be healed, then Leo.<</if>><br>
+  <</nobr>>
+  <<say "Elva">>So, we have someone, something, far more dangerous than the animals that attack us occasionally.<</say>>
+  <<say "RD">>Oh yes!<</say>>
+  By the sight of the sheer destruction power, we all can only agree.
+  <<say "RD">>And it seemt to have an intelligence.<</say>>
+  <<say "Elva">>How come?<</say>>
+  <<say "RD">>A feeling.<</say>>
+  <<say "RD">>Our watchers doesn't say anything?<</say>> 
+  Nope. Both ladies shake their heads.
+  Ugh!
+  <<say "RD">>Fine. I will go out then.<</say>>
+  <<say "Elva">>I will accompany you.<</say>><<set $carrycap += 1>>
+  Abiba nods and stays near the cockpit, in case they need to quickjump again.
+  <<ab>>[[Go West|4E]]<</ab>>
 <</if>>
 </blockquote></center>
 
@@ -1613,69 +1652,53 @@ What do I want for the Orb to collect?
 </center>
 
 
-:: Quest 2 {"position":"3200,1600","size":"100,100"}
-  On a spot of a mountainous area, I found others! Yay! I guess, that is why the AI kept passive, because it knew, we will find the others ...
-
-  Both damsels told me that they are less lucky. 3 others of their crewmates didn't make it since <<= $days>> cycles. Both alones make them feel rather lonely. They wish more company. I proposed, if possible, we will set a camp here. The more the merrier. They agreed without hesitation.
-
-  I will go back and tell the others about the new option: the resettling to Camp Mountain.
-<<elseif $CampM.nutrients < 0 && $CMfoodQuest == 0>><<set $CampM.nutrients = 0, $CMfoodQuest = 1, $CampM.unimatter = 0>>
-  On a spot of a mountainous area, I found another spaceship - like ours! Other stranded. 
-  
-  ...
-
-  But it is silent. I try to direct-radio them, even knocking on the hatch - which is quite brutally deformed. But no reaction. As I wanted to go befuddled, I hear a whirring and a cracking sound. The hatch! It opens, but painfully. I guess here was someone hostile. Immediately I reposition myself for better oversight and check around, if the cause for this silence is around. 
-
-  ...
-
-  I see no movement, and no one comes out. Typical AI, silent since we are on this new planet. Boy, oh boy, never had I this much adrenaline! And the silence is more unnerving than an AI imforming me what could be wrong.
-
-  Slowly I near the hatch sidewyas, check it from the distance, no movement. So? Does it mean, no one made it? All were deceased, lost, shut down or at other places? With this hunch, I have a better feeling. 
-  Then! Inside should be some nutrients and unimatter! I hope. As I enter the spaceship, and went to the central, it informed me that there is no unimatter - although a Substance Analyzer is in the inventory - and no nutrients! Whoa, what happened here?!
-  Hold on, no nutrients?! Then ... I gotta check ... oh yes, there are two in cryostasis. Luckily, the energy regenerator on this spaceship is funcioning, more or less, which keeps the cryochambers on. Okay, then that means they need nutrients to let them release out of the chambers. For that I need a floating Orb, or I convince Vika and Leo to come with me.
-
-
-:: Quest Management {"position":"2900,1600","size":"100,100"}
+:: Quest Management {"position":"2825,1250","size":"100,100"}
 <center>[img[assets/backgrounds/todo-list.png]]
 <blockquote>
 
-<<if $CMfoodQuest == 2>>
+<div class="passage-titles" style="color:#ff944d; border-bottom-color: #ff944d; border-top-color: #ff944d;"><center><h2><strong>Quest Management</strong></h2></center></div>
 
-  I think it is better to start up with at least 9 nutrients. Less so would be ridiculous. What or who will it be?
+<center>Tip:
+The "Q" key popups the task progressor everywhere.</center>NOT YET IMPLEMENTED
 
-  <<if $CampJ.Orb == 3>><<linkappend "+ activate the Orb">><<if $energy > (3 + $extra3E) && $nutrients >= 9>>The Orb is programmed to accompany me and is about to gather the nutrients<<set $energy -= (3 + $extra3E), $nutrients -= 9>><<else>>There is not enough energy or nutrients.<</if>><</linkappend>><</if>>
+<div class="order-indices"><div class="index-screens-normal"><div><strong>open tasks</strong></div><div>
+  
+  <ol>
+  <<for _name range $QuestPool>>
+    <li> _name</li> OR <li> [_name]</li>
+  <</for>>
+  </ol>
 
-  AND/OR
+</div></div>
+<div class="index-screens-normal"><div><strong>completed tasks</strong></div><div>
+  
+  <ol>
+  <<for _name range $QuestPoolDone>>
+    <li> _name</li>
+  <</for>>
+  </ol>
 
-  <<linkappend "+ ask Vika for help">><<if $social >=5 && $energy >= 2>>Vika will help you carrying the nutrients.<<set $energy -= 2, $nutrients -= 3>><<elseif $social < 5>>She thinks that maybe it is better this way, for now.<<else>>Not enough energy.<</if>><</linkappend>>
-
-  <<linkappend "+ ask Leo for help">><<if $social >=7 && $energy >= 2>>Leo will help carrying nutrients and activating the dormant spaceship.<<set $energy -= 2, $nutrients -= 3>><<elseif $social < 7>>Leo doesn't feel comfortable to walk a long way to the mountain ridge.<<else>>Not enough energy.<</if>><</linkappend>>
-
-Mininum Energy:
-Mininum Nutrients:
-<<if _assembledforCM >><<if not hasVisited("3E-Event")>>[[Go to the Mountain Ridge|Start from Base Mountain][$energy -= , $nutrients -=]]<<else>><</if>><</if>>
-<</if>>
-
-<div class="actions-row"><div>[[Go back to Camp|Camp Jungle]]</div></div>
+</div></div></div>
 
 </blockquote></center>
 
 
 :: QuestTracker {"position":"475,25","size":"100,100"}
-<<set $QuestNumber = 0>>
-<<set $QuestArray = []>>
+<<set $QuestPool = []; $QuestPoolDone = []>>
 
-/* Quest Tracker
+/* Quest Tracker */
 
-1 = condition: IF Camp_J && Camp_M && 3E Event Aftermath; quest: go to Camp Mountain and ask for help
-2 = condition: IF Camp_J && NOT Camp_M && 3E Event Aftermath; quest: go to East, a tip from AI to Leo, 
-3 = condition: IF Camp_M && 3E Event Aftermatch; quest: do repairs
-3A = condition: Vika unconscious; quest: priority 1 - repair Vika with Abiba and Leo within 2 days, else enfreeze her
-3B = condition: Leo cracked; quest: priority 2 - repair Leo
-3C = condition: IF Camp_M && broken spaceship; quest: priority 3 - print a dock for repairs or forego (one more building slot)
-3D = condition: IF Camp_J && broken spaceship; quest: priority 3 - print a dock or forego it or an Orb docking station for transport of buildings (two more building slots)
+<<set $Q1A = "Go to Camp Mountain and ask for help">> /* condition: IF Camp_J && Camp_M && 3E Event Aftermath */
+<<set $Q1B = "Go to East, a tip from AI to Leo">> /* condition: IF Camp_J && NOT Camp_M && 3E Event Aftermath */
+<<set $Q1C = "Do repairs">> /* condition: IF Camp_M && 3E Event Aftermath */
+<<set $Q1CA = "Priority 1 - Repair Vika within 2 days, otherwise she has to be enfreezed">> /* condition: Vika unconscious */
+<<set $Q1CA1 = "Priority 1a - Find and bring at least 5 nutrients.">>
+<<set $Q1CA2 = "Priority 1b - Find and bring at least 3 unimatter.">>
+<<set $Q1CB = "Priority 2 - repair Leo (1 unimatter & 2 nutrients)">> /* condition: Leo cracked */
+<<set $Q1CCA = "Priority 3 - print a dock for repairs or forego (one more building slot)">> /* condition: IF Camp_M && broken spaceship */
+<<set $Q1CCB = "Priority 3 - print a dock or forego it or an Orb docking station for transport of buildings (two more building slots)">> /* condition: IF Camp_J && broken spaceship */
 
- */
+<<set $Q2 = "Collect 9 nutrients and bring them to the Camp on the dormant spaceship on the Mountain Ridge.<br> <<ab>>[[Task 2]]<</ab>>">>
 
 
 :: Search for Compass {"position":"925,175","size":"100,100"}
@@ -1729,6 +1752,14 @@ Bien, bien. Now I have the compass. <</timed>>
 <<= $OrbTransport>>
 
 [[Testing]]
+
+
+:: SfBM open {"position":"2950,1350","size":"100,100"}
+  On a spot of a mountainous area, I found others! Yay! I guess, that is why the AI kept passive, because it knew, we will find the others ...
+
+  Both damsels told me that they are less lucky. 3 others of their crewmates didn't make it since <<= $days>> cycles. Both alones make them feel rather lonely. They wish more company. I proposed, if possible, we will set a camp here. The more the merrier. They agreed without hesitation.
+
+  I will go back and tell the others about the new option: the resettling to Camp Mountain.
 
 
 :: Shutdown {"position":"1050,175","size":"100,100"}
@@ -1809,21 +1840,25 @@ With whom do I want to socialize?
 <center><blockquote><<if $seenSfBM == false>><<set $seenSfBM = true>><<if $days < 5>><<set $CampM.unimatter = 5>><</if>>
 [img[assets/backgrounds/bg-cover.png]]
 <<if $CampM.nutrients > 0>>
-<<include [[Quest 2]]>>
+<<include [[SfBM open]]>>
+<<elseif $CampM.nutrients < 0 && $QuestPool != $Q2>>
+<<include [[dormant spaceship 1]]>>
+<<elseif $CampM.nutrients < 0 && $QuestPool == $Q2>>
+<<include [[dormant spaceship 2]]>>
 <</if>>
-<div class="actions-row"><div>[[Go to West|4E][$energy -= 0.2+$Oeu]]</div></div>
+<<ab>>[[Go to West|4E][$energy -= 0.2+$Oeu]]<</ab>>
 
-<<if $Camp_J == true>>[[Go back to Camp|Camp Jungle][$energy -= 5*(0.2+$Oeu)]]</div></div><</if>>
+<<if $Camp_J == true>><<ab>>[[Go back to Camp|Camp Jungle][$energy -= 5*(0.2+$Oeu)]]<</ab>><</if>>
 
 <<else>>
 <<if $Camp_M == true>>[img[assets/Ch-Camp/MountainCamp.png]]<<else>>[img[assets/backgrounds/bg-cover.png]]<</if>>
     <<if $energy != 0>>
       
-      <<if $Camp_J == true>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 5*(0.2+$Oeu)]]</div></div><<else>><div class="actions-row"><div>[[Go back to Base|The Map][$energy -= 5*(0.2+$Oeu)]]</div></div><</if>>
+      <<if $Camp_J == true>><<ab>>[[Go back to Base|The Map][$energy -= 5*(0.2+$Oeu)]]<</ab>><<else>><<ab>>[[Go back to Base|The Map][$energy -= 5*(0.2+$Oeu)]]<</ab>><</if>>
       
-          <<if $explored1N5E == 100 && hasVisited("3E-Event")>><div class="actions-row"><div>[[Go North|1N5E][$energy -= 0.2+$Oeu]]</div></div><</if>><br><br>
+          <<if $explored1N5E == 100 && hasVisited("3E-Event")>><<ab>>[[Go North|1N5E][$energy -= 0.2+$Oeu]]<</ab>><</if>><br><br>
       
-     <<if $Camp_J == true>> <div class="actions-row"><div>[[Go West|4E][$energy -= 0.2+$Oeu]]</div></div><</if>>
+     <<if $Camp_J == true>> <<ab>>[[Go West|4E][$energy -= 0.2+$Oeu]]<</ab>><</if>>
     
     <<else>><<goto [[Camp Mountain]]>><</if>>
 <</if>>
@@ -1848,6 +1883,24 @@ With that, we should be able to collect materials nearby. Hopefully, some can be
 <</nobr>>
 <div class="actions-row"><div>[[Set up the Camp|Camp Jungle]]</div></div>
 </blockquote></center>
+
+
+:: Task 2 {"position":"3075,1475","size":"100,100"}
+I think it is better to start up with at least 9 nutrients. Less so would be ridiculous. What or who will it be?
+
+  <<if $CampJ.Orb == 3>><<linkappend "+ activate the Orb">><<if $energy > (3 + $extra3E) && $nutrients >= 9>>The Orb is programmed to accompany me and is about to gather the nutrients<<set $energy -= (3 + $extra3E), $nutrients -= 9>><<else>>There is not enough energy or nutrients.<</if>><</linkappend>><</if>>
+
+  AND/OR
+
+  <<linkappend "+ ask Vika for help">><<if $social >=5 && $energy >= 2>>Vika will help you carrying the nutrients.<<set $energy -= 2, $nutrients -= 3>><<elseif $social < 5>>She thinks that maybe it is better this way, for now.<<else>>Not enough energy.<</if>><</linkappend>>
+
+  <<linkappend "+ ask Leo for help">><<if $social >=7 && $energy >= 2>>Leo will help carrying nutrients and activating the dormant spaceship.<<set $energy -= 2, $nutrients -= 3>><<elseif $social < 7>>Leo doesn't feel comfortable to walk a long way to the mountain ridge.<<else>>Not enough energy.<</if>><</linkappend>>
+
+Mininum Energy:
+Mininum Nutrients:
+<<if _assembledforCM >><<if not hasVisited("3E-Event")>><<ab>>[[Go to the Mountain Ridge|Start from Base Mountain][$energy -=COMPLETE NEEDED HERE , $nutrients -= COMPLETE NEEDED HERE]]<</ab>><<else>><</if>><</if>>
+
+<<ab>>[[Go back|Quest Management]]<</ab>>
 
 
 :: Territories {"position":"350,25","size":"100,100"}
@@ -1903,6 +1956,16 @@ With that, we should be able to collect materials nearby. Hopefully, some can be
 ----------------------------------------
 <<= $OrbTA>>
 ----------------------------------------
+
+/* Look at JavaScript */
+<div id="popup" style="display: none;">
+   <ol>
+    <<for _i, _name range $QuestPoolDone>>
+      <li> _name </li>
+    <</for>>
+  </ol>
+</div>
+
 [[Setter]]
 
 
@@ -2519,10 +2582,10 @@ So! Take out your contact lenses or your glasses, and all is fine!
 
 
 :: Widgets [widget] {"position":"625,25","size":"100,100"}
-<<widget "say" container>>
-<div class="Char">
-<div class="Char-Framer"><img class="Char-img" @src="'assets/characters/' + _args[0].toLowerCase() + '.png'"></div><div class="Char-dialogues">_contents</div></div>
-<</widget>>
+<<widget "say" container>><div class="Char">
+<div class="Char-Framer"><img class="Char-img" @src="'assets/characters/' + _args[0].toLowerCase() + '.png'"></div><div class="Char-dialogues">_contents</div></div><</widget>>
+
+<<widget "ab" container>><div class="actions-row"><div>_contents</div></div><</widget>>
 
 
 :: Yes {"position":"225,300","size":"100,100"}
@@ -2536,7 +2599,29 @@ Since I come from upper middle class, my family invested in a designer baby. Obv
 <div class="actions-row"><div>[[Like this]]</div></div>
 </center>
 
-Developper: Skip to [[AnteVote]]
+Developper: Skip to [[Camp Jungle][$engineering += 1]]
+
+
+:: dormant spaceship 1 {"position":"3075,1350","size":"100,100"}
+  <<nobr>><<set $CampM.nutrients = 0, $QuestPool.push($Q2), $CampM.unimatter = 0>><</nobr>>On a spot of a mountainous area, I found another spaceship - like ours! Another stranded. 
+  
+  ...
+
+  But it is silent. I try to direct-radio them, even knocking on the hatch - which is quite brutally deformed. But no reaction. As I wanted to go befuddled, I hear a whirring and a cracking sound. The hatch! It opens, but painfully. I guess here was someone hostile. Immediately I reposition myself for better oversight and check around, if the cause for this silence is around. 
+
+  ...
+
+  I see no movement, and no one comes out. Typical AI, silent since we are on this new planet. Boy, oh boy, never had I this much adrenaline! And the silence is more unnerving than an AI informing me what could be wrong.
+
+  Slowly I near the hatch sidewyas, check it from the distance, no movement. So? Does it mean, no one made it? All were deceased, lost, shut down or at other places? With this hunch, I have a better feeling. 
+  Then! Inside should be some nutrients and unimatter, I hope! As I enter the spaceship, and went to the central, it informed me that there is no unimatter - although a Substance Analyzer is in the inventory - and no nutrients! Whoa, what happened here?!
+  Hold on, no nutrients?! Then ... I gotta check ... oh yes, there are two in cryostasis. Luckily, the energy regenerator on this spaceship is functioning, more or less, which keeps the cryochambers on. Okay, then that means they need nutrients to let them to be released out of the chambers. For that I need a floating Orb, or I convince Vika and Leo to come with me.
+
+
+:: dormant spaceship 2 {"position":"3075,1600","size":"100,100"}
+Upon arrival TEXT
+
+<<set $QuestPool.pluck($Q2); $QuestPoolDone.push($Q2)>>
 
 
 :: globalvariables {"position":"225,25","size":"100,100"}
@@ -2669,7 +2754,17 @@ Object.defineProperty(Number.prototype,'range',{
 });
 
 
+//-------------------- Pop-Up for Quest (is very nice!)
 
+$(document).on('keydown', function(event) {
+  if (event.key === "q" || event.key === "Q") {
+    $("#popup").show();
+  }
+});
+
+$(document).on('click', '#popup', function() {
+  $(this).hide();
+});
 
 :: StoryStylesheet [stylesheet]
 /* core ------------------------------------------------------------------------------------- */    

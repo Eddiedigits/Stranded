@@ -7,8 +7,12 @@ Chapter 2:
 - DONE: list in construction menu is not orderly
 
 - 3E scenario:
-+ and give some damage to the bases, 1x scene where player glimpse something silvery
++ DONE: and give some damage to the bases, 1x scene where player glimpse something silvery
 + a component need to build, or a reconnaissance beforehand, or for a while upgrade the Transmission Mast
++ changed Camp Jungle
++ desintegrating the broken outbuildings to rebuild
++ possible death of Vika if in Camp Jungle
++ 
 
 - DONE: deactivate tiles from $eventfrom3E for exploring after 3E Scenario
 
@@ -24,7 +28,7 @@ Chapter 2:
 + Possibility in Construction Menu
 
 - scenery:
-+ 3E Event with shaking then blackout
++ DONE: 3E Event with shaking then blackout
 
 - Pictures to create:
 + DONE: 1x picture for n+cOrb
