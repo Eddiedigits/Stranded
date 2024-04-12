@@ -1,45 +1,27 @@
-Chapter 2:
 - future possiblities: Beach Camp
 - Quest would be a small harbor construction connecting a base (Beach Base?) for building a submarine and underwater probe, potential scenes: beach tanning, xenology,
 
-- NOT FINISHED: Scenario if Camp Mountain is not detected after its nutrients depleted
+- DONE: Text for installing defense perimeter for the dormant spaceship, not conequential since they have initially 5 unimatter.
+- DONE: Replacement for $CMfoodQuest in Camp Jungle
 
-- DONE: list in construction menu is not orderly
+- QUEST MANAGEMENT:
++ more refinements and testchecks
++ Task/Quest2: improve, i.e. extra energy if 3E-Event, Orb OR Vika and Leo for having 9 nutrients at least
+
+- DONE: distorted Menu Button with REST in Camp Jungle
 
 - 3E scenario:
-+ DONE: and give some damage to the bases, 1x scene where player glimpse something silvery
 + a component need to build, or a reconnaissance beforehand, or for a while upgrade the Transmission Mast
 + changed Camp Jungle
 + desintegrating the broken outbuildings to rebuild
-+ possible death of Vika if in Camp Jungle
-+ 
-
-- DONE: deactivate tiles from $eventfrom3E for exploring after 3E Scenario
-
-- idea, scenario:
-+ DONE: reduced/deviated to a small story implemented ==||== if Camp Mountain is not detected before the nutrients are depleted by the women there, implement a quest
-	++ quest: bring nutrients to Camp Mountain, condition Orb
-	++ or: the women built a transmission mast and sent an SOS, if CampJ.TransMast true
-+ nutrients and orb to Camp Mountain to awake the ladies (setting $CMfood to 2 and 3)
-+ nutrients in Camp Mountain low, if TransMast == true, the ladies send a request
-+ Quest Management: improve, i.e. extra energy if 3E-Event, Orb OR Vika and Leo for having 9 nutrients at least
++ possible death of Vika if in Camp Jungle and more than 2 days
 
 - unimatter storage:
 + Possibility in Construction Menu
-
-- scenery:
-+ DONE: 3E Event with shaking then blackout
-
-- Pictures to create:
-+ DONE: 1x picture for n+cOrb
-+ DONE: 1x picture for the Orb configuration passage
-+ 1x 3E-Event
-+ DONE: 1x for Quest Management
-+ DONE: 1x for 3E Event aftermath
 
 - for future:
 + AI audio generated
 + AI voice generated (although: consistency!)
 
 - ideas:
-+ flying humans (but drones, and orb already do that, therefore just a link is sufficient)
++ flying humans (but drones, and orb already do that, therefore just a interface link is sufficient)
