@@ -74,7 +74,7 @@ Hm, a swampy area. Nothing useful here.
 
 <<if $explored1NE == 100 && hasVisited("3E-Event")>><div class="actions-row"><div>[[Go East|1NE][$energy -= 0.2+$Oeu]]</div></div><</if>>
 
-<<if $Camp_M == true>><div class="actions-row"><div>[[Go South|Start from Base Jungle][$energy -= 6*(0.2+$Oeu)]]</div></div><<else>><div class="actions-row"><div>[[Go South|Start from Base Jungle][$energy -= 0.2+$Oeu]]</div></div><</if>>
+<<if $Camp_M == true>><div class="actions-row"><div>[[Go South|Start from Base Jungle][$energy -= 6*(0.2+$Oeu)]]</div></div><<else>><div class="actions-row"><div>[[Go South|The Map][$energy -= 0.2+$Oeu]]</div></div><</if>>
 </blockquote></center>
 
 
@@ -258,7 +258,7 @@ Go to Camp, depositing the unimatter?
 
 <<if $Camp_J == true>><div class="actions-row"><div>[[Yes|Camp Jungle][$energy -= 2*(0.2+$Oeu); $unimatter += $carrycap]]</div></div><<else>><div class="actions-row"><div>[[Yes|Camp Mountain][$energy -= 7*(0.2+$Oeu); $unimatter += $carrycap]]</div></div><</if>>
 
-<<if $Camp_J == true>><div class="actions-row"><div>[[Nah, I go back to the Base|The Map][$energy -= 2*(0.2+$Oeu)]]</div></div><<else>><div class="actions-row"><div>[[Nah, I go back to the Base|The Map][$energy -= 7*(0.2+$Oeu)]]</div></div><</if>>
+<<if $Camp_J == true>><div class="actions-row"><div>[[Nah, I go back to the Base|The Map][$energy -= 2*(0.2+$Oeu)]]</div></div><<else>><div class="actions-row"><div>[[Nah, go back to the Base|The Map][$energy -= 7*(0.2+$Oeu)]]</div></div><</if>>
 <<else>>
 Nothing to do here. A substance analyzer is needed here.
 
@@ -521,11 +521,8 @@ Sandy Beach! That's gonna be a spot!
 </blockquote></center>
 
 
-:: A New Cycle [autosave] {"position":"2900,1975","size":"100,100"}
+:: A New Cycle {"position":"2900,1975","size":"100,100"}
 <center><blockquote><<nobr>>
-<<script>>
-Config.saves.autosave = ["autosave"]
-<</script>>
 
 <<set $rNr = random(10)>>
 <<if hasVisited("3E-Event")>><<set $extra3E = 1.2>><</if>>
@@ -534,13 +531,13 @@ Config.saves.autosave = ["autosave"]
 <<if $energy < 0 || $nutrients <= 0 || $days >= 30>><<goto "End of Game">>
 <<elseif $Camp_J>>
   <<set $energy += 5 + (_TMconstant.count(5)*5) + $CampJ.EHarvester + (($OrbTransport.count("encomp")*(2.5/1.8)) + ($OrbTransport.count("unimatter")*1.2) + ($OrbTransport.count("nutrients")*0.6) + ($OrbTransport.count("CJMNutrients")*(3 + $extra3E)) + ($OrbTransport.count("CMNutrients")*(2.4 + $extra3E))) - $notrepaired>>
-    <<if $energy < 0.5>><<goto [[End of Game]]>><</if>>
+  <<if $energy < 1>><<goto [[End of Game]]>><</if>>
   <<set $nutrients -= 3 + $CampJ.Farm + ($OrbTransport.count("nutrients")*9)>>
   <<set $CampM.nutrients -= 2 + $CampM.Farm + ($OrbTransport.count("CJMNutrients")*9) + ($OrbTransport.count("CMNutrients")*9)>>
   <<set $engineering += 0.3 + (_TMconstant.count(0.2)*0.2); $social += 0.2, $combat += (_TMconstant.count(0.1)*0.1), $unimatter += ($OrbTransport.count("unimatter")*3)>>
 <<elseif $Camp_M>>
   <<set $energy += 10 + $CampM.EHarvester + (($OrbTransport.count("encomp")*(2.5/(4.8 + $extra3E))) + ($OrbTransport.count("unimatter")*(4.2 + $extra3E)) + ($OrbTransport.count("nutrients")*(2.4 + $extra3E))) - $notrepaired>>
-    <<if $energy < 0.5>><<goto [[End of Game]]>><</if>>
+    <<if $energy < 1>><<goto [[End of Game]]>><</if>>
   <<set $nutrients -= 5 + $CampM.Farm + ($OrbTransport.count("nutrients")*9)>>
   <<set $engineering += 0.5; $combat += 0.1; $social += 0.2, $unimatter += $OrbTransport.count("unimatter")*3>>
 <</if>><</nobr>>
@@ -697,11 +694,15 @@ Who will accompany me, who can I persuade?
 <<if $Camp_M == true>><<linkreplace "Elva">><<if random(10) * $social > 38 || (($CampJ.EHarvester == 0 && $Camp_J || $Camp_M && $CampM.EHarvester == 0) && $notrepaired > 2) || $nutrients <10>>+ Elva comes with you.<<set $carrycap +=1>><<else>>- Elva is not available. She seems to be occupied.<</if>><</linkreplace>><</if>>
 <br>
 <br>
-<<if $Camp_M == true>><<linkreplace "Abiba">><<if random(10) * $social > 35 || (($CampJ.EHarvester == 0 && $Camp_J || $Camp_M && $CampM.EHarvester == 0) && $notrepaired > 2) || $nutrients < 10>>+ Abiba want some outdoor training, she comes with me.<<set $carrycap +=1>><<else>>- Abiba is in her training mode. Quite intensely. Better not disturb her.<</if>><</linkreplace>><</if>><</nobr>>
-
+<<if $Camp_M == true>><<linkreplace "Abiba">><<if random(10) * $social > 35 || (($CampJ.EHarvester == 0 && $Camp_J || $Camp_M && $CampM.EHarvester == 0) && $notrepaired > 2) || $nutrients < 10>>+ Abiba want some outdoor training, she comes with me.<<set $carrycap +=1>><<else>>- Abiba is in her training mode. Quite intensely. Better not disturb her.<</if>><</linkreplace>><</if>>
+<br>
+<br>
 <<if ($CampJ.Orb == 3 && $Camp_J) || ($CampM.Orb == 3 && $Camp_M)>>Do I activate the floating Orb?
-
+<br>
 <<linkreplace "Floating Orb">><<set $carrycap += 3, $Oeu = 0.3>>The floating Orb decouples from the port and is swirring by your side.<</linkreplace>><</if>>
+<br>
+<br>
+<<if $ignore == 0 && $explored1E == 100 && $explored2N == 100>>Ignore random finds in unimatter and nutrients? <<linkreplace "<<ab>>Yes<</ab>>">><br><br>Yes<br><<set $ignore = 1>><</linkreplace>><br><<linkreplace "<<ab>>No<</ab>>">><br><br>No<br><</linkreplace>><</if>><</nobr>>
 
 <div class="actions-row"><div>[[Go to the Map|The Map]]</div></div>
 <div class="actions-row"><<if $Camp_J>><div>[[Ach, nah, I've changed my mind, I will go back.|Camp Jungle]]</div><<else>><div>[[Ach, nah, I've changed my mind, I will go back.|Camp Mountain]]</div><</if>></div>
@@ -761,11 +762,11 @@ I wanna be the boss!</strong>
 <<if $social >=2>>
 Maybe I can convince them about ...
 
-... a transmission mast. The potential to reach more people sounds more intriguing <<if $energy > 5>>[[to me.|Foot of a Mountain]]<<elseif $energy <=5 && $energy > 1>>[[to me.|A Small Hill]]<<else>>[[to me|WhyNothing]]<</if>>
+... a transmission mast. The potential to reach more people sounds more intriguing <<if $energy > 5>>[[to me.|Foot of a Mountain][$energy -= 6; $unimatter -= 2]]<<elseif $energy.range(2, 5)>>[[to me.|A Small Hill][$energy -= 3; $unimatter -= 2]]<<else>>[[to me|WhyNothing]]<</if>>
 
-... a substance analyzer. Knowing what surrounds us gives us better planning [[ahead.|Substance Analyzer]]
+... a substance analyzer. Knowing what surrounds us gives us better planning [[ahead.|Substance Analyzer][$energy -= 2; $unimatter -= 5]]
 
-... an energy harvester. Energy is crucial to our survival, so pump up the [[regeneration rate!|Energy Harvester]]
+... an energy harvester. Energy is crucial to our survival, so pump up the [[regeneration rate!|Energy Harvester][$energy -= 5; $unimatter -= 5]]
 <<else>>
 Ugh. FIne. Voting it is.
 
@@ -850,8 +851,25 @@ It is a huge setback. The hull is broken. As are the cockpit, our life maintenan
 </blockquote></center>
 
 
-:: Camp Jungle {"position":"750,925","size":"100,100"}
+:: Audios {"position":"600,25","size":"100,100"}
+<<cacheaudio "BgMusic" "assets/characters/Me/background_introduction.wav">>
+<<cacheaudio "V1" "assets/characters/Me/V1.mp4">>
+<<cacheaudio "V2" "assets/characters/Me/V2.mp4">>
+<<cacheaudio "V3" "assets/characters/Me/V3.mp4">>
+<<cacheaudio "V4" "assets/characters/Me/V4.mp4">>
+<<cacheaudio "V5" "assets/characters/Me/V5.mp4">>
+<<cacheaudio "V6" "assets/characters/Me/V6.mp4">>
+<<cacheaudio "V7" "assets/characters/Me/V7.mp4">>
+<<cacheaudio "V8" "assets/characters/Me/V8.mp4">>
+
+
+
+:: Camp Jungle [autosave] {"position":"750,925","size":"100,100"}
+<<= $notrepaired>>
 <<nobr>>
+<<script>>
+Config.saves.autosave = ["autosave"]
+<</script>>
   <<if $CampJ.nOrb && $Camp_J>><<set $navOrb = $CampJ.nOrb>><<else>><<set $navOrb = 1>><</if>>
   <<if $CampJ.cOrb && $Camp_J>><<set $cbtOrb = $CampJ.cOrb>><<else>><<set $cbtOrb = 1>><</if>>
   <<set $Camp_J = true, $Camp_M = false, $carrycap = 1>>
@@ -886,11 +904,14 @@ It is a huge setback. The hull is broken. As are the cockpit, our life maintenan
 
 DEVELOPPER: [[Testing]]
 
-TESTING: [[3E-Event]] [[Start from Base Mountain]]
+TESTING: [[3E-Event]] [[Start from Base Mountain]] [[random events]] 
 
 
-:: Camp Mountain {"position":"1050,925","size":"100,100"}
+:: Camp Mountain [autosave] {"position":"1050,925","size":"100,100"}
 <<nobr>>
+<<script>>
+Config.saves.autosave = ["autosave"]
+<</script>>
   <<if $CampJ.Orb && $Camp_J>><<set $navOrb = $CampJ.nOrb>><<elseif $CampM.Orb && $Camp_M>><<set $navOrb = $CampM.nOrb>><<else>><<set $navOrb = 1>><</if>>
   <<if $CampJ.Orb && $Camp_J>><<set $cbtOrb = $CampJ.cOrb>><<elseif $CampM.Orb && $Camp_M>><<set $navOrb = $CampM.cOrb>><<else>><<set $cbtOrb = 1>><</if>>
   <<set $Camp_M = true, $Camp_J = false, $carrycap = 1>>
@@ -975,7 +996,7 @@ Ech! Nothing happens. It is boring. Maybe I should try to go out anyway?
 <strong><u>available Templates:</u></strong>
 <<nobr>><center><h6>Legend:<br>Energy = E | Unimatter = U | Lvl = Engineering Level</h6></center><br>
   <ul><li>Repairs (3E - 3U): <<if $notrepaired > 0>><<if $energy >= 3 && $unimatter >= 3 && $Camp_J>>[[Action it|Construction Menu][$energy -= 3; $unimatter -= 3; $notrepaired -= 2]]
-    <<elseif $unimatter < 3 && $energy < 3>><div class="color-red">insufficient ressources</div>
+    <<elseif $unimatter < 3 || $energy < 3>><div class="color-red">insufficient ressources</div>
     <<elseif $Camp_J && $maxenergy < 10 || $Camp_M && $maxenergy < 20>><div class="color-red">insufficient ressources</div><</if>>
     <<else>><div class="color-green">all good and functioning.</div><</if>></li>
   <li>Lvl 2: Substance Analyzer (2E - 5U): 
@@ -1062,7 +1083,7 @@ Ech! Nothing happens. It is boring. Maybe I should try to go out anyway?
 
 
 :: Crash {"position":"800,300","size":"100,100"}
-<center><blockquote>
+<<nobr>><<script>>SimpleAudio.select("V6").volume(1).stop(); SimpleAudio.select("V7").volume(1).stop(); SimpleAudio.select("BgMusic").volume(1).stop();<</script>><</nobr>><center><blockquote><<audio "V8" play>>
 <em>Moan. Ugh. Oooph</em>, what a ride. That I get awake just in the moment of impact, what kind of a dick move is that? It is a miracle that I am still whole and functioning. Although ... will luck still continue to be on my side?
 
 <div class="actions-row"><div>[[Check my pod]]</div></div>
@@ -1341,15 +1362,15 @@ But, for me personally, I welcome to have two more ladies: Elva and Abiba.
 
 
 :: Intro2 {"position":"475,300","size":"100,100"}
-<center>
+<<nobr>><<script>>SimpleAudio.select("V2").volume(1).stop();<</script>><</nobr>><center>
 [img[assets/backgrounds/Dock_by_Kuldar_Leement.png]]
-<blockquote>
+<blockquote><<audio "V3" play>><<audio "BgMusic" loop play>>
 That's the big spacecruiser. Made for voyaging from Earth to other galaxies. A big Chunker, that one. Many boasted engineering feats werde done to enable a better inter-galactical travel. Hopefully it won't become our titanic. Ha haaa. But, inter galactic travel is still a long journey. Therefore it is practically a ferrying city, with all its typical elements: bakery, cafeteria, park, university, club, city hall, residential area, apartments, restaurants etc. You get the gist. 
 
 What about Family? Friends? In a way they travel with me, as virtual clones. Same with me, a virtual clone with them, updated in cycles. Funnily, if I rather want not much contact, I virtually clone myself. With time they notice, depending how investive they were to me. Clearly, we do not have endless storage, even in the universe. 
-
+<<timed 53s>><<audio "V4" play>><</timed>>
 Anyway, as an obligatory out-field practice repectively inter-change student program, I have to partake on this journey, as my professor was commissioned to go there. Am I happy to go? Huh ... I am not quite a believer in active steering of destiny. Yeah, practically: I am lazy. Let see to where it takes me.
-<<if $SFW_Path == true>>
+<<if $SFW_Path == true>><<timed 72s>><<audio "V5" play>><</timed>>
 	But! Not that lazy to have packed, say goodbye and handled all digidocs for departure that is in 3 hours. I am already stacked inside, connected, but I decided to dwell still on the old world. Wondering what I will miss when being afar ... <<timed 3000ms>>ah, [[whatever!|Intro3]]<</timed>>
  <<else>>
  	But! Definitely not lazy to enjoy [[time with my filippine date!|DateFilippina]]
@@ -1358,9 +1379,9 @@ Anyway, as an obligatory out-field practice repectively inter-change student pro
 
 
 :: Intro3 {"position":"600,300","size":"100,100"}
-<center>
+<<nobr>><<script>>SimpleAudio.select("V3").volume(1).stop(); SimpleAudio.select("V4").volume(1).stop(); SimpleAudio.select("V5").volume(1).stop();<</script>><</nobr>><center>
 [img[assets/backgrounds/To_the_Moon_by_Voyager212.png]]
-<blockquote>
+<blockquote><<audio "V6" play>><<audio "BgMusic" loop play>>
 Aaand ignition!
 
 ...
@@ -1370,7 +1391,7 @@ Come on, that what you see is only the postbot. What tomfoolery would that be to
 If you have noticed. Yes. It is a virgin journey. A galaxis that is not yet established. And therefore not connected to Solaris (the hub of the solar system and an homage to the polish writer). The outpost and further developped colonies in neighbour galaxies clearly get their exchanges by informations, not in materials - or molecules - like in this form of the chunker, this half moon.
 
 Whether the chunker has a name? Enough of reading "big chunker"? Fine, the name of this mobile polymer-ceramic planetoid: Triangulum.
-
+<<timed 52s>><<audio "V7" play>><</timed>>
 So. 
 In this journey, in the virtual city I will enjoy going out, meet people, have dates. Only to be met by frustrations and dissappointments. And, on top of all, my prof will force me to cram, cram, cram. Äääch! Hippiyay. Too much cramming cannot be good, so I go out anew, meet people, have fun, all as much my hormones allows me. Aaaand the cycle repeats: frustrations, dissappointments, cramming. 
 
@@ -1443,9 +1464,9 @@ Another stranded. And this one is quite dilapidated. He has his movement, but ba
 
 
 :: Like this {"position":"350,300","size":"100,100"}
-<center>
+<<nobr>><<script>>SimpleAudio.select("V1").volume(1).stop();<</script>><</nobr>><center>
 [img[assets/characters/cylinder.png]]
-<blockquote>
+<blockquote><<audio "V2" play>><<audio "BgMusic" loop play>>
 That's me at birth. Cute, eh? Arms and Legs are missing, though. They come later. Why in virtual age do we need a complete organic body? We are connected to the cloud, internet, parallel world, peer-to-peer. Countries are practically virtual now. Borders? Nah, firewalls.
 
 And since we are in the future, or like in the past, every technology is subject to evolution. Despite of advanced technology, no entity - except of (maybe) the universe - has unlimited data storage. Professionals are still in demand like in every time.
@@ -1873,6 +1894,7 @@ With whom do I want to socialize?
 <<include [[globalvariables]]>>
 <<include [[Territories]]>>
 <<include [[QuestTracker]]>>
+<<include [[Audios]]>>
 
 
 :: Substance Analyzer {"position":"2175,300","size":"100,100"}
@@ -2014,491 +2036,493 @@ Not enough unimatter collected, or energy is not in sufficent quantity. <<ab>>[[
 
 
 :: The Map {"position":"875,1500","size":"100,100"}
-<center><<nobr>>
-  <<if $days != 0>><<set _randomNumber = random(20)/($days/10)>><<else>><<set _randomNumber = random(20)>><</if>>
-<</nobr>>
-  <<if $xeno == 0>><<set $xeno = 0.05>><</if>>
-    <<if random(80) < 2>>
-    
-        [img[assets/Ch-Explore/hostile_encounter1.png]]
-      
-        Damn! Some mother alien, animal, four-legger seems to be in aggressive stance.
-      
-        <<if $xeno < 5>>The outcome depends on my combat ability. Hence: how lucky the mother will be.
-          <<if $combat*$cbtOrb >= 5>>No damage, successfully coming out unscathed.
-          <<elseif $combat*$cbtOrb >= 4>>Slight damage, that need constant maintaining until repaired. <<set $energy -= 1; $notrepaired += 1; $combat += 0.2>>
-          <<elseif $combat*$cbtOrb >= 3>>Moderate damage. Not so good. That need a repair.<<set $energy -= 2; $notrepaired += 2; $combat += 0.5>>
-          <<elseif $combat*$cbtOrb >= 2>>Severe damage, It doesn't look good. The only consolation is the data collection of combat.<<set $energy -= 3; $notrepaired += 3; $combat += 0.8>>
-          <<else>>
-            <<if $combat*$cbtOrb > $xeno>>
-              <<if random(10)*$combat*$cbtOrb > 10>>Lucky! Escape run successful. Although, I received some damages; damages that drains our constant energy use.<<set $energy -= 1; $notrepaired += 1; $combat += 0.3>>
-                <<if $unimatter > 0>><<set $unimatter -= 1>><</if>>
-              <<else>>Failure! Intense Damage.<<set $energy -= 4; $notrepaired += 5; $combat += 0.5>>
-                <<if $unimatter > 0>><<set $unimatter -= 5>><</if>>
-              <</if>>
-            <<else>>
-              <<if random(10)*$xeno*$navOrb > 10>>Trick! I throw something over them, making a landing sound behind them and run as fast as I can.<<set $nutrients -= 8>>
-              <<else>>Failure! Intense Damage.<<set $energy -= 4; $notrepaired += 5; $combat += 0.5>>
-                <<if $unimatter > 0>><<set $unimatter -= 5>><</if>>
-              <</if>>
-            <</if>>
-          <</if>>
-        <<else>>With enough knowledge in alien life, it is interpreted that the alien animals can be kept at distance if food is thrown to them. I guess, these are our tax collectors, or highwaymen.<<set $nutrients -= 5>>
-        <</if>>
-    
-        [[Not good, not good. Surviving here is harsh!|The Map]]
-    
-    <<else>>
-      <<nobr>><<if hasVisited("Camp Mountain")>><<set $exploredMB = 100>><</if>>
-      <div id="the_map">
-      
-      <<if $Camp_J || $explored1E >= 100>>
-        <div id="theJBase">
-          <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
-          <<else>>
-            <<if $Camp_M>><<if $exploredJB >= 100>><<set $exploredJB = 100>>
-                <<if $energy < 1>><div class="imgs-opaqued">[img[assets/Ch-Camp/JungleCamp.png]]</div><<else>>[[JB|Start from Base Jungle][$energy -= 5*(0.2+$Oeu)]]<</if>>
-              <<else>>
-                <<if $energy >= 1>><<button "<<print $exploredJB.toFixed(0)>>%">>
-                  <<set $exploredJB += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.02>>
-                  <<goto [[The Map]]>>
-                <</button>><</if>>
-              <</if>>
-            <</if>>
-          <</if>>
-        </div>
-      <</if>>
-      
-      <<if $Camp_J || $explored2E >= 100>>
-        <div id="p1E">
-          <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
-          <<else>>
-            <<if $explored1E >= 100>><<set $explored1E = 100>>
-              <<if $Camp_J>>
-                <<if $energy < 0.2>><div class="imgs-opaqued">[img[assets/Ch-Explore/food.png]]</div>
-                <<else>><div class="imgs-scaled">[img[assets/Ch-Explore/food.png][1E][$energy -= 0.2+$Oeu]]</div>
-                <</if>>
-              <<else>>
-                <<if $energy < 0.8>><div class="imgs-opaqued">[img[assets/Ch-Explore/food.png]]</div>
-                <<else>><div class="imgs-scaled">[img[assets/Ch-Explore/food.png][1E][$energy -= 4*(0.2+$Oeu)]]</div>
-                <</if>>
-              <</if>>
-            <<else>>
-              <<if $energy >= 1>><<button "<<print $explored1E.toFixed(0)>>%">>
-                <<set $explored1E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05>>
-                <<goto [[The Map]]>>
-              <</button>><</if>>
-            <</if>>
-          <</if>>
-        </div>
-      <</if>>
-      
-      <<if $explored1E >= 100 || $explored3E >= 100>>
-        <div id="p2E">
-          <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
-          <<else>>
-            <<if $explored2E >= 100>><<set $explored2E = 100>>
-              <<if $Camp_J>>
-                <<if $energy < 0.4>><div class="imgs-opaqued">[img[assets/Ch-Explore/jungle4.png]]</div>
-                <<else>><div class="imgs-scaled">[img[assets/Ch-Explore/jungle4.png][2E][$energy -= 2*(0.2+$Oeu)]]</div>
-                <</if>>
-              <<else>>
-                <<if $energy < 0.6>><div class="imgs-opaqued">[img[assets/Ch-Explore/jungle4.png]]</div>
-                <<else>><div class="imgs-scaled">[img[assets/Ch-Explore/jungle4.png][2E][$energy -= 3*(0.2+$Oeu)]]</div>
-                <</if>>
-              <</if>>
-            <<else>>
-              <<if $energy >= 1>><<button "<<print $explored2E.toFixed(0)>>%">>
-                <<set $explored2E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05>>
-                <<goto [[The Map]]>>
-              <</button>><</if>>
-            <</if>>
-          <</if>>
-        </div>
-      <</if>>
-      
-      <<if $eventfrom3E == false>>
-        <<if $explored2E >= 100 || $explored4E >= 100>>
-          <div id="p3E">
-            <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
-            <<else>>
-              <<if $explored3E >= 100>><<set $explored3E = 100>>
-                <<if $Camp_J>>
-                  <<if $energy < 0.6>><div class="imgs-opaqued">[img[assets/Ch-Explore/jungle2.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/jungle2.png][3E][$energy -= 3*(0.2+$Oeu)]]</div><</if>>
-                <<else>>
-                  <<if $energy < 0.4>><div class="imgs-opaqued">[img[assets/Ch-Explore/jungle2.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/jungle2.png][3E][$energy -= 2*(0.2+$Oeu)]]</div><</if>>
-                <</if>>
-              <<else>>
-                <<if $energy >= 1>><<button "<<print $explored3E.toFixed(0)>>%">>
-                  <<set $explored3E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05>>
-                  <<goto [[The Map]]>>
-                <</button>><</if>>
-              <</if>>
-            <</if>>
-          </div>
-        <</if>>
+<center><<nobr>><<set _nummer = random(80)>>
+<<if $days != 0>><<set _randomNumber = random(20)/($days/10)>><<else>><<set _randomNumber = random(20)>><</if>>
+<<if $xeno == 0>><<set $xeno = 0.05>><</if>><</nobr>>
+
+<<if _nummer.range(0, 1)>>
+
+    [img[assets/Ch-Explore/hostile_encounter1.png]]
+  
+    Damn! Some mother alien, animal, four-legger seems to be in aggressive stance.
+  
+    <<if $xeno < 5>>The outcome depends on my combat ability. Hence: how lucky the mother will be.
+      <<if $combat*$cbtOrb >= 5>>No damage, successfully coming out unscathed.
+      <<elseif $combat*$cbtOrb >= 4>>Slight damage, that use a bit of constant maintaining until repaired. <<set $energy -= 1; $notrepaired += 1; $combat += 0.2>>
+      <<elseif $combat*$cbtOrb >= 3>>Moderate damage. Not so good. Some repairs are needed.<<set $energy -= 2; $notrepaired += 2; $combat += 0.5>>
+      <<elseif $combat*$cbtOrb >= 2>>Severe damage, it doesn't look good, repairs are urgently in need. The only consolation is the data collection of combat.<<set $energy -= 3; $notrepaired += 3; $combat += 0.8>>
       <<else>>
-        <div id="p3E">
-          <div class="imgs-opaqued">[img[assets/Ch-Explore/jungle2.png]]</div>
-        </div>
-      <</if>>
-      
-      <<if $explored3E >= 100 || $exploredMB >= 100 || $Camp_M>>
-        <div id="p4E">
-          <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
-          <<else>>
-            <<if $explored4E >= 100>><<set $explored4E = 100>>
-              <<if $Camp_J>>
-                <<if $energy < 0.9>><div class="imgs-opaqued">[img[assets/Ch-Explore/4E_waterfall.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/4E_waterfall.png][4E][$energy -= 4*(0.2+$Oeu)]]</div><</if>>
-              <<else>>
-                <<if $energy < 0.2>><div class="imgs-opaqued">[img[assets/Ch-Explore/4E_waterfall.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/4E_waterfall.png][4E][$energy -= 0.2+$Oeu]]</div><</if>>
-              <</if>>
-            <<else>>
-              <<if $energy >= 1>><<button "<<print $explored4E.toFixed(0)>>%">>
-                <<set $explored4E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05>>
-                <<goto [[The Map]]>>
-              <</button>><</if>>
-            <</if>>
+        <<if $combat*$cbtOrb > $xeno>>
+          <<if random(10)*$combat*$cbtOrb > 10>>Lucky! Escape run successful. Although, I received some damages; damages that drains our constant energy use and some immediate repairs will be needed.<<set $energy -= 1; $notrepaired += 1; $combat += 0.3>>
+            <<if $unimatter > 0>><<set $unimatter -= 1>><</if>>
+          <<else>>Failure! Intense Damages; repairs are needed.<<set $energy -= 4; $notrepaired += 5; $combat += 0.5>>
+            <<if $unimatter > 0>><<set $unimatter -= 5>><</if>>
           <</if>>
-        </div>
-      <</if>>
-    
-      <<if $Camp_M || $explored4E >= 100>>
-        <div id="theMBase">
-          <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
-          <<else>>
-            <<if $Camp_J>>
-              <<if $exploredMB >= 100>><<set $exploredMB = 100>>
-                <<if $Camp_J>>
-                  <<if $energy < 0.2>><div class="imgs-opaqued">[img[assets/Ch-Camp/MountainCamp.png]]]</div><<else>>[[MB|Start from Base Mountain][$energy -= 5*(0.2+$Oeu)]]<</if>>
-                <<else>>[[MB|Start from Base Mountain]]
-                <</if>>
-              <<else>>
-                <<if $energy >= 1>><<button "<<print $exploredMB.toFixed(0)>>%">>
-                  <<set $exploredMB += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05>>
-                  <<goto [[The Map]]>>
-                <</button>><</if>>
-              <</if>>
-            <</if>>
+        <<else>>
+          <<if random(10)*$xeno*$navOrb > 10>>Trick! I throw something over them, which makes a landing sound behind them and run as fast as I can.<<set $nutrients -= 8>>
+          <<else>>Failure! Intense Damages; repairs are needed. <<set $energy -= 4; $notrepaired += 5; $combat += 0.5>>
+            <<if $unimatter > 0>><<set $unimatter -= 5>><</if>>
           <</if>>
-        </div>
-      <</if>>
-    
-      <<if $Camp_J || $exploredJB >= 100>>
-        <div id="p1S">
-          <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
-          <<else>>
-            <<if $explored1S >= 100>><<set $explored1S = 100>>
-              <<if $Camp_J>>
-                <<if $energy < 0.2>><div class="imgs-opaqued">[img[assets/Ch-Explore/desert3.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/desert3.png][1S][$energy -= 0.2+$Oeu]]</div><</if>>
-              <<else>>
-                <<if $energy < 1.2>><div class="imgs-opaqued">[img[assets/Ch-Explore/desert3.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/desert3.png][1S][$energy -= 6*(0.2+$Oeu)]]</div><</if>>
-              <</if>>
-            <<else>>
-              <<if $energy >= 1>><<button "<<print $explored1S.toFixed(0)>>%">>
-                <<set $explored1S += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.02>>
-                <<goto [[The Map]]>>
-              <</button>><</if>>
-            <</if>>
-          <</if>>
-        </div>
-      <</if>>
-      
-      <<if $explored1S >= 100>>
-        <div id="p2S">
-          <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
-          <<else>>
-            <<if $explored2S >= 100>><<set $explored2S = 100>>
-              <<if $Camp_J>>
-                <<if $energy < 0.4>><div class="imgs-opaqued">[img[assets/Ch-Explore/desert2.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/desert2.png][2S][$energy -= 2*(0.2+$Oeu)]]</div><</if>>
-              <<else>>
-                <<if $energy < 1.4>><div class="imgs-opaqued">[img[assets/Ch-Explore/desert2.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/desert2.png][2S][$energy -= 7*(0.2+$Oeu)]]</div><</if>>
-              <</if>>
-            <<else>>
-              <<if $energy >= 1>><<button "<<print $explored2S.toFixed(0)>>%">>
-                <<set $explored2S += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.02>>
-                <<goto [[The Map]]>>
-              <</button>><</if>>
-            <</if>>
-          <</if>>
-        </div>
-      <</if>>
-        
-      <<if $explored2S >= 100>>
-        <div id="p3S">
-          <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
-          <<else>>
-            <<if $explored3S >= 100>><<set $explored3S = 100>>
-              <<if $Camp_J>>
-                <<if $energy < 0.6>><div class="imgs-opaqued">[img[assets/Ch-Explore/energy_deposit.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/energy_deposit.png][3S][$energy -= 3*(0.2+$Oeu)]]</div><</if>>
-              <<else>>
-                <<if $energy < 1.6>><div class="imgs-opaqued">[img[assets/Ch-Explore/energy_deposit.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/energy_deposit.png][3S][$energy -= 8*(0.2+$Oeu)]]</div><</if>>
-              <</if>>
-            <<else>>
-              <<if $energy >= 1>><<button "<<print $explored3S.toFixed(0)>>%">>
-                <<set $explored3S += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.02>>
-                <<goto [[The Map]]>>
-              <</button>><</if>>
-            <</if>>
-          <</if>>
-        </div>
-      <</if>>
-      
-      <<if $Camp_J || $exploredJB >= 100>>
-        <div id="p1W">
-          <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
-          <<else>>
-            <<if $explored1W >= 100>><<set $explored1W = 100>>
-              <<if $Camp_J>>
-                <<if $energy < 0.2>><div class="imgs-opaqued">[img[assets/Ch-Explore/jungle1.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/jungle1.png][1W][$energy -= 0.2+$Oeu]]</div><</if>>
-              <<else>>
-                <<if $energy < 1.2>><div class="imgs-opaqued">[img[assets/Ch-Explore/jungle1.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/jungle1.png][1W][$energy -= 6*(0.2+$Oeu)]]</div><</if>>
-              <</if>>
-            <<else>>
-              <<if $energy >= 1>><<button "<<print $explored1W.toFixed(0)>>%">>
-                <<set $explored1W += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.02>>
-                <<goto [[The Map]]>>
-              <</button>><</if>>
-            <</if>>
-          <</if>>
-        </div>
-      <</if>>
-      
-      <<if $explored1W >= 100>>
-        <div id="p2W">
-          <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
-          <<else>>
-            <<if $explored2W >= 100>><<set $explored2W = 100>>
-              <<if $Camp_J>>
-                <<if $energy < 0.4>><div class="imgs-opaqued">[img[assets/Ch-Explore/swampy_area_2.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/swampy_area_2.png][2W][$energy -= 2*(0.2+$Oeu)]]</div><</if>>
-              <<else>>
-                <<if $energy < 1.4>><div class="imgs-opaqued">[img[assets/Ch-Explore/swampy_area_2.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/swampy_area_2.png][2W][$energy -= 7*(0.2+$Oeu)]]</div><</if>>
-              <</if>>
-            <<else>>
-              <<if $energy >= 1>><<button "<<print $explored2W.toFixed(0)>>%">>
-                <<set $explored2W += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.02>>
-                <<goto [[The Map]]>>
-              <</button>><</if>>
-            <</if>>
-          <</if>>
-        </div>
-      <</if>>
-      
-      <<if $explored2W >= 100>>
-        <div id="p3W">
-          <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
-          <<else>>
-            <<if $explored3W >= 100>><<set $explored3W = 100>>
-              <<if $Camp_J>>
-                <<if $energy < 0.6>><div class="imgs-opaqued">[img[assets/Ch-Explore/coastline3.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/coastline3.png][3W][$energy -= 3*(0.2+$Oeu)]]</div><</if>>
-              <<else>>
-                <<if $energy < 1.6>><div class="imgs-opaqued">[img[assets/Ch-Explore/coastline3.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/coastline3.png][3W][$energy -= 8*(0.2+$Oeu)]]</div><</if>>
-              <</if>>
-            <<else>>
-              <<if $energy >= 1>><<button "<<print $explored3W.toFixed(0)>>%">>
-                <<set $explored3W += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.02>>
-                <<goto [[The Map]]>>
-              <</button>><</if>>
-            <</if>>
-          <</if>>
-        </div>
-      <</if>>
-      
-      <<if $explored3W >= 100>>
-        <div id="p4W">
-          <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
-          <<else>>
-            <<if $explored4W >= 100>><<set $explored4W = 100>>
-              <<if $Camp_J>>
-                <<if $energy < 0.8>><div class="imgs-opaqued">[img[assets/Ch-Explore/coast1.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/coast1.png][4W][$energy -= 4*(0.2+$Oeu)]]</div><</if>>
-              <<else>>
-                <<if $energy < 1.8>><div class="imgs-opaqued">[img[assets/Ch-Explore/coast1.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/coast1.png][4W][$energy -= 9*(0.2+$Oeu)]]</div><</if>>
-              <</if>>
-            <<else>>
-              <<if $energy >= 1>><<button "<<print $explored4W.toFixed(0)>>%">>
-                <<set $explored4W += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.02>>
-                <<goto [[The Map]]>>
-              <</button>><</if>>
-            <</if>>
-          <</if>>
-        </div>
-      <</if>>
-      
-      <<if $explored4W >= 100>>
-        <div id="p5W">
-          <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
-          <<else>>
-            <<if $explored5W >= 100>><<set $explored5W = 100>>
-              <<if $Camp_J>>
-                <<if $energy < 1>><div class="imgs-opaqued">[img[assets/Ch-Explore/coast2island.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/coast2island.png][5W][$energy -= 5*(0.2+$Oeu)]]</div><</if>>
-              <<else>>
-                <<if $energy < 2>><div class="imgs-opaqued">[img[assets/Ch-Explore/coast2island.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/coast2island.png][5W][$energy -= 2]]</div><</if>>
-              <</if>>
-            <<else>>
-              <<if $energy >= 1>><<button "<<print $explored5W.toFixed(0)>>%">>
-                <<set $explored5W += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05>>
-                <<goto [[The Map]]>>
-              <</button>><</if>>
-            <</if>>
-          <</if>>
-        </div>
-      <</if>>
-      
-      <<if $Camp_J  || $exploredJB >= 100>>
-        <div id="p1N">
-          <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
-          <<else>>
-            <<if $explored1N >= 100>><<set $explored1N = 100>>
-              <<if $Camp_J>>
-                <<if $energy < 0.2>><div class="imgs-opaqued">[img[assets/Ch-Explore/marshland1.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/marshland1.png][1N][$energy -= 0.2+$Oeu]]</div><</if>>
-              <<else>>
-                <<if $energy < 1.2>><div class="imgs-opaqued">[img[assets/Ch-Explore/marshland1.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/marshland1.png][1N][$energy -= 6*(0.2+$Oeu)]]</div><</if>>
-              <</if>>
-            <<else>>
-              <<if $energy >= 1>><<button "<<print $explored1N.toFixed(0)>>%">>
-                <<set $explored1N += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05>>
-                <<goto [[The Map]]>>
-              <</button>><</if>>
-            <</if>>
-          <</if>>
-        </div>
-      <</if>>
-      
-      <<if $explored1N >= 100>>
-        <div id="p2N">
-          <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
-          <<else>>
-            <<if $explored2N >= 100>><<set $explored2N = 100>>
-              <<if $Camp_J>>
-                <<if $energy < 0.4>><div class="imgs-opaqued">[img[assets/Ch-Explore/unimatter_deposit.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/unimatter_deposit.png][2N][$energy -= 2*(0.2+$Oeu)]]</div><</if>>
-              <<else>>
-                <<if $energy < 1.4>><div class="imgs-opaqued">[img[assets/Ch-Explore/unimatter_deposit.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/unimatter_deposit.png][2N][$energy -= 7*(0.2+$Oeu)]]</div><</if>>
-              <</if>>
-            <<else>>
-              <<if $energy >= 1>><<button "<<print $explored2N.toFixed(0)>>%">>
-                <<set $explored2N += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05>>
-                <<goto [[The Map]]>>
-              <</button>><</if>>
-            <</if>>
-          <</if>>
-        </div>
-      <</if>>
-
-      <<if hasVisited("3E-Event")>>
-
-        <<if $explored1N >= 100 || $explored1N2E >= 100>>
-        <div id="1NE">
-          <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
-          <<else>>
-            <<if $explored1NE >= 100>><<set $explored1NE = 100>>
-              <<if $Camp_J>>
-                <<if $energy < 0.4>><div class="imgs-opaqued">[img[assets/Ch-Explore/scenery1NE.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/scenery1NE.png][2N][$energy -= 2*(0.2+$Oeu)]]</div><</if>>
-              <<else>>
-                <<if $energy < 1>><div class="imgs-opaqued">[img[assets/Ch-Explore/scenery1NE.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/scenery1NE.png][2N][$energy -= 5*(0.2+$Oeu)]]</div><</if>>
-              <</if>>
-            <<else>>
-              <<if $energy >= 1>><<button "<<print $explored1NE.toFixed(0)>>%">>
-                <<set $explored1NE += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05>>
-                <<goto [[The Map]]>>
-              <</button>><</if>>
-            <</if>>
-          <</if>>
-        </div>
         <</if>>
-
-        <<if $explored1NE >= 100 || $explored1N3E >= 100>>
-        <div id="1N2E">
-          <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
-          <<else>>
-            <<if $explored1N2E >= 100>><<set $explored1N2E = 100>>
-              <<if $Camp_J>>
-                <<if $energy < 0.6>><div class="imgs-opaqued">[img[assets/Ch-Explore/scenery1N2E.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/scenery1N2E.png][2N][$energy -= 3*(0.2+$Oeu)]]</div><</if>>
-              <<else>>
-                <<if $energy < 0.8>><div class="imgs-opaqued">[img[assets/Ch-Explore/scenery1N2E.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/scenery1N2E.png][2N][$energy -= 4*(0.2+$Oeu)]]</div><</if>>
-              <</if>>
-            <<else>>
-              <<if $energy >= 1>><<button "<<print $explored1N2E.toFixed(0)>>%">>
-                <<set $explored1N2E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05>>
-                <<goto [[The Map]]>>
-              <</button>><</if>>
-            <</if>>
-          <</if>>
-        </div>
-        <</if>>
-
-        <<if $explored1N2E >= 100 || $explored1N4E >= 100>>
-        <div id="1N3E">
-          <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
-          <<else>>
-            <<if $explored1N3E >= 100>><<set $explored1N3E = 100>>
-              <<if $Camp_J>>
-                <<if $energy < 0.8>><div class="imgs-opaqued">[img[assets/Ch-Explore/scenery1N3E.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/scenery1N3E.png][2N][$energy -= 4*(0.2+$Oeu)]]</div><</if>>
-              <<else>>
-                <<if $energy < 0.6>><div class="imgs-opaqued">[img[assets/Ch-Explore/scenery1N3E.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/scenery1N3E.png][2N][$energy -= 3*(0.2+$Oeu)]]</div><</if>>
-              <</if>>
-            <<else>>
-              <<if $energy >= 1>><<button "<<print $explored1N3E.toFixed(0)>>%">>
-                <<set $explored1N3E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05>>
-                <<goto [[The Map]]>>
-              <</button>><</if>>
-            <</if>>
-          <</if>>
-        </div>
-        <</if>>
-
-        <<if $explored1N3E >= 100 || $explored1N5E >= 100>>
-        <div id="1N4E">
-          <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
-          <<else>>
-            <<if $explored1N4E >= 100>><<set $explored1N4E = 100>>
-              <<if $Camp_J>>
-                <<if $energy < 1>><div class="imgs-opaqued">[img[assets/Ch-Explore/scenery1N4E.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/scenery1N4E.png][2N][$energy -= 5*(0.2+$Oeu)]]</div><</if>>
-              <<else>>
-                <<if $energy < 0.4>><div class="imgs-opaqued">[img[assets/Ch-Explore/scenery1N4E.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/scenery1N4E.png][2N][$energy -= 2*(0.2+$Oeu)]]</div><</if>>
-              <</if>>
-            <<else>>
-              <<if $energy >= 1>><<button "<<print $explored1N4E.toFixed(0)>>%">>
-                <<set $explored1N4E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05>>
-                <<goto [[The Map]]>>
-              <</button>><</if>>
-            <</if>>
-          <</if>>
-        </div>
-        <</if>>
-
-        <<if $explored1N4E >= 100 || $Camp_M>>
-        <div id="1N5E">
-          <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
-          <<else>>
-            <<if $explored1N5E >= 100>><<set $explored1N5E = 100>>
-              <<if $Camp_J>>
-                <<if $energy < 1.2>><div class="imgs-opaqued">[img[assets/Ch-Explore/scenery1N5E.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/scenery1N5E.png][2N][$energy -= 6*(0.2+$Oeu)]]</div><</if>>
-              <<else>>
-                <<if $energy < 0.2>><div class="imgs-opaqued">[img[assets/Ch-Explore/scenery1N5E.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/scenery1N5E.png][2N][$energy -= 0.2+$Oeu]]</div><</if>>
-              <</if>>
-            <<else>>
-              <<if $energy >= 1>><<button "<<print $explored1N5E.toFixed(0)>>%">>
-                <<set $explored1N5E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05>>
-                <<goto [[The Map]]>>
-              <</button>><</if>>
-            <</if>>
-          <</if>>
-        </div>
-        <</if>>
-
       <</if>>
-
-      </div><</nobr>>
-      
-      <div class="index-screens-normal"><strong>Carrying Capacity:</strong>  <<= $carrycap.toFixed(0)>></div>
-  
-      <div class="index-screens-normal"><strong>Energy Indicator:</strong>  <<= $energy.toFixed(1)>><<if $energy <2>> energy<<else>> energies<</if>></div>
-  
-      <div class="index-screens-normal"><strong>Xeno Indicator:</strong>  <<= $xeno.toFixed(1)>></div>
-      
-      <div class="actions-row"><<if $Camp_J>><div>[[Go back to Camp|Camp Jungle]]</div><<else>><div>[[Go back to Camp|Camp Mountain]]</div><</if>></div>
+    <<else>>With enough knowledge in alien life, it is interpreted that the alien animals can be kept at distance if food is thrown to them. I guess, these are our tax collectors, or highwaymen.<<set $nutrients -= 5>>
     <</if>>
-  </center>
+
+    [[Not good, not good. Surviving here is harsh!|The Map]]
+
+<<elseif _nummer.range(75, 80) && $ignore == 0>><<include [[random events]]>>
+
+<<elseif _nummer.range(2, 74)>>
+  <<nobr>><<if hasVisited("Camp Mountain")>><<set $exploredMB = 100>><</if>>
+  <div id="the_map">
+  
+  <<if $Camp_J || $explored1E >= 100>>
+    <div id="theJBase">
+      <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
+      <<else>>
+        <<if $Camp_M>><<if $exploredJB >= 100>><<set $exploredJB = 100>>
+            <<if $energy < 1>><div class="imgs-opaqued">[img[assets/Ch-Camp/JungleCamp.png]]</div><<else>>[[JB|Start from Base Jungle][$energy -= 5*(0.2+$Oeu)]]<</if>>
+          <<else>>
+            <<if $energy >= 1>><<button "<<print $exploredJB.toFixed(0)>>%">>
+              <<set $exploredJB += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.02>>
+              <<goto [[The Map]]>>
+            <</button>><</if>>
+          <</if>>
+        <</if>>
+      <</if>>
+    </div>
+  <</if>>
+  
+  <<if $Camp_J || $explored2E >= 100>>
+    <div id="p1E">
+      <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
+      <<else>>
+        <<if $explored1E >= 100>><<set $explored1E = 100>>
+          <<if $Camp_J>>
+            <<if $energy < 0.2>><div class="imgs-opaqued">[img[assets/Ch-Explore/food.png]]</div>
+            <<else>><div class="imgs-scaled">[img[assets/Ch-Explore/food.png][1E][$energy -= 0.2+$Oeu]]</div>
+            <</if>>
+          <<else>>
+            <<if $energy < 0.8>><div class="imgs-opaqued">[img[assets/Ch-Explore/food.png]]</div>
+            <<else>><div class="imgs-scaled">[img[assets/Ch-Explore/food.png][1E][$energy -= 4*(0.2+$Oeu)]]</div>
+            <</if>>
+          <</if>>
+        <<else>>
+          <<if $energy >= 1>><<button "<<print $explored1E.toFixed(0)>>%">>
+            <<set $explored1E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05>>
+            <<goto [[The Map]]>>
+          <</button>><</if>>
+        <</if>>
+      <</if>>
+    </div>
+  <</if>>
+  
+  <<if $explored1E >= 100 || $explored3E >= 100>>
+    <div id="p2E">
+      <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
+      <<else>>
+        <<if $explored2E >= 100>><<set $explored2E = 100>>
+          <<if $Camp_J>>
+            <<if $energy < 0.4>><div class="imgs-opaqued">[img[assets/Ch-Explore/jungle4.png]]</div>
+            <<else>><div class="imgs-scaled">[img[assets/Ch-Explore/jungle4.png][2E][$energy -= 2*(0.2+$Oeu)]]</div>
+            <</if>>
+          <<else>>
+            <<if $energy < 0.6>><div class="imgs-opaqued">[img[assets/Ch-Explore/jungle4.png]]</div>
+            <<else>><div class="imgs-scaled">[img[assets/Ch-Explore/jungle4.png][2E][$energy -= 3*(0.2+$Oeu)]]</div>
+            <</if>>
+          <</if>>
+        <<else>>
+          <<if $energy >= 1>><<button "<<print $explored2E.toFixed(0)>>%">>
+            <<set $explored2E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05>>
+            <<goto [[The Map]]>>
+          <</button>><</if>>
+        <</if>>
+      <</if>>
+    </div>
+  <</if>>
+  
+  <<if $eventfrom3E == false>>
+    <<if $explored2E >= 100 || $explored4E >= 100>>
+      <div id="p3E">
+        <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
+        <<else>>
+          <<if $explored3E >= 100>><<set $explored3E = 100>>
+            <<if $Camp_J>>
+              <<if $energy < 0.6>><div class="imgs-opaqued">[img[assets/Ch-Explore/jungle2.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/jungle2.png][3E][$energy -= 3*(0.2+$Oeu)]]</div><</if>>
+            <<else>>
+              <<if $energy < 0.4>><div class="imgs-opaqued">[img[assets/Ch-Explore/jungle2.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/jungle2.png][3E][$energy -= 2*(0.2+$Oeu)]]</div><</if>>
+            <</if>>
+          <<else>>
+            <<if $energy >= 1>><<button "<<print $explored3E.toFixed(0)>>%">>
+              <<set $explored3E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05>>
+              <<goto [[The Map]]>>
+            <</button>><</if>>
+          <</if>>
+        <</if>>
+      </div>
+    <</if>>
+  <<else>>
+    <div id="p3E">
+      <div class="imgs-opaqued">[img[assets/Ch-Explore/jungle2.png]]</div>
+    </div>
+  <</if>>
+  
+  <<if $explored3E >= 100 || $exploredMB >= 100 || $Camp_M>>
+    <div id="p4E">
+      <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
+      <<else>>
+        <<if $explored4E >= 100>><<set $explored4E = 100>>
+          <<if $Camp_J>>
+            <<if $energy < 0.9>><div class="imgs-opaqued">[img[assets/Ch-Explore/4E_waterfall.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/4E_waterfall.png][4E][$energy -= 4*(0.2+$Oeu)]]</div><</if>>
+          <<else>>
+            <<if $energy < 0.2>><div class="imgs-opaqued">[img[assets/Ch-Explore/4E_waterfall.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/4E_waterfall.png][4E][$energy -= 0.2+$Oeu]]</div><</if>>
+          <</if>>
+        <<else>>
+          <<if $energy >= 1>><<button "<<print $explored4E.toFixed(0)>>%">>
+            <<set $explored4E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05>>
+            <<goto [[The Map]]>>
+          <</button>><</if>>
+        <</if>>
+      <</if>>
+    </div>
+  <</if>>
+
+  <<if $Camp_M || $explored4E >= 100>>
+    <div id="theMBase">
+      <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
+      <<else>>
+        <<if $Camp_J>>
+          <<if $exploredMB >= 100>><<set $exploredMB = 100>>
+            <<if $Camp_J>>
+              <<if $energy < 0.2>><div class="imgs-opaqued">[img[assets/Ch-Camp/MountainCamp.png]]]</div><<else>>[[MB|Start from Base Mountain][$energy -= 5*(0.2+$Oeu)]]<</if>>
+            <<else>>[[MB|Start from Base Mountain]]
+            <</if>>
+          <<else>>
+            <<if $energy >= 1>><<button "<<print $exploredMB.toFixed(0)>>%">>
+              <<set $exploredMB += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05>>
+              <<goto [[The Map]]>>
+            <</button>><</if>>
+          <</if>>
+        <</if>>
+      <</if>>
+    </div>
+  <</if>>
+
+  <<if $Camp_J || $exploredJB >= 100>>
+    <div id="p1S">
+      <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
+      <<else>>
+        <<if $explored1S >= 100>><<set $explored1S = 100>>
+          <<if $Camp_J>>
+            <<if $energy < 0.2>><div class="imgs-opaqued">[img[assets/Ch-Explore/desert3.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/desert3.png][1S][$energy -= 0.2+$Oeu]]</div><</if>>
+          <<else>>
+            <<if $energy < 1.2>><div class="imgs-opaqued">[img[assets/Ch-Explore/desert3.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/desert3.png][1S][$energy -= 6*(0.2+$Oeu)]]</div><</if>>
+          <</if>>
+        <<else>>
+          <<if $energy >= 1>><<button "<<print $explored1S.toFixed(0)>>%">>
+            <<set $explored1S += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.02>>
+            <<goto [[The Map]]>>
+          <</button>><</if>>
+        <</if>>
+      <</if>>
+    </div>
+  <</if>>
+  
+  <<if $explored1S >= 100>>
+    <div id="p2S">
+      <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
+      <<else>>
+        <<if $explored2S >= 100>><<set $explored2S = 100>>
+          <<if $Camp_J>>
+            <<if $energy < 0.4>><div class="imgs-opaqued">[img[assets/Ch-Explore/desert2.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/desert2.png][2S][$energy -= 2*(0.2+$Oeu)]]</div><</if>>
+          <<else>>
+            <<if $energy < 1.4>><div class="imgs-opaqued">[img[assets/Ch-Explore/desert2.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/desert2.png][2S][$energy -= 7*(0.2+$Oeu)]]</div><</if>>
+          <</if>>
+        <<else>>
+          <<if $energy >= 1>><<button "<<print $explored2S.toFixed(0)>>%">>
+            <<set $explored2S += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.02>>
+            <<goto [[The Map]]>>
+          <</button>><</if>>
+        <</if>>
+      <</if>>
+    </div>
+  <</if>>
+    
+  <<if $explored2S >= 100>>
+    <div id="p3S">
+      <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
+      <<else>>
+        <<if $explored3S >= 100>><<set $explored3S = 100>>
+          <<if $Camp_J>>
+            <<if $energy < 0.6>><div class="imgs-opaqued">[img[assets/Ch-Explore/energy_deposit.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/energy_deposit.png][3S][$energy -= 3*(0.2+$Oeu)]]</div><</if>>
+          <<else>>
+            <<if $energy < 1.6>><div class="imgs-opaqued">[img[assets/Ch-Explore/energy_deposit.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/energy_deposit.png][3S][$energy -= 8*(0.2+$Oeu)]]</div><</if>>
+          <</if>>
+        <<else>>
+          <<if $energy >= 1>><<button "<<print $explored3S.toFixed(0)>>%">>
+            <<set $explored3S += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.02>>
+            <<goto [[The Map]]>>
+          <</button>><</if>>
+        <</if>>
+      <</if>>
+    </div>
+  <</if>>
+  
+  <<if $Camp_J || $exploredJB >= 100>>
+    <div id="p1W">
+      <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
+      <<else>>
+        <<if $explored1W >= 100>><<set $explored1W = 100>>
+          <<if $Camp_J>>
+            <<if $energy < 0.2>><div class="imgs-opaqued">[img[assets/Ch-Explore/jungle1.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/jungle1.png][1W][$energy -= 0.2+$Oeu]]</div><</if>>
+          <<else>>
+            <<if $energy < 1.2>><div class="imgs-opaqued">[img[assets/Ch-Explore/jungle1.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/jungle1.png][1W][$energy -= 6*(0.2+$Oeu)]]</div><</if>>
+          <</if>>
+        <<else>>
+          <<if $energy >= 1>><<button "<<print $explored1W.toFixed(0)>>%">>
+            <<set $explored1W += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.02>>
+            <<goto [[The Map]]>>
+          <</button>><</if>>
+        <</if>>
+      <</if>>
+    </div>
+  <</if>>
+  
+  <<if $explored1W >= 100>>
+    <div id="p2W">
+      <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
+      <<else>>
+        <<if $explored2W >= 100>><<set $explored2W = 100>>
+          <<if $Camp_J>>
+            <<if $energy < 0.4>><div class="imgs-opaqued">[img[assets/Ch-Explore/swampy_area_2.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/swampy_area_2.png][2W][$energy -= 2*(0.2+$Oeu)]]</div><</if>>
+          <<else>>
+            <<if $energy < 1.4>><div class="imgs-opaqued">[img[assets/Ch-Explore/swampy_area_2.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/swampy_area_2.png][2W][$energy -= 7*(0.2+$Oeu)]]</div><</if>>
+          <</if>>
+        <<else>>
+          <<if $energy >= 1>><<button "<<print $explored2W.toFixed(0)>>%">>
+            <<set $explored2W += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.02>>
+            <<goto [[The Map]]>>
+          <</button>><</if>>
+        <</if>>
+      <</if>>
+    </div>
+  <</if>>
+  
+  <<if $explored2W >= 100>>
+    <div id="p3W">
+      <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
+      <<else>>
+        <<if $explored3W >= 100>><<set $explored3W = 100>>
+          <<if $Camp_J>>
+            <<if $energy < 0.6>><div class="imgs-opaqued">[img[assets/Ch-Explore/coastline3.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/coastline3.png][3W][$energy -= 3*(0.2+$Oeu)]]</div><</if>>
+          <<else>>
+            <<if $energy < 1.6>><div class="imgs-opaqued">[img[assets/Ch-Explore/coastline3.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/coastline3.png][3W][$energy -= 8*(0.2+$Oeu)]]</div><</if>>
+          <</if>>
+        <<else>>
+          <<if $energy >= 1>><<button "<<print $explored3W.toFixed(0)>>%">>
+            <<set $explored3W += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.02>>
+            <<goto [[The Map]]>>
+          <</button>><</if>>
+        <</if>>
+      <</if>>
+    </div>
+  <</if>>
+  
+  <<if $explored3W >= 100>>
+    <div id="p4W">
+      <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
+      <<else>>
+        <<if $explored4W >= 100>><<set $explored4W = 100>>
+          <<if $Camp_J>>
+            <<if $energy < 0.8>><div class="imgs-opaqued">[img[assets/Ch-Explore/coast1.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/coast1.png][4W][$energy -= 4*(0.2+$Oeu)]]</div><</if>>
+          <<else>>
+            <<if $energy < 1.8>><div class="imgs-opaqued">[img[assets/Ch-Explore/coast1.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/coast1.png][4W][$energy -= 9*(0.2+$Oeu)]]</div><</if>>
+          <</if>>
+        <<else>>
+          <<if $energy >= 1>><<button "<<print $explored4W.toFixed(0)>>%">>
+            <<set $explored4W += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.02>>
+            <<goto [[The Map]]>>
+          <</button>><</if>>
+        <</if>>
+      <</if>>
+    </div>
+  <</if>>
+  
+  <<if $explored4W >= 100>>
+    <div id="p5W">
+      <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
+      <<else>>
+        <<if $explored5W >= 100>><<set $explored5W = 100>>
+          <<if $Camp_J>>
+            <<if $energy < 1>><div class="imgs-opaqued">[img[assets/Ch-Explore/coast2island.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/coast2island.png][5W][$energy -= 5*(0.2+$Oeu)]]</div><</if>>
+          <<else>>
+            <<if $energy < 2>><div class="imgs-opaqued">[img[assets/Ch-Explore/coast2island.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/coast2island.png][5W][$energy -= 2]]</div><</if>>
+          <</if>>
+        <<else>>
+          <<if $energy >= 1>><<button "<<print $explored5W.toFixed(0)>>%">>
+            <<set $explored5W += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05>>
+            <<goto [[The Map]]>>
+          <</button>><</if>>
+        <</if>>
+      <</if>>
+    </div>
+  <</if>>
+  
+  <<if $Camp_J  || $exploredJB >= 100>>
+    <div id="p1N">
+      <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
+      <<else>>
+        <<if $explored1N >= 100>><<set $explored1N = 100>>
+          <<if $Camp_J>>
+            <<if $energy < 0.2>><div class="imgs-opaqued">[img[assets/Ch-Explore/marshland1.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/marshland1.png][1N][$energy -= 0.2+$Oeu]]</div><</if>>
+          <<else>>
+            <<if $energy < 1.2>><div class="imgs-opaqued">[img[assets/Ch-Explore/marshland1.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/marshland1.png][1N][$energy -= 6*(0.2+$Oeu)]]</div><</if>>
+          <</if>>
+        <<else>>
+          <<if $energy >= 1>><<button "<<print $explored1N.toFixed(0)>>%">>
+            <<set $explored1N += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05>>
+            <<goto [[The Map]]>>
+          <</button>><</if>>
+        <</if>>
+      <</if>>
+    </div>
+  <</if>>
+  
+  <<if $explored1N >= 100>>
+    <div id="p2N">
+      <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
+      <<else>>
+        <<if $explored2N >= 100>><<set $explored2N = 100>>
+          <<if $Camp_J>>
+            <<if $energy < 0.4>><div class="imgs-opaqued">[img[assets/Ch-Explore/unimatter_deposit.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/unimatter_deposit.png][2N][$energy -= 2*(0.2+$Oeu)]]</div><</if>>
+          <<else>>
+            <<if $energy < 1.4>><div class="imgs-opaqued">[img[assets/Ch-Explore/unimatter_deposit.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/unimatter_deposit.png][2N][$energy -= 7*(0.2+$Oeu)]]</div><</if>>
+          <</if>>
+        <<else>>
+          <<if $energy >= 1>><<button "<<print $explored2N.toFixed(0)>>%">>
+            <<set $explored2N += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05>>
+            <<goto [[The Map]]>>
+          <</button>><</if>>
+        <</if>>
+      <</if>>
+    </div>
+  <</if>>
+
+  <<if hasVisited("3E-Event")>>
+
+    <<if $explored1N >= 100 || $explored1N2E >= 100>>
+    <div id="1NE">
+      <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
+      <<else>>
+        <<if $explored1NE >= 100>><<set $explored1NE = 100>>
+          <<if $Camp_J>>
+            <<if $energy < 0.4>><div class="imgs-opaqued">[img[assets/Ch-Explore/scenery1NE.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/scenery1NE.png][2N][$energy -= 2*(0.2+$Oeu)]]</div><</if>>
+          <<else>>
+            <<if $energy < 1>><div class="imgs-opaqued">[img[assets/Ch-Explore/scenery1NE.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/scenery1NE.png][2N][$energy -= 5*(0.2+$Oeu)]]</div><</if>>
+          <</if>>
+        <<else>>
+          <<if $energy >= 1>><<button "<<print $explored1NE.toFixed(0)>>%">>
+            <<set $explored1NE += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05>>
+            <<goto [[The Map]]>>
+          <</button>><</if>>
+        <</if>>
+      <</if>>
+    </div>
+    <</if>>
+
+    <<if $explored1NE >= 100 || $explored1N3E >= 100>>
+    <div id="1N2E">
+      <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
+      <<else>>
+        <<if $explored1N2E >= 100>><<set $explored1N2E = 100>>
+          <<if $Camp_J>>
+            <<if $energy < 0.6>><div class="imgs-opaqued">[img[assets/Ch-Explore/scenery1N2E.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/scenery1N2E.png][2N][$energy -= 3*(0.2+$Oeu)]]</div><</if>>
+          <<else>>
+            <<if $energy < 0.8>><div class="imgs-opaqued">[img[assets/Ch-Explore/scenery1N2E.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/scenery1N2E.png][2N][$energy -= 4*(0.2+$Oeu)]]</div><</if>>
+          <</if>>
+        <<else>>
+          <<if $energy >= 1>><<button "<<print $explored1N2E.toFixed(0)>>%">>
+            <<set $explored1N2E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05>>
+            <<goto [[The Map]]>>
+          <</button>><</if>>
+        <</if>>
+      <</if>>
+    </div>
+    <</if>>
+
+    <<if $explored1N2E >= 100 || $explored1N4E >= 100>>
+    <div id="1N3E">
+      <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
+      <<else>>
+        <<if $explored1N3E >= 100>><<set $explored1N3E = 100>>
+          <<if $Camp_J>>
+            <<if $energy < 0.8>><div class="imgs-opaqued">[img[assets/Ch-Explore/scenery1N3E.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/scenery1N3E.png][2N][$energy -= 4*(0.2+$Oeu)]]</div><</if>>
+          <<else>>
+            <<if $energy < 0.6>><div class="imgs-opaqued">[img[assets/Ch-Explore/scenery1N3E.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/scenery1N3E.png][2N][$energy -= 3*(0.2+$Oeu)]]</div><</if>>
+          <</if>>
+        <<else>>
+          <<if $energy >= 1>><<button "<<print $explored1N3E.toFixed(0)>>%">>
+            <<set $explored1N3E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05>>
+            <<goto [[The Map]]>>
+          <</button>><</if>>
+        <</if>>
+      <</if>>
+    </div>
+    <</if>>
+
+    <<if $explored1N3E >= 100 || $explored1N5E >= 100>>
+    <div id="1N4E">
+      <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
+      <<else>>
+        <<if $explored1N4E >= 100>><<set $explored1N4E = 100>>
+          <<if $Camp_J>>
+            <<if $energy < 1>><div class="imgs-opaqued">[img[assets/Ch-Explore/scenery1N4E.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/scenery1N4E.png][2N][$energy -= 5*(0.2+$Oeu)]]</div><</if>>
+          <<else>>
+            <<if $energy < 0.4>><div class="imgs-opaqued">[img[assets/Ch-Explore/scenery1N4E.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/scenery1N4E.png][2N][$energy -= 2*(0.2+$Oeu)]]</div><</if>>
+          <</if>>
+        <<else>>
+          <<if $energy >= 1>><<button "<<print $explored1N4E.toFixed(0)>>%">>
+            <<set $explored1N4E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05>>
+            <<goto [[The Map]]>>
+          <</button>><</if>>
+        <</if>>
+      <</if>>
+    </div>
+    <</if>>
+
+    <<if $explored1N4E >= 100 || $Camp_M>>
+    <div id="1N5E">
+      <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
+      <<else>>
+        <<if $explored1N5E >= 100>><<set $explored1N5E = 100>>
+          <<if $Camp_J>>
+            <<if $energy < 1.2>><div class="imgs-opaqued">[img[assets/Ch-Explore/scenery1N5E.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/scenery1N5E.png][2N][$energy -= 6*(0.2+$Oeu)]]</div><</if>>
+          <<else>>
+            <<if $energy < 0.2>><div class="imgs-opaqued">[img[assets/Ch-Explore/scenery1N5E.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/scenery1N5E.png][2N][$energy -= 0.2+$Oeu]]</div><</if>>
+          <</if>>
+        <<else>>
+          <<if $energy >= 1>><<button "<<print $explored1N5E.toFixed(0)>>%">>
+            <<set $explored1N5E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05>>
+            <<goto [[The Map]]>>
+          <</button>><</if>>
+        <</if>>
+      <</if>>
+    </div>
+    <</if>>
+
+  <</if>>
+
+  </div><</nobr>>
+  
+  <div class="index-screens-normal"><strong>Carrying Capacity:</strong>  <<= $carrycap.toFixed(0)>></div>
+
+  <div class="index-screens-normal"><strong>Energy Indicator:</strong>  <<= $energy.toFixed(1)>><<if $energy <2>> energy<<else>> energies<</if>></div>
+
+  <div class="index-screens-normal"><strong>Xeno Indicator:</strong>  <<= $xeno.toFixed(1)>></div>
+  
+  <div class="actions-row"><<if $Camp_J>><div>[[Go back to Camp|Camp Jungle]]</div><<else>><div>[[Go back to Camp|Camp Mountain]]</div><</if>></div>
+<</if>>
+</center>
 
 
 :: Vika {"position":"3525,225","size":"100,100"}
@@ -2618,7 +2642,7 @@ So! Take out your contact lenses or your glasses, and all is fine!
 </center>
 
 
-:: Widgets [widget] {"position":"625,25","size":"100,100"}
+:: Widgets [widget] {"position":"750,25","size":"100,100"}
 <<widget "say" container>><div class="Char">
 <div class="Char-Framer"><img class="Char-img" @src="'assets/characters/' + _args[0].toLowerCase() + '.png'"></div><div class="Char-dialogues">_contents</div></div><</widget>>
 
@@ -2628,7 +2652,7 @@ So! Take out your contact lenses or your glasses, and all is fine!
 :: Yes {"position":"225,300","size":"100,100"}
 <center>
 [img[assets/characters/Me.png]]
-<blockquote>
+<blockquote><<audio "V1" play>><<audio "BgMusic" loop play>>
 Yep, that's me. Handsome, eh? Like a Roman demi-god, no?
 
 Since I come from upper middle class, my family invested in a designer baby. Obviously. But surprise, surprise! Like the mayority of humanity (and pets!), we are synthetic beings, Cyborgs. For better space travel, which this story is about, we have to be cyborgs. Only our brain and spine is completely organic; the rest in synthetic materials.
@@ -2719,6 +2743,7 @@ Both now feel rather that we resettle our camp here. They wish more company. Tha
   nOrb: 1,
   cOrb: 1,
 };>>
+
 <<set $CampM to {
 	TransMast: false,
 	Farm: 0,
@@ -2798,6 +2823,32 @@ Both now feel rather that we resettle our camp here. They wish more company. Tha
 
 <<set $OrbAutoCM = false>>
 <<set $OrbAutoCJ = false>>
+
+<<set $notrepaired = 0>>
+<<set $ignore = 0>>
+
+
+:: random events {"position":"1100,1500","size":"100,100"}
+<center><blockquote>
+
+<<if random(1, 10) > 5>>[img[assets/Ch-Explore/random_find_unimatter.png]]
+  I found something that can be used as Unimatter.
+
+  Deposit it at the Camp?
+
+  <<if $Camp_M>><<ab>>[[Yes|Camp Mountain][$unimatter += either(0.3, 0.6, 1)]]<</ab>><<else>><<ab>>[[Yes|Camp Jungle][$unimatter += $carrycap*either(0.3, 0.6, 1)]]<</ab>><</if>>
+
+  <<ab>>[[Nah|The Map]]<</ab>>
+<<else>>[img[assets/Ch-Explore/random_find_nutrients.png]]
+  I am pretty sure that is edible and has nutritional value. 
+
+  Deposit it at the Camp?
+
+  <<if $Camp_M>><<ab>>[[Yes|Camp Mountain][$nutrients += either(1, 2, 3)]]<</ab>><<else>><<ab>>[[Yes|Camp Jungle][$nutrients += $carrycap*either(1, 2, 3)]]<</ab>><</if>>
+
+  <<ab>>[[Nah|The Map]]<</ab>>
+<</if>>
+</blockquote></center>
 
 
 :: StoryScript [script]

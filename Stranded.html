@@ -722,7 +722,7 @@ Hm, a swampy area. Nothing useful here.
 
 &lt;&lt;if $explored1NE == 100 &amp;&amp; hasVisited(&quot;3E-Event&quot;)&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go East|1NE][$energy -= 0.2+$Oeu]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
 
-&lt;&lt;if $Camp_M == true&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go South|Start from Base Jungle][$energy -= 6*(0.2+$Oeu)]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go South|Start from Base Jungle][$energy -= 0.2+$Oeu]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $Camp_M == true&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go South|Start from Base Jungle][$energy -= 6*(0.2+$Oeu)]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go South|The Map][$energy -= 0.2+$Oeu]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
 &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="3" name="1N2E" tags="" position="1125,2050" size="100,100">&lt;center&gt;[img[assets/Ch-Explore/scenery1N2E.png]]
 &lt;blockquote&gt;
 
@@ -846,7 +846,7 @@ Go to Camp, depositing the unimatter?
 
 &lt;&lt;if $Camp_J == true&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Yes|Camp Jungle][$energy -= 2*(0.2+$Oeu); $unimatter += $carrycap]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Yes|Camp Mountain][$energy -= 7*(0.2+$Oeu); $unimatter += $carrycap]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
 
-&lt;&lt;if $Camp_J == true&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Nah, I go back to the Base|The Map][$energy -= 2*(0.2+$Oeu)]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Nah, I go back to the Base|The Map][$energy -= 7*(0.2+$Oeu)]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $Camp_J == true&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Nah, I go back to the Base|The Map][$energy -= 2*(0.2+$Oeu)]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Nah, go back to the Base|The Map][$energy -= 7*(0.2+$Oeu)]]&lt;/div&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;else&gt;&gt;
 Nothing to do here. A substance analyzer is needed here.
 
@@ -1052,10 +1052,7 @@ Sandy Beach! That&#39;s gonna be a spot!
 
 
 &lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go back East|4W][$energy -= 0.2+$Oeu]]&lt;/div&gt;&lt;/div&gt;
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="27" name="A New Cycle" tags="autosave" position="2900,1975" size="100,100">&lt;center&gt;&lt;blockquote&gt;&lt;&lt;nobr&gt;&gt;
-&lt;&lt;script&gt;&gt;
-Config.saves.autosave = [&quot;autosave&quot;]
-&lt;&lt;/script&gt;&gt;
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="27" name="A New Cycle" tags="" position="2900,1975" size="100,100">&lt;center&gt;&lt;blockquote&gt;&lt;&lt;nobr&gt;&gt;
 
 &lt;&lt;set $rNr = random(10)&gt;&gt;
 &lt;&lt;if hasVisited(&quot;3E-Event&quot;)&gt;&gt;&lt;&lt;set $extra3E = 1.2&gt;&gt;&lt;&lt;/if&gt;&gt;
@@ -1064,13 +1061,13 @@ Config.saves.autosave = [&quot;autosave&quot;]
 &lt;&lt;if $energy &lt; 0 || $nutrients &lt;= 0 || $days &gt;= 30&gt;&gt;&lt;&lt;goto &quot;End of Game&quot;&gt;&gt;
 &lt;&lt;elseif $Camp_J&gt;&gt;
   &lt;&lt;set $energy += 5 + (_TMconstant.count(5)*5) + $CampJ.EHarvester + (($OrbTransport.count(&quot;encomp&quot;)*(2.5/1.8)) + ($OrbTransport.count(&quot;unimatter&quot;)*1.2) + ($OrbTransport.count(&quot;nutrients&quot;)*0.6) + ($OrbTransport.count(&quot;CJMNutrients&quot;)*(3 + $extra3E)) + ($OrbTransport.count(&quot;CMNutrients&quot;)*(2.4 + $extra3E))) - $notrepaired&gt;&gt;
-    &lt;&lt;if $energy &lt; 0.5&gt;&gt;&lt;&lt;goto [[End of Game]]&gt;&gt;&lt;&lt;/if&gt;&gt;
+  &lt;&lt;if $energy &lt; 1&gt;&gt;&lt;&lt;goto [[End of Game]]&gt;&gt;&lt;&lt;/if&gt;&gt;
   &lt;&lt;set $nutrients -= 3 + $CampJ.Farm + ($OrbTransport.count(&quot;nutrients&quot;)*9)&gt;&gt;
   &lt;&lt;set $CampM.nutrients -= 2 + $CampM.Farm + ($OrbTransport.count(&quot;CJMNutrients&quot;)*9) + ($OrbTransport.count(&quot;CMNutrients&quot;)*9)&gt;&gt;
   &lt;&lt;set $engineering += 0.3 + (_TMconstant.count(0.2)*0.2); $social += 0.2, $combat += (_TMconstant.count(0.1)*0.1), $unimatter += ($OrbTransport.count(&quot;unimatter&quot;)*3)&gt;&gt;
 &lt;&lt;elseif $Camp_M&gt;&gt;
   &lt;&lt;set $energy += 10 + $CampM.EHarvester + (($OrbTransport.count(&quot;encomp&quot;)*(2.5/(4.8 + $extra3E))) + ($OrbTransport.count(&quot;unimatter&quot;)*(4.2 + $extra3E)) + ($OrbTransport.count(&quot;nutrients&quot;)*(2.4 + $extra3E))) - $notrepaired&gt;&gt;
-    &lt;&lt;if $energy &lt; 0.5&gt;&gt;&lt;&lt;goto [[End of Game]]&gt;&gt;&lt;&lt;/if&gt;&gt;
+    &lt;&lt;if $energy &lt; 1&gt;&gt;&lt;&lt;goto [[End of Game]]&gt;&gt;&lt;&lt;/if&gt;&gt;
   &lt;&lt;set $nutrients -= 5 + $CampM.Farm + ($OrbTransport.count(&quot;nutrients&quot;)*9)&gt;&gt;
   &lt;&lt;set $engineering += 0.5; $combat += 0.1; $social += 0.2, $unimatter += $OrbTransport.count(&quot;unimatter&quot;)*3&gt;&gt;
 &lt;&lt;/if&gt;&gt;&lt;&lt;/nobr&gt;&gt;
@@ -1215,11 +1212,15 @@ Who will accompany me, who can I persuade?
 &lt;&lt;if $Camp_M == true&gt;&gt;&lt;&lt;linkreplace &quot;Elva&quot;&gt;&gt;&lt;&lt;if random(10) * $social &gt; 38 || (($CampJ.EHarvester == 0 &amp;&amp; $Camp_J || $Camp_M &amp;&amp; $CampM.EHarvester == 0) &amp;&amp; $notrepaired &gt; 2) || $nutrients &lt;10&gt;&gt;+ Elva comes with you.&lt;&lt;set $carrycap +=1&gt;&gt;&lt;&lt;else&gt;&gt;- Elva is not available. She seems to be occupied.&lt;&lt;/if&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;br&gt;
 &lt;br&gt;
-&lt;&lt;if $Camp_M == true&gt;&gt;&lt;&lt;linkreplace &quot;Abiba&quot;&gt;&gt;&lt;&lt;if random(10) * $social &gt; 35 || (($CampJ.EHarvester == 0 &amp;&amp; $Camp_J || $Camp_M &amp;&amp; $CampM.EHarvester == 0) &amp;&amp; $notrepaired &gt; 2) || $nutrients &lt; 10&gt;&gt;+ Abiba want some outdoor training, she comes with me.&lt;&lt;set $carrycap +=1&gt;&gt;&lt;&lt;else&gt;&gt;- Abiba is in her training mode. Quite intensely. Better not disturb her.&lt;&lt;/if&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/nobr&gt;&gt;
-
+&lt;&lt;if $Camp_M == true&gt;&gt;&lt;&lt;linkreplace &quot;Abiba&quot;&gt;&gt;&lt;&lt;if random(10) * $social &gt; 35 || (($CampJ.EHarvester == 0 &amp;&amp; $Camp_J || $Camp_M &amp;&amp; $CampM.EHarvester == 0) &amp;&amp; $notrepaired &gt; 2) || $nutrients &lt; 10&gt;&gt;+ Abiba want some outdoor training, she comes with me.&lt;&lt;set $carrycap +=1&gt;&gt;&lt;&lt;else&gt;&gt;- Abiba is in her training mode. Quite intensely. Better not disturb her.&lt;&lt;/if&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;br&gt;
+&lt;br&gt;
 &lt;&lt;if ($CampJ.Orb == 3 &amp;&amp; $Camp_J) || ($CampM.Orb == 3 &amp;&amp; $Camp_M)&gt;&gt;Do I activate the floating Orb?
-
+&lt;br&gt;
 &lt;&lt;linkreplace &quot;Floating Orb&quot;&gt;&gt;&lt;&lt;set $carrycap += 3, $Oeu = 0.3&gt;&gt;The floating Orb decouples from the port and is swirring by your side.&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;&lt;if $ignore == 0 &amp;&amp; $explored1E == 100 &amp;&amp; $explored2N == 100&gt;&gt;Ignore random finds in unimatter and nutrients? &lt;&lt;linkreplace &quot;&lt;&lt;ab&gt;&gt;Yes&lt;&lt;/ab&gt;&gt;&quot;&gt;&gt;&lt;br&gt;&lt;br&gt;Yes&lt;br&gt;&lt;&lt;set $ignore = 1&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;&lt;br&gt;&lt;&lt;linkreplace &quot;&lt;&lt;ab&gt;&gt;No&lt;&lt;/ab&gt;&gt;&quot;&gt;&gt;&lt;br&gt;&lt;br&gt;No&lt;br&gt;&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/nobr&gt;&gt;
 
 &lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Go to the Map|The Map]]&lt;/div&gt;&lt;/div&gt;
 &lt;div class=&quot;actions-row&quot;&gt;&lt;&lt;if $Camp_J&gt;&gt;&lt;div&gt;[[Ach, nah, I&#39;ve changed my mind, I will go back.|Camp Jungle]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div&gt;[[Ach, nah, I&#39;ve changed my mind, I will go back.|Camp Mountain]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/div&gt;
@@ -1275,11 +1276,11 @@ I wanna be the boss!&lt;/strong&gt;
 &lt;&lt;if $social &gt;=2&gt;&gt;
 Maybe I can convince them about ...
 
-... a transmission mast. The potential to reach more people sounds more intriguing &lt;&lt;if $energy &gt; 5&gt;&gt;[[to me.|Foot of a Mountain]]&lt;&lt;elseif $energy &lt;=5 &amp;&amp; $energy &gt; 1&gt;&gt;[[to me.|A Small Hill]]&lt;&lt;else&gt;&gt;[[to me|WhyNothing]]&lt;&lt;/if&gt;&gt;
+... a transmission mast. The potential to reach more people sounds more intriguing &lt;&lt;if $energy &gt; 5&gt;&gt;[[to me.|Foot of a Mountain][$energy -= 6; $unimatter -= 2]]&lt;&lt;elseif $energy.range(2, 5)&gt;&gt;[[to me.|A Small Hill][$energy -= 3; $unimatter -= 2]]&lt;&lt;else&gt;&gt;[[to me|WhyNothing]]&lt;&lt;/if&gt;&gt;
 
-... a substance analyzer. Knowing what surrounds us gives us better planning [[ahead.|Substance Analyzer]]
+... a substance analyzer. Knowing what surrounds us gives us better planning [[ahead.|Substance Analyzer][$energy -= 2; $unimatter -= 5]]
 
-... an energy harvester. Energy is crucial to our survival, so pump up the [[regeneration rate!|Energy Harvester]]
+... an energy harvester. Energy is crucial to our survival, so pump up the [[regeneration rate!|Energy Harvester][$energy -= 5; $unimatter -= 5]]
 &lt;&lt;else&gt;&gt;
 Ugh. FIne. Voting it is.
 
@@ -1293,7 +1294,11 @@ Have I a change of mind? Do I want a ...
 
 &lt;&lt;button &quot;Energy Harvester&quot;&gt;&gt;&lt;&lt;set $numero = 3&gt;&gt;&lt;&lt;goto &quot;Vote&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
 &lt;&lt;/if&gt;&gt;
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="32" name="Camp Jungle" tags="" position="750,925" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="32" name="Camp Jungle" tags="autosave" position="750,925" size="100,100">&lt;&lt;= $notrepaired&gt;&gt;
+&lt;&lt;nobr&gt;&gt;
+&lt;&lt;script&gt;&gt;
+Config.saves.autosave = [&quot;autosave&quot;]
+&lt;&lt;/script&gt;&gt;
   &lt;&lt;if $CampJ.nOrb &amp;&amp; $Camp_J&gt;&gt;&lt;&lt;set $navOrb = $CampJ.nOrb&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;set $navOrb = 1&gt;&gt;&lt;&lt;/if&gt;&gt;
   &lt;&lt;if $CampJ.cOrb &amp;&amp; $Camp_J&gt;&gt;&lt;&lt;set $cbtOrb = $CampJ.cOrb&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;set $cbtOrb = 1&gt;&gt;&lt;&lt;/if&gt;&gt;
   &lt;&lt;set $Camp_J = true, $Camp_M = false, $carrycap = 1&gt;&gt;
@@ -1328,7 +1333,10 @@ Have I a change of mind? Do I want a ...
 
 DEVELOPPER: [[Testing]]
 
-TESTING: [[3E-Event]] [[Start from Base Mountain]]</tw-passagedata><tw-passagedata pid="33" name="Camp Mountain" tags="" position="1050,925" size="100,100">&lt;&lt;nobr&gt;&gt;
+TESTING: [[3E-Event]] [[Start from Base Mountain]] [[random events]] </tw-passagedata><tw-passagedata pid="33" name="Camp Mountain" tags="autosave" position="1050,925" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;&lt;script&gt;&gt;
+Config.saves.autosave = [&quot;autosave&quot;]
+&lt;&lt;/script&gt;&gt;
   &lt;&lt;if $CampJ.Orb &amp;&amp; $Camp_J&gt;&gt;&lt;&lt;set $navOrb = $CampJ.nOrb&gt;&gt;&lt;&lt;elseif $CampM.Orb &amp;&amp; $Camp_M&gt;&gt;&lt;&lt;set $navOrb = $CampM.nOrb&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;set $navOrb = 1&gt;&gt;&lt;&lt;/if&gt;&gt;
   &lt;&lt;if $CampJ.Orb &amp;&amp; $Camp_J&gt;&gt;&lt;&lt;set $cbtOrb = $CampJ.cOrb&gt;&gt;&lt;&lt;elseif $CampM.Orb &amp;&amp; $Camp_M&gt;&gt;&lt;&lt;set $navOrb = $CampM.cOrb&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;set $cbtOrb = 1&gt;&gt;&lt;&lt;/if&gt;&gt;
   &lt;&lt;set $Camp_M = true, $Camp_J = false, $carrycap = 1&gt;&gt;
@@ -1405,7 +1413,7 @@ Ech! Nothing happens. It is boring. Maybe I should try to go out anyway?
 &lt;strong&gt;&lt;u&gt;available Templates:&lt;/u&gt;&lt;/strong&gt;
 &lt;&lt;nobr&gt;&gt;&lt;center&gt;&lt;h6&gt;Legend:&lt;br&gt;Energy = E | Unimatter = U | Lvl = Engineering Level&lt;/h6&gt;&lt;/center&gt;&lt;br&gt;
   &lt;ul&gt;&lt;li&gt;Repairs (3E - 3U): &lt;&lt;if $notrepaired &gt; 0&gt;&gt;&lt;&lt;if $energy &gt;= 3 &amp;&amp; $unimatter &gt;= 3 &amp;&amp; $Camp_J&gt;&gt;[[Action it|Construction Menu][$energy -= 3; $unimatter -= 3; $notrepaired -= 2]]
-    &lt;&lt;elseif $unimatter &lt; 3 &amp;&amp; $energy &lt; 3&gt;&gt;&lt;div class=&quot;color-red&quot;&gt;insufficient ressources&lt;/div&gt;
+    &lt;&lt;elseif $unimatter &lt; 3 || $energy &lt; 3&gt;&gt;&lt;div class=&quot;color-red&quot;&gt;insufficient ressources&lt;/div&gt;
     &lt;&lt;elseif $Camp_J &amp;&amp; $maxenergy &lt; 10 || $Camp_M &amp;&amp; $maxenergy &lt; 20&gt;&gt;&lt;div class=&quot;color-red&quot;&gt;insufficient ressources&lt;/div&gt;&lt;&lt;/if&gt;&gt;
     &lt;&lt;else&gt;&gt;&lt;div class=&quot;color-green&quot;&gt;all good and functioning.&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/li&gt;
   &lt;li&gt;Lvl 2: Substance Analyzer (2E - 5U): 
@@ -1488,7 +1496,7 @@ Ech! Nothing happens. It is boring. Maybe I should try to go out anyway?
     &lt;/ul&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;else&gt;&gt;
   All building slots are full. Consider disintegrate one or more.
-&lt;&lt;/if&gt;&gt;&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="36" name="Crash" tags="" position="800,300" size="100,100">&lt;center&gt;&lt;blockquote&gt;
+&lt;&lt;/if&gt;&gt;&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="36" name="Crash" tags="" position="800,300" size="100,100">&lt;&lt;nobr&gt;&gt;&lt;&lt;script&gt;&gt;SimpleAudio.select(&quot;V6&quot;).volume(1).stop(); SimpleAudio.select(&quot;V7&quot;).volume(1).stop(); SimpleAudio.select(&quot;BgMusic&quot;).volume(1).stop();&lt;&lt;/script&gt;&gt;&lt;&lt;/nobr&gt;&gt;&lt;center&gt;&lt;blockquote&gt;&lt;&lt;audio &quot;V8&quot; play&gt;&gt;
 &lt;em&gt;Moan. Ugh. Oooph&lt;/em&gt;, what a ride. That I get awake just in the moment of impact, what kind of a dick move is that? It is a miracle that I am still whole and functioning. Although ... will luck still continue to be on my side?
 
 &lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Check my pod]]&lt;/div&gt;&lt;/div&gt;
@@ -1735,22 +1743,22 @@ But, for me personally, I welcome to have two more ladies: Elva and Abiba.
 &lt;&lt;set $CampM.TransMast = true&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;
 &lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt; [[Set up the Camp|Camp Mountain]]&lt;/div&gt;&lt;/div&gt;
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="44" name="Intro2" tags="" position="475,300" size="100,100">&lt;center&gt;
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="44" name="Intro2" tags="" position="475,300" size="100,100">&lt;&lt;nobr&gt;&gt;&lt;&lt;script&gt;&gt;SimpleAudio.select(&quot;V2&quot;).volume(1).stop();&lt;&lt;/script&gt;&gt;&lt;&lt;/nobr&gt;&gt;&lt;center&gt;
 [img[assets/backgrounds/Dock_by_Kuldar_Leement.png]]
-&lt;blockquote&gt;
+&lt;blockquote&gt;&lt;&lt;audio &quot;V3&quot; play&gt;&gt;&lt;&lt;audio &quot;BgMusic&quot; loop play&gt;&gt;
 That&#39;s the big spacecruiser. Made for voyaging from Earth to other galaxies. A big Chunker, that one. Many boasted engineering feats werde done to enable a better inter-galactical travel. Hopefully it won&#39;t become our titanic. Ha haaa. But, inter galactic travel is still a long journey. Therefore it is practically a ferrying city, with all its typical elements: bakery, cafeteria, park, university, club, city hall, residential area, apartments, restaurants etc. You get the gist. 
 
 What about Family? Friends? In a way they travel with me, as virtual clones. Same with me, a virtual clone with them, updated in cycles. Funnily, if I rather want not much contact, I virtually clone myself. With time they notice, depending how investive they were to me. Clearly, we do not have endless storage, even in the universe. 
-
+&lt;&lt;timed 53s&gt;&gt;&lt;&lt;audio &quot;V4&quot; play&gt;&gt;&lt;&lt;/timed&gt;&gt;
 Anyway, as an obligatory out-field practice repectively inter-change student program, I have to partake on this journey, as my professor was commissioned to go there. Am I happy to go? Huh ... I am not quite a believer in active steering of destiny. Yeah, practically: I am lazy. Let see to where it takes me.
-&lt;&lt;if $SFW_Path == true&gt;&gt;
+&lt;&lt;if $SFW_Path == true&gt;&gt;&lt;&lt;timed 72s&gt;&gt;&lt;&lt;audio &quot;V5&quot; play&gt;&gt;&lt;&lt;/timed&gt;&gt;
 	But! Not that lazy to have packed, say goodbye and handled all digidocs for departure that is in 3 hours. I am already stacked inside, connected, but I decided to dwell still on the old world. Wondering what I will miss when being afar ... &lt;&lt;timed 3000ms&gt;&gt;ah, [[whatever!|Intro3]]&lt;&lt;/timed&gt;&gt;
  &lt;&lt;else&gt;&gt;
  	But! Definitely not lazy to enjoy [[time with my filippine date!|DateFilippina]]
 &lt;&lt;/if&gt;&gt;
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="45" name="Intro3" tags="" position="600,300" size="100,100">&lt;center&gt;
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="45" name="Intro3" tags="" position="600,300" size="100,100">&lt;&lt;nobr&gt;&gt;&lt;&lt;script&gt;&gt;SimpleAudio.select(&quot;V3&quot;).volume(1).stop(); SimpleAudio.select(&quot;V4&quot;).volume(1).stop(); SimpleAudio.select(&quot;V5&quot;).volume(1).stop();&lt;&lt;/script&gt;&gt;&lt;&lt;/nobr&gt;&gt;&lt;center&gt;
 [img[assets/backgrounds/To_the_Moon_by_Voyager212.png]]
-&lt;blockquote&gt;
+&lt;blockquote&gt;&lt;&lt;audio &quot;V6&quot; play&gt;&gt;&lt;&lt;audio &quot;BgMusic&quot; loop play&gt;&gt;
 Aaand ignition!
 
 ...
@@ -1760,7 +1768,7 @@ Come on, that what you see is only the postbot. What tomfoolery would that be to
 If you have noticed. Yes. It is a virgin journey. A galaxis that is not yet established. And therefore not connected to Solaris (the hub of the solar system and an homage to the polish writer). The outpost and further developped colonies in neighbour galaxies clearly get their exchanges by informations, not in materials - or molecules - like in this form of the chunker, this half moon.
 
 Whether the chunker has a name? Enough of reading &quot;big chunker&quot;? Fine, the name of this mobile polymer-ceramic planetoid: Triangulum.
-
+&lt;&lt;timed 52s&gt;&gt;&lt;&lt;audio &quot;V7&quot; play&gt;&gt;&lt;&lt;/timed&gt;&gt;
 So. 
 In this journey, in the virtual city I will enjoy going out, meet people, have dates. Only to be met by frustrations and dissappointments. And, on top of all, my prof will force me to cram, cram, cram. Äääch! Hippiyay. Too much cramming cannot be good, so I go out anew, meet people, have fun, all as much my hormones allows me. Aaaand the cycle repeats: frustrations, dissappointments, cramming. 
 
@@ -1821,9 +1829,9 @@ Another stranded. And this one is quite dilapidated. He has his movement, but ba
 
 &lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Search for Compass]]&lt;/div&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="48" name="Like this" tags="" position="350,300" size="100,100">&lt;center&gt;
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="48" name="Like this" tags="" position="350,300" size="100,100">&lt;&lt;nobr&gt;&gt;&lt;&lt;script&gt;&gt;SimpleAudio.select(&quot;V1&quot;).volume(1).stop();&lt;&lt;/script&gt;&gt;&lt;&lt;/nobr&gt;&gt;&lt;center&gt;
 [img[assets/characters/cylinder.png]]
-&lt;blockquote&gt;
+&lt;blockquote&gt;&lt;&lt;audio &quot;V2&quot; play&gt;&gt;&lt;&lt;audio &quot;BgMusic&quot; loop play&gt;&gt;
 That&#39;s me at birth. Cute, eh? Arms and Legs are missing, though. They come later. Why in virtual age do we need a complete organic body? We are connected to the cloud, internet, parallel world, peer-to-peer. Countries are practically virtual now. Borders? Nah, firewalls.
 
 And since we are in the future, or like in the past, every technology is subject to evolution. Despite of advanced technology, no entity - except of (maybe) the universe - has unlimited data storage. Professionals are still in demand like in every time.
@@ -2174,7 +2182,8 @@ With whom do I want to socialize?
 &lt;&lt;/if&gt;&gt;*/
 &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="59" name="StoryInit" tags="" position="100,25" size="100,100">&lt;&lt;include [[globalvariables]]&gt;&gt;
 &lt;&lt;include [[Territories]]&gt;&gt;
-&lt;&lt;include [[QuestTracker]]&gt;&gt;</tw-passagedata><tw-passagedata pid="60" name="Substance Analyzer" tags="" position="2175,300" size="100,100">&lt;center&gt;
+&lt;&lt;include [[QuestTracker]]&gt;&gt;
+&lt;&lt;include [[Audios]]&gt;&gt;</tw-passagedata><tw-passagedata pid="60" name="Substance Analyzer" tags="" position="2175,300" size="100,100">&lt;center&gt;
 [img[assets/items/Substance-Analyzer.png]]
 &lt;blockquote&gt;
 The substance analyzer is now in our inventory.
@@ -2259,491 +2268,493 @@ With that, we should be able to collect materials nearby. Hopefully, some can be
 
 [[Camp Jungle]]
 
-[[Camp Mountain]]</tw-passagedata><tw-passagedata pid="63" name="The Map" tags="" position="875,1500" size="100,100">&lt;center&gt;&lt;&lt;nobr&gt;&gt;
-  &lt;&lt;if $days != 0&gt;&gt;&lt;&lt;set _randomNumber = random(20)/($days/10)&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;set _randomNumber = random(20)&gt;&gt;&lt;&lt;/if&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;
-  &lt;&lt;if $xeno == 0&gt;&gt;&lt;&lt;set $xeno = 0.05&gt;&gt;&lt;&lt;/if&gt;&gt;
-    &lt;&lt;if random(80) &lt; 2&gt;&gt;
-    
-        [img[assets/Ch-Explore/hostile_encounter1.png]]
-      
-        Damn! Some mother alien, animal, four-legger seems to be in aggressive stance.
-      
-        &lt;&lt;if $xeno &lt; 5&gt;&gt;The outcome depends on my combat ability. Hence: how lucky the mother will be.
-          &lt;&lt;if $combat*$cbtOrb &gt;= 5&gt;&gt;No damage, successfully coming out unscathed.
-          &lt;&lt;elseif $combat*$cbtOrb &gt;= 4&gt;&gt;Slight damage, that need constant maintaining until repaired. &lt;&lt;set $energy -= 1; $notrepaired += 1; $combat += 0.2&gt;&gt;
-          &lt;&lt;elseif $combat*$cbtOrb &gt;= 3&gt;&gt;Moderate damage. Not so good. That need a repair.&lt;&lt;set $energy -= 2; $notrepaired += 2; $combat += 0.5&gt;&gt;
-          &lt;&lt;elseif $combat*$cbtOrb &gt;= 2&gt;&gt;Severe damage, It doesn&#39;t look good. The only consolation is the data collection of combat.&lt;&lt;set $energy -= 3; $notrepaired += 3; $combat += 0.8&gt;&gt;
-          &lt;&lt;else&gt;&gt;
-            &lt;&lt;if $combat*$cbtOrb &gt; $xeno&gt;&gt;
-              &lt;&lt;if random(10)*$combat*$cbtOrb &gt; 10&gt;&gt;Lucky! Escape run successful. Although, I received some damages; damages that drains our constant energy use.&lt;&lt;set $energy -= 1; $notrepaired += 1; $combat += 0.3&gt;&gt;
-                &lt;&lt;if $unimatter &gt; 0&gt;&gt;&lt;&lt;set $unimatter -= 1&gt;&gt;&lt;&lt;/if&gt;&gt;
-              &lt;&lt;else&gt;&gt;Failure! Intense Damage.&lt;&lt;set $energy -= 4; $notrepaired += 5; $combat += 0.5&gt;&gt;
-                &lt;&lt;if $unimatter &gt; 0&gt;&gt;&lt;&lt;set $unimatter -= 5&gt;&gt;&lt;&lt;/if&gt;&gt;
-              &lt;&lt;/if&gt;&gt;
-            &lt;&lt;else&gt;&gt;
-              &lt;&lt;if random(10)*$xeno*$navOrb &gt; 10&gt;&gt;Trick! I throw something over them, making a landing sound behind them and run as fast as I can.&lt;&lt;set $nutrients -= 8&gt;&gt;
-              &lt;&lt;else&gt;&gt;Failure! Intense Damage.&lt;&lt;set $energy -= 4; $notrepaired += 5; $combat += 0.5&gt;&gt;
-                &lt;&lt;if $unimatter &gt; 0&gt;&gt;&lt;&lt;set $unimatter -= 5&gt;&gt;&lt;&lt;/if&gt;&gt;
-              &lt;&lt;/if&gt;&gt;
-            &lt;&lt;/if&gt;&gt;
-          &lt;&lt;/if&gt;&gt;
-        &lt;&lt;else&gt;&gt;With enough knowledge in alien life, it is interpreted that the alien animals can be kept at distance if food is thrown to them. I guess, these are our tax collectors, or highwaymen.&lt;&lt;set $nutrients -= 5&gt;&gt;
-        &lt;&lt;/if&gt;&gt;
-    
-        [[Not good, not good. Surviving here is harsh!|The Map]]
-    
-    &lt;&lt;else&gt;&gt;
-      &lt;&lt;nobr&gt;&gt;&lt;&lt;if hasVisited(&quot;Camp Mountain&quot;)&gt;&gt;&lt;&lt;set $exploredMB = 100&gt;&gt;&lt;&lt;/if&gt;&gt;
-      &lt;div id=&quot;the_map&quot;&gt;
-      
-      &lt;&lt;if $Camp_J || $explored1E &gt;= 100&gt;&gt;
-        &lt;div id=&quot;theJBase&quot;&gt;
-          &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-          &lt;&lt;else&gt;&gt;
-            &lt;&lt;if $Camp_M&gt;&gt;&lt;&lt;if $exploredJB &gt;= 100&gt;&gt;&lt;&lt;set $exploredJB = 100&gt;&gt;
-                &lt;&lt;if $energy &lt; 1&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Camp/JungleCamp.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;[[JB|Start from Base Jungle][$energy -= 5*(0.2+$Oeu)]]&lt;&lt;/if&gt;&gt;
-              &lt;&lt;else&gt;&gt;
-                &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $exploredJB.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-                  &lt;&lt;set $exploredJB += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.02&gt;&gt;
-                  &lt;&lt;goto [[The Map]]&gt;&gt;
-                &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
-              &lt;&lt;/if&gt;&gt;
-            &lt;&lt;/if&gt;&gt;
-          &lt;&lt;/if&gt;&gt;
-        &lt;/div&gt;
-      &lt;&lt;/if&gt;&gt;
-      
-      &lt;&lt;if $Camp_J || $explored2E &gt;= 100&gt;&gt;
-        &lt;div id=&quot;p1E&quot;&gt;
-          &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-          &lt;&lt;else&gt;&gt;
-            &lt;&lt;if $explored1E &gt;= 100&gt;&gt;&lt;&lt;set $explored1E = 100&gt;&gt;
-              &lt;&lt;if $Camp_J&gt;&gt;
-                &lt;&lt;if $energy &lt; 0.2&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/food.png]]&lt;/div&gt;
-                &lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/food.png][1E][$energy -= 0.2+$Oeu]]&lt;/div&gt;
-                &lt;&lt;/if&gt;&gt;
-              &lt;&lt;else&gt;&gt;
-                &lt;&lt;if $energy &lt; 0.8&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/food.png]]&lt;/div&gt;
-                &lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/food.png][1E][$energy -= 4*(0.2+$Oeu)]]&lt;/div&gt;
-                &lt;&lt;/if&gt;&gt;
-              &lt;&lt;/if&gt;&gt;
-            &lt;&lt;else&gt;&gt;
-              &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored1E.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-                &lt;&lt;set $explored1E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05&gt;&gt;
-                &lt;&lt;goto [[The Map]]&gt;&gt;
-              &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
-            &lt;&lt;/if&gt;&gt;
-          &lt;&lt;/if&gt;&gt;
-        &lt;/div&gt;
-      &lt;&lt;/if&gt;&gt;
-      
-      &lt;&lt;if $explored1E &gt;= 100 || $explored3E &gt;= 100&gt;&gt;
-        &lt;div id=&quot;p2E&quot;&gt;
-          &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-          &lt;&lt;else&gt;&gt;
-            &lt;&lt;if $explored2E &gt;= 100&gt;&gt;&lt;&lt;set $explored2E = 100&gt;&gt;
-              &lt;&lt;if $Camp_J&gt;&gt;
-                &lt;&lt;if $energy &lt; 0.4&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/jungle4.png]]&lt;/div&gt;
-                &lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/jungle4.png][2E][$energy -= 2*(0.2+$Oeu)]]&lt;/div&gt;
-                &lt;&lt;/if&gt;&gt;
-              &lt;&lt;else&gt;&gt;
-                &lt;&lt;if $energy &lt; 0.6&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/jungle4.png]]&lt;/div&gt;
-                &lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/jungle4.png][2E][$energy -= 3*(0.2+$Oeu)]]&lt;/div&gt;
-                &lt;&lt;/if&gt;&gt;
-              &lt;&lt;/if&gt;&gt;
-            &lt;&lt;else&gt;&gt;
-              &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored2E.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-                &lt;&lt;set $explored2E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05&gt;&gt;
-                &lt;&lt;goto [[The Map]]&gt;&gt;
-              &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
-            &lt;&lt;/if&gt;&gt;
-          &lt;&lt;/if&gt;&gt;
-        &lt;/div&gt;
-      &lt;&lt;/if&gt;&gt;
-      
-      &lt;&lt;if $eventfrom3E == false&gt;&gt;
-        &lt;&lt;if $explored2E &gt;= 100 || $explored4E &gt;= 100&gt;&gt;
-          &lt;div id=&quot;p3E&quot;&gt;
-            &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-            &lt;&lt;else&gt;&gt;
-              &lt;&lt;if $explored3E &gt;= 100&gt;&gt;&lt;&lt;set $explored3E = 100&gt;&gt;
-                &lt;&lt;if $Camp_J&gt;&gt;
-                  &lt;&lt;if $energy &lt; 0.6&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/jungle2.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/jungle2.png][3E][$energy -= 3*(0.2+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
-                &lt;&lt;else&gt;&gt;
-                  &lt;&lt;if $energy &lt; 0.4&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/jungle2.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/jungle2.png][3E][$energy -= 2*(0.2+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
-                &lt;&lt;/if&gt;&gt;
-              &lt;&lt;else&gt;&gt;
-                &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored3E.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-                  &lt;&lt;set $explored3E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05&gt;&gt;
-                  &lt;&lt;goto [[The Map]]&gt;&gt;
-                &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
-              &lt;&lt;/if&gt;&gt;
-            &lt;&lt;/if&gt;&gt;
-          &lt;/div&gt;
-        &lt;&lt;/if&gt;&gt;
+[[Camp Mountain]]</tw-passagedata><tw-passagedata pid="63" name="The Map" tags="" position="875,1500" size="100,100">&lt;center&gt;&lt;&lt;nobr&gt;&gt;&lt;&lt;set _nummer = random(80)&gt;&gt;
+&lt;&lt;if $days != 0&gt;&gt;&lt;&lt;set _randomNumber = random(20)/($days/10)&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;set _randomNumber = random(20)&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $xeno == 0&gt;&gt;&lt;&lt;set $xeno = 0.05&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/nobr&gt;&gt;
+
+&lt;&lt;if _nummer.range(0, 1)&gt;&gt;
+
+    [img[assets/Ch-Explore/hostile_encounter1.png]]
+  
+    Damn! Some mother alien, animal, four-legger seems to be in aggressive stance.
+  
+    &lt;&lt;if $xeno &lt; 5&gt;&gt;The outcome depends on my combat ability. Hence: how lucky the mother will be.
+      &lt;&lt;if $combat*$cbtOrb &gt;= 5&gt;&gt;No damage, successfully coming out unscathed.
+      &lt;&lt;elseif $combat*$cbtOrb &gt;= 4&gt;&gt;Slight damage, that use a bit of constant maintaining until repaired. &lt;&lt;set $energy -= 1; $notrepaired += 1; $combat += 0.2&gt;&gt;
+      &lt;&lt;elseif $combat*$cbtOrb &gt;= 3&gt;&gt;Moderate damage. Not so good. Some repairs are needed.&lt;&lt;set $energy -= 2; $notrepaired += 2; $combat += 0.5&gt;&gt;
+      &lt;&lt;elseif $combat*$cbtOrb &gt;= 2&gt;&gt;Severe damage, it doesn&#39;t look good, repairs are urgently in need. The only consolation is the data collection of combat.&lt;&lt;set $energy -= 3; $notrepaired += 3; $combat += 0.8&gt;&gt;
       &lt;&lt;else&gt;&gt;
-        &lt;div id=&quot;p3E&quot;&gt;
-          &lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/jungle2.png]]&lt;/div&gt;
-        &lt;/div&gt;
-      &lt;&lt;/if&gt;&gt;
-      
-      &lt;&lt;if $explored3E &gt;= 100 || $exploredMB &gt;= 100 || $Camp_M&gt;&gt;
-        &lt;div id=&quot;p4E&quot;&gt;
-          &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-          &lt;&lt;else&gt;&gt;
-            &lt;&lt;if $explored4E &gt;= 100&gt;&gt;&lt;&lt;set $explored4E = 100&gt;&gt;
-              &lt;&lt;if $Camp_J&gt;&gt;
-                &lt;&lt;if $energy &lt; 0.9&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/4E_waterfall.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/4E_waterfall.png][4E][$energy -= 4*(0.2+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
-              &lt;&lt;else&gt;&gt;
-                &lt;&lt;if $energy &lt; 0.2&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/4E_waterfall.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/4E_waterfall.png][4E][$energy -= 0.2+$Oeu]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
-              &lt;&lt;/if&gt;&gt;
-            &lt;&lt;else&gt;&gt;
-              &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored4E.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-                &lt;&lt;set $explored4E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05&gt;&gt;
-                &lt;&lt;goto [[The Map]]&gt;&gt;
-              &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
-            &lt;&lt;/if&gt;&gt;
+        &lt;&lt;if $combat*$cbtOrb &gt; $xeno&gt;&gt;
+          &lt;&lt;if random(10)*$combat*$cbtOrb &gt; 10&gt;&gt;Lucky! Escape run successful. Although, I received some damages; damages that drains our constant energy use and some immediate repairs will be needed.&lt;&lt;set $energy -= 1; $notrepaired += 1; $combat += 0.3&gt;&gt;
+            &lt;&lt;if $unimatter &gt; 0&gt;&gt;&lt;&lt;set $unimatter -= 1&gt;&gt;&lt;&lt;/if&gt;&gt;
+          &lt;&lt;else&gt;&gt;Failure! Intense Damages; repairs are needed.&lt;&lt;set $energy -= 4; $notrepaired += 5; $combat += 0.5&gt;&gt;
+            &lt;&lt;if $unimatter &gt; 0&gt;&gt;&lt;&lt;set $unimatter -= 5&gt;&gt;&lt;&lt;/if&gt;&gt;
           &lt;&lt;/if&gt;&gt;
-        &lt;/div&gt;
-      &lt;&lt;/if&gt;&gt;
-    
-      &lt;&lt;if $Camp_M || $explored4E &gt;= 100&gt;&gt;
-        &lt;div id=&quot;theMBase&quot;&gt;
-          &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-          &lt;&lt;else&gt;&gt;
-            &lt;&lt;if $Camp_J&gt;&gt;
-              &lt;&lt;if $exploredMB &gt;= 100&gt;&gt;&lt;&lt;set $exploredMB = 100&gt;&gt;
-                &lt;&lt;if $Camp_J&gt;&gt;
-                  &lt;&lt;if $energy &lt; 0.2&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Camp/MountainCamp.png]]]&lt;/div&gt;&lt;&lt;else&gt;&gt;[[MB|Start from Base Mountain][$energy -= 5*(0.2+$Oeu)]]&lt;&lt;/if&gt;&gt;
-                &lt;&lt;else&gt;&gt;[[MB|Start from Base Mountain]]
-                &lt;&lt;/if&gt;&gt;
-              &lt;&lt;else&gt;&gt;
-                &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $exploredMB.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-                  &lt;&lt;set $exploredMB += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05&gt;&gt;
-                  &lt;&lt;goto [[The Map]]&gt;&gt;
-                &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
-              &lt;&lt;/if&gt;&gt;
-            &lt;&lt;/if&gt;&gt;
+        &lt;&lt;else&gt;&gt;
+          &lt;&lt;if random(10)*$xeno*$navOrb &gt; 10&gt;&gt;Trick! I throw something over them, which makes a landing sound behind them and run as fast as I can.&lt;&lt;set $nutrients -= 8&gt;&gt;
+          &lt;&lt;else&gt;&gt;Failure! Intense Damages; repairs are needed. &lt;&lt;set $energy -= 4; $notrepaired += 5; $combat += 0.5&gt;&gt;
+            &lt;&lt;if $unimatter &gt; 0&gt;&gt;&lt;&lt;set $unimatter -= 5&gt;&gt;&lt;&lt;/if&gt;&gt;
           &lt;&lt;/if&gt;&gt;
-        &lt;/div&gt;
-      &lt;&lt;/if&gt;&gt;
-    
-      &lt;&lt;if $Camp_J || $exploredJB &gt;= 100&gt;&gt;
-        &lt;div id=&quot;p1S&quot;&gt;
-          &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-          &lt;&lt;else&gt;&gt;
-            &lt;&lt;if $explored1S &gt;= 100&gt;&gt;&lt;&lt;set $explored1S = 100&gt;&gt;
-              &lt;&lt;if $Camp_J&gt;&gt;
-                &lt;&lt;if $energy &lt; 0.2&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/desert3.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/desert3.png][1S][$energy -= 0.2+$Oeu]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
-              &lt;&lt;else&gt;&gt;
-                &lt;&lt;if $energy &lt; 1.2&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/desert3.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/desert3.png][1S][$energy -= 6*(0.2+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
-              &lt;&lt;/if&gt;&gt;
-            &lt;&lt;else&gt;&gt;
-              &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored1S.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-                &lt;&lt;set $explored1S += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.02&gt;&gt;
-                &lt;&lt;goto [[The Map]]&gt;&gt;
-              &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
-            &lt;&lt;/if&gt;&gt;
-          &lt;&lt;/if&gt;&gt;
-        &lt;/div&gt;
-      &lt;&lt;/if&gt;&gt;
-      
-      &lt;&lt;if $explored1S &gt;= 100&gt;&gt;
-        &lt;div id=&quot;p2S&quot;&gt;
-          &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-          &lt;&lt;else&gt;&gt;
-            &lt;&lt;if $explored2S &gt;= 100&gt;&gt;&lt;&lt;set $explored2S = 100&gt;&gt;
-              &lt;&lt;if $Camp_J&gt;&gt;
-                &lt;&lt;if $energy &lt; 0.4&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/desert2.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/desert2.png][2S][$energy -= 2*(0.2+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
-              &lt;&lt;else&gt;&gt;
-                &lt;&lt;if $energy &lt; 1.4&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/desert2.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/desert2.png][2S][$energy -= 7*(0.2+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
-              &lt;&lt;/if&gt;&gt;
-            &lt;&lt;else&gt;&gt;
-              &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored2S.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-                &lt;&lt;set $explored2S += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.02&gt;&gt;
-                &lt;&lt;goto [[The Map]]&gt;&gt;
-              &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
-            &lt;&lt;/if&gt;&gt;
-          &lt;&lt;/if&gt;&gt;
-        &lt;/div&gt;
-      &lt;&lt;/if&gt;&gt;
-        
-      &lt;&lt;if $explored2S &gt;= 100&gt;&gt;
-        &lt;div id=&quot;p3S&quot;&gt;
-          &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-          &lt;&lt;else&gt;&gt;
-            &lt;&lt;if $explored3S &gt;= 100&gt;&gt;&lt;&lt;set $explored3S = 100&gt;&gt;
-              &lt;&lt;if $Camp_J&gt;&gt;
-                &lt;&lt;if $energy &lt; 0.6&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/energy_deposit.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/energy_deposit.png][3S][$energy -= 3*(0.2+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
-              &lt;&lt;else&gt;&gt;
-                &lt;&lt;if $energy &lt; 1.6&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/energy_deposit.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/energy_deposit.png][3S][$energy -= 8*(0.2+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
-              &lt;&lt;/if&gt;&gt;
-            &lt;&lt;else&gt;&gt;
-              &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored3S.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-                &lt;&lt;set $explored3S += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.02&gt;&gt;
-                &lt;&lt;goto [[The Map]]&gt;&gt;
-              &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
-            &lt;&lt;/if&gt;&gt;
-          &lt;&lt;/if&gt;&gt;
-        &lt;/div&gt;
-      &lt;&lt;/if&gt;&gt;
-      
-      &lt;&lt;if $Camp_J || $exploredJB &gt;= 100&gt;&gt;
-        &lt;div id=&quot;p1W&quot;&gt;
-          &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-          &lt;&lt;else&gt;&gt;
-            &lt;&lt;if $explored1W &gt;= 100&gt;&gt;&lt;&lt;set $explored1W = 100&gt;&gt;
-              &lt;&lt;if $Camp_J&gt;&gt;
-                &lt;&lt;if $energy &lt; 0.2&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/jungle1.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/jungle1.png][1W][$energy -= 0.2+$Oeu]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
-              &lt;&lt;else&gt;&gt;
-                &lt;&lt;if $energy &lt; 1.2&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/jungle1.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/jungle1.png][1W][$energy -= 6*(0.2+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
-              &lt;&lt;/if&gt;&gt;
-            &lt;&lt;else&gt;&gt;
-              &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored1W.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-                &lt;&lt;set $explored1W += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.02&gt;&gt;
-                &lt;&lt;goto [[The Map]]&gt;&gt;
-              &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
-            &lt;&lt;/if&gt;&gt;
-          &lt;&lt;/if&gt;&gt;
-        &lt;/div&gt;
-      &lt;&lt;/if&gt;&gt;
-      
-      &lt;&lt;if $explored1W &gt;= 100&gt;&gt;
-        &lt;div id=&quot;p2W&quot;&gt;
-          &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-          &lt;&lt;else&gt;&gt;
-            &lt;&lt;if $explored2W &gt;= 100&gt;&gt;&lt;&lt;set $explored2W = 100&gt;&gt;
-              &lt;&lt;if $Camp_J&gt;&gt;
-                &lt;&lt;if $energy &lt; 0.4&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/swampy_area_2.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/swampy_area_2.png][2W][$energy -= 2*(0.2+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
-              &lt;&lt;else&gt;&gt;
-                &lt;&lt;if $energy &lt; 1.4&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/swampy_area_2.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/swampy_area_2.png][2W][$energy -= 7*(0.2+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
-              &lt;&lt;/if&gt;&gt;
-            &lt;&lt;else&gt;&gt;
-              &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored2W.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-                &lt;&lt;set $explored2W += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.02&gt;&gt;
-                &lt;&lt;goto [[The Map]]&gt;&gt;
-              &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
-            &lt;&lt;/if&gt;&gt;
-          &lt;&lt;/if&gt;&gt;
-        &lt;/div&gt;
-      &lt;&lt;/if&gt;&gt;
-      
-      &lt;&lt;if $explored2W &gt;= 100&gt;&gt;
-        &lt;div id=&quot;p3W&quot;&gt;
-          &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-          &lt;&lt;else&gt;&gt;
-            &lt;&lt;if $explored3W &gt;= 100&gt;&gt;&lt;&lt;set $explored3W = 100&gt;&gt;
-              &lt;&lt;if $Camp_J&gt;&gt;
-                &lt;&lt;if $energy &lt; 0.6&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/coastline3.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/coastline3.png][3W][$energy -= 3*(0.2+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
-              &lt;&lt;else&gt;&gt;
-                &lt;&lt;if $energy &lt; 1.6&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/coastline3.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/coastline3.png][3W][$energy -= 8*(0.2+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
-              &lt;&lt;/if&gt;&gt;
-            &lt;&lt;else&gt;&gt;
-              &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored3W.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-                &lt;&lt;set $explored3W += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.02&gt;&gt;
-                &lt;&lt;goto [[The Map]]&gt;&gt;
-              &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
-            &lt;&lt;/if&gt;&gt;
-          &lt;&lt;/if&gt;&gt;
-        &lt;/div&gt;
-      &lt;&lt;/if&gt;&gt;
-      
-      &lt;&lt;if $explored3W &gt;= 100&gt;&gt;
-        &lt;div id=&quot;p4W&quot;&gt;
-          &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-          &lt;&lt;else&gt;&gt;
-            &lt;&lt;if $explored4W &gt;= 100&gt;&gt;&lt;&lt;set $explored4W = 100&gt;&gt;
-              &lt;&lt;if $Camp_J&gt;&gt;
-                &lt;&lt;if $energy &lt; 0.8&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/coast1.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/coast1.png][4W][$energy -= 4*(0.2+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
-              &lt;&lt;else&gt;&gt;
-                &lt;&lt;if $energy &lt; 1.8&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/coast1.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/coast1.png][4W][$energy -= 9*(0.2+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
-              &lt;&lt;/if&gt;&gt;
-            &lt;&lt;else&gt;&gt;
-              &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored4W.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-                &lt;&lt;set $explored4W += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.02&gt;&gt;
-                &lt;&lt;goto [[The Map]]&gt;&gt;
-              &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
-            &lt;&lt;/if&gt;&gt;
-          &lt;&lt;/if&gt;&gt;
-        &lt;/div&gt;
-      &lt;&lt;/if&gt;&gt;
-      
-      &lt;&lt;if $explored4W &gt;= 100&gt;&gt;
-        &lt;div id=&quot;p5W&quot;&gt;
-          &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-          &lt;&lt;else&gt;&gt;
-            &lt;&lt;if $explored5W &gt;= 100&gt;&gt;&lt;&lt;set $explored5W = 100&gt;&gt;
-              &lt;&lt;if $Camp_J&gt;&gt;
-                &lt;&lt;if $energy &lt; 1&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/coast2island.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/coast2island.png][5W][$energy -= 5*(0.2+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
-              &lt;&lt;else&gt;&gt;
-                &lt;&lt;if $energy &lt; 2&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/coast2island.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/coast2island.png][5W][$energy -= 2]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
-              &lt;&lt;/if&gt;&gt;
-            &lt;&lt;else&gt;&gt;
-              &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored5W.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-                &lt;&lt;set $explored5W += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05&gt;&gt;
-                &lt;&lt;goto [[The Map]]&gt;&gt;
-              &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
-            &lt;&lt;/if&gt;&gt;
-          &lt;&lt;/if&gt;&gt;
-        &lt;/div&gt;
-      &lt;&lt;/if&gt;&gt;
-      
-      &lt;&lt;if $Camp_J  || $exploredJB &gt;= 100&gt;&gt;
-        &lt;div id=&quot;p1N&quot;&gt;
-          &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-          &lt;&lt;else&gt;&gt;
-            &lt;&lt;if $explored1N &gt;= 100&gt;&gt;&lt;&lt;set $explored1N = 100&gt;&gt;
-              &lt;&lt;if $Camp_J&gt;&gt;
-                &lt;&lt;if $energy &lt; 0.2&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/marshland1.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/marshland1.png][1N][$energy -= 0.2+$Oeu]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
-              &lt;&lt;else&gt;&gt;
-                &lt;&lt;if $energy &lt; 1.2&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/marshland1.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/marshland1.png][1N][$energy -= 6*(0.2+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
-              &lt;&lt;/if&gt;&gt;
-            &lt;&lt;else&gt;&gt;
-              &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored1N.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-                &lt;&lt;set $explored1N += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05&gt;&gt;
-                &lt;&lt;goto [[The Map]]&gt;&gt;
-              &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
-            &lt;&lt;/if&gt;&gt;
-          &lt;&lt;/if&gt;&gt;
-        &lt;/div&gt;
-      &lt;&lt;/if&gt;&gt;
-      
-      &lt;&lt;if $explored1N &gt;= 100&gt;&gt;
-        &lt;div id=&quot;p2N&quot;&gt;
-          &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-          &lt;&lt;else&gt;&gt;
-            &lt;&lt;if $explored2N &gt;= 100&gt;&gt;&lt;&lt;set $explored2N = 100&gt;&gt;
-              &lt;&lt;if $Camp_J&gt;&gt;
-                &lt;&lt;if $energy &lt; 0.4&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/unimatter_deposit.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/unimatter_deposit.png][2N][$energy -= 2*(0.2+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
-              &lt;&lt;else&gt;&gt;
-                &lt;&lt;if $energy &lt; 1.4&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/unimatter_deposit.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/unimatter_deposit.png][2N][$energy -= 7*(0.2+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
-              &lt;&lt;/if&gt;&gt;
-            &lt;&lt;else&gt;&gt;
-              &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored2N.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-                &lt;&lt;set $explored2N += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05&gt;&gt;
-                &lt;&lt;goto [[The Map]]&gt;&gt;
-              &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
-            &lt;&lt;/if&gt;&gt;
-          &lt;&lt;/if&gt;&gt;
-        &lt;/div&gt;
-      &lt;&lt;/if&gt;&gt;
-
-      &lt;&lt;if hasVisited(&quot;3E-Event&quot;)&gt;&gt;
-
-        &lt;&lt;if $explored1N &gt;= 100 || $explored1N2E &gt;= 100&gt;&gt;
-        &lt;div id=&quot;1NE&quot;&gt;
-          &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-          &lt;&lt;else&gt;&gt;
-            &lt;&lt;if $explored1NE &gt;= 100&gt;&gt;&lt;&lt;set $explored1NE = 100&gt;&gt;
-              &lt;&lt;if $Camp_J&gt;&gt;
-                &lt;&lt;if $energy &lt; 0.4&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/scenery1NE.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/scenery1NE.png][2N][$energy -= 2*(0.2+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
-              &lt;&lt;else&gt;&gt;
-                &lt;&lt;if $energy &lt; 1&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/scenery1NE.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/scenery1NE.png][2N][$energy -= 5*(0.2+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
-              &lt;&lt;/if&gt;&gt;
-            &lt;&lt;else&gt;&gt;
-              &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored1NE.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-                &lt;&lt;set $explored1NE += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05&gt;&gt;
-                &lt;&lt;goto [[The Map]]&gt;&gt;
-              &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
-            &lt;&lt;/if&gt;&gt;
-          &lt;&lt;/if&gt;&gt;
-        &lt;/div&gt;
         &lt;&lt;/if&gt;&gt;
-
-        &lt;&lt;if $explored1NE &gt;= 100 || $explored1N3E &gt;= 100&gt;&gt;
-        &lt;div id=&quot;1N2E&quot;&gt;
-          &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-          &lt;&lt;else&gt;&gt;
-            &lt;&lt;if $explored1N2E &gt;= 100&gt;&gt;&lt;&lt;set $explored1N2E = 100&gt;&gt;
-              &lt;&lt;if $Camp_J&gt;&gt;
-                &lt;&lt;if $energy &lt; 0.6&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/scenery1N2E.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/scenery1N2E.png][2N][$energy -= 3*(0.2+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
-              &lt;&lt;else&gt;&gt;
-                &lt;&lt;if $energy &lt; 0.8&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/scenery1N2E.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/scenery1N2E.png][2N][$energy -= 4*(0.2+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
-              &lt;&lt;/if&gt;&gt;
-            &lt;&lt;else&gt;&gt;
-              &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored1N2E.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-                &lt;&lt;set $explored1N2E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05&gt;&gt;
-                &lt;&lt;goto [[The Map]]&gt;&gt;
-              &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
-            &lt;&lt;/if&gt;&gt;
-          &lt;&lt;/if&gt;&gt;
-        &lt;/div&gt;
-        &lt;&lt;/if&gt;&gt;
-
-        &lt;&lt;if $explored1N2E &gt;= 100 || $explored1N4E &gt;= 100&gt;&gt;
-        &lt;div id=&quot;1N3E&quot;&gt;
-          &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-          &lt;&lt;else&gt;&gt;
-            &lt;&lt;if $explored1N3E &gt;= 100&gt;&gt;&lt;&lt;set $explored1N3E = 100&gt;&gt;
-              &lt;&lt;if $Camp_J&gt;&gt;
-                &lt;&lt;if $energy &lt; 0.8&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/scenery1N3E.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/scenery1N3E.png][2N][$energy -= 4*(0.2+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
-              &lt;&lt;else&gt;&gt;
-                &lt;&lt;if $energy &lt; 0.6&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/scenery1N3E.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/scenery1N3E.png][2N][$energy -= 3*(0.2+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
-              &lt;&lt;/if&gt;&gt;
-            &lt;&lt;else&gt;&gt;
-              &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored1N3E.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-                &lt;&lt;set $explored1N3E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05&gt;&gt;
-                &lt;&lt;goto [[The Map]]&gt;&gt;
-              &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
-            &lt;&lt;/if&gt;&gt;
-          &lt;&lt;/if&gt;&gt;
-        &lt;/div&gt;
-        &lt;&lt;/if&gt;&gt;
-
-        &lt;&lt;if $explored1N3E &gt;= 100 || $explored1N5E &gt;= 100&gt;&gt;
-        &lt;div id=&quot;1N4E&quot;&gt;
-          &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-          &lt;&lt;else&gt;&gt;
-            &lt;&lt;if $explored1N4E &gt;= 100&gt;&gt;&lt;&lt;set $explored1N4E = 100&gt;&gt;
-              &lt;&lt;if $Camp_J&gt;&gt;
-                &lt;&lt;if $energy &lt; 1&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/scenery1N4E.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/scenery1N4E.png][2N][$energy -= 5*(0.2+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
-              &lt;&lt;else&gt;&gt;
-                &lt;&lt;if $energy &lt; 0.4&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/scenery1N4E.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/scenery1N4E.png][2N][$energy -= 2*(0.2+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
-              &lt;&lt;/if&gt;&gt;
-            &lt;&lt;else&gt;&gt;
-              &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored1N4E.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-                &lt;&lt;set $explored1N4E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05&gt;&gt;
-                &lt;&lt;goto [[The Map]]&gt;&gt;
-              &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
-            &lt;&lt;/if&gt;&gt;
-          &lt;&lt;/if&gt;&gt;
-        &lt;/div&gt;
-        &lt;&lt;/if&gt;&gt;
-
-        &lt;&lt;if $explored1N4E &gt;= 100 || $Camp_M&gt;&gt;
-        &lt;div id=&quot;1N5E&quot;&gt;
-          &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-          &lt;&lt;else&gt;&gt;
-            &lt;&lt;if $explored1N5E &gt;= 100&gt;&gt;&lt;&lt;set $explored1N5E = 100&gt;&gt;
-              &lt;&lt;if $Camp_J&gt;&gt;
-                &lt;&lt;if $energy &lt; 1.2&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/scenery1N5E.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/scenery1N5E.png][2N][$energy -= 6*(0.2+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
-              &lt;&lt;else&gt;&gt;
-                &lt;&lt;if $energy &lt; 0.2&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/scenery1N5E.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/scenery1N5E.png][2N][$energy -= 0.2+$Oeu]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
-              &lt;&lt;/if&gt;&gt;
-            &lt;&lt;else&gt;&gt;
-              &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored1N5E.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-                &lt;&lt;set $explored1N5E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05&gt;&gt;
-                &lt;&lt;goto [[The Map]]&gt;&gt;
-              &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
-            &lt;&lt;/if&gt;&gt;
-          &lt;&lt;/if&gt;&gt;
-        &lt;/div&gt;
-        &lt;&lt;/if&gt;&gt;
-
       &lt;&lt;/if&gt;&gt;
-
-      &lt;/div&gt;&lt;&lt;/nobr&gt;&gt;
-      
-      &lt;div class=&quot;index-screens-normal&quot;&gt;&lt;strong&gt;Carrying Capacity:&lt;/strong&gt;  &lt;&lt;= $carrycap.toFixed(0)&gt;&gt;&lt;/div&gt;
-  
-      &lt;div class=&quot;index-screens-normal&quot;&gt;&lt;strong&gt;Energy Indicator:&lt;/strong&gt;  &lt;&lt;= $energy.toFixed(1)&gt;&gt;&lt;&lt;if $energy &lt;2&gt;&gt; energy&lt;&lt;else&gt;&gt; energies&lt;&lt;/if&gt;&gt;&lt;/div&gt;
-  
-      &lt;div class=&quot;index-screens-normal&quot;&gt;&lt;strong&gt;Xeno Indicator:&lt;/strong&gt;  &lt;&lt;= $xeno.toFixed(1)&gt;&gt;&lt;/div&gt;
-      
-      &lt;div class=&quot;actions-row&quot;&gt;&lt;&lt;if $Camp_J&gt;&gt;&lt;div&gt;[[Go back to Camp|Camp Jungle]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div&gt;[[Go back to Camp|Camp Mountain]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/div&gt;
+    &lt;&lt;else&gt;&gt;With enough knowledge in alien life, it is interpreted that the alien animals can be kept at distance if food is thrown to them. I guess, these are our tax collectors, or highwaymen.&lt;&lt;set $nutrients -= 5&gt;&gt;
     &lt;&lt;/if&gt;&gt;
-  &lt;/center&gt;</tw-passagedata><tw-passagedata pid="64" name="Vika" tags="" position="3525,225" size="100,100">&lt;center&gt;&lt;blockquote&gt;
+
+    [[Not good, not good. Surviving here is harsh!|The Map]]
+
+&lt;&lt;elseif _nummer.range(75, 80) &amp;&amp; $ignore == 0&gt;&gt;&lt;&lt;include [[random events]]&gt;&gt;
+
+&lt;&lt;elseif _nummer.range(2, 74)&gt;&gt;
+  &lt;&lt;nobr&gt;&gt;&lt;&lt;if hasVisited(&quot;Camp Mountain&quot;)&gt;&gt;&lt;&lt;set $exploredMB = 100&gt;&gt;&lt;&lt;/if&gt;&gt;
+  &lt;div id=&quot;the_map&quot;&gt;
+  
+  &lt;&lt;if $Camp_J || $explored1E &gt;= 100&gt;&gt;
+    &lt;div id=&quot;theJBase&quot;&gt;
+      &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
+      &lt;&lt;else&gt;&gt;
+        &lt;&lt;if $Camp_M&gt;&gt;&lt;&lt;if $exploredJB &gt;= 100&gt;&gt;&lt;&lt;set $exploredJB = 100&gt;&gt;
+            &lt;&lt;if $energy &lt; 1&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Camp/JungleCamp.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;[[JB|Start from Base Jungle][$energy -= 5*(0.2+$Oeu)]]&lt;&lt;/if&gt;&gt;
+          &lt;&lt;else&gt;&gt;
+            &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $exploredJB.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
+              &lt;&lt;set $exploredJB += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.02&gt;&gt;
+              &lt;&lt;goto [[The Map]]&gt;&gt;
+            &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
+          &lt;&lt;/if&gt;&gt;
+        &lt;&lt;/if&gt;&gt;
+      &lt;&lt;/if&gt;&gt;
+    &lt;/div&gt;
+  &lt;&lt;/if&gt;&gt;
+  
+  &lt;&lt;if $Camp_J || $explored2E &gt;= 100&gt;&gt;
+    &lt;div id=&quot;p1E&quot;&gt;
+      &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
+      &lt;&lt;else&gt;&gt;
+        &lt;&lt;if $explored1E &gt;= 100&gt;&gt;&lt;&lt;set $explored1E = 100&gt;&gt;
+          &lt;&lt;if $Camp_J&gt;&gt;
+            &lt;&lt;if $energy &lt; 0.2&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/food.png]]&lt;/div&gt;
+            &lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/food.png][1E][$energy -= 0.2+$Oeu]]&lt;/div&gt;
+            &lt;&lt;/if&gt;&gt;
+          &lt;&lt;else&gt;&gt;
+            &lt;&lt;if $energy &lt; 0.8&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/food.png]]&lt;/div&gt;
+            &lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/food.png][1E][$energy -= 4*(0.2+$Oeu)]]&lt;/div&gt;
+            &lt;&lt;/if&gt;&gt;
+          &lt;&lt;/if&gt;&gt;
+        &lt;&lt;else&gt;&gt;
+          &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored1E.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
+            &lt;&lt;set $explored1E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05&gt;&gt;
+            &lt;&lt;goto [[The Map]]&gt;&gt;
+          &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
+        &lt;&lt;/if&gt;&gt;
+      &lt;&lt;/if&gt;&gt;
+    &lt;/div&gt;
+  &lt;&lt;/if&gt;&gt;
+  
+  &lt;&lt;if $explored1E &gt;= 100 || $explored3E &gt;= 100&gt;&gt;
+    &lt;div id=&quot;p2E&quot;&gt;
+      &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
+      &lt;&lt;else&gt;&gt;
+        &lt;&lt;if $explored2E &gt;= 100&gt;&gt;&lt;&lt;set $explored2E = 100&gt;&gt;
+          &lt;&lt;if $Camp_J&gt;&gt;
+            &lt;&lt;if $energy &lt; 0.4&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/jungle4.png]]&lt;/div&gt;
+            &lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/jungle4.png][2E][$energy -= 2*(0.2+$Oeu)]]&lt;/div&gt;
+            &lt;&lt;/if&gt;&gt;
+          &lt;&lt;else&gt;&gt;
+            &lt;&lt;if $energy &lt; 0.6&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/jungle4.png]]&lt;/div&gt;
+            &lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/jungle4.png][2E][$energy -= 3*(0.2+$Oeu)]]&lt;/div&gt;
+            &lt;&lt;/if&gt;&gt;
+          &lt;&lt;/if&gt;&gt;
+        &lt;&lt;else&gt;&gt;
+          &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored2E.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
+            &lt;&lt;set $explored2E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05&gt;&gt;
+            &lt;&lt;goto [[The Map]]&gt;&gt;
+          &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
+        &lt;&lt;/if&gt;&gt;
+      &lt;&lt;/if&gt;&gt;
+    &lt;/div&gt;
+  &lt;&lt;/if&gt;&gt;
+  
+  &lt;&lt;if $eventfrom3E == false&gt;&gt;
+    &lt;&lt;if $explored2E &gt;= 100 || $explored4E &gt;= 100&gt;&gt;
+      &lt;div id=&quot;p3E&quot;&gt;
+        &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
+        &lt;&lt;else&gt;&gt;
+          &lt;&lt;if $explored3E &gt;= 100&gt;&gt;&lt;&lt;set $explored3E = 100&gt;&gt;
+            &lt;&lt;if $Camp_J&gt;&gt;
+              &lt;&lt;if $energy &lt; 0.6&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/jungle2.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/jungle2.png][3E][$energy -= 3*(0.2+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+            &lt;&lt;else&gt;&gt;
+              &lt;&lt;if $energy &lt; 0.4&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/jungle2.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/jungle2.png][3E][$energy -= 2*(0.2+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+            &lt;&lt;/if&gt;&gt;
+          &lt;&lt;else&gt;&gt;
+            &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored3E.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
+              &lt;&lt;set $explored3E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05&gt;&gt;
+              &lt;&lt;goto [[The Map]]&gt;&gt;
+            &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
+          &lt;&lt;/if&gt;&gt;
+        &lt;&lt;/if&gt;&gt;
+      &lt;/div&gt;
+    &lt;&lt;/if&gt;&gt;
+  &lt;&lt;else&gt;&gt;
+    &lt;div id=&quot;p3E&quot;&gt;
+      &lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/jungle2.png]]&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;&lt;/if&gt;&gt;
+  
+  &lt;&lt;if $explored3E &gt;= 100 || $exploredMB &gt;= 100 || $Camp_M&gt;&gt;
+    &lt;div id=&quot;p4E&quot;&gt;
+      &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
+      &lt;&lt;else&gt;&gt;
+        &lt;&lt;if $explored4E &gt;= 100&gt;&gt;&lt;&lt;set $explored4E = 100&gt;&gt;
+          &lt;&lt;if $Camp_J&gt;&gt;
+            &lt;&lt;if $energy &lt; 0.9&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/4E_waterfall.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/4E_waterfall.png][4E][$energy -= 4*(0.2+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+          &lt;&lt;else&gt;&gt;
+            &lt;&lt;if $energy &lt; 0.2&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/4E_waterfall.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/4E_waterfall.png][4E][$energy -= 0.2+$Oeu]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+          &lt;&lt;/if&gt;&gt;
+        &lt;&lt;else&gt;&gt;
+          &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored4E.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
+            &lt;&lt;set $explored4E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05&gt;&gt;
+            &lt;&lt;goto [[The Map]]&gt;&gt;
+          &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
+        &lt;&lt;/if&gt;&gt;
+      &lt;&lt;/if&gt;&gt;
+    &lt;/div&gt;
+  &lt;&lt;/if&gt;&gt;
+
+  &lt;&lt;if $Camp_M || $explored4E &gt;= 100&gt;&gt;
+    &lt;div id=&quot;theMBase&quot;&gt;
+      &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
+      &lt;&lt;else&gt;&gt;
+        &lt;&lt;if $Camp_J&gt;&gt;
+          &lt;&lt;if $exploredMB &gt;= 100&gt;&gt;&lt;&lt;set $exploredMB = 100&gt;&gt;
+            &lt;&lt;if $Camp_J&gt;&gt;
+              &lt;&lt;if $energy &lt; 0.2&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Camp/MountainCamp.png]]]&lt;/div&gt;&lt;&lt;else&gt;&gt;[[MB|Start from Base Mountain][$energy -= 5*(0.2+$Oeu)]]&lt;&lt;/if&gt;&gt;
+            &lt;&lt;else&gt;&gt;[[MB|Start from Base Mountain]]
+            &lt;&lt;/if&gt;&gt;
+          &lt;&lt;else&gt;&gt;
+            &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $exploredMB.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
+              &lt;&lt;set $exploredMB += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05&gt;&gt;
+              &lt;&lt;goto [[The Map]]&gt;&gt;
+            &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
+          &lt;&lt;/if&gt;&gt;
+        &lt;&lt;/if&gt;&gt;
+      &lt;&lt;/if&gt;&gt;
+    &lt;/div&gt;
+  &lt;&lt;/if&gt;&gt;
+
+  &lt;&lt;if $Camp_J || $exploredJB &gt;= 100&gt;&gt;
+    &lt;div id=&quot;p1S&quot;&gt;
+      &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
+      &lt;&lt;else&gt;&gt;
+        &lt;&lt;if $explored1S &gt;= 100&gt;&gt;&lt;&lt;set $explored1S = 100&gt;&gt;
+          &lt;&lt;if $Camp_J&gt;&gt;
+            &lt;&lt;if $energy &lt; 0.2&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/desert3.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/desert3.png][1S][$energy -= 0.2+$Oeu]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+          &lt;&lt;else&gt;&gt;
+            &lt;&lt;if $energy &lt; 1.2&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/desert3.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/desert3.png][1S][$energy -= 6*(0.2+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+          &lt;&lt;/if&gt;&gt;
+        &lt;&lt;else&gt;&gt;
+          &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored1S.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
+            &lt;&lt;set $explored1S += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.02&gt;&gt;
+            &lt;&lt;goto [[The Map]]&gt;&gt;
+          &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
+        &lt;&lt;/if&gt;&gt;
+      &lt;&lt;/if&gt;&gt;
+    &lt;/div&gt;
+  &lt;&lt;/if&gt;&gt;
+  
+  &lt;&lt;if $explored1S &gt;= 100&gt;&gt;
+    &lt;div id=&quot;p2S&quot;&gt;
+      &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
+      &lt;&lt;else&gt;&gt;
+        &lt;&lt;if $explored2S &gt;= 100&gt;&gt;&lt;&lt;set $explored2S = 100&gt;&gt;
+          &lt;&lt;if $Camp_J&gt;&gt;
+            &lt;&lt;if $energy &lt; 0.4&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/desert2.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/desert2.png][2S][$energy -= 2*(0.2+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+          &lt;&lt;else&gt;&gt;
+            &lt;&lt;if $energy &lt; 1.4&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/desert2.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/desert2.png][2S][$energy -= 7*(0.2+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+          &lt;&lt;/if&gt;&gt;
+        &lt;&lt;else&gt;&gt;
+          &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored2S.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
+            &lt;&lt;set $explored2S += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.02&gt;&gt;
+            &lt;&lt;goto [[The Map]]&gt;&gt;
+          &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
+        &lt;&lt;/if&gt;&gt;
+      &lt;&lt;/if&gt;&gt;
+    &lt;/div&gt;
+  &lt;&lt;/if&gt;&gt;
+    
+  &lt;&lt;if $explored2S &gt;= 100&gt;&gt;
+    &lt;div id=&quot;p3S&quot;&gt;
+      &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
+      &lt;&lt;else&gt;&gt;
+        &lt;&lt;if $explored3S &gt;= 100&gt;&gt;&lt;&lt;set $explored3S = 100&gt;&gt;
+          &lt;&lt;if $Camp_J&gt;&gt;
+            &lt;&lt;if $energy &lt; 0.6&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/energy_deposit.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/energy_deposit.png][3S][$energy -= 3*(0.2+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+          &lt;&lt;else&gt;&gt;
+            &lt;&lt;if $energy &lt; 1.6&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/energy_deposit.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/energy_deposit.png][3S][$energy -= 8*(0.2+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+          &lt;&lt;/if&gt;&gt;
+        &lt;&lt;else&gt;&gt;
+          &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored3S.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
+            &lt;&lt;set $explored3S += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.02&gt;&gt;
+            &lt;&lt;goto [[The Map]]&gt;&gt;
+          &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
+        &lt;&lt;/if&gt;&gt;
+      &lt;&lt;/if&gt;&gt;
+    &lt;/div&gt;
+  &lt;&lt;/if&gt;&gt;
+  
+  &lt;&lt;if $Camp_J || $exploredJB &gt;= 100&gt;&gt;
+    &lt;div id=&quot;p1W&quot;&gt;
+      &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
+      &lt;&lt;else&gt;&gt;
+        &lt;&lt;if $explored1W &gt;= 100&gt;&gt;&lt;&lt;set $explored1W = 100&gt;&gt;
+          &lt;&lt;if $Camp_J&gt;&gt;
+            &lt;&lt;if $energy &lt; 0.2&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/jungle1.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/jungle1.png][1W][$energy -= 0.2+$Oeu]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+          &lt;&lt;else&gt;&gt;
+            &lt;&lt;if $energy &lt; 1.2&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/jungle1.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/jungle1.png][1W][$energy -= 6*(0.2+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+          &lt;&lt;/if&gt;&gt;
+        &lt;&lt;else&gt;&gt;
+          &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored1W.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
+            &lt;&lt;set $explored1W += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.02&gt;&gt;
+            &lt;&lt;goto [[The Map]]&gt;&gt;
+          &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
+        &lt;&lt;/if&gt;&gt;
+      &lt;&lt;/if&gt;&gt;
+    &lt;/div&gt;
+  &lt;&lt;/if&gt;&gt;
+  
+  &lt;&lt;if $explored1W &gt;= 100&gt;&gt;
+    &lt;div id=&quot;p2W&quot;&gt;
+      &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
+      &lt;&lt;else&gt;&gt;
+        &lt;&lt;if $explored2W &gt;= 100&gt;&gt;&lt;&lt;set $explored2W = 100&gt;&gt;
+          &lt;&lt;if $Camp_J&gt;&gt;
+            &lt;&lt;if $energy &lt; 0.4&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/swampy_area_2.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/swampy_area_2.png][2W][$energy -= 2*(0.2+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+          &lt;&lt;else&gt;&gt;
+            &lt;&lt;if $energy &lt; 1.4&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/swampy_area_2.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/swampy_area_2.png][2W][$energy -= 7*(0.2+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+          &lt;&lt;/if&gt;&gt;
+        &lt;&lt;else&gt;&gt;
+          &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored2W.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
+            &lt;&lt;set $explored2W += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.02&gt;&gt;
+            &lt;&lt;goto [[The Map]]&gt;&gt;
+          &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
+        &lt;&lt;/if&gt;&gt;
+      &lt;&lt;/if&gt;&gt;
+    &lt;/div&gt;
+  &lt;&lt;/if&gt;&gt;
+  
+  &lt;&lt;if $explored2W &gt;= 100&gt;&gt;
+    &lt;div id=&quot;p3W&quot;&gt;
+      &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
+      &lt;&lt;else&gt;&gt;
+        &lt;&lt;if $explored3W &gt;= 100&gt;&gt;&lt;&lt;set $explored3W = 100&gt;&gt;
+          &lt;&lt;if $Camp_J&gt;&gt;
+            &lt;&lt;if $energy &lt; 0.6&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/coastline3.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/coastline3.png][3W][$energy -= 3*(0.2+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+          &lt;&lt;else&gt;&gt;
+            &lt;&lt;if $energy &lt; 1.6&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/coastline3.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/coastline3.png][3W][$energy -= 8*(0.2+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+          &lt;&lt;/if&gt;&gt;
+        &lt;&lt;else&gt;&gt;
+          &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored3W.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
+            &lt;&lt;set $explored3W += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.02&gt;&gt;
+            &lt;&lt;goto [[The Map]]&gt;&gt;
+          &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
+        &lt;&lt;/if&gt;&gt;
+      &lt;&lt;/if&gt;&gt;
+    &lt;/div&gt;
+  &lt;&lt;/if&gt;&gt;
+  
+  &lt;&lt;if $explored3W &gt;= 100&gt;&gt;
+    &lt;div id=&quot;p4W&quot;&gt;
+      &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
+      &lt;&lt;else&gt;&gt;
+        &lt;&lt;if $explored4W &gt;= 100&gt;&gt;&lt;&lt;set $explored4W = 100&gt;&gt;
+          &lt;&lt;if $Camp_J&gt;&gt;
+            &lt;&lt;if $energy &lt; 0.8&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/coast1.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/coast1.png][4W][$energy -= 4*(0.2+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+          &lt;&lt;else&gt;&gt;
+            &lt;&lt;if $energy &lt; 1.8&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/coast1.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/coast1.png][4W][$energy -= 9*(0.2+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+          &lt;&lt;/if&gt;&gt;
+        &lt;&lt;else&gt;&gt;
+          &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored4W.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
+            &lt;&lt;set $explored4W += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.02&gt;&gt;
+            &lt;&lt;goto [[The Map]]&gt;&gt;
+          &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
+        &lt;&lt;/if&gt;&gt;
+      &lt;&lt;/if&gt;&gt;
+    &lt;/div&gt;
+  &lt;&lt;/if&gt;&gt;
+  
+  &lt;&lt;if $explored4W &gt;= 100&gt;&gt;
+    &lt;div id=&quot;p5W&quot;&gt;
+      &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
+      &lt;&lt;else&gt;&gt;
+        &lt;&lt;if $explored5W &gt;= 100&gt;&gt;&lt;&lt;set $explored5W = 100&gt;&gt;
+          &lt;&lt;if $Camp_J&gt;&gt;
+            &lt;&lt;if $energy &lt; 1&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/coast2island.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/coast2island.png][5W][$energy -= 5*(0.2+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+          &lt;&lt;else&gt;&gt;
+            &lt;&lt;if $energy &lt; 2&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/coast2island.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/coast2island.png][5W][$energy -= 2]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+          &lt;&lt;/if&gt;&gt;
+        &lt;&lt;else&gt;&gt;
+          &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored5W.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
+            &lt;&lt;set $explored5W += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05&gt;&gt;
+            &lt;&lt;goto [[The Map]]&gt;&gt;
+          &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
+        &lt;&lt;/if&gt;&gt;
+      &lt;&lt;/if&gt;&gt;
+    &lt;/div&gt;
+  &lt;&lt;/if&gt;&gt;
+  
+  &lt;&lt;if $Camp_J  || $exploredJB &gt;= 100&gt;&gt;
+    &lt;div id=&quot;p1N&quot;&gt;
+      &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
+      &lt;&lt;else&gt;&gt;
+        &lt;&lt;if $explored1N &gt;= 100&gt;&gt;&lt;&lt;set $explored1N = 100&gt;&gt;
+          &lt;&lt;if $Camp_J&gt;&gt;
+            &lt;&lt;if $energy &lt; 0.2&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/marshland1.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/marshland1.png][1N][$energy -= 0.2+$Oeu]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+          &lt;&lt;else&gt;&gt;
+            &lt;&lt;if $energy &lt; 1.2&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/marshland1.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/marshland1.png][1N][$energy -= 6*(0.2+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+          &lt;&lt;/if&gt;&gt;
+        &lt;&lt;else&gt;&gt;
+          &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored1N.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
+            &lt;&lt;set $explored1N += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05&gt;&gt;
+            &lt;&lt;goto [[The Map]]&gt;&gt;
+          &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
+        &lt;&lt;/if&gt;&gt;
+      &lt;&lt;/if&gt;&gt;
+    &lt;/div&gt;
+  &lt;&lt;/if&gt;&gt;
+  
+  &lt;&lt;if $explored1N &gt;= 100&gt;&gt;
+    &lt;div id=&quot;p2N&quot;&gt;
+      &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
+      &lt;&lt;else&gt;&gt;
+        &lt;&lt;if $explored2N &gt;= 100&gt;&gt;&lt;&lt;set $explored2N = 100&gt;&gt;
+          &lt;&lt;if $Camp_J&gt;&gt;
+            &lt;&lt;if $energy &lt; 0.4&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/unimatter_deposit.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/unimatter_deposit.png][2N][$energy -= 2*(0.2+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+          &lt;&lt;else&gt;&gt;
+            &lt;&lt;if $energy &lt; 1.4&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/unimatter_deposit.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/unimatter_deposit.png][2N][$energy -= 7*(0.2+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+          &lt;&lt;/if&gt;&gt;
+        &lt;&lt;else&gt;&gt;
+          &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored2N.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
+            &lt;&lt;set $explored2N += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05&gt;&gt;
+            &lt;&lt;goto [[The Map]]&gt;&gt;
+          &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
+        &lt;&lt;/if&gt;&gt;
+      &lt;&lt;/if&gt;&gt;
+    &lt;/div&gt;
+  &lt;&lt;/if&gt;&gt;
+
+  &lt;&lt;if hasVisited(&quot;3E-Event&quot;)&gt;&gt;
+
+    &lt;&lt;if $explored1N &gt;= 100 || $explored1N2E &gt;= 100&gt;&gt;
+    &lt;div id=&quot;1NE&quot;&gt;
+      &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
+      &lt;&lt;else&gt;&gt;
+        &lt;&lt;if $explored1NE &gt;= 100&gt;&gt;&lt;&lt;set $explored1NE = 100&gt;&gt;
+          &lt;&lt;if $Camp_J&gt;&gt;
+            &lt;&lt;if $energy &lt; 0.4&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/scenery1NE.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/scenery1NE.png][2N][$energy -= 2*(0.2+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+          &lt;&lt;else&gt;&gt;
+            &lt;&lt;if $energy &lt; 1&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/scenery1NE.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/scenery1NE.png][2N][$energy -= 5*(0.2+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+          &lt;&lt;/if&gt;&gt;
+        &lt;&lt;else&gt;&gt;
+          &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored1NE.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
+            &lt;&lt;set $explored1NE += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05&gt;&gt;
+            &lt;&lt;goto [[The Map]]&gt;&gt;
+          &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
+        &lt;&lt;/if&gt;&gt;
+      &lt;&lt;/if&gt;&gt;
+    &lt;/div&gt;
+    &lt;&lt;/if&gt;&gt;
+
+    &lt;&lt;if $explored1NE &gt;= 100 || $explored1N3E &gt;= 100&gt;&gt;
+    &lt;div id=&quot;1N2E&quot;&gt;
+      &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
+      &lt;&lt;else&gt;&gt;
+        &lt;&lt;if $explored1N2E &gt;= 100&gt;&gt;&lt;&lt;set $explored1N2E = 100&gt;&gt;
+          &lt;&lt;if $Camp_J&gt;&gt;
+            &lt;&lt;if $energy &lt; 0.6&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/scenery1N2E.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/scenery1N2E.png][2N][$energy -= 3*(0.2+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+          &lt;&lt;else&gt;&gt;
+            &lt;&lt;if $energy &lt; 0.8&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/scenery1N2E.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/scenery1N2E.png][2N][$energy -= 4*(0.2+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+          &lt;&lt;/if&gt;&gt;
+        &lt;&lt;else&gt;&gt;
+          &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored1N2E.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
+            &lt;&lt;set $explored1N2E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05&gt;&gt;
+            &lt;&lt;goto [[The Map]]&gt;&gt;
+          &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
+        &lt;&lt;/if&gt;&gt;
+      &lt;&lt;/if&gt;&gt;
+    &lt;/div&gt;
+    &lt;&lt;/if&gt;&gt;
+
+    &lt;&lt;if $explored1N2E &gt;= 100 || $explored1N4E &gt;= 100&gt;&gt;
+    &lt;div id=&quot;1N3E&quot;&gt;
+      &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
+      &lt;&lt;else&gt;&gt;
+        &lt;&lt;if $explored1N3E &gt;= 100&gt;&gt;&lt;&lt;set $explored1N3E = 100&gt;&gt;
+          &lt;&lt;if $Camp_J&gt;&gt;
+            &lt;&lt;if $energy &lt; 0.8&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/scenery1N3E.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/scenery1N3E.png][2N][$energy -= 4*(0.2+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+          &lt;&lt;else&gt;&gt;
+            &lt;&lt;if $energy &lt; 0.6&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/scenery1N3E.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/scenery1N3E.png][2N][$energy -= 3*(0.2+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+          &lt;&lt;/if&gt;&gt;
+        &lt;&lt;else&gt;&gt;
+          &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored1N3E.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
+            &lt;&lt;set $explored1N3E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05&gt;&gt;
+            &lt;&lt;goto [[The Map]]&gt;&gt;
+          &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
+        &lt;&lt;/if&gt;&gt;
+      &lt;&lt;/if&gt;&gt;
+    &lt;/div&gt;
+    &lt;&lt;/if&gt;&gt;
+
+    &lt;&lt;if $explored1N3E &gt;= 100 || $explored1N5E &gt;= 100&gt;&gt;
+    &lt;div id=&quot;1N4E&quot;&gt;
+      &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
+      &lt;&lt;else&gt;&gt;
+        &lt;&lt;if $explored1N4E &gt;= 100&gt;&gt;&lt;&lt;set $explored1N4E = 100&gt;&gt;
+          &lt;&lt;if $Camp_J&gt;&gt;
+            &lt;&lt;if $energy &lt; 1&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/scenery1N4E.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/scenery1N4E.png][2N][$energy -= 5*(0.2+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+          &lt;&lt;else&gt;&gt;
+            &lt;&lt;if $energy &lt; 0.4&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/scenery1N4E.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/scenery1N4E.png][2N][$energy -= 2*(0.2+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+          &lt;&lt;/if&gt;&gt;
+        &lt;&lt;else&gt;&gt;
+          &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored1N4E.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
+            &lt;&lt;set $explored1N4E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05&gt;&gt;
+            &lt;&lt;goto [[The Map]]&gt;&gt;
+          &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
+        &lt;&lt;/if&gt;&gt;
+      &lt;&lt;/if&gt;&gt;
+    &lt;/div&gt;
+    &lt;&lt;/if&gt;&gt;
+
+    &lt;&lt;if $explored1N4E &gt;= 100 || $Camp_M&gt;&gt;
+    &lt;div id=&quot;1N5E&quot;&gt;
+      &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
+      &lt;&lt;else&gt;&gt;
+        &lt;&lt;if $explored1N5E &gt;= 100&gt;&gt;&lt;&lt;set $explored1N5E = 100&gt;&gt;
+          &lt;&lt;if $Camp_J&gt;&gt;
+            &lt;&lt;if $energy &lt; 1.2&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/scenery1N5E.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/scenery1N5E.png][2N][$energy -= 6*(0.2+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+          &lt;&lt;else&gt;&gt;
+            &lt;&lt;if $energy &lt; 0.2&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/scenery1N5E.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/scenery1N5E.png][2N][$energy -= 0.2+$Oeu]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+          &lt;&lt;/if&gt;&gt;
+        &lt;&lt;else&gt;&gt;
+          &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored1N5E.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
+            &lt;&lt;set $explored1N5E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05&gt;&gt;
+            &lt;&lt;goto [[The Map]]&gt;&gt;
+          &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
+        &lt;&lt;/if&gt;&gt;
+      &lt;&lt;/if&gt;&gt;
+    &lt;/div&gt;
+    &lt;&lt;/if&gt;&gt;
+
+  &lt;&lt;/if&gt;&gt;
+
+  &lt;/div&gt;&lt;&lt;/nobr&gt;&gt;
+  
+  &lt;div class=&quot;index-screens-normal&quot;&gt;&lt;strong&gt;Carrying Capacity:&lt;/strong&gt;  &lt;&lt;= $carrycap.toFixed(0)&gt;&gt;&lt;/div&gt;
+
+  &lt;div class=&quot;index-screens-normal&quot;&gt;&lt;strong&gt;Energy Indicator:&lt;/strong&gt;  &lt;&lt;= $energy.toFixed(1)&gt;&gt;&lt;&lt;if $energy &lt;2&gt;&gt; energy&lt;&lt;else&gt;&gt; energies&lt;&lt;/if&gt;&gt;&lt;/div&gt;
+
+  &lt;div class=&quot;index-screens-normal&quot;&gt;&lt;strong&gt;Xeno Indicator:&lt;/strong&gt;  &lt;&lt;= $xeno.toFixed(1)&gt;&gt;&lt;/div&gt;
+  
+  &lt;div class=&quot;actions-row&quot;&gt;&lt;&lt;if $Camp_J&gt;&gt;&lt;div&gt;[[Go back to Camp|Camp Jungle]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div&gt;[[Go back to Camp|Camp Mountain]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/div&gt;
+&lt;&lt;/if&gt;&gt;
+&lt;/center&gt;</tw-passagedata><tw-passagedata pid="64" name="Vika" tags="" position="3525,225" size="100,100">&lt;center&gt;&lt;blockquote&gt;
   &lt;&lt;if random(4) &gt; 1&gt;&gt;
     &lt;&lt;if $Vika_ICP.VI1&gt;&gt;[img[assets/characters/Vika/Vika_4.png]]
     
@@ -2846,7 +2857,7 @@ So! Take out your contact lenses or your glasses, and all is fine!
 &lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;[[Set up the Camp|Camp Jungle]]&lt;/div&gt;&lt;/div&gt;
 &lt;/center&gt;</tw-passagedata><tw-passagedata pid="68" name="Yes" tags="" position="225,300" size="100,100">&lt;center&gt;
 [img[assets/characters/Me.png]]
-&lt;blockquote&gt;
+&lt;blockquote&gt;&lt;&lt;audio &quot;V1&quot; play&gt;&gt;&lt;&lt;audio &quot;BgMusic&quot; loop play&gt;&gt;
 Yep, that&#39;s me. Handsome, eh? Like a Roman demi-god, no?
 
 Since I come from upper middle class, my family invested in a designer baby. Obviously. But surprise, surprise! Like the mayority of humanity (and pets!), we are synthetic beings, Cyborgs. For better space travel, which this story is about, we have to be cyborgs. Only our brain and spine is completely organic; the rest in synthetic materials.
@@ -2887,6 +2898,7 @@ Developper: Skip to [[Camp Jungle][$engineering += 1]]</tw-passagedata><tw-passa
   nOrb: 1,
   cOrb: 1,
 };&gt;&gt;
+
 &lt;&lt;set $CampM to {
 	TransMast: false,
 	Farm: 0,
@@ -2965,7 +2977,10 @@ Developper: Skip to [[Camp Jungle][$engineering += 1]]</tw-passagedata><tw-passa
 &lt;&lt;set $TransMast2 = false; $TransMast3 = false;&gt;&gt;
 
 &lt;&lt;set $OrbAutoCM = false&gt;&gt;
-&lt;&lt;set $OrbAutoCJ = false&gt;&gt;</tw-passagedata><tw-passagedata pid="70" name="3E Event Aftermath" tags="" position="3200,1475" size="100,100">&lt;center&gt;&lt;blockquote&gt;
+&lt;&lt;set $OrbAutoCJ = false&gt;&gt;
+
+&lt;&lt;set $notrepaired = 0&gt;&gt;
+&lt;&lt;set $ignore = 0&gt;&gt;</tw-passagedata><tw-passagedata pid="70" name="3E Event Aftermath" tags="" position="3200,1475" size="100,100">&lt;center&gt;&lt;blockquote&gt;
 &lt;&lt;linkappend &quot;&lt;em&gt;Nfh!&lt;/em&gt;&quot;&gt;&gt; 
 
 &lt;div id=&quot;aniwakingup&quot;&gt;&lt;/div&gt;
@@ -3014,7 +3029,7 @@ Developper: Skip to [[Camp Jungle][$engineering += 1]]</tw-passagedata><tw-passa
 
   Slowly I near the hatch sidewyas, check it from the distance, no movement. So? Does it mean, no one made it? All were deceased, lost, shut down or at other places? With this hunch, I have a better feeling. 
   Then! Inside should be some nutrients and unimatter, I hope! As I enter the spaceship, and went to the central, it informed me that there is no unimatter - although a Substance Analyzer is in the inventory - and no nutrients! Whoa, what happened here?!
-  Hold on, no nutrients?! Then ... I gotta check ... oh yes, there are two in cryostasis. Luckily, the energy regenerator on this spaceship is functioning, more or less, which keeps the cryochambers on. Okay, then that means they need nutrients to let them to be released out of the chambers. For that I need a floating Orb, or I convince Vika and Leo to come with me.&lt;&lt;/timed&gt;&gt;&lt;&lt;/timed&gt;&gt;&lt;&lt;/timed&gt;&gt;&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="73" name="Widgets" tags="widget" position="625,25" size="100,100">&lt;&lt;widget &quot;say&quot; container&gt;&gt;&lt;div class=&quot;Char&quot;&gt;
+  Hold on, no nutrients?! Then ... I gotta check ... oh yes, there are two in cryostasis. Luckily, the energy regenerator on this spaceship is functioning, more or less, which keeps the cryochambers on. Okay, then that means they need nutrients to let them to be released out of the chambers. For that I need a floating Orb, or I convince Vika and Leo to come with me.&lt;&lt;/timed&gt;&gt;&lt;&lt;/timed&gt;&gt;&lt;&lt;/timed&gt;&gt;&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="73" name="Widgets" tags="widget" position="750,25" size="100,100">&lt;&lt;widget &quot;say&quot; container&gt;&gt;&lt;div class=&quot;Char&quot;&gt;
 &lt;div class=&quot;Char-Framer&quot;&gt;&lt;img class=&quot;Char-img&quot; @src=&quot;&#39;assets/characters/&#39; + _args[0].toLowerCase() + &#39;.png&#39;&quot;&gt;&lt;/div&gt;&lt;div class=&quot;Char-dialogues&quot;&gt;_contents&lt;/div&gt;&lt;/div&gt;&lt;&lt;/widget&gt;&gt;
 
 &lt;&lt;widget &quot;ab&quot; container&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;_contents&lt;/div&gt;&lt;/div&gt;&lt;&lt;/widget&gt;&gt;</tw-passagedata><tw-passagedata pid="74" name="Assess the outcome" tags="" position="3200,1600" size="100,100">&lt;center&gt;&lt;blockquote&gt;[img[assets/backgrounds/Placeholder.png]]
@@ -3144,6 +3159,34 @@ Two unimatter are ready to be transported. What or who will help me?&lt;&lt;set 
 &lt;&lt;if $QuestPool == $Q2C || _conditional == 2&gt;&gt;&lt;&lt;ab&gt;&gt;[[Go to the Mountain Ridge anew.|Start from Base Mountain][$energy -= _conditional*(2+$extra3E)+_orbconditional*(3 + $extra3E), $unimatter -= 2]]&lt;&lt;/ab&gt;&gt;
 &lt;&lt;else&gt;&gt;
 Not enough unimatter collected, or energy is not in sufficent quantity. &lt;&lt;ab&gt;&gt;[[Go back|Scheduler]]&lt;&lt;/ab&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="78" name="Audios" tags="" position="600,25" size="100,100">&lt;&lt;cacheaudio &quot;BgMusic&quot; &quot;assets/characters/Me/background_introduction.wav&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;V1&quot; &quot;assets/characters/Me/V1.mp4&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;V2&quot; &quot;assets/characters/Me/V2.mp4&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;V3&quot; &quot;assets/characters/Me/V3.mp4&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;V4&quot; &quot;assets/characters/Me/V4.mp4&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;V5&quot; &quot;assets/characters/Me/V5.mp4&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;V6&quot; &quot;assets/characters/Me/V6.mp4&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;V7&quot; &quot;assets/characters/Me/V7.mp4&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;V8&quot; &quot;assets/characters/Me/V8.mp4&quot;&gt;&gt;
+</tw-passagedata><tw-passagedata pid="79" name="random events" tags="" position="1100,1500" size="100,100">&lt;center&gt;&lt;blockquote&gt;
+
+&lt;&lt;if random(1, 10) &gt; 5&gt;&gt;[img[assets/Ch-Explore/random_find_unimatter.png]]
+  I found something that can be used as Unimatter.
+
+  Deposit it at the Camp?
+
+  &lt;&lt;if $Camp_M&gt;&gt;&lt;&lt;ab&gt;&gt;[[Yes|Camp Mountain][$unimatter += either(0.3, 0.6, 1)]]&lt;&lt;/ab&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;ab&gt;&gt;[[Yes|Camp Jungle][$unimatter += $carrycap*either(0.3, 0.6, 1)]]&lt;&lt;/ab&gt;&gt;&lt;&lt;/if&gt;&gt;
+
+  &lt;&lt;ab&gt;&gt;[[Nah|The Map]]&lt;&lt;/ab&gt;&gt;
+&lt;&lt;else&gt;&gt;[img[assets/Ch-Explore/random_find_nutrients.png]]
+  I am pretty sure that is edible and has nutritional value. 
+
+  Deposit it at the Camp?
+
+  &lt;&lt;if $Camp_M&gt;&gt;&lt;&lt;ab&gt;&gt;[[Yes|Camp Mountain][$nutrients += either(1, 2, 3)]]&lt;&lt;/ab&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;ab&gt;&gt;[[Yes|Camp Jungle][$nutrients += $carrycap*either(1, 2, 3)]]&lt;&lt;/ab&gt;&gt;&lt;&lt;/if&gt;&gt;
+
+  &lt;&lt;ab&gt;&gt;[[Nah|The Map]]&lt;&lt;/ab&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata></tw-storydata>
 	<script id="script-sugarcube" type="text/javascript">
