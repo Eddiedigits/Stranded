@@ -1,12 +1,24 @@
 - future possiblities: Beach Camp
 - Quest would be a small harbor construction connecting a base (Beach Base?) for building a submarine and underwater probe, potential scenes: beach tanning, xenology,
 
-- DONE: Text for installing defense perimeter for the dormant spaceship, not conequential since they have initially 5 unimatter.
-- DONE: Replacement for $CMfoodQuest in Camp Jungle
+- something is not calculating right with the nutrients, check Orb Configuration whether -1 dispatch is indeed zero
+- DONE: Unimatter Storage max capacity?! === Yes, and Camp Mountain is doubled. ===
+- random events with something silvery
+- orb management: give it charting routes
+- 1x pic for energy generation upgrade
+- energy field 3S: maybe giving it a pause after "harvesting"?
+- neuberechnen von Energie! in The Map
+- The Map is unfortunately not resizing correctly on lower screen sizes
+- divs #TheMBase and #TheJBase are visible
+- structurize Task2
+- DONE: make a compass like North East South and West with divs
+- DONE (fingers crossed): Something screws the compass in T2E
+- Besonderheit, wenn $CampM: TBJ0 should be showing an open field
 
 - QUEST MANAGEMENT:
 + more refinements and testchecks
 + Task/Quest2: improve, i.e. extra energy if 3E-Event, Orb OR Vika and Leo for having 9 nutrients at least
++ maybe more content
 
 - DONE: distorted Menu Button with REST in Camp Jungle
 
@@ -19,9 +31,78 @@
 - unimatter storage:
 + Possibility in Construction Menu
 
-- for future:
-+ AI audio generated
-+ AI voice generated (although: consistency!)
+- continue with:
++ AI sounds
++ AI voices
 
 - ideas:
 + flying humans (but drones, and orb already do that, therefore just a interface link is sufficient)
+
+Copy and Paste:
+
+<div id="the-map-container" style="overflow-x: auto;">
+  <div id="the_map">
+    <img src="assets/Ch-Explore/map_evolution17.png" style="max-width:864px;max-height:605px">
+    <!-- Your existing content within the "the-map" div goes here -->
+  </div>
+</div>
+<div id="ktitm">
+  <!-- Content within the "ktitm" div -->
+</div>
+
+
+  <div id="the_map"><img src="assets/Ch-Explore/map_evolution17.png" style="max-width:864px;max-height:605px">
+  
+  <<if $Camp_J || $explored.T1E >= 100>>
+    <div id="theJBase">
+      <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
+      <<else>>
+        <<if $Camp_M>><<if $explored.TBJ0 >= 100>><<set $explored.TBJ0 = 100>>
+          <<if $energy < 10*(0.2+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Camp/JungleCamp.png]]</div><<else>>[[JB|TBJ0][$energy -= 5*(0.2+$Oeu)]]<</if>>
+        <<else>>
+          <<if $energy >= 1>><<button "<<print $explored.TBJ0.toFixed(0)>>%">>
+            <<set $explored.TBJ0 += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.02>>
+            <<goto [[The Map]]>>
+            <</button>><</if>>
+          <</if>>
+        <</if>>
+      <</if>>
+    </div>
+  <</if>>
+  
+  <<if $Camp_J || $explored.T2E >= 100>>
+    <div id="p1E">
+      <<if $energy <= 0>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>>
+      <<else>>
+        <<if $explored.T1E >= 100>><<set $explored.T1E = 100>>
+          <<if $Camp_J>>
+            <<if $energy < 2*(0.2+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/food.png]]</div>
+            <<else>><div class="imgs-scaled">[img[assets/Ch-Explore/food.png][T1E][$energy -= 0.2+$Oeu]]</div>
+            <</if>>
+          <<else>>
+            <<if $energy < 8*(0.2+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/food.png]]</div>
+            <<else>><div class="imgs-scaled">[img[assets/Ch-Explore/food.png][T1E][$energy -= 4*(0.2+$Oeu)]]</div>
+            <</if>>
+          <</if>>
+        <<else>>
+          <<if $energy >= 1>><<button "<<print $explored.T1E.toFixed(0)>>%">>
+            <<set $explored.T1E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05>>
+            <<goto [[The Map]]>>
+          <</button>><</if>>
+        <</if>>
+      <</if>>
+    </div>
+  <</if>>
+  
+
+  </div><</nobr>>
+<div id="ktitm"><div id="keepthemsticky">  
+  <div class="index-screens-normal"><strong>Carrying Capacity:</strong>  <<= $carrycap.toFixed(0)>></div>
+
+  <div class="index-screens-normal"><strong>Energy Indicator:</strong>  <<= $energy.toFixed(1)>><<if $energy <2>> energy<<else>> energies<</if>></div>
+
+  <div class="index-screens-normal"><strong>Xeno Indicator:</strong>  <<= $xeno.toFixed(1)>></div>
+  
+  <div class="actions-row"><<if $Camp_J>><div>[[Go back to Camp|Camp Jungle]]</div><<else>><div>[[Go back to Camp|Camp Mountain]]</div><</if>></div>
+</div></div>
+</center>
