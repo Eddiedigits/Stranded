@@ -796,12 +796,10 @@ document.addEventListener('keypress', function(event) {
         <center><blockquote>
         <div class="passage-titles" style="color:#ff944d; border-bottom-color: #ff944d; border-top-color: #ff944d;"><center><h2><strong>Task Progressor</strong></h2></center></div>
         <br>
-        <div class="order-indices"><div class="index-screens-normal"><div style="color:#ff944d"><strong>Task Monitor</strong></div>
+        <div class="order-indices"><div class="index-screens-normal"><div style="color:#ff944d"><strong>open tasks</strong></div>
           <div><ul>
           ${QuestPool.map(function(_name) { return `<li>${_name}</li>` }).join('')}
           </ul></div></div>
-        <div class="index-screens-normal"><div style="color:#cc9966"><strong>completed tasks</strong></div>
-          <div><ol>${QuestPoolDone.map(function(_name) { return `<li>${_name}</li>` }).join('')}</ol></div></div>
         </blockquote></center>
         `;
         
@@ -1920,8 +1918,8 @@ What do I want for the Orb to collect?&lt;&lt;nobr&gt;&gt;
 
 &lt;&lt;set $Q2 = &quot;Collect 12 (+3 as your own buffer) nutrients and bring them to the Camp with the dormant spaceship on the Mountain Ridge.&quot;&gt;&gt;
 &lt;&lt;set $Q2A = &quot;Set aside 2 Unimatter. Go to the Camp with the dormant spaceship on the Mountain Ridge.&quot;&gt;&gt; 
-&lt;&lt;set $Q2B =&quot;&quot;&gt;&gt;
-&lt;&lt;set $Q2C =&quot;&quot;&gt;&gt;
+&lt;&lt;set $Q2B = &quot;Wait 2 cycles&quot;&gt;&gt;
+&lt;&lt;set $Q2C = &quot;You can resettle to the Mountain Camp (This note deletes itself after some days)&quot;&gt;&gt;
 
 &lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="31" name="Scheduler" tags="" position="2800,1300" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;&lt;include [[QuestTracker]]&gt;&gt;
@@ -3449,10 +3447,10 @@ Always pushing the knowledge frontier. With AI.
 &lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;ab&gt;&gt;[[Return to Camp|Camp Jungle]]&lt;&lt;/ab&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;ab&gt;&gt;[[Return to Camp|Camp Mountain]]&lt;&lt;/ab&gt;&gt;&lt;&lt;/if&gt;&gt;
 
 &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="83" name="QuestProgressor" tags="Missions" position="2675,1425" size="100,100">&lt;&lt;nobr&gt;&gt;
-  &lt;&lt;if $QuestPool == $Q2&gt;&gt;&lt;&lt;ab&gt;&gt;[[Plan the transport|Task 2]]&lt;&lt;/ab&gt;&gt;&lt;&lt;/if&gt;&gt;
-  &lt;&lt;if $QuestPool == $Q2A &amp;&amp; $unimatter &gt;= 2&gt;&gt;&lt;&lt;ab&gt;&gt;[[Plan the transport|Task 2]]&lt;&lt;/ab&gt;&gt;&lt;&lt;else&gt;&gt;-- Not enough unimatter. --&lt;&lt;/if&gt;&gt;
-  &lt;&lt;if $QuestPool == $Q2B &amp;&amp; ($dayCount + 2) &gt; $days&gt;&gt;Wait 2 cycles (&lt;&lt;= ($dayCount + 2)&gt;&gt;)&lt;&lt;elseif ($dayCount + 2) &lt;= $days &amp;&amp; $energy &gt;= (((5+$summand)*2)*0.2)&gt;&gt;&lt;&lt;ab&gt;&gt;[[Go to the Mountain Ridge|TBM0][$energy -= (((5+$summand)*2)*0.2); $QuestPool.push($Q2C); $QuestPool.pluck($Q2B); $QuestPoolDone.push($Q2B)]]&lt;&lt;/ab&gt;&gt;&lt;&lt;/if&gt;&gt;
-  &lt;&lt;if $QuestPool == $Q2C &amp;&amp; ($dayCount + 5) &gt; $days&gt;&gt;You can settle to the Mountain Camp (This note deletes itself after some days)&lt;&lt;else&gt;&gt;&lt;&lt;set $QuestPool.pluck($Q2C); $QuestPoolDone.push($Q2C)&gt;&gt;&lt;&lt;/if&gt;&gt;
+  &lt;&lt;if $QuestPool == $Q2 &amp;&amp; $nutrients &gt;= 15&gt;&gt;&lt;&lt;ab&gt;&gt;[[Plan the transport|Task 2]]&lt;&lt;/ab&gt;&gt;&lt;&lt;elseif $QuestPool == $Q2 &amp;&amp; $nutrients &lt; 15&gt;&gt;--- Not enough nutrients ---&lt;&lt;/if&gt;&gt;
+  &lt;&lt;if $QuestPool == $Q2A &amp;&amp; $unimatter &gt;= 2&gt;&gt;&lt;&lt;ab&gt;&gt;[[Plan the transport|Task 2]]&lt;&lt;/ab&gt;&gt;&lt;&lt;elseif $QuestPool == $Q2A &amp;&amp; $unimatter &lt; 2&gt;&gt;--- Not enough unimatter ---&lt;&lt;/if&gt;&gt;
+  &lt;&lt;if $QuestPool == $Q2B &amp;&amp; ($dayCount + 2) &lt;= $days &amp;&amp; $energy &gt;= (((5+$summand)*2)*0.2)&gt;&gt;&lt;&lt;ab&gt;&gt;[[Go to the Mountain Ridge|TBM0][$energy -= (((5+$summand)*2)*0.2); $QuestPool.pluck($Q2B); $QuestPoolDone.push($Q2B); $QuestPool.push($Q2C)]]&lt;&lt;/ab&gt;&gt;&lt;&lt;elseif $QuestPool == $Q2B &amp;&amp; ($dayCount + 2) &lt;= $days &amp;&amp; $energy &lt; (((5+$summand)*2)*0.2)&gt;&gt;--- Not enough energy ---&lt;&lt;/if&gt;&gt;
+  &lt;&lt;if $QuestPool == $Q2C &amp;&amp; ($dayCount + 5) &lt;= $days &amp;&amp; $QuestPoolDone.count($Q2C) == 0 &gt;&gt;&lt;&lt;set $QuestPool.pluck($Q2C); $QuestPoolDone.push($Q2C)&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;</tw-passagedata></tw-storydata>
 	<script id="script-sugarcube" type="text/javascript">
 	/*! SugarCube JS */

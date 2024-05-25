@@ -1260,10 +1260,10 @@ What do I want for the Orb to collect?<<nobr>>
 
 :: QuestProgressor [Missions] {"position":"2675,1425","size":"100,100"}
 <<nobr>>
-  <<if $QuestPool == $Q2>><<ab>>[[Plan the transport|Task 2]]<</ab>><</if>>
-  <<if $QuestPool == $Q2A && $unimatter >= 2>><<ab>>[[Plan the transport|Task 2]]<</ab>><<else>>-- Not enough unimatter. --<</if>>
-  <<if $QuestPool == $Q2B && ($dayCount + 2) > $days>>Wait 2 cycles (<<= ($dayCount + 2)>>)<<elseif ($dayCount + 2) <= $days && $energy >= (((5+$summand)*2)*0.2)>><<ab>>[[Go to the Mountain Ridge|TBM0][$energy -= (((5+$summand)*2)*0.2); $QuestPool.push($Q2C); $QuestPool.pluck($Q2B); $QuestPoolDone.push($Q2B)]]<</ab>><</if>>
-  <<if $QuestPool == $Q2C && ($dayCount + 5) > $days>>You can settle to the Mountain Camp (This note deletes itself after some days)<<else>><<set $QuestPool.pluck($Q2C); $QuestPoolDone.push($Q2C)>><</if>>
+  <<if $QuestPool == $Q2 && $nutrients >= 15>><<ab>>[[Plan the transport|Task 2]]<</ab>><<elseif $QuestPool == $Q2 && $nutrients < 15>>--- Not enough nutrients ---<</if>>
+  <<if $QuestPool == $Q2A && $unimatter >= 2>><<ab>>[[Plan the transport|Task 2]]<</ab>><<elseif $QuestPool == $Q2A && $unimatter < 2>>--- Not enough unimatter ---<</if>>
+  <<if $QuestPool == $Q2B && ($dayCount + 2) <= $days && $energy >= (((5+$summand)*2)*0.2)>><<ab>>[[Go to the Mountain Ridge|TBM0][$energy -= (((5+$summand)*2)*0.2); $QuestPool.pluck($Q2B); $QuestPoolDone.push($Q2B); $QuestPool.push($Q2C)]]<</ab>><<elseif $QuestPool == $Q2B && ($dayCount + 2) <= $days && $energy < (((5+$summand)*2)*0.2)>>--- Not enough energy ---<</if>>
+  <<if $QuestPool == $Q2C && ($dayCount + 5) <= $days && $QuestPoolDone.count($Q2C) == 0 >><<set $QuestPool.pluck($Q2C); $QuestPoolDone.push($Q2C)>><</if>>
 <</nobr>>
 
 
@@ -1282,8 +1282,8 @@ What do I want for the Orb to collect?<<nobr>>
 
 <<set $Q2 = "Collect 12 (+3 as your own buffer) nutrients and bring them to the Camp with the dormant spaceship on the Mountain Ridge.">>
 <<set $Q2A = "Set aside 2 Unimatter. Go to the Camp with the dormant spaceship on the Mountain Ridge.">> 
-<<set $Q2B ="">>
-<<set $Q2C ="">>
+<<set $Q2B = "Wait 2 cycles">>
+<<set $Q2C = "You can resettle to the Mountain Camp (This note deletes itself after some days)">>
 
 <</nobr>>
 
@@ -3004,12 +3004,10 @@ document.addEventListener('keypress', function(event) {
         <center><blockquote>
         <div class="passage-titles" style="color:#ff944d; border-bottom-color: #ff944d; border-top-color: #ff944d;"><center><h2><strong>Task Progressor</strong></h2></center></div>
         <br>
-        <div class="order-indices"><div class="index-screens-normal"><div style="color:#ff944d"><strong>Task Monitor</strong></div>
+        <div class="order-indices"><div class="index-screens-normal"><div style="color:#ff944d"><strong>open tasks</strong></div>
           <div><ul>
           ${QuestPool.map(function(_name) { return `<li>${_name}</li>` }).join('')}
           </ul></div></div>
-        <div class="index-screens-normal"><div style="color:#cc9966"><strong>completed tasks</strong></div>
-          <div><ol>${QuestPoolDone.map(function(_name) { return `<li>${_name}</li>` }).join('')}</ol></div></div>
         </blockquote></center>
         `;
         
