@@ -10,7 +10,9 @@ Stranded
   "start": "Menu",
   "tag-colors": {
     "autosave": "yellow",
-    "widget": "purple"
+    "widget": "purple",
+    "Missions": "orange",
+    "Audios": "blue"
   },
   "zoom": 0.6
 }
@@ -49,66 +51,67 @@ window.scrollBy(0,120)</script><</nobr>> with a loud crash, a crystalline stele 
 
 
 :: A New Cycle {"position":"2900,1975","size":"100,100"}
-<center><blockquote><<nobr>>
+  <center><blockquote><<nobr>>
 
-<<set $rNr = random(10)>>
-<<if hasVisited("3E-Event")>><<set $extra3E = 1.2>><</if>>
-<<set _TMconstant = []>><<if $TransMast3>><<set _TMconstant.push($CampM.EHarvester, 5, 0.2, 0.1)>><<else>><</if>>
-<<if $noLeo || $noVika || $noElva || $noAbiba>><<set $noLeo = false, $noVika = false, $noElva = false, $noAbiba = false>><</if>>
-<<if $energy < 0 || $nutrients <= 0 || $days >= 60>><<goto "End of Game">>
-<<elseif $Camp_J>>
-  <<set $energy += 5 + (_TMconstant.count(5)*5) + $CampJ.EHarvester + (($OrbTransport.count("encomp")*(2.5/1.8)) - ($OrbTransport.count("unimatter")*1.2) - ($OrbTransport.count("nutrients")*0.6) - ($OrbTransport.count("CJMNutrients")*(3 + $extra3E)) - ($OrbTransport.count("CMNutrients")*(2.4 + $extra3E))) - $notrepaired - $CampJ.building>>
-  <<if $energy < 1>><<goto [[End of Game]]>><</if>>
-  <<set $nutrients += -3 + $CampJ.Farm + ($OrbTransport.count("nutrients")*9)>>
-  <<set $CampM.nutrients += -2 + $CampM.Farm + ($OrbTransport.count("CJMNutrients")*9) + ($OrbTransport.count("CMNutrients")*9)>>
-  <<set $engineering += 0.3 + (_TMconstant.count(0.2)*0.2); $social += 0.2, $combat += (_TMconstant.count(0.1)*0.1), $unimatter += ($OrbTransport.count("unimatter")*3)>>
-<<elseif $Camp_M>>
-  <<set $energy += 10 + $CampM.EHarvester + (($OrbTransport.count("encomp")*(2.5/(4.8 + $extra3E))) - ($OrbTransport.count("unimatter")*(4.2 + $extra3E)) - ($OrbTransport.count("nutrients")*(2.4 + $extra3E))) - $notrepaired - $CampM.building>>
+  <<set $rNr = random(10)>>
+  <<if hasVisited("3E-Event")>><<set $extra3E = 1.2>><</if>>
+  <<set _TMconstant = []>><<if $TransMast3>><<set _TMconstant.push($CampM.EHarvester, 5, 0.2, 0.1)>><<else>><</if>>
+  <<if $noLeo || $noVika || $noElva || $noAbiba>><<set $noLeo = false, $noVika = false, $noElva = false, $noAbiba = false>><</if>>
+  <<if $noenglobe>><<set $noenglobe = false>><</if>>
+  <<if $energy < 0 || $nutrients <= 0 || $days >= 60>><<goto "End of Game">>
+  <<elseif $Camp_J>>
+    <<set $energy += 5 + (_TMconstant.count(5)*5) + $CampJ.EHarvester + (($OrbTransport.count("encomp")*(2.5/1.8)) - ($OrbTransport.count("unimatter")*1.2) - ($OrbTransport.count("nutrients")*0.6) - ($OrbTransport.count("CJMNutrients")*(3 + $extra3E)) - ($OrbTransport.count("CMNutrients")*(2.4 + $extra3E))) - $notrepaired - $CampJ.building>>
     <<if $energy < 1>><<goto [[End of Game]]>><</if>>
-  <<set $nutrients += -5 + $CampM.Farm + ($OrbTransport.count("nutrients")*9)>>
-  <<set $engineering += 0.5; $combat += 0.1; $social += 0.2, $unimatter += $OrbTransport.count("unimatter")*3>>
-<</if>><</nobr>>
-<<if $rNr == 4>>
-False Alarm. Or the AI handled it. Anyway, time to rest. A new cycle.
-<<elseif $rNr == 5 && $CampJ.DefPerimeter == false && $Camp_J || $rNr == 5 && $CampM.DefPerimeter == false && $Camp_M>>
-[img[assets/random-events/alien_mammals.png]]
+    <<set $nutrients += -3 + $CampJ.Farm + ($OrbTransport.count("nutrients")*9)>>
+    <<set $CampM.nutrients += -2 + $CampM.Farm + ($OrbTransport.count("CJMNutrients")*9) + ($OrbTransport.count("CMNutrients")*9)>>
+    <<set $engineering += 0.3 + (_TMconstant.count(0.2)*0.2); $social += 0.2, $combat += (_TMconstant.count(0.1)*0.1), $unimatter += ($OrbTransport.count("unimatter")*3)>>
+  <<elseif $Camp_M>>
+    <<set $energy += 10 + $CampM.EHarvester + (($OrbTransport.count("encomp")*(2.5/(4.8 + $extra3E))) - ($OrbTransport.count("unimatter")*(4.2 + $extra3E)) - ($OrbTransport.count("nutrients")*(2.4 + $extra3E))) - $notrepaired - $CampM.building>>
+      <<if $energy < 1>><<goto [[End of Game]]>><</if>>
+    <<set $nutrients += -5 + $CampM.Farm + ($OrbTransport.count("nutrients")*9)>>
+    <<set $engineering += 0.5; $combat += 0.1; $social += 0.2, $unimatter += $OrbTransport.count("unimatter")*3>>
+  <</if>><</nobr>>
+  <<if $rNr == 4>>
+  False Alarm. Or the AI handled it. Anyway, time to rest. A new cycle.
+  <<elseif $rNr == 5 && $CampJ.DefPerimeter == false && $Camp_J || $rNr == 5 && $CampM.DefPerimeter == false && $Camp_M>>
+  [img[assets/random-events/alien_mammals.png]]
 
-Animals!
+  Animals!
 
-Alien Animals are breaching in. It seems, they only distinctively go for the food. 
-We have lost some nutrients.<<set $nutrients -= 5>><<set $xeno += 0.1>>
-<<elseif $rNr == 6 && $CampJ.DefPerimeter == false && $Camp_J|| $rNr == 6 && $CampM.DefPerimeter == false && $Camp_M>>
-[img[assets/random-events/aggressive_animal.png]]
+  Alien Animals are breaching in. It seems, they only distinctively go for the food. 
+  We have lost some nutrients.<<set $nutrients -= 5>><<set $xeno += 0.1>>
+  <<elseif $rNr == 6 && $CampJ.DefPerimeter == false && $Camp_J|| $rNr == 6 && $CampM.DefPerimeter == false && $Camp_M>>
+  [img[assets/random-events/aggressive_animal.png]]
 
-What a ruckus!
+  What a ruckus!
 
-Shiiiet! One that attacks us relentless! It depends much on our Combat Arts.<<set $xeno += 0.1>>
-  <<if $combat*$cbtOrb > 5>>
-    Yes! That was a good training session, we could defeat that beast.&nbsp;<<set $combat += 0.5>><<if $SubAnalyzer>>And have some bit food. The rest can be disintegrated as unimatter.<<set $nutrients += 3>><<set $unimatter += 2>><</if>>
+  Shiiiet! One that attacks us relentless! It depends much on our Combat Arts.<<set $xeno += 0.1>>
+    <<if $combat*$cbtOrb > 5>>
+      Yes! That was a good training session, we could defeat that beast.&nbsp;<<set $combat += 0.5>><<if $SubAnalyzer>>And have some bit food. The rest can be disintegrated as unimatter.<<set $nutrients += 3>><<set $unimatter += 2>><</if>>
+    <<else>>
+      Ach, such is a hardship here in the stranded planet. The monstruo is wrecking our equipment and damaging the hull; letting our spaceship operates not at the optimum.<<set $unimatter -= 1, $energy -= 2, $notrepaired += 2>><</if>>
+  <<elseif $rNr == 7 && $social > 2 && $SFW_Path == false && $unimatter > 2 && $notrepaired > 1 && $engineering >= 3>>
+  [img[assets/characters/Vika/Vika_6.png]]
+
+  ... I saw Vika fumbling on her panel, focused on repairing the ship a bit. She didn't seem to have noticed me. I was unsure whether to greet her or not, hence I went on my way. Not without an admiration for the sight. <<set $notrepaired += 1>>
+  <<elseif $rNr == 8 && $social > 2 && $Camp_M && $SFW_Path == false>>
+  [img[assets/characters/Abiba/Abiba11.png]]
+
+  ... Abiba was showering. Oh boy, what a body. She said nothing, and me as well. Though, on the way back, I waved goodbye and gave a complimentary glimpse anew. She is a woman, she knows. No words were changed.
+  <<elseif $rNr == 9 && $social > 3 && $SFW_Path == false>>
+  [Img[assets/characters/Vika/Vika9.png]]
+
+  ... I saw Vika fumbling on her panel. The Nightowl.
+  She noticed me. I greeted her and continue on my way. Clearly, not without an admiration for the gift.
   <<else>>
-    Ach, such is a hardship here in the stranded planet. The monstruo is wrecking our equipment and damaging the hull; letting our spaceship operates not at the optimum.<<set $unimatter -= 5, $energy -= 2, $notrepaired += 2>><</if>>
-<<elseif $rNr == 7 && $social > 2 && $SFW_Path == false>>
-[img[assets/characters/Vika/Vika_6.png]]
+    <<if random(1) == 1>>[img[assets/Ch-Camp/Rest1.png]]<<else>>[img[assets/Ch-Camp/Rest2.png]]<</if>>
 
-... I saw Vika fumbling on her panel. She didn't seem to have noticed me. I was unsure whether to greet her and went on my way. Not without an admiration for the sight.
-<<elseif $rNr == 8 && $social > 2 && $Camp_M && $SFW_Path == false>>
-[img[assets/characters/Abiba/Abiba11.png]]
-
-... Abiba was showering. Oh boy, what a body. She said nothing, and me as well. Though, on the way back, I waved goodbye and gave a complimentary glimpse anew. She is a woman, she knows. No words were changed.
-<<elseif $rNr == 9 && $social > 3 && $SFW_Path == false>>
-[Img[assets/characters/Vika/Vika9.png]]
-
-... I saw Vika fumbling on her panel. The Nightowl.
-She noticed me. I greeted her and continue on my way. Clearly, not without an admiration for the gift.
-<<else>>
-  <<if random(1) == 1>>[img[assets/Ch-Camp/Rest1.png]]<<else>>[img[assets/Ch-Camp/Rest2.png]]<</if>>
-
-  A new cycle, a new day. Although this planet's rotation is much slower.
-  
-  Energy is replenished. Vika has learned some more in engineering, as has Leo in interactibility.<<if $Camp_M>> Elva and Abiba in their fields of specialties.<</if>>
-<</if>>
-  <div class="actions-row"><<if $Camp_M>><div><<if $OrbTA>>[[On to new adventures|Camp Mountain]]<<else>>[[On to new adventures|Camp Mountain][$OrbTransport = []]]<</if>></div><<else>><div><<if $OrbTA>>[[On to new adventures|Camp Jungle]]<<else>>[[On to new adventures|Camp Jungle][$OrbTransport = []]]<</if>></div><</if>></div>
-</blockquote></center>
+    A new cycle, a new day. Although this planet's rotation is much slower.
+    
+    Energy is replenished. Vika has learned some more in engineering, as has Leo in interactibility.<<if $Camp_M>> Elva and Abiba in their fields of specialties.<</if>>
+  <</if>>
+    <div class="actions-row"><<if $Camp_M>><div><<if $OrbTA>>[[On to new adventures|Camp Mountain]]<<else>>[[On to new adventures|Camp Mountain][$OrbTransport = []]]<</if>></div><<else>><div><<if $OrbTA>>[[On to new adventures|Camp Jungle]]<<else>>[[On to new adventures|Camp Jungle][$OrbTransport = []]]<</if>></div><</if>></div>
+  </blockquote></center>
 
 
 :: A Small Hill {"position":"1925,300","size":"100,100"}
@@ -381,7 +384,7 @@ It is a huge setback. The hull is broken. As are the cockpit, our life maintenan
 </blockquote></center>
 
 
-:: Audios {"position":"600,25","size":"100,100"}
+:: Audios [Audios] {"position":"475,25","size":"100,100"}
 <<cacheaudio "BgMusic" "assets/characters/Me/background_introduction.wav">>
 <<cacheaudio "V1" "assets/characters/Me/V1.mp4">>
 <<cacheaudio "V2" "assets/characters/Me/V2.mp4">>
@@ -421,7 +424,7 @@ It is a huge setback. The hull is broken. As are the cockpit, our life maintenan
 <div class="actions-row"><<if $energy >=1>><div>[[Go to the Materials Printer|Construction Menu]]</div><</if>>
   <<if $energy >=1>><div>[[Socialize with your Crew|Social Events]]</div><</if>></div>
 <div class="actions-row"><<if $energy >=1>><div>[[Go Out|Ante Explore]]</div><</if>>
-  <<if $energy >=1>><div>[[Go to the Scheduler|Scheduler]]</div><</if>></div>
+  <<if $energy >=1>><div>[[Go to the Task Monitor|Scheduler]]</div><</if>></div>
 <div class="actions-row">
   <<nobr>><<if $eventfrom3E == false>><<if $energy > 4 && (hasVisited("SfBM open") || hasVisited("Foot of a Mountain")) && $TransMast3 == false || $QuestPoolDone == $Q2D>><div>[[Move to Camp Mountain|Camp Mountain][$energy -= 5; $nutrients += $CampM.nutrients-($days*2); $CampM.nutrients = 0; $engineering += $days*0.3; $combat += $days*0.1; $unimatter += $CampM.unimatter; $CampM.unimatter = 0; $OrbTransport = []]]</div><<elseif $TransMast3 && $energy > 4>><div>[[Move to Camp Mountain|Camp Mountain][$nutrients += $CampM.nutrients-($days*2); $CampM.nutrients = 0; $unimatter += $CampM.unimatter; $CampM.unimatter = 0; $OrbTransport = []]]</div><</if>>
   <<else>><div><<linkappend "Move to Camp Jungle" t8n>>We do not want to risk again by flying again until we know more about what attacked us.<</linkappend>></div><</if>><</nobr>>
@@ -457,7 +460,7 @@ TESTING: [[3E-Event]] [[Camp Mountain]] [[random events]]
 <div class="actions-row"><<if $energy >=1>><div>[[Go to the Materials Printer|Construction Menu]]</div><</if>>
 <<if $energy >=1>><div>[[Socialize with your Crew|Social Events]]</div><</if>></div>
 <div class="actions-row"><<if $energy >=1>><div>[[Go Out|Ante Explore]]</div><</if>>
-<<if $energy >=1>><div>[[Go to the Scheduler|Scheduler]]</div><</if>></div>
+<<if $energy >=1>><div>[[Go to the Task Monitor|Scheduler]]</div><</if>></div>
 <div class="actions-row"><<if $eventfrom3E == false && $energy > 4 && hasVisited("TBJ0") && $TransMast3 == false>><div>
 [[Move to Camp Jungle|Camp Jungle][$energy /= 2; $maxenergy -= 10; $maxnutrients -= 50; $nutrients /= 2; $unimatter /= 2; $engineering -= $days*0.3; $combat -= $days*0.1; $OrbTransport = []]]</div><<elseif $energy > 4 && $TransMast3>><div>[[Move to Camp Jungle|Camp Jungle][$nutrients /= 2; $unimatter /= 2; $OrbTransport = []]]</div><<elseif hasVisited("3E-Event")>><div><<linkappend "Move to Camp Jungle" t8n>>We do not want to fly over before we know more about what attacked us.<</linkappend>></div><</if>>
 <div>[[Rest|A New Cycle][$days += 1]]</div></div>
@@ -532,7 +535,7 @@ And for other reasons, as: to counteract brain degeneration and for energy effic
     <<else>>available buildings:
     <<= $CampJ.building>> from maximal <<= $CampJ.maxbuildings>><</if>></div>
   </div>
-<<if $OrbAutoCJ && $Camp_J || $OrbAutoCM && $Camp_M || $TransMast3 && ($OrbAutoCJ || $OrbAutoCM)>><div class="index-screens-small"><div style="width: 100%;">[[Configure the Orb|Orb Configuration]]</div></div><</if>>
+
 <div class="index-screens-small"><div style="width: 100%;">[[Go to Disintegration Menu|Disintegration Menu]]</div></div>
 <div class="index-screens-small"><div style="width: 100%;"><<if $Camp_J>>[[Go to Camp|Camp Jungle]]<<else>>[[Go to Camp|Camp Mountain]]<</if>></div></div>
 
@@ -554,15 +557,15 @@ And for other reasons, as: to counteract brain degeneration and for energy effic
     <<if $engineering >= 2 && $CampJ.EHarvester == 0 && $Camp_J && $energy >= 5 && $unimatter >= 5>>[[Print|Construction Menu][$energy -= 5; $unimatter -= 5; $CampJ.EHarvester = 5; $CampJ.building += 1]]
     <<elseif $engineering >= 2 && $CampM.EHarvester == 0 && $Camp_M && $energy >= 5 && $unimatter >= 5>>[[Print|Construction Menu][$energy -= 5; $unimatter -= 5; $CampM.EHarvester = 5; $CampM.building += 1]]
     <<elseif $CampJ.EHarvester == 5 && $Camp_J || $CampM.EHarvester == 5 && $Camp_M>><br><div class="color-green">Our Energy Harvester collects all possible energies.</div>
+    <<elseif ($CampJ.EHarvester == 10 && $Camp_J) || ($CampM.EHarvester == 10 && $Camp_M)>><br><div class="color-green">Our energy regeneration rate is raised by +10.</div>
     <<else>><div class="color-red">insufficient level or ressources</div>
     <</if>>
   </li>
       <<if $CampJ.EHarvester == 5 && $Camp_J || $CampM.EHarvester == 5 && $Camp_M>>
       <ul class="plussign-list">
       <li>Lvl 5: + Energy Generation Upgrade (5E - 5U): 
-        <<if $engineering >= 5 && $energy >= 5 && $unimatter >= 5 && ($CampJ.EHarvester == 5 && $Camp_J || $CampM.EHarvester == 5 && $Camp_M)>><<if $Camp_J>>[[Print|Construction Menu][$energy -= 5; $unimatter -= 5; $CampJ.EHarvester = 10]]<<else>>[[Print|Construction Menu][$energy -= 5; $unimatter -= 5; $CampM.EHarvester = 10]]<</if>>
-        <<elseif ($CampJ.EHarvester == 10 && $Camp_J) || ($CampM.EHarvester == 10 && $Camp_M)>><br><div class="color-green">Our energy regeneration rate is raised by +10.</div><<else>><div class="color-red">insufficient level or ressources</div>
-        <</if>>
+        <<if $engineering >= 5 && $energy >= 5 && $unimatter >= 5 && ($CampJ.EHarvester == 5 && $Camp_J || $CampM.EHarvester == 5 && $Camp_M)>><<if $Camp_J>>[[Print|Construction Menu][$energy -= 5; $unimatter -= 5; $CampJ.EHarvester = 10]]<<else>>[[Print|Construction Menu][$energy -= 5; $unimatter -= 5; $CampM.EHarvester = 10]]<</if>><<else>>
+        <div class="color-red">insufficient level or ressources</div><</if>>
       </li></ul><</if>>
   <li>Lvl 3: Defense Perimeter (2E - 2U - 1EU): 
     <<if $engineering >= 2 && $CampJ.DefPerimeter != true && $Camp_J && $energy >= 2 && $unimatter >= 2>>[[Print|Construction Menu][$energy -= 2; $unimatter -= 2; $CampJ.DefPerimeter = true; $CampJ.building += 1]]
@@ -663,7 +666,7 @@ And for other reasons, as: to counteract brain degeneration and for energy effic
   <li>+ Lvl 6: Orb Automation (1E - 1U): 
     <<if $engineering >= 6 && $OrbAutoCJ != true && $Camp_J && $energy >= 1 && $unimatter >= 1>>[[Print|Construction Menu][$energy -= 1; $unimatter -= 1; $OrbAutoCJ = true]]
     <<elseif $engineering >= 6 && $OrbAutoCM != true && $Camp_M && $energy >= 1 && $unimatter >= 1>>[[Print|Construction Menu][$energy -= 1; $unimatter -= 1; $OrbAutoCM = true]]
-    <<elseif $OrbAutoCJ && $Camp_J || $OrbAutoCM && $Camp_M>><br><div class="color-green">The options panel is available in the Construction Menu.</div><<else>><div class="color-red">insufficient level or ressources</div><</if>></li>
+    <<elseif $OrbAutoCJ && $Camp_J || $OrbAutoCM && $Camp_M>><br><div class="color-green">The options panel is available in the Task Monitor.</div><<else>><div class="color-red">insufficient level or ressources</div><</if>></li>
   </ul><</if>>
 
 <</if>><</nobr>>
@@ -1169,14 +1172,14 @@ What do I want for the Orb to collect?<<nobr>>
       <<if $energy >= (2*$Oeu)>><<button "+1 dispatch">><<set $OrbTransport.push("nutrients"), $energy -= (2*$Oeu)>><<goto "Orb Configuration">><</button>><</if>>
       <<if $OrbTransport.count("nutrients") > 0>><<button "-1 dispatch">><<set $OrbTransport.pluck("nutrients"), $energy += (2*$Oeu)>><<goto "Orb Configuration">><</button>><</if>>
     <</if>>
-    <<if $explored.T3S == 100>>
+    <<if $explored.T3S == 100 && $noenglobe != true>>
       <div class="index-screens-small-OC"><div><strong>Energy Composite Transport</strong>
       <div><<= (2.5 * $OrbTransport.count("encomp")).toFixed(1)>> energy composites for <br><<= ((6*$Oeu) * $OrbTransport.count("encomp")).toFixed(1)>> Energy </div>
       <<if $energy > $maxenergy>><<set $energy = $maxenergy>><</if>><<= $energy.toFixed(1)>> of maximal <<= $maxenergy>></div>
-      <<if $energy >= (6*$Oeu)>><<button "+1 dispatch">><<set $OrbTransport.push("encomp"), $energy -= (6*$Oeu)>><<goto "Orb Configuration">><</button>><</if>>
+      <<if $energy >= (6*$Oeu) && $OrbTransport.count("encomp") < 1>><<button "+1 dispatch">><<set $OrbTransport.push("encomp"), $energy -= (6*$Oeu)>><<goto "Orb Configuration">><</button>><</if>>
       <<if $OrbTransport.count("encomp") > 0>><<button "-1 dispatch">><<set $OrbTransport.pluck("encomp"), $energy += (6*$Oeu)>><<goto "Orb Configuration">><</button>><</if>>
     <</if>>
-    <<if ($TransMast3 && $CampM.Orb && $Camp_M) || ($Camp_J && $CampJ.Orb && hasVisited("TBM0"))>>
+    <<if ($TransMast3 && $CampM.Orb && $Camp_M) || ($Camp_J && $CampJ.Orb && hasVisited("TBM0") && $QuestPool != $Q2)>>
       <div class="index-screens-small-OC"><div><strong>Nutrients Transport to Camp Mountain</strong>
       <div><<= (9 * $OrbTransport.count("CMNutrients")).toFixed(1)>> nutrients for <br><<= (((10+($summand*2))*$Oeu) * $OrbTransport.count("CMNutrients")).toFixed(1)>> Energy </div>
       <<if $energy > $maxenergy>><<set $energy = $maxenergy>><</if>><<= $energy.toFixed(1)>> of maximal <<= $maxenergy>></div>
@@ -1202,7 +1205,7 @@ What do I want for the Orb to collect?<<nobr>>
       <div class="index-screens-small-OC"><div><strong>Energy Composite Transport</strong>
       <div><<= (2.5 * $OrbTransport.count("encomp")).toFixed(1)>> energy composites for <br><<= (((16+($summand*2))*$Oeu) * $OrbTransport.count("encomp")).toFixed(1)>> Energy </div>
       <<if $energy > $maxenergy>><<set $energy = $maxenergy>><</if>><<= $energy.toFixed(1)>> of maximal <<= $maxenergy>></div>
-      <<if $energy >= ((16+($summand*2))*$Oeu)>><<button "+1 dispatch">><<set $OrbTransport.push("encomp"), $energy -= ((16+($summand*2))*$Oeu)>><<goto "Orb Configuration">><</button>><</if>>
+      <<if $energy >= ((16+($summand*2))*$Oeu)  || $OrbTransport.count("encomp") < 1>><<button "+1 dispatch">><<set $OrbTransport.push("encomp"), $energy -= ((16+($summand*2))*$Oeu)>><<goto "Orb Configuration">><</button>><</if>>
       <<if $OrbTransport.count("encomp") > 0>><<button "-1 dispatch">><<set $OrbTransport.pluck("encomp"), $energy += ((16+($summand*2))*$Oeu)>><<goto "Orb Configuration">><</button>><</if>> 
     <</if>>
   <<else>>
@@ -1255,12 +1258,17 @@ What do I want for the Orb to collect?<<nobr>>
 </center>
 
 
-:: QuestTracker {"position":"475,25","size":"100,100"}
-<<set $QuestPool = []; $QuestPoolDone = []>>
+:: QuestProgressor [Missions] {"position":"2675,1425","size":"100,100"}
+<<nobr>>
+  <<if $QuestPool == $Q2>><<ab>>[[Plan the transport|Task 2]]<</ab>><</if>>
+  <<if $QuestPool == $Q2A && $unimatter >= 2>><<ab>>[[Plan the transport|Task 2]]<</ab>><<else>>-- Not enough unimatter. --<</if>>
+  <<if $QuestPool == $Q2B && ($dayCount + 2) > $days>>Wait 2 cycles (<<= ($dayCount + 2)>>)<<elseif ($dayCount + 2) <= $days && $energy >= (((5+$summand)*2)*0.2)>><<ab>>[[Go to the Mountain Ridge|TBM0][$energy -= (((5+$summand)*2)*0.2); $QuestPool.push($Q2C); $QuestPool.pluck($Q2B); $QuestPoolDone.push($Q2B)]]<</ab>><</if>>
+  <<if $QuestPool == $Q2C && ($dayCount + 5) > $days>>You can settle to the Mountain Camp (This note deletes itself after some days)<<else>><<set $QuestPool.pluck($Q2C); $QuestPoolDone.push($Q2C)>><</if>>
+<</nobr>>
 
-/* Quest Tracker */
 
-<<set $Q0 = "Well, what would you do? Unimatter and Nutrients do not replenish automatically.">>
+:: QuestTracker [Missions] {"position":"2675,1300","size":"100,100"}
+<<nobr>>
 
 <<set $Q1A = "Go to Camp Mountain and ask for help">> /* condition: IF Camp_J && Camp_M && 3E Event Aftermath */
 <<set $Q1B = "Go to East, a tip from AI to Leo">> /* condition: IF Camp_J && NOT Camp_M && 3E Event Aftermath */
@@ -1272,24 +1280,31 @@ What do I want for the Orb to collect?<<nobr>>
 <<set $Q1CCA = "Priority 3 - print a dock for repairs or forego (one more building slot)">> /* condition: IF Camp_M && broken spaceship */
 <<set $Q1CCB = "Priority 3 - print a dock or forego it or an Orb docking station for transport of buildings (two more building slots)">> /* condition: IF Camp_J && broken spaceship */
 
-<<set $Q2 = "Collect 12 nutrients and bring them to the Camp with the dormant spaceship on the Mountain Ridge.<<if $QuestPoolDone == $Q2>>&nbsp;<<else>><<if $nutrients > 15>><<ab>>[[Collect the nutrients|Task 2]]<</ab>><<else>>Not enough nutrients. Keep a small amount as a buffer for ourself, at least with +3 more nutrients.<</if>><</if>>">>
-<<set $Q2A = "Set aside 2 Unimatter. Go to the Camp with the dormant spaceship on the Mountain Ridge.<<if $QuestPoolDone == $Q2>>&nbsp;<<else>><<if $unimatter >= 2>><<ab>>[[On to the next step anew|Task 2]]<</ab>><<else>>Not enough unimatter.<</if>><</if>>">>
-<<set $Q2B = "Check on the Mountain Camp">>
+<<set $Q2 = "Collect 12 (+3 as your own buffer) nutrients and bring them to the Camp with the dormant spaceship on the Mountain Ridge.">>
+<<set $Q2A = "Set aside 2 Unimatter. Go to the Camp with the dormant spaceship on the Mountain Ridge.">> 
+<<set $Q2B ="">>
+<<set $Q2C ="">>
+
+<</nobr>>
 
 
-:: Scheduler {"position":"2825,1300","size":"100,100"}
+:: Scheduler {"position":"2800,1300","size":"100,100"}
 <<nobr>>
-  <<if hasVisited("T2N", "T1E") && $SubAnalyzer && $QuestPool.count($Q0) == 1 && $QuestPoolDone.count($Q0) == 0>><<set $QuestPool.pluck($Q0); $QuestPoolDone.push($Q0)>><<elseif $QuestPool.count($Q0) == 0 && $QuestPoolDone.count($Q0) == 0>><<set $QuestPool.push($Q0)>><<elseif $QuestPool.count($Q0) == 1 && $QuestPoolDone.count($Q0) == 1>><<set $QuestPool.pluck($Q0)>><</if>>
-<</nobr>><center>[img[assets/backgrounds/todo-list.png]]
+<<include [[QuestTracker]]>>
+  <<if hasVisited("T2N", "T1E") && $SubAnalyzer && $QuestPool.count($Q0) == 1 && $QuestPoolDone.count($Q0) == 0>><<set $QuestPool.pluck($Q0); $QuestPoolDone.push($Q0)>><</if>>
+<</nobr>>
+<center>[img[assets/backgrounds/todo-list.png]]
 <blockquote>
 
-<div class="passage-titles" style="color:#ff944d; border-bottom-color: #ff944d; border-top-color: #ff944d;"><center><h2><strong>Scheduler</strong></h2></center></div>
+<div class="passage-titles" style="color:#ff944d; border-bottom-color: #ff944d; border-top-color: #ff944d;"><center><h2><strong>Task Monitor</strong></h2></center></div>
 
 <center>Tip:
-The "Q" key popups the task progressor everywhere.</center>NOT YET IMPLEMENTED
+The "Q" key popups the task progressor everywhere.</center>
+
+<<if $OrbAutoCJ && $Camp_J || $OrbAutoCM && $Camp_M || $TransMast3 && ($OrbAutoCJ || $OrbAutoCM)>><div class="index-screens-small"><div style="width: 100%;background:darkslateblue">[[Configure the Orb|Orb Configuration]]</div></div><</if>>
 
 <div class="order-indices"><div class="index-screens-normal"><div style="color:#ff944d"><strong>open tasks</strong></div>
-  <div><ul><<for _name range $QuestPool>><li> _name</li><</for>></ul></div></div>
+  <div><ul><<for _name range $QuestPool>><li> _name<br><<include [[QuestProgressor]]>></li><</for>></ul></div></div>
 <div class="index-screens-normal"><div style="color:#cc9966"><strong>completed tasks</strong></div>
   <div><ol><<for _name range $QuestPoolDone>><li> _name</li><</for>></ol></div></div>
 <div class="index-screens-small"><div style="width: 100%;"><<if $Camp_J>>[[Go to Camp|Camp Jungle]]<<else>>[[Go to Camp|Camp Mountain]]<</if>></div></div></div>
@@ -1344,8 +1359,7 @@ Bien, bien. Now I have the compass. <</timed>>
 
 
 :: Setter {"position":"2200,1125","size":"100,100"}
-<<set $OrbTransport = []>>
-<<= $OrbTransport>>
+
 
 [[Testing]]
 
@@ -1417,7 +1431,6 @@ With whom do I want to socialize?
 :: StoryInit {"position":"100,25","size":"100,100"}
 <<include [[globalvariables]]>>
 <<include [[Territories]]>>
-<<include [[QuestTracker]]>>
 <<include [[Audios]]>>
 
 
@@ -1807,29 +1820,35 @@ Where to go next?
 :: T3S {"position":"875,2550","size":"100,100"}
 <<nobr>>
   <<if $Camp_J && $energy <= 3*(0.2+$Oeu)>><<set $energy = 0>><<goto [[Camp Jungle]]>><<elseif $Camp_M && $energy <= (8+$summand)*(0.2+$Oeu)>><<set $energy = 0>><<goto [[Camp Mountain]]>><</if>>
-<</nobr>><center>[img[assets/Ch-Explore/energy_deposit.png]]
-<blockquote>
-Whoa! That looks intense!
+<</nobr>><center><blockquote>
+<<if $noenglobe>>[img[assets/Ch-Explore/barren_desert.png]]
 
-<<if $SubAnalyzer == true>>
+  There are no more globe to be seen. Better check out tomorrow.
 
-And, yes, it is an energy globe. Naturally forming in this barren land; or because this globe. Anyway: energy!
+<<else>>[img[assets/Ch-Explore/energy_deposit.png]]
 
-Do I want to take it to the Camp?
+  Whoa! That looks intense!
 
-<<if $Camp_J>><<ab>>[[Take it to the Camp|Camp Jungle][$energy += ($carrycap*2.5)-(3*(0.2+$Oeu))]]<</ab>><<else>><<ab>>[[Take it to the Camp|Camp Jungle][$energy += ($carrycap*2.5)-(8+$summand)*(0.2+$Oeu)]]<</ab>><</if>>
+  <<if $SubAnalyzer == true>>
 
-<<else>> 
+    And, yes, it is an energy globe. Naturally forming in this barren land; or because this globe. Anyway: energy!
 
-It almost looks obviously that can be used as energy. But a substance analyzer is in need to know how to break it down without nuking the whole planet. 
-...
-Haha. Ok. It was a joke, it is more to avoid contaminating the area. 
-... 
-Hn? The area is already at waste?
-...
-Are you nitpicking me?!
-...
-Hm?!
+    Do I want to take it to the Camp?
+
+    <<if $Camp_J>><<ab>>[[Take it to the Camp|Camp Jungle][$energy += ($carrycap*2.5)-(3*(0.2+$Oeu)); $noenglobe = true]]<</ab>><<else>><<ab>>[[Take it to the Camp|Camp Jungle][$energy += ($carrycap*2.5)-(8+$summand)*(0.2+$Oeu); $noenglobe = true]]<</ab>><</if>>
+
+  <<else>> 
+
+    It almost looks obviously that can be used as energy. But a substance analyzer is in need to know how to break it down without nuking the whole planet. 
+    ...
+    Haha. Ok. It was a joke, it is more to avoid contaminating the area. 
+    ... 
+    Hn? The area is already at waste?
+    ...
+    Are you nitpicking me?!
+    ...
+    Hm?!
+  <</if>>
 <</if>>
 
 <<if $Camp_J>><<ab>>[[Go back to Base|The Map][$energy -= 3*(0.2+$Oeu)]]<</ab>><<else>><<ab>>[[Go back to Base|The Map][$energy -= (8+$summand)*(0.2+$Oeu)]]<</ab>><</if>>
@@ -1961,6 +1980,7 @@ Sandy Beach! That's a spot!
 <<ab>>[[Go back to Base|The Map][$energy -= (5+$summand)*(0.2+$Oeu)]]<</ab>>
 
 <<compass "T1N5E" "T4E" "" "">>
+
 </blockquote></center>
 
 
@@ -1975,18 +1995,20 @@ Sandy Beach! That's a spot!
 
     <<linkappend "+ ask Vika for help">><<if $social >=5 && $energy >= (((5+$summand)*2)*0.2)>>: Vika will help you carrying the nutrients.<<set _conditional += 1>><<elseif $social < 5>>: She thinks that maybe it is better this way, for now. Jugding by her tone, I guess, she doesn't trust me enough.<<else>>: Not enough energy ($energy).<</if>><</linkappend>>
 
-    <<linkappend "+ ask Leo for help">><<if $social >=7 && (((5+$summand)*2)*0.2)>>: Leo will help carrying nutrients and activating the dormant spaceship.<<set _conditional += 1>><<elseif $social < 7>>: I couldnn't motivate him. He doesn't feel comfortable to walk a long way to the mountain ridge.<<else>>: Not enough energy ($energy).<</if>><</linkappend>>
+    <<linkappend "+ ask Leo for help">><<if $social >=7 && (((5+$summand)*2)*0.2)>>: Leo will help carrying nutrients and activating the dormant spaceship.<<set _conditional += 1>><<elseif $social < 7>>: I couldn't motivate him. He doesn't feel comfortable to walk a long way to the mountain ridge.<<else>>: Not enough energy ($energy).<</if>><</linkappend>>
 
     <<nobr>><<repeat 2s>>
-      <<if _conditional == 3 || _orbconditional == 1>>
-        <<replace "#Quest2Status">><<ab>>[[Go to the Mountain Ridge|TBM0][$energy -= _conditional*(((5+$summand)*2)*0.2)+_orbconditional*(((5+$summand)*2)*0.3); $nutrients -= _conditional*3+_orbconditional*9; $QuestPool.push($Q2A); $QuestPool.pluck($Q2); $QuestPoolDone.push($Q2)]]<</ab>><</replace>>
+      <<if ((_conditional*(((5+$summand)*2)*0.2)+_orbconditional*(((5+$summand)*2)*0.3)) <= $energy) && (_conditional == 3 || _orbconditional == 1)>>
+        <<replace "#Quest2Status">><<ab>>[[Go to the Mountain Ridge|TBM0][$energy -= _conditional*(((5+$summand)*2)*0.2)+_orbconditional*(((5+$summand)*2)*0.3); $nutrients -= _conditional*3+_orbconditional*9; $QuestPool.pluck($Q2); $QuestPool.push($Q2A); $QuestPoolDone.push($Q2)]]<</ab>><</replace>>
+      <<elseif (_conditional*(((5+$summand)*2)*0.2)+_orbconditional*(((5+$summand)*2)*0.3)) > $energy>>
+        <<replace "#Quest2Status">>Energy (<<= $energy.toFixed(0)>>) is not in sufficent quantity.<</replace>>
       <<else>>
-        <<replace "#Quest2Status">>Not enough energy ($energy) is not in sufficent quantity.<</replace>>
+        <<replace "#Quest2Status">>Not enough transport capacity.<</replace>>
       <</if>>
     <</repeat>>
 
   <div id="Quest2Status"></div><</nobr>>
-<<elseif $QuestPool == $Q2B>>
+<<elseif $QuestPool == $Q2A>>
 
   Two unimatter are ready to be transported. What or who will help me?<<set _conditional = 1; _orbconditional = 0>>
 
@@ -1999,10 +2021,12 @@ Sandy Beach! That's a spot!
     <<linkappend "+ ask Leo for help">><<if $social >=7 && $energy >= (((5+$summand)*2)*0.2)>>: Leo will help carrying one unimatter disk.<<set _conditional += 1>><<elseif $social < 7>>: Leo doesn't feel comfortable to walk a long way to the mountain ridge.<<else>>: Not enough energy ($energy).<</if>><</linkappend>>
 
     <<nobr>><<repeat 2s>>
-      <<if _conditional == 2 || _orbconditional == 1>>
-        <<replace "#Quest3Status">><<ab>>[[Go to the Mountain Ridge anew.|TBM0][$energy -= _conditional*(((5+$summand)*2)*0.2)+_orbconditional*(((5+$summand)*2)*0.3); $unimatter -= _conditional*3+_orbconditional*9]]<</ab>><</replace>>
+      <<if ((_conditional*(((5+$summand)*2)*0.2)+_orbconditional*(((5+$summand)*2)*0.3)) <= $energy) && (_conditional == 3 || _orbconditional == 1)>>
+        <<replace "#Quest3Status">><<ab>>[[Go to the Mountain Ridge anew.|TBM0][$energy -= _conditional*(((5+$summand)*2)*0.2)+_orbconditional*(((5+$summand)*2)*0.3); $unimatter -= _conditional*3+_orbconditional*9; $QuestPool.pluck($Q2A); $QuestPool.push($Q2B); $QuestPoolDone.push($Q2A)]]<</ab>><</replace>>
+      <<elseif (_conditional*(((5+$summand)*2)*0.2)+_orbconditional*(((5+$summand)*2)*0.3)) > $energy>>
+        <<replace "#Quest3Status">>Energy (<<= $energy.toFixed(0)>>) is not in sufficent quantity.<</replace>>
       <<else>>
-        <<replace "#Quest3Status">>Not enough energy ($energy) is not in sufficent quantity.<</replace>>
+        <<replace "#Quest3Status">>Not enough transport capacity.<</replace>>
       <</if>>
     <</repeat>>
 
@@ -2052,21 +2076,18 @@ T5W: 0,
 
 
 :: Testing {"position":"2200,1000","size":"100,100"}
-<<button "Xeno+10">><<set $xeno = 10>><<goto [[Testing]]>><</button>>
-<<button "Unimatter+10">><<set $unimatter = 10>><<goto [[Testing]]>><</button>>
-<<button "Energy+10">><<set $energy = 10>><<goto [[Testing]]>><</button>>
+<<button "Xeno+10">><<set $xeno += 10>><<goto [[Testing]]>><</button>>
+<<button "combat+10">><<set $combat += 10>><<goto [[Testing]]>><</button>>
+<<button "engineering+10">><<set $engineering += 10>><<goto [[Testing]]>><</button>>
+<<button "social+10">><<set $social = 10>><<goto [[Testing]]>><</button>>
+<<button "Unimatter+10">><<set $unimatter += 10>><<goto [[Testing]]>><</button>>
+<<button "Energy+10">><<set $energy += 10>><<goto [[Testing]]>><</button>>
+<<button "Nutrients +10">><<set $nutrients += 10>><<goto [[Testing]]>><</button>>
 <<button "Nutrients -10">><<set $nutrients -= 10>><<goto [[Testing]]>><</button>>
+<<button "cycles +10">><<set $days += 10>><<goto [[Testing]]>><</button>>
 -----------------------------------------
-
-/* Look at JavaScript */
-<div id="popup" style="display: none;">
-   <ol>
-    <<for _i, _name range $QuestPoolDone>>
-      <li> _name </li>
-    <</for>>
-  </ol>
-</div>
-
+<<button "CampM nutrients to 0">><<set $CampM.nutrients = 0>><<goto [[Testing]]>><</button>>
+-----------------------------------------
 ----------------------------------------
 <<button "SFW true">><<set $SFW_Path = true>><<goto [[Testing]]>><</button>>
 <<= $SFW_Path>>
@@ -2076,9 +2097,6 @@ T5W: 0,
 ----------------------------------------
 ----------------------------------------
 ----------------------------------------
-
-[[Setter]]
-
 
 [[Camp Jungle]]
 
@@ -2099,7 +2117,7 @@ T5W: 0,
   
     <<if $xeno < 5>>The outcome depends on my combat ability. Hence: how lucky the mother will be.<br>
       <<if $combat*$cbtOrb >= 5>><strong><u>OUTCOME:</u></strong> No damage, successfully coming out unscathed.
-      <<elseif $combat*$cbtOrb >= 4>><strong><u>OUTCOME:</u></strong> Slight damage, that use a bit of constant maintaining until repaired. <<set $energy -= 1; $notrepaired += 1; $combat += 0.2>>
+      <<elseif $combat*$cbtOrb >= 4>><strong><u>OUTCOME:</u></strong> Slight damage that use a bit of constant maintaining until repaired. <<set $energy -= 1; $notrepaired += 1; $combat += 0.2>>
       <<elseif $combat*$cbtOrb >= 3>><strong><u>OUTCOME:</u></strong> Moderate damage. Not so good. Some repairs are needed.<<set $energy -= 2; $notrepaired += 2; $combat += 0.5>>
       <<elseif $combat*$cbtOrb >= 2>><strong><u>OUTCOME:</u></strong> Severe damage, it doesn't look good, repairs are urgently in need. The only consolation is the data collection of combat.<<set $energy -= 3; $notrepaired += 3; $combat += 0.8>>
       <<else>>
@@ -2119,7 +2137,7 @@ T5W: 0,
     <<else>><strong><u>OUTCOME:</u></strong> With enough knowledge in alien life, it is interpreted that the alien animals can be kept at distance if food is thrown to them. I guess, these are our tax collectors, or highwaymen.<<set $nutrients -= 5>>
     <</if>>
 
-    [[Not good, not easy. Surviving here is harsh!|The Map]]
+    <<if $energy < 0>>[[Not good, not easy. Surviving here is harsh!|The Map][$energy = 0]]<<else>>[[Not good, not easy. Surviving here is harsh!|The Map]]<</if>>
 
 <<elseif _nummer.range(75, 80) && $ignore == 0>><<include [[random events]]>>
 
@@ -2744,7 +2762,11 @@ Since I come from upper middle class, my family invested in a designer baby. Obv
 <<ab>>[[Like this]]<</ab>>
 </center>
 
-Developper: Skip to [[Camp Jungle][$engineering += 1]] [[Camp Mountain][$engineering += 1]]
+Developper: Skip to [[Camp Jungle][$engineering += 10; $combat += 10; $xeno += 20; $days = 30; $CampM.nutrients = 0; $unimatter += 10; $SubAnalyzer = true; $explored.T1N = 100; $explored.T2N = 100; $explored.T1E = 100; $QuestPool.push($Q0)]] 
+
+Designer: Skip to [[Camp Mountain][$engineering += 1]]
+
+
 
 
 :: dormant spaceship 1 {"position":"3075,1350","size":"100,100"}
@@ -2768,12 +2790,12 @@ But boy, oh boy, never had I this much adrenaline! And the silence is more unner
   <div class="dot-enqueuer"><div class="Dot1">.</div><div class="Dot2">.</div><div class="Dot3">.</div></div><</timed>>
   <<timed 17s>>Oh yes, there are two in cryostasis. Luckily, the energy regenerator on this spaceship is functioning, more or less, which keeps the cryochambers on. Okay, then that means they need nutrients to let them to be released out of the chambers. For that I need a floating Orb, or I convince Vika and Leo to come with me.
   
-  <<ab>>[[Go back to Base|The Map][$energy -= (5+$summand)*(0.2+$Oeu), $QuestPool.push($Q2)]]<</ab>><</timed>>
+  <<ab>>[[Go back to Base|Camp Jungle][$energy -= (5+$summand)*(0.2+$Oeu), $QuestPool.push($Q2)]]<</ab>><</timed>>
   </blockquote></center>
 
 
 :: dormant spaceship 2 {"position":"3075,1600","size":"100,100"}
-<<if $QuestPool == $Q2A>>[img[assets/backgrounds/Placeholder.png]]
+<center><blockquote><<if $QuestPool == $Q2A>>[img[assets/backgrounds/Placeholder.png]]
 
 We again went cautiously to the camp with the dormant spaceship. It is not unlikely that the reason for the spaceship deformations can come up anytime.
 The hatch opened as we neared to it. Inside, we plug the nutrients in, and immediately the contents are sucked out and transfered to the cryochambers. There, slowly the machines whirred up to rise the temperatures to a bit, so the awakening biocells are ready for nutrients reception. All still without waking up the consciousness. It will take some hours. Waking up from deep freeze is still a delicate matter.
@@ -2785,17 +2807,16 @@ As it knows that there is no more humanly and/or machinely activity. On the nigh
 <em>Uh uh!</em> 
 It will come back! I call the Watcher and ordered him to slow down, better: even to revolve back to status ante quo. It accepted. I will come back with enough unimatter in a morning to let the printer here install a defense perimeter. So be it.
  
-Right, Auf ein Neues! 
-
-<<ab>>[[Go back to Base|The Map][$energy -= (5+$summand)*(0.2+$Oeu); $QuestPool.push($Q2B); $QuestPool.pluck($Q2A); $QuestPoolDone.push($Q2A)]]<</ab>><</timed>>
+Right. Auf ein Neues! 
+<</timed>>
 <<elseif $QuestPool == $Q2B>>[img[assets/backgrounds/Placeholder.png]]
 
 It feels familiar now. I am getting fond of this place here. If there wouldn't be the knowledge of something lurking nearby, though. But that should not be problem anymore once the defense nodes are entrenched. 
 The watcher took the disks in and begins working on it. It gave the notice that the defense perimeter will be finished by the end of the day. And in another day the inhabitants will be out of the chambers.
 In two days, then. In two days I could come back. Better with more nutrients, or resettling our spaceship to here.
 
-<<set $QuestPool.push($Q2D); $QuestPool.pluck($Q2C); $QuestPoolDone.push($Q2C); $days = $dayCount>>
-<<elseif $QuestPool == $Q2D>>[img[assets/backgrounds/Placeholder.png]]
+<<set $dayCount = $days>>
+<<elseif $QuestPool == $Q2C>>[img[assets/backgrounds/Placeholder.png]]
 
 There were greetings. Quite happily. Obviously they were not sure whether they will be found or forgotten for all eternity. A scary thought. Until Solaris may send a rescue - which would take generations, more so as it is not clear that they received the changed status of us being stranded -, our friends and parents may not be anymore. Although, along with our travels, everyone has its own virtual clones of friends, family and soulmates. But, since they are duplicates, it takes up to enormous amount of storage, hence energy is much needed. Obviously, our spaceships do not have these options. So, yeah, they are on our mothership. So, it better not be out this stellar system! Man, that would suck immensely!
 
@@ -2803,8 +2824,10 @@ Both damsels then are telling me that they are less lucky. 3 others of their cre
 They further tell me that they had no luck in their decisions before as with collecting unimatter and nutrients, so they had to enfreeze themselves eventually. 
 Both now feel rather that we resettle our camp here. They wish more company. That can be arranged.
 
-<<set $QuestPool.pluck($Q2D); $QuestPoolDone.push($Q2D; $CampM.TransMast = true)>>
+<<set $CampM.TransMast = true>>
 <</if>>
+<<ab>>[[Go back to Base|The Map]]<</ab>>
+</blockquote></center>
 
 
 :: globalvariables {"position":"225,25","size":"100,100"}
@@ -2826,6 +2849,11 @@ Both now feel rather that we resettle our camp here. They wish more company. Tha
 <<set $days = 0>>
 
 <<set $notrepaired = 0>>
+
+<<set $noenglobe = false>>
+
+<<set $QuestPool = []; $QuestPoolDone = []>>
+<<set $Q0 = "Well, what would you do? Unimatter and Nutrients do not replenish automatically.">>
 
 <<set $compass = false>>
 <<set $SubAnalyzer = false>>
@@ -2962,17 +2990,35 @@ Object.defineProperty(Number.prototype,'range',{
   }
 });
 
+//-------------------- Pop-Up Scheduler
 
-//-------------------- Pop-Up for Quest (is very nice!)
+document.addEventListener('keypress', function(event) {
+    if (event.key === 'q') {
+        // Access the Twine story variables
+        var QuestPool = State.variables.QuestPool;
+        var QuestPoolDone = State.variables.QuestPoolDone;
 
-$(document).on('keydown', function(event) {
-  if (event.key === "q" || event.key === "Q") {
-    $("#popup").show();
-  }
-});
-
-$(document).on('click', '#popup', function() {
-  $(this).hide();
+        var popup = document.createElement('div');
+        popup.className = 'popup';
+        popup.innerHTML = `
+        <center><blockquote>
+        <div class="passage-titles" style="color:#ff944d; border-bottom-color: #ff944d; border-top-color: #ff944d;"><center><h2><strong>Task Progressor</strong></h2></center></div>
+        <br>
+        <div class="order-indices"><div class="index-screens-normal"><div style="color:#ff944d"><strong>Task Monitor</strong></div>
+          <div><ul>
+          ${QuestPool.map(function(_name) { return `<li>${_name}</li>` }).join('')}
+          </ul></div></div>
+        <div class="index-screens-normal"><div style="color:#cc9966"><strong>completed tasks</strong></div>
+          <div><ol>${QuestPoolDone.map(function(_name) { return `<li>${_name}</li>` }).join('')}</ol></div></div>
+        </blockquote></center>
+        `;
+        
+        if (document.querySelector('.popup') === null) {
+            document.body.appendChild(popup);
+        } else {
+            document.querySelector('.popup').remove();
+        }
+    }
 });
 
 //---------------------------
@@ -3649,4 +3695,18 @@ box-sizing: border-box;
   animation-iteration-count: 3;
   animation-timing-function: ease-in;
 }
+
+/* Task Progressor Pop-up -----------------------------------*/
+
+.popup {
+  position: fixed;
+  margin: 10em;
+  z-index: 10;
+  width: fit-content;
+  height: auto;
+  background-color: rgba(46, 139, 86, 0.95);
+  border: 0.2em dashed #ff944d;
+  border-radius: 1.5em;
+}
+
 /* placeholder ----------------------------------------------*/
