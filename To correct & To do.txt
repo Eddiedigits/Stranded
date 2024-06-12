@@ -8,6 +8,7 @@
 - 1x pic of a deformed Camp Mountain
 - possible redundancy: $extra3E and $summand
 - convert all .png to .webp (save spaces)
+- a roar audio for PassTest3E passage, in block/snippet $choice1P3E = 3 (in: AH SHIIET!)
 
 - QUEST MANAGEMENT:
 + more refinements and testchecks

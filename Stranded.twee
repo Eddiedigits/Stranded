@@ -19,7 +19,7 @@ Stranded
 
 
 :: 3E Event Aftermath {"position":"3200,1475","size":"100,100"}
-<</nobr>><center><blockquote>
+<center><blockquote>
 <<linkappend "<em>Nfh!</em>">> 
 
 <div id="aniwakingup"></div>
@@ -27,7 +27,7 @@ Stranded
 
 <<timed 6s>><<linkappend "Whoa!">> Destruction and chaos everywhere.
 
-<<timed 2s>>That is not good! Everything is bent, shattered, battered. Cables loose or ripped, sparks jumping from one end to another. Glasses, metals, polymers, ceramics, synthetics, all disordered. How strong was that ... thing that could penetrate graphene coated polymers?!
+<<timed 2s>>That is not good! Everything is bent, shattered, battered. Cables loose or ripped, sparks jumping from one end to another. Glasses, metals, polymers, ceramics, synthetics, all disordered. How strong was that ... thing that could penetrate graphene coated aceramics?!
 
 <<timed 3s>>Also, it didn't kill us. I mean ... or I think, I feel like it could have killed us with its barbs. But ... rather decided to stomp the spaceship back to ground.
 
@@ -40,10 +40,10 @@ Stranded
 <center>[img[assets/backgrounds/Placeholder.png]]
   <blockquote>
 
-I run and run and run and run and run, my pump, my heart, is overclocking. As soon as I see the spaceship, I radio to the spaceship to be ready to close the hatch and even fly away. But Leo is already on the hatch and as soon as I run to a distance he seemt fit, he close the hatch. As it is closing, <<linkappend 'I jump in'>><div id="anilowshake">and hear a loud clack and thuck and more collision noises. We are running inside and hear the machines humming. Vika is in the cockpit, pressing all buttons to levitate the spaceship out of place in short time. From all sides comes the roaring of the motor and the thucks against the hull.</div>
+I run and run and run and run and run, my pump, my heart, is overclocking. As soon as I see the spaceship, I radio to the spaceship to be ready to close the hatch and even fly away. But Leo is already on the hatch and as soon as I run to a distance he seemt fit, he intitiate the closing of the hatch. As it is closing, <<linkappend 'I jump in'>><div id="anilowshake">and hear a loud clack and thuck and more collision noises. We are running inside and hear the machines humming. Vika is in the cockpit, pressing all buttons to levitate the spaceship out of place in short time. From all sides comes the roaring of the motor and the thucks against the hull.</div>
 <<linkappend 'Silence.'>> The roars once are now humming. Leo and I look at each other, wondering if we can relax now? We listen intently, we can feel the spaceship distancing more and more from the surface.
 <<linkappend 'Then,'>><div id="anilowsab"><<nobr>><script>
-window.scrollBy(0,120)</script><</nobr>> with a loud crash, a crystalline stele brutally penetrates through the hull, one thrust through the ship, that hard, that fast, it manages not to break the ship apart, spread barbs and suddenly with the same brute force it pulls on the spaceship.</div>
+window.scrollBy(0,120)</script><</nobr>> with a loud crash, a crystalline stele brutally penetrates through the hull, one thrust through the ship, that hard, that fast, it manages not to break the ship apart, but spreads barbs and suddenly with the same brute force it pulls on the spaceship.</div>
 <<linkappend "The last">> we realize was a loud crash and bl...<<timed 1s>><<goto "3E Event Aftermath">><</timed>><</linkappend>><</linkappend>><</linkappend>><</linkappend>>
   
   </blockquote>
@@ -354,7 +354,7 @@ It is a huge setback. The hull is broken. As are the cockpit, our life maintenan
   <<say "Leo">>By zero Kelvin! You have more experience in the outside field and are the less broken one of all of us.<</say>>
   <<say "RD">>...<</say>>
   <<say "Leo">>Mach den Abgang!&nbsp;<em>gesticulating to go</em><br><</say>>
-  <<say "RD">>Wha?! Yeah, damn! Couldn't you have been nicer!?<br>&nbsp;<em>What language was that?</em><</say>>
+  <<say "RD">><span>Wha?! Yeah, damn! Couldn't you have been nicer!?<br><em>What language was that?</em></span><</say>>
   <<ab>>[[Go East|T1E]]<</ab>>
   <</if>>
 <<else>><<set $CampM to {TransMast: false,Farm: 0,DefPerimeter: false,building: 0,maxbuildings: 0,EHarvester: 0,Orb: 1,nOrb: 1,cOrb: 1,}; $nutrients /= 2; $unimatter /= 2; $energy /= 2; $QuestPool.pushUnique($Q3); $maxenergy -= 8; $maxunimatter -= 12; $maxnutrients -= 37>>
@@ -1268,6 +1268,94 @@ What do I want for the Orb to collect?<<nobr>>
 </center>
 
 
+:: PassTest3E {"position":"3200,1725","size":"100,100"}
+<center><blockquote><<nobr>>
+<div id="PassTile3E"></div>
+  <<if $choice1P3E == 1>><<timed 0s>>
+    <<replace "#PassTile3E">>[img[assets/backgrounds/placeholder.png]]
+      Well then, onwards.
+      <<timed 2s>>
+        .<<timed 2s>>.<<timed 2s>>.<br>
+        <br>
+        <em>Mierda! Something went loose and splashed quite loudly.</em><br>
+        <br>
+        <<timed 4s>>.<<if random(3) < 1 && $xeno >= $days*0.5 || random(3) < 3 && $xeno < $days*0.5>><<goto [[End of Game]]>><<else>>.<<timed 1s>>.<<timed 1s>>.<<timed 1s>>All good.<br> 
+        <br>
+        <<timed 2s>><<goto [[T4E]]>><</timed>>
+      <</timed>><</timed>><</timed>><</if>><</timed>><</timed>><</timed>><</timed>>
+    <</replace>><</timed>>
+  <<elseif $choice1P3E == 2>><<timed 0s>>
+    <<replace "#PassTile3E">>[img[assets/backgrounds/placeholder.png]]
+      Well then, YOLO!
+      <<timed 2s>>
+        .<<timed 2s>>.<<timed 2s>>.<br>
+        <br>
+        <em>Shit! That was loud! Now!</em><br>
+        <br>
+        <<timed 4s>><<if random(4) < 1 && $combat >= $days*0.4 || $combat < $days*0.4 && random(4) < 4>><<goto [[End of Game]]>><<else>>I am running<<timed 1s>>&nbsp;and running<<timed 1s>>&nbsp;and running<br> 
+        <br>
+        <<timed 2s>><<goto [[T4E]]>><</timed>>
+      <</timed>><</timed>><</if>><</timed>><</timed>><</timed>><</timed>>
+    <</replace>><</timed>>
+  <<elseif $choice1P3E == 3>><<timed 0s>>
+    <<replace "#PassTile3E">>[img[assets/backgrounds/placeholder.png]]
+      Well then, the long way!
+      <<timed 2s>>
+        .<<timed 2s>>.<<timed 2s>>.<br>
+        <br>
+        <em>Whoa! What was that?!</em><br>
+        <br>
+        <<timed 4s>><<if random(4) < 4 && ($combat < $days*0.2 || $xeno < $days*0.5)>><<goto [[End of Game]]>><<else>>Hm.<<timed 1s>>&nbsp;<em>looking behind<em><<timed 1s>>&nbsp;<em>Is there really nothing?</em><br><<if random(4) < 3 && ($combat < $days*0.3 || $xeno < $days*0.6)>><<timed 1s>>AH SHIIEEET!<<timed 1s>><<goto [[End of Game]]>><</timed>><</timed>><<else>>
+        <br>
+        <<timed 2s>><<goto [[T4E]]>><</timed>><</if>>
+      <</timed>><</timed>><</if>><</timed>><</timed>><</timed>><</timed>>
+    <</replace>><</timed>>
+  <<elseif $choice1P3E == 4>><<timed 0s>>
+    <<replace "#PassTile3E">>[img[assets/backgrounds/placeholder.png]] wrecked Camp
+
+    Leo saw me. He has sunk his head, said nothing. The wrecked camp looks a bit more sorted, and Vika is relocated under a safer spot. Incredibly, sonsidering the short time I was out.
+
+    I went to check on Vika to get more urgency on myself, to have more pressure. Two days, and Vika is no more. That is if we are lucky when no hostile passes here. <em>Ech!</em> That sucks.
+
+    <<say "RD">>What if I go West or North? Or South?<<</say>>
+
+    Leo only rolled with his head and shrugged with on shoulder.
+
+    <<say "Leo">>It is in the east. The likelihood is higher. Much higher.<</say>>
+
+    <<say "RD">>You trust on this source that much?<<</say>>
+
+    Leo turns his eyes to the side, said nothing for fraction of a second.
+
+    <<say "Leo">>It is the same feeling if I am usually right.<</say>>
+
+    I raised my eyebrows, stare at him. But he stares me back, resolutely. Now I turn my eyes to the side and upwards. Weighing my legs forth and back.
+
+    Alright. I go around to look for something I could use for the dangerous passage.
+
+    <<linkappend "Search">><<if $combat > $days*0.5 && $engineering > $days*0.6>>A kind of a halberd, bent and curvy. Well ... it is something.<<set $combat += 2>><<else>>Nothing. I cannot see anything.<</if>><</linkappend>>
+
+    And will I rest for some hours?
+
+    <<linkappend "Yes">><<replace "#PassTile3E">><<timed 1s>><em>Rest. Inward it is. Find nothing. Nothing but me walking down.</em><<timed 3s>><em>Imagine worst case scenarios. Be prepared.</em><<timed 2s>><em>Breathe. In. Out. In. Out.</em><<timed 2s>><em>...</em><<timed 2s>><em>There is a nudge. A movement.</em><<timed 1s>>Wake up! Come on! Leo! You were off since 3 hours!<br>
+    <<say "RD">>Whoa. That long?<</say>><<set $energy += 3>>
+
+    <<say "Leo">>The sun will touch the canopies in around 2 hours.<</say>>
+
+    I hurry waking and prepping myself up.
+
+    <<say "Leo">>Here: kind of a flashlight. It may be handy for you.<</say>>
+
+    Oh yes, it is. <<set $xeno += 1>>
+    <</timed>><</timed>><</timed>></em><</timed>><</replace>><</linkappend>>
+
+    Alright. Ready I am? <<ab>>[[Ready|T1E][$choice1P3E = 5]]<</ab>>
+
+    <</replace>><</timed>>
+	<</if>>
+<</nobr>></blockquote></center>
+
+
 :: QuestProgressor [Missions] {"position":"2675,1425","size":"100,100"}
 <<nobr>>
   <<if $QuestPool.includes($Q0) && _currentQuest == $Q0>>&nbsp;<</if>>
@@ -1474,10 +1562,12 @@ With that, we should be able to collect materials nearby. Hopefully, some can be
   <blockquote>
     <<if $eventfrom3E && not hasVisited("3E-Event")>>
       <<if $energy > 0.2>>
-        A devil will I do to stop here again! <<ab>>[[RUN!|3E-Event][$energy -= 0.2; $eventfrom3E = true]]<</ab>>
+        <div class="tremors">A devil will I do to stop here! <br><br><<ab>>[[RUN!|3E-Event][$energy -= 0.2; $eventfrom3E = true]]<</ab>></div>
       <<else>>
         <<goto [[End of Game][$deathin3E = true]]>>
       <</if>>
+    <<elseif $eventfrom3E && ($QuestPool.includes($Q1A) || $QuestPool.includes($Q1B))>>
+      <<ab>>[[Continue on|T2E]]<</ab>>
     <<else>>
       That looks like something. Could it be edible?
       
@@ -1496,9 +1586,9 @@ With that, we should be able to collect materials nearby. Hopefully, some can be
             <<ab>>[[As Unimatter|Camp Mountain][$energy -= 4*(0.2+$Oeu); $unimatter += $carrycap/3]]<</ab>>
           <</if>><</nobr>>
       <<else>>
-      Hm, too risky to try it out without a substance analyzer. We can use it as unimatter, though not plentiful.
-      
-      Do I wish to bring it to Camp?
+        Hm, too risky to try it out without a substance analyzer. We can use it as unimatter, though not plentiful.
+        
+        Do I wish to bring it to Camp?
       
         <<if $Camp_J>><<ab>>[[Yes|Camp Jungle][$energy -= 0.2+$Oeu; $unimatter += $carrycap/3]]<</ab>><<else>><<ab>>[[Yes|Camp Mountain][$energy -= 4*(0.2+$Oeu); $unimatter += $carrycap/3]]<</ab>><</if>>
       <</if>><<nobr>>
@@ -1660,15 +1750,15 @@ Nothing but forest, jungle, leaves, green, green, green and more greens. And the
 <blockquote><<nobr>>
 <<if not hasVisited("3E-Event") && $eventfrom3E>>
   <<set _run = 6>>
-  <span id="run">Whoa! That was scary!</span>!\
+  <span id="run">Whoa! That was scary!</span>
     <<repeat 1s>>
       <<set _run-->>
       <<if _run.range(4,6)>>
-        <<replace "#run">>The tremors are getting stronger?! Is it coming?!<</replace>>
+        <<replace "#run">><div class="tremors">The tremors are getting stronger?! Is it coming?!</div><br><</replace>>
       <<else>>
         <<replace "#run">>
           <<if $energy > 0.2>>
-            <<ab>>[[RUN!|T1E][$energy -= 0.2; $eventfrom3E = true]]<</ab>>
+            <div class="tremors"><<ab>>[[RUN!|T1E][$energy -= 0.2; $eventfrom3E = true]]<</ab>></div>
           <<else>>
             <<goto [[End of Game][$deathin3E = true]]>>
           <</if>>
@@ -1676,6 +1766,26 @@ Nothing but forest, jungle, leaves, green, green, green and more greens. And the
         <<stop>>
       <</if>>
     <</repeat>>
+<<elseif $eventfrom3E && ($QuestPool.includes($Q1A) || $QuestPool.includes($Q1B)) || $choice1P3E == 5>>
+<div id="howtocontinue"><<ab>>[[Continue on|End of Game]]<</ab>></div>
+  <<set _seconds to 3>>
+	<<repeat 1s>>
+		<<set _seconds-->>
+		<<if _seconds == 0>>
+			<<replace "#howtocontinue">><<if $choice1P3E != 5>>Hold on! I am brave, but not suicidal! Treading on this area again is surely a way to enter the eternal darkness.<</if>>
+
+      <br><br><h4>What is the best way to get to furthermore east?</h4><<set $choice1P3E = 0>>
+      <br>
+      Sneaking? Do I feel confident in my xenology? <<ab>><<choice [[Yes|PassTest3E][$choice1P3E = 1]]>><</ab>><br>
+      Damn it! We are in a desperate situation! I will go and run through the lion&#39;s den! Do I have confidence in my athletism and combatibility?<<ab>><<choice [[Yay!|PassTest3E][$choice1P3E = 2]]>><</ab>><br>
+      <<if $energy > 1.5>>I have enough energy for a walkaround, although it depends a bit also on my xenology knowledge. Will I risk walking around and through unknown terrain? <<ab>><<choice [[Yes|PassTest3E][$choice1P3E = 3]]>><</ab>><br><</if>>
+      It sucks! It totally sucks. If I die, everyone will die. Should I return, rest, brainstorm with Leo or wait for divine intervention?<<ab>><<choice [[Oh yes|PassTest3E][$choice1P3E = 4]]>><</ab>><br>
+      <</replace>>
+
+			<<stop>>
+		<</if>>
+	<</repeat>>
+
 <<else>>
   Nothing but jungle and humidity.<br><br>
 
@@ -1760,20 +1870,23 @@ Bring them to Camp anyway?
   <<if $Camp_J && $energy <= 3*(0.2+$Oeu)>><<set $energy = 0>><<goto [[Camp Jungle]]>><<elseif $Camp_M && $energy <= 2*(0.2+$Oeu)>><<set $energy = 0>><<goto [[Camp Mountain]]>><</if>>
 <</nobr>><center>[img[assets/Ch-Explore/jungle2.png]]
 <blockquote>
-Hm, is that a spaceship? Or what is it? <<nobr>>
+<span id="tohide">Hm, is that a spaceship? Or what is it?</span> <<nobr>>
 /* Content1 of Chapter 2 ---------------------- */
-<<if $eventfrom3E == false && ($xeno > 8 || hasVisited("T2N", "T5W", "T3S", "TBM0"))>>I need to get a better picture. It is too overgrown by vegetation. But ... how to get up?<br><br>
+<<if $eventfrom3E == false && ($xeno > 8 || hasVisited("T2N", "T5W", "T3S", "TBM0"))>><span id="3EBegin">I need to get a better picture. It is too overgrown by vegetation. But ... how to get up?<br><br></span>
 
   <<if $CampM.Orb == 3 || $CampJ.Orb == 3 || $CampJ.nOrb == 3 || $CampM.nOrb == 3 || $CampJ.cOrb == 3 || $CampM.cOrb == 3 || $CampJ.cnOrb == 3 || $CampM.cnOrb == 3>><br>
-    <<linkappend '<<ab>>Use the Orb<</ab>>' t8n>>[img[assets/backgrounds/floatingOrb.png]]<<replace "#ABhidden">><</replace>>
-
-    Ok, before I print something, I send the orb to scan as much as possible. With enough informations I can design more to the point. Also, I will know whether there is danger or where to get in ...<br><br>
-
-      <<linkappend '<<ab>>Oookay, off it goes<</ab>>' t8n>>
+    <<linkappend '<<ab>>Use the Orb<</ab>>' t8n>><<replace "#ABhidden">>&nbsp;<</replace>><<replace "#tohide">>&nbsp;<</replace>><<replace "#3EBegin">>
+    <br>  
+    [img[assets/backgrounds/floatingOrb.png]]
+    <br>
+    Ok, before I print something, I send the orb to scan as much as possible. With enough informations I can design more to the point. Also, I will know whether there is danger or where to get in ...<</replace>>
+    <br><br>
+      <<linkappend '<<ab>>Oookay, off it goes<</ab>>' t8n>><<replace "#3EBegin">>
+      <br>
       [img[assets/backgrounds/levOrb1.png]]
-
-      With a whirring sound it swooshed upward and went off to scan.<br><br>
-
+      <br>
+      With a whirring sound it swooshed upward and went off to scan.<</replace>>
+      <br><br>
       <<set _seconds = 20>>
       <span id="wait"></span>
         <<repeat 1s>>
@@ -1787,13 +1900,15 @@ Hm, is that a spaceship? Or what is it? <<nobr>>
           <<elseif _seconds.range(8,10)>>
             <<replace "#wait">>Shouldn't take long. Unless ... it cannot get in.<</replace>>
           <<elseif _seconds.range(5,7)>>
-            <<replace "#wait">>A creaking sound. I guess: the hatch.<</replace>>
+            <<replace "#wait">>A creaking sound. Must be the hatch.<</replace>>
           <<elseif _seconds.range(2,4)>>
-            <<replace "#wait">>Whoa! That was crack! ... And a dull plop. What happened?!<<set $CampJ.Orb = false; $CampM.Orb = false>><</replace>>
+            <<replace "#wait">>Whoa! That was a crack! ... And a dull plop. What happened?!<<if $Camp_J>><<set $CampJ.Orb = false>><<elseif $Camp_M>><<set $CampM.Orb = false>>
+            <</if>><</replace>>
           <<else>>
-            <<replace "#wait">>Suddenly there are tremors. The whole area is vibrating; accompanied by a whooshing and buzzing sound.<<set _react = 6>>
+            <<replace "#wait">><div class="tremors">Suddenly there are tremors. The whole area is vibrating; accompanied by a whooshing and buzzing sound!</div><<set _react = 6>>
             
-              <span id="react"></span>
+              <div class="tremors"><span id="react"></span></div>
+              <script>window.scrollBy(0,120)</script>
                 <<repeat 1s>>
                   <<set _react-->>
                   <<if _react > 0>>
@@ -1899,7 +2014,7 @@ Aah. Open space. Open air.
     <<repeat 1s>>
       <<set _run-->>
       <<if _run.range(4,6)>>
-        <<replace "#run">>The tremors are getting stronger?! Is it coming?!<</replace>>
+        <<replace "#run">>The tremors are getting stronger?! Is it coming?!<br><</replace>>
       <<else>>
         <<replace "#run">>
           <<if $energy > 0.2>>
@@ -3683,7 +3798,7 @@ box-sizing: border-box;
   animation-name: poking;
   animation-duration: 4s;
   animation-delay: 1s;
-  animation-iteration-count: 3;
+  animation-iteration-count: 1;
 }
 
 @keyframes bigthrust {
@@ -3821,6 +3936,37 @@ box-sizing: border-box;
   background-color: rgba(46, 139, 86, 0.95);
   border: 0.2em dashed #ff944d;
   border-radius: 1.5em;
+}
+
+/* Hide the Action Buttons ----------------------------------*/
+
+.hideit {
+  display: none;
+}
+
+/* Trenmors -------------------------------------------------*/
+
+@keyframes tremors {
+  0% {rotate: 0deg;}
+  14% {rotate: 1deg;}
+  21% {rotate: -1deg;}
+  24% {rotate: 2deg;}
+  33% {rotate: -1deg;}
+  41% {rotate: 1deg;}
+  56% {rotate: -2deg;}
+  62% {rotate: 2deg;}
+  69% {rotate: -1deg;}
+  78% {rotate: 3deg;}
+  88% {rotate: -3deg;}
+  95% {rotate: 1deg;}
+  100% {rotate: 0deg;}
+}
+
+.tremors {
+  animation-name: tremors;
+  animation-duration: 1s;
+  animation-iteration-count: 5;
+  animation-fill-mode: forwards;
 }
 
 /* placeholder ----------------------------------------------*/
