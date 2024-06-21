@@ -53,8 +53,11 @@ window.scrollBy(0,120)<</script>><</nobr>> with a loud crash, a crystalline stel
 :: A New Cycle {"position":"1550,1400","size":"100,100"}
 <center><blockquote><<nobr>>
 
+  <<if $days >= 30 && !$QuestPool.includes($Q1C0) && !$QuestPoolDone.includes($Q1C0)>><<set $QuestPool.pushUnique($Q1)>><</if>>
+
   <<set $rNr = random(10)>>
   <<set $Oeu = 0.3>>
+
   <<if $evenfrom3E == false>>
     <<if $noLeo || $noVika || $noElva || $noAbiba>><<set $noLeo = false, $noVika = false, $noElva = false, $noAbiba = false>><</if>>
   <<else>>
@@ -67,9 +70,9 @@ window.scrollBy(0,120)<</script>><</nobr>> with a loud crash, a crystalline stel
     <<if $QuestPool.includes($Q1CA3)>><<set _VikaEnfreezed = 3 >><<else>><<set _VikaEnfreezed = 0 >><</if>>
     <<set $energy += 5 + $CampJ.EHarvester + ($OrbTransport.count("encomp")*(2.5/1.8)) - ($OrbTransport.count("unimatter")*1.2) - ($OrbTransport.count("nutrients")*0.6) - ($OrbTransport.count("CMNutrients")*((5+$summand)*$Oeu*2)) - $notrepaired - $CampJ.building - _VikaEnfreezed>>
     <<if $energy < 1>><<goto [[End of Game]]>><</if>>
-    <<if $QuestPool.includes($Q1C)>><<set _AbiUElva = 2>><<else>><<set _AbiUElva = 0><</if>>
+    <<if $eventfrom3E>><<set _AbiUElva = 2>><<else>><<set _AbiUElva = 0>><</if>>
     <<set $nutrients += -3 -_AbiUElva + $CampJ.Farm + ($OrbTransport.count("nutrients")*9)>>
-    <<if $CampM.nutrients > 0>><<set $CampM.nutrients += -2 + $CampM.Farm + ($OrbTransport.count("CJMNutrients")*9) + ($OrbTransport.count("CMNutrients")*9) + $CMnutrientsplus>><<elseif $CampM.nutrients < 0>><<set $CampM.nutrients = 0>><</if>>
+    <<if !$QuestPool.includes($Q1C0)>><<if $CampM.nutrients > 0>><<set $CampM.nutrients += -2 + $CampM.Farm + ($OrbTransport.count("CJMNutrients")*9) + ($OrbTransport.count("CMNutrients")*9) + $CMnutrientsplus>><<elseif $CampM.nutrients < 0>><<set $CampM.nutrients = 0>><</if>><</if>>
     <<if $TransMast3>><<set _ElvaCombat = 0.1, _AbibaEngineering = 0.2>><<else>><<set _ElvaCombat = 0, _AbibaEngineering = 0>><</if>>
     <<set $engineering += 0.3 + _AbibaEngineering; $social += 0.2, $combat += _ElvaCombat, $unimatter += ($OrbTransport.count("unimatter")*3)>>
   <<elseif $Camp_M>>
@@ -77,24 +80,27 @@ window.scrollBy(0,120)<</script>><</nobr>> with a loud crash, a crystalline stel
       <<if $energy < 1>><<goto [[End of Game]]>><</if>>
     <<set $nutrients += -5 + $CampM.Farm + ($OrbTransport.count("nutrients")*9)>>
     <<set $engineering += 0.5; $combat += 0.1; $social += 0.2, $unimatter += $OrbTransport.count("unimatter")*3>>
-  <</if>><</nobr>>
+  <</if>>
+  <</nobr>>
   <<if $rNr == 4>>
   False Alarm. Or the AI handled it. Anyway, time to rest. A new cycle.
-  <<elseif $rNr == 5 && $CampJ.DefPerimeter == false && $Camp_J || $rNr == 5 && $CampM.DefPerimeter == false && $Camp_M>>
+  <<elseif $rNr == 5 && $nutrients > 0 && ($CampJ.DefPerimeter == false && $Camp_J || $CampM.DefPerimeter == false && $Camp_M)>>
   [img[assets/random-events/alien_mammals.png]]
 
   Animals!
 
   Alien Animals are breaching in. It seems, they only distinctively go for the food. 
-  We have lost some nutrients.<<set $nutrients -= 5>><<set $xeno += 0.1>>
+  We have lost some nutrients.<<set $nutrients -= 5>><<if $nutrients < 0>><<set $nutrients = 0>><</if>><<set $xeno += 0.1>>
   <<elseif $rNr == 6 && $CampJ.DefPerimeter == false && $Camp_J|| $rNr == 6 && $CampM.DefPerimeter == false && $Camp_M>>
   [img[assets/random-events/aggressive_animal.png]]
 
   What a ruckus!
 
   Shiiiet! One that attacks us relentless! It depends much on our Combat Arts.<<set $xeno += 0.1>>
+
+  <h2>OUTCOME:</h2>
     <<if $combat*$cbtOrb > 5>>
-      Yes! That was a good training session, we could defeat that beast.&nbsp;<<set $combat += 0.5>><<if $SubAnalyzer>>And have some bit food. The rest can be disintegrated as unimatter.<<set $nutrients += 3>><<set $unimatter += 2>><</if>>
+      Yes! That was a good training session, <<if $Camp_M>>Elva and I<<else>>we<</if>> could defeat that beast.&nbsp;<<set $combat += 0.5>><<if $SubAnalyzer>>And have some bit food. The rest can be disintegrated as unimatter.<<set $nutrients += 3>><<set $unimatter += 2>><</if>>
     <<else>>
       Ach, such is a hardship here in the stranded planet. The monstruo is wrecking our equipment and damaging the hull; letting our spaceship operates not at the optimum.<<set $unimatter -= 1, $energy -= 2, $notrepaired += 2>><</if>>
   <<elseif $rNr == 7 && $social > 2 && $SFW_Path == false && $unimatter > 2 && $notrepaired > 1 && $engineering >= 3 && !$evenfrom3E>>
@@ -115,7 +121,7 @@ window.scrollBy(0,120)<</script>><</nobr>> with a loud crash, a crystalline stel
 
     A new cycle, a new day. Although this planet's rotation is much slower.
     
-    Energy is replenished. Vika has learned some more in engineering, as has Leo in interactibility.<<if $Camp_M>> Elva and Abiba in their fields of specialties.<</if>>
+    Energy is replenished. <<if !$QuestPool.includesAny($Q1CA, $Q1CA1, $Q1CA2, $Q1CA3, $Q1CA4)>> Vika has learned some more in engineering, as has Leo in interactibility.<<else>>Leo evolved his skills in interactibility.<</if>><<if $Camp_M || $QuestPool.includes($Q1C0)>> Elva and Abiba in their fields of specialties.<</if>>
   <</if>>
     <div class="actions-row"><<if $Camp_M>><div><<if $OrbTA>>[[On to new adventures|Camp Mountain]]<<else>>[[On to new adventures|Camp Mountain][$OrbTransport = []]]<</if>></div><<else>><div><<if $OrbTA>>[[On to new adventures|Camp Jungle]]<<else>>[[On to new adventures|Camp Jungle][$OrbTransport = []]]<</if>></div><</if>></div>  
   </blockquote></center>
@@ -225,9 +231,9 @@ The antenna is installed on a small hill. But it seems to reach no one. Maybe it
 <center><blockquote>
 Who will accompany me, who can I persuade?
 
-<<if $QuestPool.includesAny($Q1CA, $Q1CA1, $Q1CA2)>>Vika is not available.<<else>><<linkreplace "Vika">><<if random(10) * $social > 40 || (($CampJ.EHarvester == 0 && $Camp_J || $Camp_M && $CampM.EHarvester == 0) && $notrepaired > 2) || $nutrients < 10>>+ Vika will accompany you.<<set $carrycap +=1>><<else>>- Vika is focusing on the communications screen, she rather sit by the radio.<</if>><</linkreplace>><</if>>
+<<if $QuestPool.includesAny($Q1CA, $Q1CA1, $Q1CA2, $Q1CA3)>>Vika is not available.<<else>><<linkreplace "Vika">><<if random(10) * $social > 40 || (($CampJ.EHarvester == 0 && $Camp_J || $Camp_M && $CampM.EHarvester == 0) && $notrepaired > 2) || $nutrients < 10>>+ Vika will accompany you.<<set $carrycap +=1>><<else>>- Vika is focusing on the communications screen, she rather sit by the radio.<</if>><</linkreplace>><</if>>
 
-<<if $QuestPool.includesAny($Q1CB)>>Leo is not in optimal state to go out.<<else>><<linkreplace "Leo">><<if random(10) * $social > 30 || (($CampJ.EHarvester == 0 && $Camp_J || $Camp_M && $CampM.EHarvester == 0) && $notrepaired > 2)>>+ Leo will help you.<<set $carrycap +=1>><<elseif $nutrients <10>>+ Leo will help you. Also he got the information form the AI that somewhere in the east is a field crucial for organic optimum.<<else>>- Leo is in dialogue with his AI or other AIs. He cannot come with you.<</if>><</linkreplace>><</if>><<nobr>>
+<<if $QuestPool.includes($Q1CB)>>Leo is not in optimal state to go out.<<else>><<linkreplace "Leo">><<if random(10) * $social > 30 || (($CampJ.EHarvester == 0 && $Camp_J || $Camp_M && $CampM.EHarvester == 0) && $notrepaired > 2)>>+ Leo will help you.<<set $carrycap +=1>><<elseif $nutrients <10 && $explored.T1E != 100 && !$SubAnalyzer>>+ Leo will help you. Also he got the information form the AI that somewhere in the east is a field crucial for organic optimum.<<else>>- Leo is in dialogue with his AI or other AIs. He cannot come with you.<</if>><</linkreplace>><</if>><<nobr>>
 <br>
 <br>
 <<if $Camp_M || $eventfrom3E>><<linkreplace "Elva">><<if random(10) * $social > 38 || (($CampJ.EHarvester == 0 && $Camp_J || $Camp_M && $CampM.EHarvester == 0) && $notrepaired > 2) || $nutrients <10>>+ Elva want some outdoor training, she comes with me.<<set $carrycap +=1>><<else>>- Elva is in her training mode. Quite intensely. Better not disturb her.<</if>><</linkreplace>><</if>>
@@ -327,7 +333,7 @@ Have I a change of mind? Do I want a ...
 :: Arrival at CJ {"position":"3200,1975","size":"100,100"}
 <center><blockquote>
 [img[assets/backgrounds/Placeholder.png]]/* Arrival at Camp Jungle */
-  
+ 
   With the protection of the night, we were departing for the Jungle Camp. It was not an easy ride, always on alert, on our toes. Even as our flight didn't took more than 15 minutes - we took a huge curved flight path, evading the hotspot -, we didn't know whether I made the right choice. What's more is that we have absolutely no data whether the air in the night is free of hostiles. 
 
   But fortuna is on our side. Nothing happened. And weirdly nothing was in the air, not a flying thing - animal nor ship -, no radio messages. Too silent for my taste.
@@ -336,7 +342,7 @@ Have I a change of mind? Do I want a ...
 
   The sun dissapeared behind the canopies, meaning that it is time to pause the clearing and continue further tomorrow. Hopefully, we won't have nightly surprises.
 
-  <<ab>>[[Go to sleep|A New Cycle][$QuestPool.pushUnique($Q1C, $Q1CA1, $Q1CA2, $Q1CB, $Q1CCA)]]<</ab>>
+  <<ab>>[[Go to sleep|A New Cycle][$QuestPool.pushUnique($Q1C0, $Q1CA, $Q1CA1, $Q1CA2, $Q1CB, $Q1CC); $phases = 0]]<</ab>>
 
 </blockquote></center>
 
@@ -361,16 +367,16 @@ It is a huge setback. The hull is broken. As are the cockpit, our life maintenan
   <<say "Leo">>We have to call for help.<</say>>
   <<say "RD">>Yeapp<</say>>
  /* Start Quest 3E Event Aftermath */
- <<if hasVisited("BM0")>><<set $QuestPool.pushUnique($Q1A)>>
+ <<if hasVisited("TBM0")>><<set $QuestPool.pushUnique($Q1A)>> /* Go East and ask for help */
   <<say "RD">>I will go to the others at the mountain and came back with them.<</say>>
-  Leo nods
+  Leo nods<br>
   <<say "RD">>Or did our Watcher, our AI, send an emergeny alert?!<</say>>
   <<say "Leo">>Not that I know of.<</say>>
-  <<say "RD">>Sometimes it is so hard to understand their reasnoning!<</say>>
+  <<say "RD">>Sometimes it is so hard to understand their reasoning!<</say>>
   <<say "Leo">>Mmmh! I believe there is a reason for it. It will eventually pop int our minds.<</say>>
   <<say "RD">>There better be!<</say>>
   <<ab>>[[Go East|T1E]]<</ab>>
- <<else>><<set $QuestPool.pushUnique($Q1B)>>
+ <<else>><<set $QuestPool.pushUnique($Q1B)>> /* Go East, recommended by AI */
   <<say "Leo">>Our Watcher once hinted that there is something on the east, or some else.<</say>>
   <<say "RD">>Great! Mystic and reticent as always.<</say>>
   <<say "Leo">>Young Boy. Well! Go!<</say>>
@@ -383,7 +389,7 @@ It is a huge setback. The hull is broken. As are the cockpit, our life maintenan
   <<say "RD">><span>Wha?! Yeah, damn! Couldn't you have been nicer!?<br><em>What language was that?</em></span><</say>>
   <<ab>>[[Go East|T1E]]<</ab>>
   <</if>>
-<<else>><<set $CampM to {TransMast: false,Farm: 0,DefPerimeter: false,building: 0,maxbuildings: 0,EHarvester: 0,Orb: 1,nOrb: 1,cOrb: 1,}; $nutrients /= 2; $unimatter /= 2; $energy /= 2; $QuestPool.pushUnique($Q1C); $maxenergy -= 8; $maxunimatter -= 12; $maxnutrients -= 37>>
+<<else>><<set $CampM to {TransMast: false,Farm: 0,DefPerimeter: false,building: 0,maxbuildings: 0,EHarvester: 0,Orb: 1,nOrb: 1,cOrb: 1,}; $nutrients /= 2; $unimatter /= 2; $energy /= 2; $QuestPool.pushUnique($Q1C0); $maxenergy -= 8; $maxunimatter -= 12; $maxnutrients -= 37>> /* Q1C is: do repairs */
   Elva and Abiba's ship return. It hasn't attacked them. If their watcher knows what that was that attacked us? 
 
   With jetting forces their ship land on the same spot. The hatch opens, both of them run out and hugs us, asking what that was? What I did? I did nothing. 
@@ -483,11 +489,12 @@ It is a huge setback. The hull is broken. As are the cockpit, our life maintenan
   <</script>>
   <<if $energy < 0>><<set $energy = 0>><</if>>
   <<set $Camp_J = true, $Camp_M = false, $carrycap = 1, $Oeu = 0, $navOrb = 1, $cbtOrb = 1>>
+  <<if $QuestPoolDone.includes($Q1CC2A)>><<set $storageFactor = 2>><<else>><<set $storageFactor = 1>><</if>>
   <<if $eventfrom3E>><<set $summand = 2>><<else>><<set $summand = 0>><</if>>
     <<if ($QuestPoolDone.includes($Q2B) && !$QuestPoolDone.includes($Q2E) || hasVisited("SfBM open")) && $CampM.nutrients <= 4>><<set $QuestPool.pushUnique($Q2E)>><<script>>window.showCustomPopup();<</script>><</if>>
   <<if $nutrients <= 3>><<script>>window.showWarningPopup();<</script>><</if>>
 <</nobr>><center>
-<<nobr>><<if $eventfrom3E == false>>
+<<nobr>><<if $eventfrom3E == false || $QuestPoolDone.includes($Q1CC2B)>>
   <center>[img[assets/Ch-Camp/JungleCamp.png]]</center>
 <<else>>
   <center>[img[assets/backgrounds/Placeholder.png]]/* Two Spaceships */</center>
@@ -537,7 +544,8 @@ Variable Checker: [[VariableControl]]
   Config.saves.autosave = ["autosave"]
   <</script>>
   <<if $energy < 0>><<set $energy = 0>><</if>>
-  <<set $Camp_M = true, $Camp_J = false, $carrycap = 1, $Oeu = 0, $navOrb = 1, $cbtOrb = 1, $storageFactor = 2>>
+  <<set $Camp_M = true, $Camp_J = false, $carrycap = 1, $Oeu = 0, $navOrb = 1, $cbtOrb = 1>>
+  <<if $QuestPoolDone.includes($Q1CC2B)>><<set $storageFactor = 1>><<else>><<set $storageFactor = 2>><</if>>
   <<if $eventfrom3E>><<set $summand = 2>><<else>><<set $summand = 0>><</if>>
   <<if $nutrients <= 5>><<script>>window.showWarningPopup();<</script>><</if>>
 <</nobr>><center><center>[img[assets/Ch-Camp/MountainCamp.png]]</center>
@@ -723,7 +731,7 @@ And for other reasons, as: to counteract brain degeneration and for energy effic
       <<elseif $OrbAutoCJ && $Camp_J || $OrbAutoCM && $Camp_M>><br><div class="color-green">The options panel is available in the Task Monitor.</div><<else>><div class="color-red">insufficient level or ressources</div><</if>></li>
     </ul><</if>>
 <<else>>
-  <br><div style="color:#b35900">All building slots are full. Consider disintegrate one or more.</div><br>
+  <br><div style="color:#b35900">There is no more space.</div><br>
 
   <u>Upgrades availables:</u><br>
 
@@ -1070,7 +1078,7 @@ But, for me personally, I welcome to have two more ladies: Elva and Abiba.
 </blockquote></center>
 
 
-:: Go gratulating Vika {"position":"2175,2150","size":"100,100"}
+:: Go gratulating Vika {"position":"2300,2150","size":"100,100"}
 <center><blockquote>
 [img[assets/backgrounds/Placeholder.png]]
 
@@ -1116,8 +1124,8 @@ In this journey, in the virtual city I will enjoy going out, meet people, have d
 
 It is a big wonder with our technological advancements that we do not live in an neverending bliss.
 
-The answer may be given to <<linkappend "me." t8n>> Soon. <<nobr>><<script>>
-window.scrollBy(0,120)<</script>><</nobr>>
+The answer may be given to <<linkappend "me." t8n>> Soon. <<nobr>>
+  <<run automaticDownscroll();>><</nobr>>
 
 <<linkappend "As in our route after exiting the neighbor galaxy" t8n>> something [[happens.|Crash]]<</linkappend>><</linkappend>>
 </blockquote></center>
@@ -1263,9 +1271,18 @@ Well then, ancient. Welcome to the future, as it is already now, oldtimer. Ready
 :: Orb Configuration {"position":"3300,975","size":"100,100"}
 <<nobr>>
 	<<set $Oeu = 0.3>>
+  <<if $OrbTransport.first()>><<run setTimeout(function() {window.scrollTo(0, document.body.scrollHeight * 0.5);}, 0);>><</if>>
+
+
+<<set $filteredOrbTransport = $OrbTransport.filter(function(item) { return item !== "nutrients"; })>>
+Filtered OrbTransport: <<print $filteredOrbTransport.join(", ")>>
+
+
+
+
 <</nobr>><center><center>[img[assets/backgrounds/Orb_Config_3.png]]</center>
 <blockquote>
-
+<<print $OrbTransport>>
   <div class="passage-titles" style="color: #ff5c33; border-bottom-color: #ff5c33; border-top-color: #ff5c33;"><center><h3><strong>Orb Automation Configuration</strong></h3></center></div>
   <div class="index-screens-normal"><div><strong>ENERGY:&nbsp;</strong></div><<if $energy > $maxenergy>><<set $energy = $maxenergy>><<elseif $energy < 0>><<set $energy = 0>><</if>><div><<= $energy.toFixed(1)>> of maximal <<= $maxenergy>></div></div>
 
@@ -1277,28 +1294,28 @@ What do I want for the Orb to collect?<<nobr>>
       <div><<= 3 * $OrbTransport.count("unimatter")>> unimatter for <br><<= ((4*$Oeu) * $OrbTransport.count("unimatter")).toFixed(1)>> Energy </div>
       <<if $energy > $maxenergy>><<set $energy = $maxenergy>><</if>><<= $energy.toFixed(1)>> of maximal <<= $maxenergy>></div>
       <<if $energy >= (4*$Oeu)>><<button "+1 dispatch">><<set $OrbTransport.push("unimatter"), $energy -= (4*$Oeu)>><<goto "Orb Configuration">><</button>><</if>>
-      <<if $OrbTransport.count("unimatter") > 0>><<button "-1 dispatch">><<set $OrbTransport.delete("unimatter"), $energy += (4*$Oeu)>><<goto "Orb Configuration">><</button>><</if>>
+      <<if $OrbTransport.count("unimatter") > 0>><<button "-1 dispatch">><<set $OrbTransport = removeOne($OrbTransport, "unimatter"), $energy += (4*$Oeu)>><<goto "Orb Configuration">><</button>><</if>>
     <</if>>
     <<if $explored.T1E == 100>>
       <div class="index-screens-small-OC"><div><strong>Nutrients Transport</strong>
       <div><<= 9 * $OrbTransport.count("nutrients")>> nutrients for <br><<= ((2*$Oeu) * $OrbTransport.count("nutrients")).toFixed(1)>> Energy </div>
       <<if $energy > $maxenergy>><<set $energy = $maxenergy>><</if>><<= $energy.toFixed(1)>> of maximal <<= $maxenergy>></div>
       <<if $energy >= (2*$Oeu)>><<button "+1 dispatch">><<set $OrbTransport.push("nutrients"), $energy -= (2*$Oeu)>><<goto "Orb Configuration">><</button>><</if>>
-      <<if $OrbTransport.count("nutrients") > 0>><<button "-1 dispatch">><<set $OrbTransport.delete("nutrients"), $energy += (2*$Oeu)>><<goto "Orb Configuration">><</button>><</if>>
+      <<if $OrbTransport.count("nutrients") > 0>><<button "-1 dispatch">><<set $OrbTransport = removeOne($OrbTransport, "nutrients"), $energy += (2*$Oeu)>><<goto "Orb Configuration">><</button>><</if>>
     <</if>>
     <<if $explored.T3S == 100 && $noenglobe != true>>
       <div class="index-screens-small-OC"><div><strong>Energy Composite Transport</strong>
       <div><<= (2.5 * $OrbTransport.count("encomp")).toFixed(1)>> energy composites for <br><<= ((6*$Oeu) * $OrbTransport.count("encomp")).toFixed(1)>> Energy </div>
       <<if $energy > $maxenergy>><<set $energy = $maxenergy>><</if>><<= $energy.toFixed(1)>> of maximal <<= $maxenergy>></div>
-      <<if $energy >= (6*$Oeu) && $OrbTransport.count("encomp") < 1>><<button "+1 dispatch">><<set $OrbTransport.push("encomp"), $energy -= (6*$Oeu)>><<goto "Orb Configuration">><</button>><</if>>
-      <<if $OrbTransport.count("encomp") > 0>><<button "-1 dispatch">><<set $OrbTransport.delete("encomp"), $energy += (6*$Oeu)>><<goto "Orb Configuration">><</button>><</if>>
+      <<if $energy >= (6*$Oeu) && $OrbTransport.count("encomp") < 1>><<button "+1 dispatch">><<set $OrbTransport = removeOne($OrbTransport, "encomp"), $energy -= (6*$Oeu)>><<goto "Orb Configuration">><</button>><</if>>
+      <<if $OrbTransport.count("encomp") > 0>><<button "-1 dispatch">><<set $OrbTransport.pluck("encomp", 0), $energy += (6*$Oeu)>><<goto "Orb Configuration">><</button>><</if>>
     <</if>>
-    <<if ($TransMast3 && $CampM.Orb && $Camp_M) || ($Camp_J && $CampJ.Orb && hasVisited("TBM0") && !$QuestPool.includes($Q2))>>
+    <<if ($TransMast3 && $CampM.Orb && $Camp_M) || ($Camp_J && $CampJ.Orb && hasVisited("TBM0") && !$eventfrom3E && !$QuestPool.includesAny($Q2, $Q2A, $Q2B))>>
       <div class="index-screens-small-OC"><div><strong>Nutrients Transport to Camp Mountain</strong>
       <div><<= (9 * $OrbTransport.count("CMNutrients")).toFixed(1)>> nutrients for <br><<= (((10+($summand*2))*$Oeu) * $OrbTransport.count("CMNutrients")).toFixed(1)>> Energy </div>
       <<if $energy > $maxenergy>><<set $energy = $maxenergy>><</if>><<= $energy.toFixed(1)>> of maximal <<= $maxenergy>></div>
       <<if $energy >= ((10+($summand*2))*$Oeu)>><<button "+1 dispatch">><<set $energy -= 3>><<set $OrbTransport.push("CMNutrients"), $energy -= ((10+($summand*2))*$Oeu)>><<goto "Orb Configuration">><</button>><</if>>
-      <<if $OrbTransport.count("CMNutrients") > 0>><<button "-1 dispatch">><<set $energy += 3>><<set $OrbTransport.delete("CMNutrients"), $energy -= ((10+($summand*2))*$Oeu)>><<goto "Orb Configuration">><</button>><</if>>
+      <<if $OrbTransport.count("CMNutrients") > 0>><<button "-1 dispatch">><<set $energy += 3>><<set $OrbTransport. = removeOne($OrbTransport, "CMNutrients"), $energy -= ((10+($summand*2))*$Oeu)>><<goto "Orb Configuration">><</button>><</if>>
     <</if>>
   <<elseif $Camp_M>>
     <<if $explored.T2N == 100>>
@@ -1306,21 +1323,21 @@ What do I want for the Orb to collect?<<nobr>>
       <div><<= 3 * $OrbTransport.count("unimatter")>> unimatter for <br><<= (((14+($summand*2))*$Oeu) * $OrbTransport.count("unimatter")).toFixed(1)>> Energy </div>
       <<if $energy > $maxenergy>><<set $energy = $maxenergy>><</if>><<= $energy.toFixed(1)>> of maximal <<= $maxenergy>></div>
       <<if $energy >= ((14+($summand*2))*$Oeu)>><<button "+1 dispatch">><<set $OrbTransport.push("unimatter"), $energy -= ((14+($summand*2))*$Oeu)>><<goto "Orb Configuration">><</button>><</if>>
-      <<if $OrbTransport.count("unimatter") > 0>><<button "-1 dispatch">><<set $OrbTransport.delete("unimatter"), $energy += ((14+($summand*2))*$Oeu)>><<goto "Orb Configuration">><</button>><</if>>
+      <<if $OrbTransport.count("unimatter") > 0>><<button "-1 dispatch">><<set $OrbTransport.pluck("unimatter"), $energy += ((14+($summand*2))*$Oeu)>><<goto "Orb Configuration">><</button>><</if>>
     <</if>>
     <<if $explored.T1E == 100>>
       <div class="index-screens-small-OC"><div><strong>Nutrients Transport</strong>
       <div><<= 9 * $OrbTransport.count("nutrients")>> nutrients for <br><<= (((8+($summand*2))*$Oeu) * $OrbTransport.count("nutrients")).toFixed(1)>> Energy </div>
       <<if $energy > $maxenergy>><<set $energy = $maxenergy>><</if>><<= $energy.toFixed(1)>> of maximal <<= $maxenergy>></div>
       <<if $energy >= ((8+($summand*2))*$Oeu)>><<button "+1 dispatch">><<set $OrbTransport.push("nutrients"), $energy -= ((8+($summand*2))*$Oeu)>><<goto "Orb Configuration">><</button>><</if>>
-      <<if $OrbTransport.count("nutrients") > 0>><<button "-1 dispatch">><<set $OrbTransport.delete("nutrients"), $energy += ((8+($summand*2))*$Oeu)>><<goto "Orb Configuration">><</button>><</if>>
+      <<if $OrbTransport.count("nutrients") > 0>><<button "-1 dispatch">><<set $OrbTransport.pluck("nutrients"), $energy += ((8+($summand*2))*$Oeu)>><<goto "Orb Configuration">><</button>><</if>>
     <</if>>
     <<if $explored.T3S == 100>>
       <div class="index-screens-small-OC"><div><strong>Energy Composite Transport</strong>
       <div><<= (2.5 * $OrbTransport.count("encomp")).toFixed(1)>> energy composites for <br><<= (((16+($summand*2))*$Oeu) * $OrbTransport.count("encomp")).toFixed(1)>> Energy </div>
       <<if $energy > $maxenergy>><<set $energy = $maxenergy>><</if>><<= $energy.toFixed(1)>> of maximal <<= $maxenergy>></div>
       <<if $energy >= ((16+($summand*2))*$Oeu)  || $OrbTransport.count("encomp") < 1>><<button "+1 dispatch">><<set $OrbTransport.push("encomp"), $energy -= ((16+($summand*2))*$Oeu)>><<goto "Orb Configuration">><</button>><</if>>
-      <<if $OrbTransport.count("encomp") > 0>><<button "-1 dispatch">><<set $OrbTransport.delete("encomp"), $energy += ((16+($summand*2))*$Oeu)>><<goto "Orb Configuration">><</button>><</if>> 
+      <<if $OrbTransport.count("encomp") > 0>><<button "-1 dispatch">><<set $OrbTransport.pluck("encomp"), $energy += ((16+($summand*2))*$Oeu)>><<goto "Orb Configuration">><</button>><</if>> 
     <</if>>
   <<else>>
     All energy spent. Either reduce the energy input or rest.
@@ -1422,7 +1439,7 @@ What do I want for the Orb to collect?<<nobr>>
 
     I went to check on Vika to get more urgency on myself, to have more pressure. Two days, and Vika is no more. That is if we are lucky when no hostile passes here. <em>Ech!</em> That sucks.<br><br>
 
-    <<say "RD">>What if I go West or North? Or South?<</say>><br><br>
+    <<if hasVisited("TBM0")>><<say "RD">>What if I go West or North? Or South?<</say>><br><br>
 
     Leo only rolled with his head and shrugged with on shoulder.<br><br>
 
@@ -1434,7 +1451,7 @@ What do I want for the Orb to collect?<<nobr>>
 
     <<say "Leo">>It is the same feeling if I am usually right.<</say>><br><br>
 
-    I raised my eyebrows, stare at him. But he stares me back, resolutely. Now I turn my eyes to the side and upwards. Weighing my legs forth and back.<br><br>
+    I raised my eyebrows, stare at him. But he stares me back, resolutely. Now I turn my eyes to the side and upwards. Weighing my legs forth and back.<br><br><</if>>
 
     Alright. I go around to look for something I could use for the dangerous passage.<br><br>
 
@@ -1463,7 +1480,7 @@ What do I want for the Orb to collect?<<nobr>>
 <</nobr>></blockquote></center>
 
 
-:: Picture Disassemble {"position":"2550,2150","size":"100,100"}
+:: Picture Disassemble {"position":"2675,2150","size":"100,100"}
 <center><blockquote>
 [img[assets/backgrounds/Placeholder.png]]
 
@@ -1473,7 +1490,7 @@ What do I want for the Orb to collect?<<nobr>>
 </blockquote></center>
 
 
-:: Picture Dismantle Spaceship {"position":"2800,2150","size":"100,100"}
+:: Picture Dismantle Spaceship {"position":"2925,2150","size":"100,100"}
 <center><blockquote>
 [img[assets/backgrounds/Placeholder.png]]
 
@@ -1483,7 +1500,7 @@ What do I want for the Orb to collect?<<nobr>>
 </blockquote></center>
 
 
-:: Picture Repair Spaceship {"position":"2675,2150","size":"100,100"}
+:: Picture Repair Spaceship {"position":"2800,2150","size":"100,100"}
 <center><blockquote>
 [img[assets/backgrounds/Placeholder.png]]
 
@@ -1493,7 +1510,7 @@ What do I want for the Orb to collect?<<nobr>>
 </blockquote></center>
 
 
-:: Picture RepairBot {"position":"2425,2150","size":"100,100"}
+:: Picture RepairBot {"position":"2550,2150","size":"100,100"}
 <center><blockquote>
 [img[assets/backgrounds/Placeholder.png]]
 
@@ -1504,6 +1521,20 @@ What do I want for the Orb to collect?<<nobr>>
 
 
 :: Picture Turnover {"position":"2050,2150","size":"100,100"}
+<<nobr>>
+	  <<if $QuestPoolDone.includesAll($Q1CA1, $Q1CA2)>>
+    <<set $QuestPool.delete($Q1CA); $QuestPoolDone.pushUnique($Q1CA); $QuestPool.pushUnique($Q1CA3); $VikaHeal = $days>>
+  <</if>>
+<</nobr>><center><blockquote>
+[img[assets/backgrounds/Placeholder.png]]
+
+
+<<ab>><<if $Camp_J>>[[Camp Jungle]]<<else>>[[Camp Mountain]]<</if>><</ab>>
+
+</blockquote></center>
+
+
+:: Picture Vika in Cryostasis {"position":"2175,2150","size":"100,100"}
 <center><blockquote>
 [img[assets/backgrounds/Placeholder.png]]
 
@@ -1513,7 +1544,7 @@ What do I want for the Orb to collect?<<nobr>>
 </blockquote></center>
 
 
-:: Picture repair Leo {"position":"2300,2150","size":"100,100"}
+:: Picture repair Leo {"position":"2425,2150","size":"100,100"}
 <center><blockquote>
 [img[assets/backgrounds/Placeholder.png]]
 
@@ -1526,39 +1557,144 @@ What do I want for the Orb to collect?<<nobr>>
 :: QuestProgressor [Missions] {"position":"2675,1425","size":"100,100"}
 <<nobr>>
   <<if $QuestPool.includes($Q0) && _currentQuest == $Q0>>&nbsp;<</if>>
-  <<if $QuestPool.includes($Q2) && _currentQuest == $Q2 && $nutrients >= 15>><<ab>>[[Plan the transport|Task 2]]<</ab>><<elseif $QuestPool.includes($Q2) && _currentQuest == $Q2  && $nutrients < 15>>--- Not enough nutrients ---<</if>>
-  <<if $QuestPool.includes($Q2A) && _currentQuest == $Q2A && $unimatter >= 2>><<ab>>[[Plan the transport|Task 2]]<</ab>><<elseif $QuestPool.includes($Q2A) && _currentQuest == $Q2A  && $unimatter < 2>>--- Not enough unimatter ---<</if>>
-  <<if $QuestPool.includes($Q2B) && _currentQuest == $Q2B && ($dayCount + 2) <= $days && $energy >= (((5+$summand)*2)*0.2)>><<ab>>[[Go to the Mountain Ridge|TBM0][$energy -= (((5+$summand)*2)*0.2); $QuestPool.delete($Q2B); $QuestPoolDone.pushUnique($Q2B); $QuestPool.pushUnique($Q2C)]]<</ab>><<elseif $QuestPool.includes($Q2B) && _currentQuest == $Q2B && ($dayCount + 2) <= $days && $energy < (((5+$summand)*2)*0.2)>>--- Not enough energy ---<</if>>
-  <<if $QuestPool.includes($Q2C) && _currentQuest == $Q2C && ($dayCount + 5) <= $days && !$QuestPoolDone.includes($Q2C) || $eventfrom3E>><<set $QuestPool.delete($Q2C); $QuestPoolDone.pushUnique($Q2C)>><</if>>
+
+  <<if $QuestPool.includes($Q2) && _currentQuest == $Q2 && $nutrients >= 15>>
+    <<ab>>[[Plan the transport|Task 2]]<</ab>>
+  <<elseif $QuestPool.includes($Q2) && _currentQuest == $Q2  && $nutrients < 15>>
+    <div class="conditionnotmet"><div class="conditionnotmet">--- Not enough nutrients ---</div>
+  <</if>>
+
+  <<if $QuestPool.includes($Q2A) && _currentQuest == $Q2A && $unimatter >= 2>>
+    <<ab>>[[Plan the transport|Task 2]]<</ab>>
+  <<elseif $QuestPool.includes($Q2A) && _currentQuest == $Q2A  && $unimatter < 2>>
+    <div class="conditionnotmet"><div class="conditionnotmet">--- Not enough unimatter ---</div>
+  <</if>>
+
+  <<if $QuestPool.includes($Q2B) && _currentQuest == $Q2B && ($dayCount + 2) <= $days && $energy >= (((5+$summand)*2)*0.2)>>
+    <<ab>>[[Go to the Mountain Ridge|TBM0][$energy -= (((5+$summand)*2)*0.2); $QuestPool.delete($Q2B); $QuestPoolDone.pushUnique($Q2B); $QuestPool.pushUnique($Q2C)]]<</ab>>
+  <<elseif $QuestPool.includes($Q2B) && _currentQuest == $Q2B && ($dayCount + 2) <= $days && $energy < (((5+$summand)*2)*0.2)>><div class="conditionnotmet">--- Not enough energy ---</div>
+  <</if>>
+  
+  <<if $QuestPool.includes($Q2C) && _currentQuest == $Q2C && ($dayCount + 5) <= $days && !$QuestPoolDone.includes($Q2C) || $eventfrom3E>>
+    <<set $QuestPool.delete($Q2C); $QuestPoolDone.pushUnique($Q2C)>>
+  <</if>>
+  
   <<if $QuestPool.includes($Q2E) && _currentQuest == $Q2E>>
-    <<if $SubAnalyzer>><<ab>>[[Send them the coordinates where the nutrients are|Scheduler][$QuestPool.delete($Q2E); $QuestPoolDone.pushUnique($Q2E); $CMnutrientsplus += random(2, 4)]]<</ab>><</if>>
-    <<if $SubAnalyzer>><<ab>>[[Send them the coordinates where unimatter can be found|Scheduler][$QuestPool.delete($Q2E); $QuestPoolDone.pushUnique($Q2E); $CampM.Farm = 5; $CampM.building += 1]]<</ab>><</if>>
-    <<if $CampJ.Orb == 3 && $OrbAutoCJ && $energy >= (($Oeu*(5+$summand))*2) && $unimatter >= 6>><<ab>>[[Send them the unimatter they need to build a farm|Scheduler][$QuestPool.delete($Q2E); $QuestPoolDone.pushUnique($Q2E); $energy -= (($Oeu*(5+$summand))*2); $unimatter -= 6; $CampM.Farm = 5; $CampM.building += 1]]<</ab>><<elseif $CampJ.Orb == 3 && $energy >= (((0.2+$Oeu)*(5+$summand))*2) && $unimatter >= 6>><<ab>>[[Bring them the unimatter they need to build a farm|Scheduler][$QuestPool.delete($Q2E); $QuestPoolDone.pushUnique($Q2E); $energy -= (((0.2+$Oeu)*(5+$summand))*2); $unimatter -= 6; $CampM.Farm = 5; $CampM.building += 1]]<</ab>><</if>>
-    <<if $CampJ.Orb == 3 && $OrbAutoCJ && $energy >= (($Oeu*(5+$summand))*2) && $nutrients >= 4>><<ab>>[[Send them the nutrients|Scheduler][$QuestPool.delete($Q2E); $energy -= (($Oeu*(5+$summand))*2); $nutrients -= 4; $CampM.nutrients += 4]]<</ab>><<elseif $CampJ.Orb == 3 && $energy >= (((0.2+$Oeu)*(5+$summand))*2) && $unimatter >= 6>><<ab>>[[Bring them the nutrients|Scheduler][$QuestPool.delete($Q2E); $energy -= (((0.2+$Oeu)*(5+$summand))*2); $nutrients -= 4; $CampM.nutrients += 4]]<</ab>><</if>>
-  <<if $QuestPool.includesAny($Q1CA, $Q1CA1, $Q1CA2) && _currentQuest == $Q1CA && ($VikaCountdown + 2) < $days>><<set $QuestPool.delete($Q1CA, $Q1CA1, $Q1CA2); $QuestPool.pushUnique($Q1CA4)>><</if>>
-  <<if $QuestPool.includes($Q1CA1) && _currentQuest == $Q1CA1 && $nutrients >= 5 && $energy >= 2>><<ab>>[[Turn over the nutrients|Picture Turnover][$QuestPool.delete($Q1CA1); $QuestPoolDone.pushUnique($Q1CA1); $nutrients -= 5; $energy -= 2]]<</ab>><<else>>Not enough nutrients or 2 energy.<</if>>
-  <<if $QuestPool.includes($Q1CA2) && _currentQuest == $Q1CA2 && $unimatter >= 3 && $energy >= 2>><<ab>>[[Turn over the unimatter|Picture Turnover][$QuestPool.delete($Q1CA2); $QuestPoolDone.pushUnique($Q1CA2); $unimatter -= 5; $energy -= 2]]<</ab>><<else>>Not enough unimatter or 2 energy.<</if>>
-  <<if $QuestPoolDone.includes($Q1CA1, $Q1CA2)>><<set $QuestPool.delete($Q1CA); $QuestPoolDone.pushUnique($Q1CA); $QuestPool.pushUnique($Q1CA3); $VikaHeal = $days>><</if>>
-  <<if $QuestPool.includes($Q1CA3) && _currentQuest == $Q1CA3 && ($VikaHeal+4) <= $days>><<set $QuestPool.delete($Q1CA3); $QuestPoolDone.pushUnique($Q1CA3); $noVika = false>><<ab>>[[Go gratulating Vika]]<</ab>><</if>>
-  <<if $QuestPoolDone.includes($Q1CB) && _currentQuest == $Q1CB && $unimatter >= 1 && $nutrients >= 2 && $energy >= 2>><<ab>>[[Repair Leo|Picture repair Leo][$QuestPool.delete($Q1CB); $QuestPoolDone.pushUnique($Q1CB); $unimatter -= 1; $nutrients -= 2; $energy -= 2]]<</ab>><<else>>Not enough nutrients, unimatter or 2 energy.<</if>>
-  <<if $QuestPoolDone.includes($Q1CC) && _currentQuest == $Q1CC && $unimatter >= 4 && $energy >= 4>><<ab>>[[Action the printing of a mobile repairbot|Picture RepairBot][$QuestPool.delete($Q1CC); $QuestPool.pushUnique($Q1CC2A); $QuestPoolDone.pushUnique($Q1CC); $unimatter -= 1; $nutrients -= 2; $energy -= 2; $phases = 0]]<</ab>><<else>>Not enough nutrients, unimatter or 2 energy.<</if>>
-  <<if $QuestPool.includes($Q1CC1) && _currentQuest == $Q1CC1 && $energy >= 2 && $phases <= 2>><<if $phases < 2>><<ab>>[[Disassemble the broken buildings to unimatter|Picture Disassemble][$unimatter += 2; $energy -= 2]]<</ab>><<else>><<ab>>[[Disassemble the last scraps|Scheduler][$QuestPool.delete($Q1CC1); $QuestPoolDone.pushUnique($Q1CC1); $unimatter += 2; $energy -= 2; $CampJ.maxbuildings += 2]]<</ab>><</if>><<else>>Not enough energy.<</if>>
-  <<if $QuestPool.includes($Q1CC2A) && _currentQuest == $Q1CC2A && $unimatter >= 2 && $energy >= 3 && $phases <= 3>><<if $phases < 3>><<ab>>[[Repair the spaceship|Picture Repair Spaceship][$QuestPool.delete($Q1CC2B); $unimatter -= 2; $energy -= 3]]<</ab>><<else>><<set $QuestPool.delete($Q1CC2A); $QuestPoolDone.pushUnique($Q1CC2A); $unimatter -= 2; $energy -= 3>><<ab>><<if $Camp_M>>[[Do the final repair on the spaceship|Camp Mountain]]<<else>>[[Do the final repair on the spaceship|Camp Jungle]]<</ab>><</if>><<else>>Not enough unimatter or energy.<</if>>
-   <<if $QuestPool.includes($Q1CC2B) && _currentQuest == $Q1CC2 && $energy >= 3 && $phases <= 2>><<if $phases < 2>><<ab>>[[Dismantle the spaceship|Picture Dismantle Spaceship][$QuestPool.delete($Q1CC2A); $unimatter += 3; $energy -= 3; $phases += 1]]<</ab>><<else>><<set $QuestPool.delete($Q1CC2B); $QuestPoolDone.pushUnique($Q1CC2B); $unimatter += 3; $energy -= 3; $CampJ.maxbuildings += 3>><<ab>><<if $Camp_M>>[[Dismantle the last pieces of the spaceship|Camp Mountain]]<<else>>[[Dismantle the last pieces of the spaceship|Camp Jungle]]<</ab>><</if>><<else>>Not enough energy.<</if>>
-  <</nobr>>
+    <<if $SubAnalyzer>>
+      <<ab>>[[Send them the coordinates where the nutrients are|Scheduler][$QuestPool.delete($Q2E); $QuestPoolDone.pushUnique($Q2E); $CMnutrientsplus += random(2, 4)]]<</ab>>
+    <</if>>
+    <<if $SubAnalyzer>>
+      <<ab>>[[Send them the coordinates where unimatter can be found|Scheduler][$QuestPool.delete($Q2E); $QuestPoolDone.pushUnique($Q2E); $CampM.Farm = 5; $CampM.building += 1]]<</ab>>
+    <</if>>
+    <<if $CampJ.Orb == 3 && $OrbAutoCJ && $energy >= (($Oeu*(5+$summand))*2) && $unimatter >= 6>>
+      <<ab>>[[Send them the unimatter they need to build a farm|Scheduler][$QuestPool.delete($Q2E); $QuestPoolDone.pushUnique($Q2E); $energy -= (($Oeu*(5+$summand))*2); $unimatter -= 6; $CampM.Farm = 5; $CampM.building += 1]]<</ab>>
+    <<elseif $CampJ.Orb == 3 && $energy >= (((0.2+$Oeu)*(5+$summand))*2) && $unimatter >= 6>>
+      <<ab>>[[Bring them the unimatter they need to build a farm|Scheduler][$QuestPool.delete($Q2E); $QuestPoolDone.pushUnique($Q2E); $energy -= (((0.2+$Oeu)*(5+$summand))*2); $unimatter -= 6; $CampM.Farm = 5; $CampM.building += 1]]<</ab>>
+    <</if>>
+    <<if $CampJ.Orb == 3 && $OrbAutoCJ && $energy >= (($Oeu*(5+$summand))*2) && $nutrients >= 4>>
+      <<ab>>[[Send them the nutrients|Scheduler][$QuestPool.delete($Q2E); $energy -= (($Oeu*(5+$summand))*2); $nutrients -= 4; $CampM.nutrients += 4]]<</ab>>
+    <<elseif $CampJ.Orb == 3 && $energy >= (((0.2+$Oeu)*(5+$summand))*2) && $unimatter >= 6>>
+      <<ab>>[[Bring them the nutrients|Scheduler][$QuestPool.delete($Q2E); $energy -= (((0.2+$Oeu)*(5+$summand))*2); $nutrients -= 4; $CampM.nutrients += 4]]<</ab>>
+    <</if>>
+  <</if>>
+
+  <<if $QuestPool.includesAny($Q1CA, $Q1CA1, $Q1CA2) && _currentQuest == $Q1CA && ($VikaCountdown + 2) < $days>>
+    <<set $QuestPool.delete($Q1CA, $Q1CA1, $Q1CA2); $QuestPool.pushUnique($Q1CA4)>>
+  <</if>>
+
+  <<if $QuestPool.includes($Q1CA1) && _currentQuest == $Q1CA1 && $nutrients >= 5 && $energy >= 2>>
+    <<ab>>[[Turn over the nutrients|Picture Turnover][$QuestPool.delete($Q1CA1); $QuestPoolDone.pushUnique($Q1CA1); $nutrients -= 5; $energy -= 2]]<</ab>>
+  <<elseif $QuestPoolDone.includes($Q1CA1) && _currentQuest == $Q1CA1 && ($nutrients < 5 || $energy < 2)>><div class="conditionnotmet">--- Not enough nutrients or 2 energy ---</div>
+  <</if>>
+
+  <<if $QuestPool.includes($Q1CA2) && _currentQuest == $Q1CA2 && $unimatter >= 3 && $energy >= 2>>
+    <<ab>>[[Turn over the unimatter|Picture Turnover][$QuestPool.delete($Q1CA2); $QuestPoolDone.pushUnique($Q1CA2); $unimatter -= 5; $energy -= 2]]<</ab>>
+  <<elseif $QuestPool.includes($Q1CA2) && _currentQuest == $Q1CA2 && ($unimatter < 3 || $energy < 2)>><div class="conditionnotmet">--- Not enough unimatter or 2 energy ---</div>
+  <</if>>
+
+  <<if $QuestPool.includes($Q1CA4) && _currentQuest == $Q1CA4 && $unimatter >= 2 && $energy >= 3 && $nutrients >= 4 && $phases <= 1>>
+    <<if $phases < 1>>
+      Phase <<= $phases+1>>:<br>
+      <<ab>>[[Turnover the necessities for Vika|Picture Vika in Cryostasis][$unimatter -= 2; $energy -= 3; $nutrients -= 4; $phase += 1]]<</ab>>
+    <<else>>
+      Last phase:<br>
+      <<ab>>[[Turnover the last batch of necessities for Vika|Picture Vika in Cryostasis][$unimatter -= 2; $energy -= 3; $nutrients -= 4; $phase += 1; $QuestPool.delete($Q1CA4); $QuestPoolDone.pushUnique($Q1CA4); $QuestPool.pushUnique($Q1CA3); $VikaHeal = $days]]<</ab>>
+    <</if>>
+  <</if>>
+
+  <<if $QuestPool.includes($Q1CA3) && _currentQuest == $Q1CA3 && ($VikaHeal+4) <= $days>>
+    <<ab>>[[Go gratulating Vika][$QuestPool.delete($Q1CA3); $QuestPoolDone.pushUnique($Q1CA3); $noVika = false]]<</ab>>
+  <</if>>
+
+  <<if $QuestPool.includes($Q1CB) && $QuestPoolDone.includes($Q1CA) && _currentQuest == $Q1CB && $unimatter >= 1 && $nutrients >= 2 && $energy >= 2>>
+    <<ab>>[[Repair Leo|Picture repair Leo][$QuestPool.delete($Q1CB); $QuestPoolDone.pushUnique($Q1CB); $unimatter -= 1; $nutrients -= 2; $energy -= 2]]<</ab>>
+  <<elseif $QuestPool.includes($Q1CB) && _currentQuest == $Q1CB && ($unimatter < 1 || $nutrients < 2 || $energy < 2)>><div class="conditionnotmet">--- Not enough nutrients, unimatter or 2 units of energy ---</div>
+  <</if>>
+
+  <<if $QuestPool.includes($Q1CC) && $QuestPoolDone.includes($Q1CA) && $QuestPoolDone.includes($Q1CB) && _currentQuest == $Q1CC && $unimatter >= 4 && $energy >= 4>>
+    <<ab>>[[Action the printing of a mobile repairbot|Picture RepairBot][$QuestPool.delete($Q1CC); $QuestPool.pushUnique($Q1CC1); $QuestPoolDone.pushUnique($Q1CC); $unimatter -= 1; $nutrients -= 2; $energy -= 2]]<</ab>>
+  <<elseif $QuestPool.includes($Q1CC) && _currentQuest == $Q1CC && ($unimatter < 4 || $energy < 4)>><div class="conditionnotmet">---Not enough unimatter or energy ---</div>
+  <</if>>
+
+  <<if $QuestPool.includes($Q1CC1) && _currentQuest == $Q1CC1 && $energy >= 2 && $phases <= 2>>
+    <<if $phases < 2>>
+      Phase <<= $phases+1>>:<br>
+      <<ab>>[[Disassemble the broken buildings to unimatter|Picture Disassemble][$unimatter += 2; $energy -= 2; $phases += 1]]<</ab>>
+    <<else>>
+      Last phase:<br>
+      <<ab>>[[Disassemble the last scraps|Picture Disassemble][$QuestPool.delete($Q1CC1); $QuestPoolDone.pushUnique($Q1CC1); $QuestPool.pushUnique($Q1CC2A, $Q1CC2B); $unimatter += 2; $energy -= 2; $CampJ.maxbuildings += 2; $phases = 0]]<</ab>>
+    <</if>>
+  <<elseif $QuestPool.includes($Q1CC1) && _currentQuest == $Q1CC1 && $energy < 2>><div class="conditionnotmet">--- Not enough energy ---</div>
+  <</if>>
+
+  <<if $QuestPool.includes($Q1CC2A) && _currentQuest == $Q1CC2A && $unimatter >= 2 && $energy >= 3 && $phases <= 3>>
+    <<if $phases < 3>>
+      Phase <<= $phases+1>>:<br>
+      <<ab>>[[Repair the spaceship|Picture Repair Spaceship][$QuestPool.delete($Q1CC2B); $unimatter -= 2; $energy -= 3; $phases += 1]]<</ab>>
+    <<else>>
+      <<set $QuestPool.delete($Q1CC2A); $QuestPoolDone.pushUnique($Q1CC2A); $unimatter -= 2; $energy -= 3>>
+      Last phase:<br>
+      <<ab>>
+        <<if $Camp_M>>[[Do the final repair on the spaceship|Camp Mountain][$QuestPool.delete($Q1CC2A); $QuestPoolDone.pushUnique($Q1CC2A); $QuestPool.delete($Q1C0); $QuestPoolDone.pushUnique($Q1C0); $unimatter -= 2; $energy -= 3; $phases = 0]]
+        <<else>>[[Do the final repair on the spaceship|Camp Jungle][$QuestPool.delete($Q1CC2A); $QuestPoolDone.pushUnique($Q1CC2A); $QuestPool.delete($Q1C0); $QuestPoolDone.pushUnique($Q1C0); $unimatter -= 2; $energy -= 3; $phases = 0; $CampJ.maxbuildings = 3]]
+        <</if>>
+      <</ab>>
+    <</if>>
+  <<elseif $QuestPool.includes($Q1CC2A) && _currentQuest == $Q1CC2A && ($unimatter < 2 || $energy < 3)>><div class="conditionnotmet">--- Not enough unimatter or energy ---</div>
+  <</if>>
+
+  <<if $QuestPool.includes($Q1CC2B) && _currentQuest == $Q1CC2B && $energy >= 3 && $phases <= 2>>
+    <<if $phases < 2>>
+      Phase <<= $phases+1>>:<br>
+      <<ab>>[[Dismantle the spaceship|Picture Dismantle Spaceship][$QuestPool.delete($Q1CC2A); $unimatter += 3; $energy -= 3; $phases += 1]]<</ab>>
+    <<else>>
+      <<set $QuestPool.delete($Q1CC2B); $QuestPoolDone.pushUnique($Q1CC2B); $unimatter += 3; $energy -= 3; $CampJ.maxbuildings += 3>>
+      Last phase:<br>
+      <<ab>>
+        <<if $Camp_M>>[[Dismantle the last pieces of the spaceship|Camp Mountain][$QuestPool.delete($Q1CC2B); $QuestPoolDone.pushUnique($Q1CC2B); $QuestPool.delete($Q1C0); $QuestPoolDone.pushUnique($Q1C0); $unimatter += 3; $energy -= 3; $phases = 0; $CampM.maxbuildings += 2]]
+        <<else>>[[Dismantle the last pieces of the spaceship|Camp Jungle][$QuestPool.delete($Q1CC2B); $QuestPoolDone.pushUnique($Q1CC2B); $QuestPool.delete($Q1C0); $QuestPoolDone.pushUnique($Q1C0); $unimatter += 3; $energy -= 3; $phases = 0; $CampM.maxbuildings += 2]]
+        <</if>>
+      <</ab>>
+    <</if>>
+  <<elseif $QuestPool.includes($Q1CC2B) && _currentQuest == $Q1CC2B && $energy < 3>><div class="conditionnotmet">---Not enough energy ---</div>
+  <</if>>
+
+<</nobr>>
 
 
 :: QuestTracker [Missions] {"position":"2675,1300","size":"100,100"}
 <<nobr>>
 
+<<set $Q1 = "Investigate the by vegetation overgrown spaceship in the east.">>
+<<set $Q1A = "Go to Camp Mountain and ask for help">>
 <<set $Q1A = "Go to Camp Mountain and ask for help">>
 <<set $Q1B = "Go to East, a tip from AI to Leo">>
-<<set $Q1C = "Do repairs">>
+<<set $Q1C0 = "Do repairs">>
 <<set $Q1CA = "Priority 1 - Repair Vika within 2 days, otherwise she has to be enfreezed (which takes constantly 3 energy units).">>
 <<set $Q1CA1 = "Priority 1a - Find and bring at least 5 nutrients.">>
 <<set $Q1CA2 = "Priority 1b - Find and bring at least 3 unimatter.">>
 <<set $Q1CA3 = "Wait some days to greet Vika.">>
-<<set $Q1CA4 = "Wake Vika from her cryostasis. 7 nutrients, 4 unimatter and 5 energies are needed.">>
+<<set $Q1CA4 = "Wake Vika from her cryostasis. 8 nutrients, 4 unimatter and 6 units of energy are needed.">>
 <<set $Q1CB = "Priority 2 - repair Leo ( - 1 unimatter & - 2 nutrients & - 2 energy)">> 
 <<set $Q1CC = "Priority 3 - print a mobile repairbot ( - 4 energy & - 4 unimatter)">>
 <<set $Q1CC1 = "Dismantle the broken buildings (- 6 energy & + 6 unimatter)">>
@@ -1572,7 +1708,9 @@ What do I want for the Orb to collect?<<nobr>>
 
 <<set $Q2E = "The ladies in Camp Mountain sent an urgency. They ask us whether we can send them nutrients, as theirs are running low, or do we know of a place where they can colllect nutrients or 6 unimatter for a hydroponic farm? They have now only <<= $CampM.nutrients>> nutrients left.">>
 
-<<set $Q3 = "What happened there in the East? Why were we attacked?">>
+<<set $Q3 = "What happened there in the East? Why were we attacked?">> /* propose a meeting with all residents and vote on how to continue: retrieval of the broken orb? drone flies? Cheap miniature drones? Build sensors?*/
+<<set $Q3A = "Analyze the retrieved data">> /* Conclusion: Aliens? Bad Luck? Natural Phenomenon/Physical Anomaly? Defense Mechanism of the spaceship itself? Insufficient Data? */
+<<set $Q3B = "Conclusion?">> /* Continue on? Approach? Red Zone Mark on 3E? Find other spaceships to bundle ressources and energy? */
 
 <</nobr>>
 
@@ -1593,9 +1731,9 @@ The "Q" key popups the task progressor everywhere.</center>
 <<if $OrbAutoCJ && $Camp_J || $OrbAutoCM && $Camp_M || $TransMast3 && ($OrbAutoCJ || $OrbAutoCM)>><div class="index-screens-small"><div style="width: 100%;background:darkslateblue">[[Configure the Orb|Orb Configuration]]</div></div><</if>>
 
 <div class="order-indices"><div class="index-screens-normal"><div style="color:#ff944d"><strong>open tasks</strong></div>
-  <div><ul><<for _name range $QuestPool>><<set _currentQuest = _name>><li> _name<br><<include [[QuestProgressor]]>></li><</for>></ul></div></div>
+  <div><ul><<for _name range $QuestPool>><<set _currentQuest = _name>><li><blockquote> _name<br><<include [[QuestProgressor]]>></blockquote></li><</for>></ul></div></div>
 <div class="index-screens-normal"><div style="color:#cc9966"><strong>completed tasks</strong></div>
-  <div><ol><<for _name range $QuestPoolDone>><li> _name</li><</for>></ol></div></div>
+  <div><ol><<for _name range $QuestPoolDone>><li><blockquote> _name</blockquote></li><</for>></ol></div></div>
 <div class="index-screens-small"><div style="width: 100%;"><<if $Camp_J>>[[Go to Camp|Camp Jungle]]<<else>>[[Go to Camp|Camp Mountain]]<</if>></div></div></div>
 
 </blockquote></center>
@@ -1706,7 +1844,7 @@ With whom do I want to socialize?
 
 <<if $noLeo == false && $energy > 1>>[img[Leo|assets/characters/Leo.png][Leo][$energy -= 1; $social += 0.1]]<</if>>
 
-<<if $Camp_M || $TransMast2>><<if $noElva == false && $energy > 1>>[img[Elva|assets/characters/Elva.png][Elva][$energy -= 1; $social += 0.06; $Elvavisits += 1]]<</if>>
+<<if $Camp_M || $TransMast2 || $eventfrom3E>><<if $noElva == false && $energy > 1>>[img[Elva|assets/characters/Elva.png][Elva][$energy -= 1; $social += 0.06; $Elvavisits += 1]]<</if>>
 
 <<if $noAbiba == false && $energy > 1>>[img[Abiba|assets/characters/Abiba.png][Abiba][$energy -= 1; $social += 0.08; $Abibavisits += 1]]<</if>><</if>>
 
@@ -2065,8 +2203,7 @@ Bring them to Camp anyway?
 <<if $eventfrom3E == false && ($xeno > 8 || hasVisited("T2N", "T5W", "T3S", "TBM0"))>><span id="3EBegin">I need to get a better picture. It is too overgrown by vegetation. But ... how to get up?<br><br></span>
 
   <<if ($CampM.Orb == 3 || $CampJ.Orb == 3 || $CampJ.nOrb == 3 || $CampM.nOrb == 3 || $CampJ.cOrb == 3 || $CampM.cOrb == 3 || $CampJ.cnOrb == 3 || $CampM.cnOrb == 3) && $Oeu == 0.3>><br>
-    <<linkappend '<<ab>>Use the Orb<</ab>>' t8n>><<replace "#ABhidden">>&nbsp;<</replace>><<replace "#tohide">>&nbsp;<</replace>><<replace "#3EBegin">>
-    <br>  
+    <<linkappend '<<ab>>Use the Orb<</ab>>' t8n>><<set $QuestPool.delete($Q1), $QuestPoolDone.pushUnique($Q1); >><<replace "#ABhidden">>&nbsp;<</replace>><<replace "#tohide">>&nbsp;<</replace>><<replace "#3EBegin">>
     [img[assets/backgrounds/floatingOrb.png]]
     <br>
     Ok, before I print something, I send the orb to scan as much as possible. With enough informations I can design more to the point. Also, I will know whether there is danger or where to get in ...<</replace>>
@@ -2098,12 +2235,11 @@ Bring them to Camp anyway?
             <<replace "#wait">><div class="tremors">Suddenly there are tremors. The whole area is vibrating; accompanied by a whooshing and buzzing sound!</div><<set _react = 6>>
             
               <div class="tremors"><span id="react"></span></div>
-              <<script>>window.scrollBy(0,120)<</script>>
                 <<repeat 1s>>
                   <<set _react-->>
                   <<if _react > 0>>
                     <<replace "#react">>
-                      <<if $energy > 0.2>>
+                      <<if $energy > 0.2>><<run automaticDownscroll();>>
                         <br><br>
                         <<if $Camp_J>><<ab>>[[RUN!|T2E][$energy -= 0.2; $eventfrom3E = true]]<</ab>>
                         <<else>><<ab>>[[RUN!|T4E][$energy -= 0.2; $eventfrom3E = true]]<</ab>>
@@ -3382,6 +3518,14 @@ Both now feel rather that we resettle our camp here. They wish more company. Tha
 
 
 :: StoryScript [script]
+//--------- automatic downscroll
+
+window.automaticDownscroll = function() {
+    setTimeout(function() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }, 0);
+};
+
 //--------- range in conditionals, works fabulously
 
 Object.defineProperty(Number.prototype,'range',{
@@ -3392,7 +3536,7 @@ Object.defineProperty(Number.prototype,'range',{
     }
   });
   
-  //-------------------- Pop-Up Scheduler
+//-------------------- Pop-Up Scheduler
   
   document.addEventListener('keypress', function(event) {
       if (event.key === 'q') {
@@ -3479,7 +3623,17 @@ Object.defineProperty(Number.prototype,'range',{
       document.getElementById('popup-urgent').remove();
   }  
   
-  //---------------------------
+//--------------------------- remove one instance
+
+  window.removeOne = function(arr, item) {
+      const index = arr.indexOf(item);
+      if (index > -1) {
+          arr.splice(index, 1);
+      }
+      return arr;
+  };
+
+//---------------------------
 
 :: StoryStylesheet [stylesheet]
 /* core ------------------------------------------------------------------------------------- */    
@@ -4230,6 +4384,12 @@ box-sizing: border-box;
   animation-duration: 5s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
+}
+
+/* condition not met in Quest Progressor -------------------------------------------------*/
+
+.conditionnotmet {
+  background-color: indianred;
 }
 
 /* placeholder ----------------------------------------------*/
