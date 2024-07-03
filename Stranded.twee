@@ -513,6 +513,18 @@ It is a huge setback. The hull is broken. As are the cockpit, our life maintenan
 <<cacheaudio "V8" "assets/characters/Me/V8.mp4">>
 
 
+:: Beginning {"position":"2050,2475","size":"100,100"}
+<center><blockquote>
+[img[assets/backgrounds/Placeholder.png]]
+
+At the time as Solaris stretched itself out the whole solar system, about connecting Neptune to the Solaris Hub, it was conceivable that the Neptune connection was a matter of time. Consequently the next step would be sending out probes to nearby stellar systems, although some were already sent. Especially to those promising earth-like prospects.
+This planet is one of those. The mission is obvious - after setting an outpost: Is it colonizable? If not, what features does it have?
+
+<<ab>>[[Year 1]]<</ab>>
+
+</blockquote></center>
+
+
 :: Camp Jungle [autosave] {"position":"750,925","size":"100,100"}
 <<nobr>>
   <<script>>
@@ -1479,11 +1491,12 @@ Aaand ignition!
 
 ...
 
-Come on, that what you see is only the postbot. What tomfoolery would that be to catapult a huge spacewhale out of our solar system from the earthen soil! And no, I am sitting - stacked - in a commuter; on the way to the big chunker that is anchored nearby Mars. The solar constellation is good enough to sling the inter-galactic Hokule'a (or Mayflower) out of solar system. 
+Come on, that what you see is only the postbot. What tomfoolery would that be to catapult a huge spacewhale out of our solar system from the earthen soil! And no, I am sitting - stacked - in a commuter; on the way to the big chunker that is anchored nearby Mercure. If ready, the big chunker will float to the gateway, that will bend time and space to sling the big chunker out of the solar system. 
 
-If you have noticed. Yes. It is a virgin journey. A galaxis that is not yet established. And therefore not connected to Solaris (the hub of the solar system and an homage to the polish writer). The outpost and further developped colonies in neighbour galaxies clearly get their exchanges by informations, not in materials - or molecules - like in this form of the chunker, this half moon.
+It destination: Alpha Centauro. A stellar system recently established by probes and first pioneers. All criteria are within tolerable parameters and three planets are get go for colonization by Homo Solaris. 
+The project, the voyage, is the biggest of its kind, but also probably one of the last. You see, sending practically a "country" with its living inhabitants has become too huge, too risky and it takes too much time. A new approach is in transaction: Sending only sophisticated printers that upon arrival initiates a waking protocol, which is usually goes in by first sending a status feedback to Solaris Hub, then by printing sensors, a vessel, AI and at last human brains. What happens after, depends on the systemic situation. Much more economic, energy-savvy, faster and safer that way.
 
-Whether the chunker has a name? Enough of reading "big chunker"? Fine, the name of this mobile polymer-ceramic planetoid: Triangulum.
+Whether the chunker has a name? Enough of reading "big chunker"? Fine, the name of this mobile polymer-ceramic half-moon: Alpha Centauri, named after its destination.
 <<timed 52s>><<audio "V7" play>><</timed>>
 So. 
 In this journey, in the virtual city I will enjoy going out, meet people, have dates. Only to be met by frustrations and dissappointments. And, on top of all, my prof will force me to cram, cram, cram. Äääch! Hippiyay. Too much cramming cannot be good, so I go out anew, meet people, have fun, all as much my hormones allows me. Aaaand the cycle repeats: frustrations, dissappointments, cramming. 
@@ -1912,10 +1925,15 @@ What do I want for the Orb to collect?<<nobr>>
 </blockquote></center>
 
 
-:: Picture Orb addendum {"position":"2025,1600","size":"100,100"}
-$addendum = true
+:: Picture Orb addendum {"position":"2425,2275","size":"100,100"}
+<center><blockquote><<set $addendum = true>>
+[img[assets/backgrounds/Placeholder.png]]
 
-Now, it is time for the UNRAVELLING!
+Now. Time for the truth!
+
+<<ab>>[[Camp Jungle]]<</ab>>
+
+</blockquote></center>
 
 
 :: Picture Repair Spaceship {"position":"2800,2150","size":"100,100"}
@@ -2184,6 +2202,10 @@ Now, it is time for the UNRAVELLING!
     <<elseif $QuestPool.includes($Q3H) && _currentQuest == $Q3H && $energy < 1 && $unimatter >= 1>><div class="conditionnotmet">--- no energy (+1) and/or unimatter (+1) ---</div>
   <</if>>
 
+  <<if $QuestPool.includes($Q3I) && _currentQuest == $Q3I && $CampJ.DefPerimeter>><<ab>>[[Well, now the time of truth|The great Expo]]<</ab>>
+    <<elseif $QuestPool.includes($Q3I) && _currentQuest == $Q3I && $CampJ.DefPerimeter == false>><div class="conditionnotmet">--- have Defense Perimeter set ---</div>
+  <</if>>
+
 <</nobr>>
 
 
@@ -2223,6 +2245,7 @@ Now, it is time for the UNRAVELLING!
 <<set $Q3F = "Print a Data Interpreter and have an Orb again.">>
 <<set $Q3G = "Meet with the old man in south-east, near our camp. Have an Orb with you to carry the storage.">>
 <<set $Q3H = "Complement the Orb with a scanner.">>
+<<set $Q3I = "Have a Defense Perimeter set.">>
 
 <</nobr>>
 
@@ -2772,6 +2795,28 @@ Although, it feels like ... here nearby are the crash sites of our pods. Whateve
 
   <<ab>>[[Go back to Camp|Camp Jungle][$QuestPool.delete($Q3G); $QuestPoolDone.pushUnique($Q3G); $QuestPool.pushUnique($Q3H)]]<</ab>>
 
+<<elseif $QuestPool.includes($Q3H) && $CampJ.Orb == 3 && $addendum>>
+  
+  The time of truth!
+
+  <<linkappend "Signal the Orb to scan the storage container.">> [img[assets/events/Orbscans.png]]
+
+    <div class="dot-enqueuer"><div class="Dot1">.</div><div class="Dot2">.</div><div class="Dot3">.</div></div>
+
+    <<timed 2s>>After some thorough scanning, it gave me the 96% probability that it is an explosive. 
+
+      Huh! What indicates those 4%?
+
+      <<say "RD">>new components, new design, not known to humanity. The developper do not take responsibility in case of failure. Right. Obviously. Clever! Just generally have a small percentage to be lawfully out of responsibility.<</say>>
+
+      ...
+
+      Well, I do not think, it is going to explode. I point the Orb to carry the storage.
+
+      <<ab>>[[Now. To the unravelling.|The great Expo][$energy -= 3*(0.2+$Oeu)]]<</ab>> 
+
+    <</timed>>
+  <</linkappend>>
 <<else>>  
   A path?! Huh! That's new. 
   
@@ -3937,6 +3982,17 @@ T5W: 0,
 <</if>>
 
 
+:: The great Expo {"position":"2550,2275","size":"100,100"}
+<center><blockquote>
+[img[assets/backgrounds/Placeholder.png]]
+
+The others set the record interpreter outside in a distance to the spaceship, but still within our defense perimeter.
+
+<<ab>>[[At the time ...|Beginning]]<</ab>>
+
+</blockquote></center>
+
+
 :: VariableControl {"position":"1150,25","size":"100,100"}
 SFW Path: <<print $SFW_Path>>
 
@@ -4163,6 +4219,51 @@ So! Take out your contact lenses or your glasses, and all is fine!
       <</if>>
     <</if>>  
   </div><</nobr>><</widget>>
+
+
+:: Year 1 {"position":"2175,2475","size":"100,100"}
+<center><blockquote>
+[img[assets/backgrounds/Placeholder.png]]
+
+Log - Year 1: 
+Arrival at KAPTEYN'S STAR. A red dwarf star system. All sensors are active and scan for planetary bodies. Initial readings indicate the presence of at least two confirmed planets, Kapteyn b and Kapteyn c, within our immediate vicinity, Kapteyn d and e were discovered some time later.
+Superficial survey of all planets for potential habitability.
+Kapteyn c revealed to be a potential habitable planet. With a restriction.
+This planet is plighted by meteorites bombardment. Constantly. The meteorite shower happened quite recently: around 50 years before our arrival. Hence after our sendout. It happens since the orbit of a planet - Kapteyn d - is merging with its neighbor -Kapteyn e. Both began chafing each other around 50 years ago, sending debris throughout the whole system.
+Our orbital outpost has to initiate the evade maneuver three times.
+It is calculated that this lush planet wouldn't die from the outer influence, only will have many setbacks. We baptized it as Bādhiccu.
+
+<<say "Elva">>That is definitely a fact contra colonization. Moreso, that more debris will follow.<</say>>
+
+We all nod.
+
+<<ab>>[[Year 2]]<</ab>>
+
+</blockquote></center>
+
+
+:: Year 2 {"position":"2300,2475","size":"100,100"}
+<center><blockquote>
+[img[assets/backgrounds/Placeholder.png]]
+
+Log - Year 2: 
+A spot were found to be undisturbed by meteorites for some time. More than enough time to explore on-planet. 
+Cartographed status of this stellar system: 86,54%.
+Cartographed status of Badhiccu: 34,23%.
+Badhiccu - Kapteyn c - teem with many life-forms.
+
+
+<<say "Elva">>That is definitely a fact contra colonization. Moreso, that more debris will follow.<</say>>
+
+We all nod.
+
+<<ab>>[[Year 3]]<</ab>>
+
+</blockquote></center>
+
+
+:: Year 3 {"position":"2425,2475","size":"100,100"}
+
 
 
 :: Yes {"position":"225,300","size":"100,100"}
