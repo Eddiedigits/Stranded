@@ -517,8 +517,8 @@ It is a huge setback. The hull is broken. As are the cockpit, our life maintenan
 <center><blockquote>
 [img[assets/backgrounds/Placeholder.png]]
 
-At the time as Solaris stretched itself out the whole solar system, about connecting Neptune to the Solaris Hub, it was conceivable that the Neptune connection was a matter of time. Consequently the next step would be sending out probes to nearby stellar systems, although some were already sent. Especially to those promising earth-like prospects.
-This planet is one of those. The mission is obvious - after setting an outpost: Is it colonizable? If not, what features does it have?
+<div class="logbook">At the time as Solaris stretched itself out the whole solar system, about connecting Neptune to the Solaris Hub, it was conceivable that the Neptune connection was a matter of time. Consequently the next step would be sending out probes to nearby stellar systems, although some were already sent. Especially to those promising earth-like prospects.
+This planet is one of those. The mission is obvious - after setting an outpost: Is it colonizable? If not, what features does it have?</div>
 
 <<ab>>[[Year 1]]<</ab>>
 
@@ -4177,6 +4177,17 @@ So! Take out your contact lenses or your glasses, and all is fine!
 <</if>>
 
 
+:: Whoa! {"position":"2675,2475","size":"100,100"}
+<center><blockquote>
+[img[assets/backgrounds/Placeholder.png]]
+
+Paavali stands before the defense perimeter. After we all glanced him, he waved to us.
+
+<<ab>>[[]]<</ab>>
+
+</blockquote></center>
+
+
 :: WhyNothing {"position":"2050,300","size":"100,100"}
 <center>
 ... energy is too low for any constructions. We need rest.
@@ -4225,13 +4236,13 @@ So! Take out your contact lenses or your glasses, and all is fine!
 <center><blockquote>
 [img[assets/backgrounds/Placeholder.png]]
 
-Log - Year 1: 
+<div class="logbook"> Log - Year 1: 
 Arrival at KAPTEYN'S STAR. A red dwarf star system. All sensors are active and scan for planetary bodies. Initial readings indicate the presence of at least two confirmed planets, Kapteyn b and Kapteyn c, within our immediate vicinity, Kapteyn d and e were discovered some time later.
 Superficial survey of all planets for potential habitability.
 Kapteyn c revealed to be a potential habitable planet. With a restriction.
 This planet is plighted by meteorites bombardment. Constantly. The meteorite shower happened quite recently: around 50 years before our arrival. Hence after our sendout. It happens since the orbit of a planet - Kapteyn d - is merging with its neighbor -Kapteyn e. Both began chafing each other around 50 years ago, sending debris throughout the whole system.
 Our orbital outpost has to initiate the evade maneuver three times.
-It is calculated that this lush planet wouldn't die from the outer influence, only will have many setbacks. We baptized it as Bādhiccu.
+It is calculated that this lush planet wouldn't die from the outer influence, only will have many setbacks. We baptized it as Bādhiccu.</div>
 
 <<say "Elva">>That is definitely a fact contra colonization. Moreso, that more debris will follow.<</say>>
 
@@ -4246,16 +4257,20 @@ We all nod.
 <center><blockquote>
 [img[assets/backgrounds/Placeholder.png]]
 
-Log - Year 2: 
+<div class="logbook"> Log - Year 2: 
 A spot were found to be undisturbed by meteorites for some time. More than enough time to explore on-planet. 
 Cartographed status of this stellar system: 86,54%.
 Cartographed status of Badhiccu: 34,23%.
-Badhiccu - Kapteyn c - teem with many life-forms.
+Badhiccu - Kapteyn c - teem with few carbon-based life-forms, mainly plants, strangely very few "animals". No one in our proximity demonstrated a degree in intelligence matched with ours. Yet. 
+Some plant-based entities are consumable or can be converted to consumables. Some even have completely unknown molecular structures, which are handled with caution, since their effects are not foreseeable at all.
+After some cycles, our sensors indicates huge swathes of metallic compounds under badhiccan soil. Probably stretching in thousands of kilometers. Mainly made of titanium. And it is moving, changing, oscillating. Constantly!
+Upon excavating on a spot, it demonstrated high reactivity. Unusual for metallic compounds mainly made of titanium. At first, it emanated malleability and heat, then coldness and durability. Interestingly, the metallic surface progressively hardened as our driller continued, revealing an adaptive changes. Changes within minutes! To be sure, excavations were repeated on other spots. They demonstrate all the same behavior: reactive change in density. 
+On excavation spot number 12, something happened: it spiked. It formed a kind of a stele ---</div>
 
+I stretch out my arm, pointing to this fact while looking at the others. We look at each other, knowing now that it is the same that attacked our spaceship.
 
-<<say "Elva">>That is definitely a fact contra colonization. Moreso, that more debris will follow.<</say>>
-
-We all nod.
+<div class="logbook">--- in a matter of milliseconds! With a explosive velocity that pulverized the driller and sent the supervisors meters far away. They immediately have to be stabilized in the med-chambers. Their brains luckily only suffered mild concussions. After some recalibrations, they are good to go. 
+It displayed a pro-active defense mechanism, prompting an immediate halt to all excavations. Deliberations ensued on how best to proceed safely and effectively in light of this adaptation. Especially on how to communicate with it.</div>
 
 <<ab>>[[Year 3]]<</ab>>
 
@@ -4263,7 +4278,56 @@ We all nod.
 
 
 :: Year 3 {"position":"2425,2475","size":"100,100"}
+<center><blockquote>
+[img[assets/backgrounds/Placeholder.png]]
 
+<div class="logbook"> Log - Year 3: 
+The entity of reactive metal is termed the Titan.
+Following occurrences happened while studying observantly and passively the Titan:
+- observant new animals, which later were presumed to be under influence of the Titan
+- aggressive animals, not indicating to be under influence of the Titan
+- micrological floating units, predominantly of half-metallic origin, assumed from the Titan
+- some of our automatic units lost, later assumed neutralized by the Titan
+- magnetic anomalies
+- high energy discharges, which led very often to thunderstorms
+- tremors, caused by Titan's inner activity
+- earthquakes, correlated with Titan, meterorite bombardment and tectonic repositionings
+- a monolith near our camp, composed of many types of compounds, presumed to function as sensors</div>
+
+<<say "Leo">>Huh!<</say>>
+
+<<say "Vika">>What?<</say>>
+
+<<say "Leo">>Just an ominous feeling. I fear now, it is not simple-minded like the animals.<</say>>
+
+<div class="logbook">First attempts to send messages to the monolith; no correlated reactions determined. Distributing the energy budget to 50% exploration of Badhicca and 50% to attempts to message the monolith respectively to the Titan.</div>
+
+<<ab>>[[Year 4]]<</ab>>
+
+</blockquote></center>
+
+
+:: Year 4 {"position":"2550,2475","size":"100,100"}
+<center><blockquote>
+[img[assets/backgrounds/Placeholder.png]]
+
+<div class="logbook"> Log - Year 4: 
+Over 80% of automatic units lost.
+Attempts to contact the Kapteyn Hub with no successes.
+Attempts to launch from Badhicca failed.
+Switched to sleep mode.</div>
+
+<<say "RD">>Leo? You do not look good.<</say>>
+
+<<say "Leo">>How can I. It demonstrate an high intelligence!<</say>>
+
+Weird, I do not feel that spooked. And the others are in different degrees of nervousness. Is it because of my feeling that it could have killed us, but didn't?
+
+Then we all jolted, Vika shrieked. As we turn to see what made her scream, we jolted again.
+
+<<ab>>[[Whoa!]]<</ab>>
+
+</blockquote></center>
 
 
 :: Yes {"position":"225,300","size":"100,100"}
@@ -6283,4 +6347,13 @@ box-sizing: border-box;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
+
+/* pierced animation ----------------------------------------*/
+
+.logbook {
+  border: 3px solid whitesmoke;
+  border-radius: 1em;
+  background-color: aquamarine;
+}
+
 /* placeholder ----------------------------------------------*/
