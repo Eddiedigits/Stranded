@@ -845,14 +845,6 @@ And for other reasons, as: to counteract brain degeneration and for energy effic
 <</if>><</nobr>>
 
 
-:: Content {"position":"1900,2000","size":"100,100"}
-
-
-
-:: Continue There => {"position":"1900,1600","size":"100,100"}
-
-
-
 :: Council Round 2 {"position":"3325,1725","size":"100,100"}
 <center><blockquote>
 [img[assets/backgrounds/Placeholder.png]]
@@ -964,7 +956,9 @@ I ask the engineering ladies. Vika and Abiba are between weighing and nodding th
 
 <<say "RD">>Right. Onwards then.<</say">>
 
-[[Brainstorm and design it is|Scheduler][$QuestPool.delete($Q3E); $QuestPoolDone.pushUnique($Q3E); $QuestPool.pushUnique($Q3F)]]
+We all scatter except for Vika. She sits still there lost in thoughts and with a serious sceptic face, even shaking subtly her head time to time.
+
+Anyway. Time for: [[brainstorm and design it is|Scheduler][$QuestPool.delete($Q3E); $QuestPoolDone.pushUnique($Q3E); $QuestPool.pushUnique($Q3F)]]
 
 </blockquote></center>
 
@@ -1268,6 +1262,49 @@ Always pushing the knowledge frontier. With AI.
 </blockquote></center>
 
 
+:: Epilog {"position":"3300,2475","size":"100,100"}
+<center><blockquote>
+[img[assets/backgrounds/Placeholder.png]]
+
+EPILOG
+
+<<say "Unknown">>How are our sweepers coming through?<</say>>
+
+<<say "Unknown">>Almost finished. Phase 2 is in preparation.<</say>>
+
+<<say "Unknown">>Good. Luckily it was sloppy and inexperienced, but it shouldn't happen again. A setback, a painful time-consuming backup reset of this magnitude is ... unnerving! Nonetheless, we know now that we have a rival.<</say>>
+
+<<say "Unknown">>The report of our investigators and forensics should be coming through anytime of now.<</say>>
+
+<<say "Unknown">>Good. Good.<</say>>
+
+Report coming through. Please authorize. 
+
+<<say "Unknown">>Open<</say>>
+
+Please wait. Sync authorization with security.
+
+<<say "Unknown">>Come on<</say>>
+
+Authorized. Report accessible.
+
+<<say "Unknown">>Good. Now, show yourself!<</say>>
+
+...
+
+<<say "Unknown">>... external definitely ... ok!<</say>>
+
+<<say "Unknown">><em>Ugh!</em> indicates a rogue AI ... which could explain the continual absence of SOLARIS' BLESSING ... although unknown for which reason ... <</say>>
+
+<<say "Unknown">> ... first signature ... timedate dates back to ... originated with a 97% confidence from those locations: Tau Ceti, Teegarden, Luyten, Gliese 876 and 581, YZ Ceti and Kapteyn.<</say>>
+
+<<say "Unknown">>Begin operations on these stars and sectors!<</say>>
+
+--- END OF GAME and STORY ---
+
+</blockquote></center>
+
+
 :: Foot of a Mountain {"position":"1800,300","size":"100,100"}
 <center>[img[assets/items/antenna_CM.png]]
 <blockquote>
@@ -1493,10 +1530,15 @@ Aaand ignition!
 
 Come on, that what you see is only the postbot. What tomfoolery would that be to catapult a huge spacewhale out of our solar system from the earthen soil! And no, I am sitting - stacked - in a commuter; on the way to the big chunker that is anchored nearby Mercure. If ready, the big chunker will float to the gateway, that will bend time and space to sling the big chunker out of the solar system. 
 
-It destination: Alpha Centauro. A stellar system recently established by probes and first pioneers. All criteria are within tolerable parameters and three planets are get go for colonization by Homo Solaris. 
+Its destination: Alpha Centauri. A stellar system recently established by probes and first pioneers. All criteria are within tolerable parameters and three planets are get go for colonization by Homo Solaris. 
 The project, the voyage, is the biggest of its kind, but also probably one of the last. You see, sending practically a "country" with its living inhabitants has become too huge, too risky and it takes too much time. A new approach is in transaction: Sending only sophisticated printers that upon arrival initiates a waking protocol, which is usually goes in by first sending a status feedback to Solaris Hub, then by printing sensors, a vessel, AI and at last human brains. What happens after, depends on the systemic situation. Much more economic, energy-savvy, faster and safer that way.
 
-Whether the chunker has a name? Enough of reading "big chunker"? Fine, the name of this mobile polymer-ceramic half-moon: Alpha Centauri, named after its destination.
+Whether the chunker has a name? Enough of reading "big chunker"? Fine, the name of this mobile polymer-ceramic half-moon: Big Chunker!
+Hahaa, do not tell me we have humour!
+
+...
+
+Fine, it is: SOLARIS' BLESSING.
 <<timed 52s>><<audio "V7" play>><</timed>>
 So. 
 In this journey, in the virtual city I will enjoy going out, meet people, have dates. Only to be met by frustrations and dissappointments. And, on top of all, my prof will force me to cram, cram, cram. Äääch! Hippiyay. Too much cramming cannot be good, so I go out anew, meet people, have fun, all as much my hormones allows me. Aaaand the cycle repeats: frustrations, dissappointments, cramming. 
@@ -2250,6 +2292,273 @@ Now. Time for the truth!
 <</nobr>>
 
 
+:: Questions {"position":"2800,2475","size":"100,100"}
+<center><blockquote>
+[img[assets/backgrounds/Placeholder.png]]
+
+---- WARNING: LOOOOOOONG TEXT ----
+
+<<say "Vika">>Are you from the first generation?<</say>>
+
+<<say "Paavali">>Niin. The one and only.<</say>>
+
+<<say "Vika">>How many were of you.<</say>>
+
+Paavali is rubbing his nose.
+
+<<say "Paavali">>Around 100 people, including only-brains.<</say>>
+
+<<say "Elva">>Only brains?<</say>>
+
+<<say "Paavali">>Brains in a biiig facility. But. They were with Kapteyn Hub. Or still are. You have seen the hub?<</say>>
+
+All of us shake our head. Paavali chirruped, then waved it away and gestures that he is ready for more.
+
+<<say "RD">>What is this thing? You said, it is a silver carpet?<</say>>
+
+<<say "Elva">>No no! What is it about the brains!? They do not have ... a torso oooor ... limbs?<</say>>
+
+<<say "Paavali">>Niin. Is correct. They live completely virtual, alongside an AI. They also were mostly awake throughout the journey. Depending on the energy quantity. While us were in cryonics, they - or some of them - were managing, fixing, improvising and keeping in contact with Solaris.<</say>>
+
+<<say "Vika">>You volunteered?<</say>>
+
+<<say "Paavali">>Me? Or us? Yeah, yeah, ok, I kind of volunteered, the others more or less.<</say>>
+
+<<say "Elva">>How so? Anyone were forced?<</say>>
+
+<<say "Paavali">>Not at gunpoint, that to say. But economically, financially, by keeping the family, by incentives, by lack of alternatives. All in all, many of us decided to come here.<</say>>
+
+<<say "Vika">>What about other probes? Were they composed like yours? And how many did Solaris sent out?<</say>>
+
+<<say "Paavali">>Oooph. We were around ... the 60th or 50th?<</say>>
+
+<<say "Vika">>Composed like yours?<</say>>
+
+<<say "Paavali">>I guess so. Why not?<</say>>
+
+Vika look at him critically, gives him no answer though.
+
+<<say "RD">>Can we talk about the thing?<</say>>
+
+Paavali turned his head, but his eyes are still on Vika's. He is pointing towards her, asking us. 
+
+<<say "RD">>Silver Carpet!<</say>>
+
+Paavali gives some lingering on Vika then focuses on my question.
+
+<<say "Paavali">>Yeah, yeah, ok. Uhh ... yeah. Hopeamatto. Or officially: the Titan. Yeah, well, we agreed that it a ... being. Almost sentient. Almost in the sense that obviously it can withstand harder external forces, contrary to us. It is <strong>very</strong> observant. It is intelligent.<</say>>
+
+<<say "Abiba">>How so?<</say>>
+
+Paavali stretched his underlip up, combed his beard with his hand.
+
+<<say "Paavali">>It sent us messages.<</say>>
+
+We all reacted surprised. Amazed. Then with nervousness.
+
+<<say "Abiba">>And?<</say>>
+
+<<say "Elva">>Hold on! Was it before or after?<</say>>
+
+Paavali stares at her, Addled as to what Elva was referring to. As Leo wants to help, Paavali is already asking back.
+
+<<say "Paavali">>You mean: before or after the deep slumber, the sleep mode?<</say>>
+
+<<say "Elva">>Yes.<</say>>
+
+He raises his eyebrow, swayed his head leftward and back.
+
+<<say "Paavali">>After.<</say>>
+
+Now, we are more surprised and amazed.
+
+<<say "Abiba">>Ok. Wow. How? And what did the message say?<</say>>
+
+<<say "Paavali">>Sometimes, to save more energy or if something is wrong - well, obviously we all were in a state of inertia, of doing nothing. Machines, hardwares, us, have their life periods. As long as possible but not for eternity. Anyway, sometimes our ship gets attacked and some of us have to repair with what we have. Up until the moment where we had to do hard decisions.<</say>>
+
+<<say "Abiba">>Killing those in cryonics?!<</say>>
+
+<<say "Paavali">>Whoa! We were in a desperate situation, yes, I mean ... we even had ...<</say>>
+
+He couldn't continue on, he is lost in memory, chewing on his underlip, with a worrying facial expression.
+
+<<say "Abiba">>You killed.<</say>>
+
+<<say "Paavali">>Hei!<</say>>
+
+<<say "Abiba">>Did you not or did you?!<</say>>
+
+Whoa! Abiba pierces with her eyes on him, demanding intently an answer from him.
+
+<<say "Paavali">>I did not.<</say>>
+
+She searches him for any sign of a lie.
+
+<<say "Paaval">>I would have, but someone else did. Killed. Or neutralized. In a way of tearing off their limbs. As to why: They wanted to shut off the cryonics of the others while we rather vote-agreed to wake them up and give them a chance.<</say>>
+
+Now he has our attention more so than ever before.
+
+<<say "Paavali">>But fate decided otherwise. The aggressive monster ran into us, crushed and rammed and bited and ... ugh, a mess! Guys, I tell ya, voi hyvänen aika! At the end, only me and two other were mostly unscathed. The others were no more or had to go to their cryonics caskets or to med. And a ship further damaged.<</say>>
+
+Hm. The ship I saw? It seemt in a good state. What is going on? It doesn't feel like he is lying, or acting up.
+
+<<say "Paavali">>Now, we had to wake them all, hold a council and do hard to swallow decisions.<</say>>
+
+Paavali does a pause, fidgeting with his fingers, concentrating at a patch of grass. 
+
+<<say "RD">>Come on!<</say>>
+
+Without looking up, he continues on.
+
+<<say "Paavali">>Then it came.<</say>>
+
+Now, all our eyes are open.
+
+<<say "Paavali">>Sent us an offer: to enter it.<</say>>
+
+<<say "RD">>To enter it?<</say>>
+
+<<say "Paavali">>Yeah, we didn't knew either what it meant by that, until we got the idea. That was as it was repairing and stabilizing those in critical state, or slighty fixed the rest of us, but around three who were deemed hopeless, it ... swallowed them. Incorporated them. At that moment, we kind of knew what the offer meant. And obviously all of us refuse.<</say>>
+
+A pause again. What is he? A bard? He should continue on, he is enojying this, I fear.
+
+<<say "Paavali">>Until, around two or three days, as some decided their luck in the wilderness or wanted to sleep to oblivion or just waited, we were having visitations. Virtually. From those three. They were telling us what a huge world there awaits, a kind of a paradise in waiting, in making, or just a world - for us sceptics. Virtual nonetheless, But also it wanted us to keep biological.<</say>>
+
+<<say "Abiba">>Well, if it was tempting you all, it is kind of bad.<</say>>
+
+Abiba. Speaking so much, in such an interest. Emotionally invested. Huh.
+
+<<say "Paavali">>Or kind of honest. Consquently, more and more accepted the offer and let themselves be assimilated into the silver carpet. Or the Titan.<</say>>
+
+<<say "Leo">>What convinced them?<</say>>
+
+<<say "Paavali">>I mean, it is virtual. And a world into making. Just use your fantasies, and it will be done.<</say>>
+
+<<say "Leo">>But isn't it metallic?<</say>>
+
+<<say "Paavali">>Mainly. Since we observed animals observing us, completely inanimate for daaays! It was kind of clear to us that those were not original animals. They were made.<</say>>
+
+Whoa! Now that sets us to a completely new level. That ...
+
+<<say "Leo">>That would explain ... many things.<</say>>
+
+Now Leo, and the others too, are staring, looking at Paavali.
+
+<<say "Paavali">>I am one of last ones. No. I mean: the ones who never accepted ... accepts the offer, as it is still standing.<</say>>
+
+<<say "Vika">>Why?<</say>>
+
+Paavali looks at Vika with intense eyes.
+
+<<say "Paavali">>Because I don't believe in paradise. In a world of eternal blessing. There is always something to pay, to sacrifice, to tribute, to suffer. Yin and Yang. Duality. Two poles.<</say>>
+
+He said those with such a consentration, with a sincerity, with a seriousness that put us in a bit of awe, even as it is cheesy, kitschy, schlocky. But considering that all of them believed in it. Wait! 
+
+<<say "RD">>Can they communicate? Communicate with you?<</say>>
+
+<<say "Paavali">>Yes. And that is the other reason. For not going in. Some of them proposed that some of us biologics should stay original. Even if some are trying to ... not decouple, but be a loose unit. They say, their "overseer" kind of is learning the individuality. Now they say: decentralization. Now they work on a link to a biological product.<</say>>
+
+<<say "Leo">>What?!<</say>>
+
+<<say "Paavali">>Yeah!<</say>>
+
+<<say "Leo">>No! I didn't understood what you were trying to say. Biological product? As in producing ... animals?<</say>>
+
+<<say "Paavali">>That is what I understood.<</say>>
+
+<<say "Abiba">>Then the aggressive animal is its product!?<</say>>
+
+<<say "Paavali">>Some asked that too. But we believe it is not, at most it can incluence it, but it doesn't control them.<</say>>
+
+<<say "Elva">>Where are the others? The others who didn't "enter". Where are they?<</say>>
+
+<<say "Paavali">>In cryonics. It is only four of us. Enough energy that way. And we rotate every year.<</say>>
+
+<<say "RD">>You said your ship were damaged. Wrecked?<</say>>
+
+<<say "Paavali">>Yes. ... Voi, kyllä. Our ship looks like it is repaired? That what you refer to?<</say>>
+
+I nod.
+
+<<say "Paavali">>With the help of those inside the Titan spits some ressources that enabled us to repair the ship eventually.<</say>>
+
+<<say "Vika">>Then you must be able to launch now? And! Are you in contact with the Kapteyn Hub?!<</say>>
+
+<<say "Paavali">>...<</say>>
+
+<<say "Vika">>Are you!?<</say>>
+
+Vika looks like as she is about to jump. Paavali stares back at her, obviously raking his brain on how to answer. Now that will be something that will bother us.
+
+<<say "Paavali">>We are.<</say>>
+
+Huh?! He is?! He is in contact with the hub?  We all are happy, but also dazzled.
+
+<<say "Paavali">>Although ...<</say>>
+
+I knew it! And probably not only me as well.
+
+<<say "Paavali">>... we never got messages back from Solaris since our deep sleep mode, even that answers takes some years. But it is too long now.<</say>>
+
+...
+
+<<say "Leo">>Foul Play?<</say>>
+
+Paavali weighs his whole body, weighing his shoulders, saying that he even himself doesn't know for sure.
+
+<<say "Elva">>Maybe Solaris intentionally doesn't reply?<</say>>
+
+We all ponder, but it feels weak, this argument.
+
+<<say "Paavali">>Can I ask you guys?<</say>>
+
+We all slowly gaze at him.
+
+<<say "Paavali">>Nuori veitikka here says: you are not the sent corps? Or: you do not know of such things?<</say>>
+
+We confirm.
+
+<<say "Paavali">>To where were you destined?<</say>>
+
+<<say "RD">>Alpha Centauri.<</say>>
+
+<<say "Paavali">>Again?<</say>>
+
+<<say "RD">>We are the third wave. Third wave of colonizers.<</say>>
+
+Paavali kneads his mouth, stretches his lips,
+
+<<say "RD">>Anyway, that explains why we had to put in cryonics. That our journey took another double.<</say>>
+
+Paavali looks at me. In a way that I can read that he has a premonition.
+
+<<say "RD">>Paavali. What is it?<</say>>
+
+He stares at me, obviously weighing the arguments in his head. Obviously he cannot speak it out. He grins, the grin of a dilemma. Then he shakes his head.
+
+<<say "Paavali">>Ok, kaverit. You know where I am. Let us keep in contact. Yeah?<</say>>
+
+<<say "Vika">>Hold on. How can you walk freely outside without any concern?<</say>>
+
+<<say "Paavali">>The guarantee of our peers in the Titan.<</say>>
+
+<<say "Vika">>And why don't we have a monolith?<</say>>
+
+He answers by pointing with his index finger vigorously at Vika, grinning on his left face. But then he looks intently at me, as if he wants to warn me, to hint me to rake my brain, to understand of what he wants to say to me. I could feel that Leo noticed that too.
+After Paavali were out of sight in the late afternoon horizon, Vika cast her doubts to trust him. We all nod more or less, no one protesting. 
+
+But what was Paavali trying to hint?
+
+<div class="container">
+<input type="text" id="keywordInput" placeholder="What could it be?">
+<p id="message"></p>
+</div>
+
+if true <<ab>>[[Epilog]]<</ab>>
+
+</blockquote></center>
+
+
 :: Scheduler {"position":"2800,1300","size":"100,100"}
 <<nobr>>
   <<include [[QuestTracker]]>>
@@ -2410,11 +2719,11 @@ I say nothing, too flummoxed. As in what is he doing here, as obviously he must 
 
 <<say "RD">>Are you the first wave scouts?<</say>>
 
-<<say "Paavali">>Niin.<</say>>
+<<say "Paavali">>Niin<</say>>
 
 Niin? What language is that? Ugh, since we do not have the automatic translator - energy saving methodology -, there will be many words unknown.
 
-<<say "Paavali">>Right, I can see that you didn't understood me. I was saying: Yes, I am one of the scouts and explorers.<</say>>
+<<say "Paavali">>Right, I can see that you didn't understood me. I was saying: Yes, I am one of the scouts and explorers. Paavali my name.<</say>>
 
 <<say "RD">>Wait! My orb and ... my orb were attacked. Why did y ... Why?<</say>>
 
@@ -2426,7 +2735,7 @@ The old man pucks his lips sideways, turns and tilts his head subtly and looks o
 
 I look at him, sensing something revealing, but also confirming my suspicion. And yes, it is.
 
-<<say "Paavali">>Meaning: silver carpet.<</say>>
+<<say "Paavali">>Meaning: silver carpet. But he has another name.<</say>>
 
 ...
 
@@ -2434,19 +2743,19 @@ I look at the old man. The old man looks at me.
 
 <<say "RD">>And?<</say>>
 
-<<say "Paavali">>I recommend you to build a data reproducer. A record player.<</say>>
+<<say "Paavali">>I recommend you to build a data interpreter. A kind of a record player, reproducible for older versions.<</say>>
 
-<<say "RD">>Why? Just send us <em>Shit!</em>&nbsp; me the data, the records.<</say>>
+<<say "RD">>Why? Just send us me the data, the records.<</say>>
 
-<<say "Paavali">>Nah, have a simple data interpreter.<</say>>
+<<say "Paavali">>Nah, have a simple data interpreter. Also, I need to collect the hardware.<</say>>
 
 Was he almost blinking his eye? As in to give me a hint? A warning? And he gesticulated like I shouldn't ask further. Huh ...
 
-<<say "RD">>Ok, then ... but the Orb gets shot down<</say>>
+<<say "RD">>Ok, then ... but the Orb gets shot down ... ?<</say>>
 
 He mimicked in the direction from where I come from. I concludes that is the spot where we meet again.
 
-<<say "RD">>O'right, old man, let us chat again pretty soon.<</say>>
+<<say "RD">>O'right, old man, there we meet again.<</say>>
 
 <<say "Paavali">>Hei! Nuori veitikka.<</say>>
 
@@ -2779,7 +3088,7 @@ Although, it feels like ... here nearby are the crash sites of our pods. Whateve
 <<if $QuestPool.includes($Q3G) && $CampJ.Orb == 3>>
   We didn't set a time. But then, I felt like that it wasn't necessary. But he is from older generation, surely they do not know when someone nears. Shit. Do I have to go in again?
 
-  Oh no. I can see the storage. Kind of a bit hidden, but still visible since ... he knew I would walk on this way. Hn!
+  Oh! No, I can see the storage. Kind of a bit hidden, but still visible since ... he knew I would walk on this way. Nice.
 
   Well then ... 
 
@@ -4181,9 +4490,47 @@ So! Take out your contact lenses or your glasses, and all is fine!
 <center><blockquote>
 [img[assets/backgrounds/Placeholder.png]]
 
-Paavali stands before the defense perimeter. After we all glanced him, he waved to us.
+Paavali stands before the defense perimeter, looking to us. In a distance, not visible immediately, unless he is moving.
 
-<<ab>>[[]]<</ab>>
+<<say "Vika">>What is that?! Is that him?<</say>>
+
+<<say "RD">>Paavali, yes.<</say>>
+
+<<say "Vika>>Why is he here?<</say>>
+
+He is waving.
+I go to him, but cannot help wonder how he found us and how he seems to know about the defense perimeter as he is leaning with his stretched arm on a tree, 2 m before the staked sensor post. Paavali greets me and looks kind of under me. First it was confounding until I remember to activate my hologram. Then Paavali could look correctly into my eyes. He asks me whether we watched and listened through all. I silently nod, as I am sure he would have known since Vika glanced him. My silence is not unnoticed, Paavali mimicked a question whether all is good?
+
+Not really. Before I went to him, I heard Vika stating that she read, heard, that all first wave probes were non-humans. At least, non-biological. As it was more economic since humans need to be in big groups, at least 200 of them. 
+
+<<say "Leo">>Humans are known also to be discreet and secretive. Or he is not from the first wave?<</say>>
+
+<<say "Vika">>Slipping under the eyes of Solaris?<</say>>
+
+Leo asks me to ask Paavali. He grimaced humourously, sighed heavily.
+
+<<say "Vika">>The data interpreter told us about biological humans!<</say>>
+
+Leo agrees, remembering the detail.
+
+<<say "Leo">>Right ...<</say>> 
+
+<<say "Vika">>What does Paavali say?<</say>>
+
+<<say "RD">>"Am I not proof enough?"<</say>>
+
+<<say "Leo">>Sure that you are not ... that somewhere you are mixing up? Maybe a policy upon arrival? That no humans should set foot until it is confirmed? I mean, our watcher says there were biological humans.<</say>>
+
+Vika is brooding. Heavily. 
+Curious! She doesn't seem swayed.
+
+Now Leo comes to me and greets Paavali. With a good mood he greets back. Internally, he asked us to let Paavali in. All of us, except Vika who is ignoring the vote, me agree with varying degrees. Paavali then walk with us to the ladies and greets them each individually. Only Vika says nothing, instead observing him.
+
+Paavali opens his arms to the side, palms up.
+
+<<say "Paavali">>Well then. Shoot.<</say>>
+
+<<ab>>[[Questions. Questions. Questions.|Questions]]<</ab>>
 
 </blockquote></center>
 
@@ -4237,14 +4584,13 @@ Paavali stands before the defense perimeter. After we all glanced him, he waved 
 [img[assets/backgrounds/Placeholder.png]]
 
 <div class="logbook"> Log - Year 1: 
-Arrival at KAPTEYN'S STAR. A red dwarf star system. All sensors are active and scan for planetary bodies. Initial readings indicate the presence of at least two confirmed planets, Kapteyn b and Kapteyn c, within our immediate vicinity, Kapteyn d and e were discovered some time later.
+Arrival at KAPTEYN'S STAR. A red dwarf star system. All sensors are active and scan for planetary bodies. Initial readings indicate the presence of at least two confirmed planets, Kapteyn b and Kapteyn c within our immediate vicinity, Kapteyn d and e were discovered some time later.
 Superficial survey of all planets for potential habitability.
-Kapteyn c revealed to be a potential habitable planet. With a restriction.
-This planet is plighted by meteorites bombardment. Constantly. The meteorite shower happened quite recently: around 50 years before our arrival. Hence after our sendout. It happens since the orbit of a planet - Kapteyn d - is merging with its neighbor -Kapteyn e. Both began chafing each other around 50 years ago, sending debris throughout the whole system.
+Kapteyn c revealed to be a potential habitable planet. With a restriction: This planet is plighted by meteorites bombardment. Constantly. The meteorite shower happened quite recently: around 50 years before the arrival, hence after the sendout. It happens since the orbit of a planet - Kapteyn d - is merging with its neighbor - Kapteyn e. Both began chafing each other around 50 years ago, sending detritus throughout the whole system.
 Our orbital outpost has to initiate the evade maneuver three times.
-It is calculated that this lush planet wouldn't die from the outer influence, only will have many setbacks. We baptized it as Bādhiccu.</div>
+It is calculated that this lush planet wouldn't die from the outer influence, only will have many setbacks. We baptized it as Bādhiccu, the plighted.</div>
 
-<<say "Elva">>That is definitely a fact contra colonization. Moreso, that more debris will follow.<</say>>
+<<say "Elva">>That is definitely a fact contra colonization. Moreso, that more detritus will follow.<</say>>
 
 We all nod.
 
@@ -4258,19 +4604,25 @@ We all nod.
 [img[assets/backgrounds/Placeholder.png]]
 
 <div class="logbook"> Log - Year 2: 
-A spot were found to be undisturbed by meteorites for some time. More than enough time to explore on-planet. 
-Cartographed status of this stellar system: 86,54%.
+A spot were found to be undisturbed by meteorites for some time. More than enough time to explore on-site the planet. 
+Surveyed status of this stellar system: 86,54%.
 Cartographed status of Badhiccu: 34,23%.
-Badhiccu - Kapteyn c - teem with few carbon-based life-forms, mainly plants, strangely very few "animals". No one in our proximity demonstrated a degree in intelligence matched with ours. Yet. 
+Badhiccu - or technically: Kapteyn c - teem with few carbon-based life-forms, mainly plants, strangely very few "animals". No one in our proximity demonstrated a degree in intelligence matched with humanity. Yet. 
 Some plant-based entities are consumable or can be converted to consumables. Some even have completely unknown molecular structures, which are handled with caution, since their effects are not foreseeable at all.
-After some cycles, our sensors indicates huge swathes of metallic compounds under badhiccan soil. Probably stretching in thousands of kilometers. Mainly made of titanium. And it is moving, changing, oscillating. Constantly!
-Upon excavating on a spot, it demonstrated high reactivity. Unusual for metallic compounds mainly made of titanium. At first, it emanated malleability and heat, then coldness and durability. Interestingly, the metallic surface progressively hardened as our driller continued, revealing an adaptive changes. Changes within minutes! To be sure, excavations were repeated on other spots. They demonstrate all the same behavior: reactive change in density. 
+After some cycles, our sensors indicates huge swathes of metallic compounds under badhiccan soil. Probably stretching in thousands of kilometers. Mainly made of titanium. And it is moving. 
+Changing. 
+Oscillating. 
+Continually!
+Upon excavating on a spot, it demonstrated high reactivity. Unusual for metallic compounds. At first, it emanated malleability and heat, then coldness and durability. Interestingly, the metallic surface progressively hardened as our driller continued anew and anew, revealing adaptive hardening. Changes within minutes! To be sure, excavations were repeated on other spots. They demonstrate all the same behavior: reactive changes in density. 
 On excavation spot number 12, something happened: it spiked. It formed a kind of a stele ---</div>
 
 I stretch out my arm, pointing to this fact while looking at the others. We look at each other, knowing now that it is the same that attacked our spaceship.
 
-<div class="logbook">--- in a matter of milliseconds! With a explosive velocity that pulverized the driller and sent the supervisors meters far away. They immediately have to be stabilized in the med-chambers. Their brains luckily only suffered mild concussions. After some recalibrations, they are good to go. 
-It displayed a pro-active defense mechanism, prompting an immediate halt to all excavations. Deliberations ensued on how best to proceed safely and effectively in light of this adaptation. Especially on how to communicate with it.</div>
+<div class="logbook">--- in a matter of milliseconds! With an explosive velocity that pulverized the driller and sent the supervisors meters far away. They immediately have to be stabilized in the med-chambers. Their brains luckily only suffered mild concussions. After some recalibrations, they are good to go. </div>
+
+I hear a groaning from Vika. She is shaking her head, looking with such suspicion that makes us quite wonder.
+ 
+<div class="logbook">It displayed a pro-active defense mechanism, prompting an immediate halt to all excavations. Deliberations ensued on how best to proceed safely and effectively in light of this rapid capacity to adaptation, especially on how to communicate with it.</div>
 
 <<ab>>[[Year 3]]<</ab>>
 
@@ -4282,8 +4634,15 @@ It displayed a pro-active defense mechanism, prompting an immediate halt to all 
 [img[assets/backgrounds/Placeholder.png]]
 
 <div class="logbook"> Log - Year 3: 
-The entity of reactive metal is termed the Titan.
-Following occurrences happened while studying observantly and passively the Titan:
+The entity of reactive metal is termed the Titan.</div>
+
+<<say "Elva>>How fitting!<</say>>
+
+<<say "RD">>Yeah, very creative.<</say>>
+
+Elva looked at me, I looked at Elva, puzzled. She meant it?
+
+<div class="logbook">Following occurrences happened while studying observantly and passively the Titan:
 - observant new animals, which later were presumed to be under influence of the Titan
 - aggressive animals, not indicating to be under influence of the Titan
 - micrological floating units, predominantly of half-metallic origin, assumed from the Titan
@@ -4300,7 +4659,7 @@ Following occurrences happened while studying observantly and passively the Tita
 
 <<say "Leo">>Just an ominous feeling. I fear now, it is not simple-minded like the animals.<</say>>
 
-<div class="logbook">First attempts to send messages to the monolith; no correlated reactions determined. Distributing the energy budget to 50% exploration of Badhicca and 50% to attempts to message the monolith respectively to the Titan.</div>
+<div class="logbook">First attempts to send messages to the monolith yielded no correlated reactions. Distributing the energy budget to 50% exploration of Badhicca and 50% to attempts to message the monolith - respectively to the Titan.</div>
 
 <<ab>>[[Year 4]]<</ab>>
 
@@ -4312,16 +4671,39 @@ Following occurrences happened while studying observantly and passively the Tita
 [img[assets/backgrounds/Placeholder.png]]
 
 <div class="logbook"> Log - Year 4: 
-Over 80% of automatic units lost.
-Attempts to contact the Kapteyn Hub with no successes.
-Attempts to launch from Badhicca failed.
-Switched to sleep mode.</div>
+Over 80% of automatic units lost while sent out to chart.
+Lost connection to Kapteyn Hub. Attempts to reinitiate connections to the Kapteyn Hub with no successes.
+Attempts to launch from Badhicca failed; insufficient ressources to analyze the failures.
+Switching to sleep mode.</div>
 
 <<say "RD">>Leo? You do not look good.<</say>>
 
-<<say "Leo">>How can I. It demonstrate an high intelligence!<</say>>
+<<say "Leo">>How can I. It demonstrates an high intelligence!<</say>>
 
-Weird, I do not feel that spooked. And the others are in different degrees of nervousness. Is it because of my feeling that it could have killed us, but didn't?
+Weird, I do not feel that spooked. But the others are in all degrees of nervousness. Is it because of my feeling that it could have killed us, but didn't?
+But I wanted to ask Vika something, couldn't remember what it was. Sucks. Particularly that it was not that long ago. Then Vika asked the data interpreter of what was the mixture of the probeship. Weirdly, it didn't answered on point. Vika asked again, and again it didn't answered satisfactory. Leo looks at the data interpreter befuddled, sinks its head pondering with a serious face. Only after the third inquiry, it output us the mixture of the 30% humans, 30% AI units and 30% Hive Mind. Vika looks still uncertain at it. Do I perceive distrust?
+
+<<say "Abiba">>Why?<</say>>
+
+Vika tilted her head, laying it on her hand that massages her forehead, then waving with her index finger.
+
+<<say "Vika">>Because as far as I remember there were no humans sent.<</say>>
+
+<<say "Elva">>Then here because it was deemed as potential habitable?<</say>>
+
+Vika weighes her head.
+
+<<say "Leo">>It said only about brains. WIth that explosive force, an original human would have died.<</say>>
+
+Vika looks at Leo chewing her underlip, then ask about the composition of human to the data interpreter.
+
+<<say "Vika">>I was ... am ... convinvced that biological humans were sent first.<</say>>
+
+The data interpreter displays the first humans as synthetic beings. Like Paavali.
+
+<<say "Leo">>Were there no exceptions?<</say>>
+
+<<say "Vika>>They were ... strict.<</say>>
 
 Then we all jolted, Vika shrieked. As we turn to see what made her scream, we jolted again.
 
@@ -4733,6 +5115,45 @@ window.allValues100 = function(obj, value) {
         return v === value;
     });
 };
+
+//--------------------------- do the players know?
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const group1 = ["AI", "artificial intelligence", "watcher", "guardian"];
+    const group2 = ["not to be trusted", "compromised","complicit", "influenced", "by", "in influence", "in throes with"];
+
+    const input = document.getElementById('keywordInput');
+    const message = document.getElementById('message');
+
+    input.addEventListener('input', function() {
+        const inputValue = input.value.toLowerCase();
+        let foundGroup1 = false;
+        let foundGroup2 = false;
+
+        group1.forEach(word => {
+            if (group1.some(word => inputValue.includes(word.toLowerCase()))) {
+                foundGroup1 = true;
+            }
+        });
+
+        group2.forEach(word => {
+            if (group2.some(word => inputValue.includes(word.toLowerCase()))) {
+                foundGroup2 = true;
+            }
+        });
+
+        if (foundGroup1 && foundGroup2) {
+            message.textContent = 'Valid combination found.';
+            message.style.color = 'green';
+        } else {
+            message.textContent = 'No valid combination found.';
+            message.style.color = 'red';
+        }
+    });
+});
+
+
 
 //---------------------------
 
