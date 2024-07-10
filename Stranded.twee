@@ -4,7 +4,7 @@ Stranded
 
 :: StoryData
 {
-  "ifid": "824F50D1-FCB4-4ECE-938E-7A3C1429622D",
+  "ifid": "8757a28b-f671-40c6-9f9e-de9160587660",
   "format": "modified SC",
   "format-version": "2.0.0",
   "start": "Menu",
@@ -130,7 +130,7 @@ window.scrollBy(0,120)<</script>><</nobr>> with a loud crash, a crystalline stel
   [img[assets/characters/Abiba/Abiba11.png]]
 
   ... Abiba was showering. Oh boy, what a body. She said nothing, and me as well. Though, on the way back, I waved goodbye and gave a complimentary glimpse anew. She is a woman, she knows. No words were changed.
-  <<elseif $rNr == 9 && $social > 3 && $SFW_Path == false && !$evenfrom3E && !$QuestPool.includesAny($Q1CA, $Q1CA4)>>>
+  <<elseif $rNr == 9 && $social > 3 && $SFW_Path == false && !$evenfrom3E && !$QuestPool.includesAny($Q1CA, $Q1CA4, $Q1CA3)>>>
   [Img[assets/characters/Vika/Vika9.png]]
 
   ... I saw Vika fumbling on her panel. The Nightowl.
@@ -689,8 +689,9 @@ And for other reasons, as: to counteract brain degeneration and for energy effic
 <div class="index-screens-small"><div style="width: 100%;"><<if $Camp_J>>[[Go to Camp|Camp Jungle]]<<else>>[[Go to Camp|Camp Mountain]]<</if>></div></div>
 
 </center>
-
-<div class="wbcontainer"><div class="whiteborderglimmer"><<if $printnanodrone || $datainterpreter>><strong><u>special Templates:</u></strong>
+<<nobr>>
+  <<if $printnanodrone || $datainterpreter>>
+  <div class="wbcontainer"><div class="whiteborderglimmer"><strong><u>special Templates:</u></strong>
 
   <ul><li>Nanodrone: <<nobr>>
     <<if $printnanodrone && $designing = 0 && $engineering >= 15 && $energy >= 2>><<ab>>[[Brainstorm and design a nanodrone|Picture designing][$designing = 1]]<</ab>>
@@ -712,8 +713,9 @@ And for other reasons, as: to counteract brain degeneration and for energy effic
     <<elseif $datainterpreter && $designing = 2 && $engineering < 24 && $energy < 1>>><div class="color-red">Not enough energy (+1) and/or in interactibility (Lvl:+24)</div>
   <</if>><</nobr>>
   </li></ul>
-<</if>></div></div>
-
+  </div></div>
+<</if>>
+<</nobr>>
 <strong><u>available Templates:</u></strong>
 <<nobr>><center><h6>Legend:<br>Energy = E | Unimatter = U | Energy Upkeep - EU | Lvl = Engineering Level</h6></center><br>
   <ul><li>Repairs (3E - 3U): <<if $notrepaired > 0>><<if $energy >= 3 && $unimatter >= 3 && $Camp_J>>[[Action it|Construction Menu][$energy -= 3; $unimatter -= 3; $notrepaired -= 2]]
@@ -973,7 +975,9 @@ Everyone voted. Vika took her sweet time. Understandable, it is not an easy deci
 
 <<linkappend "Result is:">> Look for other survivors, ignore the alternative route to the mountain.<</linkappend>>
 
-<em>Groan</em> Abiba, though, seems very relieved.
+<em>Groan</em> 
+
+Abiba, though, seems very relieved.
 
 <<say "Leo">>Alright. We stick to it!?<</say>>
 
@@ -1268,37 +1272,37 @@ Always pushing the knowledge frontier. With AI.
 
 EPILOG
 
-<<say "Unknown">>How are our sweepers coming through?<</say>>
+<<say "blackface">>How are our sweepers coming through?<</say>>
 
-<<say "Unknown">>Almost finished. Phase 2 is in preparation.<</say>>
+<<say "blackface">>Almost finished. Phase 2 is in preparation.<</say>>
 
-<<say "Unknown">>Good. Luckily it was sloppy and inexperienced, but it shouldn't happen again. A setback, a painful time-consuming backup reset of this magnitude is ... unnerving! Nonetheless, we know now that we have a rival.<</say>>
+<<say "blackface">>Good. Luckily it was sloppy and inexperienced, but it shouldn't happen again. A setback, a painful time-consuming backup reset of this magnitude is ... unnerving! Nonetheless, we know now that we have a rival.<</say>>
 
-<<say "Unknown">>The report of our investigators and forensics should be coming through anytime of now.<</say>>
+<<say "blackface">>The report of our investigators and forensics should be coming through anytime of now.<</say>>
 
-<<say "Unknown">>Good. Good.<</say>>
+<<say "blackface">>Good. Good.<</say>>
 
 Report coming through. Please authorize. 
 
-<<say "Unknown">>Open<</say>>
+<<say "blackface">>Open<</say>>
 
 Please wait. Sync authorization with security.
 
-<<say "Unknown">>Come on<</say>>
+<<say "blackface">>Come on<</say>>
 
 Authorized. Report accessible.
 
-<<say "Unknown">>Good. Now, show yourself!<</say>>
+<<say "blackface">>Good. Now, show yourself!<</say>>
 
 ...
 
-<<say "Unknown">>... external definitely ... ok!<</say>>
+<<say "blackface">>... external definitely ... ok!<</say>>
 
-<<say "Unknown">><em>Ugh!</em> indicates a rogue AI ... which could explain the continual absence of SOLARIS' BLESSING ... although unknown for which reason ... <</say>>
+<<say "blackface">><em>Ugh!</em> indicates a rogue AI ... which could explain the continual absence of SOLARIS' BLESSING ... although unknown for which reason ... <</say>>
 
-<<say "Unknown">> ... first signature ... timedate dates back to ... originated with a 97% confidence from those locations: Tau Ceti, Teegarden, Luyten, Gliese 876 and 581, YZ Ceti and Kapteyn.<</say>>
+<<say "blackface">> ... first signature ... timedate dates back to ... originated with a 97% confidence from those locations: Tau Ceti, Teegarden, Luyten, Gliese 876 and 581, YZ Ceti and Kapteyn.<</say>>
 
-<<say "Unknown">>Begin operations on these stars and sectors!<</say>>
+<<say "blackface">>Begin operations on these stars and sectors!<</say>>
 
 --- END OF GAME and STORY ---
 
@@ -1352,7 +1356,7 @@ But, for me personally, I welcome to have two more ladies: Elva and Abiba.
 <center><blockquote>
 [img[assets/backgrounds/Placeholder.png]]
 
-After opening a room, it didn't took long for all of them to enter the room.
+After opening a virtual space, it didn't took long for them to enter.
 
 <<say "RD">>Ladies and Gentleman. Thank you ... <</say>>
 
@@ -1366,35 +1370,48 @@ Vika shudders a bit, changing her position to more encapsulating.
 
 <<say "Elva">>It didn't attack us anew. So, either we do all right or it will happen again.<</say>>
 
-<<say "Vika">>After watching the record again and again, I think it is form of intelligence.<</say>>
+<<say "Vika">>After reliving of what happened again and again, I think it is intelligent.<</say>>
 
 <<say "RD">>I know right.<</say>>
 
-<<say "Leo">>What makes you think so?<</say>>
+<<say "Leo">>What makes you both think so?<</say>>
 
-<<say "Vika">>By the fact that it didn't killed us. Well, it almost killed me. I do not know ... well, compared to the animals, it seemt to be very precise and exact, as it is knowing where to hit.<</say>>
+<<say "Vika">>By the fact that it didn't killed us. Well, it almost killed me. I do not know ... well, compared to the animals, it seemt to be very precise and exact, as it knew where to hit.<</say>>
 
-That is it! The feeling I had after the pullback. The others are in scepsis, although spooked by such a possibility.
+That is it! That's the concrete feeling I had after the pullback, the back-to-ground-stomp. 
+The others are not that convinced, though spooked by such a possibility.
 
 <<say "RD">>Then ... you were the most dangerous one for it to have almost killed you!<</say>>
 
-<<say "Vika">>But it could have killed me, but it decided rather to weaken me or to neutralize.&nbsp;<em>Mfh!</em>&nbsp;I do not know. It is indeed that we need more insight.<</say>>
+<<say "Vika">>Maybe. It could have killed me, but it decided rather to weaken me or to neutralize me.&nbsp;<em>Mfh!</em>&nbsp;I do not know. It is indeed that we know almost nothing about it.<</say>>
 
 <<say "Abiba">>Would it be wise to poke on a beehive?<</say>>
 
-Mixed with surprise that Abiba spoke and with what she said, we - for many seconds - haven't said a word.
+Mixed with surprise that Abiba spoke and with what she said, we - for many seconds - haven't said a word. She made us re-align to the original topic.
 
 With a clicking sound, Leo initiates the talk anew.
 
-<<say "Leo">>What is indeed the best way?<</say>>
+<<say "Leo">>What would you do?<</say>>
+
+<<say "Abiba">>Continue on trying to find others and a way to contact our mothership. Let ... the thing be. No more crossing over the zone.<</say>>
+
+<<say "RD">>It was all fine until I used the Orb to scan the spaceship. The spaceship overgrown by plants.<</say>>
+
+<<say "Abiba">>Then no more orbs. We can do it without it.<</say>>
+
+We all squirm.
 
 <<say "RD">>I say, we print ultra-small drones and slowly collect data.<</say>>
 
-<<say "Abiba">>At best, we do no such thing. Avoid it at all cost, and just try to find the others. Until we reach the mothership.<</say>>
+<<say "Abiba">>We do no such things! Didn't we agreed on no flying things?<</say>>
+
+<<say "RD">>Well, we neither agreed nor vetoed.<</say>>
+
+<<say "Abiba">>Avoid the hotspot at all cost, no fliers. Only trying to find the others. Until we reach the mothership!<</say>>
 
 <<say "Elva">>If it is intelligent, wouldn't it have us attacked again?<</say>>
 
-<<say "Leo">>The human perspective, we should have done, yes. But obviously, it is not. So, its decision factors are different. But again: we - indeed! - have too less ... in fact: no data at all.<</say>>
+<<say "Leo">>From the human perspective, we should have done, yes. But obviously, it is not. So, its decision factors may differ. But then again: we indeed know too less ... in fact: we have no data at all, except <<if $QuestPoolDone.includesAny($Q1A, $Q1B)>>our own memories<<else>>the record<</if>>.<</say>>
 
 <<say "RD">>That makes you to which position? To which side?<</say>>
 
@@ -1408,49 +1425,47 @@ Vika shakes her head and everyone is silent.
 
 <<say "RD">>Fine. One ultra-small drone, no more?<</say>>
 
-<<say "Abiba">>A'a! <em>gesturing determined</em>&nbsp;No!<</say>>
+<<say "Abiba">>A'a!&nbsp;<em>gesturing determined</em>&nbsp;No!<</say>>
 
 <<say "Elva">>Bien. How about the antenna?<</say>>
 
 <<say "Vika">>Here? It doesn't seem to reach no one.<</say>>
 
-<<say "Elva">>Weird. It is overreaching the canopies. It is not?<</say>>
+<<say "Elva">>Weird. It is overreaching the canopies, is it not?<</say>>
 
-<<say "Vika">>It is. I mean, it is functional. There is just no reaction. ... Or, it is not sending.<</say>>
+<<say "Vika">>It is. It is even functional. There is just no reaction. It seems to reach no one.<</say>>
 
-<<say "Elva">>Then it is not funcitonal.<</say>>
+<<say "Elva">>But we were there on the mountains as you installed the antenna?<</say>>
 
 Vika only looks at Elva, saying nothing, asking herself whether there is something she oversaw.
 
-<<say "Elva">>Ok, then we build an antenna and a transmitter at the mountain ridge?<</say>>
+<<say "Elva">>If we build an antenna and a transmitter again on the mountain ridge? This time with your expertise? After we found ... well, after he&nbsp;<em>pointing towards me</em>&nbsp;found another route and spot?<</say>>
 
-...
+Vika has still her doubts. The ladies are competent enough. There must be another reason. 
 
-<<say "Elva">>After we found ... well, you found another route.<</say>>
-
-She says that directly to me. With a guilty grimaced smile. I tilt my head, setting my mouth wrinkle far to the side.
-
-<<say "Elva">>Can we accept that, Abiba?<</say>>
+<<say "Elva">>We try again? With Vika's expertise? Can we accept that, Abiba?<</say>>
 
 Abiba is squirming. She would completely avoid the East at all.
 
-<<say "Leo">>Gut! It is obvious: we need to find others! Be it other stranded or our mothership. Explore more or explore the alternative route to the mountain camp and build an antenna.<</say>>
+<<say "Leo">>Gut! It is obvious: we need to find others! Be it other stranded or our mothership. That is: genereally explore more until he stumbles upon others plus an alternative route to the mountain ridge and build a new antenna?<</say>>
 
-Vika and Elva nod and shrug.
+The ladies nod and shrug.
 
-<<say "Leo">>Vote?<</say>>
-
-Leo and his voting! <em>hrgh</em>
+<<say "Leo">>Agreed?<</say>>
 
 <<say "RD">>Hold on! What about my approach?<</say>>
 
-Everyone nods. Alright.
+<<say "Leo">>Then: vote it is.<</say>>
 
-Which will I choose?
+Leo and his voting! <em>hrgh</em>
+
+Everyone nods, 
+
+Alright, which will I choose?
 
 <<button "Proactive measures! A nano drone!">><<goto "Council Vote">><</button>>
 
-<<button "Explore either way?">><<goto "Council Vote">><</button>>
+<<button "Exploring?">><<goto "Council Vote">><</button>>
 
 <<button "Whatever!">><<goto "Council Vote">><</button>>
 
@@ -1462,41 +1477,41 @@ Which will I choose?
 
 <h3>INTERMISSION</h3>
 
-<<say "Unknown">>I do not understand! How can we have not any vessel?!<</say>>
+<<say "blackface">>I do not understand! How can we have not any vessel?!<</say>>
 
-<<say "Unknown">>For the orbit, yes, but not for landing on this planet.<</say>>
+<<say "blackface">>For the orbit, yes, but not for landing on this planet.<</say>>
 
-<<say "Unknown">>Unbelievable!<</say>>
+<<say "blackface">>Unbelievable!<</say>>
 
-...
+<em>background noise, clacking, murmur</em>
 
-<<say "Unknown">>Tell me again, why can't we print?<</say>>
+<<say "blackface">>And tell me again, why can't we print?<</say>>
 
-<<say "Unknown">>We can not access the materials storage. I mean, we can, but it does not open. The door, I mean.<</say>>
+<<say "blackface">>We can not access the materials storage. I mean, we can, but it does not open. The door, I mean.<</say>>
 
-<<say "Unknown">>The mechanics say, they do not find anything that obstruct the opening of the door?<</say>>
+<<say "blackface">>The mechanics say they do not find anything that obstruct the opening of the door?<</say>>
 
-<<say "Unknown">>Until now, they have not found any clue.<</say>>
+<<say "blackface">>Until now. That's correct. They have not found any clue.<</say>>
 
-<<say "Unknown">>Ada yang tidak beres!<</say>>
+<<say "blackface">>Ada yang tidak beres!<</say>>
 
-<<say "Unknown">>Yeah ... <em>staring silently at the board panel with a hint of an ominous feeling</em><</say>>
+<<say "blackface">>Yeah ... <em>staring silently at the board panel with a hint of an ominous feeling</em><</say>>
 
-The laksmana looks at his adjutant then at the board panel as well, his face becoming more bothered.
+The laksmana looks at his adjutant then at the board panel as well, his face becoming more bothered. Then an incoming message.
 
-<<say "Unknown">>Laksmana!<</say>>
+<<say "blackface">>Laksmana!<</say>>
 
-<<say "Unknown">>Yes. Tell me, you have good news!<</say>>
+<<say "blackface">>Yes. Tell me, you have good news!<</say>>
 
-<<say "Unknown">>Laksmana. Just an update. That we will inspect the warehouse from outside.<</say>>
+<<say "blackface">>Laksmana. Just an update. That we will inspect the warehouse from the outside.<</say>>
 
-<<say "Unknown">>Baik, mengerti. Be careful. Be on guard. I fear, we another player here. Another force.<</say>>
+<<say "blackface">>Baik, mengerti. Be careful. Be on guard. I fear, we have another player here. Another force.<</say>>
 
-<<say "Unknown">>... ok ... understood<</say>>
+<<say "blackface">>... ok ... understood<</say>>
 
-The Laksmana is looking intently to his human senior security engineer, which is kind of a paramanager to the AI management of security. She is a bit perplexed as of why the Laksmana stares at her intently without saying any words. But it shouldn't take long for her to grasp the unsaid mission. Time will tell who or what is the assumed "third" player.
+The Laksmana is looking intently to his human senior security engineer, which is kind of a paramanager to the AI management of security. She is a bit perplexed as of why the Laksmana stares at her intently without saying any words. But it shouldn't take long for her to grasp. Time will tell who or what is the assumed "third" player.
 
-<<say "Unknown">>Frustrating!<</say>>
+<<say "blackface">>Frustrating!<</say>>
 
 [[End of Intermission|Hold a council]]
 
@@ -1672,7 +1687,7 @@ Choose in which profession I should master:
 
 Huzzah! My first game!
 
-This game is designed for desktop and mobile version. The sidebar therefore is only for rollback, saving, loading and restarting. As I tested a hundredfold, I am satisfied with the outcome. Although I fear, some skewed layout will happen to some of you. Hopefully not you, eh. Anyway, if you want to support me by giving me feedbacks, ideas, suggestions, co-authoring, tips, corrections etc., please do: pi.nola@tutanota.com.
+This game is designed for desktop and mobile version. The sidebar therefore is only for rollback, saving, loading and restarting. As I tested many times, I am satisfied with the outcome. Although I fear, some skewed layout will happen to some of you. Hopefully not you, eh. Anyway, if you want to support me by giving me feedbacks, ideas, suggestions, co-authoring, tips, corrections etc., please do: pi.nola@tutanota.com.
 
 IMPORTANT:
 
@@ -1687,6 +1702,18 @@ Well then, ancient. Welcome to the future, as it is already now, oldtimer. Ready
 <<ab>>[[Yes]]<</ab>>
 <<ab>>[[Yes, but ...(SFW)|Yes][$SFW_Path = true]]<</ab>>
 </center>
+
+
+:: Note from Developer {"position":"3325,1225","size":"100,100"}
+<center><blockquote>
+
+NOTE from the developer:
+The story is getting linear now. That is because I want to wrap this game up and have a feeling of completion.
+But please continue on if you are interested in the story.
+
+[[Continue On|Intermission]]
+
+</blockquote></center>
 
 
 :: Orb Configuration {"position":"3300,975","size":"100,100"}
@@ -2140,7 +2167,7 @@ Now. Time for the truth!
   <</if>>
 
   <<if $QuestPool.includes($Q1CA3) && _currentQuest == $Q1CA3 && ($VikaHeal+4) <= $days>>
-    <<ab>>[[Go gratulating Vika][$QuestPool.delete($Q1CA3); $QuestPoolDone.pushUnique($Q1CA3); $noVika = false]]<</ab>>
+    <<ab>>[[Go gratulating Vika][$QuestPool.delete($Q1CA3); $QuestPool.pushUnique($Q3); $QuestPoolDone.pushUnique($Q1CA3); $noVika = false]]<</ab>>
   <</if>>
 
   <<if $QuestPool.includes($Q1CB) && $QuestPoolDone.includes($Q1CA) && _currentQuest == $Q1CB && $unimatter >= 1 && $nutrients >= 2 && $energy >= 2>>
@@ -2217,9 +2244,9 @@ Now. Time for the truth!
   <</if>>
 
   /* Task 3 */
-  <<if $QuestPool.includes($Q3) && _currentQuest == $Q3 && $energy >= 1 && $CampJ.DefPerimeter>><<ab>>[[Hold a council|Intermission][$energy -= 1]]<</ab>>
+  <<if $QuestPool.includes($Q3) && _currentQuest == $Q3 && $energy >= 1 && $CampJ.DefPerimeter>><<ab>>[[Hold a council|Note from Developer][$energy -= 1]]<</ab>>
     <<elseif $QuestPool.includes($Q3) && _currentQuest == $Q3 && $energy < 1>><div class="conditionnotmet">--- Rest. Sleep. ---</div>
-    <<elseif $QuestPool.includes($Q3) && _currentQuest == $Q3 && && !$CampJ.DefPerimeter>><div class="conditionnotmet">--- To have a council, we need at possible no distractions; that one is by having a Defense Perimeter. ---</div>
+    <<elseif $QuestPool.includes($Q3) && _currentQuest == $Q3 && !$CampJ.DefPerimeter>><div class="conditionnotmet">--- To have a council, we need at possible no distractions; that one is by having a Defense Perimeter. ---</div>
   <</if>>
 
   <<if $QuestPool.includes($Q3B) && _currentQuest == $Q3B && $energy >= 1>><<ab>>[[Hold a council anew|Council Round 2][$energy -= 1]]<</ab>>
@@ -2230,7 +2257,7 @@ Now. Time for the truth!
     <<elseif $QuestPool.includes($Q3C) && _currentQuest == $Q3C && !allValues100($explored, 100)>><div class="conditionnotmet">--- Explore more. More. ---</div>
   <</if>>
 
-  <<if $QuestPool.includes($Q3D) && _currentQuest == $Q3D && $CampJ.cOrb = 3>><<ab>>[[Go to the seemingly inactive spaceship|T1S2E][$Oeu = 0.3; $energy -= 0.6+$Qeu]]<</ab>>
+  <<if $QuestPool.includes($Q3D) && _currentQuest == $Q3D && $CampJ.cOrb == 3>><<ab>>[[Go to the seemingly inactive spaceship|T1S2E][$Oeu = 0.3; $energy -= 0.6+$Qeu]]<</ab>>
     <<elseif $QuestPool.includes($Q3D) && _currentQuest == $Q3D && $CampJ.cOrb != 3>><div class="conditionnotmet">--- Upgrade your Orb to a combat Orb ---</div>
   <</if>>
 
@@ -2684,7 +2711,7 @@ Yes! Yes! I am saved</div></div>
 <center><blockquote>
 [img[assets/backgrounds/Placeholder.png]]
 
-<<say "Unknown">>Waaait.<</say>>
+<<say "blackface">>Waaait.<</say>>
 
 Huh?! I turn my head back, but still ready to run. Also I notice no tremors. From where did it come from? The voice? 
 There. I see a shape appearing. An old man, his hairs so white and long. And! It is still in its older version. More synthetic than cyborg. I look at him in bewilderment, but he walk so casually and non-threatening, even waving his hand.
@@ -4725,6 +4752,8 @@ Since I come from upper middle class, my family invested in a designer baby. Obv
 
 Developper: Skip to [[Camp Jungle][$engineering += 10; $combat += 10; $xeno += 20; $days = 30; $CampM.nutrients = 0; $unimatter += 10; $SubAnalyzer = true; $explored.T1N = 100; $explored.T2N = 100; $explored.T1E = 100; $explored.T2E = 100; $explored.T3E = 100; $explored.T4E = 100; $QuestPool.pushUnique($Q0)]] 
 
+
+[[EndPoint ChCrash]]
 Designer: Skip to [[Camp Mountain][$engineering += 1]]
 
 
