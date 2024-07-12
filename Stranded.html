@@ -1298,18 +1298,18 @@ box-sizing: border-box;
 }
 
 #p2S {
-    top: 409px;
-    left: 255px;
+    top: 515px;
+    left: 270px;
 }
 
 #p3S {
-    top: 525px;
-    left: 185px;
+    top: 555px;
+    left: 330px;
 }
 
 #p1W {
-    top: 375px;
-    left: 290px;
+    top: 365px;
+    left: 295px;
 }
 
 #p2W {
@@ -1367,6 +1367,38 @@ box-sizing: border-box;
 #p1N5E {
     top: 200px;
     left: 720px;
+}
+
+/* New line of tiles: SE to NW */
+
+#p1SE {
+  top: 420px;
+  left: 450px;
+}
+
+#p1S2E {
+  top: 390px;
+  left: 530px;
+}
+
+#p1SW {
+  top: 425px;
+  left: 260px;
+}
+
+#p1S2W {
+  top: 425px;
+  left: 190px;
+}
+
+#p1NW {
+  top: 295px;
+  left: 300px;
+}
+
+#p2N2E {
+  top: 225px;
+  left: 455px;
 }
 
 /* End of new tiles */
@@ -1638,58 +1670,23 @@ box-sizing: border-box;
   background-color: whitesmoke;
 }
 
-/* white border animating ----------------------------------------------*/
-
-.wbcontainer {
-  width: 105%;
-  height: 105%;
-  position: relative;
-  background-color: whitesmoke;
-  border: 2px solid transparent;
-}
+/* special templates design --------------------------------*/
 
 .whiteborderglimmer {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 100%;
   box-sizing: border-box;
-  border: 2px solid transparent;
-  animation: border-animation 4s linear infinite;
+  padding: 1em;
+  background-color: darkolivegreen;
+  border-radius: 0.5em;
 }
 
-@keyframes border-animation {
-  0% {
-      border-top: 2px solid whitesmoke;
-      border-right: 2px solid transparent;
-      border-bottom: 2px solid whitesmoke;
-      border-left: 2px solid whitesmoke;
-  }
-  25% {
-      border-top: 2px solid whitesmoke;
-      border-right: 2px solid whitesmoke;
-      border-bottom: 2px solid transparent;
-      border-left: 2px solid whitesmoke;
-  }
-  50% {
-      border-top: 2px solid whitesmoke;
-      border-right: 2px solid whitesmoke;
-      border-bottom: 2px solid whitesmoke;
-      border-left: 2px solid whitesmoke;
-  }
-  75% {
-      border-top: 2px solid whitesmoke;
-      border-right: 2px solid whitesmoke;
-      border-bottom: 2px solid whitesmoke;
-      border-left: 2px solid transparent;
-  }
-  100% {
-      border-top: 2px solid transparent;
-      border-right: 2px solid whitesmoke;
-      border-bottom: 2px solid whitesmoke;
-      border-left: 2px solid whitesmoke;
-  }
+.whiteborderglimmer ul {
+  list-style-type: none;
 }
 
 /* pierced animation ----------------------------------------*/
@@ -1709,7 +1706,7 @@ box-sizing: border-box;
   animation-fill-mode: forwards;
 }
 
-/* pierced animation ----------------------------------------*/
+/* logbook ----------------------------------------*/
 
 .logbook {
   border: 3px solid whitesmoke;
@@ -2039,7 +2036,8 @@ The antenna is installed on a small hill. But it seems to reach no one. Maybe it
   [img[assets/characters/Abiba/Abiba6.png]]
   
   We slowly build rapport. It is getting better. Our talk is becoming more fluid.&lt;&lt;if $social &gt; 4 &amp;&amp; $Abibavisits &gt; 8&gt;&gt;&lt;&lt;set $Abiba_ICP.AI3 = true; $Abiba_ICP.AI2 = false; $Abibavisits = 9&gt;&gt;&lt;&lt;/if&gt;&gt;
-  &lt;&lt;elseif $Abiba_ICP.AI3 || $Abibavisits &lt; 12&gt;&gt;
+&lt;&lt;elseif $SFW_Path == false&gt;&gt;
+  &lt;&lt;if $Abiba_ICP.AI3 || $Abibavisits &lt; 12&gt;&gt;
   [img[assets/characters/Abiba/Abiba7_1.png]]
   
   Wow, what was a stuttering start between us, it is now so smooth that I wonder if she flaunting her assets?&lt;&lt;if $social &gt; 5 &amp;&amp; $Abibavisits &gt; 11&gt;&gt;&lt;&lt;set $Abiba_ICP.AI4 = true; $Abiba_ICP.AI3 = false; $Abibavisits = 12&gt;&gt;&lt;&lt;/if&gt;&gt;
@@ -2047,8 +2045,8 @@ The antenna is installed on a small hill. But it seems to reach no one. Maybe it
   [img[assets/characters/Abiba/Abiba8.png]]
   
   I was knocking at her door, as she hollered &#39;Come in&#39;. She knew it was me. She knew!&lt;&lt;if $social &gt; 6 &amp;&amp; $Abibavisits &gt; 14&gt;&gt;&lt;&lt;set $Abiba_ICP.AI5 = true; $Abiba_ICP.AI4 = false; $Abibavisits = 15&gt;&gt;&lt;&lt;/if&gt;&gt;
-  &lt;&lt;elseif $SFW_Path == false&gt;&gt;
-    &lt;&lt;if $Abiba_ICP.AI5 || $Abibavisits &lt; 19&gt;&gt;
+
+    &lt;&lt;elseif $Abiba_ICP.AI5 || $Abibavisits &lt; 19&gt;&gt;
     [img[assets/characters/Abiba/Abiba11.png]]
     
     She shouted she was in the showers. Boy! Was my fantasy running high, this amount of imagination energy would have been enough to catapult me to sky and beyond!&lt;&lt;if $social &gt; 7 &amp;&amp; $Abibavisits &gt; 18&gt;&gt;&lt;&lt;set $Abiba_ICP.AI6 = true; $Abiba_ICP.AI5 = false; $Abibavisits = 19&gt;&gt;&lt;&lt;/if&gt;&gt;
@@ -2408,7 +2406,7 @@ This planet is one of those. The mission is obvious - after setting an outpost: 
       &lt;div&gt;[[Move to Camp Mountain|Camp Mountain][$energy -= 5; $nutrients -= $CampM.nutrients; $CampM.nutrients = 0; $engineering += $days*0.3; $combat += $days*0.1; $unimatter += $CampM.unimatter; $CampM.unimatter = 0; $OrbTransport = []]]&lt;/div&gt;
     &lt;&lt;elseif $TransMast3 &amp;&amp; $energy &gt; 4&gt;&gt;&lt;div&gt;[[Move to Camp Mountain|Camp Mountain][$nutrients += $CampM.nutrients; $CampM.nutrients = 0; $unimatter += $CampM.unimatter; $CampM.unimatter = 0; $OrbTransport = []]]&lt;/div&gt;
     &lt;&lt;/if&gt;&gt;
-  &lt;&lt;else&gt;&gt;&lt;&lt;if $energy &gt; 4&gt;&gt;&lt;div&gt;&lt;&lt;linkappend &quot;Move to Camp Mountain&quot; t8n&gt;&gt;We do not want to risk flying again flying we know more about what attacked us.&lt;&lt;/linkappend&gt;&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/nobr&gt;&gt;
+  &lt;&lt;else&gt;&gt;&lt;&lt;if $energy &gt; 4&gt;&gt;&lt;div&gt;&lt;&lt;linkappend &quot;Move to Camp Mountain&quot; t8n&gt;&gt;We do not want to risk flying again until we know more about what attacked us.&lt;&lt;/linkappend&gt;&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/nobr&gt;&gt;
   &lt;div&gt;[[Rest|A New Cycle][$days += 1]]&lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/center&gt;
@@ -2417,7 +2415,7 @@ DEVELOPPER: [[Testing]]
 
 TESTING: [[3E-Event]] [[Camp Mountain]] [[random events]]
 
-Variable Checker: [[VariableControl]]</tw-passagedata><tw-passagedata pid="14" name="Camp Mountain" tags="autosave" position="1050,925" size="100,100">&lt;&lt;nobr&gt;&gt;
+Variable Checker: [[VariableControl]] [[Territories]]</tw-passagedata><tw-passagedata pid="14" name="Camp Mountain" tags="autosave" position="1050,925" size="100,100">&lt;&lt;nobr&gt;&gt;
   &lt;&lt;script&gt;&gt;
   Config.saves.autosave = [&quot;autosave&quot;]
   &lt;&lt;/script&gt;&gt;
@@ -2445,7 +2443,7 @@ Variable Checker: [[VariableControl]]</tw-passagedata><tw-passagedata pid="14" n
 &lt;div class=&quot;actions-row&quot;&gt;&lt;&lt;if $energy &gt;=1&gt;&gt;&lt;div&gt;[[Go Out|Ante Explore]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $energy &gt;=1&gt;&gt;&lt;div&gt;[[Go to the Task Monitor|Scheduler]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/div&gt;
 &lt;div class=&quot;actions-row&quot;&gt;&lt;&lt;if $eventfrom3E == false &amp;&amp; $energy &gt; 4 &amp;&amp; $explored.TBJ0 == 100 &amp;&amp; $TransMast3 == false&gt;&gt;&lt;div&gt;
-[[Move to Camp Jungle|Camp Jungle][$energy /= 2; $maxenergy -= 10; $maxnutrients -= 50; $nutrients /= 2; $unimatter /= 2; $engineering -= $days*0.3; $combat -= $days*0.1; $OrbTransport = []]]&lt;/div&gt;&lt;&lt;elseif $energy &gt; 4 &amp;&amp; $TransMast3&gt;&gt;&lt;div&gt;[[Move to Camp Jungle|Camp Jungle][$nutrients /= 2; $unimatter /= 2; $OrbTransport = []]]&lt;/div&gt;&lt;&lt;elseif hasVisited(&quot;3E-Event&quot;)&gt;&gt;&lt;div&gt;&lt;&lt;linkappend &quot;Move to Camp Jungle&quot; t8n&gt;&gt;We do not want to fly over before we know more about what attacked us.&lt;&lt;/linkappend&gt;&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+[[Move to Camp Jungle|Camp Jungle][$energy /= 2; $maxenergy -= 10; $maxnutrients -= 50; $nutrients /= 2; $unimatter /= 2; $engineering -= $days*0.3; $combat -= $days*0.1; $OrbTransport = []]]&lt;/div&gt;&lt;&lt;elseif $energy &gt; 4 &amp;&amp; $TransMast3&gt;&gt;&lt;div&gt;[[Move to Camp Jungle|Camp Jungle][$nutrients /= 2; $unimatter /= 2; $OrbTransport = []]]&lt;/div&gt;&lt;&lt;elseif hasVisited(&quot;3E-Event&quot;)&gt;&gt;&lt;div&gt;&lt;&lt;linkappend &quot;Move to Camp Jungle&quot; t8n&gt;&gt;We do not want to fly again until we know more about what attacked us.&lt;&lt;/linkappend&gt;&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
 &lt;div&gt;[[Rest|A New Cycle][$days += 1]]&lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;
 
@@ -2512,30 +2510,33 @@ And for other reasons, as: to counteract brain degeneration and for energy effic
 
 &lt;/center&gt;
 &lt;&lt;nobr&gt;&gt;
-  &lt;&lt;if $printnanodrone || $datainterpreter&gt;&gt;
-  &lt;div class=&quot;wbcontainer&quot;&gt;&lt;div class=&quot;whiteborderglimmer&quot;&gt;&lt;strong&gt;&lt;u&gt;special Templates:&lt;/u&gt;&lt;/strong&gt;
+&lt;&lt;if $printnanodrone || $datainterpreter&gt;&gt;
+&lt;div class=&quot;whiteborderglimmer&quot;&gt;&lt;strong&gt;&lt;u&gt;special projects:&lt;/u&gt;&lt;/strong&gt;&lt;br&gt;
 
-  &lt;ul&gt;&lt;li&gt;Nanodrone: &lt;&lt;nobr&gt;&gt;
-    &lt;&lt;if $printnanodrone &amp;&amp; $designing = 0 &amp;&amp; $engineering &gt;= 15 &amp;&amp; $energy &gt;= 2&gt;&gt;&lt;&lt;ab&gt;&gt;[[Brainstorm and design a nanodrone|Picture designing][$designing = 1]]&lt;&lt;/ab&gt;&gt;
-    &lt;&lt;elseif $printnanodrone &amp;&amp; $designing = 0 &amp;&amp; $engineering &lt; 15 &amp;&amp; $energy &lt; 2&gt;&gt;&lt;div class=&quot;color-red&quot;&gt;Not enough energy and/or knowledge in engineering (Lvl:+15)&lt;/div&gt;
-    &lt;&lt;elseif $printnanodrone &amp;&amp; $designing = 1 &amp;&amp; $social &gt;= 20 &amp;&amp; $energy &gt;= 3&gt;&gt;&lt;&lt;ab&gt;&gt;[[Ask Abiba, Vika and Leo for feedback|Picture designing][$designing = 2]]&lt;&lt;/ab&gt;&gt;
-    &lt;&lt;elseif $printnanodrone &amp;&amp; $designing = 1 &amp;&amp; $social &lt; 20 &amp;&amp; $energy &lt; 3&gt;&gt;&lt;div class=&quot;color-red&quot;&gt;Not enough energy and/or in interactibility (Lvl:+20)&lt;/div&gt;
-    &lt;&lt;elseif $printnanodrone &amp;&amp; $designing = 2 &amp;&amp; $engineering &gt;= 17 &amp;&amp; $energy &gt;= 1&gt;&gt;&lt;&lt;ab&gt;&gt;[[Improve the design|Picture designing][$designing = 3]]&lt;&lt;/ab&gt;&gt;
-    &lt;&lt;elseif $printnanodrone &amp;&amp; $designing = 2 &amp;&amp; $engineering &lt; 17 &amp;&amp; $energy &lt; 1&gt;&gt;&gt;&lt;div class=&quot;color-red&quot;&gt;Not enough energy and/or in interactibility (Lvl:+17)&lt;/div&gt;
-    &lt;&lt;elseif $printnanodrone &amp;&amp; $designing = 3 &amp;&amp; $engineering &gt;= 18 &amp;&amp; $energy &gt;= 2 &amp;&amp; $unimatter &gt;= 1&gt;&gt;&lt;&lt;ab&gt;&gt;[[Print it!|Picture designing][$designing = 4]]&lt;&lt;/ab&gt;&gt;
-    &lt;&lt;elseif $printnanodrone &amp;&amp; $designing = 3 &amp;&amp; $engineering &lt; 18 &amp;&amp; $energy &lt; 2 &amp;&amp; $unimatter &lt; 1&gt;&gt;&gt;&lt;div class=&quot;color-red&quot;&gt;Not enough energy (+2), unimatter (+1) and/or in engineering (Lvl:+18)&lt;/div&gt;
-  &lt;&lt;/if&gt;&gt;&lt;&lt;/nobr&gt;&gt;
+  &lt;center&gt;&lt;ul&gt;
+  &lt;&lt;if $printnanodrone&gt;&gt;
+  &lt;li&gt;Nanodrone:
+    &lt;&lt;if $printnanodrone &amp;&amp; $designing == 0 &amp;&amp; $engineering &gt;= 15 &amp;&amp; $energy &gt;= 2&gt;&gt;&lt;&lt;ab&gt;&gt;[[Brainstorm and design a nanodrone|Picture designing][$designing = 1]]&lt;&lt;/ab&gt;&gt;
+    &lt;&lt;elseif $printnanodrone &amp;&amp; $designing == 0 &amp;&amp; ($engineering &lt; 15 || $energy &lt; 2)&gt;&gt;&lt;div class=&quot;color-red&quot;&gt;Not enough energy (+2) and/or knowledge in engineering (Lvl:+15)&lt;/div&gt;
+    &lt;&lt;elseif $printnanodrone &amp;&amp; $designing == 1 &amp;&amp; $social &gt;= 20 &amp;&amp; $energy &gt;= 3&gt;&gt;&lt;&lt;ab&gt;&gt;[[Ask Abiba, Vika and Leo for feedback|Picture designing][$designing = 2]]&lt;&lt;/ab&gt;&gt;
+    &lt;&lt;elseif $printnanodrone &amp;&amp; $designing == 1 &amp;&amp; ($social &lt; 20 || $energy &lt; 3)&gt;&gt;&lt;div class=&quot;color-red&quot;&gt;Not enough energy (+2) and/or in interactibility (Lvl:+20)&lt;/div&gt;
+    &lt;&lt;elseif $printnanodrone &amp;&amp; $designing == 2 &amp;&amp; $engineering &gt;= 17 &amp;&amp; $energy &gt;= 1&gt;&gt;&lt;&lt;ab&gt;&gt;[[Improve the design|Picture designing][$designing = 3]]&lt;&lt;/ab&gt;&gt;
+    &lt;&lt;elseif $printnanodrone &amp;&amp; $designing == 2 &amp;&amp; ($engineering &lt; 17 || $energy &lt; 1)&gt;&gt;&lt;div class=&quot;color-red&quot;&gt;Not enough energy (+1) and/or knowledge in engineering (Lvl:+17)&lt;/div&gt;
+    &lt;&lt;elseif $printnanodrone &amp;&amp; $designing == 3 &amp;&amp; $engineering &gt;= 18 &amp;&amp; $energy &gt;= 2 &amp;&amp; $unimatter &gt;= 1&gt;&gt;&lt;&lt;ab&gt;&gt;[[Print it!|Picture designing][$designing = 4]]&lt;&lt;/ab&gt;&gt;
+    &lt;&lt;elseif $printnanodrone &amp;&amp; $designing == 3 &amp;&amp; ($engineering &lt; 18 || $energy &lt; 2 || $unimatter &lt; 1)&gt;&gt;&lt;div class=&quot;color-red&quot;&gt;Not enough energy (+2), unimatter (+1) and/or in engineering (Lvl:+18)&lt;/div&gt;&lt;&lt;/if&gt;&gt;
   &lt;/li&gt;
-  &lt;li&gt;Data Interpreter: &lt;&lt;nobr&gt;&gt;
-    &lt;&lt;if $datainterpreter &amp;&amp; $designing = 0 &amp;&amp; $engineering &gt;= 20 &amp;&amp; $energy &gt;= 2&gt;&gt;&lt;&lt;ab&gt;&gt;[[Brainstorm and design a data interpreter device|Picture designing][$designing = 1]]&lt;&lt;/ab&gt;&gt;
-    &lt;&lt;elseif $datainterpreter &amp;&amp; $designing = 0 &amp;&amp; $engineering &lt; 20 &amp;&amp; $energy &lt; 2&gt;&gt;&lt;div class=&quot;color-red&quot;&gt;Not enough energy (+2) and/or knowledge in engineering (Lvl:+20)&lt;/div&gt;
-    &lt;&lt;elseif $datainterpreter &amp;&amp; $designing = 1 &amp;&amp; $social &gt;= 23 &amp;&amp; $energy &gt;= 3&gt;&gt;&lt;&lt;ab&gt;&gt;[[Synergize the design with those of Abiba and Vika|Picture designing][$designing = 2]]&lt;&lt;/ab&gt;&gt;
-    &lt;&lt;elseif $datainterpreter &amp;&amp; $designing = 1 &amp;&amp; $social &lt; 23 &amp;&amp; $energy &lt; 3&gt;&gt;&lt;div class=&quot;color-red&quot;&gt;Not enough energy (+3) and/or in interactibility (Lvl:+23)&lt;/div&gt;
-    &lt;&lt;elseif $datainterpreter &amp;&amp; $designing = 2 &amp;&amp; $engineering &gt;= 24 &amp;&amp; $energy &gt;= 1&gt;&gt;&lt;&lt;ab&gt;&gt;[[Print|Picture designing][$designing = 3]]&lt;&lt;/ab&gt;&gt;
-    &lt;&lt;elseif $datainterpreter &amp;&amp; $designing = 2 &amp;&amp; $engineering &lt; 24 &amp;&amp; $energy &lt; 1&gt;&gt;&gt;&lt;div class=&quot;color-red&quot;&gt;Not enough energy (+1) and/or in interactibility (Lvl:+24)&lt;/div&gt;
-  &lt;&lt;/if&gt;&gt;&lt;&lt;/nobr&gt;&gt;
-  &lt;/li&gt;&lt;/ul&gt;
-  &lt;/div&gt;&lt;/div&gt;
+  &lt;&lt;elseif $datainterpreter&gt;&gt;
+  &lt;li&gt;Data Interpreter:
+    &lt;&lt;if $datainterpreter &amp;&amp; $designing == 0 &amp;&amp; $engineering &gt;= 20 &amp;&amp; $energy &gt;= 2&gt;&gt;&lt;&lt;ab&gt;&gt;[[Brainstorm and design a data interpreter device|Picture designing][$designing = 1]]&lt;&lt;/ab&gt;&gt;
+    &lt;&lt;elseif $datainterpreter &amp;&amp; $designing == 0 &amp;&amp; ($engineering &lt; 20 || $energy &lt; 2)&gt;&gt;&lt;div class=&quot;color-red&quot;&gt;Not enough energy (+2) and/or knowledge in engineering (Lvl:+20)&lt;/div&gt;
+    &lt;&lt;elseif $datainterpreter &amp;&amp; $designing == 1 &amp;&amp; $social &gt;= 23 &amp;&amp; $energy &gt;= 3&gt;&gt;&lt;&lt;ab&gt;&gt;[[Synergize the design with those of Abiba and Vika|Picture designing][$designing = 2]]&lt;&lt;/ab&gt;&gt;
+    &lt;&lt;elseif $datainterpreter &amp;&amp; $designing == 1 &amp;&amp; ($social &lt; 23 || $energy &lt; 3)&gt;&gt;&lt;div class=&quot;color-red&quot;&gt;Not enough energy (+3) and/or in interactibility (Lvl:+23)&lt;/div&gt;
+    &lt;&lt;elseif $datainterpreter &amp;&amp; $designing == 2 &amp;&amp; $engineering &gt;= 24 &amp;&amp; $energy &gt;= 1&gt;&gt;&lt;&lt;ab&gt;&gt;[[Print|Picture designing][$designing = 3]]&lt;&lt;/ab&gt;&gt;
+    &lt;&lt;elseif $datainterpreter &amp;&amp; $designing == 2 &amp;&amp; ($engineering &lt; 24 || $energy &lt; 1)&gt;&gt;&gt;&lt;div class=&quot;color-red&quot;&gt;Not enough energy (+1) and/or in interactibility (Lvl:+24)&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+  &lt;/li&gt;
+  &lt;&lt;/if&gt;&gt;
+  &lt;/ul&gt;&lt;/center&gt;
+  &lt;/div&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;
 &lt;strong&gt;&lt;u&gt;available Templates:&lt;/u&gt;&lt;/strong&gt;
@@ -2679,25 +2680,25 @@ Elva only shrugs.
 
 &lt;&lt;say &quot;Leo&quot;&gt;&gt;The design seems to be older. I have my doubts as well.&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Vika&quot;&gt;&gt;Didn&#39;t you saw someone?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;Vika&quot;&gt;&gt;Didn&#39;t you saw anyone?&lt;&lt;/say&gt;&gt;
 
 &lt;&lt;say &quot;RD&quot;&gt;&gt;Nope!&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Vika&quot;&gt;&gt;You were not looking for someone?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;Vika&quot;&gt;&gt;Were you looking?&lt;&lt;/say&gt;&gt;
 
 Slighted, I point to Abiba.
 
-&lt;&lt;say &quot;Vika&quot;&gt;&gt;Hm! But you were not nearby the hot zone.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;Vika&quot;&gt;&gt;Yeah, but you were not nearby the hot zone.&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;RD&quot;&gt;&gt;Well, it was nearby, I saw no activity, and had a feeling that this could be connected.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;RD&quot;&gt;&gt;Well, first it is nearby - for me at least -, second I saw no activity, and these made me feel that this area could be connected to the first incident.&lt;&lt;/say&gt;&gt;
 
 Vika looks at me completely sceptical.
 
 &lt;&lt;say &quot;RD&quot;&gt;&gt;Oh, come on. The alien, or whatever, exactly knew where to hit on our spaceship.&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Vika&quot;&gt;&gt;Both are of completely design. How can it know?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;Vika&quot;&gt;&gt;Both are of completely different design. How can it know?&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;RD&quot;&gt;&gt;What do I know! I just felt like that. That it may be intelligent enough to deduce.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;RD&quot;&gt;&gt;What do I know! I just felt like that. That it may be intelligent enough for deduction.&lt;&lt;/say&gt;&gt;
 
 &lt;&lt;say &quot;Vika&quot;&gt;&gt;Whooa!&lt;&lt;/say&gt;&gt;
 
@@ -2721,11 +2722,11 @@ He is gesticulating with a shrugged shoulder, swirled with his uplifted hand and
 
 I thank Elva with a nod. Then look at Abiba, but she only stares at me, rather a bit darkly.
 
-&lt;&lt;say &quot;RD&quot;&gt;&gt;Yes, I know, it is kind of a lottery. As a compromise, I look more. But if I didn&#39;t found anything, we do our plan. Agreed?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;RD&quot;&gt;&gt;Yes, I know, it is kind of a lottery. As a compromise, I will explore more. But if I didn&#39;t found anything, we do our plan. Agreed?&lt;&lt;/say&gt;&gt;
 
-Abiba looks sideways, grinds her left teeth while the others do not veto. Leo looks at me with his mouth wrinkle far on his side. Then all nods.
+Abiba looks sideways, grinds her left teeth while the others do not veto. Leo looks at me with his mouth wrinkle far on his side. Then all of them nod.
 
-[[Bueno|Camp Jungle][$QuestPool.delete($Q3, $Q3A, $Q3B); $QuestPoolDone.pushUnique($Q3A, $Q3B, $Q3C), $QuestPool.pushUnique($Q3C)]]
+&lt;&lt;ab&gt;&gt;[[Bueno|Camp Jungle][$QuestPool.delete($Q3, $Q3A, $Q3B); $QuestPoolDone.pushUnique($Q3A, $Q3B, $Q3C), $QuestPool.pushUnique($Q3C)]]&lt;&lt;/ab&gt;&gt;
 
 &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="19" name="Council Round 3" tags="" position="3325,1975" size="100,100">&lt;center&gt;&lt;blockquote&gt;
 [img[assets/backgrounds/Placeholder.png]]
@@ -2919,7 +2920,8 @@ After many minutes
     [img[assets/characters/Elva/ER_1.png]]
 
     Elva and I were talking about the defenses here and what she did in her training as a marine. I learned something something from her.&lt;&lt;set $combat += 0.05&gt;&gt;&lt;&lt;if $Elvavisits &gt; 4 &amp;&amp; $social &gt; 2&gt;&gt;&lt;&lt;set $Elva_ICP.EI2 = true; $Elva_ICP.EI1 = false; $Elvavisits = 5&gt;&gt;&lt;&lt;/if&gt;&gt;
-  &lt;&lt;elseif $Elva_ICP.EI2 || $Elvavisits &lt; 7&gt;&gt;
+&lt;&lt;elseif $SFW_Path == false&gt;&gt;  
+  &lt;&lt;if $Elva_ICP.EI2 || $Elvavisits &lt; 7&gt;&gt;
     [img[assets/characters/Elva/ER_2.png]]
     
     Elva had fun with me training in Combat Arts. She looked at me behind her shoulder while going to showers.&lt;&lt;set $combat += 0.1&gt;&gt;&lt;&lt;if $social &gt; 3 &amp;&amp; $Elvavisits &gt; 6&gt;&gt;&lt;&lt;set $Elva_ICP.EI3 = true; $Elva_ICP.EI2 = false; $Elvavisits = 7&gt;&gt;&lt;&lt;/if&gt;&gt;
@@ -2943,8 +2945,8 @@ After many minutes
     
     Now, talking has become not easy. Obviously that my brain is split. My concentration is dispersed. I need more oxygen.
     &lt;&lt;/linkappend&gt;&gt;
-  &lt;&lt;elseif $SFW_Path == false&gt;&gt;
-    &lt;&lt;if $Elva_ICP.E5 || $Elvavisits &lt; 16&gt;&gt;
+
+    &lt;&lt;elseif $Elva_ICP.E5 || $Elvavisits &lt; 16&gt;&gt;
       [img[assets/characters/Elva/ER_m3.png]]
       
       I entered her cabin, she wanted to show me something. And yes, it is my second birthday today, And christmas! And new year&#39;s eve!&lt;&lt;if $social &gt; 6 &amp;&amp; $Elvavisits &gt; 16&gt;&gt;&lt;&lt;set $Elva_ICP.EI6 = true; $Elva_ICP.EI5 = false; $Elvavisits = 17&gt;&gt;&lt;&lt;/if&gt;&gt;
@@ -3427,7 +3429,15 @@ Well then, ancient. Welcome to the future, as it is already now, oldtimer. Ready
 
 &lt;&lt;ab&gt;&gt;[[Yes]]&lt;&lt;/ab&gt;&gt;
 &lt;&lt;ab&gt;&gt;[[Yes, but ...(SFW)|Yes][$SFW_Path = true]]&lt;&lt;/ab&gt;&gt;
-&lt;/center&gt;</tw-passagedata><tw-passagedata pid="42" name="Orb Configuration" tags="" position="3300,975" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;/center&gt;</tw-passagedata><tw-passagedata pid="42" name="Note from Developer" tags="" position="3325,1225" size="100,100">&lt;center&gt;&lt;blockquote&gt;
+
+NOTE from the developer:
+The story is getting linear now. That is because I want to wrap this game up and have a feeling of completion.
+But please continue on if you are interested in the story.
+
+[[Continue On|Intermission]]
+
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="43" name="Orb Configuration" tags="" position="3300,975" size="100,100">&lt;&lt;nobr&gt;&gt;
 	&lt;&lt;set $Oeu = 0.3&gt;&gt;
   &lt;&lt;if $OrbTransport.first()&gt;&gt;&lt;&lt;run setTimeout(function() {window.scrollTo(0, document.body.scrollHeight * 0.5);}, 0);&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;&lt;center&gt;&lt;center&gt;[img[assets/backgrounds/Orb_Config_3.png]]&lt;/center&gt;
@@ -3536,7 +3546,7 @@ What do I want for the Orb to collect?&lt;&lt;nobr&gt;&gt;
 &lt;div id=&quot;showAB&quot;&gt;&lt;/div&gt;
 
 &lt;/blockquote&gt;
-&lt;/center&gt;</tw-passagedata><tw-passagedata pid="43" name="PassTest3E" tags="" position="3200,1725" size="100,100">&lt;center&gt;&lt;blockquote&gt;&lt;&lt;nobr&gt;&gt;
+&lt;/center&gt;</tw-passagedata><tw-passagedata pid="44" name="PassTest3E" tags="" position="3200,1725" size="100,100">&lt;center&gt;&lt;blockquote&gt;&lt;&lt;nobr&gt;&gt;
 &lt;div id=&quot;PassTile3E&quot;&gt;&lt;/div&gt;
   &lt;&lt;if $choice1P3E == 1&gt;&gt;&lt;&lt;timed 0s&gt;&gt;
     &lt;&lt;replace &quot;#PassTile3E&quot;&gt;&gt;[img[assets/backgrounds/placeholder.png]]&lt;br&gt;&lt;br&gt;
@@ -3677,38 +3687,38 @@ What do I want for the Orb to collect?&lt;&lt;nobr&gt;&gt;
     &lt;&lt;/replace&gt;&gt;
     &lt;&lt;/timed&gt;&gt;
 	&lt;&lt;/if&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="44" name="Picture Disassemble" tags="" position="2675,2150" size="100,100">&lt;center&gt;&lt;blockquote&gt;
+&lt;&lt;/nobr&gt;&gt;&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="45" name="Picture Disassemble" tags="" position="2675,2150" size="100,100">&lt;center&gt;&lt;blockquote&gt;
 [img[assets/backgrounds/Placeholder.png]]
 
 
 &lt;&lt;ab&gt;&gt;&lt;&lt;if $Camp_J&gt;&gt;[[Camp Jungle]]&lt;&lt;else&gt;&gt;[[Camp Mountain]]&lt;&lt;/if&gt;&gt;&lt;&lt;/ab&gt;&gt;
 
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="45" name="Picture Dismantle Spaceship" tags="" position="2925,2150" size="100,100">&lt;center&gt;&lt;blockquote&gt;
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="46" name="Picture Dismantle Spaceship" tags="" position="2925,2150" size="100,100">&lt;center&gt;&lt;blockquote&gt;
 [img[assets/backgrounds/Placeholder.png]]
 
 
 &lt;&lt;ab&gt;&gt;&lt;&lt;if $Camp_J&gt;&gt;[[Camp Jungle]]&lt;&lt;else&gt;&gt;[[Camp Mountain]]&lt;&lt;/if&gt;&gt;&lt;&lt;/ab&gt;&gt;
 
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="46" name="Picture Orb addendum" tags="" position="2425,2275" size="100,100">&lt;center&gt;&lt;blockquote&gt;&lt;&lt;set $addendum = true&gt;&gt;
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="47" name="Picture Orb addendum" tags="" position="2425,2275" size="100,100">&lt;center&gt;&lt;blockquote&gt;&lt;&lt;set $addendum = true&gt;&gt;
 [img[assets/backgrounds/Placeholder.png]]
 
 Now. Time for the truth!
 
 &lt;&lt;ab&gt;&gt;[[Camp Jungle]]&lt;&lt;/ab&gt;&gt;
 
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="47" name="Picture Repair Spaceship" tags="" position="2800,2150" size="100,100">&lt;center&gt;&lt;blockquote&gt;
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="48" name="Picture Repair Spaceship" tags="" position="2800,2150" size="100,100">&lt;center&gt;&lt;blockquote&gt;
 [img[assets/backgrounds/Placeholder.png]]
 
 
 &lt;&lt;ab&gt;&gt;&lt;&lt;if $Camp_J&gt;&gt;[[Camp Jungle]]&lt;&lt;else&gt;&gt;[[Camp Mountain]]&lt;&lt;/if&gt;&gt;&lt;&lt;/ab&gt;&gt;
 
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="48" name="Picture RepairBot" tags="" position="2550,2150" size="100,100">&lt;center&gt;&lt;blockquote&gt;
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="49" name="Picture RepairBot" tags="" position="2550,2150" size="100,100">&lt;center&gt;&lt;blockquote&gt;
 [img[assets/backgrounds/Placeholder.png]]
 
 
 &lt;&lt;ab&gt;&gt;&lt;&lt;if $Camp_J&gt;&gt;[[Camp Jungle]]&lt;&lt;else&gt;&gt;[[Camp Mountain]]&lt;&lt;/if&gt;&gt;&lt;&lt;/ab&gt;&gt;
 
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="49" name="Picture Turnover" tags="" position="2050,2150" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="50" name="Picture Turnover" tags="" position="2050,2150" size="100,100">&lt;&lt;nobr&gt;&gt;
 	  &lt;&lt;if $QuestPoolDone.includesAll($Q1CA1, $Q1CA2)&gt;&gt;
     &lt;&lt;set $QuestPool.delete($Q1CA); $QuestPoolDone.pushUnique($Q1CA); $QuestPool.pushUnique($Q1CA3); $VikaHeal = $days&gt;&gt;
   &lt;&lt;/if&gt;&gt;
@@ -3718,45 +3728,45 @@ Now. Time for the truth!
 
 &lt;&lt;ab&gt;&gt;&lt;&lt;if $Camp_J&gt;&gt;[[Camp Jungle]]&lt;&lt;else&gt;&gt;[[Camp Mountain]]&lt;&lt;/if&gt;&gt;&lt;&lt;/ab&gt;&gt;
 
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="50" name="Picture Vika in Cryostasis" tags="" position="2175,2150" size="100,100">&lt;center&gt;&lt;blockquote&gt;
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="51" name="Picture Vika in Cryostasis" tags="" position="2175,2150" size="100,100">&lt;center&gt;&lt;blockquote&gt;
 [img[assets/backgrounds/Placeholder.png]]
 
 
 &lt;&lt;ab&gt;&gt;&lt;&lt;if $Camp_J&gt;&gt;[[Camp Jungle]]&lt;&lt;else&gt;&gt;[[Camp Mountain]]&lt;&lt;/if&gt;&gt;&lt;&lt;/ab&gt;&gt;
 
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="51" name="Picture designing" tags="" position="2050,2275" size="100,100">&lt;&lt;if $designing.range(1, 3)&gt;&gt;
-  &lt;&lt;if $designing = 1&gt;&gt;
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="52" name="Picture designing" tags="" position="2050,2275" size="100,100">&lt;&lt;if $designing.range(1, 3)&gt;&gt;
+  &lt;&lt;if $designing == 1&gt;&gt;
     [img[assets/events/brainstormnanodrone.png]]
-  &lt;&lt;elseif $designing = 2&gt;&gt;
+  &lt;&lt;elseif $designing == 2&gt;&gt;
     [img[assets/events/nanodronefeedback.png]]
-  &lt;&lt;elseif $designing = 3 &amp;&amp; $nanodrone&gt;&gt;
+  &lt;&lt;elseif $designing == 3 &amp;&amp; $nanodrone&gt;&gt;
     [img[assets/events/nanodroneimprove.png]]
   &lt;&lt;/if&gt;&gt;
 
  	[[Continue on|Construction Menu]]
     
  	[[Go to Camp|Camp Jungle]]
-&lt;&lt;elseif $designing = 3 &amp;&amp; $datainterpreter&gt;&gt;
+&lt;&lt;elseif $designing == 3 &amp;&amp; $datainterpreter&gt;&gt;
 	[img[assets/events/datainterpreterprinted.png]]
         
 	[[On to the next task|Scheduler][$datainterpreter = true; $QuestPool.delete($Q3F); $QuestPoolDone.pushUnique($Q3F); $QuestPool.pushUnique($Q3G)]]
-&lt;&lt;elseif $designing = 4&gt;&gt;
+&lt;&lt;elseif $designing == 4&gt;&gt;
 	[img[assets/events/nanodroneprinted.png]]
         
 	[[On to the next task|Scheduler][$nanodrone = true; $QuestPool.delete($Q3C); $QuestPoolDone.pushUnique($Q3C); $QuestPool.pushUnique($Q3D)]]
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="52" name="Picture repair Leo" tags="" position="2425,2150" size="100,100">&lt;center&gt;&lt;blockquote&gt;
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="53" name="Picture repair Leo" tags="" position="2425,2150" size="100,100">&lt;center&gt;&lt;blockquote&gt;
 [img[assets/backgrounds/Placeholder.png]]
 
 
 &lt;&lt;ab&gt;&gt;&lt;&lt;if $Camp_J&gt;&gt;[[Camp Jungle]]&lt;&lt;else&gt;&gt;[[Camp Mountain]]&lt;&lt;/if&gt;&gt;&lt;&lt;/ab&gt;&gt;
 
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="53" name="Picture the ladies in Cryostasis" tags="" position="2175,2275" size="100,100">&lt;center&gt;&lt;blockquote&gt;
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="54" name="Picture the ladies in Cryostasis" tags="" position="2175,2275" size="100,100">&lt;center&gt;&lt;blockquote&gt;
 [img[assets/backgrounds/Placeholder.png]]
 
 
 &lt;&lt;ab&gt;&gt;&lt;&lt;if $Camp_J&gt;&gt;[[Camp Jungle]]&lt;&lt;else&gt;&gt;[[Camp Mountain]]&lt;&lt;/if&gt;&gt;&lt;&lt;/ab&gt;&gt;
 
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="54" name="QuestProgressor" tags="Missions" position="2675,1425" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="55" name="QuestProgressor" tags="Missions" position="2675,1425" size="100,100">&lt;&lt;nobr&gt;&gt;
   /* First Task */
   &lt;&lt;if $QuestPool.includes($Q0) &amp;&amp; _currentQuest == $Q0&gt;&gt;&amp;nbsp;&lt;&lt;/if&gt;&gt;
 
@@ -3915,7 +3925,8 @@ Now. Time for the truth!
     &lt;&lt;elseif $QuestPool.includes($Q3B) &amp;&amp; _currentQuest == $Q3B &amp;&amp; $energy &lt; 1&gt;&gt;&lt;div class=&quot;conditionnotmet&quot;&gt;--- Rest. Sleep. ---&lt;/div&gt;
   &lt;&lt;/if&gt;&gt;
 
-  &lt;&lt;if $QuestPool.includes($Q3C) &amp;&amp; _currentQuest == $Q3C &amp;&amp; allValues100($explored, 100)&gt;&gt;&lt;&lt;ab&gt;&gt;[[My approach|Construction Menu][$printnanodrone = true; $designing = 0]]&lt;&lt;/ab&gt;&gt;
+  &lt;&lt;if $QuestPool.includes($Q3C) &amp;&amp; _currentQuest == $Q3C &amp;&amp; allValues100($explored, 100) &amp;&amp; $designing == 0&gt;&gt;&lt;&lt;ab&gt;&gt;[[My approach|Construction Menu][$printnanodrone = true; $designing = 0]]&lt;&lt;/ab&gt;&gt;
+    &lt;&lt;elseif $QuestPool.includes($Q3C) &amp;&amp; _currentQuest == $Q3C &amp;&amp; allValues100($explored, 100)  &amp;&amp; $designing &gt; 0&gt;&gt;&lt;&lt;ab&gt;&gt;[[My approach|Construction Menu]]&lt;&lt;/ab&gt;&gt;
     &lt;&lt;elseif $QuestPool.includes($Q3C) &amp;&amp; _currentQuest == $Q3C &amp;&amp; !allValues100($explored, 100)&gt;&gt;&lt;div class=&quot;conditionnotmet&quot;&gt;--- Explore more. More. ---&lt;/div&gt;
   &lt;&lt;/if&gt;&gt;
 
@@ -3937,7 +3948,7 @@ Now. Time for the truth!
     &lt;&lt;elseif $QuestPool.includes($Q3I) &amp;&amp; _currentQuest == $Q3I &amp;&amp; $CampJ.DefPerimeter == false&gt;&gt;&lt;div class=&quot;conditionnotmet&quot;&gt;--- have Defense Perimeter set ---&lt;/div&gt;
   &lt;&lt;/if&gt;&gt;
 
-&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="55" name="QuestTracker" tags="Missions" position="2675,1300" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="56" name="QuestTracker" tags="Missions" position="2675,1300" size="100,100">&lt;&lt;nobr&gt;&gt;
 
 &lt;&lt;set $Q1 = &quot;Investigate the by vegetation overgrown spaceship in the east.&quot;&gt;&gt;
 &lt;&lt;set $Q1A = &quot;Go to Camp Mountain and ask for help&quot;&gt;&gt;
@@ -3974,7 +3985,7 @@ Now. Time for the truth!
 &lt;&lt;set $Q3H = &quot;Complement the Orb with a scanner.&quot;&gt;&gt;
 &lt;&lt;set $Q3I = &quot;Have a Defense Perimeter set.&quot;&gt;&gt;
 
-&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="56" name="Questions" tags="" position="2800,2475" size="100,100">&lt;center&gt;&lt;blockquote&gt;
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="57" name="Questions" tags="" position="2800,2475" size="100,100">&lt;center&gt;&lt;blockquote&gt;
 [img[assets/backgrounds/Placeholder.png]]
 
 ---- WARNING: LOOOOOOONG TEXT ----
@@ -4237,7 +4248,7 @@ But what was Paavali trying to hint?
 
 if true &lt;&lt;ab&gt;&gt;[[Epilog]]&lt;&lt;/ab&gt;&gt;
 
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="57" name="Scheduler" tags="" position="2800,1300" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="58" name="Scheduler" tags="" position="2800,1300" size="100,100">&lt;&lt;nobr&gt;&gt;
   &lt;&lt;include [[QuestTracker]]&gt;&gt;
   &lt;&lt;if hasVisited(&quot;T2N&quot;, &quot;T1E&quot;) &amp;&amp; $SubAnalyzer &amp;&amp; $QuestPool.includes($Q0) &amp;&amp; !$QuestPoolDone.includes($Q0)&gt;&gt;&lt;&lt;set $QuestPool.delete($Q0); $QuestPoolDone.pushUnique($Q0)&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;
@@ -4257,7 +4268,7 @@ The &quot;Q&quot; key popups the task progressor everywhere.&lt;/center&gt;
   &lt;div&gt;&lt;ol&gt;&lt;&lt;for _name range $QuestPoolDone&gt;&gt;&lt;li&gt;&lt;blockquote&gt; _name&lt;/blockquote&gt;&lt;/li&gt;&lt;&lt;/for&gt;&gt;&lt;/ol&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;div class=&quot;index-screens-small&quot;&gt;&lt;div style=&quot;width: 100%;&quot;&gt;&lt;&lt;if $Camp_J&gt;&gt;[[Go to Camp|Camp Jungle]]&lt;&lt;else&gt;&gt;[[Go to Camp|Camp Mountain]]&lt;&lt;/if&gt;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="58" name="Search for Compass" tags="" position="925,175" size="100,100">&lt;center&gt;&lt;blockquote&gt;
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="59" name="Search for Compass" tags="" position="925,175" size="100,100">&lt;center&gt;&lt;blockquote&gt;
 &lt;&lt;if not hasVisited(&quot;Leo Crashsite&quot;)&gt;&gt;Are there things I can use?
 &lt;&lt;set $passagevisited = true&gt;&gt;
 &lt;&lt;timed 1000ms&gt;&gt;Anything on the left side?&lt;&lt;/timed&gt;&gt;&lt;&lt;timed 3000ms&gt;&gt; In the middle?&lt;&lt;/timed&gt;&gt;&lt;&lt;timed 5000ms&gt;&gt; On the right?&lt;&lt;/timed&gt;&gt;
@@ -4299,7 +4310,7 @@ Bien, bien. Now I have the compass. &lt;&lt;/timed&gt;&gt;
 &lt;&lt;ab&gt;&gt;[[Go back to Leo|Leo Crashsite][$compass = true]]&lt;&lt;/ab&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="59" name="Setter" tags="" position="2200,1125" size="100,100">[[Testing]]</tw-passagedata><tw-passagedata pid="60" name="SfBM open" tags="" position="2950,1350" size="100,100">[img[assets/Ch-Camp/MountainCamp.png]]
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="60" name="Setter" tags="" position="2200,1125" size="100,100">[[Testing]]</tw-passagedata><tw-passagedata pid="61" name="SfBM open" tags="" position="2950,1350" size="100,100">[img[assets/Ch-Camp/MountainCamp.png]]
   
   On a spot of a mountainous area, I found others! Yay! I guess, that is why the AI kept passive, because it knew, we will find the others ...
 
@@ -4307,7 +4318,7 @@ Bien, bien. Now I have the compass. &lt;&lt;/timed&gt;&gt;
 
   I will go back and tell the others about the new option: the resettling to Camp Mountain.
   
-&lt;&lt;ab&gt;&gt;[[Go back to Base|The Map][$energy -= 0.2+$Oeu]]&lt;&lt;/ab&gt;&gt;</tw-passagedata><tw-passagedata pid="61" name="Shutdown" tags="" position="1050,175" size="100,100">&lt;center&gt;&lt;blockquote&gt;
+&lt;&lt;ab&gt;&gt;[[Go back to Base|The Map][$energy -= 0.2+$Oeu]]&lt;&lt;/ab&gt;&gt;</tw-passagedata><tw-passagedata pid="62" name="Shutdown" tags="" position="1050,175" size="100,100">&lt;center&gt;&lt;blockquote&gt;
 
 &lt;&lt;timed 1000ms&gt;&gt;Shutdown in 3
 &lt;div class=&quot;Char&quot;&gt;&lt;div class=&quot;Char-Framer&quot;&gt;&lt;img class=&quot;Char-img&quot; src=&quot;assets/characters/RD.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;Char-dialogues&quot;&gt;Shit?! No! No!&lt;/div&gt;&lt;/div&gt;&lt;&lt;/timed&gt;&gt;
@@ -4338,7 +4349,7 @@ Bien, bien. Now I have the compass. &lt;&lt;/timed&gt;&gt;
 Yes! Yes! I am saved&lt;/div&gt;&lt;/div&gt;
 
 &lt;&lt;/timed&gt;&gt;&lt;&lt;timed 27000ms&gt;&gt;&lt;&lt;goto &quot;EndPoint ChCrash&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="62" name="Situation in T1S2E" tags="" position="3325,1850" size="100,100">&lt;center&gt;&lt;blockquote&gt;
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="63" name="Situation in T1S2E" tags="" position="3325,1850" size="100,100">&lt;center&gt;&lt;blockquote&gt;
 [img[assets/backgrounds/Placeholder.png]]
 
 &lt;&lt;say &quot;blackface&quot;&gt;&gt;Waaait.&lt;&lt;/say&gt;&gt;
@@ -4418,7 +4429,7 @@ He mimicked in the direction from where I come from. I concludes that is the spo
 
 &lt;&lt;ab&gt;&gt;[[Go back to camp|Camp Jungle][$QuestPool.delete(Q3D); $QuestPool.pushUnique($Q3E); $QuestPoolDone.pushUnique($Q3D)]]&lt;&lt;/ab&gt;&gt;
 
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="63" name="Social Events" tags="" position="3325,350" size="100,100">&lt;center&gt;&lt;blockquote&gt;&lt;&lt;if $energy &lt; 1&gt;&gt;&lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="64" name="Social Events" tags="" position="3325,350" size="100,100">&lt;center&gt;&lt;blockquote&gt;&lt;&lt;if $energy &lt; 1&gt;&gt;&lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt;
 With whom do I want to socialize?
 
 &lt;&lt;if $noVika == false &amp;&amp; $energy &gt; 1&gt;&gt;[img[Vika|assets/characters/Vika.png][Vika][$energy -= 1; $social += 0.04; $Vikavisits += 1]]&lt;&lt;/if&gt;&gt;
@@ -4431,9 +4442,9 @@ With whom do I want to socialize?
 
 &lt;div class=&quot;actions-row&quot;&gt;&lt;&lt;if $Camp_J&gt;&gt;&lt;div&gt;[[Back to the camp|Camp Jungle]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div&gt;[[Back to the camp|Camp Mountain]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/div&gt;
 
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="64" name="StoryInit" tags="" position="100,25" size="100,100">&lt;&lt;include [[globalvariables]]&gt;&gt;
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="65" name="StoryInit" tags="" position="100,25" size="100,100">&lt;&lt;include [[globalvariables]]&gt;&gt;
 &lt;&lt;include [[Territories]]&gt;&gt;
-&lt;&lt;include [[Audios]]&gt;&gt;</tw-passagedata><tw-passagedata pid="65" name="Substance Analyzer" tags="" position="2175,300" size="100,100">&lt;center&gt;
+&lt;&lt;include [[Audios]]&gt;&gt;</tw-passagedata><tw-passagedata pid="66" name="Substance Analyzer" tags="" position="2175,300" size="100,100">&lt;center&gt;
 [img[assets/items/Substance-Analyzer.png]]
 &lt;blockquote&gt;
 The substance analyzer is now in our inventory.
@@ -4443,11 +4454,11 @@ With that, we should be able to collect materials nearby. Hopefully, some can be
 &lt;&lt;set $SubAnalyzer = true&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;
 &lt;&lt;ab&gt;&gt;[[Set up the Camp|Camp Jungle]]&lt;&lt;/ab&gt;&gt;
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="66" name="T1E" tags="" position="1000,2175" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="67" name="T1E" tags="" position="1000,2175" size="100,100">&lt;&lt;nobr&gt;&gt;
 	&lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;set $explored.TBJ0 = 100&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;&lt;&lt;nobr&gt;&gt;
   &lt;&lt;if $Camp_J &amp;&amp; $eventfrom3E != true &amp;&amp; $energy &lt;= 2*(0.2+$Oeu)&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;elseif $Camp_M &amp;&amp; $eventfrom3E &amp;&amp; hasVisited(&quot;3E-Event&quot;) &amp;&amp; $energy &lt;= 6*(0.2+$Oeu)&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;elseif $Camp_M &amp;&amp; $eventfrom3E != true &amp;&amp; $energy &lt;= 4*(0.2+$Oeu)&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;&lt;center&gt;[img[assets/Ch-Explore/food.png]]
+&lt;&lt;/nobr&gt;&gt;&lt;center&gt;[img[assets/Ch-Explore/T1E.png]]
   &lt;blockquote&gt;
     &lt;&lt;if $eventfrom3E &amp;&amp; not hasVisited(&quot;3E-Event&quot;)&gt;&gt;
       &lt;&lt;if $energy &gt; 0.2&gt;&gt;
@@ -4487,9 +4498,9 @@ With that, we should be able to collect materials nearby. Hopefully, some can be
         &lt;&lt;compass &quot;T1NE&quot; &quot;TBJ0&quot; &quot;T2E&quot; &quot;T1SE&quot;&gt;&gt;
       &lt;&lt;/nobr&gt;&gt;
     &lt;&lt;/if&gt;&gt;  
-  &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="67" name="T1N" tags="" position="875,2050" size="100,100">&lt;&lt;nobr&gt;&gt;
+  &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="68" name="T1N" tags="" position="875,2050" size="100,100">&lt;&lt;nobr&gt;&gt;
 	&lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;set $explored.TBJ0 = 100&gt;&gt;&lt;&lt;/if&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;&lt;center&gt;[img[assets/Ch-Explore/marshland1.png]]
+&lt;&lt;/nobr&gt;&gt;&lt;center&gt;[img[assets/Ch-Explore/T1N.png]]
 &lt;blockquote&gt;
 Hm, a swampy area. Nothing useful here.
 
@@ -4497,71 +4508,74 @@ Hm, a swampy area. Nothing useful here.
 
 &lt;&lt;compass &quot;T2N&quot; &quot;T1NW&quot; &quot;T1NE&quot; &quot;TBJ0&quot;&gt;&gt;
 
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="68" name="T1N2E" tags="" position="1125,2050" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="69" name="T1N2E" tags="" position="1125,2050" size="100,100">&lt;&lt;nobr&gt;&gt;
   &lt;&lt;if $Camp_J &amp;&amp; $energy &lt;= 3*(0.2+$Oeu)&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;elseif $Camp_M &amp;&amp; $energy &lt;= 4*(0.2+$Oeu)&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;&lt;center&gt;[img[assets/Ch-Explore/T1N2E.png]]
+&lt;&lt;/nobr&gt;&gt;&lt;center&gt;&lt;&lt;if !$scrapscollected&gt;&gt;[img[assets/Ch-Explore/T1N2E.png]]&lt;&lt;else&gt;&gt;[img[assets/Ch-Explore/T1N2E_empty.png]]&lt;&lt;/if&gt;&gt;
 &lt;blockquote&gt;
 
-There! I found another pod. But, shiiiet, it doesn&#39;t look good. If there is no one inside, then the person got lucky and must be alive somewhere. Or not alive. Somewhere.
+&lt;&lt;if !$looked&gt;&gt;There! I found another pod. But, shiiiet, it doesn&#39;t look good. If there is no one inside, then the person got lucky and must be alive somewhere. Or not alive. Somewhere.
 
 &lt;&lt;linkappend &quot;&lt;&lt;ab&gt;&gt;Look for signs&lt;&lt;/ab&gt;&gt;&quot;&gt;&gt;&lt;br&gt;&lt;&lt;set $looked = true&gt;&gt;
 
 &lt;div class=&quot;dot-enqueuer&quot;&gt;&lt;div class=&quot;Dot1&quot;&gt;.&lt;/div&gt;&lt;div class=&quot;Dot2&quot;&gt;.&lt;/div&gt;&lt;div class=&quot;Dot3&quot;&gt;.&lt;/div&gt;&lt;/div&gt;
 
-&lt;&lt;timed 5s&gt;&gt;I see no one. Then I guess, person got lucky. &lt;em&gt;fingers crossed&lt;/em&gt;&lt;&lt;/timed&gt;&lt;&lt;/linkappend&gt;&gt;
+&lt;&lt;timed 5s&gt;&gt;I see no one. Then I guess, person got lucky. &lt;em&gt;fingers crossed&lt;/em&gt;&lt;&lt;/timed&gt;&gt;&lt;&lt;/linkappend&gt;&gt;
+&lt;&lt;else&gt;&gt;
+  Quite foggy here.
+&lt;&lt;/if&gt;&gt;
 
-I could use &lt;&lt;if $Oeu == 0.3&gt;&gt;the&lt;&lt;else&gt;&gt;an&lt;&lt;/if&gt;&gt; orb to collect the materials here.
+&lt;&lt;if !$scrapscollected&gt;&gt;&lt;&lt;set $scrapscollected = true&gt;&gt;I could use &lt;&lt;if $Oeu == 0.3&gt;&gt;the&lt;&lt;else&gt;&gt;an&lt;&lt;/if&gt;&gt; orb to collect the materials here.
 
-&lt;&lt;choice [[Set the Orb to collect the scraps|Camp Jungle][$unimatter += 3]]&gt;&gt;
+&lt;&lt;if $Oeu == 0.3&gt;&gt;&lt;&lt;ab&gt;&gt;&lt;&lt;choice [[Set the Orb to collect the scraps|Camp Jungle][$unimatter += 3; $scrapscollected = true]]&gt;&gt;&lt;&lt;/ab&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt;
 
-&lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;ab&gt;&gt;[[Go back to Base|The Map][$energy -= 3*(0.2+$Oeu)]]&lt;&lt;/ab&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;ab&gt;&gt;[[Go back to Base|The Map][$energy -= 4*(0.2+$Oeu)]]&lt;&lt;/ab&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;&lt;ab&gt;&gt;[[Go back to Base|The Map][$energy -= 3*(0.2+$Oeu)]]&lt;&lt;/ab&gt;&gt;
   
-&lt;&lt;compass &quot;&quot; &quot;T1NE&quot; &quot;T1N3E&quot; &quot;T2E&quot;&gt;&gt;
+&lt;&lt;compass &quot;T2N2E&quot; &quot;T1NE&quot; &quot;T1N3E&quot; &quot;T2E&quot;&gt;&gt;
 
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="69" name="T1N2W" tags="" position="625,2050" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="70" name="T2N2E" tags="" position="1125,1925" size="100,100">&lt;&lt;nobr&gt;&gt;
   &lt;&lt;if $Camp_J &amp;&amp; $energy &lt;= 2*(0.2+$Oeu)&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;elseif $Camp_M &amp;&amp; $energy &lt;= 5*(0.2+$Oeu)&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;&lt;center&gt;[img[assets/Ch-Explore/T1N2W.png]]
+&lt;&lt;/nobr&gt;&gt;&lt;center&gt;[img[assets/Ch-Explore/T2N2E.png]]
   &lt;blockquote&gt;
   
   Yeapp, getting more and more watery. Now I cannot find another way.
   
-    &lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;ab&gt;&gt;[[Go back to Base|The Map][$energy -= 2*(0.2+$Oeu)]]&lt;&lt;/ab&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;ab&gt;&gt;[[Go back to Base|The Map][$energy -= 5*(0.2+$Oeu)]]&lt;&lt;/ab&gt;&gt;&lt;&lt;/if&gt;&gt;
+    &lt;&lt;ab&gt;&gt;[[Go back to Base|The Map][$energy -= 2*(0.2+$Oeu)]]&lt;&lt;/ab&gt;&gt;
   
-&lt;&lt;compass &quot;&quot; &quot;&quot; &quot;T1NW&quot; &quot;T2W&quot;&gt;&gt;
+&lt;&lt;compass &quot;&quot; &quot;&quot; &quot;&quot; &quot;T1N2E&quot;&gt;&gt;
   
   &lt;/blockquote&gt;
-&lt;/center&gt;</tw-passagedata><tw-passagedata pid="70" name="T1N3E" tags="" position="1250,2050" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;/center&gt;</tw-passagedata><tw-passagedata pid="71" name="T1N3E" tags="" position="1250,2050" size="100,100">&lt;&lt;nobr&gt;&gt;
   &lt;&lt;if $Camp_J &amp;&amp; $energy &lt;= 4*(0.2+$Oeu)&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;elseif $Camp_M &amp;&amp; $energy &lt;= 3*(0.2+$Oeu)&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;&lt;center&gt;[img[assets/Ch-Explore/scenery1N3E.png]]
+&lt;&lt;/nobr&gt;&gt;&lt;center&gt;[img[assets/Ch-Explore/T1N3E.png]]
 &lt;blockquote&gt;
 
-Bien, bien. Looks like I could be protected by those hills on the southern flank if I cross here through. Hopfully!
+Yes, ok, that looks good. Like, I could be protected by those hills on the southern flank if I cross here through. Hopefully!
 
     &lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;ab&gt;&gt;[[Go back to Base|The Map][$energy -= 4*(0.2+$Oeu)]]&lt;&lt;/ab&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;ab&gt;&gt;[[Go back to Base|The Map][$energy -= 3*(0.2+$Oeu)]]&lt;&lt;/ab&gt;&gt;&lt;&lt;/if&gt;&gt;
   
 &lt;&lt;compass &quot;&quot; &quot;T1N2E&quot; &quot;T1N4E&quot; &quot;&quot;&gt;&gt;
 
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="71" name="T1N4E" tags="" position="1375,2050" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="72" name="T1N4E" tags="" position="1375,2050" size="100,100">&lt;&lt;nobr&gt;&gt;
   &lt;&lt;if $Camp_J &amp;&amp; $energy &lt;= 5*(0.2+$Oeu)&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;elseif $Camp_M &amp;&amp; $energy &lt;= 2*(0.2+$Oeu)&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;&lt;center&gt;[img[assets/Ch-Explore/scenery1N4E.png]]
+&lt;&lt;/nobr&gt;&gt;&lt;center&gt;[img[assets/Ch-Explore/T1N4E.png]]
 &lt;blockquote&gt;
 
     &lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;ab&gt;&gt;[[Go back to Base|The Map][$energy -= 5*(0.2+$Oeu)]]&lt;&lt;/ab&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;ab&gt;&gt;[[Go back to Base|The Map][$energy -= 2*(0.2+$Oeu)]]&lt;&lt;/ab&gt;&gt;&lt;&lt;/if&gt;&gt;
   
 &lt;&lt;compass &quot;&quot; &quot;T1N3E&quot; &quot;T1N5E&quot; &quot;T4E&quot;&gt;&gt;
 
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="72" name="T1N5E" tags="" position="1500,2050" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="73" name="T1N5E" tags="" position="1500,2050" size="100,100">&lt;&lt;nobr&gt;&gt;
 	&lt;&lt;if $Camp_M&gt;&gt;&lt;&lt;set $explored.TBM0 = 100&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;&lt;&lt;nobr&gt;&gt;
   &lt;&lt;if $Camp_J &amp;&amp; $energy &lt;= 6*(0.2+$Oeu)&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;elseif $Camp_M &amp;&amp; $energy &lt;= 0.2+$Oeu&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;&lt;center&gt;[img[assets/Ch-Explore/scenery1N5E.png]]
+&lt;&lt;/nobr&gt;&gt;&lt;center&gt;[img[assets/Ch-Explore/T1N5E.png]]
 &lt;blockquote&gt;
 
     &lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;ab&gt;&gt;[[Go back to Base|The Map][$energy -= 6*(0.2+$Oeu)]]&lt;&lt;/ab&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;ab&gt;&gt;[[Go back to Base|The Map][$energy -= 0.2+$Oeu]]&lt;&lt;/ab&gt;&gt;&lt;&lt;/if&gt;&gt;
 
 &lt;&lt;compass &quot;&quot; &quot;T1N4E&quot; &quot;&quot; &quot;TBM0&quot;&gt;&gt;
   
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="73" name="T1NE" tags="" position="1000,2050" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="74" name="T1NE" tags="" position="1000,2050" size="100,100">&lt;&lt;nobr&gt;&gt;
   &lt;&lt;if $Camp_J &amp;&amp; $energy &lt;= 2*(0.2+$Oeu)&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;elseif $Camp_M &amp;&amp; $energy &lt;= 5*(0.2+$Oeu)&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;&lt;center&gt;[img[assets/Ch-Explore/T1NE.png]]
   &lt;blockquote&gt;
@@ -4577,23 +4591,22 @@ Bien, bien. Looks like I could be protected by those hills on the southern flank
 &lt;&lt;compass &quot;&quot; &quot;T1N&quot; &quot;T1N2E&quot; &quot;T1E&quot;&gt;&gt;
   
   &lt;/blockquote&gt;
-&lt;/center&gt;</tw-passagedata><tw-passagedata pid="74" name="T1NW" tags="" position="750,2050" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;/center&gt;</tw-passagedata><tw-passagedata pid="75" name="T1NW" tags="" position="750,2050" size="100,100">&lt;&lt;nobr&gt;&gt;
   &lt;&lt;if $Camp_J &amp;&amp; $energy &lt;= 2*(0.2+$Oeu)&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;elseif $Camp_M &amp;&amp; $energy &lt;= 5*(0.2+$Oeu)&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;&lt;center&gt;[img[assets/Ch-Explore/T1NW.png]]
   &lt;blockquote&gt;
   
-  A creek. &lt;em&gt;Hm&lt;/em&gt; All go to the sea. 
+Nothing but forest, jungle, leaves, green, green, green and more greens. And the noises, constant cacophonies of noises that I barely know of. That&#39;s eerie.
   
-    &lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;ab&gt;&gt;[[Go back to Base|The Map][$energy -= 2*(0.2+$Oeu)]]&lt;&lt;/ab&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;ab&gt;&gt;[[Go back to Base|The Map][$energy -= 5*(0.2+$Oeu)]]&lt;&lt;/ab&gt;&gt;&lt;&lt;/if&gt;&gt;
-  
-&lt;&lt;compass &quot;&quot; &quot;T1N2W&quot; &quot;T1N&quot; &quot;T1W&quot;&gt;&gt;
+    &lt;&lt;ab&gt;&gt;[[Go back to Base|The Map][$energy -= 2*(0.2+$Oeu)]]&lt;&lt;/ab&gt;&gt;
+&lt;&lt;compass &quot;&quot; &quot;&quot; &quot;T1N&quot; &quot;T1W&quot;&gt;&gt;
   
   &lt;/blockquote&gt;
-&lt;/center&gt;</tw-passagedata><tw-passagedata pid="75" name="T1S" tags="" position="875,2300" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;/center&gt;</tw-passagedata><tw-passagedata pid="76" name="T1S" tags="" position="875,2300" size="100,100">&lt;&lt;nobr&gt;&gt;
 	&lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;set $explored.TBJ0 = 100&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;&lt;&lt;nobr&gt;&gt;
   &lt;&lt;if $Camp_J &amp;&amp; $energy &lt;= 0.2+$Oeu&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;elseif $Camp_M &amp;&amp; $energy &lt;= (6+$summand)*(0.2+$Oeu)&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;&lt;center&gt;[img[assets/Ch-Explore/desert3.png]]
+&lt;&lt;/nobr&gt;&gt;&lt;center&gt;[img[assets/Ch-Explore/T1S.png]]
 &lt;blockquote&gt;
 Dryness.
 
@@ -4606,9 +4619,9 @@ Water!
 &lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;ab&gt;&gt;[[Go back to Base|The Map][$energy -= 0.2+$Oeu]]&lt;&lt;/ab&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;ab&gt;&gt;[[Go back to Base|The Map][$energy -= (6+$summand)*(0.2+$Oeu)]]&lt;&lt;/ab&gt;&gt;&lt;&lt;/if&gt;&gt;
 
 &lt;&lt;compass &quot;TBJ0&quot; &quot;T1SW&quot; &quot;T1SE&quot; &quot;T2S&quot;&gt;&gt;
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="76" name="T1S2E" tags="" position="1125,2300" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="77" name="T1S2E" tags="" position="1125,2300" size="100,100">&lt;&lt;nobr&gt;&gt;
   &lt;&lt;if $Camp_J &amp;&amp; $energy &lt;= (3*($Humcarrycap*0.2))+$Oeu&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;&lt;center&gt;[img[assets/Ch-Explore/Tile1S2E.png]]
+&lt;&lt;/nobr&gt;&gt;&lt;center&gt;[img[assets/Ch-Explore/T1S2E.png]]
 &lt;blockquote&gt;
 &lt;&lt;if $nanodrone == true&gt;&gt;
   Bueno! Bueno! Buenooo! 
@@ -4626,10 +4639,9 @@ Water!
   &lt;&lt;ab&gt;&gt;[[Run!|Situation in T1S2E][]]&lt;&lt;/ab&gt;&gt;
 
   &lt;&lt;/timed&gt;&gt;&lt;&lt;/timed&gt;&gt;&lt;&lt;/timed&gt;&gt;&lt;&lt;/linkappend&gt;&gt;
-
 &lt;&lt;else&gt;&gt;
-  &lt;&lt;if not hasVisited(&quot;T1S2E&quot;)&gt;&gt;
-    Indeed! Another spaceship! Buuuut ... it seems to me that is not(!) from our mothership. And, yet ... of human design. Were our kind already here? Before?
+  &lt;&lt;if !$firsttime1S2E&gt;&gt;&lt;&lt;set $firsttime1S2E = true&gt;&gt;
+    Indeed! Another spaceship! Buuuut ... it seems to me that is &lt;strong&gt;not&lt;/strong&gt; from our mothership. And, yet ... of human design. Were our kind already here? Before?
 
     ...
 
@@ -4653,12 +4665,12 @@ Water!
 
     &lt;&lt;timed 1s&gt;&gt;&lt;&lt;ab&gt;&gt;[[Run!|Situation in T1S2E]]&lt;&lt;/ab&gt;&gt;&lt;/div&gt;&lt;&lt;/timed&gt;&gt;&lt;&lt;/timed&gt;&gt;&lt;&lt;/linkappend&gt;&gt;&lt;&lt;/if&gt;&gt;
 
-  &lt;div class=&quot;ABtohide&quot;&lt;&lt;ab&gt;&gt;[[Go back to Base|The Map][$energy -= 0.2+$Oeu]]&lt;&lt;/ab&gt;&gt;&lt;/div&gt;
+  &lt;div class=&quot;ABtohide&quot;&gt;&lt;&lt;ab&gt;&gt;[[Go back to Base|Camp Jungle][$energy -= 0.2+$Oeu]]&lt;&lt;/ab&gt;&gt;&lt;/div&gt;
 
 &lt;&lt;compass &quot;T2E&quot; &quot;T1SE&quot; &quot;&quot; &quot;&quot;&gt;&gt;
 
 &lt;&lt;/if&gt;&gt;
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="77" name="T1S2W" tags="" position="625,2300" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="78" name="T1S2W" tags="" position="625,2300" size="100,100">&lt;&lt;nobr&gt;&gt;
   &lt;&lt;if $Camp_J &amp;&amp; $energy &lt;= 2*(0.2+$Oeu)&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;elseif $Camp_M &amp;&amp; $energy &lt;= 5*(0.2+$Oeu)&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;&lt;center&gt;[img[assets/Ch-Explore/T1S2W.png]]
   &lt;blockquote&gt;
@@ -4674,7 +4686,7 @@ Although, it feels like ... here nearby are the crash sites of our pods. Whateve
 &lt;&lt;compass &quot;T2W&quot; &quot;&quot; &quot;T1SW&quot; &quot;&quot;&gt;&gt;
   
   &lt;/blockquote&gt;
-&lt;/center&gt;</tw-passagedata><tw-passagedata pid="78" name="T1SE" tags="" position="1000,2300" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;/center&gt;</tw-passagedata><tw-passagedata pid="79" name="T1SE" tags="" position="1000,2300" size="100,100">&lt;&lt;nobr&gt;&gt;
   &lt;&lt;if $Camp_J &amp;&amp; $energy &lt;= 3*($Humcarrycap*0.2+$Oeu)&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;&lt;center&gt;[img[assets/Ch-Explore/T1SE.png]]
   &lt;blockquote&gt;
@@ -4729,32 +4741,42 @@ Although, it feels like ... here nearby are the crash sites of our pods. Whateve
 &lt;&lt;compass &quot;T1E&quot; &quot;T1S&quot; &quot;T1S2E&quot; &quot;&quot;&gt;&gt;
   
   &lt;/blockquote&gt;
-&lt;/center&gt;</tw-passagedata><tw-passagedata pid="79" name="T1SW" tags="" position="750,2300" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;/center&gt;</tw-passagedata><tw-passagedata pid="80" name="T1SW" tags="" position="750,2300" size="100,100">&lt;&lt;nobr&gt;&gt;
   &lt;&lt;if $Camp_J &amp;&amp; $energy &lt;= 2*(0.2+$Oeu)&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;elseif $Camp_M &amp;&amp; $energy &lt;= 5*(0.2+$Oeu)&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;&lt;center&gt;[img[assets/Ch-Explore/T1SW.png]]
   &lt;blockquote&gt;
   
-  	Aaand behind this ridge is the desert, the barren land. What a contrast.
+  	Aaand behind this ridge is the desert, the barren land ... what a contrast.
   
     &lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;ab&gt;&gt;[[Go back to Base|The Map][$energy -= 2*(0.2+$Oeu)]]&lt;&lt;/ab&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;ab&gt;&gt;[[Go back to Base|The Map][$energy -= 5*(0.2+$Oeu)]]&lt;&lt;/ab&gt;&gt;&lt;&lt;/if&gt;&gt;
   
 &lt;&lt;compass &quot;T1W&quot; &quot;T1S2W&quot; &quot;T1S&quot; &quot;&quot;&gt;&gt;
   
   &lt;/blockquote&gt;
-&lt;/center&gt;</tw-passagedata><tw-passagedata pid="80" name="T1W" tags="" position="750,2175" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;/center&gt;</tw-passagedata><tw-passagedata pid="81" name="T1W" tags="" position="750,2175" size="100,100">&lt;&lt;nobr&gt;&gt;
 	&lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;set $explored.TBJ0 = 100&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;&lt;&lt;nobr&gt;&gt;
   &lt;&lt;if $Camp_J &amp;&amp; $energy &lt;= 0.2+$Oeu&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;elseif $Camp_M &amp;&amp; $energy &lt;= (6+$summand)*(0.2+$Oeu)&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;&lt;center&gt;[img[assets/Ch-Explore/jungle1.png]]
+&lt;&lt;/nobr&gt;&gt;&lt;center&gt;[img[assets/Ch-Explore/T1W.png]]
 &lt;blockquote&gt;
-Nothing but forest, jungle, leaves, green, green, green and more greens. And the noises, constant cacophonies of noises that I barely know of. That&#39;s eerie.
+
+Passing on the border of the swamp area.
+
+&lt;&lt;if $SubAnalyzer&gt;&gt;
+
+Those clay-like bubbles can be used as unimatter, though of inferior quality.
+
+Bring them to Camp anyway?
+
+&lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;ab&gt;&gt;[[Yes|Camp Jungle][$energy -= 2*(0.2+$Oeu); $unimatter += $carrycap/4]]&lt;&lt;/ab&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;ab&gt;&gt;[[Yes|Camp Mountain][$energy -= (7+$summand)*(0.2+$Oeu); $unimatter += $carrycap/4]]&lt;&lt;/ab&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;&lt;/if&gt;&gt;
 
 &lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;ab&gt;&gt;[[Go back to Base|The Map][$energy -= 0.2+$Oeu]]&lt;&lt;/ab&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;ab&gt;&gt;[[Go back to Base|The Map][$energy -= (6+$summand)*(0.2+$Oeu)]]&lt;&lt;/ab&gt;&gt;&lt;&lt;/if&gt;&gt;
 
 &lt;&lt;compass &quot;T1NW&quot; &quot;T2W&quot; &quot;TBJ0&quot; &quot;T1SW&quot;&gt;&gt;
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="81" name="T2E" tags="" position="1125,2175" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="82" name="T2E" tags="" position="1125,2175" size="100,100">&lt;&lt;nobr&gt;&gt;
   &lt;&lt;if $Camp_J &amp;&amp; $eventfrom3E != true &amp;&amp; $energy &lt;= 2*(0.2+$Oeu)&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;elseif $Camp_M &amp;&amp; $eventfrom3E &amp;&amp; hasVisited(&quot;3E-Event&quot;) &amp;&amp; $energy &lt;= 5*(0.2+$Oeu)&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;elseif $Camp_M &amp;&amp; $eventfrom3E != true &amp;&amp; $energy &lt;= 3*(0.2+$Oeu)&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;&lt;center&gt;[img[assets/Ch-Explore/jungle4.png]]
+&lt;&lt;/nobr&gt;&gt;&lt;center&gt;[img[assets/Ch-Explore/T2E.png]]
 &lt;blockquote&gt;&lt;&lt;nobr&gt;&gt;
 &lt;&lt;if not hasVisited(&quot;3E-Event&quot;) &amp;&amp; $eventfrom3E&gt;&gt;
   &lt;&lt;set _run = 6&gt;&gt;
@@ -4822,9 +4844,9 @@ Nothing but forest, jungle, leaves, green, green, green and more greens. And the
       &lt;/div&gt;
     &lt;/div&gt;&lt;&lt;/nobr&gt;&gt;
 &lt;&lt;/if&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="82" name="T2N" tags="" position="875,1925" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;&lt;/nobr&gt;&gt;&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="83" name="T2N" tags="" position="875,1925" size="100,100">&lt;&lt;nobr&gt;&gt;
   &lt;&lt;if $Camp_J &amp;&amp; $energy &lt;= 2*(0.2+$Oeu)&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;elseif $Camp_M &amp;&amp; $energy &lt;= 7*(0.2+$Oeu)&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;&lt;center&gt;&lt;&lt;if random(2) &gt; 1&gt;&gt;[img[assets/Ch-Explore/unimatter_deposit.png]]&lt;&lt;else&gt;&gt;[img[assets/Ch-Explore/unimatter_deposit_2.png]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;/nobr&gt;&gt;&lt;center&gt;&lt;&lt;if random(2) &gt; 1&gt;&gt;[img[assets/Ch-Explore/T2N_1.png]]&lt;&lt;else&gt;&gt;[img[assets/Ch-Explore/T2N_2.png]]&lt;&lt;/if&gt;&gt;
 &lt;blockquote&gt;
 There is no way to go further north in this swampy area. Possibility to go further north is lost, but something else possibly is gained.
 
@@ -4840,35 +4862,28 @@ Go to Camp, depositing the unimatter?
 &lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;ab&gt;&gt;[[Go back to Base|The Map][$energy -= 2*(0.2+$Oeu)]]&lt;&lt;/ab&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;ab&gt;&gt;[[Go back to Base|The Map][$energy -= 7*(0.2+$Oeu)]]&lt;&lt;/ab&gt;&gt;&lt;&lt;/if&gt;&gt;
 
 &lt;&lt;compass &quot;&quot; &quot;&quot; &quot;&quot; &quot;T1N&quot;&gt;&gt;
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="83" name="T2S" tags="" position="875,2425" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="84" name="T2S" tags="" position="875,2425" size="100,100">&lt;&lt;nobr&gt;&gt;
   &lt;&lt;if $Camp_J &amp;&amp; $energy &lt;= 2*(0.2+$Oeu)&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;elseif $Camp_M &amp;&amp; $energy &lt;= (7+$summand)*(0.2+$Oeu)&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;&lt;center&gt;[img[assets/Ch-Explore/desert2.png]]
+&lt;&lt;/nobr&gt;&gt;&lt;center&gt;[img[assets/Ch-Explore/T2S.png]]
   &lt;blockquote&gt;
-  Sand. Heat. Weird formations. Sand. Heat. Did I say Heat? Heat! I want a camel!
+  Sand. Heat. Weird formations. Sand. Heat. Did I say Heat? Heat!
   
   &lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;ab&gt;&gt;[[Go back to Base|The Map][$energy -= 2*(0.2+$Oeu)]]&lt;&lt;/ab&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;ab&gt;&gt;[[Go back to Base|The Map][$energy -= (7+$summand)*(0.2+$Oeu)]]&lt;&lt;/ab&gt;&gt;&lt;&lt;/if&gt;&gt;
   
-&lt;&lt;compass &quot;T1S&quot; &quot;T1SW&quot; &quot;T1SE&quot; &quot;T3S&quot;&gt;&gt;
-  &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="84" name="T2W" tags="" position="625,2175" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;&lt;compass &quot;T1S&quot; &quot;&quot; &quot;&quot; &quot;T3S&quot;&gt;&gt;
+  &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="85" name="T2W" tags="" position="625,2175" size="100,100">&lt;&lt;nobr&gt;&gt;
   &lt;&lt;if $Camp_J &amp;&amp; $energy &lt;= 2*(0.2+$Oeu)&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;elseif $Camp_M &amp;&amp; $energy &lt;= (7+$summand)*(0.2+$Oeu)&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;&lt;center&gt;[img[assets/Ch-Explore/swampy_area_2.png]]
+&lt;&lt;/nobr&gt;&gt;&lt;center&gt;[img[assets/Ch-Explore/T2W.png]]
 &lt;blockquote&gt;
-Passing on the border of the swamp area.
 
-&lt;&lt;if $SubAnalyzer&gt;&gt;
+A small strip. Small bay. Too difficult to get down to the beach.
 
-Those clay-like bubbles can be used as unimatter, though of inferior quality.
-
-Bring them to Camp anyway?
-
-&lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;ab&gt;&gt;[[Yes|Camp Jungle][$energy -= 2*(0.2+$Oeu); $unimatter += $carrycap/4]]&lt;&lt;/ab&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;ab&gt;&gt;[[Yes|Camp Mountain][$energy -= (7+$summand)*(0.2+$Oeu); $unimatter += $carrycap/4]]&lt;&lt;/ab&gt;&gt;&lt;&lt;/if&gt;&gt;
-&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;ab&gt;&gt;[[I go back to the Base|The Map][$energy -= 2*(0.2+$Oeu)]]&lt;&lt;/ab&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;ab&gt;&gt;[[I go back to the Base|The Map][$energy -= (7+$summand)*(0.2+$Oeu)]]&lt;&lt;/ab&gt;&gt;&lt;&lt;/if&gt;&gt;
 
-&lt;&lt;compass &quot;T1N2W&quot; &quot;T3W&quot; &quot;T1W&quot; &quot;T1S2W&quot;&gt;&gt;
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="85" name="T3E" tags="" position="1250,2175" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;&lt;compass &quot;T2N2E&quot; &quot;T3W&quot; &quot;T1W&quot; &quot;T1S2W&quot;&gt;&gt;
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="86" name="T3E" tags="" position="1250,2175" size="100,100">&lt;&lt;nobr&gt;&gt;
   &lt;&lt;if $Camp_J &amp;&amp; $energy &lt;= 3*(0.2+$Oeu)&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;elseif $Camp_M &amp;&amp; $energy &lt;= 2*(0.2+$Oeu)&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;&lt;center&gt;[img[assets/Ch-Explore/jungle2.png]]
+&lt;&lt;/nobr&gt;&gt;&lt;center&gt;[img[assets/Ch-Explore/T3E.png]]
 &lt;blockquote&gt;
 &lt;span id=&quot;tohide&quot;&gt;Hm, is that a spaceship? Or what is it?&lt;/span&gt; &lt;&lt;nobr&gt;&gt;
 /* Content1 of Chapter 2 ---------------------- */
@@ -4944,10 +4959,10 @@ Where to go next?
 
 &lt;&lt;compass &quot;T1N3E&quot; &quot;T2E&quot; &quot;T4E&quot; &quot;&quot;&gt;&gt;
 &lt;/span&gt;
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="86" name="T3S" tags="" position="875,2550" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="87" name="T3S" tags="" position="875,2550" size="100,100">&lt;&lt;nobr&gt;&gt;
   &lt;&lt;if $Camp_J &amp;&amp; $energy &lt;= 3*(0.2+$Oeu)&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;elseif $Camp_M &amp;&amp; $energy &lt;= (8+$summand)*(0.2+$Oeu)&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;&lt;center&gt;&lt;blockquote&gt;
-&lt;&lt;if $noenglobe&gt;&gt;[img[assets/Ch-Explore/barren_desert.png]]
+&lt;&lt;if $noenglobe&gt;&gt;[img[assets/Ch-Explore/T3S.png]]
 
   There are no more globe to be seen. Better check out tomorrow.
 
@@ -4980,19 +4995,19 @@ Where to go next?
 &lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;ab&gt;&gt;[[Go back to Base|The Map][$energy -= 3*(0.2+$Oeu)]]&lt;&lt;/ab&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;ab&gt;&gt;[[Go back to Base|The Map][$energy -= (8+$summand)*(0.2+$Oeu)]]&lt;&lt;/ab&gt;&gt;&lt;&lt;/if&gt;&gt;
 
 &lt;&lt;compass &quot;T2S&quot; &quot;&quot; &quot;&quot; &quot;&quot;&gt;&gt;
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="87" name="T3W" tags="" position="500,2175" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="88" name="T3W" tags="" position="500,2175" size="100,100">&lt;&lt;nobr&gt;&gt;
   &lt;&lt;if $Camp_J &amp;&amp; $energy &lt;= 3*(0.2+$Oeu)&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;elseif $Camp_M &amp;&amp; $energy &lt;= (8+$summand)*(0.2+$Oeu)&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;&lt;center&gt;[img[assets/Ch-Explore/coastline3.png]]
+&lt;&lt;/nobr&gt;&gt;&lt;center&gt;[img[assets/Ch-Explore/T3W.png]]
 &lt;blockquote&gt;
 Aah. Open space. Open air.
 
 &lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;ab&gt;&gt;[[Go back to Base|The Map][$energy -= 3*(0.2+$Oeu)]]&lt;&lt;/ab&gt;&gt;&lt;&lt;else&gt;&gt;[[Go back to Base|The Map][$energy -= (8+$summand)*(0.2+$Oeu)]]&lt;&lt;/ab&gt;&gt;&lt;&lt;/if&gt;&gt;
 
 &lt;&lt;compass &quot;&quot; &quot;T4W&quot; &quot;T2W&quot; &quot;&quot;&gt;&gt;
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="88" name="T4E" tags="" position="1375,2175" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="89" name="T4E" tags="" position="1375,2175" size="100,100">&lt;&lt;nobr&gt;&gt;
 	&lt;&lt;if $Camp_M&gt;&gt;&lt;&lt;set $explored.TBM0 = 100&gt;&gt;&lt;&lt;/if&gt;&gt;
   &lt;&lt;if $Camp_J &amp;&amp; $energy &lt;= (4+$summand)*(0.2+$Oeu)&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;elseif $Camp_M &amp;&amp; $energy &lt;= 0.2+$Oeu&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;&lt;center&gt;[img[assets/Ch-Explore/4E_waterfall.png]]
+&lt;&lt;/nobr&gt;&gt;&lt;center&gt;[img[assets/Ch-Explore/T4E.png]]
 &lt;blockquote&gt;
 &lt;&lt;if not hasVisited(&quot;3E-Event&quot;) &amp;&amp; $eventfrom3E&gt;&gt;
   &lt;&lt;set _run = 6&gt;&gt;
@@ -5012,32 +5027,7 @@ Aah. Open space. Open air.
         &lt;&lt;stop&gt;&gt;
       &lt;&lt;/if&gt;&gt;
     &lt;&lt;/repeat&gt;&gt;
-&lt;&lt;elseif $eventfrom3E || $choice1P3E == 5&gt;&gt;
-  &lt;&lt;if $choice1P3E == 5&gt;&gt;
-    &lt;div id=&quot;howtocontinue&quot;&gt;
-    &lt;h4&gt;What is then the best way to get to furthermore west?&lt;/h4&gt;
-    Sneaking? Do I feel confident in my xenology? &lt;&lt;linkappend &quot;&lt;&lt;ab&gt;&gt;Yes&lt;&lt;/ab&gt;&gt;&quot;&gt;&gt;&lt;br&gt;&lt;&lt;replace &quot;#howtocontinue&quot;&gt;&gt;&lt;&lt;include [[change of mind]]&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/linkappend&gt;&gt;&lt;br&gt;
-    Damn it! We are in a desperate situation! I will go and run through the lion&amp;#39;s den! Do I have confidence in my athletism and combatibility? &lt;&lt;linkappend &quot;&lt;&lt;ab&gt;&gt;Yeass!&lt;&lt;/ab&gt;&gt;&quot;&gt;&gt;&lt;br&gt;&lt;&lt;replace &quot;#howtocontinue&quot;&gt;&gt;&lt;&lt;include [[change of mind]]&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/linkappend&gt;&gt;&lt;br&gt;
-    &lt;&lt;if $energy &gt; 1.5&gt;&gt;I have enough energy for a walkaround, although it depends a bit also on my xenology knowledge. Will I risk walking around and through unknown terrain? &lt;&lt;linkappend &quot;&lt;&lt;ab&gt;&gt;Yes&lt;&lt;/ab&gt;&gt;&quot;&gt;&gt;&lt;br&gt;&lt;&lt;replace &quot;#howtocontinue&quot;&gt;&gt;&lt;&lt;include [[change of mind]]&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/linkappend&gt;&gt;&lt;br&gt;&lt;&lt;/if&gt;&gt;
-    &lt;/div&gt;
-  &lt;&lt;else&gt;&gt;
-  &lt;div id=&quot;howtocontinue&quot;&gt;&lt;&lt;ab&gt;&gt;[[Continue on|End of Game][$whydead = 2]]&lt;&lt;/ab&gt;&gt;&lt;/div&gt;
-    &lt;&lt;set _seconds to 3&gt;&gt;
-    &lt;&lt;repeat 1s&gt;&gt;
-      &lt;&lt;set _seconds--&gt;&gt;
-      &lt;&lt;if _seconds == 0&gt;&gt;
-        &lt;&lt;replace &quot;#howtocontinue&quot;&gt;&gt;&lt;&lt;if $choice1P3E != 5&gt;&gt;Hold on! I am brave, but not suicidal! Treading on this area again is surely a way to enter the eternal darkness.&lt;&lt;/if&gt;&gt;
-        &lt;h4&gt;What is then the best way to get to furthermore west?&lt;/h4&gt;&lt;&lt;set $choice1P3E = 0&gt;&gt;
-        Sneaking? Do I feel confident in my xenology? &lt;&lt;linkappend &quot;&lt;&lt;ab&gt;&gt;Yes&lt;&lt;/ab&gt;&gt;&quot;&gt;&gt;&lt;br&gt;&lt;&lt;replace &quot;#howtocontinue&quot;&gt;&gt;&lt;&lt;include [[change of mind]]&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/linkappend&gt;&gt;&lt;br&gt;
-        Damn it! We are in a desperate situation! I will go and run through the lion&amp;#39;s den! Do I have confidence in my athletism and combatibility? &lt;&lt;linkappend &quot;&lt;&lt;ab&gt;&gt;Yeass!&lt;&lt;/ab&gt;&gt;&quot;&gt;&gt;&lt;br&gt;&lt;&lt;replace &quot;#howtocontinue&quot;&gt;&gt;&lt;&lt;include [[change of mind]]&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/linkappend&gt;&gt;&lt;br&gt;
-        &lt;&lt;if $energy &gt; 1.5&gt;&gt;I have enough energy for a walkaround, although it depends a bit also on my xenology knowledge. Will I risk walking around and through unknown terrain? &lt;&lt;linkappend &quot;&lt;&lt;ab&gt;&gt;Yes&lt;&lt;/ab&gt;&gt;&quot;&gt;&gt;&lt;br&gt;&lt;&lt;replace &quot;#howtocontinue&quot;&gt;&gt;&lt;&lt;include [[change of mind]]&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/linkappend&gt;&gt;&lt;br&gt;&lt;&lt;/if&gt;&gt;
-        It sucks! It totally sucks. If I die, everyone will die. Should I return, rest, brainstorm with the others or wait for divine intervention?&lt;&lt;ab&gt;&gt;&lt;&lt;choice [[Oh yes|PassTest3E][$choice1P3E = 4]]&gt;&gt;&lt;&lt;/ab&gt;&gt;&lt;br&gt;
-        &lt;&lt;/replace&gt;&gt;
-
-        &lt;&lt;stop&gt;&gt;
-      &lt;&lt;/if&gt;&gt;
-    &lt;&lt;/repeat&gt;&gt;
-  &lt;&lt;/if&gt;&gt;
+&lt;&lt;elseif ($eventfrom3E || $choice1P3E == 5) &amp;&amp; $Camp_M&gt;&gt;
 &lt;&lt;else&gt;&gt;
   Oh boy, will I see a path through this jungle?
 
@@ -5049,7 +5039,7 @@ Aah. Open space. Open air.
     &lt;&lt;if $explored.T1N4E == 100 &amp;&amp; $eventfrom3E&gt;&gt;&lt;&lt;ab&gt;&gt;[[N|T1N4E][$energy -= 0.2+$Oeu]]&lt;&lt;/ab&gt;&gt;&lt;&lt;/if&gt;&gt;
   &lt;div class=&quot;WandE&quot;&gt;
     &lt;div class=&quot;westside&quot;&gt;
-      &lt;&lt;if $eventfrom3E &amp;&amp; hasVisited(&quot;3E-Event&quot;)&gt;&gt;&lt;&lt;linkappend &#39;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;W&lt;/div&gt;&lt;/div&gt;&#39;&gt;&gt;&lt;&lt;print &quot;W&quot;&gt;&gt;&lt;&lt;replace &quot;#text-replaced-T4E&quot;&gt;&gt;Whoa! Hold on! Do I have a screw loose?! Come on! I will enter again only after knowing more. For now, I go around.&lt;&lt;/replace&gt;&gt;&lt;&lt;/linkappend&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;if $explored.T3E == 100&gt;&gt;&lt;&lt;ab&gt;&gt;[[W|T3E][$energy -= 0.2+$Oeu]]&lt;&lt;/ab&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt;
+      &lt;&lt;if $eventfrom3E &amp;&amp; hasVisited(&quot;3E-Event&quot;)&gt;&gt;&lt;&lt;linkappend &#39;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;W&lt;/div&gt;&lt;/div&gt;&#39;&gt;&gt;&lt;&lt;replace &quot;#text-replaced-T4E&quot;&gt;&gt;Whoa! Hold on! Do I have a screw loose?! Come on! I will enter again only after knowing more. For now, I go around.&lt;&lt;/replace&gt;&gt;&lt;&lt;/linkappend&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;if $explored.T3E == 100&gt;&gt;&lt;&lt;ab&gt;&gt;[[W|T3E][$energy -= 0.2+$Oeu]]&lt;&lt;/ab&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt;
     &lt;/div&gt;
     &lt;div class=&quot;eastside&quot;&gt;
       &lt;&lt;if $explored.TBM0 == 100 &amp;&amp; $Camp_J || $Camp_M&gt;&gt;&lt;&lt;ab&gt;&gt;[[E|TBM0][$energy -= 0.2+$Oeu]]&lt;&lt;/ab&gt;&gt;&lt;&lt;/if&gt;&gt;
@@ -5057,27 +5047,27 @@ Aah. Open space. Open air.
   &lt;/div&gt;&lt;/div&gt;&lt;&lt;/nobr&gt;&gt;
 
 &lt;&lt;/if&gt;&gt;
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="89" name="T4W" tags="" position="375,2175" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="90" name="T4W" tags="" position="375,2175" size="100,100">&lt;&lt;nobr&gt;&gt;
   &lt;&lt;if $Camp_J &amp;&amp; $energy &lt;= 4*(0.2+$Oeu)&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;elseif $Camp_M &amp;&amp; $energy &lt;= (9+$summand)*(0.2+$Oeu)&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;&lt;center&gt;[img[assets/Ch-Explore/coast1.png]]
+&lt;&lt;/nobr&gt;&gt;&lt;center&gt;[img[assets/Ch-Explore/T4W.png]]
 &lt;blockquote&gt;
 The colors become more and more nicer, friendlier ...
 
 &lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;ab&gt;&gt;[[Go back to Base|The Map][$energy -= 4*(0.2+$Oeu)]]&lt;&lt;/ab&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;ab&gt;&gt;[[Go back to Base|The Map][$energy -= (9+$summand)*(0.2+$Oeu)]]&lt;&lt;/ab&gt;&gt;&lt;&lt;/if&gt;&gt;
 
 &lt;&lt;compass &quot;&quot; &quot;T5W&quot; &quot;T3W&quot; &quot;&quot;&gt;&gt;
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="90" name="T5W" tags="" position="250,2175" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="91" name="T5W" tags="" position="250,2175" size="100,100">&lt;&lt;nobr&gt;&gt;
   &lt;&lt;if $Camp_J &amp;&amp; $energy &lt;= 5*(0.2+$Oeu)&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;elseif $Camp_M &amp;&amp; $energy &lt;= (10+$summand)*(0.2+$Oeu)&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;&lt;center&gt;[img[assets/Ch-Explore/coast2island.png]]
+&lt;&lt;/nobr&gt;&gt;&lt;center&gt;[img[assets/Ch-Explore/T5W.png]]
 &lt;blockquote&gt;
 Sandy Beach! That&#39;s a spot!
 
 &lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;ab&gt;&gt;[[Go back to Base|The Map][$energy -= 5*(0.2+$Oeu)]]&lt;&lt;/ab&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;ab&gt;&gt;[[Go back to Base|The Map][$energy -= (10+$summand)*(0.2+$Oeu)]]&lt;&lt;/ab&gt;&gt;&lt;&lt;/if&gt;&gt;
 
 &lt;&lt;compass &quot;&quot; &quot;&quot; &quot;T4W&quot; &quot;&quot;&gt;&gt;
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="91" name="TBJ0" tags="" position="875,2175" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="92" name="TBJ0" tags="" position="875,2175" size="100,100">&lt;&lt;nobr&gt;&gt;
   &lt;&lt;if $Camp_M &amp;&amp; $eventfrom3E &amp;&amp; hasVisited(&quot;3E-Event&quot;) &amp;&amp; $energy &lt;= 7(0.2+$Oeu)&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;elseif $Camp_M &amp;&amp; $eventfrom3E != true &amp;&amp; $energy &lt;= 5*(0.2+$Oeu)&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;elseif $Camp_J&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;&lt;center&gt;[img[assets/Ch-Explore/jungle0.png]]
+&lt;&lt;/nobr&gt;&gt;&lt;center&gt;[img[assets/Ch-Explore/TBCJ.png]]
 &lt;blockquote&gt;
 &lt;&lt;if $Camp_M &amp;&amp; lastVisited(&quot;TBJ0&quot;) is 0&gt;&gt;
 	That is a good spot to set a new camp. More spacious than up in the mountain. As well as a new base for exploring without descending from the mountains again and again.
@@ -5089,7 +5079,7 @@ Sandy Beach! That&#39;s a spot!
 
 &lt;&lt;nobr&gt;&gt;&lt;&lt;compass &quot;T1N&quot; &quot;T1W&quot; &quot;T1E&quot; &quot;T1S&quot;&gt;&gt;&lt;&lt;/nobr&gt;&gt;
  
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="92" name="TBM0" tags="" position="1500,2175" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="93" name="TBM0" tags="" position="1500,2175" size="100,100">&lt;&lt;nobr&gt;&gt;
   &lt;&lt;if $Camp_J &amp;&amp; $energy &lt;= (5+$summand)*(0.2+$Oeu)&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;elseif $Camp_M&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
   &lt;&lt;if $days &lt; 5&gt;&gt;&lt;&lt;set $CampM.unimatter = 5&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;&lt;center&gt;&lt;blockquote&gt;
@@ -5101,14 +5091,16 @@ Sandy Beach! That&#39;s a spot!
   &lt;&lt;elseif $QuestPool.includesAny($Q2A, $Q2B) || ($QuestPool.includes($Q2C) &amp;&amp; $Q2D == false)&gt;&gt;
     &lt;&lt;goto [[dormant spaceship 2]]&gt;&gt;
   &lt;&lt;else&gt;&gt;
-    &lt;&lt;if $eventfrom3E&gt;&gt;[img[assets/backgrounds/Placeholder.png]]&lt;&lt;else&gt;&gt;[img[assets/Ch-Camp/MountainCamp.png]]&lt;&lt;/if&gt;&gt;
+    &lt;&lt;if $eventfrom3E&gt;&gt;[img[assets/Ch-Camp/MountainCamp_empty.png]]&lt;&lt;else&gt;&gt;[img[assets/Ch-Camp/MountainCamp.png]]&lt;&lt;/if&gt;&gt;
+    &lt;br&gt;
+    Nothing here.
   &lt;&lt;/if&gt;&gt;&lt;&lt;/nobr&gt;&gt;
 
 &lt;&lt;ab&gt;&gt;[[Go back to Base|The Map][$energy -= (5+$summand)*(0.2+$Oeu)]]&lt;&lt;/ab&gt;&gt;
 
 &lt;&lt;compass &quot;T1N5E&quot; &quot;T4E&quot; &quot;&quot; &quot;&quot;&gt;&gt;
 
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="93" name="Task 2" tags="" position="3075,1475" size="100,100">&lt;center&gt;&lt;blockquote&gt;
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="94" name="Task 2" tags="" position="3075,1475" size="100,100">&lt;center&gt;&lt;blockquote&gt;
   &lt;&lt;if $QuestPool.includes($Q2)&gt;&gt;
     I think it is better to start up with at least 12 nutrients - keep additional 3 nutrients as a buffer for ourselves. Less so would be ridiculous. What or who will carry them with me?&lt;&lt;set _conditional = 1; _orbconditional = 0&gt;&gt;
 
@@ -5156,7 +5148,7 @@ Sandy Beach! That&#39;s a spot!
   &lt;div id=&quot;Quest3Status&quot;&gt;&lt;/div&gt;&lt;&lt;/nobr&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;ab&gt;&gt;[[Go back|Scheduler]]&lt;&lt;/ab&gt;&gt;
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="94" name="Territories" tags="" position="350,25" size="100,100">&lt;&lt;set $explored to {
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="95" name="Territories" tags="" position="350,25" size="100,100">&lt;&lt;set $explored to {
 TBJ0: 0,
 TBM0: 0,
 
@@ -5170,15 +5162,14 @@ T1W: 0,
 T1NW: 0,
 
 T2N: 0,
+T2N2E: 0,
 T1N2E: 0,
 T2E: 0,
 T1S2E: 0,
 T2S: 0,
 T1S2W: 0,
 T2W: 0,
-T1N2W: 0,
 
-T3N: 0,
 T1N3E: 0,
 T3E: 0,
 T3S: 0,
@@ -5189,9 +5180,8 @@ T4E: 0,
 T4W: 0,
 
 T1N5E: 0,
-T5E: 0,
 T5W: 0,
-}&gt;&gt;</tw-passagedata><tw-passagedata pid="95" name="Testing" tags="" position="2200,1000" size="100,100">&lt;&lt;button &quot;Xeno+10&quot;&gt;&gt;&lt;&lt;set $xeno += 10&gt;&gt;&lt;&lt;goto [[Testing]]&gt;&gt;&lt;&lt;/button&gt;&gt;
+}&gt;&gt;</tw-passagedata><tw-passagedata pid="96" name="Testing" tags="" position="2200,1000" size="100,100">&lt;&lt;button &quot;Xeno+10&quot;&gt;&gt;&lt;&lt;set $xeno += 10&gt;&gt;&lt;&lt;goto [[Testing]]&gt;&gt;&lt;&lt;/button&gt;&gt;
 &lt;&lt;button &quot;combat+10&quot;&gt;&gt;&lt;&lt;set $combat += 10&gt;&gt;&lt;&lt;goto [[Testing]]&gt;&gt;&lt;&lt;/button&gt;&gt;
 &lt;&lt;button &quot;engineering+10&quot;&gt;&gt;&lt;&lt;set $engineering += 10&gt;&gt;&lt;&lt;goto [[Testing]]&gt;&gt;&lt;&lt;/button&gt;&gt;
 &lt;&lt;button &quot;social+10&quot;&gt;&gt;&lt;&lt;set $social = 10&gt;&gt;&lt;&lt;goto [[Testing]]&gt;&gt;&lt;&lt;/button&gt;&gt;
@@ -5200,13 +5190,15 @@ T5W: 0,
 &lt;&lt;button &quot;Nutrients +10&quot;&gt;&gt;&lt;&lt;set $nutrients += 10&gt;&gt;&lt;&lt;goto [[Testing]]&gt;&gt;&lt;&lt;/button&gt;&gt;
 &lt;&lt;button &quot;Nutrients -10&quot;&gt;&gt;&lt;&lt;set $nutrients -= 10&gt;&gt;&lt;&lt;goto [[Testing]]&gt;&gt;&lt;&lt;/button&gt;&gt;
 &lt;&lt;button &quot;cycles +10&quot;&gt;&gt;&lt;&lt;set $days += 10&gt;&gt;&lt;&lt;goto [[Testing]]&gt;&gt;&lt;&lt;/button&gt;&gt;
------------------------------------------
+----------------------------------------
 &lt;&lt;button &quot;CampM nutrients to 0&quot;&gt;&gt;&lt;&lt;set $CampM.nutrients = 0&gt;&gt;&lt;&lt;goto [[Testing]]&gt;&gt;&lt;&lt;/button&gt;&gt;
------------------------------------------
 ----------------------------------------
 &lt;&lt;button &quot;SFW true&quot;&gt;&gt;&lt;&lt;set $SFW_Path = true&gt;&gt;&lt;&lt;goto [[Testing]]&gt;&gt;&lt;&lt;/button&gt;&gt;
 &lt;&lt;= $SFW_Path&gt;&gt;
 &lt;&lt;button &quot;SFW false&quot;&gt;&gt;&lt;&lt;set $SFW_Path = false&gt;&gt;&lt;&lt;goto [[Testing]]&gt;&gt;&lt;&lt;/button&gt;&gt;
+----------------------------------------
+&lt;&lt;button &quot;T5E to 100&quot;&gt;&gt;&lt;&lt;set $explored.T5E = 100&gt;&gt;&lt;&lt;goto [[Testing]]&gt;&gt;&lt;&lt;/button&gt;&gt;
+&lt;&lt;button &quot;T3N to 100&quot;&gt;&gt;&lt;&lt;set $explored.T3N  = 100	&gt;&gt;&lt;&lt;goto [[Testing]]&gt;&gt;&lt;&lt;/button&gt;&gt;
 ----------------------------------------
 ----------------------------------------
 ----------------------------------------
@@ -5217,7 +5209,7 @@ T5W: 0,
 
 [[Camp Mountain]]
 
-[[Setter]]</tw-passagedata><tw-passagedata pid="96" name="The Map" tags="" position="875,1500" size="100,100">&lt;&lt;nobr&gt;&gt;
+[[Setter]]</tw-passagedata><tw-passagedata pid="97" name="The Map" tags="" position="875,1500" size="100,100">&lt;&lt;nobr&gt;&gt;
   &lt;&lt;set _nummer = random(80)&gt;&gt;
   &lt;&lt;if $days != 0&gt;&gt;&lt;&lt;set _randomNumber = random(20)/($days/10)&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;set _randomNumber = random(20)&gt;&gt;&lt;&lt;/if&gt;&gt;
   &lt;&lt;if $xeno == 0&gt;&gt;&lt;&lt;set $xeno = 0.05&gt;&gt;&lt;&lt;/if&gt;&gt;
@@ -5264,7 +5256,7 @@ T5W: 0,
       &lt;&lt;else&gt;&gt;
         &lt;&lt;if $Camp_M&gt;&gt;
           &lt;&lt;if $explored.TBJ0 &gt;= 100&gt;&gt;&lt;&lt;set $explored.TBJ0 = 100&gt;&gt;
-            &lt;&lt;if $energy &lt; 10*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/jungle0.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/jungle0.png][TBJ0][$energy -= 5*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+            &lt;&lt;if $energy &lt; 10*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/TBCJ.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/TBCJ.png][TBJ0][$energy -= 5*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
           &lt;&lt;else&gt;&gt;
             &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored.TBJ0.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
               &lt;&lt;set $explored.TBJ0 += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.02&gt;&gt;
@@ -5284,12 +5276,12 @@ T5W: 0,
       &lt;&lt;else&gt;&gt;
         &lt;&lt;if $explored.T1E &gt;= 100&gt;&gt;&lt;&lt;set $explored.T1E = 100&gt;&gt;
           &lt;&lt;if $Camp_J&gt;&gt;
-            &lt;&lt;if $energy &lt; 2*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/food.png]]&lt;/div&gt;
-            &lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/food.png][T1E][$energy -= ($Humcarrycap*0.2)+$Oeu]]&lt;/div&gt;
+            &lt;&lt;if $energy &lt; 2*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/T1E.png]]&lt;/div&gt;
+            &lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/T1E.png][T1E][$energy -= ($Humcarrycap*0.2)+$Oeu]]&lt;/div&gt;
             &lt;&lt;/if&gt;&gt;
           &lt;&lt;else&gt;&gt;
-            &lt;&lt;if $energy &lt; 8*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/food.png]]&lt;/div&gt;
-            &lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/food.png][T1E][$energy -= 4*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;
+            &lt;&lt;if $energy &lt; 8*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/T1E.png]]&lt;/div&gt;
+            &lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/T1E.png][T1E][$energy -= 4*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;
             &lt;&lt;/if&gt;&gt;
           &lt;&lt;/if&gt;&gt;
         &lt;&lt;else&gt;&gt;
@@ -5308,12 +5300,12 @@ T5W: 0,
       &lt;&lt;else&gt;&gt;
         &lt;&lt;if $explored.T2E &gt;= 100&gt;&gt;&lt;&lt;set $explored.T2E = 100&gt;&gt;
           &lt;&lt;if $Camp_J&gt;&gt;
-            &lt;&lt;if $energy &lt; 4*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/jungle4.png]]&lt;/div&gt;
-            &lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/jungle4.png][T2E][$energy -= 2*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;
+            &lt;&lt;if $energy &lt; 4*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/T2E.png]]&lt;/div&gt;
+            &lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/T2E.png][T2E][$energy -= 2*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;
             &lt;&lt;/if&gt;&gt;
           &lt;&lt;else&gt;&gt;
-            &lt;&lt;if $energy &lt; 6*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/jungle4.png]]&lt;/div&gt;
-            &lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/jungle4.png][T2E][$energy -= 3*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;
+            &lt;&lt;if $energy &lt; 6*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/T2E.png]]&lt;/div&gt;
+            &lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/T2E.png][T2E][$energy -= 3*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;
             &lt;&lt;/if&gt;&gt;
           &lt;&lt;/if&gt;&gt;
         &lt;&lt;else&gt;&gt;
@@ -5333,9 +5325,9 @@ T5W: 0,
         &lt;&lt;else&gt;&gt;
           &lt;&lt;if $explored.T3E &gt;= 100&gt;&gt;&lt;&lt;set $explored.T3E = 100&gt;&gt;
             &lt;&lt;if $Camp_J&gt;&gt;
-              &lt;&lt;if $energy &lt; 6*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/jungle2.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/jungle2.png][T3E][$energy -= 3*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+              &lt;&lt;if $energy &lt; 6*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/T3E.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/T3E.png][T3E][$energy -= 3*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
             &lt;&lt;else&gt;&gt;
-              &lt;&lt;if $energy &lt; 4*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/jungle2.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/jungle2.png][T3E][$energy -= 2*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+              &lt;&lt;if $energy &lt; 4*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/T3E.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/T3E.png][T3E][$energy -= 2*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
             &lt;&lt;/if&gt;&gt;
           &lt;&lt;else&gt;&gt;
             &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored.T3E.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
@@ -5348,7 +5340,7 @@ T5W: 0,
     &lt;&lt;/if&gt;&gt;
   &lt;&lt;else&gt;&gt;
     &lt;div id=&quot;p3E&quot;&gt;
-      &lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/jungle2.png]]&lt;/div&gt;
+      &lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/T3E.png]]&lt;/div&gt;
     &lt;/div&gt;
   &lt;&lt;/if&gt;&gt;
   
@@ -5358,9 +5350,9 @@ T5W: 0,
       &lt;&lt;else&gt;&gt;
         &lt;&lt;if $explored.T4E &gt;= 100&gt;&gt;&lt;&lt;set $explored.T4E = 100&gt;&gt;
           &lt;&lt;if $Camp_J&gt;&gt;
-            &lt;&lt;if $energy &lt; 8*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/4E_waterfall.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/4E_waterfall.png][T4E][$energy -= 4*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+            &lt;&lt;if $energy &lt; 8*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/T4E.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/T4E.png][T4E][$energy -= 4*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
           &lt;&lt;else&gt;&gt;
-            &lt;&lt;if $energy &lt; 2*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/4E_waterfall.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/4E_waterfall.png][T4E][$energy -= ($Humcarrycap*0.2)+$Oeu]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+            &lt;&lt;if $energy &lt; 2*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/T4E.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/T4E.png][T4E][$energy -= ($Humcarrycap*0.2)+$Oeu]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
           &lt;&lt;/if&gt;&gt;
         &lt;&lt;else&gt;&gt;
           &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored.T4E.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
@@ -5378,7 +5370,7 @@ T5W: 0,
       &lt;&lt;else&gt;&gt;
         &lt;&lt;if $Camp_J&gt;&gt;
           &lt;&lt;if $explored.TBM0 &gt;= 100&gt;&gt;&lt;&lt;set $explored.TBM0 = 100&gt;&gt;
-            &lt;&lt;if $energy &lt; 10*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Camp/MountainCamp.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Camp/MountainCamp.png][TBM0][$energy -= 5*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+            &lt;&lt;if $energy &lt; 10*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;&lt;&lt;if $eventfrom3E&gt;&gt;[img[assets/Ch-Camp/MountainCamp_empty.png]]&lt;&lt;else&gt;&gt;[img[assets/Ch-Camp/MountainCamp.png]]&lt;&lt;/if&gt;&gt;&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;&lt;&lt;if $eventfrom3E&gt;&gt;[img[assets/Ch-Camp/MountainCamp_empty.png][TBM0][$energy -= 5*(($Humcarrycap*0.2)+$Oeu)]]&lt;&lt;else&gt;&gt;[img[assets/Ch-Camp/MountainCamp.png][TBM0][$energy -= 5*(($Humcarrycap*0.2)+$Oeu)]]&lt;&lt;/if&gt;&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
           &lt;&lt;else&gt;&gt;
             &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored.TBM0.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
             &lt;&lt;set $explored.TBM0 += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05&gt;&gt;
@@ -5398,9 +5390,9 @@ T5W: 0,
       &lt;&lt;else&gt;&gt;
         &lt;&lt;if $explored.T1S &gt;= 100&gt;&gt;&lt;&lt;set $explored.T1S = 100&gt;&gt;
           &lt;&lt;if $Camp_J&gt;&gt;
-            &lt;&lt;if $energy &lt; 2*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/desert3.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/desert3.png][T1S][$energy -= ($Humcarrycap*0.2)+$Oeu]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+            &lt;&lt;if $energy &lt; 2*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/T1S.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/T1S.png][T1S][$energy -= ($Humcarrycap*0.2)+$Oeu]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
           &lt;&lt;else&gt;&gt;
-            &lt;&lt;if $energy &lt; 12*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/desert3.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/desert3.png][T1S][$energy -= 6*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+            &lt;&lt;if $energy &lt; 12*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/T1S.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/T1S.png][T1S][$energy -= 6*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
           &lt;&lt;/if&gt;&gt;
         &lt;&lt;else&gt;&gt;
           &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored.T1S.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
@@ -5418,9 +5410,9 @@ T5W: 0,
       &lt;&lt;else&gt;&gt;
         &lt;&lt;if $explored.T2S &gt;= 100&gt;&gt;&lt;&lt;set $explored.T2S = 100&gt;&gt;
           &lt;&lt;if $Camp_J&gt;&gt;
-            &lt;&lt;if $energy &lt; 4*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/desert2.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/desert2.png][T2S][$energy -= 2*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+            &lt;&lt;if $energy &lt; 4*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/T2S.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/T2S.png][T2S][$energy -= 2*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
           &lt;&lt;else&gt;&gt;
-            &lt;&lt;if $energy &lt; 14*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/desert2.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/desert2.png][T2S][$energy -= 7*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+            &lt;&lt;if $energy &lt; 14*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/T2S.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/T2S.png][T2S][$energy -= 7*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
           &lt;&lt;/if&gt;&gt;
         &lt;&lt;else&gt;&gt;
           &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored.T2S.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
@@ -5438,9 +5430,9 @@ T5W: 0,
       &lt;&lt;else&gt;&gt;
         &lt;&lt;if $explored.T3S &gt;= 100&gt;&gt;&lt;&lt;set $explored.T3S = 100&gt;&gt;
           &lt;&lt;if $Camp_J&gt;&gt;
-            &lt;&lt;if $energy &lt; 6*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/energy_deposit.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/energy_deposit.png][T3S][$energy -= 3*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+            &lt;&lt;if $energy &lt; 6*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/T3S.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/T3S.png][T3S][$energy -= 3*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
           &lt;&lt;else&gt;&gt;
-            &lt;&lt;if $energy &lt; 16*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/energy_deposit.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/energy_deposit.png][T3S][$energy -= 8*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+            &lt;&lt;if $energy &lt; 16*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/T3S.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/T3S.png][T3S][$energy -= 8*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
           &lt;&lt;/if&gt;&gt;
         &lt;&lt;else&gt;&gt;
           &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored.T3S.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
@@ -5458,9 +5450,9 @@ T5W: 0,
       &lt;&lt;else&gt;&gt;
         &lt;&lt;if $explored.T1W &gt;= 100&gt;&gt;&lt;&lt;set $explored.T1W = 100&gt;&gt;
           &lt;&lt;if $Camp_J&gt;&gt;
-            &lt;&lt;if $energy &lt; 2*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/jungle1.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/jungle1.png][T1W][$energy -= ($Humcarrycap*0.2)+$Oeu]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+            &lt;&lt;if $energy &lt; 2*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/T1W.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/T1W.png][T1W][$energy -= ($Humcarrycap*0.2)+$Oeu]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
           &lt;&lt;else&gt;&gt;
-            &lt;&lt;if $energy &lt; 12*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/jungle1.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/jungle1.png][T1W][$energy -= 6*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+            &lt;&lt;if $energy &lt; 12*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/T1W.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/T1W.png][T1W][$energy -= 6*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
           &lt;&lt;/if&gt;&gt;
         &lt;&lt;else&gt;&gt;
           &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored.T1W.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
@@ -5478,9 +5470,9 @@ T5W: 0,
       &lt;&lt;else&gt;&gt;
         &lt;&lt;if $explored.T2W &gt;= 100&gt;&gt;&lt;&lt;set $explored.T2W = 100&gt;&gt;
           &lt;&lt;if $Camp_J&gt;&gt;
-            &lt;&lt;if $energy &lt; 4*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/swampy_area_2.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/swampy_area_2.png][T2W][$energy -= 2*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+            &lt;&lt;if $energy &lt; 4*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/T2W.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/T2W.png][T2W][$energy -= 2*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
           &lt;&lt;else&gt;&gt;
-            &lt;&lt;if $energy &lt; 14*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/swampy_area_2.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/swampy_area_2.png][T2W][$energy -= 7*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+            &lt;&lt;if $energy &lt; 14*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/T2W.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/T2W.png][T2W][$energy -= 7*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
           &lt;&lt;/if&gt;&gt;
         &lt;&lt;else&gt;&gt;
           &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored.T2W.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
@@ -5498,9 +5490,9 @@ T5W: 0,
       &lt;&lt;else&gt;&gt;
         &lt;&lt;if $explored.T3W &gt;= 100&gt;&gt;&lt;&lt;set $explored.T3W = 100&gt;&gt;
           &lt;&lt;if $Camp_J&gt;&gt;
-            &lt;&lt;if $energy &lt; 6*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/coastline3.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/coastline3.png][T3W][$energy -= 3*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+            &lt;&lt;if $energy &lt; 6*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/T3W.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/T3W.png][T3W][$energy -= 3*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
           &lt;&lt;else&gt;&gt;
-            &lt;&lt;if $energy &lt; 16*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/coastline3.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/coastline3.png][T3W][$energy -= 8*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+            &lt;&lt;if $energy &lt; 16*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/T3W.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/T3W.png][T3W][$energy -= 8*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
           &lt;&lt;/if&gt;&gt;
         &lt;&lt;else&gt;&gt;
           &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored.T3W.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
@@ -5518,9 +5510,9 @@ T5W: 0,
       &lt;&lt;else&gt;&gt;
         &lt;&lt;if $explored.T4W &gt;= 100&gt;&gt;&lt;&lt;set $explored.T4W = 100&gt;&gt;
           &lt;&lt;if $Camp_J&gt;&gt;
-            &lt;&lt;if $energy &lt; 8*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/coast1.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/coast1.png][T4W][$energy -= 4*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+            &lt;&lt;if $energy &lt; 8*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/T4W.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/T4W.png][T4W][$energy -= 4*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
           &lt;&lt;else&gt;&gt;
-            &lt;&lt;if $energy &lt; 18*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/coast1.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/coast1.png][T4W][$energy -= 9*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+            &lt;&lt;if $energy &lt; 18*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/T4W.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/T4W.png][T4W][$energy -= 9*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
           &lt;&lt;/if&gt;&gt;
         &lt;&lt;else&gt;&gt;
           &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored.T4W.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
@@ -5538,9 +5530,9 @@ T5W: 0,
       &lt;&lt;else&gt;&gt;
         &lt;&lt;if $explored.T5W &gt;= 100&gt;&gt;&lt;&lt;set $explored.T5W = 100&gt;&gt;
           &lt;&lt;if $Camp_J&gt;&gt;
-            &lt;&lt;if $energy &lt; 10*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/coast2island.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/coast2island.png][T5W][$energy -= 5*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+            &lt;&lt;if $energy &lt; 10*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/T5W.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/T5W.png][T5W][$energy -= 5*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
           &lt;&lt;else&gt;&gt;
-            &lt;&lt;if $energy &lt; 20*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/coast2island.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/coast2island.png][T5W][$energy -= 10*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+            &lt;&lt;if $energy &lt; 20*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/T5W.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/T5W.png][T5W][$energy -= 10*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
           &lt;&lt;/if&gt;&gt;
         &lt;&lt;else&gt;&gt;
           &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored.T5W.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
@@ -5558,9 +5550,9 @@ T5W: 0,
       &lt;&lt;else&gt;&gt;
         &lt;&lt;if $explored.T1N &gt;= 100&gt;&gt;&lt;&lt;set $explored.T1N = 100&gt;&gt;
           &lt;&lt;if $Camp_J&gt;&gt;
-            &lt;&lt;if $energy &lt; 2*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/marshland1.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/marshland1.png][T1N][$energy -= ($Humcarrycap*0.2)+$Oeu]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+            &lt;&lt;if $energy &lt; 2*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/T1N.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/T1N.png][T1N][$energy -= ($Humcarrycap*0.2)+$Oeu]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
           &lt;&lt;else&gt;&gt;
-            &lt;&lt;if $energy &lt; 12*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/marshland1.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/marshland1.png][T1N][$energy -= 6*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+            &lt;&lt;if $energy &lt; 12*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/T1N.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/T1N.png][T1N][$energy -= 6*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
           &lt;&lt;/if&gt;&gt;
         &lt;&lt;else&gt;&gt;
           &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored.T1N.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
@@ -5578,9 +5570,9 @@ T5W: 0,
       &lt;&lt;else&gt;&gt;
         &lt;&lt;if $explored.T2N &gt;= 100&gt;&gt;&lt;&lt;set $explored.T2N = 100&gt;&gt;
           &lt;&lt;if $Camp_J&gt;&gt;
-            &lt;&lt;if $energy &lt; 4*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/unimatter_deposit.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/unimatter_deposit.png][T2N][$energy -= 2*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+            &lt;&lt;if $energy &lt; 4*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/T2N_1.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/T2N_1.png][T2N][$energy -= 2*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
           &lt;&lt;else&gt;&gt;
-            &lt;&lt;if $energy &lt; 14*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/unimatter_deposit.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/unimatter_deposit.png][T2N][$energy -= 7*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+            &lt;&lt;if $energy &lt; 14*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/T2N_2.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/T2N_2.png][T2N][$energy -= 7*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
           &lt;&lt;/if&gt;&gt;
         &lt;&lt;else&gt;&gt;
           &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored.T2N.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
@@ -5602,9 +5594,7 @@ T5W: 0,
       &lt;&lt;else&gt;&gt;
         &lt;&lt;if $explored.T1NE &gt;= 100&gt;&gt;&lt;&lt;set $explored.T1NE = 100&gt;&gt;
           &lt;&lt;if $Camp_J&gt;&gt;
-            &lt;&lt;if $energy &lt; 4*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/scenery1NE.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/scenery1NE.png][T1NE][$energy -= 2*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
-          &lt;&lt;else&gt;&gt;
-            &lt;&lt;if $energy &lt; 10*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/scenery1NE.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/scenery1NE.png][T1NE][$energy -= 5*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+            &lt;&lt;if $energy &lt; 4*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/T1NE.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/T1NE.png][T1NE][$energy -= 2*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
           &lt;&lt;/if&gt;&gt;
         &lt;&lt;else&gt;&gt;
           &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored.T1NE.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
@@ -5622,9 +5612,7 @@ T5W: 0,
       &lt;&lt;else&gt;&gt;
         &lt;&lt;if $explored.T1N2E &gt;= 100&gt;&gt;&lt;&lt;set $explored.T1N2E = 100&gt;&gt;
           &lt;&lt;if $Camp_J&gt;&gt;
-            &lt;&lt;if $energy &lt; 6*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/scenery1N2E.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/scenery1N2E.png][T1N2E][$energy -= 3*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
-          &lt;&lt;else&gt;&gt;
-            &lt;&lt;if $energy &lt; 8*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/scenery1N2E.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/scenery1N2E.png][T1N2E][$energy -= 4*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+            &lt;&lt;if $energy &lt; 6*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;&lt;&lt;if !$scrapscollected&gt;&gt;[img[assets/Ch-Explore/T1N2E.png]]&lt;&lt;else&gt;&gt;[img[assets/Ch-Explore/T1N2E_empty.png]]&lt;&lt;/if&gt;&gt;&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;&lt;&lt;if !$scrapscollected&gt;&gt;[img[assets/Ch-Explore/T1N2E.png][T1N2E][$energy -= 3*(($Humcarrycap*0.2)+$Oeu)]]&lt;&lt;else&gt;&gt;[img[assets/Ch-Explore/T1N2E_empty.png][T1N2E][$energy -= 3*(($Humcarrycap*0.2)+$Oeu)]]&lt;&lt;/if&gt;&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
           &lt;&lt;/if&gt;&gt;
         &lt;&lt;else&gt;&gt;
           &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored.T1N2E.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
@@ -5642,9 +5630,7 @@ T5W: 0,
       &lt;&lt;else&gt;&gt;
         &lt;&lt;if $explored.T1N3E &gt;= 100&gt;&gt;&lt;&lt;set $explored.T1N3E = 100&gt;&gt;
           &lt;&lt;if $Camp_J&gt;&gt;
-            &lt;&lt;if $energy &lt; 8*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/scenery1N3E.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/scenery1N3E.png][T1N3E][$energy -= 4*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
-          &lt;&lt;else&gt;&gt;
-            &lt;&lt;if $energy &lt; 6*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/scenery1N3E.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/scenery1N3E.png][T1N3E][$energy -= 3*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+            &lt;&lt;if $energy &lt; 8*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/T1N3E.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/T1N3E.png][T1N3E][$energy -= 4*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
           &lt;&lt;/if&gt;&gt;
         &lt;&lt;else&gt;&gt;
           &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored.T1N3E.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
@@ -5662,9 +5648,7 @@ T5W: 0,
       &lt;&lt;else&gt;&gt;
         &lt;&lt;if $explored.T1N4E &gt;= 100&gt;&gt;&lt;&lt;set $explored.T1N4E = 100&gt;&gt;
           &lt;&lt;if $Camp_J&gt;&gt;
-            &lt;&lt;if $energy &lt; 10*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/scenery1N4E.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/scenery1N4E.png][T1N4E][$energy -= 5*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
-          &lt;&lt;else&gt;&gt;
-            &lt;&lt;if $energy &lt; 4*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/scenery1N4E.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/scenery1N4E.png][T1N4E][$energy -= 2*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+            &lt;&lt;if $energy &lt; 10*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/T1N4E.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/T1N4E.png][T1N4E][$energy -= 5*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
           &lt;&lt;/if&gt;&gt;
         &lt;&lt;else&gt;&gt;
           &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored.T1N4E.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
@@ -5682,9 +5666,7 @@ T5W: 0,
       &lt;&lt;else&gt;&gt;
         &lt;&lt;if $explored.T1N5E &gt;= 100&gt;&gt;&lt;&lt;set $explored.T1N5E = 100&gt;&gt;
           &lt;&lt;if $Camp_J&gt;&gt;
-            &lt;&lt;if $energy &lt; 12*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/scenery1N5E.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/scenery1N5E.png][T1N5E][$energy -= 6*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
-          &lt;&lt;else&gt;&gt;
-            &lt;&lt;if $energy &lt; 2*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/scenery1N5E.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/scenery1N5E.png][T1N5E][$energy -= ($Humcarrycap*0.2)+$Oeu]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+            &lt;&lt;if $energy &lt; 12*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/T1N5E.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/T1N5E.png][T1N5E][$energy -= 6*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
           &lt;&lt;/if&gt;&gt;
         &lt;&lt;else&gt;&gt;
           &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored.T1N5E.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
@@ -5715,7 +5697,7 @@ T5W: 0,
     &lt;/div&gt;
     &lt;&lt;/if&gt;&gt;
 
-    &lt;&lt;if $explored.T1E &gt;= 100 || $explored.T1S &gt;= 100&gt;&gt;
+    &lt;&lt;if $explored.T1SE &gt;= 100&gt;&gt;
     &lt;div id=&quot;p1S2E&quot;&gt;
       &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;
       &lt;&lt;else&gt;&gt;
@@ -5779,15 +5761,15 @@ T5W: 0,
     &lt;/div&gt;
     &lt;&lt;/if&gt;&gt;
 
-    &lt;&lt;if $explored.T1NW &gt;= 100 || $explored.T2W &gt;= 100&gt;&gt;
-    &lt;div id=&quot;p1N2W&quot;&gt;
+    &lt;&lt;if $explored.T1N2E &gt;= 100&gt;&gt;
+    &lt;div id=&quot;p2N2E&quot;&gt;
       &lt;&lt;if $energy &lt;= 0&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;
       &lt;&lt;else&gt;&gt;
-        &lt;&lt;if $explored.T1N2W &gt;= 100&gt;&gt;&lt;&lt;set $explored.T1N2W = 100&gt;&gt;
-          &lt;&lt;if $energy &lt; 6*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/T1N2W.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/T1N2W.png][T1N2W][$energy -= 3*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+        &lt;&lt;if $explored.T2N2E &gt;= 100&gt;&gt;&lt;&lt;set $explored.T2N2E = 100&gt;&gt;
+          &lt;&lt;if $energy &lt; 8*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/T2N2E.png]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/T2N2E.png][T2N2E][$energy -= 4*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
         &lt;&lt;else&gt;&gt;
-          &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored.T1N2W.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-            &lt;&lt;set $explored.T1N2W += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05&gt;&gt;
+          &lt;&lt;if $energy &gt;= 1&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored.T2N2E.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
+            &lt;&lt;set $explored.T2N2E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05&gt;&gt;
             &lt;&lt;goto [[The Map]]&gt;&gt;&lt;&lt;/button&gt;&gt;
           &lt;&lt;/if&gt;&gt;
         &lt;&lt;/if&gt;&gt;
@@ -5809,19 +5791,24 @@ T5W: 0,
       &lt;div class=&quot;actions-row&quot;&gt;&lt;&lt;if $Camp_J&gt;&gt;&lt;div&gt;[[Go back to Camp|Camp Jungle]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div&gt;[[Go back to Camp|Camp Mountain]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/div&gt;
     &lt;/div&gt;
   &lt;/center&gt;
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="97" name="The great Expo" tags="" position="2550,2275" size="100,100">&lt;center&gt;&lt;blockquote&gt;
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="98" name="The great Expo" tags="" position="2550,2275" size="100,100">&lt;center&gt;&lt;blockquote&gt;
 [img[assets/backgrounds/Placeholder.png]]
 
 The others set the record interpreter outside in a distance to the spaceship, but still within our defense perimeter.
 
 &lt;&lt;ab&gt;&gt;[[At the time ...|Beginning]]&lt;&lt;/ab&gt;&gt;
 
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="98" name="VariableControl" tags="" position="1150,25" size="100,100">SFW Path: &lt;&lt;print $SFW_Path&gt;&gt;
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="99" name="VariableControl" tags="" position="1150,25" size="100,100">SFW Path: &lt;&lt;print $SFW_Path&gt;&gt;
 
 xeno &lt;&lt;print $xeno&gt;&gt;
 combat &lt;&lt;print $combat&gt;&gt;
 engineering &lt;&lt;print $engineering&gt;&gt;
 social &lt;&lt;print $social&gt;&gt;
+
+explored &lt;&lt;print $explored&gt;&gt;
+&lt;&lt;for _i, _name range $explored&gt;&gt;
+&lt;&lt;print _i&gt;&gt; _name
+&lt;&lt;/for&gt;&gt;
 
 storagefactor &lt;&lt;print $storagefactor&gt;&gt;
 
@@ -5887,7 +5874,7 @@ CMnutrientsplus &lt;&lt;print $CMnutrientsplus&gt;&gt;
 
 Q2D &lt;&lt;print $Q2D&gt;&gt;
 
-[[Camp Jungle]]</tw-passagedata><tw-passagedata pid="99" name="Vika" tags="" position="3525,225" size="100,100">&lt;center&gt;&lt;blockquote&gt;
+[[Camp Jungle]]</tw-passagedata><tw-passagedata pid="100" name="Vika" tags="" position="3525,225" size="100,100">&lt;center&gt;&lt;blockquote&gt;
   &lt;&lt;if random(4) &gt; 1&gt;&gt;
     &lt;&lt;if $Vika_ICP.VI1&gt;&gt;[img[assets/characters/Vika/Vika_4.png]]
     
@@ -5958,7 +5945,7 @@ Q2D &lt;&lt;print $Q2D&gt;&gt;
 &lt;&lt;if $energy &gt; 1&gt;&gt;&lt;&lt;ab&gt;&gt;[[Go chat with others|Social Events]]&lt;&lt;/ab&gt;&gt;&lt;&lt;/if&gt;&gt;
   
 &lt;&lt;if $energy &gt; 1 &amp;&amp; $noVika != true&gt;&gt;&lt;&lt;ab&gt;&gt;[[continue chatting with her?|Vika][$energy -= 1; $social += 0.04; $Vikavisits += 1]]&lt;&lt;/ab&gt;&gt;&lt;&lt;/if&gt;&gt;
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="100" name="Vote" tags="" position="1550,300" size="100,100">&lt;center&gt;&lt;blockquote&gt;
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="101" name="Vote" tags="" position="1550,300" size="100,100">&lt;center&gt;&lt;blockquote&gt;
   &lt;&lt;set $Vikavote = random(1, 3)&gt;&gt;&lt;&lt;set $Leovote = random(1, 3)&gt;&gt;&lt;&lt;timed 1000ms&gt;&gt;Vika gives in her vote
     &lt;&lt;/timed&gt;&gt;&lt;&lt;timed 3000ms&gt;&gt;
     Leo has decided
@@ -5972,7 +5959,7 @@ Q2D &lt;&lt;print $Q2D&gt;&gt;
       &lt;&lt;elseif $vcount.count(3) &gt;= 2&gt;&gt;&lt;&lt;replace &quot;#replace3points&quot;&gt;&gt;&amp;nbsp;[[Energy Harvester.|Energy Harvester][$energy -= 5; $unimatter -= 5]]&lt;&lt;/replace&gt;&gt;
       &lt;&lt;else&gt;&gt;&lt;&lt;replace &quot;#replace3points&quot;&gt;&gt; ... huh ... everyone voted for each of it. ... Ok! Then we keep the unimatter and decide on a more urgent situation. Let us set our [[Camp here.|Camp Jungle]]&lt;&lt;/replace&gt;&gt;&lt;&lt;/if&gt;&gt;
   &lt;&lt;/timed&gt;&gt;&lt;/div&gt;&lt;/div&gt;&lt;&lt;/timed&gt;&gt;
-  &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="101" name="What do I want to say?" tags="" position="1825,0" size="100,100">&lt;&lt;if $days &gt;30&gt;&gt;
+  &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="102" name="What do I want to say?" tags="" position="1825,0" size="100,100">&lt;&lt;if $days &gt;30&gt;&gt;
 
 All pictures of these fine ladies should be seen all by having reached interactibility to around 6.
 
@@ -5984,7 +5971,7 @@ Oi! No es mi culpa if the virtual composer does not understand my intentions. I 
 Listening. Reading. Is. HARD.
 So! Take out your contact lenses or your glasses, and all is fine!
 
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="102" name="Whoa!" tags="" position="2675,2475" size="100,100">&lt;center&gt;&lt;blockquote&gt;
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="103" name="Whoa!" tags="" position="2675,2475" size="100,100">&lt;center&gt;&lt;blockquote&gt;
 [img[assets/backgrounds/Placeholder.png]]
 
 Paavali stands before the defense perimeter, looking to us. In a distance, not visible immediately, unless he is moving.
@@ -6029,11 +6016,11 @@ Paavali opens his arms to the side, palms up.
 
 &lt;&lt;ab&gt;&gt;[[Questions. Questions. Questions.|Questions]]&lt;&lt;/ab&gt;&gt;
 
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="103" name="WhyNothing" tags="" position="2050,300" size="100,100">&lt;center&gt;
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="104" name="WhyNothing" tags="" position="2050,300" size="100,100">&lt;center&gt;
 ... energy is too low for any constructions. We need rest.
 
 &lt;&lt;ab&gt;&gt;[[Set up the Camp|Camp Jungle]]&lt;&lt;/ab&gt;&gt;
-&lt;/center&gt;</tw-passagedata><tw-passagedata pid="104" name="Widgets" tags="widget" position="750,25" size="100,100">&lt;&lt;widget &quot;say&quot; container&gt;&gt;&lt;div class=&quot;Char&quot;&gt;
+&lt;/center&gt;</tw-passagedata><tw-passagedata pid="105" name="Widgets" tags="widget" position="750,25" size="100,100">&lt;&lt;widget &quot;say&quot; container&gt;&gt;&lt;div class=&quot;Char&quot;&gt;
 &lt;div class=&quot;Char-Framer&quot;&gt;&lt;img class=&quot;Char-img&quot; @src=&quot;&#39;assets/characters/&#39; + _args[0].toLowerCase() + &#39;.png&#39;&quot;&gt;&lt;/div&gt;&lt;div class=&quot;Char-dialogues&quot;&gt;_contents&lt;/div&gt;&lt;/div&gt;&lt;&lt;/widget&gt;&gt;
 
 &lt;&lt;widget &quot;ab&quot; container&gt;&gt;&lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;_contents&lt;/div&gt;&lt;/div&gt;&lt;&lt;/widget&gt;&gt;
@@ -6065,7 +6052,7 @@ Paavali opens his arms to the side, palms up.
         &lt;div class=&quot;actions-row&quot;&gt;&lt;div&gt;&lt;a @data-passage=&quot;_args[3]&quot; data-setter=&quot;$energy -= 0.2+$Oeu&quot;&gt;S&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;
       &lt;&lt;/if&gt;&gt;
     &lt;&lt;/if&gt;&gt;  
-  &lt;/div&gt;&lt;&lt;/nobr&gt;&gt;&lt;&lt;/widget&gt;&gt;</tw-passagedata><tw-passagedata pid="105" name="Year 1" tags="" position="2175,2475" size="100,100">&lt;center&gt;&lt;blockquote&gt;
+  &lt;/div&gt;&lt;&lt;/nobr&gt;&gt;&lt;&lt;/widget&gt;&gt;</tw-passagedata><tw-passagedata pid="106" name="Year 1" tags="" position="2175,2475" size="100,100">&lt;center&gt;&lt;blockquote&gt;
 [img[assets/backgrounds/Placeholder.png]]
 
 &lt;div class=&quot;logbook&quot;&gt; Log - Year 1: 
@@ -6081,7 +6068,7 @@ We all nod.
 
 &lt;&lt;ab&gt;&gt;[[Year 2]]&lt;&lt;/ab&gt;&gt;
 
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="106" name="Year 2" tags="" position="2300,2475" size="100,100">&lt;center&gt;&lt;blockquote&gt;
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="107" name="Year 2" tags="" position="2300,2475" size="100,100">&lt;center&gt;&lt;blockquote&gt;
 [img[assets/backgrounds/Placeholder.png]]
 
 &lt;div class=&quot;logbook&quot;&gt; Log - Year 2: 
@@ -6107,7 +6094,7 @@ I hear a groaning from Vika. She is shaking her head, looking with such suspicio
 
 &lt;&lt;ab&gt;&gt;[[Year 3]]&lt;&lt;/ab&gt;&gt;
 
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="107" name="Year 3" tags="" position="2425,2475" size="100,100">&lt;center&gt;&lt;blockquote&gt;
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="108" name="Year 3" tags="" position="2425,2475" size="100,100">&lt;center&gt;&lt;blockquote&gt;
 [img[assets/backgrounds/Placeholder.png]]
 
 &lt;div class=&quot;logbook&quot;&gt; Log - Year 3: 
@@ -6140,7 +6127,7 @@ Elva looked at me, I looked at Elva, puzzled. She meant it?
 
 &lt;&lt;ab&gt;&gt;[[Year 4]]&lt;&lt;/ab&gt;&gt;
 
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="108" name="Year 4" tags="" position="2550,2475" size="100,100">&lt;center&gt;&lt;blockquote&gt;
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="109" name="Year 4" tags="" position="2550,2475" size="100,100">&lt;center&gt;&lt;blockquote&gt;
 [img[assets/backgrounds/Placeholder.png]]
 
 &lt;div class=&quot;logbook&quot;&gt; Log - Year 4: 
@@ -6182,7 +6169,7 @@ Then we all jolted, Vika shrieked. As we turn to see what made her scream, we jo
 
 &lt;&lt;ab&gt;&gt;[[Whoa!]]&lt;&lt;/ab&gt;&gt;
 
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="109" name="Yes" tags="" position="225,300" size="100,100">&lt;center&gt;
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="110" name="Yes" tags="" position="225,300" size="100,100">&lt;center&gt;
 [img[assets/characters/Me.png]]
 &lt;blockquote&gt;&lt;&lt;audio &quot;V1&quot; play&gt;&gt;&lt;&lt;audio &quot;BgMusic&quot; loop play&gt;&gt;
 Yep, that&#39;s me. Handsome, eh? Like a Roman demi-god, no?
@@ -6196,14 +6183,14 @@ Developper: Skip to [[Camp Jungle][$engineering += 10; $combat += 10; $xeno += 2
 
 
 [[EndPoint ChCrash]]
-Designer: Skip to [[Camp Mountain][$engineering += 1]]</tw-passagedata><tw-passagedata pid="110" name="change of mind" tags="" position="3200,1975" size="100,100">&lt;&lt;say &quot;RD&quot;&gt;&gt;Hold on!&lt;&lt;/say&gt;&gt;&lt;br&gt;
+Designer: Skip to [[Camp Mountain][$engineering += 1]]</tw-passagedata><tw-passagedata pid="111" name="change of mind" tags="" position="3200,1975" size="100,100">&lt;&lt;say &quot;RD&quot;&gt;&gt;Hold on!&lt;&lt;/say&gt;&gt;&lt;br&gt;
 ... 
 &lt;br&gt;
 &lt;&lt;say &quot;RD&quot;&gt;&gt;Why taking many risks walking around this dangerous area if we have to take one dangerous risk to do?&lt;&lt;/say&gt;&gt;
 &lt;br&gt; 
 Elva looks at me puzzled, but then I waved her to go back.&lt;br&gt;
 &lt;br&gt; 
-&lt;&lt;ab&gt;&gt;[[Go back|PassTest3E][$choice1P3E = 6]]&lt;&lt;/ab&gt;&gt;</tw-passagedata><tw-passagedata pid="111" name="dormant spaceship 1" tags="" position="3075,1350" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;&lt;ab&gt;&gt;[[Go back|PassTest3E][$choice1P3E = 6]]&lt;&lt;/ab&gt;&gt;</tw-passagedata><tw-passagedata pid="112" name="dormant spaceship 1" tags="" position="3075,1350" size="100,100">&lt;&lt;nobr&gt;&gt;
   &lt;&lt;set $CampM.nutrients = 0; $CampM.unimatter = 0&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;&lt;center&gt;&lt;blockquote&gt;[img[assets/backgrounds/Placeholder.png]]
   
@@ -6225,7 +6212,7 @@ But boy, oh boy, never had I this much adrenaline! And the silence is more unner
   
   &lt;&lt;/timed&gt;&gt;
   &lt;&lt;ab&gt;&gt;[[Go back to Base|Camp Jungle][$energy -= (5+$summand)*(0.2+$Oeu), $QuestPool.pushUnique($Q2)]]&lt;&lt;/ab&gt;&gt;
-  &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="112" name="dormant spaceship 2" tags="" position="3075,1600" size="100,100">&lt;center&gt;&lt;blockquote&gt;&lt;&lt;if $QuestPool.includes($Q2A)&gt;&gt;[img[assets/backgrounds/Placeholder.png]]
+  &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="113" name="dormant spaceship 2" tags="" position="3075,1600" size="100,100">&lt;center&gt;&lt;blockquote&gt;&lt;&lt;if $QuestPool.includes($Q2A)&gt;&gt;[img[assets/backgrounds/Placeholder.png]]
 
 We again went cautiously to the camp with the dormant spaceship. It is not unlikely that the reason for the spaceship deformations can come up anytime.
 The hatch opened as we neared to it. Inside, we plug the nutrients in, and immediately the contents are sucked out and transfered to the cryochambers. There, slowly the machines whirred up to rise the temperatures to a bit, so the awakening biocells are ready for nutrients reception. All still without waking up the consciousness. It will take some hours. Waking up from deep freeze is still a delicate matter.
@@ -6257,7 +6244,7 @@ Both now feel rather that we resettle our camp here. They wish more company. Tha
 &lt;&lt;set $CampM.TransMast = true, $CampM.building += 1, $CampM.nutrients = 12, $Q2D = true, $dayCount = $days&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;ab&gt;&gt;[[Go back to Base|The Map]]&lt;&lt;/ab&gt;&gt;
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="113" name="globalvariables" tags="" position="225,25" size="100,100">&lt;&lt;set $SFW_Path = false&gt;&gt;
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="114" name="globalvariables" tags="" position="225,25" size="100,100">&lt;&lt;set $SFW_Path = false&gt;&gt;
 
 &lt;&lt;set $xeno = 0&gt;&gt;
 &lt;&lt;set $combat = 0&gt;&gt;
@@ -6386,7 +6373,7 @@ Both now feel rather that we resettle our camp here. They wish more company. Tha
 
 &lt;&lt;set $CMnutrientsplus = 0&gt;&gt;
 
-&lt;&lt;set $whydead = 0&gt;&gt;</tw-passagedata><tw-passagedata pid="114" name="random events" tags="" position="2050,2025" size="100,100">&lt;center&gt;&lt;blockquote&gt;
+&lt;&lt;set $whydead = 0&gt;&gt;</tw-passagedata><tw-passagedata pid="115" name="random events" tags="" position="2050,2025" size="100,100">&lt;center&gt;&lt;blockquote&gt;
 
 &lt;&lt;if random(1, 10) &gt; 4&gt;&gt;[img[assets/Ch-Explore/random_find_unimatter.png]]
   I found something that can be used as Unimatter.
@@ -6414,14 +6401,6 @@ Both now feel rather that we resettle our camp here. They wish more company. Tha
 
   &lt;&lt;ab&gt;&gt;[[Continue on|The Map]]&lt;&lt;/ab&gt;&gt;
 &lt;&lt;/if&gt;&gt;
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="115" name="Note from Developer" tags="" position="3325,1225" size="100,100">&lt;center&gt;&lt;blockquote&gt;
-
-NOTE from the developer:
-The story is getting linear now. That is because I want to wrap this game up and have a feeling of completion.
-But please continue on if you are interested in the story.
-
-[[Continue On|Intermission]]
-
 &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata></tw-storydata>
 	<script id="script-sugarcube" type="text/javascript">
 	/*! SugarCube JS */
