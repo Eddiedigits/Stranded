@@ -518,8 +518,16 @@ It is a huge setback. The hull is broken. As are the cockpit, our life maintenan
 <center><blockquote>
 [img[assets/backgrounds/Placeholder.png]]
 
-<div class="logbook">At the time as Solaris stretched itself out the whole solar system, about connecting Neptune to the Solaris Hub, it was conceivable that the Neptune connection was a matter of time. Consequently the next step would be sending out probes to nearby stellar systems, although some were already sent. Especially to those promising earth-like prospects.
-This planet is one of those. The mission is obvious - after setting an outpost: Is it colonizable? If not, what features does it have?</div>
+<div class="logbook">As Solaris extended its reach across the entire solar system, integrating Neptune into the Solaris Hub became an inevitability. It was only a matter of time before the connection was established. Consequently, the logical progression was to dispatch probes to nearby stellar systems, particularly those with promising Earth-like characteristics.
+
+This planet is one such target. The mission parameters are clear:
+
+Phase 1: Establish a preliminary outpost.
+
+Phase 2: Conduct a comprehensive survey to assess:
+
+<ul><li>Colonization potential</li><br>
+<li>If unsuitable for colonization, detailed analysis of notable features and resources.</li></ul></div>
 
 <<ab>>[[Year 1]]<</ab>>
 
@@ -644,17 +652,19 @@ Ech! Nothing happens. It is boring. Maybe I should try to go out anyway?
 
 
 :: Combat Training {"position":"2175,2025","size":"100,100"}
-<center><blockquote><<set _rNr = random(2)>>
+<center><blockquote><<set _rNr = random(3)>>
 <<nobr>>
-  <<if _rNr == 2>>
+<<if _rNr == 0>>
       [img[assets/backgrounds/combat_training.png]]
-  <<elseif _rNr == 1 && $Camp_M>>
+<<elseif _rNr == 1 && ($Camp_M || $eventfrom3E)>>
       [img[assets/backgrounds/combat_training1.png]]
-<<elseif _rNr >= 1 && $Camp_M>>
-    	[img[assets/characters/Elva/Elva_combat.png]]
 
-		Elva joins me for a sparring match.
-<<elseif _rNr == 0 && $SFW_Path == false && $Camp_M && $social > 7>>
+      Elva joins me in a training session.<br>
+<<elseif _rNr == 2 && ($Camp_M || $eventfrom3E)>>
+      [img[assets/characters/Elva/Elva_combat.png]]
+
+      Elva joins me for a sparring match.<br>
+<<elseif _rNr == 3 && $SFW_Path == false && $Camp_M && $social > 7>>
     	[img[assets/characters/Elva/Elva_combat.png]]
         
         That is gonna be a twofactored battle; for the mind as well for the body.
@@ -691,11 +701,11 @@ And for other reasons, as: to counteract brain degeneration and for energy effic
 
 </center>
 <<nobr>>
-<<if $printnanodrone || $datainterpreter>>
+<<if $printnanodrone || $printdatainterpreter>>
 <div class="whiteborderglimmer"><strong><u>special projects:</u></strong><br>
 
   <center><ul>
-  <<if $printnanodrone>>
+  <<if $printnanodrone && $designing < 4>>
   <li>Nanodrone:
     <<if $printnanodrone && $designing == 0 && $engineering >= 15 && $energy >= 2>><<ab>>[[Brainstorm and design a nanodrone|Picture designing][$designing = 1]]<</ab>>
     <<elseif $printnanodrone && $designing == 0 && ($engineering < 15 || $energy < 2)>><div class="color-red">Not enough energy (+2) and/or knowledge in engineering (Lvl:+15)</div>
@@ -706,22 +716,25 @@ And for other reasons, as: to counteract brain degeneration and for energy effic
     <<elseif $printnanodrone && $designing == 3 && $engineering >= 18 && $energy >= 2 && $unimatter >= 1>><<ab>>[[Print it!|Picture designing][$designing = 4]]<</ab>>
     <<elseif $printnanodrone && $designing == 3 && ($engineering < 18 || $energy < 2 || $unimatter < 1)>><div class="color-red">Not enough energy (+2), unimatter (+1) and/or in engineering (Lvl:+18)</div><</if>>
   </li>
-  <<elseif $datainterpreter>>
+  <<elseif $printdatainterpreter && $designing < 3>>
   <li>Data Interpreter:
-    <<if $datainterpreter && $designing == 0 && $engineering >= 20 && $energy >= 2>><<ab>>[[Brainstorm and design a data interpreter device|Picture designing][$designing = 1]]<</ab>>
-    <<elseif $datainterpreter && $designing == 0 && ($engineering < 20 || $energy < 2)>><div class="color-red">Not enough energy (+2) and/or knowledge in engineering (Lvl:+20)</div>
-    <<elseif $datainterpreter && $designing == 1 && $social >= 23 && $energy >= 3>><<ab>>[[Synergize the design with those of Abiba and Vika|Picture designing][$designing = 2]]<</ab>>
-    <<elseif $datainterpreter && $designing == 1 && ($social < 23 || $energy < 3)>><div class="color-red">Not enough energy (+3) and/or in interactibility (Lvl:+23)</div>
-    <<elseif $datainterpreter && $designing == 2 && $engineering >= 24 && $energy >= 1>><<ab>>[[Print|Picture designing][$designing = 3]]<</ab>>
-    <<elseif $datainterpreter && $designing == 2 && ($engineering < 24 || $energy < 1)>>><div class="color-red">Not enough energy (+1) and/or in interactibility (Lvl:+24)</div><</if>>
+    <<if $printdatainterpreter && $designing == 0 && $engineering >= 20 && $energy >= 2>><<ab>>[[Brainstorm and design a data interpreter device|Picture designing][$designing = 1]]<</ab>>
+    <<elseif $printdatainterpreter && $designing == 0 && ($engineering < 20 || $energy < 2)>><div class="color-red">Not enough energy (+2) and/or knowledge in engineering (Lvl:+20)</div>
+    <<elseif $printdatainterpreter && $designing == 1 && $social >= 23 && $energy >= 3>><<ab>>[[Synergize the design with those of Abiba and Vika|Picture designing][$designing = 2]]<</ab>>
+    <<elseif $printdatainterpreter && $designing == 1 && ($social < 23 || $energy < 3)>><div class="color-red">Not enough energy (+3) and/or in interactibility (Lvl:+23)</div>
+    <<elseif $printdatainterpreter && $designing == 2 && $engineering >= 24 && $energy >= 1>><<ab>>[[Print|Picture designing][$designing = 3]]<</ab>>
+    <<elseif $printdatainterpreter && $designing == 2 && ($engineering < 24 || $energy < 1)>>><div class="color-red">Not enough energy (+1) and/or in interactibility (Lvl:+24)</div><</if>>
   </li>
   <</if>>
   </ul></center>
   </div>
 <</if>>
 <</nobr>>
-<strong><u>available Templates:</u></strong>
-<<nobr>><center><h6>Legend:<br>Energy = E | Unimatter = U | Energy Upkeep - EU | Lvl = Engineering Level</h6></center><br>
+
+
+<div class="CaD-container" id ="C-Menu">
+<strong><u>available Templates:</u></strong><br>
+<<nobr>><h6>Legend:<br>Energy = E | Unimatter = U | Energy Upkeep - EU | Lvl = Engineering Level</h6><br>
   <ul><li>Repairs (3E - 3U): <<if $notrepaired > 0>><<if $energy >= 3 && $unimatter >= 3 && $Camp_J>>[[Action it|Construction Menu][$energy -= 3; $unimatter -= 3; $notrepaired -= 2]]
     <<elseif $unimatter < 3 || $energy < 3>><div class="color-red">insufficient ressources</div>
     <<elseif $Camp_J && $maxenergy < 10 || $Camp_M && $maxenergy < 20>><div class="color-red">insufficient ressources</div><</if>>
@@ -848,7 +861,7 @@ And for other reasons, as: to counteract brain degeneration and for energy effic
     <<elseif $OrbAutoCJ && $Camp_J || $OrbAutoCM && $Camp_M>><br><div class="color-green">The options panel is available in the Task Monitor.</div><<else>><div class="color-red">insufficient level or ressources</div><</if>></li>
   </ul><</if>>
 
-<</if>><</nobr>>
+<</if>><</nobr>><br></div>
 
 
 :: Council Round 2 {"position":"3325,1725","size":"100,100"}
@@ -929,13 +942,13 @@ Unsure whether he is alone or has others.
 <<say "Vika">>And he want us a what?<</say>>
 
 <<say "RD">>A data interpreter. <<if $engineering < 20>>Whatever he meant by that.<</if>><</say>>
-
+<<nobr>>
 <<if $engineering < 20>><<say "Abiba">>Something that ... <</say>>
 
 <<say "Vika">>... compiles, interpret and present us the whole picture.<</say>>
 
 Abiba turned her palm up and point to Vika.<</if>>
-
+<</nobr>>
 <<say "Elva">>We finally can unravel the weird situation we're in?<</say>>
 
 <<say "RD">>Don't you dare to hope!<</say>>
@@ -944,7 +957,7 @@ Abiba turned her palm up and point to Vika.<</if>>
 
 <<say "RD">>But, yeah, that is what I make out of my encounter with him.<</say>>
 
-Elva crosses her fingers and asks us of why are waiting?
+Elva crosses her fingers and asks us of what are we waiting for?
 
 <<say "Leo">>And the guy was secretive? Evading questions?<</say>>
 
@@ -960,11 +973,11 @@ Leo, with his hand on his mouth and his index finger on the cheek, acknowledges 
 
 I ask the engineering ladies. Vika and Abiba are between weighing and nodding their heads.
 
-<<say "RD">>Right. Onwards then.<</say">>
+<<say "RD">>Right. Onwards then.<</say>>
 
 We all scatter except for Vika. She sits still there lost in thoughts and with a serious sceptic face, even shaking subtly her head time to time.
 
-Anyway. Time for: [[brainstorm and design it is|Scheduler][$QuestPool.delete($Q3E); $QuestPoolDone.pushUnique($Q3E); $QuestPool.pushUnique($Q3F)]]
+Anyway. Time for: <<ab>>[[brainstorm and design|Scheduler][$QuestPool.delete($Q3E); $QuestPoolDone.pushUnique($Q3E); $QuestPool.pushUnique($Q3F)]]<</ab>>
 
 </blockquote></center>
 
@@ -1076,7 +1089,7 @@ After many minutes
 <<= $CampJ.building>> from maximal <<= $CampJ.maxbuildings>><</if>></div></div>
 <div class="index-screens-small"><div style="width: 100%;">[[Go to Construction Menu|Construction Menu]]</div></div>
 </center>
-<strong><u>current components/buildings:</u></strong>
+<div class="CaD-container" id="D-Menu"><strong><u>current components/buildings:</u></strong>
 <<if $CampM.building > 0 || $CampJ.building > 0 || $SubAnalyzer>>
   <ul><<if $SubAnalyzer>><li>[[Substance Analyzer (2E - 5U)|Disintegration Menu][$energy += 2; $unimatter += 5; $SubAnalyzer = false]]</li><</if>>
   <<if ($CampJ.EHarvester == 5 && $Camp_J) || ($CampM.EHarvester == 5 && $Camp_M)>>
@@ -1116,10 +1129,10 @@ After many minutes
       <<elseif $CampM.cOrb == 3 && $Camp_M>>
         <li>+ [[Orb Improvement for Combat (6E - 6U)|Disintegration Menu][$energy += 6; $unimatter += 6; $CampM.cOrb = 1]]</li><</if>>
       <<if $OrbAutoCJ && $Camp_J>>
-        <li>+ [[Orb Improvement for Combat (1E - 1U)|Disintegration Menu][$energy += 1; $unimatter += 1; $OrbAutoCJ = false]]</li>
+        <li>+ [[Orb Automation (1E - 1U)|Disintegration Menu][$energy += 1; $unimatter += 1; $OrbAutoCJ = false]]</li>
       <<elseif $OrbAutoCM && $Camp_M>>
-        <li>+ [[Orb Improvement for Combat (1E - 1U)|Disintegration Menu][$energy += 1; $unimatter += 1; $OrbAutoCM = false]]</li><</if>></ul>
-<<else>><div class="color-yellow">There is nothing built or printed.</div><</if>>
+        <li>+ [[Orb Automation (1E - 1U)|Disintegration Menu][$energy += 1; $unimatter += 1; $OrbAutoCM = false]]</li><</if>></ul>
+<<else>><div class="color-yellow">There is nothing built or printed.</div><</if>></div>
 
 
 :: Elva {"position":"3525,475","size":"100,100"}
@@ -1793,8 +1806,8 @@ What do I want for the Orb to collect?<<nobr>>
       <<replace "#OrbTA-feedback">><div class="color-green">Checked</div><</replace>>
       <<replace "#important-notice">>
         <<if $readOC == false>>Important Notice: <br>
-          1. By moving to another Camp, the configuration is set to null - therefore has to be configured anew - as well as all collected ressources are lost. <br>
-          2. The collection is during the day, hence after a cycle the ressources are compiled.<br>
+          <<if !$eventfrom3E>>1. By moving to another Camp, the configuration is set to null - therefore has to be configured anew - as well as all collected ressources are lost. <br>
+          2.<</if>> The collection is during the day, hence after a cycle the ressources are compiled.<br>
               <br>
         <<linkappend 'Yes, I have read and understood' t8n>> - <div class="color-green">signed</div>
 
@@ -1809,8 +1822,8 @@ What do I want for the Orb to collect?<<nobr>>
       <<replace "#OrbTA-feedback">><div class="color-red">Unchecked</div><</replace>>
       <<replace "#important-notice">>
         <<if $readOC == false>>Important Notice: <br>
-          1. By moving to another Camp, the configuration is set to null - therefore has to be configured anew - as well as all collected ressources are lost. <br>
-          2. The collection is during the day, hence after a cycle the ressources are compiled.<br>
+          <<if !$eventfrom3E>>1. By moving to another Camp, the configuration is set to null - therefore has to be configured anew - as well as all collected ressources are lost. <br>
+          2.<</if>> The collection is during the day, hence after a cycle the ressources are compiled.<br>
               <br>
         <<linkappend 'Yes, I have read and understood' t8n>> - <div class="color-green">signed</div>
 
@@ -2055,26 +2068,24 @@ Now. Time for the truth!
 
 
 :: Picture designing {"position":"2050,2275","size":"100,100"}
-<<if $designing.range(1, 3)>>
-  <<if $designing == 1>>
-    [img[assets/events/brainstormnanodrone.png]]
-  <<elseif $designing == 2>>
-    [img[assets/events/nanodronefeedback.png]]
-  <<elseif $designing == 3 && $nanodrone>>
-    [img[assets/events/nanodroneimprove.png]]
-  <</if>>
-
+<<if $designing == 1>>
+  [img[assets/events/brainstorm.png]]
+<<elseif $designing == 2>>
+  [img[assets/events/feedback.png]]
+<<elseif $designing == 3 && $printnanodrone>>
+  [img[assets/events/nanodroneimprove.png]]
+<<elseif $designing == 3 && $printdatainterpreter>>
+	[img[assets/events/datainterpreterprint.png]]
+        
+	[[On to the next task|Scheduler][$datainterpreter = true; printdatainterpreter = false; $QuestPool.delete($Q3F); $QuestPoolDone.pushUnique($Q3F); $QuestPool.pushUnique($Q3G); $designing = 0]]
+<<elseif $designing == 4>>
+	[img[assets/events/nanodroneprint.png]]
+        
+	[[On to the next task|Scheduler][$nanodrone = true; $printnanodrone = false; $QuestPool.delete($Q3C); $QuestPoolDone.pushUnique($Q3C); $QuestPool.pushUnique($Q3D); $designing = 0]]
+<</if>><<if $designing.range(1, 3) && $printnanodrone || $designing.range(1, 2) && $printdatainterpreter>>
  	[[Continue on|Construction Menu]]
     
  	[[Go to Camp|Camp Jungle]]
-<<elseif $designing == 3 && $datainterpreter>>
-	[img[assets/events/datainterpreterprinted.png]]
-        
-	[[On to the next task|Scheduler][$datainterpreter = true; $QuestPool.delete($Q3F); $QuestPoolDone.pushUnique($Q3F); $QuestPool.pushUnique($Q3G)]]
-<<elseif $designing == 4>>
-	[img[assets/events/nanodroneprinted.png]]
-        
-	[[On to the next task|Scheduler][$nanodrone = true; $QuestPool.delete($Q3C); $QuestPoolDone.pushUnique($Q3C); $QuestPool.pushUnique($Q3D)]]
 <</if>>
 
 
@@ -2263,7 +2274,7 @@ Now. Time for the truth!
     <<elseif $QuestPool.includes($Q3C) && _currentQuest == $Q3C && !allValues100($explored, 100)>><div class="conditionnotmet">--- Explore more. More. ---</div>
   <</if>>
 
-  <<if $QuestPool.includes($Q3D) && _currentQuest == $Q3D && $CampJ.cOrb == 3>><<ab>>[[Go to the seemingly inactive spaceship|T1S2E][$Oeu = 0.3; $energy -= 0.6+$Qeu]]<</ab>>
+  <<if $QuestPool.includes($Q3D) && _currentQuest == $Q3D && $energy >= 1.5 && $CampJ.cOrb == 3>><<ab>>[[Go to the seemingly inactive spaceship|T1S2E][$Oeu = 0.3; $energy -= 3*(0.2+$Oeu)]]<</ab>>
     <<elseif $QuestPool.includes($Q3D) && _currentQuest == $Q3D && $CampJ.cOrb != 3>><div class="conditionnotmet">--- Upgrade your Orb to a combat Orb ---</div>
   <</if>>
 
@@ -2271,10 +2282,11 @@ Now. Time for the truth!
     <<elseif $QuestPool.includes($Q3E) && _currentQuest == $Q3E && $energy < 1>><div class="conditionnotmet">--- no energy ---</div>
   <</if>>
 
-  <<if $QuestPool.includes($Q3F) && _currentQuest == $Q3F>><<ab>>[[Go to the Construction Chamber|Construction Menu][$datainterpreter = true; $designing = 0]]<</ab>><</if>>
+  <<if $QuestPool.includes($Q3F) && _currentQuest == $Q3F>><<ab>>[[Go to the Construction Chamber|Construction Menu][$printdatainterpreter = true; $designing = 0]]<</ab>><</if>>
 
-  <<if $QuestPool.includes($Q3H) && _currentQuest == $Q3H && $energy >= 1 && $unimatter >= 1>><<ab>>[[Print a modular addendum for the Orb|Picture Orb addendum][$energy -= 1; $unimatter -= 1; $addendum = true]]<</ab>>
-    <<elseif $QuestPool.includes($Q3H) && _currentQuest == $Q3H && $energy < 1 && $unimatter >= 1>><div class="conditionnotmet">--- no energy (+1) and/or unimatter (+1) ---</div>
+  <<if $QuestPool.includes($Q3H) && _currentQuest == $Q3H && !$addendum && $energy >= 1 && $unimatter >= 1>><<ab>>[[Print a modular addendum for the Orb|Picture Orb addendum][$energy -= 1; $unimatter -= 1; $addendum = true]]<</ab>>
+    <<elseif $QuestPool.includes($Q3H) && _currentQuest == $Q3H && $addendum>>The addendum is implemented.
+    <<elseif $QuestPool.includes($Q3H) && _currentQuest == $Q3H && ($energy < 1 || $unimatter >= 1)>><div class="conditionnotmet">--- no energy (+1) and/or unimatter (+1) ---</div>
   <</if>>
 
   <<if $QuestPool.includes($Q3I) && _currentQuest == $Q3I && $CampJ.DefPerimeter>><<ab>>[[Well, now the time of truth|The great Expo]]<</ab>>
@@ -2315,7 +2327,7 @@ Now. Time for the truth!
 <<set $Q3A = "For now: Explore more">>
 <<set $Q3B = "What to do with the new information?">>
 <<set $Q3C = "Explore as much as possible">>
-<<set $Q3D = "Have a combat orb">>
+<<set $Q3D = "Have a combat orb for better protection">>
 <<set $Q3E = "Council Round Three">>
 <<set $Q3F = "Print a Data Interpreter and have an Orb again.">>
 <<set $Q3G = "Meet with the old man in south-east, near our camp. Have an Orb with you to carry the storage.">>
@@ -2719,12 +2731,13 @@ Yes! Yes! I am saved</div></div>
 
 <<say "blackface">>Waaait.<</say>>
 
-Huh?! I turn my head back, but still ready to run. Also I notice no tremors. From where did it come from? The voice? 
-There. I see a shape appearing. An old man, his hairs so white and long. And! It is still in its older version. More synthetic than cyborg. I look at him in bewilderment, but he walk so casually and non-threatening, even waving his hand.
+Huh?! I turn my head back, but still ready to run. Also I notice no tremors. From where did the voice come from?  
+There. I see a shape appearing. An old man, his hairs so white and long.
+Aaand! It is in an older version; more synthetic than cyborg. I look at him in bewilderment, but he walk so casually and non-threatening, even waving his hand.
 
 <<say "Paavali">>So you can hear me.<</say>>
 
-Ok. Obviously he doesn't have the automatic virtual link, where my generation see each other virtually in human forms, whereas he only sees my capsule and its mechanic limbs. I activate the hologram. It whirs up and after some seconds of warmup the hologram increments its resolution until the old man sees my face with its individual features.
+Ok. Obviously he doesn't have the automatic virtual link, where my kinds can see each other virtually in human forms, whereas he only sees my capsule and its mechanic limbs. I activate the hologram. It whirs up, and after some seconds of warmup it increments its resolution until the old man sees my face with its individual features.
 
 <<say "Paavali">>Oh, nice! A human. I greet you. You are human, right? From Solaris, right?<</say>>
 
@@ -2734,7 +2747,7 @@ Why this question? Are there other aliens?
 
 <<say "Paavali">>Perhana, too long since I had someone humanely. Are you the sent corps?<</say>>
 
-<<say "RD">>A sent corps?<</say>
+<<say "RD">>A sent corps?<</say>>
 
 <<say "Paavali">>...<</say>>
 
@@ -2784,15 +2797,15 @@ I look at the old man. The old man looks at me.
 
 Was he almost blinking his eye? As in to give me a hint? A warning? And he gesticulated like I shouldn't ask further. Huh ...
 
-<<say "RD">>Ok, then ... but the Orb gets shot down ... ?<</say>>
+<<say "RD">>Ok, then ... but the Orb gets shot down again? I need it for the transport. It didn't sounded lightweighted.<</say>>
 
-He mimicked in the direction from where I come from. I concludes that is the spot where we meet again.
+He mimicked in the direction from where I came from. I concludes that is the spot where we meet again.
 
 <<say "RD">>O'right, old man, there we meet again.<</say>>
 
 <<say "Paavali">>Hei! Nuori veitikka.<</say>>
 
-<<ab>>[[Go back to camp|Camp Jungle][$QuestPool.delete(Q3D); $QuestPool.pushUnique($Q3E); $QuestPoolDone.pushUnique($Q3D)]]<</ab>>
+<<ab>>[[Go back to camp|Camp Jungle][$QuestPool.delete($Q3D); $QuestPool.pushUnique($Q3E); $QuestPoolDone.pushUnique($Q3D)]]<</ab>>
 
 </blockquote></center>
 
@@ -3031,15 +3044,21 @@ Water!
 <<if $nanodrone == true>>
   Bueno! Bueno! Buenooo! 
   
-  <em>Pfuuuh</em> <<linkappend "Then let us roll.">> I activate the nanodrone and it buzzes up and forth. <<timed 1s>> same time, the combat Orb whirs on.
+  <em>Pfuuuh</em> 
+  
+  <<linkappend "Then let us roll.">> I activate the nanodrone and it buzzes up and forth. <<timed 1s>> same time, the combat Orb whirs on.
 
-  <<timed 1s>><div class="pierced">WHACK!</div>
+  <<timed 1s>><div class="pierced">WHACK!</div><<set $nanodrone = false, $printnanodrone = false;>>
 
-  What?!
+  The nanodrone!  <<nobr>>
+  <<run automaticDownscroll();>><</nobr>>
 
-  <<timed 2s>><div class="pierced">CRAAACK!</div>
+  <<timed 2s>><div class="pierced" style="font-size:130%">CRAAACK!</div><<set $CampJ.Orb = 1; $CampJ.nOrb = 1; $CampJ.cOrb = 1; $CampJ.building -= 1>><<nobr>>
+  <<run automaticDownscroll();>><</nobr>>
 
-  Shiiet!!!
+  The Orb!
+  Shiiet!!! <<nobr>>
+  <<run automaticDownscroll();>><</nobr>>
 
   <<ab>>[[Run!|Situation in T1S2E][]]<</ab>>
 
@@ -3056,7 +3075,7 @@ Water!
   <<else>>
     Back here again. And same strangeness.
   <</if>>
-  <<if $Oeu == 0.3>>Do I dare to send the Orb off?
+  <<if $Oeu == 0.3 && !$QuestPoolDone.includes($Q3D)>>Do I dare to send the Orb off?
 
     <<linkappend "<<ab>>Send it off<</ab>>">>
       
@@ -3068,7 +3087,7 @@ Water!
 
     <<timed 3s>><<replace "#ABtohide">>&nbsp;<</replace>><div class="tremors">Ah! Mmmiiierrrda!!! Shit!
 
-    <<timed 1s>><<ab>>[[Run!|Situation in T1S2E]]<</ab>></div><</timed>><</timed>><</linkappend>><</if>>
+    <<timed 1s>><<ab>>[[Run!|Situation in T1S2E]]<</ab>></div><</timed>><</timed>><</timed>><</linkappend>><</if>>
 
   <div class="ABtohide"><<ab>>[[Go back to Base|Camp Jungle][$energy -= 0.2+$Oeu]]<</ab>></div>
 
@@ -3104,19 +3123,25 @@ Although, it feels like ... here nearby are the crash sites of our pods. Whateve
 <</nobr>><center>[img[assets/Ch-Explore/T1SE.png]]
   <blockquote>
 <<if $QuestPool.includes($Q3G) && $CampJ.Orb == 3>>
-  We didn't set a time. But then, I felt like that it wasn't necessary. But he is from older generation, surely they do not know when someone nears. Shit. Do I have to go in again?
+  We didn't set a time. But I felt like that it wasn't necessary. Then again, he is from an older generation, surely they do not know when someone nears. Shit. Do I have to go in again?
 
-  Oh! No, I can see the storage. Kind of a bit hidden, but still visible since ... he knew I would walk on this way. Nice.
+  Oh no, I can see the storage. Kind of a bit hidden, but still visible since ... he knew I would walk on this way. Nice.
 
-  Well then ... 
+  Well then 
+  
+  ...
 
-  But what if it is a bomb?
+  ...
 
-  Yeah, but it knows our location. So, why would it give us an explosive since it could destroy us again?
+  What if it is a bomb?
 
-  But this time, it is an human. He may have a different agenda. He wasn't so joyish to see us after so ... probably yyyears! Not in the way I would react. 
+  ...
 
-  Then again, he seems to know ... the alien? Wasn't he rather casually mentioning it? In a tone of ... familiarity? Then, if both know each other, and coupled with the fact that it didn't attack us again, shouldn't I be on the safer side?
+  He may have a different agenda and wasn't so joyish to see us after so ... probably yeeears! Not in the way I would react. Also, he seems to know ... the alien? Wasn't he rather casually mentioning it? In a tone of a ... familiarity? If both know each other.
+
+  But it didn't attack us again. Why aren't we attacked again?
+
+  ...
 
   Argh! Fine, an upgrade to the Orb to scan the content. Ach! It never ends here.  
 
@@ -3126,7 +3151,7 @@ Although, it feels like ... here nearby are the crash sites of our pods. Whateve
   
   The time of truth!
 
-  <<linkappend "Signal the Orb to scan the storage container.">> [img[assets/events/Orbscans.png]]
+  <<linkappend "<<ab>>Signal the Orb to scan the storage container<</ab>>">> [img[assets/events/Orbscans.png]]
 
     <div class="dot-enqueuer"><div class="Dot1">.</div><div class="Dot2">.</div><div class="Dot3">.</div></div>
 
@@ -3134,7 +3159,7 @@ Although, it feels like ... here nearby are the crash sites of our pods. Whateve
 
       Huh! What indicates those 4%?
 
-      <<say "RD">>new components, new design, not known to humanity. The developper do not take responsibility in case of failure. Right. Obviously. Clever! Just generally have a small percentage to be lawfully out of responsibility.<</say>>
+      <<say "RD">>... new components, new design, not known to humanity. The developper do not take responsibility in case of failure. Right. Obviously. Clever! Just generally have a small percentage to be lawfully out of responsibility.<</say>>
 
       ...
 
@@ -4350,6 +4375,7 @@ passagevisited <<print $passagevisited>>
 carrycap <<print $carrycap>>
 navOrb <<print $navOrb>>
 cbtOrb <<print $cbtOrb>>
+CampJ.cOrb <<print $CampJ.cOrb>>
 Oeu <<print $Oeu>>
 OrbTransport <<print $OrbTransport>>
 OrbTA <<print $OrbTA>>
@@ -4592,12 +4618,12 @@ Paavali opens his arms to the side, palms up.
 <center><blockquote>
 [img[assets/backgrounds/Placeholder.png]]
 
-<div class="logbook"> Log - Year 1: 
-Arrival at KAPTEYN'S STAR. A red dwarf star system. All sensors are active and scan for planetary bodies. Initial readings indicate the presence of at least two confirmed planets, Kapteyn b and Kapteyn c within our immediate vicinity, Kapteyn d and e were discovered some time later.
-Superficial survey of all planets for potential habitability.
-Kapteyn c revealed to be a potential habitable planet. With a restriction: This planet is plighted by meteorites bombardment. Constantly. The meteorite shower happened quite recently: around 50 years before the arrival, hence after the sendout. It happens since the orbit of a planet - Kapteyn d - is merging with its neighbor - Kapteyn e. Both began chafing each other around 50 years ago, sending detritus throughout the whole system.
-Our orbital outpost has to initiate the evade maneuver three times.
-It is calculated that this lush planet wouldn't die from the outer influence, only will have many setbacks. We baptized it as Bādhiccu, the plighted.</div>
+<div class="logbook"><strong><h3>Log - Year 1:</h3><h4>Arrival at Kapteyn's Star System</h4></strong>
+Upon arrival at Kapteyn's Star, a red dwarf system, all sensors were activated to scan for planetary bodies. Initial readings confirmed the presence of two planets, Kapteyn b and Kapteyn c, within our immediate vicinity. Subsequent scans identified two additional planets, Kapteyn d and Kapteyn e.
+
+A preliminary survey was conducted on all planets to evaluate their potential habitability. Kapteyn c emerged as a candidate for habitability but with a significant caveat: the planet is subject to frequent meteorite bombardments. This phenomenon began approximately 50 years prior to our arrival, postdating our probe's launch. The bombardment is a consequence of orbital interactions between Kapteyn d and Kapteyn e, which started to converge and chafe against each other, dispersing debris throughout the system.
+
+Our orbital outpost was required to execute evasive maneuvers three times due to this debris. Calculations indicate that while Kapteyn c will experience numerous setbacks due to the bombardments, it will not be rendered uninhabitable. The planet has been designated <strong>Bādhiccu</strong>, meaning "the plighted."</div>
 
 <<say "Elva">>That is definitely a fact contra colonization. Moreso, that more detritus will follow.<</say>>
 
@@ -4612,26 +4638,25 @@ We all nod.
 <center><blockquote>
 [img[assets/backgrounds/Placeholder.png]]
 
-<div class="logbook"> Log - Year 2: 
-A spot were found to be undisturbed by meteorites for some time. More than enough time to explore on-site the planet. 
-Surveyed status of this stellar system: 86,54%.
-Cartographed status of Badhiccu: 34,23%.
-Badhiccu - or technically: Kapteyn c - teem with few carbon-based life-forms, mainly plants, strangely very few "animals". No one in our proximity demonstrated a degree in intelligence matched with humanity. Yet. 
-Some plant-based entities are consumable or can be converted to consumables. Some even have completely unknown molecular structures, which are handled with caution, since their effects are not foreseeable at all.
-After some cycles, our sensors indicates huge swathes of metallic compounds under badhiccan soil. Probably stretching in thousands of kilometers. Mainly made of titanium. And it is moving. 
-Changing. 
-Oscillating. 
-Continually!
-Upon excavating on a spot, it demonstrated high reactivity. Unusual for metallic compounds. At first, it emanated malleability and heat, then coldness and durability. Interestingly, the metallic surface progressively hardened as our driller continued anew and anew, revealing adaptive hardening. Changes within minutes! To be sure, excavations were repeated on other spots. They demonstrate all the same behavior: reactive changes in density. 
-On excavation spot number 12, something happened: it spiked. It formed a kind of a stele ---</div>
+<div class="logbook"><strong><h3>Log - Year 2:</h3><h4>Exploration of Kapteyn c (Bādhiccu)</h4></strong>
+A site has been identified on Bādhiccu that remains undisturbed by meteorite activity, providing a sufficient window for on-site exploration. The current survey status of the stellar system stands at 86.54%, with 34.23% of Bādhiccu's surface cartographed.
+
+Kapteyn c teems with a few carbon-based life forms, predominantly flora, and a curious scarcity of fauna. No observed organisms have demonstrated intelligence comparable to that of humanity.
+
+Several plant-based entities have been identified as potentially consumable or convertible to consumables. Some flora exhibit completely unknown molecular structures, necessitating cautious handling due to unpredictable effects.
+
+After several cycles, our sensors detected extensive metallic layers beneath Bādhiccu's surface, likely spanning thousands of kilometers. These layers, primarily composed of titanium, exhibit unusual properties: they are moving, changing, and continually oscillating
+UUpon excavation, these metallic compounds demonstrated high reactivity. Initially, they exhibited malleability and heat, followed by coldness and increased durability. Remarkably, the metallic surface hardened progressively with continuous drilling, revealing an adaptive hardening mechanism with changes occurring within minutes. This phenomenon was consistently observed across multiple excavation sites.
+
+At excavation site number 12, an unexpected event occurred: the metallic layer rapidly formed a stele - - -</div>
 
 I stretch out my arm, pointing to this fact while looking at the others. We look at each other, knowing now that it is the same that attacked our spaceship.
 
-<div class="logbook">--- in a matter of milliseconds! With an explosive velocity that pulverized the driller and sent the supervisors meters far away. They immediately have to be stabilized in the med-chambers. Their brains luckily only suffered mild concussions. After some recalibrations, they are good to go. </div>
+<div class="logbook">- - - within milliseconds, with explosive force that pulverized the driller and propelled the supervisors several meters away. Immediate stabilization in med-chambers revealed that their injuries were limited to mild concussions. Following recalibration, they have been cleared for continued exploration.</div>
 
 I hear a groaning from Vika. She is shaking her head, looking with such suspicion that makes us quite wonder.
  
-<div class="logbook">It displayed a pro-active defense mechanism, prompting an immediate halt to all excavations. Deliberations ensued on how best to proceed safely and effectively in light of this rapid capacity to adaptation, especially on how to communicate with it.</div>
+<div class="logbook">The metallic structure displayed a proactive defense mechanism, prompting an immediate halt to all excavations. Deliberations ensued on how best to proceed safely and effectively in light of this rapid capacity for adaptation, especially on how to communicate with it.</div>
 
 <<ab>>[[Year 3]]<</ab>>
 
@@ -4642,7 +4667,26 @@ I hear a groaning from Vika. She is shaking her head, looking with such suspicio
 <center><blockquote>
 [img[assets/backgrounds/Placeholder.png]]
 
-<div class="logbook"> Log - Year 3: 
+Text to GPT-4
+
+Log - Year 3: 
+The entity of reactive metal is termed the Titan.
+
+Following occurrences happened while studying observantly and passively the Titan:
+- observant new animals, which later were presumed to be under influence of the Titan
+- aggressive animals, not indicating to be under influence of the Titan
+- micrological floating units, predominantly of half-metallic origin, assumed from the Titan
+- some of our automatic units lost, later assumed neutralized by the Titan
+- magnetic anomalies
+- high energy discharges, which led very often to thunderstorms
+- tremors, caused by Titan's inner activity
+- earthquakes, correlated with Titan, meterorite bombardment and tectonic repositionings
+- a monolith near our camp, composed of many types of compounds, presumed to function as sensors
+
+First attempts to send messages to the monolith yielded no correlated reactions. Distributing the energy budget to 50% exploration of Badhicca and 50% to attempts to message the monolith - respectively to the Titan.
+
+
+<div class="logbook"><strong><h3>Log - Year 3:</h3><h4></h4></strong>
 The entity of reactive metal is termed the Titan.</div>
 
 <<say "Elva>>How fitting!<</say>>
@@ -4661,6 +4705,8 @@ Elva looked at me, I looked at Elva, puzzled. She meant it?
 - tremors, caused by Titan's inner activity
 - earthquakes, correlated with Titan, meterorite bombardment and tectonic repositionings
 - a monolith near our camp, composed of many types of compounds, presumed to function as sensors</div>
+
+<<say "RD">>Hey! That is almost the same I saw just North-East of here!<</say>>
 
 <<say "Leo">>Huh!<</say>>
 
@@ -5316,13 +5362,13 @@ button[id|=history-forward]::before {
 .passage-titles {
   border-top: 3px solid;
   border-bottom: 3px solid;
-width: 95vw;
+  width: 95vw;
   max-width: 700px;
 }
 
 .Title_Actions {
   color: #A9A9A9;
-width: 95vw;
+  width: 95vw;
   max-width: 700px;
   border-top: 3px solid #A9A9A9;
   border-bottom: 3px solid #A9A9A9;
@@ -6765,24 +6811,48 @@ box-sizing: border-box;
 @keyframes pierceAnimation {
   0% {left: 0;}
   50% {left: -30%;}
-  55% {rotate: 4deg;}
+  55% {rotate: 10deg;}
   66% {left: 0; rotate: 0.5deg;}
   100% {left: 0; rotate: 0.5deg;}
 }
 
 .pierced {
   animation-name: pierceAnimation;
-  animation-duration: 1s;
+  animation-duration: 0.1s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
 
-/* logbook ----------------------------------------*/
+/* logbook --------------------------------------------------*/
 
 .logbook {
-  border: 3px solid whitesmoke;
+  text-align: left;
+  padding: 2em;
+  border: 0.1em solid whitesmoke;
   border-radius: 1em;
-  background-color: aquamarine;
+  background-color: darkslategray;
+}
+
+/* Templates Frame ------------------------------------------*/
+
+.CaD-container {
+  width: 100%;
+  padding: 1em;
+  padding-left: 3em;
+  margin-bottom: 1em;
+  box-sizing: border-box;
+  border-radius: 0.4em;
+  background-color: black;
+}
+
+#D-Menu {
+  border-top: 0.2em solid #943838;
+  border-bottom: 0.2em solid #943838;
+}
+
+#C-Menu {
+  border-top: 0.2em solid #336699;
+  border-bottom: 0.2em solid #336699;
 }
 
 /* placeholder ----------------------------------------------*/
