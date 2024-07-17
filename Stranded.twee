@@ -1284,7 +1284,7 @@ Always pushing the knowledge frontier. With AI.
 </blockquote></center>
 
 
-:: Epilog {"position":"3300,2475","size":"100,100"}
+:: Epilogue {"position":"3300,2475","size":"100,100"}
 <center><blockquote>
 [img[assets/backgrounds/Placeholder.png]]
 
@@ -2341,7 +2341,7 @@ Now. Time for the truth!
 <center><blockquote>
 [img[assets/backgrounds/Placeholder.png]]
 
----- WARNING: LOOOOOOONG TEXT ----
+---- WARNING: LOOOOOOONG DIALOGUES ----
 
 <<say "Vika">>Are you from the first generation?<</say>>
 
@@ -2355,7 +2355,7 @@ Paavali is rubbing his nose.
 
 <<say "Elva">>Only brains?<</say>>
 
-<<say "Paavali">>Brains in a biiig facility. But. They were with Kapteyn Hub. Or still are. You have seen the hub?<</say>>
+<<say "Paavali">>Brains in a biiig immobile facility in Kapteyn Hub. Have you seen the hub upon arrival?<</say>>
 
 All of us shake our head. Paavali chirruped, then waved it away and gestures that he is ready for more.
 
@@ -2363,35 +2363,39 @@ All of us shake our head. Paavali chirruped, then waved it away and gestures tha
 
 <<say "Elva">>No no! What is it about the brains!? They do not have ... a torso oooor ... limbs?<</say>>
 
-<<say "Paavali">>Niin. Is correct. They live completely virtual, alongside an AI. They also were mostly awake throughout the journey. Depending on the energy quantity. While us were in cryonics, they - or some of them - were managing, fixing, improvising and keeping in contact with Solaris.<</say>>
+<<say "Paavali">>Niin. That Is correct. They live completely virtual, alongside an AI. It was also them who were more or less awake throughout the journey, depending on the energy quantity en route, of course. While us were in cryonics, they - or some of them - were managing, fixing, improvising our spaceship/probe and were keeping in contact with Solaris.<</say>>
 
 <<say "Vika">>You volunteered?<</say>>
 
-<<say "Paavali">>Me? Or us? Yeah, yeah, ok, I kind of volunteered, the others more or less.<</say>>
+<<say "Paavali">>Me? Or us?<</say>>
+
+Vika stares at him more sternly. Paavali reacts a bit confused, but then continues on.
+
+<<say "Paavali">>Yeah, yeah, I kind of volunteered. The others more or less.<</say>>
 
 <<say "Elva">>How so? Anyone were forced?<</say>>
 
-<<say "Paavali">>Not at gunpoint, that to say. But economically, financially, by keeping the family, by incentives, by lack of alternatives. All in all, many of us decided to come here.<</say>>
+<<say "Paavali">>Not at gunpoint, that to say. But for economic reasons, financial, or only if the family could join. Some only joined by securing special benefits - like having a claim on a planet or having a long-term trade contract. Some others again simply joined by lacks of alternatives. All in all though, many of us decided to come here.<</say>>
 
 <<say "Vika">>What about other probes? Were they composed like yours? And how many did Solaris sent out?<</say>>
 
-<<say "Paavali">>Oooph. We were around ... the 60th or 50th?<</say>>
+<<say "Paavali">>Oooph. We were around ... the 20th or 30th?<</say>>
 
 <<say "Vika">>Composed like yours?<</say>>
 
 <<say "Paavali">>I guess so. Why not?<</say>>
 
-Vika look at him critically, gives him no answer though.
+Vika look at him sceptically, gives him no answer though.
 
 <<say "RD">>Can we talk about the thing?<</say>>
 
-Paavali turned his head, but his eyes are still on Vika's. He is pointing towards her, asking us. 
+Paavali turned his head, but his eyes are still on Vika's. He is pointing towards her, asking us why she is hostile to him. 
 
 <<say "RD">>Silver Carpet!<</say>>
 
 Paavali gives some lingering on Vika then focuses on my question.
 
-<<say "Paavali">>Yeah, yeah, ok. Uhh ... yeah. Hopeamatto. Or officially: the Titan. Yeah, well, we agreed that it a ... being. Almost sentient. Almost in the sense that obviously it can withstand harder external forces, contrary to us. It is <strong>very</strong> observant. It is intelligent.<</say>>
+<<say "Paavali">>Yeah, yeah, ok. Uhh ... yeah. Hopeamatto. Or officially: the Titan. Yeah, well, we agreed that it a ... being. Almost sentient. "Almost" in the sense that obviously it can withstand harder external forces, contrary to us obvously. It is <strong>very</strong> observant! Aaand yes, It is intelligent. A bit different, but intelligent nonetheless.<</say>>
 
 <<say "Abiba">>How so?<</say>>
 
@@ -2405,9 +2409,9 @@ We all reacted surprised. Amazed. Then with nervousness.
 
 <<say "Elva">>Hold on! Was it before or after?<</say>>
 
-Paavali stares at her, Addled as to what Elva was referring to. As Leo wants to help, Paavali is already asking back.
+Paavali stares at her, addled as to what Elva was referring to. As Leo wants to help, Paavali is already asking back.
 
-<<say "Paavali">>You mean: before or after the deep slumber, the sleep mode?<</say>>
+<<say "Paavali">>You mean: before or after the initiation to deep slumber, to the sleep mode?<</say>>
 
 <<say "Elva">>Yes.<</say>>
 
@@ -2417,17 +2421,18 @@ He raises his eyebrow, swayed his head leftward and back.
 
 Now, we are more surprised and amazed.
 
-<<say "Abiba">>Ok. Wow. How? And what did the message say?<</say>>
+<<say "Abiba">>Ok. Wow. How? I don't understand. And! What did the message say?<</say>>
 
-<<say "Paavali">>Sometimes, to save more energy or if something is wrong - well, obviously we all were in a state of inertia, of doing nothing. Machines, hardwares, us, have their life periods. As long as possible but not for eternity. Anyway, sometimes our ship gets attacked and some of us have to repair with what we have. Up until the moment where we had to do hard decisions.<</say>>
+<<say "Paavali">>Sometimes, to save energy or if we cannot continue on as usual, we need to got to deep sleep mode. Same policy as in your spaceship, I strongly presume. So, when we all were in a state of inertia, of doing nothing, machines, hardwares, us, have their own life periods, obviously. Thus, sometimes one of us, depending on the expertise, has to wake up and repair or do maintenance. So far so good, It mostly went without incidents.
+Not so last time! Our ship got attacked and some of us have to repair with what we have. The first two times were all good, not so on the third time where we realize if it happens again, we have to do hard decisions.<</say>>
 
 <<say "Abiba">>Killing those in cryonics?!<</say>>
 
-<<say "Paavali">>Whoa! We were in a desperate situation, yes, I mean ... we even had ...<</say>>
+<<say "Paavali">>Whoa! First we - or: one of us - tried to find the ressources needed for repairs. Sometimes, we could find it, sometimes it was too less, but mostly we had an energy budget problem. All our sensors were lost, We couldn't access to the charts. We couldn't transport the ressources from the distances. All in short: Me ollaan aika pahasti kusessa. We became from a desperate situation to a worse situation, To answer your question, yes, we had the talk, aaand, yes ...<</say>>
 
-He couldn't continue on, he is lost in memory, chewing on his underlip, with a worrying facial expression.
+He nodding slowly, his eyes staring absently to the grass, lost in memory, chewing on his underlip, with a worrying facial expression.
 
-<<say "Abiba">>You killed.<</say>>
+<<say "Abiba">>You killed!<</say>>
 
 <<say "Paavali">>Hei!<</say>>
 
@@ -2439,15 +2444,22 @@ Whoa! Abiba pierces with her eyes on him, demanding intently an answer from him.
 
 She searches him for any sign of a lie.
 
-<<say "Paaval">>I would have, but someone else did. Killed. Or neutralized. In a way of tearing off their limbs. As to why: They wanted to shut off the cryonics of the others while we rather vote-agreed to wake them up and give them a chance.<</say>>
+<<say "Paavali">>But eventually I would have, yes, But someone else already did. Before our agreement, our agreement was to wake them all up and explain the situation. Some heftily protested, saying that switching off is more merciful than waking them up and have them to decide. How would you have decided?<</say>>
 
-Now he has our attention more so than ever before.
+Abiba would have demanded to woken up, to be given a chance, while the rest of us say nothing. In my opinion, that is indeed a difficult question and at first I would rather drift off than to be woken up. 
+...
+But then ... 
+<em>Ech</em> I do not know.
 
-<<say "Paavali">>But fate decided otherwise. The aggressive monster ran into us, crushed and rammed and bited and ... ugh, a mess! Guys, I tell ya, voi hyvänen aika! At the end, only me and two other were mostly unscathed. The others were no more or had to go to their cryonics caskets or to med. And a ship further damaged.<</say>>
+<<say "Paavali">>I have to correct: it wasn't an agreement, it escalated into a conflict where ... we neutralized ... the opposition. Not by killing, by tearing off their limbs.<</say>>
+
+What a diverse pallette of emotional reactions on us, from disgust to understanding to blank stares.
+
+<<say "Paavali">>As we were about to wake the others up, the aggressive monster - tuo kirottu eläin - ran into us. Crushed and rammed and bited and ... ugh, a mess! Guys, I tell ya, voi hyvänen aika! At the end, only me and another one were mostly unscathed. The others were no more or had to go to their cryonics caskets or to med, but with what? We had nothing. And our ship was for the dogs. Hopeless! <</say>>
 
 Hm. The ship I saw? It seemt in a good state. What is going on? It doesn't feel like he is lying, or acting up.
 
-<<say "Paavali">>Now, we had to wake them all, hold a council and do hard to swallow decisions.<</say>>
+<<say "Paavali">>Now, we had to wake them all, hold a comlpete council and do hard to swallow decisions.<</say>>
 
 Paavali does a pause, fidgeting with his fingers, concentrating at a patch of grass. 
 
@@ -2463,25 +2475,33 @@ Now, all our eyes are open.
 
 <<say "RD">>To enter it?<</say>>
 
-<<say "Paavali">>Yeah, we didn't knew either what it meant by that, until we got the idea. That was as it was repairing and stabilizing those in critical state, or slighty fixed the rest of us, but around three who were deemed hopeless, it ... swallowed them. Incorporated them. At that moment, we kind of knew what the offer meant. And obviously all of us refuse.<</say>>
+<<say "Paavali">>Yeah, we didn't knew either what it meant by that. But when it repaired and stabilized those in critical state, slighty fixed the rest of us, it ... <</say>>
 
-A pause again. What is he? A bard? He should continue on, he is enojying this, I fear.
+He broke off and stares again on the grass. No! Not again! Gosh, the suspense! 
 
-<<say "Paavali">>Until, around two or three days, as some decided their luck in the wilderness or wanted to sleep to oblivion or just waited, we were having visitations. Virtually. From those three. They were telling us what a huge world there awaits, a kind of a paradise in waiting, in making, or just a world - for us sceptics. Virtual nonetheless, But also it wanted us to keep biological.<</say>>
+<<say "RD">>Tell!<</say>>
 
-<<say "Abiba">>Well, if it was tempting you all, it is kind of bad.<</say>>
+<<say "Paavali">> ... those who were deemed hopeless, it ... swallowed them. Incorporated them. At that moment, we kind of knew what the offer meant. And obviously all of us refused.<</say>>
 
-Abiba. Speaking so much, in such an interest. Emotionally invested. Huh.
+<<say "Elva">>Refuse"d"?! As in past?<</say>>
 
-<<say "Paavali">>Or kind of honest. Consquently, more and more accepted the offer and let themselves be assimilated into the silver carpet. Or the Titan.<</say>>
+Paavali nods.
+
+<<say "Paavali">>Until, around two or three days, as some decided their luck in the wilderness or wanted to sleep to oblivion or just waited, we were having visitations. Virtually. From those it swallowed. They were telling us what a huge world there awaits, a kind of a paradise in waiting, in making, or just a world - for us sceptics. Virtual nonetheless, But also it wanted us to keep biological; or is trying to keep it biological.<</say>>
+
+<<say "Abiba">>It is able to understand humanity? To tempt you all? Is that the reason it wants ... biological ... carbon-based structures? To understand carbon-based structures?<</say>>
+
+Abiba. Speaking so much, with such an emotionally invested interest. Huh.
+
+<<say "Paavali">>It seems to understand us, in a way. Or just some pattern we emit. It is not like it converses with us. Regarding tempation, either that or it is just kind of honest. We had many theories, but none really proved for what it is. Consquently, more and more accepted the offer and let themselves be assimilated into the silver carpet.<</say>>
 
 <<say "Leo">>What convinced them?<</say>>
 
-<<say "Paavali">>I mean, it is virtual. And a world into making. Just use your fantasies, and it will be done.<</say>>
+<<say "Paavali">>Well, first establishing a settlement were not going well, too slow reproduction, two hunting parties - which were mere two persons - never returned. Fear crept in. Obvious that at a point, more and more risk by "entering" the silver carpet. To understand better, those visitations, they came regularly and grew. Also, they <strong>were not!</strong> simplistic. Gradually, we came into conviction that it is indeed the same people who entered Hopeamatto.<</say>>
 
-<<say "Leo">>But isn't it metallic?<</say>>
+<<say "Leo">>How is it possible? Isn't it mostly metallic?<</say>>
 
-<<say "Paavali">>Mainly. Since we observed animals observing us, completely inanimate for daaays! It was kind of clear to us that those were not original animals. They were made.<</say>>
+<<say "Paavali">>You ask, how it can absorb and reproduce the same people with same complexity? I guess, in the same way we communicate with AIs. Only much more intertwined, I do not have a clear idea. Also! Important detail: we observed animals observing us, practically inanimate for daaays! It became clear to us that those were not original animals. They were made.<</say>>
 
 Whoa! Now that sets us to a completely new level. That ...
 
@@ -2495,29 +2515,33 @@ Now Leo, and the others too, are staring, looking at Paavali.
 
 Paavali looks at Vika with intense eyes.
 
-<<say "Paavali">>Because I don't believe in paradise. In a world of eternal blessing. There is always something to pay, to sacrifice, to tribute, to suffer. Yin and Yang. Duality. Two poles.<</say>>
+<<say "Paavali">>Because I, for example, don't believe in paradise, in a world of eternal blessing. There is always something to pay, to sacrifice, to tribute, to suffer. Yin and Yang. Duality. Two poles.<</say>>
 
-He said those with such a consentration, with a sincerity, with a seriousness that put us in a bit of awe, even as it is cheesy, kitschy, schlocky. But considering that all of them believed in it. Wait! 
+He said those with such a concentration, with a sincerity, with a seriousness that put us in a bit of awe, even as it is cheesy, kitschy, schlocky. But considering that ... wait! 
 
-<<say "RD">>Can they communicate? Communicate with you?<</say>>
+<<say "RD">>Can they communicate? Communicate with you? As in having dialogues?<</say>>
 
-<<say "Paavali">>Yes. And that is the other reason. For not going in. Some of them proposed that some of us biologics should stay original. Even if some are trying to ... not decouple, but be a loose unit. They say, their "overseer" kind of is learning the individuality. Now they say: decentralization. Now they work on a link to a biological product.<</say>>
+<<say "Paavali">>Yes. And that is the other reason for not going in. Some of them proposed to us that we should stay in original biology, as original as possible obviously. Their project is ... not decoupling from their host, but become a kind of a loose unit. Hard to understand at first. They say, their host, their "overseer" is kind of trying to understand individuality. Now they explain: decentralization, fragmentaion, copies with variations. Seems to be received better. Well, now they work on a link to a biological product.<</say>>
 
-<<say "Leo">>What?!<</say>>
+<<say "Leo">>A what?!<</say>>
 
 <<say "Paavali">>Yeah!<</say>>
 
 <<say "Leo">>No! I didn't understood what you were trying to say. Biological product? As in producing ... animals?<</say>>
 
-<<say "Paavali">>That is what I understood.<</say>>
+<<say "Paavali">>That what I understood.<</say>>
 
 <<say "Abiba">>Then the aggressive animal is its product!?<</say>>
 
 <<say "Paavali">>Some asked that too. But we believe it is not, at most it can incluence it, but it doesn't control them.<</say>>
 
-<<say "Elva">>Where are the others? The others who didn't "enter". Where are they?<</say>>
+<<say "Elva">>How much influence?!<</say>>
 
-<<say "Paavali">>In cryonics. It is only four of us. Enough energy that way. And we rotate every year.<</say>>
+Paavali shrugs, said that they stressed: influence, not control.
+
+<<say "Vika">>Where are the others? The others who didn't "enter". Where are they?<</say>>
+
+<<say "Paavali">>In cryonics. It is only four of us. Enough energy by that way. And we rotate every year.<</say>>
 
 <<say "RD">>You said your ship were damaged. Wrecked?<</say>>
 
@@ -2525,7 +2549,7 @@ He said those with such a consentration, with a sincerity, with a seriousness th
 
 I nod.
 
-<<say "Paavali">>With the help of those inside the Titan spits some ressources that enabled us to repair the ship eventually.<</say>>
+<<say "Paavali">>With the help of those inside the Titan, it spits some ressources that enabled us to repair the ship eventually.<</say>>
 
 <<say "Vika">>Then you must be able to launch now? And! Are you in contact with the Kapteyn Hub?!<</say>>
 
@@ -2543,7 +2567,7 @@ Huh?! He is?! He is in contact with the hub?  We all are happy, but also dazzled
 
 I knew it! And probably not only me as well.
 
-<<say "Paavali">>... we never got messages back from Solaris since our deep sleep mode, even that answers takes some years. But it is too long now.<</say>>
+<<say "Paavali">>... we have not received any messages from Solaris since entering deep sleep mode. Knowing that answers takes some years, but nowadays it is too long too silent.<</say>>
 
 ...
 
@@ -2553,7 +2577,7 @@ Paavali weighs his whole body, weighing his shoulders, saying that he even himse
 
 <<say "Elva">>Maybe Solaris intentionally doesn't reply?<</say>>
 
-We all ponder, but it feels weak, this argument.
+We all ponder, but it feels weak, this argument. Silence befalls on us. No words are spoken, for a whole minute. Then Paavali takes the initiative.
 
 <<say "Paavali">>Can I ask you guys?<</say>>
 
@@ -2561,7 +2585,7 @@ We all slowly gaze at him.
 
 <<say "Paavali">>Nuori veitikka here says: you are not the sent corps? Or: you do not know of such things?<</say>>
 
-We confirm.
+We confirm, we do not know anything of such.
 
 <<say "Paavali">>To where were you destined?<</say>>
 
@@ -2585,21 +2609,60 @@ He stares at me, obviously weighing the arguments in his head. Obviously he cann
 
 <<say "Vika">>Hold on. How can you walk freely outside without any concern?<</say>>
 
-<<say "Paavali">>The guarantee of our peers in the Titan.<</say>>
+<<say "Paavali">>With the guarantee of our peers in the Titan.<</say>>
 
-<<say "Vika">>And why don't we have a monolith?<</say>>
+Sounds like more controlling than influencing if he can walk around "freely". I feel that the other thinking the same.
+
+<<say "Vika">>And: why don't we have a monolith?<</say>>
 
 He answers by pointing with his index finger vigorously at Vika, grinning on his left face. But then he looks intently at me, as if he wants to warn me, to hint me to rake my brain, to understand of what he wants to say to me. I could feel that Leo noticed that too.
 After Paavali were out of sight in the late afternoon horizon, Vika cast her doubts to trust him. We all nod more or less, no one protesting. 
 
 But what was Paavali trying to hint?
 
-<div class="container">
-<input type="text" id="keywordInput" placeholder="What could it be?">
-<p id="message"></p>
-</div>
+<input type="text" id="keywordInput" placeholder="Type your conclusion here" oninput="KeywordsCheck(this.value); localStorage.setItem('tries', (localStorage.getItem('tries') || 0) + 1)">
 
-if true <<ab>>[[Epilog]]<</ab>>
+<<script>>
+	window.further = function() {
+    Engine.play('Epilogue');
+  }
+<</script>>
+<script>
+    function KeywordsCheck(value) {
+        const group1 = ["AI", "artificial intelligence", "watcher", "guardian"];
+        const group2 = ["not to be trusted", "compromised","complicit", "complicity", "influenced", "by", "in influence", "in throes with"];
+
+        let foundGroup1 = false;
+        let foundGroup2 = false;
+
+        group1.forEach(word => {
+            if (value.includes(word)) {
+                foundGroup1 = true;
+            }
+        });
+
+        group2.forEach(word => {
+            if (value.includes(word)) {
+                foundGroup2 = true;
+            }
+        });
+
+        if (foundGroup1 && foundGroup2) {
+            document.getElementById('message').innerHTML = 'My, a keen one, are you.<br><br><div class="actions-row" style="color:#68d"><div><a data-passage="Epilogue" class="link-internal" role="link" tabindex="0" onclick="further();">Epilogue</a></div></div>';
+            document.getElementById('message').style.color = 'green';
+        } else if (!foundGroup1 && foundGroup2 || foundGroup1 && !foundGroup2) {
+            document.getElementById('message').textContent = 'Not quite, but on the right track.';
+            document.getElementById('message').style.color = 'yellow';
+        } else if (parseInt(localStorage.getItem('tries')) >= 500) { 
+            document.getElementById('message').innerHTML = 'Anyway ... <br><br><div class="actions-row" style="color:#68d"><div><a data-passage="Epilogue" class="link-internal" role="link" tabindex="0" onclick="further();">Epilogue</a></div></div>';
+            document.getElementById('message').style.color = 'tan';
+        } else {
+            document.getElementById('message').textContent = 'Not what Paavali tried to hint. Not what made Leo disquiet.';
+            document.getElementById('message').style.color = 'orange';
+        }
+    };
+</script>
+<div id="message"></div>
 
 </blockquote></center>
 
@@ -3702,6 +3765,54 @@ T5W: 0,
 }>>
 
 
+:: Test {"position":"3050,2625","size":"100,100"}
+But what was Paavali trying to hint?
+
+<input type="text" id="keywordInput" placeholder="Type your conclusion here" oninput="KeywordsCheck(this.value); localStorage.setItem('tries', (localStorage.getItem('tries') || 0) + 1)">
+
+<<script>>
+	window.further = function() {
+    Engine.play('Epilogue');
+  }
+<</script>>
+<script>
+    function KeywordsCheck(value) {
+        const group1 = ["AI", "artificial intelligence", "watcher", "guardian"];
+        const group2 = ["not to be trusted", "compromised","complicit", "complicity", "influenced", "by", "in influence", "in throes with"];
+
+        let foundGroup1 = false;
+        let foundGroup2 = false;
+
+        group1.forEach(word => {
+            if (value.includes(word)) {
+                foundGroup1 = true;
+            }
+        });
+
+        group2.forEach(word => {
+            if (value.includes(word)) {
+                foundGroup2 = true;
+            }
+        });
+
+        if (foundGroup1 && foundGroup2) {
+            document.getElementById('message').innerHTML = 'My, a keen one, are you.<br><br><div class="actions-row" style="color:#68d"><div><a data-passage="Epilogue" class="link-internal" role="link" tabindex="0" onclick="further();">Epilogue</a></div></div>';
+            document.getElementById('message').style.color = 'green';
+        } else if (!foundGroup1 && foundGroup2 || foundGroup1 && !foundGroup2) {
+            document.getElementById('message').textContent = 'Not quite, but on the right track.';
+            document.getElementById('message').style.color = 'yellow';
+        } else if (parseInt(localStorage.getItem('tries')) >= 500) { 
+            document.getElementById('message').innerHTML = 'Anyway ... <br><br><div class="actions-row" style="color:#68d"><div><a data-passage="Epilogue" class="link-internal" role="link" tabindex="0" onclick="further();">Epilogue</a></div></div>';
+            document.getElementById('message').style.color = 'tan';
+        } else {
+            document.getElementById('message').textContent = 'Not what Paavali tried to hint. Not what made Leo disquiet.';
+            document.getElementById('message').style.color = 'orange';
+        }
+    };
+</script>
+<div id="message"></div>
+
+
 :: Testing {"position":"2200,1000","size":"100,100"}
 <<button "Xeno+10">><<set $xeno += 10>><<goto [[Testing]]>><</button>>
 <<button "combat+10">><<set $combat += 10>><<goto [[Testing]]>><</button>>
@@ -4529,43 +4640,41 @@ Paavali stands before the defense perimeter, looking to us. In a distance, not v
 
 <<say "Vika">>What is that?! Is that him?<</say>>
 
-<<say "RD">>Paavali, yes.<</say>>
+<<say "RD">>Pable - or kind of -, yes.<</say>>
 
-<<say "Vika>>Why is he here?<</say>>
+<<say "Vika">>Why is he here?<</say>>
 
 He is waving.
-I go to him, but cannot help wonder how he found us and how he seems to know about the defense perimeter as he is leaning with his stretched arm on a tree, 2 m before the staked sensor post. Paavali greets me and looks kind of under me. First it was confounding until I remember to activate my hologram. Then Paavali could look correctly into my eyes. He asks me whether we watched and listened through all. I silently nod, as I am sure he would have known since Vika glanced him. My silence is not unnoticed, Paavali mimicked a question whether all is good?
+I go to him, but cannot help wonder how he could find us - not that it surprises me - and how he seems to know about the defense perimeter as he is leaning with his stretched arm on a tree, 2 m before the staked sensor post. Paavali greets me, yet looks kind of a bit under me, looking for a focus point. First it was confounding until I remembered to activate again my hologram. Then Paavali could look correctly into my eyes. He asks me whether we watched and listened through it all. I silently nod, as I am sure he would have known since Vika glances at him repeatedly. My reticence is not unnoticed, Paavali mimicked a question whether all is good?
 
-Not really. Before I went to him, I heard Vika stating that she read, heard, that all first wave probes were non-humans. At least, non-biological. As it was more economic since humans need to be in big groups, at least 200 of them. 
+Not really. Vika's certainty that all first waves were non-humans bugs me. It would make more sense since humans need to be in big groups, at least 200 of them, and we are and were not that plentiful since the Big Decline after the first out-movement to the earthen orbit. At least not in our original biology. Even as synthetics - or even in our cylinders - it is still too much percentage to slice off. I guess. I am not that versed in history. Maybe I am wrong. 
 
-<<say "Leo">>Humans are known also to be discreet and secretive. Or he is not from the first wave?<</say>>
+<<say "Leo">>Humans are known for being discreet and secretive. And do exceptions to the rule. Or! He is not from the first wave?<</say>>
 
 <<say "Vika">>Slipping under the eyes of Solaris?<</say>>
 
-Leo asks me to ask Paavali. He grimaced humourously, sighed heavily.
+Leo asks me to ask Pable which I did. He grimaced humourously, sighed heavily.
 
-<<say "Vika">>The data interpreter told us about biological humans!<</say>>
+<<say "Vika">>The data interpreter told us there were biological humans!<</say>>
 
-Leo agrees, remembering the detail.
+<<say "Leo">>Well, not exactly biological, only that there were humans.<</say>>
 
-<<say "Leo">>Right ...<</say>> 
+<<say "Vika">>What had he said?<</say>>
 
-<<say "Vika">>What does Paavali say?<</say>>
+<<say "RD">>"I am not proof enough?", he said.<</say>>
 
-<<say "RD">>"Am I not proof enough?"<</say>>
-
-<<say "Leo">>Sure that you are not ... that somewhere you are mixing up? Maybe a policy upon arrival? That no humans should set foot until it is confirmed? I mean, our watcher says there were biological humans.<</say>>
+<<say "Leo">>Sure that you are not ... that somewhere you are mixing up, Vika? Maybe mixing up with a policy upon arrival to not set foot on a planet until it is confirmed to be safe? Besides, our watcher says there were biological humans.<</say>>
 
 Vika is brooding. Heavily. 
 Curious! She doesn't seem swayed.
 
-Now Leo comes to me and greets Paavali. With a good mood he greets back. Internally, he asked us to let Paavali in. All of us, except Vika who is ignoring the vote, me agree with varying degrees. Paavali then walk with us to the ladies and greets them each individually. Only Vika says nothing, instead observing him.
+Now Leo comes to me and greets Paavali. With a good mood he greets back. Internally, he asked us to let Paavali in. All of us with a varying degree of hesitation agree, except Vika who is ignoring the vote. Pable then walk with us to the ladies and greets them each individually. Only Vika says nothing, instead observing him. Now I know how is name is written and pronounced actually.
 
-Paavali opens his arms to the side, palms up.
+After the formalities, Paavali opens his arms to the side, palms up.
 
 <<say "Paavali">>Well then. Shoot.<</say>>
 
-<<ab>>[[Questions. Questions. Questions.|Questions]]<</ab>>
+<<ab>>[[Questions. Questions. Questions.|Questions][$epilog = false]]<</ab>>
 
 </blockquote></center>
 
@@ -4667,44 +4776,27 @@ I hear a groaning from Vika. She is shaking her head, looking with such suspicio
 <center><blockquote>
 [img[assets/backgrounds/Placeholder.png]]
 
-Text to GPT-4
+<div class="logbook"><strong><h3>Log - Year 3:</h3><h4>Investigation of the Entity: Titan</h4></strong>
 
-Log - Year 3: 
-The entity of reactive metal is termed the Titan.
+The reactive metallic entity has been designated "Titan."</div>
 
-Following occurrences happened while studying observantly and passively the Titan:
-- observant new animals, which later were presumed to be under influence of the Titan
-- aggressive animals, not indicating to be under influence of the Titan
-- micrological floating units, predominantly of half-metallic origin, assumed from the Titan
-- some of our automatic units lost, later assumed neutralized by the Titan
-- magnetic anomalies
-- high energy discharges, which led very often to thunderstorms
-- tremors, caused by Titan's inner activity
-- earthquakes, correlated with Titan, meterorite bombardment and tectonic repositionings
-- a monolith near our camp, composed of many types of compounds, presumed to function as sensors
-
-First attempts to send messages to the monolith yielded no correlated reactions. Distributing the energy budget to 50% exploration of Badhicca and 50% to attempts to message the monolith - respectively to the Titan.
-
-
-<div class="logbook"><strong><h3>Log - Year 3:</h3><h4></h4></strong>
-The entity of reactive metal is termed the Titan.</div>
-
-<<say "Elva>>How fitting!<</say>>
+<<say "Elva">>How fitting!<</say>>
 
 <<say "RD">>Yeah, very creative.<</say>>
 
-Elva looked at me, I looked at Elva, puzzled. She meant it?
+Elva looked at me, I looked at Elva back, puzzled. She meant it?
 
-<div class="logbook">Following occurrences happened while studying observantly and passively the Titan:
-- observant new animals, which later were presumed to be under influence of the Titan
-- aggressive animals, not indicating to be under influence of the Titan
-- micrological floating units, predominantly of half-metallic origin, assumed from the Titan
-- some of our automatic units lost, later assumed neutralized by the Titan
-- magnetic anomalies
-- high energy discharges, which led very often to thunderstorms
-- tremors, caused by Titan's inner activity
-- earthquakes, correlated with Titan, meterorite bombardment and tectonic repositionings
-- a monolith near our camp, composed of many types of compounds, presumed to function as sensors</div>
+<div class="logbook">The following observations were made while studying Titan observantly and passively:
+<ul>
+<li> Newly observed animals, presumed to be influenced by Titan</li>
+<li> Aggressive animals, showing no signs of Titan's influence</li>
+<li> Micrological floating units, predominantly of half-metallic origin, assumed to originate from Titan</li>
+<li> Loss of several automatic units, later assumed to be neutralized by Titan</li>
+<li> Magnetic anomalies</li>
+<li> High energy discharges, frequently resulting in thunderstorms</li>
+<li> Tremors, caused by Titan's internal activity</li>
+<li> Earthquakes, correlated with Titan's activity, meteorite bombardments, and tectonic shifts</li>
+<li> a monolith near our camp, - - -</li></ul></div>
 
 <<say "RD">>Hey! That is almost the same I saw just North-East of here!<</say>>
 
@@ -4714,7 +4806,9 @@ Elva looked at me, I looked at Elva, puzzled. She meant it?
 
 <<say "Leo">>Just an ominous feeling. I fear now, it is not simple-minded like the animals.<</say>>
 
-<div class="logbook">First attempts to send messages to the monolith yielded no correlated reactions. Distributing the energy budget to 50% exploration of Badhicca and 50% to attempts to message the monolith - respectively to the Titan.</div>
+<div class="logbook"> - - -  composed of many types of compounds, presumed to function as sensors
+
+Initial attempts to send messages to the monolith yielded no correlated responses. We have reallocated our energy budget to 50% for the exploration of Bādhiccu and 50% for attempts to communicate with the monolith and, by extension, Titan.</div>
 
 <<ab>>[[Year 4]]<</ab>>
 
@@ -4725,11 +4819,11 @@ Elva looked at me, I looked at Elva, puzzled. She meant it?
 <center><blockquote>
 [img[assets/backgrounds/Placeholder.png]]
 
-<div class="logbook"> Log - Year 4: 
-Over 80% of automatic units lost while sent out to chart.
-Lost connection to Kapteyn Hub. Attempts to reinitiate connections to the Kapteyn Hub with no successes.
-Attempts to launch from Badhicca failed; insufficient ressources to analyze the failures.
-Switching to sleep mode.</div>
+<div class="logbook"><strong><h3>Log - Year 4:</h3><h4>Status Update on Bādhiccu Operations</h4></strong>
+<ul><li>all of our automatic units lost during planetary charting missions.</li>
+<li>connection to Kapteyn Hub lost. Attempts to reestablish communication have been unsuccessful.</li>
+<li>launch attempts from Bādhiccu failed; insufficient resources to analyze the failures.</li>
+<li>switching to sleep mode to conserve energy and resources.</li></ul></div>
 
 <<say "RD">>Leo? You do not look good.<</say>>
 
@@ -4748,17 +4842,17 @@ Vika tilted her head, laying it on her hand that massages her forehead, then wav
 
 Vika weighes her head.
 
-<<say "Leo">>It said only about brains. WIth that explosive force, an original human would have died.<</say>>
+<<say "Leo">>It said only brains. So, maybe brains in containers, like us? WIth that explosive force that happened on the drilling, an original human would have died.<</say>>
 
-Vika looks at Leo chewing her underlip, then ask about the composition of human to the data interpreter.
+Vika looks at Leo chewing her underlip, then ask about the composition of humans to the data interpreter.
 
-<<say "Vika">>I was ... am ... convinvced that biological humans were sent first.<</say>>
+<<say "Vika">>I was ... am convinvced that biological humans were sent first.<</say>>
 
 The data interpreter displays the first humans as synthetic beings. Like Paavali.
 
-<<say "Leo">>Were there no exceptions?<</say>>
+<<say "Leo">>Were there no exceptions of outsent first-wave units??<</say>>
 
-<<say "Vika>>They were ... strict.<</say>>
+<<say "Vika">>They were ... strict. Moreso particularly to the first waves.<</say>>
 
 Then we all jolted, Vika shrieked. As we turn to see what made her scream, we jolted again.
 
@@ -5178,40 +5272,55 @@ window.allValues100 = function(obj, value) {
 
 document.addEventListener('DOMContentLoaded', function() {
     const group1 = ["AI", "artificial intelligence", "watcher", "guardian"];
-    const group2 = ["not to be trusted", "compromised","complicit", "influenced", "by", "in influence", "in throes with"];
+    const group2 = ["not to be trusted", "compromised","complicit", "complicity", "influenced", "by", "in influence", "in throes with"];
 
     const input = document.getElementById('keywordInput');
     const message = document.getElementById('message');
 
-    input.addEventListener('input', function() {
-        const inputValue = input.value.toLowerCase();
-        let foundGroup1 = false;
-        let foundGroup2 = false;
+    let tries = localStorage.getItem('tries') || 0;
+    tries = parseInt(tries);
 
-        group1.forEach(word => {
+    let timer;
+    const checkInput = function() {
+        if (input && message) {
+            const inputValue = input.value.toLowerCase();
+            let foundGroup1 = false;
+            let foundGroup2 = false;
+
             if (group1.some(word => inputValue.includes(word.toLowerCase()))) {
                 foundGroup1 = true;
             }
-        });
 
-        group2.forEach(word => {
             if (group2.some(word => inputValue.includes(word.toLowerCase()))) {
-                foundGroup2 = true;
+                foundGroup1 = true;
             }
-        });
 
-        if (foundGroup1 && foundGroup2) {
-            message.textContent = 'Valid combination found.';
-            message.style.color = 'green';
-        } else {
-            message.textContent = 'No valid combination found.';
-            message.style.color = 'red';
+            if (foundGroup1 && foundGroup2) {
+                $epilog = true
+                message.textContent = 'Valid combination found.';
+                message.style.color = 'green';
+                clearInterval(timer);
+            } else if (input.value.length > 0 && !(foundGroup1 && foundGroup2)) {
+                tries++;
+                localStorage.setItem('tries', tries);
+                if (tries >= 3) {
+                    message.textContent = 'It is the AI.';
+                    message.style.color = 'red';
+                    $epilog = true;
+                    clearInterval(timer);
+                } else {
+                    message.textContent = 'No valid combination found.';
+                    message.style.color = 'red';
+                }
+            } else {
+                message.textContent = '';
+            }
         }
-    });
+    };
+
+    input.addEventListener('input', checkInput);
+    timer = setInterval(checkInput, 3000);
 });
-
-
-
 //---------------------------
 
 :: StoryStylesheet [stylesheet]
@@ -5262,13 +5371,13 @@ body{
   justify-content: center;
 }
 
-@media only screen and (max-width: 900px) {
+/*@media only screen and (max-width: 900px) {
   body{
     display: flex;
     color: #A9A9A9;
     justify-content: center;
   }
-}
+}*/
 
 img {
   display: block;
@@ -5350,10 +5459,8 @@ button[id|=history-forward]::before {
 }
 
 .Char-dialogues {
-  display: flex;
-  flex-wrap: wrap;
+  display: inline-block;
   align-content: center;
-  align-items: center;
   margin: 0 10px;
   text-align: left;
 }
@@ -5519,23 +5626,6 @@ box-sizing: border-box;
   color: #ffcc00;
 }
 
-/* the con- & destruction list ------------------------------------------------------------------------------------- */
-.passage ol, .passage ul {
-  display: flex;
-  margin: 0;
-  margin-left: 0px;
-  padding-left: 1em;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  width: 80vw;
-  max-width: 700px;
-  /*align-items: flex-start;*/
-}
-
-.plussign-list {
-  list-style-type: none; /* Remove default list styles */
-}
-
 /* The Map ------------------------------------------------------------------------------------- */    
 #the_map {
   display: flex;
@@ -5645,87 +5735,119 @@ box-sizing: border-box;
 }
 
 #p2S {
-    top: 409px;
-    left: 255px;
+  top: 515px;
+  left: 270px;
 }
 
 #p3S {
-    top: 525px;
-    left: 185px;
+  top: 555px;
+  left: 330px;
 }
 
 #p1W {
-    top: 375px;
-    left: 290px;
+  top: 365px;
+  left: 295px;
 }
 
 #p2W {
-    top: 360px;
-    left: 230px;
+  top: 360px;
+  left: 230px;
 }
 
 #p3W {
-    top: 370px;
-    left: 160px;
+  top: 370px;
+  left: 160px;
 }
 
 #p4W {
-    top: 395px;
-    left: 100px;
+  top: 395px;
+  left: 100px;
 }
 
 #p5W {
-    top: 415px;
-    left: 30px;
+  top: 415px;
+  left: 30px;
 }
 
 #p1N {
-    top: 330px;
-    left: 360px;
+  top: 330px;
+  left: 360px;
 }
 
 #p2N {
-    top: 265px;
-    left: 390px;
+  top: 265px;
+  left: 390px;
 }
 
 /* New line of tiles: NE */
 
 #p1NE {
-    top: 308px;
-    left: 433px;
+  top: 308px;
+  left: 433px;
 }
 
 #p1N2E {
-    top: 275px;
-    left: 505px;
+  top: 275px;
+  left: 505px;
 }
 
 #p1N3E {
-    top: 244px;
-    left: 580px;
+  top: 244px;
+  left: 580px;
 }
 
 #p1N4E {
-    top: 215px;
-    left: 650px;
+  top: 215px;
+  left: 650px;
 }
 
 #p1N5E {
-    top: 200px;
-    left: 720px;
+  top: 200px;
+  left: 720px;
+}
+
+/* New line of tiles: SE to NW */
+
+#p1SE {
+top: 420px;
+left: 450px;
+}
+
+#p1S2E {
+top: 390px;
+left: 530px;
+}
+
+#p1SW {
+top: 425px;
+left: 260px;
+}
+
+#p1S2W {
+top: 425px;
+left: 190px;
+}
+
+#p1NW {
+top: 295px;
+left: 300px;
+}
+
+#p2N2E {
+top: 225px;
+left: 455px;
 }
 
 /* End of new tiles */
 
 #ktitm {
-  width: 100%; /* Or any desired width */
-  overflow-x: auto; /* Enable horizontal scrolling */
-  white-space: nowrap; /* Prevent content from wrapping */
+width: 100%; /* Or any desired width */
+overflow-x: auto; /* Enable horizontal scrolling */
+white-space: nowrap; /* Prevent content from wrapping */
 }
 
 #keepthemsticky {
-  position: sticky;
+position: sticky;
 }
 
 /* Animation ----------------------------------------------*/
@@ -5985,310 +6107,6 @@ box-sizing: border-box;
   background-color: whitesmoke;
 }
 
-/* core ------------------------------------------------------------------------------------- */    
-@font-face {
-  font-family: 'Bahnschrift';
-  src: url('assets/Fonts/bahnschrift.ttf') format('ttf');
-  font-family: 'Corbel';
-  src: url('assets/Fonts/corbel.ttf') format('ttf');
-}
-
-#story {
-  display: flex;
-  width: 95vw;
-  max-width: 700px;
-  justify-content: center;
-  margin: 0;
-  /* margin: 3em 0 0 0; */
-  flex-direction: column;
-  flex-wrap: nowrap;
-  align-items: center;
-}
-
-#passages {
-  width: 95vw;
-  max-width: 700px;
-}
-
-.passage {
-  display: flex;
-  line-height: 1.75;
-  text-align: left;
-  -webkit-transition: opacity .4s ease-in;
-  -o-transition: opacity .4s ease-in;
-  transition: opacity .4s ease-in;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  align-items: center;
-}
-
-html {
- font: 18px/1 Bahnschrift,Corbel,Helmet,Freesans,sans-serif; 
-}
-
-body{
-  display: flex;
-  color: #A9A9A9;
-  justify-content: center;
-}
-
-@media only screen and (max-width: 900px) {
-  body{
-    display: flex;
-    color: #A9A9A9;
-    justify-content: center;
-  }
-}
-
-img {
-  display: block;
-  margin: 0 auto;
-  border-radius: 1em;
-  max-width: 85vw;
-  max-height: 50vh;
-  overflow-clip-margin: padding-box;
-  overflow: hidden;
-}
-
-h6 {
-  margin: 0;
-}
-
-blockquote {
-    display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 40px;
-    margin-inline-end: 40px;
-}
-
-#img-banner {
-  width: 100%;
-  border-radius: inherit;
-}
-
-button[id|=history-backward]::before {
-  content: "⬅"; /* Unicode character for arrow left */
-}
-
-button[id|=history-forward]::before {
-  content: "⮕"; /* Unicode character for arrow right */  
-}
-
-/* sidebar     ------------------------------------------------------------------------------------- */
-
-#ui-bar {
-  position: fixed;
-}
-
-/* character z-indexing     ------------------------------------------------------------------------------------- */
-#VikaFront {
-  position: absolute;
-  z-index: 1;
-  max-width: 45vw;
-}
-
-/* characters dialogue design   ------------------------------------------------------------------------------------- */      
-.Char {
-  width: 80vw;
-  max-width: 700px;
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content:flex-start;
-  position: relative;
-  background-color: #282828;
-  padding: 5px;
-  border: 1px solid DarkGrey;
-  border-radius: 5px;
-}
-
-.Char-Framer {
-  display: flex;
-  align-items: flex-start;
-}
-
-.Char-img {
-  position: relative;
-  /* vertical-align: text-top; */
-  max-width: 60px;
-  max-height: 60px;
-  border-radius: 3px;
-  display: block; /* Convert the image to a block element */
-  margin: 0; /* Reset margin */
-  padding: 0; /* Reset padding */
-  border: none; /* Reset border */
-}
-
-.Char-dialogues {
-  display: flex;
-  flex-wrap: wrap;
-  align-content: center;
-  align-items: center;
-  margin: 0 10px;
-  text-align: left;
-}
-
-/* titles   ------------------------------------------------------------------------------------- */
-.passage-titles {
-  border-top: 3px solid;
-  border-bottom: 3px solid;
-width: 95vw;
-  max-width: 700px;
-}
-
-.Title_Actions {
-  color: #A9A9A9;
-width: 95vw;
-  max-width: 700px;
-  border-top: 3px solid #A9A9A9;
-  border-bottom: 3px solid #A9A9A9;
-}
-
-/* indexes   ------------------------------------------------------------------------------------- */
-.order-indices {
-  display: flex;
-  flex-flow: column;
-  width: 95vw;
-  max-width: 700px;
-}
-
-.index-screens-normal {
-  position: relative;
-  width: 95vw;
-  max-width: 700px;
-  background-color: #3a5978;
-  box-sizing: border-box;
-  padding: 10px 20px;
-  border-radius: 10px;
-  border: 2px solid #8c8c8c;
-}
-
-.index-screens-normal>div {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-content: center;
-  justify-content: center;
-  align-items: center;
-}
-
-.index-screens-normal>div>img {
-  position: relative;
-  margin: 0.5em 0.5em;
-  border-radius: 1em;
-}
-
-.index-screens-small, .index-screens-small-OC {
-  width: 95vw;
-  max-width: 700px;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-}
-
-.index-screens-small-OC {
-  align-items: center;
-  background-color: dimgray;
-  border-radius: 1em;
-}
-
-.index-screens-small-OC>button {
-  height: fit-content;
-  padding: 3em;
-  background-color: #ff6633;
-  margin-left: 5%;
-}
-
-.index-screens-small>div, .index-screens-small-OC>div  {
-  background-color: #3a5978;
-  width: 25%;
-  padding: 10px 20px;
-  border-radius: 10px;
-  border: 2px solid #8c8c8c;
-}
-
-.index-screens-professions {
-  width: 95vw;
-  max-width: 700px;
-  box-sizing: border-box;
-  padding: 10px 20px;
-  display: flex;
-  flex-direction: column;
-  border-radius: 10px;
-  background-color: #3a5978;
-  border: 2px solid #8c8c8c;
-}
-
-.index-professions {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.index-professions>div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 2px dashed #8c8c8c;
-  border-radius: 5px;
-  width: 22%;
-  line-height: normal;
-box-sizing: border-box;
-  font-size: 0.8em;
-}
-
-@media screen and (max-width:385px) {
-  .index-screens-small>div {
-    padding: 5px;
-    font-size: 0.6em;
-  }
-  .index-professions>div {
-    font-size: 0.6em;
-  } 
-}
-
-/* actions buttons  ------------------------------------------------------------------------------------- */
-.actions-table {
-  display: flex;
-  width: 95vw;
-  max-width: 700px;
-  flex-direction: column;
-  line-height: normal;
-}
-
-.actions-row {
-  display: flex;
-  flex-direction: row;
-  /*width: 95vw;*/
-  max-width: 700px;
-  justify-content: center;
-}
-
-.actions-row>div {
-  width: 66%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 5px;
-  padding: 10px 1em;
-  border: 1px solid #68d;
-  border-radius: 5px;
-  background-color: #1a1a1a;
-}
-
-/* the con- & destruction color markers ------------------------------------------------------------------------------------- */
-.color-green {
-  color: green;
-}
-
-.color-red {
-  color: #ff6633;
-}
-
-.color-yellow {
-  color: #ffcc00;
-}
-
 /* the con- & destruction list ------------------------------------------------------------------------------------- */
 .passage ol, .passage ul {
   display: flex;
@@ -6306,474 +6124,7 @@ box-sizing: border-box;
   list-style-type: none; /* Remove default list styles */
 }
 
-/* The Map ------------------------------------------------------------------------------------- */    
-#the_map {
-  display: flex;
-  position: relative;
-}
-
-@media screen and (max-width:880px) {
-  #the_map {
-  margin: auto;
-  }
-}
-
-#the_map>div {
-  display: flex;
-  position: absolute;
-  justify-content: center;
-  align-items: center;
-  line-height: normal;
-  width: 50px;
-  height: 50px;
-  border-radius: 75px;
-}
-
-#the_map>div>a {
-  color: white;
-}
-
-#the_map>div>button {
-  color: white;
-  background-color: orange;
-  border: 0;
-  border-radius: 10px; 
-}
-
-#the_map>div>button:hover {
-  color: white;
-  background-color: orangered;
-  border: 1px solid orange;    
-}
-
-.imgs-scaled {
-    display: flex;
-    overflow: hidden;
-    justify-content: center;
-    border-radius: 75px;
-}
-
-.imgs-scaled>a,
-.imgs-scaled>a>img {
-  height: 50px;
-  width: auto;
-}
-
-.imgs-opaqued {
-  display: flex;
-  overflow: hidden;
-  justify-content: center;
-  border-radius: 75px;
-  opacity: 0.7;
-}
-
-.imgs-opaqued>img {
-  height: 50px;
-  width: auto;
-}
-
-#theJBase {
-    top: 400px;
-    left: 360px;
-    /*  background-image: url("assets/Ch-Camp/JungleCamp.png");
-      opacity: 0.8 !important;
-    background-size: cover;
-    background-color: red; */
-}
-
-#theMBase {
-    top: 260px;
-    left: 720px;
-    /* background-image: url("assets/Ch-Camp/MountainCamp.png");
-    background-size: cover;
-    opacity: 0.8 !important; */
-}
-
-#p1E {
-     top: 365px;
-    left: 430px;
-}
-
-#p2E {
-    top: 335px;
-    left: 505px;
-}
-
-#p3E {
-    top: 300px;
-    left: 580px;
-}
-
-#p4E {
-    top: 275px;
-    left: 650px;
-}
-
-#p1S {
-    top: 465px;
-    left: 320px;
-}
-
-#p2S {
-    top: 515px;
-    left: 270px;
-}
-
-#p3S {
-    top: 555px;
-    left: 330px;
-}
-
-#p1W {
-    top: 365px;
-    left: 295px;
-}
-
-#p2W {
-    top: 360px;
-    left: 230px;
-}
-
-#p3W {
-    top: 370px;
-    left: 160px;
-}
-
-#p4W {
-    top: 395px;
-    left: 100px;
-}
-
-#p5W {
-    top: 415px;
-    left: 30px;
-}
-
-#p1N {
-    top: 330px;
-    left: 360px;
-}
-
-#p2N {
-    top: 265px;
-    left: 390px;
-}
-
-/* New line of tiles: NE */
-
-#p1NE {
-    top: 308px;
-    left: 433px;
-}
-
-#p1N2E {
-    top: 275px;
-    left: 505px;
-}
-
-#p1N3E {
-    top: 244px;
-    left: 580px;
-}
-
-#p1N4E {
-    top: 215px;
-    left: 650px;
-}
-
-#p1N5E {
-    top: 200px;
-    left: 720px;
-}
-
-/* New line of tiles: SE to NW */
-
-#p1SE {
-  top: 420px;
-  left: 450px;
-}
-
-#p1S2E {
-  top: 390px;
-  left: 530px;
-}
-
-#p1SW {
-  top: 425px;
-  left: 260px;
-}
-
-#p1S2W {
-  top: 425px;
-  left: 190px;
-}
-
-#p1NW {
-  top: 295px;
-  left: 300px;
-}
-
-#p2N2E {
-  top: 225px;
-  left: 455px;
-}
-
-/* End of new tiles */
-
-#ktitm {
-  width: 100%; /* Or any desired width */
-  overflow-x: auto; /* Enable horizontal scrolling */
-  white-space: nowrap; /* Prevent content from wrapping */
-}
-
-#keepthemsticky {
-  position: sticky;
-}
-
-/* Animation ----------------------------------------------*/
-
-@keyframes shutdown {
-  from {background-color: transparent; height:0px;}
-  to {background-color: #111; height:670px;}
-}
-
-.anilightsout {
-  position: absolute;
-  top:0;
-  left:0;
-  z-index: 10;
-  width: 100%;
-  height: 670px;
-  background-color: transparent;
-  animation-name: shutdown;
-  animation-duration: 1s;
-  animation-delay: 4s;
-  animation-fill-mode: forwards;
-}
-
-@keyframes poking {
-  0% {rotate: 0deg;}
-  10% {rotate: -5deg;}
-  11% {rotate: -5deg;}
-  13% {rotate: 0deg;}
-  23% {rotate: 0deg;}
-  25% {rotate: -10deg;}
-  27% {rotate: 0deg;}
-  44% {rotate: 0deg;}
-  45% {rotate: -8deg;}
-  47% {rotate: 0deg;}
-  74% {rotate: 0deg;}
-  75% {rotate: -10deg;}
-  78% {rotate: -2deg;}
-  94% {rotate: 0deg;}
-  95% {rotate: -12deg;}
-  100% {rotate: 0deg;}
-}
-
-#anilowshake {
-  display: flex;
-  width: 95vw;
-  max-width: 700px;
-  justify-content: center;
-  margin: 3em 0 0 0;
-  z-index: 1;
-  animation-name: poking;
-  animation-duration: 4s;
-  animation-delay: 1s;
-  animation-iteration-count: 1;
-}
-
-@keyframes bigthrust {
-  0% {rotate: 0deg;}
-  77% {rotate: 0deg;}
-  79% {rotate: -20deg;}
-  80% {rotate: -2deg;}
-  89% {rotate: -2deg;}
-  90% {rotate: -14deg;}
-  100% {rotate: -3deg;}
-}
-
-#anilowsab {
-  display: flex;
-  width: 95vw;
-  max-width: 700px;
-  justify-content: center;
-  margin: 3em 0 0 0;
-
-  animation-name: bigthrust;
-  animation-duration: 0.5s;
-  animation-delay: 1s;
-  animation-fill-mode: forwards;
-}
-
-@keyframes wakingup {
-  0% {background-color: #111; height:100%;}
-  10% {background-color: #111; height:80%;}
-  15% {background-color: #111; height:85%;}
-  40% {background-color: #111; height:30%;}
-  70% {background-color: #111; height:50%;}
-  100% {background-color: #111; height:0%;}
-}
-
-#aniwakingup {
-  position: absolute;
-  top:0;
-  left:0;
-  z-index: 10;
-  width: 100%;
-  height: 100%;
-  background-color: #111;
-  animation-name: wakingup;
-  animation-duration: 3s;
-  animation-delay: 1s;
-  animation-fill-mode: forwards;
-}
-
-/* compass ----------------------------------------------*/
-
-.compass {
-    display: flex;
-    /* border: 0.1em solid cadetblue; */
-    align-items: center;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    max-width: 700px;
-    grid-gap: 1em;
-    padding: 1em;
-    width: 50%;
-  	height: auto;
-    border-radius: 1em;
-    background-color: #1a1a1a;
-}
-
-.WandE {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.westside {
-	display: flex;
-    width: 50%;
-    justify-content: left;
-    align-items: center;
-}
-
-.eastside {
-    display: flex;
-    width: 50%;
-    justify-content: right;
-    align-items: center;
-}
-
-/* dot animation ----------------------------------------------*/
-
-@keyframes dotsequencing {
-    0% { opacity: 0; }
-    50% { opacity: 1; }
-    100% { opacity: 1; }
-}
-
-.dot-enqueuer {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-}
-
-.Dot1 {
-  animation: dotsequencing 2s forwards;
-  animation-delay: 0s;
-  animation-iteration-count: 3;
-  animation-timing-function: ease-out;
-}
-
-.Dot2 {
-  animation: dotsequencing 2s forwards;
-  animation-delay: 0s;
-  animation-iteration-count: 3;
-  animation-timing-function: ease-in-out;
-}
-
-.Dot3 {
-  animation: dotsequencing 2s forwards;
-  animation-delay: 0s;
-  animation-iteration-count: 3;
-  animation-timing-function: ease-in;
-}
-
-/* Task Progressor Pop-up -----------------------------------*/
-
-.popup {
-  position: fixed;
-  margin: 10em;
-  z-index: 10;
-  width: fit-content;
-  height: auto;
-  background-color: rgba(46, 139, 86, 0.95);
-  border: 0.2em dashed #ff944d;
-  border-radius: 1.5em;
-}
-
-/* Hide the Action Buttons ----------------------------------*/
-
-.hideit {
-  display: none;
-}
-
-/* Tremors ---------------------------------------------------*/
-
-@keyframes tremors {
-  0% {rotate: 0deg;}
-  14% {rotate: 1deg;}
-  21% {rotate: -1deg;}
-  24% {rotate: 2deg;}
-  33% {rotate: -1deg;}
-  41% {rotate: 1deg;}
-  56% {rotate: -2deg;}
-  62% {rotate: 2deg;}
-  69% {rotate: -1deg;}
-  78% {rotate: 3deg;}
-  88% {rotate: -3deg;}
-  95% {rotate: 1deg;}
-  100% {rotate: 0deg;}
-}
-
-.tremors {
-  animation-name: tremors;
-  animation-duration: 1s;
-  animation-iteration-count: 5;
-  animation-fill-mode: forwards;
-}
-
-/* slow appear -------------------------------------------------*/
-
-@keyframes slowopening {
-  0% {opacity: 0;}
-  46% {opacity: 0..6;}
-  57% {opacity: 0..5;}
-  100% {opacity: 1;}
-}
-
-.slowlyappearing {
-  animation-name: slowopening;
-  animation-duration: 5s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-}
-
-/* condition not met in Quest Progressor ----------------------*/
-
-.conditionnotmet {
-  background-color: indianred;
-}
-
-/*  ----------------------*/
+/* Record of the attack --------------------------------*/
 
 #recordOftheAttack {
   display: block;
