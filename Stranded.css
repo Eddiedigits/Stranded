@@ -1,0 +1,883 @@
+/* core ------------------------------------------------------------------------------------- */    
+@font-face {
+  font-family: 'Bahnschrift';
+  src: url('assets/Fonts/bahnschrift.ttf') format('ttf');
+  font-family: 'Corbel';
+  src: url('assets/Fonts/corbel.ttf') format('ttf');
+}
+
+#story {
+  display: flex;
+  width: 95vw;
+  max-width: 700px;
+  justify-content: center;
+  margin: 0;
+  /* margin: 3em 0 0 0; */
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+#passages {
+  width: 95vw;
+  max-width: 700px;
+}
+
+.passage {
+  display: flex;
+  line-height: 1.75;
+  text-align: left;
+  -webkit-transition: opacity .4s ease-in;
+  -o-transition: opacity .4s ease-in;
+  transition: opacity .4s ease-in;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+html {
+ font: 18px/1 Bahnschrift,Corbel,Helmet,Freesans,sans-serif; 
+}
+
+body{
+  display: flex;
+  color: #A9A9A9;
+  justify-content: center;
+}
+
+/*@media only screen and (max-width: 900px) {
+  body{
+    display: flex;
+    color: #A9A9A9;
+    justify-content: center;
+  }
+}*/
+
+img {
+  display: block;
+  margin: 0 auto;
+  border-radius: 1em;
+  max-width: 85vw;
+  max-height: 50vh;
+  overflow-clip-margin: padding-box;
+  overflow: hidden;
+}
+
+h6 {
+  margin: 0;
+}
+
+blockquote {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 40px;
+    margin-inline-end: 40px;
+}
+
+#img-banner {
+  width: 100%;
+  border-radius: inherit;
+}
+
+button[id|=history-backward]::before {
+  content: "⬅"; /* Unicode character for arrow left */
+}
+
+button[id|=history-forward]::before {
+  content: "⮕"; /* Unicode character for arrow right */  
+}
+
+/* sidebar     ------------------------------------------------------------------------------------- */
+
+#ui-bar {
+  position: fixed;
+}
+
+/* character z-indexing     ------------------------------------------------------------------------------------- */
+#VikaFront {
+  position: absolute;
+  z-index: 1;
+  max-width: 45vw;
+}
+
+/* characters dialogue design   ------------------------------------------------------------------------------------- */      
+.Char {
+  width: 80vw;
+  max-width: 700px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content:flex-start;
+  position: relative;
+  background-color: #282828;
+  padding: 5px;
+  border: 1px solid DarkGrey;
+  border-radius: 5px;
+}
+
+.Char-Framer {
+  display: flex;
+  align-items: flex-start;
+}
+
+.Char-img {
+  position: relative;
+  /* vertical-align: text-top; */
+  max-width: 60px;
+  max-height: 60px;
+  border-radius: 3px;
+  display: block; /* Convert the image to a block element */
+  margin: 0; /* Reset margin */
+  padding: 0; /* Reset padding */
+  border: none; /* Reset border */
+}
+
+.Char-dialogues {
+  display: inline-block;
+  align-content: center;
+  margin: 0 10px;
+  text-align: left;
+}
+
+/* titles   ------------------------------------------------------------------------------------- */
+.passage-titles {
+  border-top: 3px solid;
+  border-bottom: 3px solid;
+  width: 95vw;
+  max-width: 700px;
+}
+
+.Title_Actions {
+  color: #A9A9A9;
+  width: 95vw;
+  max-width: 700px;
+  border-top: 3px solid #A9A9A9;
+  border-bottom: 3px solid #A9A9A9;
+}
+
+/* indexes   ------------------------------------------------------------------------------------- */
+.order-indices {
+  display: flex;
+  flex-flow: column;
+  width: 95vw;
+  max-width: 700px;
+}
+
+.index-screens-normal {
+  position: relative;
+  width: 95vw;
+  max-width: 700px;
+  background-color: #3a5978;
+  box-sizing: border-box;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 2px solid #8c8c8c;
+}
+
+.index-screens-normal>div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.index-screens-normal>div>img {
+  position: relative;
+  margin: 0.5em 0.5em;
+  border-radius: 1em;
+}
+
+.index-screens-small, .index-screens-small-OC {
+  width: 95vw;
+  max-width: 700px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.index-screens-small-OC {
+  align-items: center;
+  background-color: dimgray;
+  border-radius: 1em;
+}
+
+.index-screens-small-OC>button {
+  height: fit-content;
+  padding: 3em;
+  background-color: #ff6633;
+  margin-left: 5%;
+}
+
+.index-screens-small>div, .index-screens-small-OC>div  {
+  background-color: #3a5978;
+  width: 25%;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 2px solid #8c8c8c;
+}
+
+.index-screens-professions {
+  width: 95vw;
+  max-width: 700px;
+  box-sizing: border-box;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  background-color: #3a5978;
+  border: 2px solid #8c8c8c;
+}
+
+.index-professions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.index-professions>div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px dashed #8c8c8c;
+  border-radius: 5px;
+  width: 22%;
+  line-height: normal;
+box-sizing: border-box;
+  font-size: 0.8em;
+}
+
+@media screen and (max-width:385px) {
+  .index-screens-small>div {
+    padding: 5px;
+    font-size: 0.6em;
+  }
+  .index-professions>div {
+    font-size: 0.6em;
+  } 
+}
+
+/* actions buttons  ------------------------------------------------------------------------------------- */
+.actions-table {
+  display: flex;
+  width: 95vw;
+  max-width: 700px;
+  flex-direction: column;
+  line-height: normal;
+}
+
+.actions-row {
+  display: flex;
+  flex-direction: row;
+  /*width: 95vw;*/
+  max-width: 700px;
+  justify-content: center;
+}
+
+.actions-row>div {
+  width: 66%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 5px;
+  padding: 10px 1em;
+  border: 1px solid #68d;
+  border-radius: 5px;
+  background-color: #1a1a1a;
+}
+
+/* the con- & destruction color markers ------------------------------------------------------------------------------------- */
+.color-green {
+  color: green;
+}
+
+.color-red {
+  color: #ff6633;
+}
+
+.color-yellow {
+  color: #ffcc00;
+}
+
+/* The Map ------------------------------------------------------------------------------------- */    
+#the_map {
+  display: flex;
+  position: relative;
+}
+
+@media screen and (max-width:880px) {
+  #the_map {
+  margin: auto;
+  }
+}
+
+#the_map>div {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  line-height: normal;
+  width: 50px;
+  height: 50px;
+  border-radius: 75px;
+}
+
+#the_map>div>a {
+  color: white;
+}
+
+#the_map>div>button {
+  color: white;
+  background-color: orange;
+  border: 0;
+  border-radius: 10px; 
+}
+
+#the_map>div>button:hover {
+  color: white;
+  background-color: orangered;
+  border: 1px solid orange;    
+}
+
+.imgs-scaled {
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+    border-radius: 75px;
+}
+
+.imgs-scaled>a,
+.imgs-scaled>a>img {
+  height: 50px;
+  width: auto;
+}
+
+.imgs-opaqued {
+  display: flex;
+  overflow: hidden;
+  justify-content: center;
+  border-radius: 75px;
+  opacity: 0.7;
+}
+
+.imgs-opaqued>img {
+  height: 50px;
+  width: auto;
+}
+
+#theJBase {
+    top: 400px;
+    left: 360px;
+    /*  background-image: url("assets/Ch-Camp/JungleCamp.png");
+      opacity: 0.8 !important;
+    background-size: cover;
+    background-color: red; */
+}
+
+#theMBase {
+    top: 260px;
+    left: 720px;
+    /* background-image: url("assets/Ch-Camp/MountainCamp.png");
+    background-size: cover;
+    opacity: 0.8 !important; */
+}
+
+#p1E {
+     top: 365px;
+    left: 430px;
+}
+
+#p2E {
+    top: 335px;
+    left: 505px;
+}
+
+#p3E {
+    top: 300px;
+    left: 580px;
+}
+
+#p4E {
+    top: 275px;
+    left: 650px;
+}
+
+#p1S {
+    top: 465px;
+    left: 320px;
+}
+
+#p2S {
+  top: 515px;
+  left: 270px;
+}
+
+#p3S {
+  top: 555px;
+  left: 330px;
+}
+
+#p1W {
+  top: 365px;
+  left: 295px;
+}
+
+#p2W {
+  top: 360px;
+  left: 230px;
+}
+
+#p3W {
+  top: 370px;
+  left: 160px;
+}
+
+#p4W {
+  top: 395px;
+  left: 100px;
+}
+
+#p5W {
+  top: 415px;
+  left: 30px;
+}
+
+#p1N {
+  top: 330px;
+  left: 360px;
+}
+
+#p2N {
+  top: 265px;
+  left: 390px;
+}
+
+/* New line of tiles: NE */
+
+#p1NE {
+  top: 308px;
+  left: 433px;
+}
+
+#p1N2E {
+  top: 275px;
+  left: 505px;
+}
+
+#p1N3E {
+  top: 244px;
+  left: 580px;
+}
+
+#p1N4E {
+  top: 215px;
+  left: 650px;
+}
+
+#p1N5E {
+  top: 200px;
+  left: 720px;
+}
+
+/* New line of tiles: SE to NW */
+
+#p1SE {
+top: 420px;
+left: 450px;
+}
+
+#p1S2E {
+top: 390px;
+left: 530px;
+}
+
+#p1SW {
+top: 425px;
+left: 260px;
+}
+
+#p1S2W {
+top: 425px;
+left: 190px;
+}
+
+#p1NW {
+top: 295px;
+left: 300px;
+}
+
+#p2N2E {
+top: 225px;
+left: 455px;
+}
+
+/* End of new tiles */
+
+#ktitm {
+width: 100%; /* Or any desired width */
+overflow-x: auto; /* Enable horizontal scrolling */
+white-space: nowrap; /* Prevent content from wrapping */
+}
+
+#keepthemsticky {
+position: sticky;
+}
+
+/* Animation ----------------------------------------------*/
+
+@keyframes shutdown {
+  from {background-color: transparent; height:0px;}
+  to {background-color: #111; height:670px;}
+}
+
+.anilightsout {
+  position: absolute;
+  top:0;
+  left:0;
+  z-index: 10;
+  width: 100%;
+  height: 670px;
+  background-color: transparent;
+  animation-name: shutdown;
+  animation-duration: 1s;
+  animation-delay: 4s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes poking {
+  0% {rotate: 0deg;}
+  10% {rotate: -5deg;}
+  11% {rotate: -5deg;}
+  13% {rotate: 0deg;}
+  23% {rotate: 0deg;}
+  25% {rotate: -10deg;}
+  27% {rotate: 0deg;}
+  44% {rotate: 0deg;}
+  45% {rotate: -8deg;}
+  47% {rotate: 0deg;}
+  74% {rotate: 0deg;}
+  75% {rotate: -10deg;}
+  78% {rotate: -2deg;}
+  94% {rotate: 0deg;}
+  95% {rotate: -12deg;}
+  100% {rotate: 0deg;}
+}
+
+#anilowshake {
+  display: flex;
+  width: 95vw;
+  max-width: 700px;
+  justify-content: center;
+  margin: 3em 0 0 0;
+  z-index: 1;
+  animation-name: poking;
+  animation-duration: 4s;
+  animation-delay: 1s;
+  animation-iteration-count: 1;
+}
+
+@keyframes bigthrust {
+  0% {rotate: 0deg;}
+  77% {rotate: 0deg;}
+  79% {rotate: -20deg;}
+  80% {rotate: -2deg;}
+  89% {rotate: -2deg;}
+  90% {rotate: -14deg;}
+  100% {rotate: -3deg;}
+}
+
+#anilowsab {
+  display: flex;
+  width: 95vw;
+  max-width: 700px;
+  justify-content: center;
+  margin: 3em 0 0 0;
+
+  animation-name: bigthrust;
+  animation-duration: 0.5s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes wakingup {
+  0% {background-color: #111; height:100%;}
+  10% {background-color: #111; height:80%;}
+  15% {background-color: #111; height:85%;}
+  40% {background-color: #111; height:30%;}
+  70% {background-color: #111; height:50%;}
+  100% {background-color: #111; height:0%;}
+}
+
+#aniwakingup {
+  position: absolute;
+  top:0;
+  left:0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  background-color: #111;
+  animation-name: wakingup;
+  animation-duration: 3s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+}
+
+/* compass ----------------------------------------------*/
+
+.compass {
+    display: flex;
+    /* border: 0.1em solid cadetblue; */
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    max-width: 700px;
+    grid-gap: 1em;
+    padding: 1em;
+    width: 50%;
+  	height: auto;
+    border-radius: 1em;
+    background-color: #1a1a1a;
+}
+
+.WandE {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.westside {
+	display: flex;
+    width: 50%;
+    justify-content: left;
+    align-items: center;
+}
+
+.eastside {
+    display: flex;
+    width: 50%;
+    justify-content: right;
+    align-items: center;
+}
+
+/* dot animation ----------------------------------------------*/
+
+@keyframes dotsequencing {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 1; }
+}
+
+.dot-enqueuer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.Dot1 {
+  animation: dotsequencing 2s forwards;
+  animation-delay: 0s;
+  animation-iteration-count: 3;
+  animation-timing-function: ease-out;
+}
+
+.Dot2 {
+  animation: dotsequencing 2s forwards;
+  animation-delay: 0s;
+  animation-iteration-count: 3;
+  animation-timing-function: ease-in-out;
+}
+
+.Dot3 {
+  animation: dotsequencing 2s forwards;
+  animation-delay: 0s;
+  animation-iteration-count: 3;
+  animation-timing-function: ease-in;
+}
+
+/* Task Progressor Pop-up -----------------------------------*/
+
+.popup {
+  position: fixed;
+  margin: 10em;
+  z-index: 10;
+  width: fit-content;
+  height: auto;
+  background-color: rgba(46, 139, 86, 0.95);
+  border: 0.2em dashed #ff944d;
+  border-radius: 1.5em;
+}
+
+/* Hide the Action Buttons ----------------------------------*/
+
+.hideit {
+  display: none;
+}
+
+/* Tremors ---------------------------------------------------*/
+
+@keyframes tremors {
+  0% {rotate: 0deg;}
+  14% {rotate: 1deg;}
+  21% {rotate: -1deg;}
+  24% {rotate: 2deg;}
+  33% {rotate: -1deg;}
+  41% {rotate: 1deg;}
+  56% {rotate: -2deg;}
+  62% {rotate: 2deg;}
+  69% {rotate: -1deg;}
+  78% {rotate: 3deg;}
+  88% {rotate: -3deg;}
+  95% {rotate: 1deg;}
+  100% {rotate: 0deg;}
+}
+
+.tremors {
+  animation-name: tremors;
+  animation-duration: 1s;
+  animation-iteration-count: 5;
+  animation-fill-mode: forwards;
+}
+
+/* slow appear -------------------------------------------------*/
+
+@keyframes slowopening {
+  0% {opacity: 0;}
+  46% {opacity: 0..6;}
+  57% {opacity: 0..5;}
+  100% {opacity: 1;}
+}
+
+.slowlyappearing {
+  animation-name: slowopening;
+  animation-duration: 5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+/* condition not met in Quest Progressor ----------------------*/
+
+.conditionnotmet {
+  background-color: indianred;
+}
+
+/*  ----------------------*/
+
+#recordOftheAttack {
+  display: block;
+  position:fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  border: whitesmoke 4em solid;
+  border-radius: 1em;
+  background-color: whitesmoke;
+}
+
+/* the con- & destruction list ------------------------------------------------------------------------------------- */
+.passage ol, .passage ul {
+  display: flex;
+  margin: 0;
+  margin-left: 0px;
+  padding-left: 1em;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  width: 80vw;
+  max-width: 700px;
+  /*align-items: flex-start;*/
+}
+
+.plussign-list {
+  list-style-type: none; /* Remove default list styles */
+}
+
+/* Record of the attack --------------------------------*/
+
+#recordOftheAttack {
+  display: block;
+  position:fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  border: whitesmoke 4em solid;
+  border-radius: 1em;
+  background-color: whitesmoke;
+}
+
+/* special templates design --------------------------------*/
+
+.whiteborderglimmer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 1em;
+  background-color: darkolivegreen;
+  border-radius: 0.5em;
+}
+
+.whiteborderglimmer ul {
+  list-style-type: none;
+}
+
+/* pierced animation ----------------------------------------*/
+
+@keyframes pierceAnimation {
+  0% {left: 0;}
+  50% {left: -30%;}
+  55% {rotate: 10deg;}
+  66% {left: 0; rotate: 0.5deg;}
+  100% {left: 0; rotate: 0.5deg;}
+}
+
+.pierced {
+  animation-name: pierceAnimation;
+  animation-duration: 0.1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+/* logbook --------------------------------------------------*/
+
+.logbook {
+  text-align: left;
+  padding: 2em;
+  border: 0.1em solid whitesmoke;
+  border-radius: 1em;
+  background-color: darkslategray;
+}
+
+/* Templates Frame ------------------------------------------*/
+
+.CaD-container {
+  width: 100%;
+  padding: 1em;
+  padding-left: 3em;
+  margin-bottom: 1em;
+  box-sizing: border-box;
+  border-radius: 0.4em;
+  background-color: black;
+}
+
+#D-Menu {
+  border-top: 0.2em solid #943838;
+  border-bottom: 0.2em solid #943838;
+}
+
+#C-Menu {
+  border-top: 0.2em solid #336699;
+  border-bottom: 0.2em solid #336699;
+}
+
+/* placeholder ----------------------------------------------*/

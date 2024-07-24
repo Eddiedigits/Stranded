@@ -4,7 +4,7 @@ Stranded
 
 :: StoryData
 {
-  "ifid": "8757a28b-f671-40c6-9f9e-de9160587660",
+  "ifid": "0eaa6496-c348-427c-8a88-9aef1ce4231f",
   "format": "modified SC",
   "format-version": "2.0.0",
   "start": "Menu",
@@ -23,7 +23,7 @@ Stranded
 <div class="slowlyappearing"><<linkappend "<em>Nfh!</em>">> 
 
 <div id="aniwakingup"></div>
-[img[assets/backgrounds/Placeholder.png]]
+[img[assets/backgrounds/Placeholder.webp]]
 
 <<timed 6s>><<linkappend "Whoa!">> Destruction and chaos everywhere.
 
@@ -37,7 +37,7 @@ Stranded
 
 
 :: 3E-Event {"position":"3200,1350","size":"100,100"}
-<center>[img[assets/backgrounds/Placeholder.png]]
+<center>[img[assets/backgrounds/Placeholder.webp]]
   <blockquote>
 
 I run and run and run and run and run, my pump, my heart, is overclocking. As soon as I see the spaceship, I radio to the spaceship to be ready to close the hatch and even fly away. But Leo is already on the hatch and as soon as I run to a distance he seemt fit, he intitiate the closing of the hatch. As it is closing, <<linkappend 'I jump in'>><div id="anilowshake">and hear a loud clack and thuck and more collision noises. We are running inside and hear the machines humming. Vika is in the cockpit, pressing all buttons to levitate the spaceship out of place in short time. From all sides comes the roaring of the motor and the thucks against the hull.</div>
@@ -89,14 +89,14 @@ window.scrollBy(0,120)<</script>><</nobr>> with a loud crash, a crystalline stel
   <<if $rNr == 2>>
   False Alarm. Or the AI handled it. Anyway, time to rest. A new cycle.
   <<elseif $rNr == 4 && ($days.range(15, 25) || $days.range(35, 45))>>>
-    <div class="anilowshake"><<if $days.range(15, 25)>>[img[assets/events/meteoritebombardments1.png]]<<else>>[img[assets/events/meteoritebombardments2.png]]<</if>>
+    <div class="anilowshake"><<if $days.range(15, 25)>>[img[assets/events/meteoritebombardments1.webp]]<<else>>[img[assets/events/meteoritebombardments2.webp]]<</if>>
 
     Wow. This planet is getting quite bombarded. Luckily in the far distance.
 
     Our sensors do not indicate our area as an immminent risk zone. The trajectories of these outer-planet objects are all in that distance. But still, going back to sleep is not possible by those incoming shockwaves, although slight, but enough to heave our spaceship. And the late incoming rumbling. We get ourselves busy or watch the spectacle.
     </div>
   <<elseif $rNr == 4 && ($days.range(20, 30) || $days.range(40, 50))>>
-    <div class="tremors"><<if random(2) == 1>>[img[assets/events/ashenclouds1.png]]<<else>>[img[assets/events/ashenclouds.png]]<</if>>
+    <div class="tremors"><<if random(2) == 1>>[img[assets/events/ashenclouds1.webp]]<<else>>[img[assets/events/ashenclouds.webp]]<</if>>
 
     Whoa! What's happening?! Earthquake!
 
@@ -105,14 +105,14 @@ window.scrollBy(0,120)<</script>><</nobr>> with a loud crash, a crystalline stel
 
     </div>
   <<elseif $rNr == 5 && $nutrients > 0 && ($CampJ.DefPerimeter == false && $Camp_J || $CampM.DefPerimeter == false && $Camp_M)>>
-  [img[assets/events/alien_mammals.png]]
+  [img[assets/events/alien_mammals.webp]]
 
   Animals!
 
   Alien Animals are breaching in. It seems, they only distinctively go for the food. 
   We have lost some nutrients.<<set $nutrients -= 5>><<if $nutrients < 0>><<set $nutrients = 0>><</if>><<set $xeno += 0.1>>
   <<elseif $rNr == 6 && $CampJ.DefPerimeter == false && $Camp_J|| $rNr == 6 && $CampM.DefPerimeter == false && $Camp_M>>
-  [img[assets/events/aggressive_animal.png]]
+  [img[assets/events/aggressive_animal.webp]]
 
   What a ruckus!
 
@@ -122,21 +122,8 @@ window.scrollBy(0,120)<</script>><</nobr>> with a loud crash, a crystalline stel
       Yes! That was a good training session, <<if $Camp_M>>Elva and I<<else>>we<</if>> could defeat that beast.&nbsp;<<set $combat += 0.5>><<if $SubAnalyzer>>And have some bit food. The rest can be disintegrated as unimatter.<<set $nutrients += 3>><<set $unimatter += 2>><</if>>
     <<else>>
       Ach, such is a hardship here in the stranded planet. The monstruo is wrecking our equipment and damaging the hull; letting our spaceship operates not at the optimum.<<set $unimatter -= 1, $energy -= 2, $notrepaired += 2>><</if>>
-  <<elseif $rNr == 7 && $social > 2 && $SFW_Path == false && $unimatter > 2 && $notrepaired > 1 && $engineering >= 3 && !$evenfrom3E>>
-  [img[assets/characters/Vika/Vika_6.png]]
-
-  ... I saw Vika fumbling on her panel, focused on repairing the ship a bit. She didn't seem to have noticed me. I was unsure whether to greet her or not, hence I went on my way. Not without an admiration for the sight. <<set $notrepaired += 1>>
-  <<elseif $rNr == 8 && $social > 2 && ($Camp_M || $evenfrom3E) && $SFW_Path == false>>
-  [img[assets/characters/Abiba/Abiba11.png]]
-
-  ... Abiba was showering. Oh boy, what a body. She said nothing, and me as well. Though, on the way back, I waved goodbye and gave a complimentary glimpse anew. She is a woman, she knows. No words were changed.
-  <<elseif $rNr == 9 && $social > 3 && $SFW_Path == false && !$evenfrom3E && !$QuestPool.includesAny($Q1CA, $Q1CA4, $Q1CA3)>>>
-  [Img[assets/characters/Vika/Vika9.png]]
-
-  ... I saw Vika fumbling on her panel. The Nightowl.
-  She noticed me. I greeted her and continue on my way. Clearly, not without an admiration for the gift.
   <<else>>
-    <<if random(1) == 1>>[img[assets/Ch-Camp/Rest1.png]]<<else>>[img[assets/Ch-Camp/Rest2.png]]<</if>>
+    <<if random(1) == 1>>[img[assets/Ch-Camp/Rest1.webp]]<<else>>[img[assets/Ch-Camp/Rest2.webp]]<</if>>
 
     A new cycle, a new day. Although this planet's rotation is much slower.
     
@@ -147,7 +134,7 @@ window.scrollBy(0,120)<</script>><</nobr>> with a loud crash, a crystalline stel
 
 
 :: A Small Hill {"position":"1925,300","size":"100,100"}
-<center>[img[assets/items/antenna_CJ.png]]
+<center>[img[assets/items/antenna_CJ.webp]]
 <blockquote>
 The antenna is installed on a small hill. But it seems to reach no one. Maybe it is set too low, or the jungle is too dense.
 <<nobr>>
@@ -162,74 +149,69 @@ The antenna is installed on a small hill. But it seems to reach no one. Maybe it
 <center><blockquote>
 <<if random(5) > 1>>
 <<if $Abiba_ICP.AI1>>
-  [img[assets/characters/Abiba/Abiba_P.png]]
+  [img[assets/characters/Abiba/Abiba_P.webp]]
   
   Mensch! Do I have hard time concentrating on what she is saying, and, me expressing my intentions.<<if $social > 3 && $Abibavisits > 5>><<set $Abiba_ICP.AI2 = true; $Abiba_ICP.AI1 = false; $Abibavisits = 6>><</if>>
   <<elseif $Abiba_ICP.AI2 || $Abibavisits < 9>>
-  [img[assets/characters/Abiba/Abiba6.png]]
+  [img[assets/characters/Abiba/Abiba6.webp]]
   
-  We slowly build rapport. It is getting better. Our talk is becoming more fluid.<<if $social > 4 && $Abibavisits > 8>><<set $Abiba_ICP.AI3 = true; $Abiba_ICP.AI2 = false; $Abibavisits = 9>><</if>>
+<<if $social > 4 && $Abibavisits > 8>><<set $Abiba_ICP.AI3 = true; $Abiba_ICP.AI2 = false; $Abibavisits = 9>><</if>>
 <<elseif $SFW_Path == false>>
   <<if $Abiba_ICP.AI3 || $Abibavisits < 12>>
-  [img[assets/characters/Abiba/Abiba7_1.png]]
+  [img[assets/characters/Abiba/Abiba7_1.webp]]
   
-  Wow, what was a stuttering start between us, it is now so smooth that I wonder if she flaunting her assets?<<if $social > 5 && $Abibavisits > 11>><<set $Abiba_ICP.AI4 = true; $Abiba_ICP.AI3 = false; $Abibavisits = 12>><</if>>
+ <<if $social > 5 && $Abibavisits > 11>><<set $Abiba_ICP.AI4 = true; $Abiba_ICP.AI3 = false; $Abibavisits = 12>><</if>>
   <<elseif $Abiba_ICP.AI4 || $Abibavisits < 15>>
-  [img[assets/characters/Abiba/Abiba8.png]]
+  [img[assets/characters/Abiba/Abiba8.webp]]
   
-  I was knocking at her door, as she hollered 'Come in'. She knew it was me. She knew!<<if $social > 6 && $Abibavisits > 14>><<set $Abiba_ICP.AI5 = true; $Abiba_ICP.AI4 = false; $Abibavisits = 15>><</if>>
+<<if $social > 6 && $Abibavisits > 14>><<set $Abiba_ICP.AI5 = true; $Abiba_ICP.AI4 = false; $Abibavisits = 15>><</if>>
 
     <<elseif $Abiba_ICP.AI5 || $Abibavisits < 19>>
-    [img[assets/characters/Abiba/Abiba11.png]]
+    [img[assets/characters/Abiba/Abiba11.webp]]
     
-    She shouted she was in the showers. Boy! Was my fantasy running high, this amount of imagination energy would have been enough to catapult me to sky and beyond!<<if $social > 7 && $Abibavisits > 18>><<set $Abiba_ICP.AI6 = true; $Abiba_ICP.AI5 = false; $Abibavisits = 19>><</if>>
+<<if $social > 7 && $Abibavisits > 18>><<set $Abiba_ICP.AI6 = true; $Abiba_ICP.AI5 = false; $Abibavisits = 19>><</if>>
     
-    <<linkappend "I couldn't listen to what she was saying." t8n>>
-    [img[assets/characters/Abiba/Abiba10.png]]
+    <<linkappend "" t8n>>
+    [img[assets/characters/Abiba/Abiba10.webp]]
     
-    She rolled a bit her eyes. I could hear it, feel it. I felt it! Else why did she command me to come in? 
-    But whatever she wanted to say to me, she reconsidered. Probably because my systems went to primal mode, neanderthal reset. Clumsy and idiotic. Not attractive.
+
     <</linkappend>>
     <<elseif $Abiba_ICP.AI6 || $Abibavisits < 23>>
-    [img[assets/characters/Abiba/Abiba13.png]]
+    [img[assets/characters/Abiba/Abiba13.webp]]
     
-    Hey, Abby, how are ywhhooaa!<<if $social > 8 && $Abibavisits > 22>><<set $Abiba_ICP.AI7 = true; $Abiba_ICP.AI6 = false; $Abibavisits = 23>><</if>>
+   <<if $social > 8 && $Abibavisits > 22>><<set $Abiba_ICP.AI7 = true; $Abiba_ICP.AI6 = false; $Abibavisits = 23>><</if>>
     
-    <<linkappend "Whoof!" t8n>>
-    [img[assets/characters/Abiba/Abiba13_2.png]]
+    <<linkappend "" t8n>>
+    [img[assets/characters/Abiba/Abiba13_2.webp]]
     
-    She is laughing at my surprised reaction. Radiantly happy that she made me happy ...
+
     <</linkappend>>
     
-    <<linkappend "As it was not enough, she gives another one!" t8n>>
-    [img[assets/characters/Abiba/Abiba13_3.png]]
+    <<linkappend "" t8n>>
+    [img[assets/characters/Abiba/Abiba13_3.webp]]
     
-    Boy! Girl! What is happening with my brain, it doesn't work nothing at all. Not a coherent sentence is coming from my mouth.
+
     <</linkappend>>
     <<elseif $Abiba_ICP.AI7 || $Abibavisits < 26>>
-    [img[assets/characters/Abiba/Abiba19.png]]
+    [img[assets/characters/Abiba/Abiba19.webp]]
     
-    Enough! All this clumsiness and stuttering because we barely can focus on while a solution is so simple: Fickifucki!<<if $social > 9 && $Abibavisits > 25>><<set $Abiba_ICP.AI8 = true; $Abiba_ICP.AI7 = false; $Abibavisits = 26>><</if>>
+<<if $social > 9 && $Abibavisits > 25>><<set $Abiba_ICP.AI8 = true; $Abiba_ICP.AI7 = false; $Abibavisits = 26>><</if>>
     
-    The clumsy our communication was, <<linkappend "the more do we seem to understand in our body language!" t8n>>
-    [img[assets/characters/Abiba/Abiba14.png]]
+<<linkappend "" t8n>>
+    [img[assets/characters/Abiba/Abiba14.webp]]
     
-    And, yes! The best solution EVER! I thought that aloud while gave her a pound that gave her a blackout and a pleasant surprise. I mean, look at that face!
+
     <</linkappend>>
     
-    <<linkappend "Yes, that face!" t8n>>
-    [img[assets/characters/Abiba/Abiba21.png]]
-    
-    Happy, out, it is done, the rabbit is out, no more facadery, maskes. We fucked, we enjoyed, we will talk better.
+    <<linkappend "" t8n>>
+    [img[assets/characters/Abiba/Abiba21.webp]]
+
     <</linkappend>>
     <<elseif $Abiba_ICP.AI8 || $Abibavisits < 30>><<if $Abibavisits > 30>><<set $Abibavisits = 30>><</if>>
-    [img[assets/characters/Abiba/Abiba16.png]]
+    [img[assets/characters/Abiba/Abiba16.webp]]
     
-    No! No more talk, our bodies do that!
-    
-    (end of content for version 0.1)
     <<else>>
-      [img[assets/characters/Abiba/Abiba6.png]]
+      [img[assets/characters/Abiba/Abiba6.webp]]
 
       Okay, it is kind slow and muddy talk. It is okay. More or less.
     <</if>>
@@ -250,13 +232,13 @@ The antenna is installed on a small hill. But it seems to reach no one. Maybe it
 :: Ante Explore {"position":"875,1375","size":"100,100"}
 <center><blockquote>
 Who will accompany me, who can I persuade?
+<<nobr>><br>
+<<if $QuestPool.includesAny($Q1CA, $Q1CA1, $Q1CA2, $Q1CA3, $Q1CA4)>>Vika is not available.<<else>><<linkreplace "Vika">><<if random(10) * $social > 40 || (($CampJ.EHarvester == 0 && $Camp_J || $Camp_M && $CampM.EHarvester == 0) && $notrepaired > 2) || $nutrients < 10>>+ Vika will accompany you.<<set $Humcarrycap +=1>><<else>>- Vika is focusing on the communications screen, she rather sit by the radio.<</if>><</linkreplace>><</if>><br><br>
 
-<<if $QuestPool.includesAny($Q1CA, $Q1CA1, $Q1CA2, $Q1CA3, $Q1CA4)>>Vika is not available.<<else>><<linkreplace "Vika">><<if random(10) * $social > 40 || (($CampJ.EHarvester == 0 && $Camp_J || $Camp_M && $CampM.EHarvester == 0) && $notrepaired > 2) || $nutrients < 10>>+ Vika will accompany you.<<set $Humcarrycap +=1>><<else>>- Vika is focusing on the communications screen, she rather sit by the radio.<</if>><</linkreplace>><</if>>
-
-<<if $QuestPool.includes($Q1CB)>>Leo is not in optimal state to go out.<<else>><<linkreplace "Leo">><<if random(10) * $social > 30 || (($CampJ.EHarvester == 0 && $Camp_J || $Camp_M && $CampM.EHarvester == 0) && $notrepaired > 2)>>+ Leo will help you.<<set $Humcarrycap +=1>><<elseif $nutrients <10 && $explored.T1E != 100 && !$SubAnalyzer>>+ Leo will help you. Also he got the information form the AI that somewhere in the east is a field crucial for organic optimum.<<else>>- Leo is in dialogue with his AI or other AIs. He cannot come with you.<</if>><</linkreplace>><</if>><<nobr>>
+<<if $QuestPool.includes($Q1CB)>>Leo is not in optimal state to go out.<<else>><<linkreplace "Leo">><<if random(10) * $social > 30 || (($CampJ.EHarvester == 0 && $Camp_J || $Camp_M && $CampM.EHarvester == 0) && $notrepaired > 2)>>+ Leo will help you.<<set $Humcarrycap +=1>><<elseif $nutrients <10 && $explored.T1E != 100 && !$SubAnalyzer>>+ Leo will help you. Also he got the information form the AI that somewhere in the east is a field crucial for organic optimum.<<else>>- Leo is in dialogue with his AI or other AIs. He cannot come with you.<</if>><</linkreplace>><</if>>
 <br>
 <br>
-<<if $Camp_M || $eventfrom3E || !$QuestPool.includesAny($Q1CD, $Q1CD1)>><<linkreplace "Elva">><<if random(10) * $social > 38 || (($CampJ.EHarvester == 0 && $Camp_J || $Camp_M && $CampM.EHarvester == 0) && $notrepaired > 2) || $nutrients <10>>+ Elva want some outdoor training, she comes with me.<<set $Humcarrycap +=1>><<else>>- Elva is in her training mode. Quite intensely. Better not disturb her.<</if>><</linkreplace>><</if>>
+<<if $Camp_M || $eventfrom3E>><<linkreplace "Elva">><<if random(10) * $social > 38 || (($CampJ.EHarvester == 0 && $Camp_J || $Camp_M && $CampM.EHarvester == 0) && $notrepaired > 2) || $nutrients <10>>+ Elva want some outdoor training, she comes with me.<<set $Humcarrycap +=1>><<else>>- Elva is in her training mode. Quite intensely. Better not disturb her.<</if>><</linkreplace>><</if>>
 <br>
 <br>
 <<if $Camp_M || $eventfrom3E>><<linkreplace "Abiba">><<if random(10) * $social > 35 || (($CampJ.EHarvester == 0 && $Camp_J || $Camp_M && $CampM.EHarvester == 0) && $notrepaired > 2) || $nutrients < 10>>+ Abiba nods.<<set $Humcarrycap +=1>><<else>>- Abiba is not available. She seems to be occupied.<</if>><</linkreplace>><</if>>
@@ -264,11 +246,11 @@ Who will accompany me, who can I persuade?
 <br>
 <<if ($CampJ.Orb == 3 && $Camp_J) || ($CampM.Orb == 3 && $Camp_M)>>Do I activate the floating Orb?
 <br>
-<<linkreplace "Yes">><<nobr>>
+<<linkreplace "Yes">>
   <<set $Orbcarrycap += 3, $Oeu = 0.3>>
   <<if $CampJ.Orb && $Camp_J>><<set $navOrb = $CampJ.nOrb>><<elseif $CampM.Orb && $Camp_M>><<set $navOrb = $CampM.nOrb>><<else>><<set $navOrb = 1>><</if>>
   <<if $CampJ.Orb && $Camp_J>><<set $cbtOrb = $CampJ.cOrb>><<elseif $CampM.Orb && $Camp_M>><<set $navOrb = $CampM.cOrb>><<else>><<set $cbtOrb = 1>><</if>>
-<</nobr>>The floating Orb decouples from the port and is swirring by your side.<</linkreplace>><</if>>
+The floating Orb decouples from the port and is swirring by your side.<</linkreplace>><</if>>
 <br>
 <br>
 <<if $ignore == 0 && $explored.T1E == 100 && $explored.T2N == 100>>Ignore random finds in unimatter and nutrients? <<linkreplace "<<ab>>Yes<</ab>>">><br><br>Yes<br><<set $ignore = 1>><</linkreplace>><br><<linkreplace "<<ab>>No<</ab>>">><br><br>No<br><</linkreplace>><</if>><</nobr>>
@@ -282,24 +264,26 @@ Who will accompany me, who can I persuade?
 <<nobr>>
   <<if $energy < 5>><<set $energy = 5>><</if>>
   <<set $QuestPool.pushUnique($Q0)>>
-<</nobr>><center>[img[assets/Ch-Camp/JungleCamp.png]]
-<blockquote>
-<<set $engineering +=1>><<set $social +=1>><<set $unimatter += 5>>
-Vika's spaceship, which is the parent spaceship of our - Leo's and mine - pods, landed upon a clearing in this jungle. Her ride was more smooth than ours. Too smooth by her description, while we almost became wrecks. The AI of this spaceship decided to distribute the risk of losing too many personnel by dispersing us to a wide area. Weird decision, in my opinion. Since we are missing 2 others that our compass doesn't show. Maybe they are what we almost became: wrecks. Everyone should have a compass to reach out to the others, to any others. I hope, we will find out the reason it decided to let us spread out. But for now, the AI is silent. It does sometimes; I have heard, it is to avoid us degenerating our brains, i.e. to keep our neuronal activities steady. I can hope, it - the AI -will  decide to tell us soon enough if our situation turns sticky. Yet, for now, we can assume, there is no imminent danger. Also, it keeps silent about the other stranded. Weird policy.
+  <<script>>SimpleAudio.stop();<</script>>
+  <<audio "RD_A009_1" play>>
+<</nobr>><center>[img[assets/Ch-Camp/JungleCamp.webp]]
+<blockquote><<set $engineering +=1>><<set $social +=1>><<set $unimatter += 5>>
+Vika's spaceship, which is the parent spaceship of our - Leo's and mine - pods, landed upon a clearing in this jungle. Her ride was more smooth than ours. Too smooth by her description, while we almost became wrecks. The AI of this spaceship decided to distribute the risk of losing too many personnel by dispersing us to a wide area. Weird decision, in my opinion. Since we are missing 2 others that our compass doesn't show. Maybe they are what we almost became: wrecks. Everyone should have a compass to reach out to the others, to any others. I hope, we will find out the reason it decided to let us spread out. But for now, the AI is silent. It does sometimes; I have heard, it is to avoid us degenerating our brains, i.e. to keep our neuronal activities steady. I can hope, it - the AI - will  decide to tell us soon enough if our situation turns sticky. Yet, for now, we can assume, there is no imminent danger. Also, it keeps silent about the other stranded. Weird policy.
 
 Alas, what will we do?
 
-<<say "Vika">>Honestly, as a pilot, I can say that we cannot connect to the mothership. In fact. there is nothing but static. So, I conclude the mothership is unreachable or no more. Also, I do not reach the others; the other stranded.
-My suggestion is therefore: As we only have 5 unimatter, we print a transmission mast, look for an optimal elevation and reach out to the others..<</say>>
+<<say "Vika">><<timed 78s>><<audio "Vika_A002_1" play>><</timed>>Honestly, as a pilot, I can say that we cannot connect to the mothership. In fact, there is nothing but static. So, I conclude the mothership is unreachable or no more. Also, I do not reach the others; the other stranded.
+My suggestion is therefore: As we only have 5 unimatter, we print a transmission mast, look for an optimal elevation and reach out to the others.<</say>>
 
-Only 5 unimatter?! That sucks! That means, I have to strategize wisely.
+<<timed 104s>><<audio "RD_A009_2" play>><</timed>>Only 5 unimatter?! That sucks! That means, I ... uh, we have to strategize wisely.
 
-<<say "Leo">><em>groan</em> I would hoard food. What Vika said doesn't sound good. I fear, we are stuck here. At least for a while.
+<<say "Leo">><<timed 114s>><<audio "Leo_A002_1" play>><</timed>><em>groan</em> I would hoard nutritions. What Vika said doesn't sound good. I fear, we are stuck here. At least for a while.
 Oh, by the dark universe! Please, give us hope!
 Ah, ye'. I would like to repair myself and have a substance analyzer.<</say>>
 
-Oh, I do not have much problems being stuck here for a while. <em>glancing at Vika</em>
-But then again ... if we are stuck here for long ... food/energy is essential. A substance analyzer enables us to know which things are edible or can be used as materials, like unimatter.
+<<timed 134s>><<audio "RD_A009_3" play>><</timed>>If we are stuck here for long ... nutritions and energy are essential. A substance analyzer enables us to know which things are edible or can be used as materials, like unimatter.
+
+--- no more voices for the time being ---
 
 <<say "RD">><em>Hrm!</em>&nbsp;Let me check. Do we have enough energy?<</say>>
 <<nobr>><<if $engineering >= 2>>
@@ -352,7 +336,7 @@ Have I a change of mind? Do I want a ...
 
 :: Arrival at CJ {"position":"3200,2100","size":"100,100"}
 <center><blockquote>
-[img[assets/backgrounds/Placeholder.png]]/* Arrival at Camp Jungle */
+[img[assets/backgrounds/Placeholder.webp]]/* Arrival at Camp Jungle */
  
   With the protection of the night, we were departing for the Jungle Camp. It was not an easy ride, always on alert, on our toes. Even as our flight didn't took more than 15 minutes - we took a huge curved flight path, evading the hotspot -, we didn't know whether I made the right choice. What's more is that we have absolutely no data whether the air in the night is free of hostiles. 
 
@@ -376,7 +360,7 @@ Have I a change of mind? Do I want a ...
 :: Assess the outcome {"position":"3200,1600","size":"100,100"}
 <<nobr>>
   <<set $QuestPool.pushUnique($Q1C0, $Q1CA)>> /* Urgency of Vika */
-<</nobr>><center><blockquote>[img[assets/backgrounds/Placeholder.png]]
+<</nobr>><center><blockquote>[img[assets/backgrounds/Placeholder.webp]]
 
 It is a huge setback. The hull is broken. As are the cockpit, our life maintenance modules, the nutrients converter, the energy generator, the outbuildings and worse of all: our Printer! Leo is shaken, but compared to his first landing, still good. Last but not least, Vika is in coma, in emergency mode. <<set $VikaCountdown = $days>> That makes me the luckiest of all, as I need only a bit of polishing, not more. 
 <<if $Camp_J>><<set $CampJ to {TransMast: false,Farm: 0,DefPerimeter: false,building: 0,maxbuildings: 0,EHarvester: 0,Orb: 1,nOrb: 1,cOrb: 1,}; $energy = 2; $unimatter = 1; $nutrients = 4>>
@@ -454,7 +438,7 @@ It is a huge setback. The hull is broken. As are the cockpit, our life maintenan
   <<set $QuestPool.delete($Q1A), $QuestPool.delete($Q1B), $QuestPoolDone.pushUnique($Q1A), $QuestPoolDone.pushUnique($Q1B)>>
 <</nobr>>
 <center><blockquote>
-<<if $CampM.nutrients <= 0>>[img[assets/backgrounds/Placeholder.png]]
+<<if $CampM.nutrients <= 0>>[img[assets/backgrounds/Placeholder.webp]]
   
   On a spot of a mountainous area, I found another spaceship - like ours! Another stranded. 
 
@@ -485,7 +469,7 @@ It is a huge setback. The hull is broken. As are the cockpit, our life maintenan
     <</timed>><</linkappend>><<timed>>
   <</linkappend>>
   <</replace>><</timed>>
-<<else>>[img[assets/Ch-Camp/MountainCamp.png]]
+<<else>>[img[assets/Ch-Camp/MountainCamp.webp]]
   
   Yes! There are others! The ladies greet me in surprise and ask me from where I do come, which spaceship number is it, why didn't I radio them. I ask them that their antenna works? They gesturing and answering: not always, it is weird. So I answered to them that <<if $CampJ.TransMast>>even though we built an antenna, we didn't received any incomings - we assume it is because of the dense jungle.<<else>>we hadn't found the time and the urgency to build an antenna. Until now.<</if>> So, what happened that I took a rather dangerous journey?
 
@@ -503,20 +487,42 @@ It is a huge setback. The hull is broken. As are the cockpit, our life maintenan
 
 
 :: Audios [Audios] {"position":"475,25","size":"100,100"}
-<<cacheaudio "BgMusic" "assets/characters/Me/background_introduction.wav">>
-<<cacheaudio "V1" "assets/characters/Me/V1.mp4">>
-<<cacheaudio "V2" "assets/characters/Me/V2.mp4">>
-<<cacheaudio "V3" "assets/characters/Me/V3.mp4">>
-<<cacheaudio "V4" "assets/characters/Me/V4.mp4">>
-<<cacheaudio "V5" "assets/characters/Me/V5.mp4">>
-<<cacheaudio "V6" "assets/characters/Me/V6.mp4">>
-<<cacheaudio "V7" "assets/characters/Me/V7.mp4">>
-<<cacheaudio "V8" "assets/characters/Me/V8.mp4">>
+<<cacheaudio "BgMusic" "assets/characters/Audio/background_introduction.wav">>
+/* Leo */
+<<cacheaudio "Leo_A001_1" "assets/characters/Audio/Leo_A001_1.mp3">>
+<<cacheaudio "Leo_A001_2" "assets/characters/Audio/Leo_A001_2.mp3">>
+<<cacheaudio "Leo_A001_3" "assets/characters/Audio/Leo_A001_3.mp3">>
+<<cacheaudio "Leo_A001_4" "assets/characters/Audio/Leo_A001_4.mp3">>
+<<cacheaudio "Leo_A002_1" "assets/characters/Audio/Leo_A002_1.mp3">>
+
+/* RD */
+<<cacheaudio "RD_A001" "assets/characters/Audio/RD_A001.mp3">>
+<<cacheaudio "RD_A002" "assets/characters/Audio/RD_A002.mp3">>
+<<cacheaudio "RD_A003" "assets/characters/Audio/RD_A003.mp3">>
+<<cacheaudio "RD_A004" "assets/characters/Audio/RD_A004.mp3">>
+<<cacheaudio "RD_A005" "assets/characters/Audio/RD_A005.mp3">>
+<<cacheaudio "RD_A006" "assets/characters/Audio/RD_A006.mp3">>
+<<cacheaudio "RD_A007" "assets/characters/Audio/RD_A007.mp3">>
+<<cacheaudio "RD_A007_1" "assets/characters/Audio/RD_A007_1.mp3">>
+<<cacheaudio "RD_A007_2" "assets/characters/Audio/RD_A007_2.mp3">>
+<<cacheaudio "RD_A007_3" "assets/characters/Audio/RD_A007_3.mp3">>
+<<cacheaudio "RD_A007_4" "assets/characters/Audio/RD_A007_4.mp3">>
+<<cacheaudio "RD_A008" "assets/characters/Audio/RD_A008.mp3">>
+<<cacheaudio "RD_A009_1" "assets/characters/Audio/RD_A009_1.mp3">>
+<<cacheaudio "RD_A009_2" "assets/characters/Audio/RD_A009_2.mp3">>
+<<cacheaudio "RD_A009_3" "assets/characters/Audio/RD_A009_3.mp3">>
+
+/* Vika */
+<<cacheaudio "Vika_A001_1" "assets/characters/Audio/Vika_A001_1.mp3">>
+<<cacheaudio "Vika_A001_2" "assets/characters/Audio/Vika_A001_2.mp3">>
+<<cacheaudio "Vika_A002_1" "assets/characters/Audio/Vika_A002_1.mp3">>
+
+
 
 
 :: Beginning {"position":"2050,2475","size":"100,100"}
 <center><blockquote>
-[img[assets/backgrounds/Placeholder.png]]
+[img[assets/backgrounds/Placeholder.webp]]
 
 <div class="logbook">As Solaris extended its reach across the entire solar system, integrating Neptune into the Solaris Hub became an inevitability. It was only a matter of time before the connection was established. Consequently, the logical progression was to dispatch probes to nearby stellar systems, particularly those with promising Earth-like characteristics.
 
@@ -548,16 +554,16 @@ Phase 2: Conduct a comprehensive survey to assess:
     <<if $evenfrom3E && $QuestPoolDone.includes($Q1CA3, $Q1CB) && !$QuestPool.includesAny($Q1CD, $Q1CD1) && !$QuestPoolDone.includes($Q3)>><<set $QuestPool.pushUnique($Q3)>><</if>>
 <</nobr>><center>
 <<nobr>><<if $QuestPool.includes($Q1CC2A) || $QuestPoolDone.includesAny($Q1A, $Q1B, $Q1CC2A)>>
-  <center>[img[assets/backgrounds/Placeholder.png]]/* Two Spaceships */</center>
+  <center>[img[assets/backgrounds/Placeholder.webp]]/* Two Spaceships */</center>
 <<else>>
-  <center>[img[assets/Ch-Camp/JungleCamp.png]]</center>
+  <center>[img[assets/Ch-Camp/JungleCamp.webp]]</center>
 <</if>><</nobr>>
 
 <div class="passage-titles" style="color:#2aa22a; border-bottom-color: #2aa22a; border-top-color: #2aa22a;"><center><h2><strong>Camp Jungle</strong></h2></center></div>
 <div class="order-indices"><div class="index-screens-normal"><div><strong>Things in the inventory:</strong></div>
-<div>[img[Materials Printer|assets/items/3D-Printer_rs.png]] [img[Compass|assets/items/compass_rs.png]] <<if $SubAnalyzer == true>>[img[Substance Analyzer|assets/items/Substance-Analyzer_rs.png]]<</if>></div></div>
+<div>[img[Materials Printer|assets/items/3D-Printer_rs.webp]] [img[Compass|assets/items/compass_rs.webp]] <<if $SubAnalyzer == true>>[img[Substance Analyzer|assets/items/Substance-Analyzer_rs.webp]]<</if>></div></div>
 <div class="index-screens-normal"><div><strong>Components and Buildings operated by your spaceship:</strong></div>
-<div><<if $CampJ.TransMast == true>>[img[Transmission Mast|assets/items/antenna_CJ_rs.png]] <</if>><<if $CampJ.EHarvester != 0>>[img[Energy Harvester|assets/items/sun-collectors_rs.png]] <</if>><<if $CampJ.DefPerimeter == true>>[img[Defense Perimeter|assets/items/defense-perimeter_rs.png]] <</if>><<if $CampJ.Farm == 5>>[img[Horticulture|assets/items/farm_rs.png]] <</if>><<if $CampJ.Orb == 3>>[img[Floating Orb|assets/items/The-Orb_rs.png]]&nbsp;<<elseif  $CampJ.nOrb == 3 && $CampJ.cOrb == 1>>[img[Orb +Navigation|assets/items/navigation-Orb_rs.png]]&nbsp;<<elseif $CampJ.nOrb == 1 && $CampJ.cOrb == 3>>[img[Orb +Combat|assets/items/combat-Orb_rs.png]]&nbsp;<<elseif $CampJ.nOrb == 3 && $CampJ.cOrb == 3>>[img[Orb +Navi +Combat|assets/items/nc-Orb_rs.png]]&nbsp;<</if>></div><div><<if $CampJ.building > $CampJ.maxbuilding>><<set $CampJ.building = $CampJ.maxbuilding>><<elseif $CampJ.building < 0>><<set $CampJ.building = 0>><</if>>The camp has <<= $CampJ.building>> of maximal <<= $CampJ.maxbuildings>> buildings.</div></div>
+<div><<if $CampJ.TransMast == true>>[img[Transmission Mast|assets/items/antenna_CJ_rs.webp]] <</if>><<if $CampJ.EHarvester != 0>>[img[Energy Harvester|assets/items/sun-collectors_rs.webp]] <</if>><<if $CampJ.DefPerimeter == true>>[img[Defense Perimeter|assets/items/defense-perimeter_rs.webp]] <</if>><<if $CampJ.Farm == 5>>[img[Horticulture|assets/items/farm_rs.webp]] <</if>><<if $CampJ.Orb == 3>>[img[Floating Orb|assets/items/The-Orb_rs.webp]]&nbsp;<<elseif  $CampJ.nOrb == 3 && $CampJ.cOrb == 1>>[img[Orb +Navigation|assets/items/navigation-Orb_rs.webp]]&nbsp;<<elseif $CampJ.nOrb == 1 && $CampJ.cOrb == 3>>[img[Orb +Combat|assets/items/combat-Orb_rs.webp]]&nbsp;<<elseif $CampJ.nOrb == 3 && $CampJ.cOrb == 3>>[img[Orb +Navi +Combat|assets/items/nc-Orb_rs.webp]]&nbsp;<</if>></div><div><<if $CampJ.building > $CampJ.maxbuilding>><<set $CampJ.building = $CampJ.maxbuilding>><<elseif $CampJ.building < 0>><<set $CampJ.building = 0>><</if>>The camp has <<= $CampJ.building>> of maximal <<= $CampJ.maxbuildings>> buildings.</div></div>
 <div class="index-screens-small"><div><div><strong>CYCLES:&nbsp;</strong></div><div><<= $days>></div></div>
 <div><div><strong>ENERGY:&nbsp;</strong></div><div><<if ($maxenergy*$storageFactor) < 0>><<set ($maxenergy*$storageFactor) = 0>><</if>><<if $energy > ($maxenergy*$storageFactor)>><<set $energy = ($maxenergy*$storageFactor)>><</if>><<= $energy.toFixed(1)>> of maximal <<= ($maxenergy*$storageFactor)>></div></div>
 <div><div><strong>UNIMATTER:&nbsp;</strong></div><div><<if $unimatter < 0>><<set $unimatter = 0>><</if>><<if $unimatter > ($maxunimatter*$storageFactor)>><<set $unimatter = ($maxunimatter*$storageFactor)>><<elseif $unimatter < 0>><<set $unimatter = 0>><</if>><<= $unimatter.toFixed(1)>> Unimatter</div></div></div>
@@ -584,12 +590,6 @@ Phase 2: Conduct a comprehensive survey to assess:
 </div>
 </center>
 
-DEVELOPPER: [[Testing]]
-
-TESTING: [[3E-Event]] [[Camp Mountain]] [[random events]]
-
-Variable Checker: [[VariableControl]] [[Territories]]
-
 
 :: Camp Mountain [autosave] {"position":"1050,925","size":"100,100"}
 <<nobr>>
@@ -601,12 +601,12 @@ Variable Checker: [[VariableControl]] [[Territories]]
   <<if $QuestPoolDone.includes($Q1CC2B)>><<set $storageFactor = 1>><<else>><<set $storageFactor = 2>><</if>>
   <<if $eventfrom3E>><<set $summand = 2>><<else>><<set $summand = 0>><</if>>
   <<if $nutrients <= 5>><<script>>window.showWarningPopup();<</script>><</if>>
-<</nobr>><center><center>[img[assets/Ch-Camp/MountainCamp.png]]</center>
+<</nobr>><center><center>[img[assets/Ch-Camp/MountainCamp.webp]]</center>
 
 <div class="passage-titles" style="color: #d2a679; border-bottom-color: #d2a679; border-top-color: #d2a679;"><center><h2><strong>Camp Mountain</strong></h2></center></div>
 <div class="order-indices">
-<div class="index-screens-normal"><div><strong>Things in the inventory:</strong></div><div>[img[Materials Printer|assets/items/3D-Printer_rs.png]] [img[Compass|assets/items/compass_rs.png]] <<if $SubAnalyzer>>[img[Substance Analyzer|assets/items/Substance-Analyzer_rs.png]]<</if>></div></div>
-<div class="index-screens-normal"><div><strong>Components and Buildings operated by your spaceship:</strong></div><div><<if $CampM.TransMast>>[img[Transmission Mast|assets/items/antenna_CM_rs.png]] <</if>><<if $CampM.EHarvester != 0>>[img[Energy Harvester|assets/items/sun-collectors_rs.png]] <</if>><<if $CampM.DefPerimeter>>[img[Defense Perimeter|assets/items/defense-perimeter_rs.png]] <</if>><<if $CampM.Farm == 5>>[img[Horticulture|assets/items/farm_rs.png]] <</if>><<if $CampM.Orb == 3>>[img[Floating Orb|assets/items/The-Orb_rs.png]]&nbsp;<<elseif $CampM.nOrb == 3 && $CampM.cOrb == 1>>[img[Orb +Navigation|assets/items/navigation-Orb_rs.png]]&nbsp;<<elseif $CampM.nOrb == 1 && $CampM.cOrb == 3>>[img[Orb +Combat|assets/items/combat-Orb_rs.png]]&nbsp;<<elseif $CampM.nOrb == 3 && $CampM.cOrb == 3>>[img[Orb +Navi +Combat|assets/items/nc-Orb_rs.png]]&nbsp;<</if>></div><div><<if $CampM.building > $CampM.maxbuildings>><<set $CampM.building = $CampM.maxbuildings>><<elseif $CampM.building < 0>><<set $CampM.building = 0>><</if>>The camp has <<= $CampM.building>> of maximal <<= $CampM.maxbuildings>> buildings.</div></div>
+<div class="index-screens-normal"><div><strong>Things in the inventory:</strong></div><div>[img[Materials Printer|assets/items/3D-Printer_rs.webp]] [img[Compass|assets/items/compass_rs.webp]] <<if $SubAnalyzer>>[img[Substance Analyzer|assets/items/Substance-Analyzer_rs.webp]]<</if>></div></div>
+<div class="index-screens-normal"><div><strong>Components and Buildings operated by your spaceship:</strong></div><div><<if $CampM.TransMast>>[img[Transmission Mast|assets/items/antenna_CM_rs.webp]] <</if>><<if $CampM.EHarvester != 0>>[img[Energy Harvester|assets/items/sun-collectors_rs.webp]] <</if>><<if $CampM.DefPerimeter>>[img[Defense Perimeter|assets/items/defense-perimeter_rs.webp]] <</if>><<if $CampM.Farm == 5>>[img[Horticulture|assets/items/farm_rs.webp]] <</if>><<if $CampM.Orb == 3>>[img[Floating Orb|assets/items/The-Orb_rs.webp]]&nbsp;<<elseif $CampM.nOrb == 3 && $CampM.cOrb == 1>>[img[Orb +Navigation|assets/items/navigation-Orb_rs.webp]]&nbsp;<<elseif $CampM.nOrb == 1 && $CampM.cOrb == 3>>[img[Orb +Combat|assets/items/combat-Orb_rs.webp]]&nbsp;<<elseif $CampM.nOrb == 3 && $CampM.cOrb == 3>>[img[Orb +Navi +Combat|assets/items/nc-Orb_rs.webp]]&nbsp;<</if>></div><div><<if $CampM.building > $CampM.maxbuildings>><<set $CampM.building = $CampM.maxbuildings>><<elseif $CampM.building < 0>><<set $CampM.building = 0>><</if>>The camp has <<= $CampM.building>> of maximal <<= $CampM.maxbuildings>> buildings.</div></div>
 <div class="index-screens-small"><div><div><strong>CYCLES:&nbsp;</strong></div><div><<= $days>></div></div><div><div><strong>ENERGY:&nbsp;</strong></div><div><<if ($maxenergy*$storageFactor) < 0>><<set $maxenergy = 0>><</if>><<if $energy > ($maxenergy*$storageFactor)>><<set $energy = ($maxenergy*$storageFactor)>><</if>><<= $energy.toFixed(1)>> of maximal <<= ($maxenergy*$storageFactor)>></div></div><div><div><strong>UNIMATTER:&nbsp;</strong></div><div><<if $unimatter < 0>><<set $unimatter = 0>><</if>><<if $unimatter > ($maxunimatter*$storageFactor)>><<set $unimatter = ($maxunimatter*$storageFactor)>><<elseif $unimatter < 0>><<set $unimatter = 0>><</if>><<= $unimatter.toFixed(1)>> Unimatter</div></div></div>
 <div class="index-screens-normal"><div><strong>NUTRIENTS:</strong></div><<nobr>><<if $nutrients > ($maxnutrients*$storageFactor)>><<set $nutrients = ($maxnutrients*$storageFactor)>><</if>><</nobr>><div>We have <<= $nutrients>> nutrients in storage. Each person consume one unit of nutrients per cycle. We can only store a quantity of <<= ($maxnutrients*$storageFactor)>>.</div></div>
 <div class="index-screens-professions"><div class="title-profession"><strong>PROFESSIONS:</strong></div><div class="index-professions"><div> Xenology: <<= ($xeno*$navOrb).toFixed(1)>></div> + <div>Combatibility: <<= ($combat*$cbtOrb).toFixed(1)>></div> + <div>Engineering: <<= $engineering.toFixed(1)>></div> + <div>Interactibility: <<= $social.toFixed(1)>></div></div></div></div>
@@ -626,12 +626,12 @@ Variable Checker: [[VariableControl]] [[Territories]]
 
 </center>
 
-DEVELOPPER: [[Testing]]
-
 
 :: Check my pod {"position":"925,300","size":"100,100"}
-<center>
-[img[assets/Ch-Crash/Pod1.png]]
+<<nobr>>
+	<<if $firsttime == false>><<script>>SimpleAudio.select("RD_A005").volume(1).stop();<</script>><<audio "RD_A006" play>><<set $firsttime = true>><</if>>
+<</nobr>><center>
+[img[assets/Ch-Crash/Zoeken-Predator.webp]]
 <blockquote>
 Hm. Nice! Like it is designed to be: sturdy.
 
@@ -640,7 +640,7 @@ Now. What to do? I have <<= $energy>> energy left.
 Ech! Nothing happens. It is boring. Maybe I should try to go out anyway? 
 <<elseif $energy <= 0>><<goto "Shutdown">>
 <</if>>
-<<ab>>[[Look for other stranded|LostiJ]]<</ab>>
+<<ab>>[[Look for other stranded|LostiJ][$firsttime = false]]<</ab>>
 <<if $passagevisited == false>>
 <<ab>>[[Check for salvageables|Search for Compass]]<</ab>>
 <</if>><<if $energy != 4>>
@@ -655,21 +655,21 @@ Ech! Nothing happens. It is boring. Maybe I should try to go out anyway?
 <center><blockquote><<set _rNr = random(3)>>
 <<nobr>>
 <<if _rNr == 0>>
-      [img[assets/backgrounds/combat_training.png]]
+      [img[assets/backgrounds/combat_training.webp]]
 <<elseif _rNr == 1 && ($Camp_M || $eventfrom3E)>>
-      [img[assets/backgrounds/combat_training1.png]]
+      [img[assets/backgrounds/combat_training1.webp]]
 
       Elva joins me in a training session.<br>
 <<elseif _rNr == 2 && ($Camp_M || $eventfrom3E)>>
-      [img[assets/characters/Elva/Elva_combat.png]]
+      [img[assets/characters/Elva/Elva_combat.webp]]
 
       Elva joins me for a sparring match.<br>
 <<elseif _rNr == 3 && $SFW_Path == false && $Camp_M && $social > 7>>
-    	[img[assets/characters/Elva/Elva_combat.png]]
+    	[img[assets/characters/Elva/Elva_combat.webp]]
         
         That is gonna be a twofactored battle; for the mind as well for the body.
 <<else>>
-      [img[assets/backgrounds/combat_training2.png]]
+      [img[assets/backgrounds/combat_training2.webp]]
 <</if>>
 
 <br>
@@ -684,7 +684,7 @@ And for other reasons, as: to counteract brain degeneration and for energy effic
 :: Construction Menu {"position":"2950,975","size":"100,100"}
 <center>/* <<nobr>>
     <<set $anyorbtrueCJ = [$CampJ.Orb, $CampJ.nOrb, $CampJ.cOrb, $CampJ.cnOrb]; $anyorbtrueCM = [$CampM.Orb, $CampM.nOrb, $CampM.cOrb, $CampM.cnOrb]>>
-<</nobr>> */<center>[img[assets/items/3D-Printer.png]]</center>
+<</nobr>> */<center>[img[assets/items/3D-Printer.webp]]</center>
   <div class="passage-titles" style="color: #336699; border-bottom-color: #336699; border-top-color: #336699;"><center><h3><strong>Construction Menu</strong></h3></center></div>
   <div class="index-screens-small"><div><strong>ENERGY:&nbsp;</strong>
     <<if $energy > $maxenergy>><<set $energy = $maxenergy>><<elseif $energy < 0>><<set $energy = 0>><</if>><<= $energy.toFixed(1)>> of maximal <<= $maxenergy>></div>
@@ -866,7 +866,7 @@ And for other reasons, as: to counteract brain degeneration and for energy effic
 
 :: Council Round 2 {"position":"3325,1725","size":"100,100"}
 <center><blockquote>
-[img[assets/backgrounds/Placeholder.png]]
+[img[assets/backgrounds/Placeholder.webp]]
 
 <<say "RD">>Sooo! What do you make out of this situation?<</say>>
 
@@ -931,7 +931,7 @@ Abiba looks sideways, grinds her left teeth while the others do not veto. Leo lo
 
 :: Council Round 3 {"position":"3325,1975","size":"100,100"}
 <center><blockquote>
-[img[assets/backgrounds/Placeholder.png]]
+[img[assets/backgrounds/Placeholder.webp]]
 
 <<say "Vika">>So there is someone!<</say>>
 
@@ -984,7 +984,7 @@ Anyway. Time for: <<ab>>[[brainstorm and design|Scheduler][$QuestPool.delete($Q3
 
 :: Council Vote {"position":"3325,1600","size":"100,100"}
 <center><blockquote>
-[img[assets/backgrounds/Placeholder.png]]
+[img[assets/backgrounds/Placeholder.webp]]
 
 <<timed 1s>>.<</timed>><<timed 2s>>.<</timed>><<timed 3s>>.<</timed>>
 
@@ -1010,76 +1010,15 @@ Leo looks to all our eyes, especially at mine more harder. <em>Huh? What!</em>
 
 
 :: Crash {"position":"800,300","size":"100,100"}
-<<nobr>><<script>>SimpleAudio.select("V6").volume(1).stop(); SimpleAudio.select("V7").volume(1).stop(); SimpleAudio.select("BgMusic").volume(1).stop();<</script>><</nobr>><center><blockquote><<audio "V8" play>>
+<<nobr>><<script>>SimpleAudio.select("RD_A004").volume(1).stop(); SimpleAudio.select("BgMusic").volume(1).stop();<</script>><</nobr>><center><blockquote><<audio "RD_A005" play>>
 <em>Moan. Ugh. Oooph</em>, what a ride. That I get awake just in the moment of impact, what kind of a dick move is that? It is a miracle that I am still whole and functioning. Although ... will luck still continue to be on my side?
 
 <<ab>>[[Check my pod]]<</ab>>
 </blockquote></center>
 
 
-:: DateFilippina {"position":"475,175","size":"100,100"}
-<center><blockquote>
-<video width="346" height="224" controls loop>
-  <source src="assets/Ch-Intro/Indo1.webm" type="video/webm">
-  Your browser does not support the video tag.
-</video>
-Oh yes. Lick it gooood.
-
-<<linkappend "Up it into the wet snatch!" t8n>>
-	<video width="346" height="224" controls loop>
-		<source src="assets/Ch-Intro/Indo2.webm" type="video/webm">
-		Your browser does not support the video tag.
-	</video>
-    No much foreplay needed, I guess I am that handsome.
-<</linkappend>>
-
-<<linkappend "Up and down, up and down" t8n>>
-	<video width="346" height="224" controls loop>
-		<source src="assets/Ch-Intro/Indo3.webm" type="video/webm">
-		Your browser does not support the video tag.
-	</video>
-    If that continues on ...
-<</linkappend>>
-
-<<linkappend "Change, I need a 5 seconds break." t8n>>
-	<video width="250" height="224" controls loop>
-		<source src="assets/Ch-Intro/Indo10.webm" type="video/webm">
-		Your browser does not support the video tag.
-	</video>
-    An in it goes again.
-<</linkappend>>
-
-<<linkappend "Baby, goddamn!" t8n>>
-	<video width="346" height="224" controls loop>
-		<source src="assets/Ch-Intro/Indo8.webm" type="video/webm">
-		Your browser does not support the video tag.
-	</video>
-    Damn indeed! Is she hot! Wet! And greedy! Whoo!
-<</linkappend>>
-
-<<linkappend "I am coming at my limit!" t8n>>
-	<video width="346" height="224" controls loop>
-		<source src="assets/Ch-Intro/Indo9.webm" type="video/webm">
-		Your browser does not support the video tag.
-	</video>
-    Aaaand, ecstacy!
-<</linkappend>>
-
-<<linkappend "Cuddling time" t8n>>
-	[img[assets/Ch-Intro/cuddle.jpg]]
-    What is more beautiful than cuddling with each other after hot and sweaty sex?
-<</linkappend>>
-
-<<timed 8000ms>>
-After many minutes
-<</timed>>
-
-<<ab>>[[I am ready|Intro3]]<</ab>>
-</blockquote></center>
-
-
 :: Disintegration Menu {"position":"3100,975","size":"100,100"}
-<center><center>[img[assets/items/3D-Printer.png]]</center>
+<center><center>[img[assets/items/3D-Printer.webp]]</center>
 <div class="passage-titles" style="color: #943838; border-bottom-color: #943838; border-top-color: #943838;"><center><h3><strong>Disintegration Menu</strong></h3></center></div>
 <div class="index-screens-small"><div><strong>ENERGY:&nbsp;</strong>
 <<if $energy > $maxenergy>><<set $energy = $maxenergy>><<elseif $energy < 0>><<set $energy = 0>><</if>><<= $energy.toFixed(1)>> of maximal <<= $maxenergy>></div><div><strong>UNIMATTER:&nbsp;</strong>
@@ -1139,58 +1078,58 @@ After many minutes
 <center><blockquote>
 <<if random(5) > 1>>
   <<if $Elva_ICP.EI1>>
-    [img[assets/characters/Elva/ER_1.png]]
+    [img[assets/characters/Elva/ER_1.webp]]
 
     Elva and I were talking about the defenses here and what she did in her training as a marine. I learned something something from her.<<set $combat += 0.05>><<if $Elvavisits > 4 && $social > 2>><<set $Elva_ICP.EI2 = true; $Elva_ICP.EI1 = false; $Elvavisits = 5>><</if>>
 <<elseif $SFW_Path == false>>  
   <<if $Elva_ICP.EI2 || $Elvavisits < 7>>
-    [img[assets/characters/Elva/ER_2.png]]
+    [img[assets/characters/Elva/ER_2.webp]]
     
-    Elva had fun with me training in Combat Arts. She looked at me behind her shoulder while going to showers.<<set $combat += 0.1>><<if $social > 3 && $Elvavisits > 6>><<set $Elva_ICP.EI3 = true; $Elva_ICP.EI2 = false; $Elvavisits = 7>><</if>>
+ <<set $combat += 0.1>><<if $social > 3 && $Elvavisits > 6>><<set $Elva_ICP.EI3 = true; $Elva_ICP.EI2 = false; $Elvavisits = 7>><</if>>
   <<elseif $Elva_ICP.E3 || $Elvavisits < 10>>
-    [img[assets/characters/Elva/ER_4_1.png]]
+    [img[assets/characters/Elva/ER_4_1.webp]]
+  
+  <<if $social > 4 && $Elvavisits > 9>><<set $Elva_ICP.EI4 = true; $Elva_ICP.EI3 = false; $Elvavisits = 10>><</if>>
     
-    She is undressing and want to tease me. Oh, yes! I so have no objections here.<<if $social > 4 && $Elvavisits > 9>><<set $Elva_ICP.EI4 = true; $Elva_ICP.EI3 = false; $Elvavisits = 10>><</if>>
+    <<linkappend "" t8n>>
+    [img[assets/characters/Elva/ER_m2_1.webp]]
     
-    <<linkappend "She undresses her jacket." t8n>>
-    [img[assets/characters/Elva/ER_m2_1.png]]
-    
-    Oh boy, my heart skipped a beat. Would I lick her body over every pore and. Slap. That. Booty!
+ 
     <</linkappend>>
   <<elseif $Elva_ICP.E4 || $Elvavisits < 14>>
-    [img[assets/characters/Elva/ER_6.png]]
+    [img[assets/characters/Elva/ER_6.webp]]
     
-    We were talking and talking. The more we did, the more she felt comfortable.<<if $social > 5 && $Elvavisits > 13>><<set $Elva_ICP.EI5 = true; $Elva_ICP.EI4 = false; $Elvavisits = 14>><</if>>
+<<if $social > 5 && $Elvavisits > 13>><<set $Elva_ICP.EI5 = true; $Elva_ICP.EI4 = false; $Elvavisits = 14>><</if>>
     
     <<linkappend "More so that she shows no inhibitions." t8n>>
-    [img[assets/characters/Elva/ER_8.png]]
+    [img[assets/characters/Elva/ER_8.webp]]
     
-    Now, talking has become not easy. Obviously that my brain is split. My concentration is dispersed. I need more oxygen.
+
     <</linkappend>>
 
     <<elseif $Elva_ICP.E5 || $Elvavisits < 16>>
-      [img[assets/characters/Elva/ER_m3.png]]
+      [img[assets/characters/Elva/ER_m3.webp]]
       
-      I entered her cabin, she wanted to show me something. And yes, it is my second birthday today, And christmas! And new year's eve!<<if $social > 6 && $Elvavisits > 16>><<set $Elva_ICP.EI6 = true; $Elva_ICP.EI5 = false; $Elvavisits = 17>><</if>>
+<<if $social > 6 && $Elvavisits > 16>><<set $Elva_ICP.EI6 = true; $Elva_ICP.EI5 = false; $Elvavisits = 17>><</if>>
       
-      <<linkappend "Oh, ya sweet milkers!" t8n>>
-      [img[assets/characters/Elva/ER_m5.png]]
+      <<linkappend "" t8n>>
+      [img[assets/characters/Elva/ER_m5.webp]]
       
-      Like she can read my thoughts, she arches her back and gave me the most sensual curves for since my time here.
+
       <</linkappend>>
     <<elseif $Elva_ICP.E6 || $Elvavisits < 20>>
-      [img[assets/characters/Elva/ER_m5_2.png]]
-      
-      Elva wanted to feel me, and I her. A bit of emotional bonding, a bit of intimacy, a bit of comfort, a bit of all and everything.<<if $social > 7 && $Elvavisits > 19>><<set $Elva_ICP.EI7 = true; $Elva_ICP.EI6 = false; $Elvavisits = 20>><</if>>
+      [img[assets/characters/Elva/ER_m5_2.webp]]
+
+<<if $social > 7 && $Elvavisits > 19>><<set $Elva_ICP.EI7 = true; $Elva_ICP.EI6 = false; $Elvavisits = 20>><</if>>
     <<elseif $Elva_ICP.E7 || $Elvavisits < 25>>
-      [img[assets/characters/Elva/ER_m5_3.png]]
+      [img[assets/characters/Elva/ER_m5_3.webp]]
       
-      Now, it is desire; raw, carnal, racy and sweaty!
+
       <<set $energy -= 2>>
       
-      (end of content for version 0.1)<<if $Elvavisits > 25>><<set $Elvavisits = 25>><</if>>
+<<if $Elvavisits > 25>><<set $Elvavisits = 25>><</if>>
     <<else>>
-      [img[assets/characters/Elva/ER_1.png]]
+      [img[assets/characters/Elva/ER_1.webp]]
       
       We were chatting about our situation here and generally about our life.
     <</if>>
@@ -1247,22 +1186,25 @@ You can close the window.
 
 
 :: EndPoint ChCrash {"position":"1175,300","size":"100,100"}
+<<nobr>><<script>>
+	SimpleAudio.stop();
+<</script>><</nobr>>
 <center><blockquote>
 <<nobr>><div style="position: relative;">
-    <img id="VikaFront" src="assets/characters/Vika_2.png">
-    <img src="assets/Ch-Camp/JungleCamp.png">
+    <img id="VikaFront" src="assets/characters/Vika_2.webp">
+    <img src="assets/Ch-Camp/JungleCamp.webp">
 </div><</nobr>>
 
-Oh! Am I glad to find another stranded.
+Oh! Am I glad to find our spaceship.<<audio "RD_A008" play>>
 
-<<say "Vika">><<if hasVisited("Shutdown")>>Fella! Can I tell you how glad I am to find another one of you?<<else>>Fellas! Can I tell you how glad I am to find the likes of you?<</if>><</say>>
+<<say "Vika">><<if hasVisited("Shutdown")>><<timed 3s>><<audio "Vika_A001_1" play>><</timed>>Fella! Can I tell you how glad I am to find another one of you?<<else>><<timed 3s>><<audio "Vika_A001_2" play>><</timed>>Fellas! Can I tell you how glad I am to find the likes of you?<</if>><</say>>
 
 <<ab>> [[Same here, same here|AnteVote]]<</ab>>
  </blockquote></center>
 
 
 :: Energy Harvester {"position":"2300,300","size":"100,100"}
-<center>[img[assets/items/sun-collectors.png]]
+<center>[img[assets/items/sun-collectors.webp]]
 <blockquote>
 Yes, with our energy harvester - which "harvest" sun rays, winds, gravitation, molecular dis- and integration, atomic fusion - we have raised the energy regeneration rate.
 
@@ -1286,7 +1228,7 @@ Always pushing the knowledge frontier. With AI.
 
 :: Epilogue {"position":"3300,2475","size":"100,100"}
 <center><blockquote>
-[img[assets/backgrounds/Placeholder.png]]
+[img[assets/backgrounds/Placeholder.webp]]
 
 EPILOG
 
@@ -1296,19 +1238,19 @@ EPILOG
 
 <<say "blackface">>Good. Luckily it was sloppy and inexperienced, but it shouldn't happen again. A setback, a painful time-consuming backup reset of this magnitude is ... unnerving! Nonetheless, we know now that we have a rival.<</say>>
 
-<<say "blackface">>The report of our investigators and forensics should be coming through anytime of now.<</say>>
+<<say "blackface">>The report from our investigators and forensics should be coming through at any moment.<</say>>
 
 <<say "blackface">>Good. Good.<</say>>
 
-Report coming through. Please authorize. 
+<div style="color:skyblue">Report coming through. Please authorize.</div>
 
 <<say "blackface">>Open<</say>>
 
-Please wait. Sync authorization with security.
+<div style="color:skyblue">Please wait. Sync authorization with security.</div>
 
 <<say "blackface">>Come on<</say>>
 
-Authorized. Report accessible.
+<div style="color:lightgreen">Authorized. Report accessible.</div>
 
 <<say "blackface">>Good. Now, show yourself!<</say>>
 
@@ -1318,9 +1260,9 @@ Authorized. Report accessible.
 
 <<say "blackface">><em>Ugh!</em> indicates a rogue AI ... which could explain the continual absence of SOLARIS' BLESSING ... although unknown for which reason ... <</say>>
 
-<<say "blackface">> ... first signature ... timedate dates back to ... originated with a 97% confidence from those locations: Tau Ceti, Teegarden, Luyten, Gliese 876 and 581, YZ Ceti and Kapteyn.<</say>>
+<<say "blackface">> ... first signature ... timedate dates back to ... originated with a 97% confidence from those locations: Tau Ceti, Teegarden, Kapteyn, Gliese 876 and 581, YZ Ceti and Luyten.<</say>>
 
-<<say "blackface">>Begin operations on these stars and sectors!<</say>>
+<<say "blackface">>Begin operations with the focus on these stars!<</say>>
 
 --- END OF GAME and STORY ---
 
@@ -1328,7 +1270,7 @@ Authorized. Report accessible.
 
 
 :: Foot of a Mountain {"position":"1800,300","size":"100,100"}
-<center>[img[assets/items/antenna_CM.png]]
+<center>[img[assets/items/antenna_CM.webp]]
 <blockquote>
 Since, luckily, I had the compass, I did not spend too much energy. Which gave us an optimal total balance (no forgetti! We are practically machines, too) for a fly.
 We found two spots on the mountaineous ridge, one for parking, the other one for the antenna. Both in visible distance. 
@@ -1352,7 +1294,7 @@ But, for me personally, I welcome to have two more ladies: Elva and Abiba.
 
 :: Go gratulate both ladies {"position":"2300,2275","size":"100,100"}
 <center><blockquote>
-[img[assets/backgrounds/Placeholder.png]]
+[img[assets/backgrounds/Placeholder.webp]]
 
 
 <<ab>><<if $Camp_J>>[[Camp Jungle]]<<else>>[[Camp Mountain]]<</if>><</ab>>
@@ -1362,7 +1304,7 @@ But, for me personally, I welcome to have two more ladies: Elva and Abiba.
 
 :: Go gratulating Vika {"position":"2300,2150","size":"100,100"}
 <center><blockquote>
-[img[assets/backgrounds/Placeholder.png]]
+[img[assets/backgrounds/Placeholder.webp]]
 
 
 <<ab>><<if $Camp_J>>[[Camp Jungle]]<<else>>[[Camp Mountain]]<</if>><</ab>>
@@ -1372,7 +1314,7 @@ But, for me personally, I welcome to have two more ladies: Elva and Abiba.
 
 :: Hold a council {"position":"3325,1475","size":"100,100"}
 <center><blockquote>
-[img[assets/backgrounds/Placeholder.png]]
+[img[assets/backgrounds/Placeholder.webp]]
 
 After opening a virtual space, it didn't took long for them to enter.
 
@@ -1537,26 +1479,23 @@ The Laksmana is looking intently to his human senior security engineer, which is
 
 
 :: Intro2 {"position":"475,300","size":"100,100"}
-<<nobr>><<script>>SimpleAudio.select("V2").volume(1).stop();<</script>><</nobr>><center>
-[img[assets/backgrounds/Dock_by_Kuldar_Leement.png]]
-<blockquote><<audio "V3" play>><<audio "BgMusic" loop play>>
+<<nobr>><<script>>SimpleAudio.select("RD_A002").volume(1).stop();<</script>><</nobr>><center>
+[img[assets/backgrounds/Dock_by_Kuldar_Leement.webp]]
+<blockquote><<audio "RD_A003" play>><<audio "BgMusic" loop play>>
 That's the big spacecruiser. Made for voyaging from Earth to other galaxies. A big Chunker, that one. Many boasted engineering feats werde done to enable a better inter-galactical travel. Hopefully it won't become our titanic. Ha haaa. But, inter galactic travel is still a long journey. Therefore it is practically a ferrying city, with all its typical elements: bakery, cafeteria, park, university, club, city hall, residential area, apartments, restaurants etc. You get the gist. 
 
 What about Family? Friends? In a way they travel with me, as virtual clones. Same with me, a virtual clone with them, updated in cycles. Funnily, if I rather want not much contact, I virtually clone myself. With time they notice, depending how investive they were to me. Clearly, we do not have endless storage, even in the universe. 
-<<timed 53s>><<audio "V4" play>><</timed>>
+
 Anyway, as an obligatory out-field practice repectively inter-change student program, I have to partake on this journey, as my professor was commissioned to go there. Am I happy to go? Huh ... I am not quite a believer in active steering of destiny. Yeah, practically: I am lazy. Let see to where it takes me.
-<<if $SFW_Path == true>><<timed 72s>><<audio "V5" play>><</timed>>
-	But! Not that lazy to have packed, say goodbye and handled all digidocs for departure that is in 3 hours. I am already stacked inside, connected, but I decided to dwell still on the old world. Wondering what I will miss when being afar ... <<timed 3000ms>>ah, [[whatever!|Intro3]]<</timed>>
- <<else>>
- 	But! Definitely not lazy to enjoy [[time with my filippine date!|DateFilippina]]
-<</if>>
+
+	But! Not that lazy to have packed, say goodbye and handled all digidocs for departure that is in 3 hours. I am already stacked inside, connected, but I decided to dwell still on the old world. Wondering what I will miss when being afar ... ah, [[whatever!|Intro3]]
 </blockquote></center>
 
 
 :: Intro3 {"position":"600,300","size":"100,100"}
-<<nobr>><<script>>SimpleAudio.select("V3").volume(1).stop(); SimpleAudio.select("V4").volume(1).stop(); SimpleAudio.select("V5").volume(1).stop();<</script>><</nobr>><center>
-[img[assets/backgrounds/To_the_Moon_by_Voyager212.png]]
-<blockquote><<audio "V6" play>><<audio "BgMusic" loop play>>
+<<nobr>><<script>>SimpleAudio.select("RD_A003").volume(1).stop();<</script>><</nobr>><center>
+[img[assets/backgrounds/To_the_Moon_by_Voyager212.webp]]
+<blockquote><<audio "RD_A004" play>><<audio "BgMusic" loop play>>
 Aaand ignition!
 
 ...
@@ -1572,7 +1511,7 @@ Hahaa, do not tell me we have humour!
 ...
 
 Fine, it is: SOLARIS' BLESSING.
-<<timed 52s>><<audio "V7" play>><</timed>>
+
 So. 
 In this journey, in the virtual city I will enjoy going out, meet people, have dates. Only to be met by frustrations and dissappointments. And, on top of all, my prof will force me to cram, cram, cram. Äääch! Hippiyay. Too much cramming cannot be good, so I go out anew, meet people, have fun, all as much my hormones allows me. Aaaand the cycle repeats: frustrations, dissappointments, cramming. 
 
@@ -1586,7 +1525,7 @@ The answer may be given to <<linkappend "me." t8n>> Soon. <<nobr>>
 
 
 :: Leo {"position":"3525,350","size":"100,100"}
-<center><blockquote><<if random(5) >= 1>>[img[assets/characters/2_men_talking.png]]
+<center><blockquote><<if random(5) >= 1>>[img[assets/characters/2_men_talking.webp]]
 
   I had an interesting viewpoint from him about AI's and algorithms.
 
@@ -1612,32 +1551,25 @@ The answer may be given to <<linkappend "me." t8n>> Soon. <<nobr>>
 
 
 :: Leo Crashsite {"position":"1175,175","size":"100,100"}
-<center>[img[assets/Ch-Crash/Pod2.png]]<<unset $numero>>
+<<nobr>>
+	<<if $firsttime == false>><<script>>SimpleAudio.select("RD_A006").volume(1).stop();<</script>><<audio "RD_A007" play>><<set $firsttime = true>><</if>>
+<</nobr>><center>[img[assets/Ch-Crash/Pod2.webp]]<<unset $numero>>
 <blockquote>
 Another stranded. And this one is quite dilapidated. He has his movement, but barely any limbs (no forgetti, we are inside machines). He will survive, but not up to top. I help him getting up. He thanks me and asks me if I have a compass?
 
 <<if $compass == true>>
-<div class="Char">
-<div class="Char-Framer"><img class="Char-img" src="assets/characters/RD.png"></div><div class="Char-dialogues">Yes I have one.</div></div>
-<div class="Char">
-<div class="Char-Framer"><img class="Char-img" src="assets/characters/Leo.png"></div><div class="Char-dialogues">Oh good, then we can find the others.</div></div>
-<div class="Char">
-<div class="Char-Framer"><img  class="Char-img" src="assets/characters/RD.png"></div><div class="Char-dialogues">True. Although there is only one signal.</div></div>
-<div class="Char">
-<div class="Char-Framer"><img class="Char-img" src="assets/characters/Leo.png"></div><div class="Char-dialogues">Hm. Well, anyway. Like as we can do anything here. Let us go.</div></div>
+<<say "RD">>Yes I have one.<</say>><<timed 18s>><<audio "RD_A007_1" play>><</timed>>
+<<say "Leo">>Oh good, then we can find the others.<</say>><<timed 20s>><<audio "Leo_A001_1" play>><</timed>>
+<<say "RD">>True. Although there is only one signal.<</say>><<timed 23s>><<audio "RD_A007_2" play>><</timed>>
+<<say "Leo">>Hm. Well, anyway. Like as we can do anything here. Let us go.<</say>><<timed 27s>><<audio "Leo_A001_2" play>><</timed>>
 
 <<ab>>[[Go to the only and last signal|EndPoint ChCrash]]<</ab>>
 <<else>>
-<div class="Char">
-<div class="Char-Framer"><img class="Char-img" src="assets/characters/RD.png"></div><div class="Char-dialogues">Nope</div></div>
-<div class="Char">
-<div class="Char-Framer"><img class="Char-img" src="assets/characters/Leo.png"></div><div class="Char-dialogues">So, you just found me by sheer luck?</div></div>
-<div class="Char">
-<div class="Char-Framer"><img class="Char-img" src="assets/characters/RD.png"></div><div class="Char-dialogues">Pretty cool, eh.</div></div>
-<div class="Char">
-<div class="Char-Framer"><img class="Char-img" src="assets/characters/Leo.png"></div><div class="Char-dialogues">...</div></div>
-<div class="Char">
-<div class="Char-Framer"><img class="Char-img" src="assets/characters/Leo.png"></div><div class="Char-dialogues">Anyway, you should find one in my pod.</div></div>
+<<say "RD">>Nope<</say>><<timed 18s>><<audio "RD_A007_3" play>><</timed>>
+<<say "Leo">>So, you just found me by sheer luck?<</say>><<timed 19s>><<audio "Leo_A001_3" play>><</timed>>
+<<say "RD">>Pretty cool, eh.<</say>><<timed 22s>><<audio "RD_A007_4" play>><</timed>>
+<<say "Leo">>...<</say>>
+<<say "Leo">>Anyway, you should find one in my pod.<</say>><<timed 24s>><<audio "Leo_A001_4" play>><</timed>>
 
 <<ab>>[[Search for Compass]]<</ab>>
 <</if>>
@@ -1645,9 +1577,9 @@ Another stranded. And this one is quite dilapidated. He has his movement, but ba
 
 
 :: Like this {"position":"350,300","size":"100,100"}
-<<nobr>><<script>>SimpleAudio.select("V1").volume(1).stop();<</script>><</nobr>><center>
-[img[assets/characters/cylinder.png]]
-<blockquote><<audio "V2" play>><<audio "BgMusic" loop play>>
+<<nobr>><<script>>SimpleAudio.select("RD_A001").volume(1).stop();<</script>><</nobr>><center>
+[img[assets/characters/cylinder.webp]]
+<blockquote><<audio "RD_A002" play>><<audio "BgMusic" loop play>>
 That's me at birth. Cute, eh? Arms and Legs are missing, though. They come later. Why in virtual age do we need a complete organic body? We are connected to the cloud, internet, parallel world, peer-to-peer. Countries are practically virtual now. Borders? Nah, firewalls.
 
 And since we are in the future, or like in the past, every technology is subject to evolution. Despite of advanced technology, no entity - except of (maybe) the universe - has unlimited data storage. Professionals are still in demand like in every time.
@@ -1677,7 +1609,7 @@ Choose in which profession I should master:
     
     <<ab>>[[Go to the more distant signal|EndPoint ChCrash]]<</ab>>
 <<else>>
-	[img[assets/Ch-Explore/lostinjungle.png]]
+	[img[assets/Ch-Explore/lostinjungle.webp]]
     
     I have <<= $energy>> energy. I cannot be lost! Otherwise, I am at mercy of others to find me. 
   <<nobr>>
@@ -1699,18 +1631,21 @@ Choose in which profession I should master:
 
 :: Menu {"position":"100,300","size":"100,100"}
 <center>
-[img[assets/backgrounds/bg-cover.png]]
+[img[assets/backgrounds/bg-cover.webp]]
 
 <div class="text" style="width:50vw">Hello. Hola. Moin. Salve. 
 
 Huzzah! My first game!
 
-This game is designed for desktop and mobile version. The sidebar therefore is only for rollback, saving, loading and restarting. As I tested many times, I am satisfied with the outcome. Although I fear, some skewed layout will happen to some of you. Hopefully not you, eh. Anyway, if you want to support me by giving me feedbacks, ideas, suggestions, co-authoring, tips, corrections etc., please do: pi.nola@tutanota.com.
+This game is designed for desktop and mobile version. The sidebar therefore is only for rollback, saving, loading and restarting. As I tested many times, I am satisfied with the outcome. Although I fear, some skewed layout will happen to some of you. Hopefully not you, eh. Anyway, if you want to support me by giving me feedbacks, ideas, suggestions, co-authoring, tips, corrections etc., please do: pajozim@gmail.com.
 
-IMPORTANT:
+Sidenotes:
 
-The game has erotic elements. But they are pretty vanilla for me. No fetishes or kinks. And don't get me started with Futas, maldición! So, as obviously, you should be at the age of your country to consume erotica. If you are not, you may enjoy this game by going the SFW-route.
+By selling my soul, notably to Google, I could use some free services. However, these only go as that far. The voices are created using ElevenLabs. Some pictures are sourced from the internet (the origins are in the image links), while others are created by tensor.art and seaart.ai. Consistency and context are still significant challenges in AI image generation, which is why characters may appear different in each new image. Additionally, visionary depictions, such as different carbon-based life forms (imagine red-colored leaves, blue-colored grass, sponge-like trees, fungus with its spore clouds, etc.), still require human artists.
 
+This game is free and has no intention of generating income, as it was my formation project.
+
+If you wish to hear some music and voices, you can toggle the speaker icon on the top-right corner of this browser window. <div onmouseover="document.querySelector('.soundonoff').style.opacity = '1'" onmouseout="document.querySelector('.soundonoff').style.opacity = '0'" style="cursor: default; color: cadetblue;"><u>Hover me to show you.</u></div>
 
 Aside from formalities:
 
@@ -1718,7 +1653,6 @@ Well then, ancient. Welcome to the future, as it is already now, oldtimer. Ready
 </div>
 
 <<ab>>[[Yes]]<</ab>>
-<<ab>>[[Yes, but ...(SFW)|Yes][$SFW_Path = true]]<</ab>>
 </center>
 
 
@@ -1738,7 +1672,7 @@ But please continue on if you are interested in the story.
 <<nobr>>
 	<<set $Oeu = 0.3>>
   <<if $OrbTransport.first()>><<run setTimeout(function() {window.scrollTo(0, document.body.scrollHeight * 0.5);}, 0);>><</if>>
-<</nobr>><center><center>[img[assets/backgrounds/Orb_Config_3.png]]</center>
+<</nobr>><center><center>[img[assets/backgrounds/Orb_Config_3.webp]]</center>
 <blockquote>
 <<print $OrbTransport>>
   <div class="passage-titles" style="color: #ff5c33; border-bottom-color: #ff5c33; border-top-color: #ff5c33;"><center><h3><strong>Orb Automation Configuration</strong></h3></center></div>
@@ -1851,7 +1785,7 @@ What do I want for the Orb to collect?<<nobr>>
 <center><blockquote><<nobr>>
 <div id="PassTile3E"></div>
   <<if $choice1P3E == 1>><<timed 0s>>
-    <<replace "#PassTile3E">>[img[assets/backgrounds/placeholder.png]]<br><br>
+    <<replace "#PassTile3E">>[img[assets/backgrounds/placeholder.webp]]<br><br>
       Well then, onwards.<br><br>
       <<timed 2s>>
         .<<timed 2s>>.<<timed 2s>>.<br>
@@ -1864,7 +1798,7 @@ What do I want for the Orb to collect?<<nobr>>
       <</timed>><</timed>><</if>><</timed>><</timed>><</timed>><</timed>>
     <</replace>><</timed>>
   <<elseif $choice1P3E == 2>><<timed 0s>>
-    <<replace "#PassTile3E">>[img[assets/backgrounds/placeholder.png]]<br><br>
+    <<replace "#PassTile3E">>[img[assets/backgrounds/placeholder.webp]]<br><br>
       Well then, YOLO!<br><br>
       <<timed 2s>>
         .<<timed 2s>>.<<timed 2s>>.<br>
@@ -1877,7 +1811,7 @@ What do I want for the Orb to collect?<<nobr>>
       <</timed>><</timed>><</if>><</timed>><</timed>><</timed>><</timed>>
     <</replace>><</timed>>
   <<elseif $choice1P3E == 3>><<timed 0s>>
-    <<replace "#PassTile3E">>[img[assets/backgrounds/placeholder.png]]<br><br>
+    <<replace "#PassTile3E">>[img[assets/backgrounds/placeholder.webp]]<br><br>
       Well then, the long way!<br><br>
       <<timed 2s>>
         .<<timed 2s>>.<<timed 2s>>.<br>
@@ -1891,7 +1825,7 @@ What do I want for the Orb to collect?<<nobr>>
     <</replace>><</timed>>
   <<elseif $choice1P3E == 4>>
     <<timed 0s>>
-      <<replace "#PassTile3E">>[img[assets/backgrounds/placeholder.png]] /* wrecked Camp */
+      <<replace "#PassTile3E">>[img[assets/backgrounds/placeholder.webp]] /* wrecked Camp */
 
         <br><<if $Camp_M>>Abiba and Leo saw us. They were asking us non-verbally what happened. I told them that I do not feel good.<<else>>Leo saw me. He has sunk his head, said nothing. The wrecked camp looks a bit more sorted, and Vika is relocated under a safer spot. Incredibly, sonsidering the short time I was out.<</if>><br><br>
 
@@ -1961,7 +1895,7 @@ What do I want for the Orb to collect?<<nobr>>
     <</timed>>
   <<elseif $choice1P3E == 6>>
     <<timed 0s>>
-    <<replace "#PassTile3E">>[img[assets/backgrounds/placeholder.png]]<br><br>
+    <<replace "#PassTile3E">>[img[assets/backgrounds/placeholder.webp]]<br><br>
 
       <<say "RD">>Guys, listen. Let us go to the camp in the jungle.<</say>><br>
 
@@ -1994,7 +1928,7 @@ What do I want for the Orb to collect?<<nobr>>
 
 :: Picture Disassemble {"position":"2675,2150","size":"100,100"}
 <center><blockquote>
-[img[assets/backgrounds/Placeholder.png]]
+[img[assets/backgrounds/Placeholder.webp]]
 
 
 <<ab>><<if $Camp_J>>[[Camp Jungle]]<<else>>[[Camp Mountain]]<</if>><</ab>>
@@ -2004,7 +1938,7 @@ What do I want for the Orb to collect?<<nobr>>
 
 :: Picture Dismantle Spaceship {"position":"2925,2150","size":"100,100"}
 <center><blockquote>
-[img[assets/backgrounds/Placeholder.png]]
+[img[assets/backgrounds/Placeholder.webp]]
 
 
 <<ab>><<if $Camp_J>>[[Camp Jungle]]<<else>>[[Camp Mountain]]<</if>><</ab>>
@@ -2014,7 +1948,7 @@ What do I want for the Orb to collect?<<nobr>>
 
 :: Picture Orb addendum {"position":"2425,2275","size":"100,100"}
 <center><blockquote><<set $addendum = true>>
-[img[assets/backgrounds/Placeholder.png]]
+[img[assets/backgrounds/Placeholder.webp]]
 
 Now. Time for the truth!
 
@@ -2025,7 +1959,7 @@ Now. Time for the truth!
 
 :: Picture Repair Spaceship {"position":"2800,2150","size":"100,100"}
 <center><blockquote>
-[img[assets/backgrounds/Placeholder.png]]
+[img[assets/backgrounds/Placeholder.webp]]
 
 
 <<ab>><<if $Camp_J>>[[Camp Jungle]]<<else>>[[Camp Mountain]]<</if>><</ab>>
@@ -2035,7 +1969,7 @@ Now. Time for the truth!
 
 :: Picture RepairBot {"position":"2550,2150","size":"100,100"}
 <center><blockquote>
-[img[assets/backgrounds/Placeholder.png]]
+[img[assets/backgrounds/Placeholder.webp]]
 
 
 <<ab>><<if $Camp_J>>[[Camp Jungle]]<<else>>[[Camp Mountain]]<</if>><</ab>>
@@ -2049,7 +1983,7 @@ Now. Time for the truth!
     <<set $QuestPool.delete($Q1CA); $QuestPoolDone.pushUnique($Q1CA); $QuestPool.pushUnique($Q1CA3); $VikaHeal = $days>>
   <</if>>
 <</nobr>><center><blockquote>
-[img[assets/backgrounds/Placeholder.png]]
+[img[assets/backgrounds/Placeholder.webp]]
 
 
 <<ab>><<if $Camp_J>>[[Camp Jungle]]<<else>>[[Camp Mountain]]<</if>><</ab>>
@@ -2059,7 +1993,7 @@ Now. Time for the truth!
 
 :: Picture Vika in Cryostasis {"position":"2175,2150","size":"100,100"}
 <center><blockquote>
-[img[assets/backgrounds/Placeholder.png]]
+[img[assets/backgrounds/Placeholder.webp]]
 
 
 <<ab>><<if $Camp_J>>[[Camp Jungle]]<<else>>[[Camp Mountain]]<</if>><</ab>>
@@ -2069,17 +2003,17 @@ Now. Time for the truth!
 
 :: Picture designing {"position":"2050,2275","size":"100,100"}
 <<if $designing == 1>>
-  [img[assets/events/brainstorm.png]]
+  [img[assets/events/brainstorm.webp]]
 <<elseif $designing == 2>>
-  [img[assets/events/feedback.png]]
+  [img[assets/events/feedback.webp]]
 <<elseif $designing == 3 && $printnanodrone>>
-  [img[assets/events/nanodroneimprove.png]]
+  [img[assets/events/nanodroneimprove.webp]]
 <<elseif $designing == 3 && $printdatainterpreter>>
-	[img[assets/events/datainterpreterprint.png]]
+	[img[assets/events/datainterpreterprint.webp]]
         
 	[[On to the next task|Scheduler][$datainterpreter = true; printdatainterpreter = false; $QuestPool.delete($Q3F); $QuestPoolDone.pushUnique($Q3F); $QuestPool.pushUnique($Q3G); $designing = 0]]
 <<elseif $designing == 4>>
-	[img[assets/events/nanodroneprint.png]]
+	[img[assets/events/nanodroneprint.webp]]
         
 	[[On to the next task|Scheduler][$nanodrone = true; $printnanodrone = false; $QuestPool.delete($Q3C); $QuestPoolDone.pushUnique($Q3C); $QuestPool.pushUnique($Q3D); $designing = 0]]
 <</if>><<if $designing.range(1, 3) && $printnanodrone || $designing.range(1, 2) && $printdatainterpreter>>
@@ -2091,7 +2025,7 @@ Now. Time for the truth!
 
 :: Picture repair Leo {"position":"2425,2150","size":"100,100"}
 <center><blockquote>
-[img[assets/backgrounds/Placeholder.png]]
+[img[assets/backgrounds/Placeholder.webp]]
 
 
 <<ab>><<if $Camp_J>>[[Camp Jungle]]<<else>>[[Camp Mountain]]<</if>><</ab>>
@@ -2101,7 +2035,7 @@ Now. Time for the truth!
 
 :: Picture the ladies in Cryostasis {"position":"2175,2275","size":"100,100"}
 <center><blockquote>
-[img[assets/backgrounds/Placeholder.png]]
+[img[assets/backgrounds/Placeholder.webp]]
 
 
 <<ab>><<if $Camp_J>>[[Camp Jungle]]<<else>>[[Camp Mountain]]<</if>><</ab>>
@@ -2339,9 +2273,9 @@ Now. Time for the truth!
 
 :: Questions {"position":"2800,2475","size":"100,100"}
 <center><blockquote>
-[img[assets/backgrounds/Placeholder.png]]
+[img[assets/backgrounds/Placeholder.webp]]
 
----- WARNING: LOOOOOOONG DIALOGUES ----
+---- WARNING: LOOOONG PAGE WITH DIALOGUES ----
 
 <<say "Vika">>Are you from the first generation?<</say>>
 
@@ -2620,7 +2554,7 @@ After Paavali were out of sight in the late afternoon horizon, Vika cast her dou
 
 But what was Paavali trying to hint?
 
-<input type="text" id="keywordInput" placeholder="Type your conclusion here" oninput="KeywordsCheck(this.value); localStorage.setItem('tries', (localStorage.getItem('tries') || 0) + 1)">
+<input type="text" id="keywordInput" placeholder="Type your conclusion here" oninput="KeywordsCheck(this.value)">
 
 <<script>>
 	window.further = function() {
@@ -2630,7 +2564,7 @@ But what was Paavali trying to hint?
 <script>
     function KeywordsCheck(value) {
         const group1 = ["AI", "artificial intelligence", "watcher", "guardian"];
-        const group2 = ["not to be trusted", "compromised","complicit", "complicity", "influenced", "by", "in influence", "in throes with"];
+        const group2 = ["not to be trusted", "not be trusted" , "compromised", "complicit", "complicity", "influenced", "by", "in influence", "in throes with", "not good", "not on our side"];
 
         let foundGroup1 = false;
         let foundGroup2 = false;
@@ -2653,9 +2587,11 @@ But what was Paavali trying to hint?
         } else if (!foundGroup1 && foundGroup2 || foundGroup1 && !foundGroup2) {
             document.getElementById('message').textContent = 'Not quite, but on the right track.';
             document.getElementById('message').style.color = 'yellow';
-        } else if (parseInt(localStorage.getItem('tries')) >= 500) { 
-            document.getElementById('message').innerHTML = 'Anyway ... <br><br><div class="actions-row" style="color:#68d"><div><a data-passage="Epilogue" class="link-internal" role="link" tabindex="0" onclick="further();">Epilogue</a></div></div>';
-            document.getElementById('message').style.color = 'tan';
+        } else if (value.length >= 200) { 
+            localStorage.setItem('tries', (localStorage.getItem('tries') || 0) + 1);
+            if (localStorage.getItem('tries') >= 200) { 
+                document.getElementById('message').innerHTML = 'Anyway ... <br><br><div class="actions-row" style="color:#68d"><div><a data-passage="Epilogue" class="link-internal" role="link" tabindex="0" onclick="further();">Epilogue</a></div></div>'; 
+                document.getElementById('message').style.color = 'tan'; } 
         } else {
             document.getElementById('message').textContent = 'Not what Paavali tried to hint. Not what made Leo disquiet.';
             document.getElementById('message').style.color = 'orange';
@@ -2672,7 +2608,7 @@ But what was Paavali trying to hint?
   <<include [[QuestTracker]]>>
   <<if hasVisited("T2N", "T1E") && $SubAnalyzer && $QuestPool.includes($Q0) && !$QuestPoolDone.includes($Q0)>><<set $QuestPool.delete($Q0); $QuestPoolDone.pushUnique($Q0)>><</if>>
 <</nobr>>
-<center>[img[assets/backgrounds/todo-list.png]]
+<center>[img[assets/backgrounds/todo-list.webp]]
 <blockquote>
 
 <div class="passage-titles" style="color:#ff944d; border-bottom-color: #ff944d; border-top-color: #ff944d;"><center><h2><strong>Task Monitor</strong></h2></center></div>
@@ -2701,7 +2637,7 @@ The "Q" key popups the task progressor everywhere.</center>
   <<if $engineering >= 1 && random(3) >0>>
       Yepp. My eye for engineering helps.
       <<set $compass = true>>
-      [img[assets/items/compass.png]]
+      [img[assets/items/compass.webp]]
 
       That is something useful. So, looking for other stranded shouldn't be that much of a problem.
 
@@ -2709,7 +2645,7 @@ The "Q" key popups the task progressor everywhere.</center>
     <<elseif random(3) > 2>>
     	Yepp.
      	<<set $compass = true>>
-        [img[assets/items/compass.png]]
+        [img[assets/items/compass.webp]]
         
         That is something useful. So, looking for other stranded shouldn't be that much of a problem.
         
@@ -2721,11 +2657,11 @@ The "Q" key popups the task progressor everywhere.</center>
       <</if>>
 <</timed>>
 <<else>><<nobr>>
-<img src="assets/Ch-Crash/inside-of-crashed-pod.png">
+<img src="assets/Ch-Crash/inside-of-crashed-pod.webp">
 <</nobr>>
 <<if $compass == false>>Hm. Where could be the compass? 
 
-<<timed 1000ms>>Anything on the left side?<</timed>><<timed 3000ms>> In the middle?<</timed>><<timed 4000ms>> [img[assets/items/compass.png]] 
+<<timed 1000ms>>Anything on the left side?<</timed>><<timed 3000ms>> In the middle?<</timed>><<timed 4000ms>> [img[assets/items/compass.webp]] 
 
 Oh yes.
 
@@ -2737,33 +2673,27 @@ Bien, bien. Now I have the compass. <</timed>>
 </blockquote></center>
 
 
-:: Setter {"position":"2200,1125","size":"100,100"}
-[[Testing]]
-
-
 :: SfBM open {"position":"2950,1350","size":"100,100"}
-[img[assets/Ch-Camp/MountainCamp.png]]
+[img[assets/Ch-Camp/MountainCamp.webp]]
   
   On a spot of a mountainous area, I found others! Yay! I guess, that is why the AI kept passive, because it knew, we will find the others ...
 
   Both damsels told me that they are less lucky. 3 others of their crewmates didn't make it since <<= $days>> cycles. Both alones make them feel rather lonely. They wish more company. I proposed, if possible, we will set a camp here. The more the merrier. They agreed without hesitation.
 
   I will go back and tell the others about the new option: the resettling to Camp Mountain.
-  
-<<ab>>[[Go back to Base|The Map][$energy -= 0.2+$Oeu]]<</ab>>
 
 
 :: Shutdown {"position":"1050,175","size":"100,100"}
 <center><blockquote>
 
 <<timed 1000ms>>Shutdown in 3
-<div class="Char"><div class="Char-Framer"><img class="Char-img" src="assets/characters/RD.png"></div><div class="Char-dialogues">Shit?! No! No!</div></div><</timed>>
+<div class="Char"><div class="Char-Framer"><img class="Char-img" src="assets/characters/RD.webp"></div><div class="Char-dialogues">Shit?! No! No!</div></div><</timed>>
 
 <<timed 2000ms>>2
-<div class="Char"><div class="Char-Framer"><img class="Char-img" src="assets/characters/RD.png"></div><div class="Char-dialogues"><em>Eeeech!</em></div></div><</timed>>
+<div class="Char"><div class="Char-Framer"><img class="Char-img" src="assets/characters/RD.webp"></div><div class="Char-dialogues"><em>Eeeech!</em></div></div><</timed>>
 
 <<timed 3000ms>>1
-<div class="Char"><div class="Char-Framer"><img class="Char-img" src="assets/characters/RD.png"></div><div class="Char-dialogues">Maldición! Oh please, oh please, someone find me!</div></div><</timed>>
+<div class="Char"><div class="Char-Framer"><img class="Char-img" src="assets/characters/RD.webp"></div><div class="Char-dialogues">Maldición! Oh please, oh please, someone find me!</div></div><</timed>>
 
 <<timed 4000ms>>Shutting Down<</timed>>
 <div class="anilightsout"></div>
@@ -2778,9 +2708,9 @@ Bien, bien. Now I have the compass. <</timed>>
         window.scrollTo(0, document.body.scrollHeight);
       }, 50); // Adjust delay as needed
     <</script>><</nobr>>
-[img[assets/characters/Rescue.png]]
+[img[assets/characters/Rescue.webp]]
 
-<div class="Char"><div class="Char-Framer"><img class="Char-img" src="assets/characters/RD.png"></div><div class="Char-dialogues">Huh?!
+<div class="Char"><div class="Char-Framer"><img class="Char-img" src="assets/characters/RD.webp"></div><div class="Char-dialogues">Huh?!
 
 Yes! Yes! I am saved</div></div>
 
@@ -2790,7 +2720,7 @@ Yes! Yes! I am saved</div></div>
 
 :: Situation in T1S2E {"position":"3325,1850","size":"100,100"}
 <center><blockquote>
-[img[assets/backgrounds/Placeholder.png]]
+[img[assets/backgrounds/Placeholder.webp]]
 
 <<say "blackface">>Waaait.<</say>>
 
@@ -2877,13 +2807,13 @@ He mimicked in the direction from where I came from. I concludes that is the spo
 <center><blockquote><<if $energy < 1>><<if $Camp_J>><<goto [[Camp Jungle]]>><<else>><<goto [[Camp Mountain]]>><</if>><</if>>
 With whom do I want to socialize?
 
-<<if $noVika == false && $energy > 1>>[img[Vika|assets/characters/Vika.png][Vika][$energy -= 1; $social += 0.04; $Vikavisits += 1]]<</if>>
+<<if $noVika == false && $energy > 1>>[img[Vika|assets/characters/Vika.webp][Vika][$energy -= 1; $social += 0.04; $Vikavisits += 1]]<</if>>
 
-<<if $noLeo == false && $energy > 1>>[img[Leo|assets/characters/Leo.png][Leo][$energy -= 1; $social += 0.1]]<</if>>
+<<if $noLeo == false && $energy > 1>>[img[Leo|assets/characters/Leo.webp][Leo][$energy -= 1; $social += 0.1]]<</if>>
 
-<<if $Camp_M || $TransMast2 || $eventfrom3E>><<if $noElva == false && $energy > 1>>[img[Elva|assets/characters/Elva.png][Elva][$energy -= 1; $social += 0.06; $Elvavisits += 1]]<</if>>
+<<if $Camp_M || $TransMast2 || $eventfrom3E>><<if $noElva == false && $energy > 1>>[img[Elva|assets/characters/Elva.webp][Elva][$energy -= 1; $social += 0.06; $Elvavisits += 1]]<</if>>
 
-<<if $noAbiba == false && $energy > 1>>[img[Abiba|assets/characters/Abiba.png][Abiba][$energy -= 1; $social += 0.08; $Abibavisits += 1]]<</if>><</if>>
+<<if $noAbiba == false && $energy > 1>>[img[Abiba|assets/characters/Abiba.webp][Abiba][$energy -= 1; $social += 0.08; $Abibavisits += 1]]<</if>><</if>>
 
 <div class="actions-row"><<if $Camp_J>><div>[[Back to the camp|Camp Jungle]]</div><<else>><div>[[Back to the camp|Camp Mountain]]</div><</if>></div>
 
@@ -2898,7 +2828,7 @@ With whom do I want to socialize?
 
 :: Substance Analyzer {"position":"2175,300","size":"100,100"}
 <center>
-[img[assets/items/Substance-Analyzer.png]]
+[img[assets/items/Substance-Analyzer.webp]]
 <blockquote>
 The substance analyzer is now in our inventory.
 
@@ -2915,7 +2845,7 @@ With that, we should be able to collect materials nearby. Hopefully, some can be
 	<<if $Camp_J>><<set $explored.TBJ0 = 100>><</if>>
 <</nobr>><<nobr>>
   <<if $Camp_J && $eventfrom3E != true && $energy <= 2*(0.2+$Oeu)>><<set $energy = 0>><<goto [[Camp Jungle]]>><<elseif $Camp_M && $eventfrom3E && hasVisited("3E-Event") && $energy <= 6*(0.2+$Oeu)>><<set $energy = 0>><<goto [[Camp Mountain]]>><<elseif $Camp_M && $eventfrom3E != true && $energy <= 4*(0.2+$Oeu)>><<set $energy = 0>><<goto [[Camp Mountain]]>><</if>>
-<</nobr>><center>[img[assets/Ch-Explore/T1E.png]]
+<</nobr>><center>[img[assets/Ch-Explore/T1E.webp]]
   <blockquote>
     <<if $eventfrom3E && not hasVisited("3E-Event")>>
       <<if $energy > 0.2>>
@@ -2961,7 +2891,7 @@ With that, we should be able to collect materials nearby. Hopefully, some can be
 :: T1N {"position":"875,2050","size":"100,100"}
 <<nobr>>
 	<<if $Camp_J>><<set $explored.TBJ0 = 100>><</if>>
-<</nobr>><center>[img[assets/Ch-Explore/T1N.png]]
+<</nobr>><center>[img[assets/Ch-Explore/T1N.webp]]
 <blockquote>
 Hm, a swampy area. Nothing useful here.
 
@@ -2975,7 +2905,7 @@ Hm, a swampy area. Nothing useful here.
 :: T1N2E {"position":"1125,2050","size":"100,100"}
 <<nobr>>
   <<if $Camp_J && $energy <= 3*(0.2+$Oeu)>><<set $energy = 0>><<goto [[Camp Jungle]]>><<elseif $Camp_M && $energy <= 4*(0.2+$Oeu)>><<set $energy = 0>><<goto [[Camp Mountain]]>><</if>>
-<</nobr>><center><<if !$scrapscollected>>[img[assets/Ch-Explore/T1N2E.png]]<<else>>[img[assets/Ch-Explore/T1N2E_empty.png]]<</if>>
+<</nobr>><center><<if !$scrapscollected>>[img[assets/Ch-Explore/T1N2E.webp]]<<else>>[img[assets/Ch-Explore/T1N2E_empty.webp]]<</if>>
 <blockquote>
 
 <<if !$looked>>There! I found another pod. But, shiiiet, it doesn't look good. If there is no one inside, then the person got lucky and must be alive somewhere. Or not alive. Somewhere.
@@ -3003,7 +2933,7 @@ Hm, a swampy area. Nothing useful here.
 :: T1N3E {"position":"1250,2050","size":"100,100"}
 <<nobr>>
   <<if $Camp_J && $energy <= 4*(0.2+$Oeu)>><<set $energy = 0>><<goto [[Camp Jungle]]>><<elseif $Camp_M && $energy <= 3*(0.2+$Oeu)>><<set $energy = 0>><<goto [[Camp Mountain]]>><</if>>
-<</nobr>><center>[img[assets/Ch-Explore/T1N3E.png]]
+<</nobr>><center>[img[assets/Ch-Explore/T1N3E.webp]]
 <blockquote>
 
 Yes, ok, that looks good. Like, I could be protected by those hills on the southern flank if I cross here through. Hopefully!
@@ -3018,7 +2948,7 @@ Yes, ok, that looks good. Like, I could be protected by those hills on the south
 :: T1N4E {"position":"1375,2050","size":"100,100"}
 <<nobr>>
   <<if $Camp_J && $energy <= 5*(0.2+$Oeu)>><<set $energy = 0>><<goto [[Camp Jungle]]>><<elseif $Camp_M && $energy <= 2*(0.2+$Oeu)>><<set $energy = 0>><<goto [[Camp Mountain]]>><</if>>
-<</nobr>><center>[img[assets/Ch-Explore/T1N4E.png]]
+<</nobr>><center>[img[assets/Ch-Explore/T1N4E.webp]]
 <blockquote>
 
     <<if $Camp_J>><<ab>>[[Go back to Base|The Map][$energy -= 5*(0.2+$Oeu)]]<</ab>><<else>><<ab>>[[Go back to Base|The Map][$energy -= 2*(0.2+$Oeu)]]<</ab>><</if>>
@@ -3033,7 +2963,7 @@ Yes, ok, that looks good. Like, I could be protected by those hills on the south
 	<<if $Camp_M>><<set $explored.TBM0 = 100>><</if>>
 <</nobr>><<nobr>>
   <<if $Camp_J && $energy <= 6*(0.2+$Oeu)>><<set $energy = 0>><<goto [[Camp Jungle]]>><<elseif $Camp_M && $energy <= 0.2+$Oeu>><<set $energy = 0>><<goto [[Camp Mountain]]>><</if>>
-<</nobr>><center>[img[assets/Ch-Explore/T1N5E.png]]
+<</nobr>><center>[img[assets/Ch-Explore/T1N5E.webp]]
 <blockquote>
 
     <<if $Camp_J>><<ab>>[[Go back to Base|The Map][$energy -= 6*(0.2+$Oeu)]]<</ab>><<else>><<ab>>[[Go back to Base|The Map][$energy -= 0.2+$Oeu]]<</ab>><</if>>
@@ -3046,7 +2976,7 @@ Yes, ok, that looks good. Like, I could be protected by those hills on the south
 :: T1NE {"position":"1000,2050","size":"100,100"}
 <<nobr>>
   <<if $Camp_J && $energy <= 2*(0.2+$Oeu)>><<set $energy = 0>><<goto [[Camp Jungle]]>><<elseif $Camp_M && $energy <= 5*(0.2+$Oeu)>><<set $energy = 0>><<goto [[Camp Mountain]]>><</if>>
-<</nobr>><center>[img[assets/Ch-Explore/T1NE.png]]
+<</nobr>><center>[img[assets/Ch-Explore/T1NE.webp]]
   <blockquote>
   
   Huh! A monolith. 
@@ -3066,7 +2996,7 @@ Yes, ok, that looks good. Like, I could be protected by those hills on the south
 :: T1NW {"position":"750,2050","size":"100,100"}
 <<nobr>>
   <<if $Camp_J && $energy <= 2*(0.2+$Oeu)>><<set $energy = 0>><<goto [[Camp Jungle]]>><<elseif $Camp_M && $energy <= 5*(0.2+$Oeu)>><<set $energy = 0>><<goto [[Camp Mountain]]>><</if>>
-<</nobr>><center>[img[assets/Ch-Explore/T1NW.png]]
+<</nobr>><center>[img[assets/Ch-Explore/T1NW.webp]]
   <blockquote>
   
 Nothing but forest, jungle, leaves, green, green, green and more greens. And the noises, constant cacophonies of noises that I barely know of. That's eerie.
@@ -3083,7 +3013,7 @@ Nothing but forest, jungle, leaves, green, green, green and more greens. And the
 	<<if $Camp_J>><<set $explored.TBJ0 = 100>><</if>>
 <</nobr>><<nobr>>
   <<if $Camp_J && $energy <= 0.2+$Oeu>><<set $energy = 0>><<goto [[Camp Jungle]]>><<elseif $Camp_M && $energy <= (6+$summand)*(0.2+$Oeu)>><<set $energy = 0>><<goto [[Camp Mountain]]>><</if>>
-<</nobr>><center>[img[assets/Ch-Explore/T1S.png]]
+<</nobr>><center>[img[assets/Ch-Explore/T1S.webp]]
 <blockquote>
 Dryness.
 
@@ -3102,7 +3032,7 @@ Water!
 :: T1S2E {"position":"1125,2300","size":"100,100"}
 <<nobr>>
   <<if $Camp_J && $energy <= (3*($Humcarrycap*0.2))+$Oeu>><<set $energy = 0>><<goto [[Camp Jungle]]>><</if>>
-<</nobr>><center>[img[assets/Ch-Explore/T1S2E.png]]
+<</nobr>><center>[img[assets/Ch-Explore/T1S2E.webp]]
 <blockquote>
 <<if $nanodrone == true>>
   Bueno! Bueno! Buenooo! 
@@ -3163,7 +3093,7 @@ Water!
 :: T1S2W {"position":"625,2300","size":"100,100"}
 <<nobr>>
   <<if $Camp_J && $energy <= 2*(0.2+$Oeu)>><<set $energy = 0>><<goto [[Camp Jungle]]>><<elseif $Camp_M && $energy <= 5*(0.2+$Oeu)>><<set $energy = 0>><<goto [[Camp Mountain]]>><</if>>
-<</nobr>><center>[img[assets/Ch-Explore/T1S2W.png]]
+<</nobr>><center>[img[assets/Ch-Explore/T1S2W.webp]]
   <blockquote>
   
   ... 
@@ -3183,7 +3113,7 @@ Although, it feels like ... here nearby are the crash sites of our pods. Whateve
 :: T1SE {"position":"1000,2300","size":"100,100"}
 <<nobr>>
   <<if $Camp_J && $energy <= 3*($Humcarrycap*0.2+$Oeu)>><<set $energy = 0>><<goto [[Camp Jungle]]>><</if>>
-<</nobr>><center>[img[assets/Ch-Explore/T1SE.png]]
+<</nobr>><center>[img[assets/Ch-Explore/T1SE.webp]]
   <blockquote>
 <<if $QuestPool.includes($Q3G) && $CampJ.Orb == 3>>
   We didn't set a time. But I felt like that it wasn't necessary. Then again, he is from an older generation, surely they do not know when someone nears. Shit. Do I have to go in again?
@@ -3214,7 +3144,7 @@ Although, it feels like ... here nearby are the crash sites of our pods. Whateve
   
   The time of truth!
 
-  <<linkappend "<<ab>>Signal the Orb to scan the storage container<</ab>>">> [img[assets/events/Orbscans.png]]
+  <<linkappend "<<ab>>Signal the Orb to scan the storage container<</ab>>">> [img[assets/events/Orbscans.webp]]
 
     <div class="dot-enqueuer"><div class="Dot1">.</div><div class="Dot2">.</div><div class="Dot3">.</div></div>
 
@@ -3248,7 +3178,7 @@ Although, it feels like ... here nearby are the crash sites of our pods. Whateve
 :: T1SW {"position":"750,2300","size":"100,100"}
 <<nobr>>
   <<if $Camp_J && $energy <= 2*(0.2+$Oeu)>><<set $energy = 0>><<goto [[Camp Jungle]]>><<elseif $Camp_M && $energy <= 5*(0.2+$Oeu)>><<set $energy = 0>><<goto [[Camp Mountain]]>><</if>>
-<</nobr>><center>[img[assets/Ch-Explore/T1SW.png]]
+<</nobr>><center>[img[assets/Ch-Explore/T1SW.webp]]
   <blockquote>
   
   	Aaand behind this ridge is the desert, the barren land ... what a contrast.
@@ -3266,7 +3196,7 @@ Although, it feels like ... here nearby are the crash sites of our pods. Whateve
 	<<if $Camp_J>><<set $explored.TBJ0 = 100>><</if>>
 <</nobr>><<nobr>>
   <<if $Camp_J && $energy <= 0.2+$Oeu>><<set $energy = 0>><<goto [[Camp Jungle]]>><<elseif $Camp_M && $energy <= (6+$summand)*(0.2+$Oeu)>><<set $energy = 0>><<goto [[Camp Mountain]]>><</if>>
-<</nobr>><center>[img[assets/Ch-Explore/T1W.png]]
+<</nobr>><center>[img[assets/Ch-Explore/T1W.webp]]
 <blockquote>
 
 Passing on the border of the swamp area.
@@ -3289,7 +3219,7 @@ Bring them to Camp anyway?
 :: T2E {"position":"1125,2175","size":"100,100"}
 <<nobr>>
   <<if $Camp_J && $eventfrom3E != true && $energy <= 2*(0.2+$Oeu)>><<set $energy = 0>><<goto [[Camp Jungle]]>><<elseif $Camp_M && $eventfrom3E && hasVisited("3E-Event") && $energy <= 5*(0.2+$Oeu)>><<set $energy = 0>><<goto [[Camp Mountain]]>><<elseif $Camp_M && $eventfrom3E != true && $energy <= 3*(0.2+$Oeu)>><<set $energy = 0>><<goto [[Camp Mountain]]>><</if>>
-<</nobr>><center>[img[assets/Ch-Explore/T2E.png]]
+<</nobr>><center>[img[assets/Ch-Explore/T2E.webp]]
 <blockquote><<nobr>>
 <<if not hasVisited("3E-Event") && $eventfrom3E>>
   <<set _run = 6>>
@@ -3363,7 +3293,7 @@ Bring them to Camp anyway?
 :: T2N {"position":"875,1925","size":"100,100"}
 <<nobr>>
   <<if $Camp_J && $energy <= 2*(0.2+$Oeu)>><<set $energy = 0>><<goto [[Camp Jungle]]>><<elseif $Camp_M && $energy <= 7*(0.2+$Oeu)>><<set $energy = 0>><<goto [[Camp Mountain]]>><</if>>
-<</nobr>><center><<if random(2) > 1>>[img[assets/Ch-Explore/T2N_1.png]]<<else>>[img[assets/Ch-Explore/T2N_2.png]]<</if>>
+<</nobr>><center><<if random(2) > 1>>[img[assets/Ch-Explore/T2N_1.webp]]<<else>>[img[assets/Ch-Explore/T2N_2.webp]]<</if>>
 <blockquote>
 There is no way to go further north in this swampy area. Possibility to go further north is lost, but something else possibly is gained.
 
@@ -3385,7 +3315,7 @@ Go to Camp, depositing the unimatter?
 :: T2N2E {"position":"1125,1925","size":"100,100"}
 <<nobr>>
   <<if $Camp_J && $energy <= 2*(0.2+$Oeu)>><<set $energy = 0>><<goto [[Camp Jungle]]>><<elseif $Camp_M && $energy <= 5*(0.2+$Oeu)>><<set $energy = 0>><<goto [[Camp Mountain]]>><</if>>
-<</nobr>><center>[img[assets/Ch-Explore/T2N2E.png]]
+<</nobr>><center>[img[assets/Ch-Explore/T2N2E.webp]]
   <blockquote>
   
   Yeapp, getting more and more watery. Now I cannot find another way.
@@ -3401,7 +3331,7 @@ Go to Camp, depositing the unimatter?
 :: T2S {"position":"875,2425","size":"100,100"}
 <<nobr>>
   <<if $Camp_J && $energy <= 2*(0.2+$Oeu)>><<set $energy = 0>><<goto [[Camp Jungle]]>><<elseif $Camp_M && $energy <= (7+$summand)*(0.2+$Oeu)>><<set $energy = 0>><<goto [[Camp Mountain]]>><</if>>
-<</nobr>><center>[img[assets/Ch-Explore/T2S.png]]
+<</nobr>><center>[img[assets/Ch-Explore/T2S.webp]]
   <blockquote>
   Sand. Heat. Weird formations. Sand. Heat. Did I say Heat? Heat!
   
@@ -3414,7 +3344,7 @@ Go to Camp, depositing the unimatter?
 :: T2W {"position":"625,2175","size":"100,100"}
 <<nobr>>
   <<if $Camp_J && $energy <= 2*(0.2+$Oeu)>><<set $energy = 0>><<goto [[Camp Jungle]]>><<elseif $Camp_M && $energy <= (7+$summand)*(0.2+$Oeu)>><<set $energy = 0>><<goto [[Camp Mountain]]>><</if>>
-<</nobr>><center>[img[assets/Ch-Explore/T2W.png]]
+<</nobr>><center>[img[assets/Ch-Explore/T2W.webp]]
 <blockquote>
 
 A small strip. Small bay. Too difficult to get down to the beach.
@@ -3428,7 +3358,7 @@ A small strip. Small bay. Too difficult to get down to the beach.
 :: T3E {"position":"1250,2175","size":"100,100"}
 <<nobr>>
   <<if $Camp_J && $energy <= 3*(0.2+$Oeu)>><<set $energy = 0>><<goto [[Camp Jungle]]>><<elseif $Camp_M && $energy <= 2*(0.2+$Oeu)>><<set $energy = 0>><<goto [[Camp Mountain]]>><</if>>
-<</nobr>><center>[img[assets/Ch-Explore/T3E.png]]
+<</nobr>><center>[img[assets/Ch-Explore/T3E.webp]]
 <blockquote>
 <span id="tohide">Hm, is that a spaceship? Or what is it?</span> <<nobr>>
 /* Content1 of Chapter 2 ---------------------- */
@@ -3436,13 +3366,13 @@ A small strip. Small bay. Too difficult to get down to the beach.
 
   <<if ($CampM.Orb == 3 || $CampJ.Orb == 3 || $CampJ.nOrb == 3 || $CampM.nOrb == 3 || $CampJ.cOrb == 3 || $CampM.cOrb == 3 || $CampJ.cnOrb == 3 || $CampM.cnOrb == 3) && $Oeu == 0.3>><br>
     <<linkappend '<<ab>>Use the Orb<</ab>>' t8n>><<set $QuestPool.delete($Q1), $QuestPoolDone.pushUnique($Q1); >><<replace "#ABhidden">>&nbsp;<</replace>><<replace "#tohide">>&nbsp;<</replace>><<replace "#3EBegin">>
-    [img[assets/backgrounds/floatingOrb.png]]
+    [img[assets/backgrounds/floatingOrb.webp]]
     <br>
     Ok, before I print something, I send the orb to scan as much as possible. With enough informations I can design more to the point. Also, I will know whether there is danger or where to get in ...<</replace>>
     <br><br>
       <<linkappend '<<ab>>Oookay, off it goes<</ab>>' t8n>><<replace "#3EBegin">>
       <br>
-      [img[assets/backgrounds/levOrb1.png]]
+      [img[assets/backgrounds/levOrb1.webp]]
       <br>
       With a whirring sound it swooshed upward and went off to scan.<</replace>>
       <br><br>
@@ -3511,11 +3441,11 @@ Where to go next?
 <<nobr>>
   <<if $Camp_J && $energy <= 3*(0.2+$Oeu)>><<set $energy = 0>><<goto [[Camp Jungle]]>><<elseif $Camp_M && $energy <= (8+$summand)*(0.2+$Oeu)>><<set $energy = 0>><<goto [[Camp Mountain]]>><</if>>
 <</nobr>><center><blockquote>
-<<if $noenglobe>>[img[assets/Ch-Explore/T3S.png]]
+<<if $noenglobe>>[img[assets/Ch-Explore/T3S.webp]]
 
   There are no more globe to be seen. Better check out tomorrow.
 
-<<else>>[img[assets/Ch-Explore/energy_deposit.png]]
+<<else>>[img[assets/Ch-Explore/energy_deposit.webp]]
 
   Whoa! That looks intense!
 
@@ -3550,7 +3480,7 @@ Where to go next?
 :: T3W {"position":"500,2175","size":"100,100"}
 <<nobr>>
   <<if $Camp_J && $energy <= 3*(0.2+$Oeu)>><<set $energy = 0>><<goto [[Camp Jungle]]>><<elseif $Camp_M && $energy <= (8+$summand)*(0.2+$Oeu)>><<set $energy = 0>><<goto [[Camp Mountain]]>><</if>>
-<</nobr>><center>[img[assets/Ch-Explore/T3W.png]]
+<</nobr>><center>[img[assets/Ch-Explore/T3W.webp]]
 <blockquote>
 Aah. Open space. Open air.
 
@@ -3564,7 +3494,7 @@ Aah. Open space. Open air.
 <<nobr>>
 	<<if $Camp_M>><<set $explored.TBM0 = 100>><</if>>
   <<if $Camp_J && $energy <= (4+$summand)*(0.2+$Oeu)>><<set $energy = 0>><<goto [[Camp Jungle]]>><<elseif $Camp_M && $energy <= 0.2+$Oeu>><<set $energy = 0>><<goto [[Camp Mountain]]>><</if>>
-<</nobr>><center>[img[assets/Ch-Explore/T4E.png]]
+<</nobr>><center>[img[assets/Ch-Explore/T4E.webp]]
 <blockquote>
 <<if not hasVisited("3E-Event") && $eventfrom3E>>
   <<set _run = 6>>
@@ -3610,7 +3540,7 @@ Aah. Open space. Open air.
 :: T4W {"position":"375,2175","size":"100,100"}
 <<nobr>>
   <<if $Camp_J && $energy <= 4*(0.2+$Oeu)>><<set $energy = 0>><<goto [[Camp Jungle]]>><<elseif $Camp_M && $energy <= (9+$summand)*(0.2+$Oeu)>><<set $energy = 0>><<goto [[Camp Mountain]]>><</if>>
-<</nobr>><center>[img[assets/Ch-Explore/T4W.png]]
+<</nobr>><center>[img[assets/Ch-Explore/T4W.webp]]
 <blockquote>
 The colors become more and more nicer, friendlier ...
 
@@ -3623,7 +3553,7 @@ The colors become more and more nicer, friendlier ...
 :: T5W {"position":"250,2175","size":"100,100"}
 <<nobr>>
   <<if $Camp_J && $energy <= 5*(0.2+$Oeu)>><<set $energy = 0>><<goto [[Camp Jungle]]>><<elseif $Camp_M && $energy <= (10+$summand)*(0.2+$Oeu)>><<set $energy = 0>><<goto [[Camp Mountain]]>><</if>>
-<</nobr>><center>[img[assets/Ch-Explore/T5W.png]]
+<</nobr>><center>[img[assets/Ch-Explore/T5W.webp]]
 <blockquote>
 Sandy Beach! That's a spot!
 
@@ -3636,7 +3566,7 @@ Sandy Beach! That's a spot!
 :: TBJ0 {"position":"875,2175","size":"100,100"}
 <<nobr>>
   <<if $Camp_M && $eventfrom3E && hasVisited("3E-Event") && $energy <= 7(0.2+$Oeu)>><<set $energy = 0>><<goto [[Camp Jungle]]>><<elseif $Camp_M && $eventfrom3E != true && $energy <= 5*(0.2+$Oeu)>><<set $energy = 0>><<goto [[Camp Mountain]]>><<elseif $Camp_J>><<goto [[Camp Jungle]]>><</if>>
-<</nobr>><center>[img[assets/Ch-Explore/TBCJ.png]]
+<</nobr>><center>[img[assets/Ch-Explore/TBCJ.webp]]
 <blockquote>
 <<if $Camp_M && lastVisited("TBJ0") is 0>>
 	That is a good spot to set a new camp. More spacious than up in the mountain. As well as a new base for exploring without descending from the mountains again and again.
@@ -3664,7 +3594,7 @@ Sandy Beach! That's a spot!
   <<elseif $QuestPool.includesAny($Q2A, $Q2B) || ($QuestPool.includes($Q2C) && $Q2D == false)>>
     <<goto [[dormant spaceship 2]]>>
   <<else>>
-    <<if $eventfrom3E>>[img[assets/Ch-Camp/MountainCamp_empty.png]]<<else>>[img[assets/Ch-Camp/MountainCamp.png]]<</if>>
+    <<if $eventfrom3E>>[img[assets/Ch-Camp/MountainCamp_empty.webp]]<<else>>[img[assets/Ch-Camp/MountainCamp.webp]]<</if>>
     <br>
     Nothing here.
   <</if>><</nobr>>
@@ -3765,86 +3695,6 @@ T5W: 0,
 }>>
 
 
-:: Test {"position":"3050,2625","size":"100,100"}
-But what was Paavali trying to hint?
-
-<input type="text" id="keywordInput" placeholder="Type your conclusion here" oninput="KeywordsCheck(this.value); localStorage.setItem('tries', (localStorage.getItem('tries') || 0) + 1)">
-
-<<script>>
-	window.further = function() {
-    Engine.play('Epilogue');
-  }
-<</script>>
-<script>
-    function KeywordsCheck(value) {
-        const group1 = ["AI", "artificial intelligence", "watcher", "guardian"];
-        const group2 = ["not to be trusted", "compromised","complicit", "complicity", "influenced", "by", "in influence", "in throes with"];
-
-        let foundGroup1 = false;
-        let foundGroup2 = false;
-
-        group1.forEach(word => {
-            if (value.includes(word)) {
-                foundGroup1 = true;
-            }
-        });
-
-        group2.forEach(word => {
-            if (value.includes(word)) {
-                foundGroup2 = true;
-            }
-        });
-
-        if (foundGroup1 && foundGroup2) {
-            document.getElementById('message').innerHTML = 'My, a keen one, are you.<br><br><div class="actions-row" style="color:#68d"><div><a data-passage="Epilogue" class="link-internal" role="link" tabindex="0" onclick="further();">Epilogue</a></div></div>';
-            document.getElementById('message').style.color = 'green';
-        } else if (!foundGroup1 && foundGroup2 || foundGroup1 && !foundGroup2) {
-            document.getElementById('message').textContent = 'Not quite, but on the right track.';
-            document.getElementById('message').style.color = 'yellow';
-        } else if (parseInt(localStorage.getItem('tries')) >= 500) { 
-            document.getElementById('message').innerHTML = 'Anyway ... <br><br><div class="actions-row" style="color:#68d"><div><a data-passage="Epilogue" class="link-internal" role="link" tabindex="0" onclick="further();">Epilogue</a></div></div>';
-            document.getElementById('message').style.color = 'tan';
-        } else {
-            document.getElementById('message').textContent = 'Not what Paavali tried to hint. Not what made Leo disquiet.';
-            document.getElementById('message').style.color = 'orange';
-        }
-    };
-</script>
-<div id="message"></div>
-
-
-:: Testing {"position":"2200,1000","size":"100,100"}
-<<button "Xeno+10">><<set $xeno += 10>><<goto [[Testing]]>><</button>>
-<<button "combat+10">><<set $combat += 10>><<goto [[Testing]]>><</button>>
-<<button "engineering+10">><<set $engineering += 10>><<goto [[Testing]]>><</button>>
-<<button "social+10">><<set $social = 10>><<goto [[Testing]]>><</button>>
-<<button "Unimatter+10">><<set $unimatter += 10>><<goto [[Testing]]>><</button>>
-<<button "Energy+10">><<set $energy += 10>><<goto [[Testing]]>><</button>>
-<<button "Nutrients +10">><<set $nutrients += 10>><<goto [[Testing]]>><</button>>
-<<button "Nutrients -10">><<set $nutrients -= 10>><<goto [[Testing]]>><</button>>
-<<button "cycles +10">><<set $days += 10>><<goto [[Testing]]>><</button>>
-----------------------------------------
-<<button "CampM nutrients to 0">><<set $CampM.nutrients = 0>><<goto [[Testing]]>><</button>>
-----------------------------------------
-<<button "SFW true">><<set $SFW_Path = true>><<goto [[Testing]]>><</button>>
-<<= $SFW_Path>>
-<<button "SFW false">><<set $SFW_Path = false>><<goto [[Testing]]>><</button>>
-----------------------------------------
-<<button "T5E to 100">><<set $explored.T5E = 100>><<goto [[Testing]]>><</button>>
-<<button "T3N to 100">><<set $explored.T3N  = 100	>><<goto [[Testing]]>><</button>>
-----------------------------------------
-----------------------------------------
-----------------------------------------
-----------------------------------------
-----------------------------------------
-
-[[Camp Jungle]]
-
-[[Camp Mountain]]
-
-[[Setter]]
-
-
 :: The Map {"position":"875,1500","size":"100,100"}
 <<nobr>>
   <<set _nummer = random(80)>>
@@ -3853,7 +3703,7 @@ But what was Paavali trying to hint?
 <</nobr>>
 <<if _nummer.range(0, 1)>>
 
-    [img[assets/Ch-Explore/hostile_encounter1.png]]
+    [img[assets/Ch-Explore/hostile_encounter1.webp]]
   
     Damn! Some mother alien, animal, four-legger seems to be in aggressive stance.
   
@@ -3885,7 +3735,7 @@ But what was Paavali trying to hint?
 
 <<elseif _nummer.range(2, 74) || _nummer.range(75, 80) && $ignore == 1>>
   <<nobr>><<if hasVisited("Camp Mountain")>><<set $exploredBM0 = 100>><</if>>
-  <div id="the_map"><img src="assets/Ch-Explore/map_evolution22.png" style="max-width:864px;max-height:605px">
+  <div id="the_map"><img src="assets/Ch-Explore/map_evolution22.webp" style="max-width:864px;max-height:605px">
   
   <<if $Camp_J || $explored.T1E >= 100>>
     <div id="theJBase">
@@ -3893,7 +3743,7 @@ But what was Paavali trying to hint?
       <<else>>
         <<if $Camp_M>>
           <<if $explored.TBJ0 >= 100>><<set $explored.TBJ0 = 100>>
-            <<if $energy < 10*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/TBCJ.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/TBCJ.png][TBJ0][$energy -= 5*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
+            <<if $energy < 10*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/TBCJ.webp]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/TBCJ.webp][TBJ0][$energy -= 5*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
           <<else>>
             <<if $energy >= 1>><<button "<<print $explored.TBJ0.toFixed(0)>>%">>
               <<set $explored.TBJ0 += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.02>>
@@ -3901,7 +3751,7 @@ But what was Paavali trying to hint?
               <</button>><</if>>
           <</if>>
         <<else>>
-          <div class="imgs-scaled">[img[JB|assets/Ch-Camp/JungleCamp.png][Camp Jungle]]</div>
+          <div class="imgs-scaled">[img[JB|assets/Ch-Camp/JungleCamp.webp][Camp Jungle]]</div>
         <</if>>
       <</if>>
     </div>
@@ -3913,12 +3763,12 @@ But what was Paavali trying to hint?
       <<else>>
         <<if $explored.T1E >= 100>><<set $explored.T1E = 100>>
           <<if $Camp_J>>
-            <<if $energy < 2*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T1E.png]]</div>
-            <<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T1E.png][T1E][$energy -= ($Humcarrycap*0.2)+$Oeu]]</div>
+            <<if $energy < 2*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T1E.webp]]</div>
+            <<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T1E.webp][T1E][$energy -= ($Humcarrycap*0.2)+$Oeu]]</div>
             <</if>>
           <<else>>
-            <<if $energy < 8*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T1E.png]]</div>
-            <<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T1E.png][T1E][$energy -= 4*(($Humcarrycap*0.2)+$Oeu)]]</div>
+            <<if $energy < 8*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T1E.webp]]</div>
+            <<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T1E.webp][T1E][$energy -= 4*(($Humcarrycap*0.2)+$Oeu)]]</div>
             <</if>>
           <</if>>
         <<else>>
@@ -3937,12 +3787,12 @@ But what was Paavali trying to hint?
       <<else>>
         <<if $explored.T2E >= 100>><<set $explored.T2E = 100>>
           <<if $Camp_J>>
-            <<if $energy < 4*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T2E.png]]</div>
-            <<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T2E.png][T2E][$energy -= 2*(($Humcarrycap*0.2)+$Oeu)]]</div>
+            <<if $energy < 4*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T2E.webp]]</div>
+            <<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T2E.webp][T2E][$energy -= 2*(($Humcarrycap*0.2)+$Oeu)]]</div>
             <</if>>
           <<else>>
-            <<if $energy < 6*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T2E.png]]</div>
-            <<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T2E.png][T2E][$energy -= 3*(($Humcarrycap*0.2)+$Oeu)]]</div>
+            <<if $energy < 6*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T2E.webp]]</div>
+            <<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T2E.webp][T2E][$energy -= 3*(($Humcarrycap*0.2)+$Oeu)]]</div>
             <</if>>
           <</if>>
         <<else>>
@@ -3962,9 +3812,9 @@ But what was Paavali trying to hint?
         <<else>>
           <<if $explored.T3E >= 100>><<set $explored.T3E = 100>>
             <<if $Camp_J>>
-              <<if $energy < 6*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T3E.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T3E.png][T3E][$energy -= 3*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
+              <<if $energy < 6*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T3E.webp]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T3E.webp][T3E][$energy -= 3*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
             <<else>>
-              <<if $energy < 4*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T3E.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T3E.png][T3E][$energy -= 2*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
+              <<if $energy < 4*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T3E.webp]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T3E.webp][T3E][$energy -= 2*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
             <</if>>
           <<else>>
             <<if $energy >= 1>><<button "<<print $explored.T3E.toFixed(0)>>%">>
@@ -3977,7 +3827,7 @@ But what was Paavali trying to hint?
     <</if>>
   <<else>>
     <div id="p3E">
-      <div class="imgs-opaqued">[img[assets/Ch-Explore/T3E.png]]</div>
+      <div class="imgs-opaqued">[img[assets/Ch-Explore/T3E.webp]]</div>
     </div>
   <</if>>
   
@@ -3987,9 +3837,9 @@ But what was Paavali trying to hint?
       <<else>>
         <<if $explored.T4E >= 100>><<set $explored.T4E = 100>>
           <<if $Camp_J>>
-            <<if $energy < 8*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T4E.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T4E.png][T4E][$energy -= 4*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
+            <<if $energy < 8*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T4E.webp]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T4E.webp][T4E][$energy -= 4*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
           <<else>>
-            <<if $energy < 2*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T4E.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T4E.png][T4E][$energy -= ($Humcarrycap*0.2)+$Oeu]]</div><</if>>
+            <<if $energy < 2*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T4E.webp]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T4E.webp][T4E][$energy -= ($Humcarrycap*0.2)+$Oeu]]</div><</if>>
           <</if>>
         <<else>>
           <<if $energy >= 1>><<button "<<print $explored.T4E.toFixed(0)>>%">>
@@ -4007,7 +3857,7 @@ But what was Paavali trying to hint?
       <<else>>
         <<if $Camp_J>>
           <<if $explored.TBM0 >= 100>><<set $explored.TBM0 = 100>>
-            <<if $energy < 10*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued"><<if $eventfrom3E>>[img[assets/Ch-Camp/MountainCamp_empty.png]]<<else>>[img[assets/Ch-Camp/MountainCamp.png]]<</if>></div><<else>><div class="imgs-scaled"><<if $eventfrom3E>>[img[assets/Ch-Camp/MountainCamp_empty.png][TBM0][$energy -= 5*(($Humcarrycap*0.2)+$Oeu)]]<<else>>[img[assets/Ch-Camp/MountainCamp.png][TBM0][$energy -= 5*(($Humcarrycap*0.2)+$Oeu)]]<</if>></div><</if>>
+            <<if $energy < 10*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued"><<if $eventfrom3E>>[img[assets/Ch-Camp/MountainCamp_empty.webp]]<<else>>[img[assets/Ch-Camp/MountainCamp.webp]]<</if>></div><<else>><div class="imgs-scaled"><<if $eventfrom3E>>[img[assets/Ch-Camp/MountainCamp_empty.webp][TBM0][$energy -= 5*(($Humcarrycap*0.2)+$Oeu)]]<<else>>[img[assets/Ch-Camp/MountainCamp.webp][TBM0][$energy -= 5*(($Humcarrycap*0.2)+$Oeu)]]<</if>></div><</if>>
           <<else>>
             <<if $energy >= 1>><<button "<<print $explored.TBM0.toFixed(0)>>%">>
             <<set $explored.TBM0 += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05>>
@@ -4015,7 +3865,7 @@ But what was Paavali trying to hint?
              <</button>><</if>>
           <</if>>
         <<else>>
-          <div class="imgs-scaled">[img[MB|assets/Ch-Camp/MountainCamp.png][Camp Mountain]]</div>
+          <div class="imgs-scaled">[img[MB|assets/Ch-Camp/MountainCamp.webp][Camp Mountain]]</div>
         <</if>>
       <</if>>
     </div>
@@ -4027,9 +3877,9 @@ But what was Paavali trying to hint?
       <<else>>
         <<if $explored.T1S >= 100>><<set $explored.T1S = 100>>
           <<if $Camp_J>>
-            <<if $energy < 2*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T1S.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T1S.png][T1S][$energy -= ($Humcarrycap*0.2)+$Oeu]]</div><</if>>
+            <<if $energy < 2*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T1S.webp]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T1S.webp][T1S][$energy -= ($Humcarrycap*0.2)+$Oeu]]</div><</if>>
           <<else>>
-            <<if $energy < 12*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T1S.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T1S.png][T1S][$energy -= 6*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
+            <<if $energy < 12*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T1S.webp]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T1S.webp][T1S][$energy -= 6*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
           <</if>>
         <<else>>
           <<if $energy >= 1>><<button "<<print $explored.T1S.toFixed(0)>>%">>
@@ -4047,9 +3897,9 @@ But what was Paavali trying to hint?
       <<else>>
         <<if $explored.T2S >= 100>><<set $explored.T2S = 100>>
           <<if $Camp_J>>
-            <<if $energy < 4*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T2S.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T2S.png][T2S][$energy -= 2*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
+            <<if $energy < 4*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T2S.webp]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T2S.webp][T2S][$energy -= 2*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
           <<else>>
-            <<if $energy < 14*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T2S.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T2S.png][T2S][$energy -= 7*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
+            <<if $energy < 14*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T2S.webp]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T2S.webp][T2S][$energy -= 7*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
           <</if>>
         <<else>>
           <<if $energy >= 1>><<button "<<print $explored.T2S.toFixed(0)>>%">>
@@ -4067,9 +3917,9 @@ But what was Paavali trying to hint?
       <<else>>
         <<if $explored.T3S >= 100>><<set $explored.T3S = 100>>
           <<if $Camp_J>>
-            <<if $energy < 6*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T3S.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T3S.png][T3S][$energy -= 3*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
+            <<if $energy < 6*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T3S.webp]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T3S.webp][T3S][$energy -= 3*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
           <<else>>
-            <<if $energy < 16*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T3S.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T3S.png][T3S][$energy -= 8*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
+            <<if $energy < 16*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T3S.webp]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T3S.webp][T3S][$energy -= 8*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
           <</if>>
         <<else>>
           <<if $energy >= 1>><<button "<<print $explored.T3S.toFixed(0)>>%">>
@@ -4087,9 +3937,9 @@ But what was Paavali trying to hint?
       <<else>>
         <<if $explored.T1W >= 100>><<set $explored.T1W = 100>>
           <<if $Camp_J>>
-            <<if $energy < 2*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T1W.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T1W.png][T1W][$energy -= ($Humcarrycap*0.2)+$Oeu]]</div><</if>>
+            <<if $energy < 2*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T1W.webp]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T1W.webp][T1W][$energy -= ($Humcarrycap*0.2)+$Oeu]]</div><</if>>
           <<else>>
-            <<if $energy < 12*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T1W.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T1W.png][T1W][$energy -= 6*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
+            <<if $energy < 12*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T1W.webp]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T1W.webp][T1W][$energy -= 6*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
           <</if>>
         <<else>>
           <<if $energy >= 1>><<button "<<print $explored.T1W.toFixed(0)>>%">>
@@ -4107,9 +3957,9 @@ But what was Paavali trying to hint?
       <<else>>
         <<if $explored.T2W >= 100>><<set $explored.T2W = 100>>
           <<if $Camp_J>>
-            <<if $energy < 4*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T2W.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T2W.png][T2W][$energy -= 2*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
+            <<if $energy < 4*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T2W.webp]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T2W.webp][T2W][$energy -= 2*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
           <<else>>
-            <<if $energy < 14*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T2W.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T2W.png][T2W][$energy -= 7*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
+            <<if $energy < 14*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T2W.webp]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T2W.webp][T2W][$energy -= 7*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
           <</if>>
         <<else>>
           <<if $energy >= 1>><<button "<<print $explored.T2W.toFixed(0)>>%">>
@@ -4127,9 +3977,9 @@ But what was Paavali trying to hint?
       <<else>>
         <<if $explored.T3W >= 100>><<set $explored.T3W = 100>>
           <<if $Camp_J>>
-            <<if $energy < 6*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T3W.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T3W.png][T3W][$energy -= 3*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
+            <<if $energy < 6*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T3W.webp]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T3W.webp][T3W][$energy -= 3*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
           <<else>>
-            <<if $energy < 16*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T3W.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T3W.png][T3W][$energy -= 8*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
+            <<if $energy < 16*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T3W.webp]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T3W.webp][T3W][$energy -= 8*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
           <</if>>
         <<else>>
           <<if $energy >= 1>><<button "<<print $explored.T3W.toFixed(0)>>%">>
@@ -4147,9 +3997,9 @@ But what was Paavali trying to hint?
       <<else>>
         <<if $explored.T4W >= 100>><<set $explored.T4W = 100>>
           <<if $Camp_J>>
-            <<if $energy < 8*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T4W.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T4W.png][T4W][$energy -= 4*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
+            <<if $energy < 8*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T4W.webp]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T4W.webp][T4W][$energy -= 4*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
           <<else>>
-            <<if $energy < 18*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T4W.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T4W.png][T4W][$energy -= 9*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
+            <<if $energy < 18*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T4W.webp]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T4W.webp][T4W][$energy -= 9*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
           <</if>>
         <<else>>
           <<if $energy >= 1>><<button "<<print $explored.T4W.toFixed(0)>>%">>
@@ -4167,9 +4017,9 @@ But what was Paavali trying to hint?
       <<else>>
         <<if $explored.T5W >= 100>><<set $explored.T5W = 100>>
           <<if $Camp_J>>
-            <<if $energy < 10*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T5W.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T5W.png][T5W][$energy -= 5*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
+            <<if $energy < 10*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T5W.webp]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T5W.webp][T5W][$energy -= 5*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
           <<else>>
-            <<if $energy < 20*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T5W.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T5W.png][T5W][$energy -= 10*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
+            <<if $energy < 20*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T5W.webp]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T5W.webp][T5W][$energy -= 10*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
           <</if>>
         <<else>>
           <<if $energy >= 1>><<button "<<print $explored.T5W.toFixed(0)>>%">>
@@ -4187,9 +4037,9 @@ But what was Paavali trying to hint?
       <<else>>
         <<if $explored.T1N >= 100>><<set $explored.T1N = 100>>
           <<if $Camp_J>>
-            <<if $energy < 2*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T1N.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T1N.png][T1N][$energy -= ($Humcarrycap*0.2)+$Oeu]]</div><</if>>
+            <<if $energy < 2*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T1N.webp]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T1N.webp][T1N][$energy -= ($Humcarrycap*0.2)+$Oeu]]</div><</if>>
           <<else>>
-            <<if $energy < 12*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T1N.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T1N.png][T1N][$energy -= 6*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
+            <<if $energy < 12*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T1N.webp]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T1N.webp][T1N][$energy -= 6*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
           <</if>>
         <<else>>
           <<if $energy >= 1>><<button "<<print $explored.T1N.toFixed(0)>>%">>
@@ -4207,9 +4057,9 @@ But what was Paavali trying to hint?
       <<else>>
         <<if $explored.T2N >= 100>><<set $explored.T2N = 100>>
           <<if $Camp_J>>
-            <<if $energy < 4*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T2N_1.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T2N_1.png][T2N][$energy -= 2*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
+            <<if $energy < 4*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T2N_1.webp]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T2N_1.webp][T2N][$energy -= 2*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
           <<else>>
-            <<if $energy < 14*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T2N_2.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T2N_2.png][T2N][$energy -= 7*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
+            <<if $energy < 14*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T2N_2.webp]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T2N_2.webp][T2N][$energy -= 7*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
           <</if>>
         <<else>>
           <<if $energy >= 1>><<button "<<print $explored.T2N.toFixed(0)>>%">>
@@ -4231,7 +4081,7 @@ But what was Paavali trying to hint?
       <<else>>
         <<if $explored.T1NE >= 100>><<set $explored.T1NE = 100>>
           <<if $Camp_J>>
-            <<if $energy < 4*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T1NE.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T1NE.png][T1NE][$energy -= 2*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
+            <<if $energy < 4*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T1NE.webp]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T1NE.webp][T1NE][$energy -= 2*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
           <</if>>
         <<else>>
           <<if $energy >= 1>><<button "<<print $explored.T1NE.toFixed(0)>>%">>
@@ -4249,7 +4099,7 @@ But what was Paavali trying to hint?
       <<else>>
         <<if $explored.T1N2E >= 100>><<set $explored.T1N2E = 100>>
           <<if $Camp_J>>
-            <<if $energy < 6*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued"><<if !$scrapscollected>>[img[assets/Ch-Explore/T1N2E.png]]<<else>>[img[assets/Ch-Explore/T1N2E_empty.png]]<</if>></div><<else>><div class="imgs-scaled"><<if !$scrapscollected>>[img[assets/Ch-Explore/T1N2E.png][T1N2E][$energy -= 3*(($Humcarrycap*0.2)+$Oeu)]]<<else>>[img[assets/Ch-Explore/T1N2E_empty.png][T1N2E][$energy -= 3*(($Humcarrycap*0.2)+$Oeu)]]<</if>></div><</if>>
+            <<if $energy < 6*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued"><<if !$scrapscollected>>[img[assets/Ch-Explore/T1N2E.webp]]<<else>>[img[assets/Ch-Explore/T1N2E_empty.webp]]<</if>></div><<else>><div class="imgs-scaled"><<if !$scrapscollected>>[img[assets/Ch-Explore/T1N2E.webp][T1N2E][$energy -= 3*(($Humcarrycap*0.2)+$Oeu)]]<<else>>[img[assets/Ch-Explore/T1N2E_empty.webp][T1N2E][$energy -= 3*(($Humcarrycap*0.2)+$Oeu)]]<</if>></div><</if>>
           <</if>>
         <<else>>
           <<if $energy >= 1>><<button "<<print $explored.T1N2E.toFixed(0)>>%">>
@@ -4267,7 +4117,7 @@ But what was Paavali trying to hint?
       <<else>>
         <<if $explored.T1N3E >= 100>><<set $explored.T1N3E = 100>>
           <<if $Camp_J>>
-            <<if $energy < 8*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T1N3E.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T1N3E.png][T1N3E][$energy -= 4*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
+            <<if $energy < 8*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T1N3E.webp]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T1N3E.webp][T1N3E][$energy -= 4*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
           <</if>>
         <<else>>
           <<if $energy >= 1>><<button "<<print $explored.T1N3E.toFixed(0)>>%">>
@@ -4285,7 +4135,7 @@ But what was Paavali trying to hint?
       <<else>>
         <<if $explored.T1N4E >= 100>><<set $explored.T1N4E = 100>>
           <<if $Camp_J>>
-            <<if $energy < 10*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T1N4E.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T1N4E.png][T1N4E][$energy -= 5*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
+            <<if $energy < 10*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T1N4E.webp]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T1N4E.webp][T1N4E][$energy -= 5*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
           <</if>>
         <<else>>
           <<if $energy >= 1>><<button "<<print $explored.T1N4E.toFixed(0)>>%">>
@@ -4303,7 +4153,7 @@ But what was Paavali trying to hint?
       <<else>>
         <<if $explored.T1N5E >= 100>><<set $explored.T1N5E = 100>>
           <<if $Camp_J>>
-            <<if $energy < 12*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T1N5E.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T1N5E.png][T1N5E][$energy -= 6*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
+            <<if $energy < 12*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T1N5E.webp]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T1N5E.webp][T1N5E][$energy -= 6*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
           <</if>>
         <<else>>
           <<if $energy >= 1>><<button "<<print $explored.T1N5E.toFixed(0)>>%">>
@@ -4323,7 +4173,7 @@ But what was Paavali trying to hint?
       <<if $energy <= 0>><<goto [[Camp Jungle]]>>
       <<else>>
         <<if $explored.T1SE >= 100>><<set $explored.T1SE = 100>>
-          <<if $energy < 4*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T1SE.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T1SE.png][T1SE][$energy -= 2*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
+          <<if $energy < 4*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T1SE.webp]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T1SE.webp][T1SE][$energy -= 2*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
         <<else>>
           <<if $energy >= 1>><<button "<<print $explored.T1SE.toFixed(0)>>%">>
             <<set $explored.T1SE += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05>>
@@ -4339,7 +4189,7 @@ But what was Paavali trying to hint?
       <<if $energy <= 0>><<goto [[Camp Jungle]]>>
       <<else>>
         <<if $explored.T1S2E >= 100>><<set $explored.T1S2E = 100>>
-          <<if $energy < 6*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T1S2E.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T1S2E.png][T1S2E][$energy -= 3*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
+          <<if $energy < 6*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T1S2E.webp]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T1S2E.webp][T1S2E][$energy -= 3*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
         <<else>>
           <<if $energy >= 1>><<button "<<print $explored.T1S2E.toFixed(0)>>%">>
             <<set $explored.T1S2E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05>>
@@ -4355,7 +4205,7 @@ But what was Paavali trying to hint?
       <<if $energy <= 0>><<goto [[Camp Jungle]]>>
       <<else>>
         <<if $explored.T1SW >= 100>><<set $explored.T1SW = 100>>
-          <<if $energy < 4*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T1SW.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T1SW.png][T1SW][$energy -= 2*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
+          <<if $energy < 4*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T1SW.webp]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T1SW.webp][T1SW][$energy -= 2*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
         <<else>>
           <<if $energy >= 1>><<button "<<print $explored.T1SW.toFixed(0)>>%">>
             <<set $explored.T1SW += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05>>
@@ -4371,7 +4221,7 @@ But what was Paavali trying to hint?
       <<if $energy <= 0>><<goto [[Camp Jungle]]>>
       <<else>>
         <<if $explored.T1S2W >= 100>><<set $explored.T1S2W = 100>>
-          <<if $energy < 6*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T1S2W.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T1S2W.png][T1S2W][$energy -= 3*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
+          <<if $energy < 6*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T1S2W.webp]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T1S2W.webp][T1S2W][$energy -= 3*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
         <<else>>
           <<if $energy >= 1>><<button "<<print $explored.T1S2W.toFixed(0)>>%">>
             <<set $explored.T1S2W += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05>>
@@ -4387,7 +4237,7 @@ But what was Paavali trying to hint?
       <<if $energy <= 0>><<goto [[Camp Jungle]]>>
       <<else>>
         <<if $explored.T1NW >= 100>><<set $explored.T1NW = 100>>
-          <<if $energy < 4*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T1NW.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T1NW.png][T1NW][$energy -= 2*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
+          <<if $energy < 4*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T1NW.webp]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T1NW.webp][T1NW][$energy -= 2*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
         <<else>>
           <<if $energy >= 1>><<button "<<print $explored.T1NW.toFixed(0)>>%">>
             <<set $explored.T1NW += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05>>
@@ -4403,7 +4253,7 @@ But what was Paavali trying to hint?
       <<if $energy <= 0>><<goto [[Camp Jungle]]>>
       <<else>>
         <<if $explored.T2N2E >= 100>><<set $explored.T2N2E = 100>>
-          <<if $energy < 8*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T2N2E.png]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T2N2E.png][T2N2E][$energy -= 4*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
+          <<if $energy < 8*(($Humcarrycap*0.2)+$Oeu)>><div class="imgs-opaqued">[img[assets/Ch-Explore/T2N2E.webp]]</div><<else>><div class="imgs-scaled">[img[assets/Ch-Explore/T2N2E.webp][T2N2E][$energy -= 4*(($Humcarrycap*0.2)+$Oeu)]]</div><</if>>
         <<else>>
           <<if $energy >= 1>><<button "<<print $explored.T2N2E.toFixed(0)>>%">>
             <<set $explored.T2N2E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05>>
@@ -4433,7 +4283,7 @@ But what was Paavali trying to hint?
 
 :: The great Expo {"position":"2550,2275","size":"100,100"}
 <center><blockquote>
-[img[assets/backgrounds/Placeholder.png]]
+[img[assets/backgrounds/Placeholder.webp]]
 
 The others set the record interpreter outside in a distance to the spaceship, but still within our defense perimeter.
 
@@ -4442,147 +4292,63 @@ The others set the record interpreter outside in a distance to the spaceship, bu
 </blockquote></center>
 
 
-:: VariableControl {"position":"1150,25","size":"100,100"}
-SFW Path: <<print $SFW_Path>>
-
-xeno <<print $xeno>>
-combat <<print $combat>>
-engineering <<print $engineering>>
-social <<print $social>>
-
-explored <<print $explored>>
-<<for _i, _name range $explored>>
-<<print _i>> _name
-<</for>>
-
-storagefactor <<print $storagefactor>>
-
-energy <<print $energy>>
-maxenergy <<print $maxenergy>>
-unimatter <<print $unimatter>>
-maxunimatter <<print $maxunimatter>>
-nutrients <<print $nutrients>>
-maxnutrients <<print $maxnutrients>>
-days <<print $days>>
-
-notrepaired <<print $notrepaired>>
-
-noenglobe <<print $noenglobe>>
-
-QuestPool <<print $QuestPool>>
-QuestPoolDone <<print $QuestPoolDone>>
-Q0 <<print $Q0>>
-
-compass <<print $compass>>
-SubAnalyzer <<print $SubAnalyzer>>
-
-Camp Jungle<<print $Camp_J>>
-Camp Mountain <<print $Camp_M>>
-Camp Jungle items<<print $CampJ>>
-Camp Mountain items<<print $CampM>>
-
-passagevisited <<print $passagevisited>>
-
-carrycap <<print $carrycap>>
-navOrb <<print $navOrb>>
-cbtOrb <<print $cbtOrb>>
-CampJ.cOrb <<print $CampJ.cOrb>>
-Oeu <<print $Oeu>>
-OrbTransport <<print $OrbTransport>>
-OrbTA <<print $OrbTA>>
-readOC <<print $readOC>>
-
-numero <<print $numero>>
-
-noVika <<print $noVika>>
-noLeo <<print $noLeo>>
-noElva <<print $noElva>>
-noAbiba <<print $noAbiba>>
-
-Visits Vika Elva Abiba<<print $Vikavisits>><<print $Elvavisits>><<print $Abibavisits>>
-ICP Vika<<print $Vika_ICP>>
-ICP Elva<<print $Elva_ICP>>
-ICP Abiba<<print $Abiba_ICP>>
-
-/* Chapter 2 */
-
-eventfrom3E <<print $eventfrom3E>>
-deathin3E <<print $deathin3E>>
-
-TransMast 2 and 3<<print $TransMast2>><<print $TransMast3>>
-OrbAutoCJ <<print $OrbAutoCM>>
-OrbAutoCM <<print $OrbAutoCJ>>
-
-notrepaired <<print $notrepaired>>
-ignore <<print $ignore>>
-
-CMnutrientsplus <<print $CMnutrientsplus>>
-
-Q2D <<print $Q2D>>
-
-[[Camp Jungle]]
-
-
 :: Vika {"position":"3525,225","size":"100,100"}
 <center><blockquote>
   <<if random(4) > 1>>
-    <<if $Vika_ICP.VI1>>[img[assets/characters/Vika/Vika_4.png]]
+    <<if $Vika_ICP.VI1>>[img[assets/characters/Vika/Vika_4.webp]]
     
       We both exchanged topics in machines and communications engineerings.<<set $engineering += 0.1 * $social>><<if $social > 2 && $Vikavisits > 4>><<set $Vika_ICP.VI2 = true; $Vika_ICP.VI1 = false; $Vikavisits = 5>><</if>>
-    <<elseif $Vika_ICP.VI2 || $vikavisits < 8>>[img[assets/characters/Vika/Vika_3.png]]
+    <<elseif $Vika_ICP.VI2 || $vikavisits < 8>>[img[assets/characters/Vika/Vika_3.webp]]
       
       Vika enjoy the time with me. She is smirking at your anecdotes and jokes.<<if $social > 3 && $Vikavisits > 7>><<set $Vika_ICP.VI3 = true; $Vika_ICP.VI2 = false; $Vikavisits = 8>><</if>>
-    <<elseif $Vika_ICP.VI3 || $vikavisits < 11>>[img[assets/characters/Vika/Vika9.png]]
+    <<elseif $Vika_ICP.VI3 || $vikavisits < 11>>[img[assets/characters/Vika/Vika9.webp]]
       
       Vika wanted some inspirations about engineering, whether I have sufficient engineering or not. Any idea counts.<<if $social > 4 && $Vikavisits > 10>><<set $Vika_ICP.VI4 = true; $Vika_ICP.VI3 = false; $Vikavisits = 11>><</if>>
-    <<elseif $Vika_ICP.VI4 || $vikavisits < 14>>[img[assets/characters/Vika/Vika_6.png]]
+    <<elseif $Vika_ICP.VI4 || $vikavisits < 14>>[img[assets/characters/Vika/Vika_6.webp]]
       
-      Vika is working on the machinations of the Materials Printer. I chatted with her about the Printer. She told me that some constructions depend on the engineering level.<<if $social > 5 && $Vikavisits > 13>><<set $Vika_ICP.VI5 = true; $Vika_ICP.VI4 = false; $Vikavisits = 14>><</if>>
+<<if $social > 5 && $Vikavisits > 13>><<set $Vika_ICP.VI5 = true; $Vika_ICP.VI4 = false; $Vikavisits = 14>><</if>>
     <<elseif $SFW_Path == false>>
-      <<if $Vika_ICP.VI5 || $vikavisits < 17>>[img[assets/characters/Vika/Vika_9.png]]
+      <<if $Vika_ICP.VI5 || $vikavisits < 17>>[img[assets/characters/Vika/Vika_9.webp]]
       
-        Vika feels comfortably around me, as she only wears her tanktop and her overalll at her hips, showing her flat sensual belly.<<if $social > 6 && $Vikavisits > 16>><<set $Vika_ICP.VI6 = true; $Vika_ICP.VI5 = false; $Vikavisits = 17>><</if>>
-      <<elseif $Vika_ICP.VI6 || $vikavisits < 20>>[img[assets/characters/Vika/Vika10.png]]
+    <<if $social > 6 && $Vikavisits > 16>><<set $Vika_ICP.VI6 = true; $Vika_ICP.VI5 = false; $Vikavisits = 17>><</if>>
+      <<elseif $Vika_ICP.VI6 || $vikavisits < 20>>[img[assets/characters/Vika/Vika10.webp]]
         
-        While talking about the spaceship, we veered towards relationships and body awareness. She was asking me whether I liked it?<<if $social > 7 && $Vikavisits > 19>><<set $Vika_ICP.VI7 = true; $Vika_ICP.VI6 = false; $Vikavisits = 20>><</if>>
+<<if $social > 7 && $Vikavisits > 19>><<set $Vika_ICP.VI7 = true; $Vika_ICP.VI6 = false; $Vikavisits = 20>><</if>>
         
-        <<linkappend "Is she kidding me?" t8n>>
-        [img[assets/characters/Vika/Vika9_3.png]]
+        <<linkappend "" t8n>>
+        [img[assets/characters/Vika/Vika9_3.webp]]
         
-        I like ALL of it!
+
         
-        <<linkappend "Why?" t8n>>
-        [img[assets/characters/Vika/Vika11.png]]
+        <<linkappend "" t8n>>
+        [img[assets/characters/Vika/Vika11.webp]]
         
-        Uh ... I am a simple man? Is that reason enough?
+   
         <</linkappend>><</linkappend>>
-      <<elseif $Vika_ICP.VI7 || $vikavisits < 23>>[img[assets/characters/Vika/Vika13.png]]
+      <<elseif $Vika_ICP.VI7 || $vikavisits < 23>>[img[assets/characters/Vika/Vika13.webp]]
         
-        She invites me to her room. And, surprise, her comfort zone is vast and expansive.<<if $social > 8 && $Vikavisits > 22>><<set $Vika_ICP.VI8 = true; $Vika_ICP.VI7 = false; $Vikavisits = 23>><</if>>
+   <<if $social > 8 && $Vikavisits > 22>><<set $Vika_ICP.VI8 = true; $Vika_ICP.VI7 = false; $Vikavisits = 23>><</if>>
         
-        <<linkappend "She gets up to show me something." t8n>>
-        [img[assets/characters/Vika/Vika15.png]]
+        <<linkappend "" t8n>>
+        [img[assets/characters/Vika/Vika15.webp]]
         
-        Uh? The book or ...
+
         <</linkappend>>
-      <<elseif $Vika_ICP.VI8 || $vikavisits < 25>>[img[assets/characters/Vika/Vika16.png]]
+      <<elseif $Vika_ICP.VI8 || $vikavisits < 25>>[img[assets/characters/Vika/Vika16.webp]]
         
-        She has enough of herself being cautiously maintaining her reputation. She wants what her body and brain urgently demands: SEX!
         
         <<linkappend "Yes!" t8n>>
-        [img[assets/characters/Vika/Vika17.png]]
+        [img[assets/characters/Vika/Vika17.webp]]
+       
         
-        Shyly, she lets it all happen. I feel that I have to be observant on her bodily feedbacks. 
-        
-        <<linkappend "But lust is rising. Rapidly." t8n>>
-        [img[assets/characters/Vika/Vika18v.png]]
-        
-        She is moaning, panting, twitching, crying, breathing like a steam locomotive. My, my ... seems that she didn't had sex since years.
+        <<linkappend "" t8n>>
+        [img[assets/characters/Vika/Vika18v.webp]]
+
         <</linkappend>><</linkappend>>
         
-        (end of content for version 0.1)<<if $Vikavisits > 25>><<set $Vikavisits = 25>><</if>>
+  		<<if $Vikavisits > 25>><<set $Vikavisits = 25>><</if>>
       <<else>>
-        [img[assets/characters/Vika/Vika_3.png]]
+        [img[assets/characters/Vika/Vika_3.webp]]
         
         We had a nice chat. We enjoyed that.
         <</if>>
@@ -4599,42 +4365,25 @@ Q2D <<print $Q2D>>
 
 
 :: Vote {"position":"1550,300","size":"100,100"}
-<center><blockquote>
-  <<set $Vikavote = random(1, 3)>><<set $Leovote = random(1, 3)>><<timed 1000ms>>Vika gives in her vote
-    <</timed>><<timed 3000ms>>
-    Leo has decided
-    <</timed>><<set $vcount = [$numero, $Vikavote, $Leovote]>>
+<center><blockquote><<nobr>>
+  <<set $Vikavote = random(1, 3)>><<set $Leovote = random(1, 3)>><<timed 1000ms>>Vika gives in her vote<</timed>><br><br>
+
+  <<timed 3000ms>>Leo has decided<</timed>><<set $vcount = [$numero, $Vikavote, $Leovote]>><br><br>
+  
   <<timed 5000ms>>
-    <div class="Char"><div class="Char-Framer"><img class="Char-img" src="assets/characters/Vika.png"></div><div class="Char-dialogues">Gentlemen. It resulted in for a <div id="replace3points" style="align-content:center;">&nbsp;...</div><<timed 3000ms>>
+    <<say "Vika">>Gentlemen. It resulted in for a <div id="replace3points" style="align-content:center;">&nbsp;...</div><<timed 3000ms>>
       <<if $energy > 5 && $vcount.count(1) >= 2>><<replace "#replace3points">>&nbsp;[[Transmission Mast.|Foot of a Mountain][$energy -= 6; $unimatter -= 2]]<</replace>>
       <<elseif $energy < 5 && $energy > 2 && $vcount.count(1) >= 2>><<replace "#replace3points">>&nbsp;[[Transmission Mast.|A Small Hill][$energy -= 3; $unimatter -= 2]]<</replace>>
       <<elseif $energy <= 2 && $vcount.count(1) >= 2>><<replace "#replace3points">>&nbsp;[[Transmission Mast. But ...|WhyNothing]]<</replace>>
       <<elseif $vcount.count(2) >= 2>><<replace "#replace3points">>&nbsp;[[Substance Analyzer.|Substance Analyzer][$energy -= 2; $unimatter -= 5]]<</replace>>
       <<elseif $vcount.count(3) >= 2>><<replace "#replace3points">>&nbsp;[[Energy Harvester.|Energy Harvester][$energy -= 5; $unimatter -= 5]]<</replace>>
-      <<else>><<replace "#replace3points">> ... huh ... everyone voted for each of it. ... Ok! Then we keep the unimatter and decide on a more urgent situation. Let us set our [[Camp here.|Camp Jungle]]<</replace>><</if>>
-  <</timed>></div></div><</timed>>
-  </blockquote></center>
-
-
-:: What do I want to say? {"position":"1825,0","size":"100,100"}
-<<if $days >30>>
-
-All pictures of these fine ladies should be seen all by having reached interactibility to around 6.
-
-In case of wondering about the consistency of the images. We living virtual, so we all have preferences about hair lengths, skins, setting, age etc. 
-Ah! Whatever, we get the idea, eh?!
-...
-What do I hear? Excuses?
-Oi! No es mi culpa if the virtual composer does not understand my intentions. I mean, even between humans, communicating is hard. 
-Listening. Reading. Is. HARD.
-So! Take out your contact lenses or your glasses, and all is fine!
-
-<</if>>
+      <<else>><<replace "#replace3points">> ... huh ... everyone voted for each of it. ... Ok! Then we keep the unimatter and decide on a more urgent situation. Let us set our [[Camp here.|Camp Jungle]]<</replace>><</if>><</timed>><</say>><</timed>>
+<</nobr>></blockquote></center>
 
 
 :: Whoa! {"position":"2675,2475","size":"100,100"}
 <center><blockquote>
-[img[assets/backgrounds/Placeholder.png]]
+[img[assets/backgrounds/Placeholder.webp]]
 
 Paavali stands before the defense perimeter, looking to us. In a distance, not visible immediately, unless he is moving.
 
@@ -4689,7 +4438,7 @@ After the formalities, Paavali opens his arms to the side, palms up.
 
 :: Widgets [widget] {"position":"750,25","size":"100,100"}
 <<widget "say" container>><div class="Char">
-<div class="Char-Framer"><img class="Char-img" @src="'assets/characters/' + _args[0].toLowerCase() + '.png'"></div><div class="Char-dialogues">_contents</div></div><</widget>>
+<div class="Char-Framer"><img class="Char-img" @src="'assets/characters/' + _args[0].toLowerCase() + '.webp'"></div><div class="Char-dialogues">_contents</div></div><</widget>>
 
 <<widget "ab" container>><div class="actions-row"><div>_contents</div></div><</widget>>
 
@@ -4725,7 +4474,7 @@ After the formalities, Paavali opens his arms to the side, palms up.
 
 :: Year 1 {"position":"2175,2475","size":"100,100"}
 <center><blockquote>
-[img[assets/backgrounds/Placeholder.png]]
+[img[assets/backgrounds/Placeholder.webp]]
 
 <div class="logbook"><strong><h3>Log - Year 1:</h3><h4>Arrival at Kapteyn's Star System</h4></strong>
 Upon arrival at Kapteyn's Star, a red dwarf system, all sensors were activated to scan for planetary bodies. Initial readings confirmed the presence of two planets, Kapteyn b and Kapteyn c, within our immediate vicinity. Subsequent scans identified two additional planets, Kapteyn d and Kapteyn e.
@@ -4745,7 +4494,7 @@ We all nod.
 
 :: Year 2 {"position":"2300,2475","size":"100,100"}
 <center><blockquote>
-[img[assets/backgrounds/Placeholder.png]]
+[img[assets/backgrounds/Placeholder.webp]]
 
 <div class="logbook"><strong><h3>Log - Year 2:</h3><h4>Exploration of Kapteyn c (Bādhiccu)</h4></strong>
 A site has been identified on Bādhiccu that remains undisturbed by meteorite activity, providing a sufficient window for on-site exploration. The current survey status of the stellar system stands at 86.54%, with 34.23% of Bādhiccu's surface cartographed.
@@ -4774,7 +4523,7 @@ I hear a groaning from Vika. She is shaking her head, looking with such suspicio
 
 :: Year 3 {"position":"2425,2475","size":"100,100"}
 <center><blockquote>
-[img[assets/backgrounds/Placeholder.png]]
+[img[assets/backgrounds/Placeholder.webp]]
 
 <div class="logbook"><strong><h3>Log - Year 3:</h3><h4>Investigation of the Entity: Titan</h4></strong>
 
@@ -4817,7 +4566,7 @@ Initial attempts to send messages to the monolith yielded no correlated response
 
 :: Year 4 {"position":"2550,2475","size":"100,100"}
 <center><blockquote>
-[img[assets/backgrounds/Placeholder.png]]
+[img[assets/backgrounds/Placeholder.webp]]
 
 <div class="logbook"><strong><h3>Log - Year 4:</h3><h4>Status Update on Bādhiccu Operations</h4></strong>
 <ul><li>all of our automatic units lost during planetary charting missions.</li>
@@ -4863,20 +4612,14 @@ Then we all jolted, Vika shrieked. As we turn to see what made her scream, we jo
 
 :: Yes {"position":"225,300","size":"100,100"}
 <center>
-[img[assets/characters/Me.png]]
-<blockquote><<audio "V1" play>><<audio "BgMusic" loop play>>
+[img[assets/characters/Me.webp]]
+<blockquote><<audio "RD_A001" play>><<audio "BgMusic" loop play>>
 Yep, that's me. Handsome, eh? Like a Roman demi-god, no?
 
-Since I come from upper middle class, my family invested in a designer baby. Obviously. But surprise, surprise! Like the mayority of humanity (and pets!), we are synthetic beings, Cyborgs. For better space travel, which this story is about, we have to be cyborgs. Only our brain and spine is completely organic; the rest in synthetic materials.
+Since I come from upper middle class, my family invested in a designer baby. Obviously. But surprise, surprise! Like the mayority of humanity (and pets!), we are synthetic beings, Cyborgs. For better space travel, which this story is about, we have to be cyborgs. Only our brain and spine is completely organic; the rest is in synthetic materials.
 </blockquote>
 <<ab>>[[Like this]]<</ab>>
 </center>
-
-Developper: Skip to [[Camp Jungle][$engineering += 10; $combat += 10; $xeno += 20; $days = 30; $CampM.nutrients = 0; $unimatter += 10; $SubAnalyzer = true; $explored.T1N = 100; $explored.T2N = 100; $explored.T1E = 100; $explored.T2E = 100; $explored.T3E = 100; $explored.T4E = 100; $QuestPool.pushUnique($Q0)]] 
-
-
-[[EndPoint ChCrash]]
-Designer: Skip to [[Camp Mountain][$engineering += 1]]
 
 
 :: change of mind {"position":"3200,1975","size":"100,100"}
@@ -4893,7 +4636,7 @@ Elva looks at me puzzled, but then I waved her to go back.<br>
 :: dormant spaceship 1 {"position":"3075,1350","size":"100,100"}
 <<nobr>>
   <<set $CampM.nutrients = 0; $CampM.unimatter = 0>>
-<</nobr>><center><blockquote>[img[assets/backgrounds/Placeholder.png]]
+<</nobr>><center><blockquote>[img[assets/backgrounds/Placeholder.webp]]
   
   On a spot of a mountainous area, I found another spaceship - like ours! Another stranded. 
   
@@ -4917,7 +4660,7 @@ But boy, oh boy, never had I this much adrenaline! And the silence is more unner
 
 
 :: dormant spaceship 2 {"position":"3075,1600","size":"100,100"}
-<center><blockquote><<if $QuestPool.includes($Q2A)>>[img[assets/backgrounds/Placeholder.png]]
+<center><blockquote><<if $QuestPool.includes($Q2A)>>[img[assets/backgrounds/Placeholder.webp]]
 
 We again went cautiously to the camp with the dormant spaceship. It is not unlikely that the reason for the spaceship deformations can come up anytime.
 The hatch opened as we neared to it. Inside, we plug the nutrients in, and immediately the contents are sucked out and transfered to the cryochambers. There, slowly the machines whirred up to rise the temperatures to a bit, so the awakening biocells are ready for nutrients reception. All still without waking up the consciousness. It will take some hours. Waking up from deep freeze is still a delicate matter.
@@ -4931,14 +4674,14 @@ It will come back! I call the Watcher and ordered him to slow down, better: even
  
 Right. Auf ein Neues! 
 <</timed>>
-<<elseif $QuestPool.includes($Q2B)>>[img[assets/backgrounds/Placeholder.png]]
+<<elseif $QuestPool.includes($Q2B)>>[img[assets/backgrounds/Placeholder.webp]]
 
 It feels familiar now. I am getting fond of this place here. If there wouldn't be the knowledge of something lurking nearby, though. But that should not be problem anymore once the defense nodes are entrenched. 
 The watcher took the disks in and begins working on it. It gave the notice that the defense perimeter will be finished by the end of the day. And in another day the inhabitants will be out of the chambers.
 In two days, then. In two days I could come back. Better with more nutrients, or resettling our spaceship to here.
 
 <<set $dayCount = $days>>
-<<elseif $QuestPool.includes($Q2C)>>[img[assets/backgrounds/Placeholder.png]]
+<<elseif $QuestPool.includes($Q2C)>>[img[assets/backgrounds/Placeholder.webp]]
 
 There were greetings. Quite happily. Obviously they were not sure whether they will be found or forgotten for all eternity. A scary thought. Until Solaris may send a rescue - which would take generations, more so as it is not clear that they received the changed status of us being stranded -, our friends and parents may not be anymore. Although, along with our travels, everyone has its own virtual clones of friends, family and soulmates. But, since they are duplicates, it takes up to enormous amount of storage, hence energy is much needed. Obviously, our spaceships do not have these options. So, yeah, they are on our mothership. So, it better not be out this stellar system! Man, that would suck immensely!
 
@@ -5088,7 +4831,7 @@ Both now feel rather that we resettle our camp here. They wish more company. Tha
 :: random events {"position":"2050,2025","size":"100,100"}
 <center><blockquote>
 
-<<if random(1, 10) > 4>>[img[assets/Ch-Explore/random_find_unimatter.png]]
+<<if random(1, 10) > 4>>[img[assets/Ch-Explore/random_find_unimatter.webp]]
   I found something that can be used as Unimatter.
 
   Deposit it at the Camp?
@@ -5097,7 +4840,7 @@ Both now feel rather that we resettle our camp here. They wish more company. Tha
 
   <<ab>>[[Nah|The Map]]<</ab>>
 
-<<elseif random(1, 10) > 8>>[img[assets/Ch-Explore/random_find_nutrients.png]]
+<<elseif random(1, 10) > 8>>[img[assets/Ch-Explore/random_find_nutrients.webp]]
   I am pretty sure that is edible and has nutritional value. 
 
   Deposit it at the Camp?
@@ -5106,7 +4849,7 @@ Both now feel rather that we resettle our camp here. They wish more company. Tha
 
   <<ab>>[[Nah|The Map]]<</ab>>
 <<else>>
-  <<if random(1, 10) = 9>>[img[assets/events/meteoritebombardments3.png]]<<elseif random(1, 10) = 10>>[img[assets/events/meteoritebombardments4.png]]<</if>>
+  <<if random(1, 10) = 9>>[img[assets/events/meteoritebombardments3.webp]]<<elseif random(1, 10) = 10>>[img[assets/events/meteoritebombardments4.webp]]<</if>>
 
   Ui! There was a loud explosion! Meteroite? Volcano? Aliens?
 
@@ -5118,6 +4861,55 @@ Both now feel rather that we resettle our camp here. They wish more company. Tha
 
 
 :: StoryScript [script]
+//--------- invisible button to de-&activate sound
+
+// Create an invisible div that will be used to catch a click that will either activate or desactivate sound
+var sounddiv = document.createElement('div');
+sounddiv.className = 'soundonoff';
+document.querySelector("#ui-bar").insertAdjacentElement("afterend", sounddiv);
+sounddiv.classList.add('fadeinout');
+var soundimg = document.createElement('img');
+soundimg.className = 'soundoff';
+soundimg.src = 'assets/backgrounds/soundoff.png';
+sounddiv.appendChild(soundimg);
+soundimg.classList.add('fadeinout');
+var soundaudio = document.createElement('audio');
+soundaudio.src = 'assets/characters/Audio/background_introduction.wav';
+soundaudio.loop = true;
+soundaudio.volume = 1;
+sounddiv.appendChild(soundaudio);
+setTimeout(function() {
+    sounddiv.classList.remove('fadeinout');
+    soundimg.classList.remove('fadeinout');
+}, 2000);
+sounddiv.onclick = function() {
+    sounddiv.classList.add('fadeinout');
+    soundimg.classList.add('fadeinout');
+    setTimeout(function() {
+        sounddiv.classList.remove('fadeinout');
+        soundimg.classList.remove('fadeinout');
+    }, 2000);
+    if (soundimg.className.contains("soundon")) {
+        soundimg.classList.remove("soundon");
+        soundimg.src = 'assets/backgrounds/soundoff.png';
+        soundimg.className = 'soundoff';
+        soundaudio.pause();
+    } else {
+        soundimg.classList.remove("soundoff");
+        soundimg.className = 'soundon';
+        soundimg.src = 'assets/backgrounds/soundon.png';
+        soundaudio.play();
+    }
+};
+sounddiv.onmouseover = soundimg.onmouseover = function() {
+    sounddiv.classList.add('fadeinout');
+    soundimg.classList.add('fadeinout');
+    setTimeout(function() {
+        sounddiv.classList.remove('fadeinout');
+        soundimg.classList.remove('fadeinout');
+    }, 2000);
+};
+
 //--------- automatic downscroll
 
 window.automaticDownscroll = function() {
@@ -5240,7 +5032,7 @@ Object.defineProperty(Number.prototype,'range',{
         const recofAtt = document.createElement('div');
 
         recofAtt.id = 'recordOftheAttack';
-        recofAtt.innerHTML = `<img src="assets/backgrounds/Placeholder.png" style="margin:0">`;
+        recofAtt.innerHTML = `<img src="assets/backgrounds/Placeholder.webp" style="margin:0">`;
         document.body.appendChild(recofAtt);
 
         const recordOfTheAttack = document.getElementById('recordOftheAttack');
@@ -5349,6 +5141,12 @@ document.addEventListener('DOMContentLoaded', function() {
   max-width: 700px;
 }
 
+@media only screen and (max-width: 900px) {
+  #passages {
+    margin-top: 10%;
+  }
+}
+
 .passage {
   display: flex;
   line-height: 1.75;
@@ -5370,14 +5168,6 @@ body{
   color: #A9A9A9;
   justify-content: center;
 }
-
-/*@media only screen and (max-width: 900px) {
-  body{
-    display: flex;
-    color: #A9A9A9;
-    justify-content: center;
-  }
-}*/
 
 img {
   display: block;
@@ -5412,6 +5202,35 @@ button[id|=history-backward]::before {
 
 button[id|=history-forward]::before {
   content: "⮕"; /* Unicode character for arrow right */  
+}
+
+/* sound corner     ------------------------------------------------------------------------------------- */
+
+.soundonoff {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width:fit-content;
+  max-width: 60px;
+  height:auto;
+  max-height: 60px;
+  z-index: 99;
+  box-sizing: border-box;
+  margin: 0.5em;
+  cursor: pointer;
+  opacity: 0;
+}
+
+@keyframes fadeinout {
+  0% {opacity: 0;}
+  10% {opacity: 1;}
+  90% {opacity: 1;}
+  100% {opacity: 0;}  
+}
+
+.fadeinout {
+  cursor: pointer;
+  animation: fadeinout 2s infinite ease-in-out alternate-reverse;
 }
 
 /* sidebar     ------------------------------------------------------------------------------------- */
@@ -5585,6 +5404,7 @@ box-sizing: border-box;
 }
 
 /* actions buttons  ------------------------------------------------------------------------------------- */
+
 .actions-table {
   display: flex;
   width: 95vw;
