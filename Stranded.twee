@@ -518,8 +518,6 @@ It is a huge setback. The hull is broken. As are the cockpit, our life maintenan
 <<cacheaudio "Vika_A002_1" "assets/characters/Audio/Vika_A002_1.mp3">>
 
 
-
-
 :: Beginning {"position":"2050,2475","size":"100,100"}
 <center><blockquote>
 [img[assets/backgrounds/Placeholder.webp]]
@@ -1635,21 +1633,22 @@ Choose in which profession I should master:
 
 <div class="text" style="width:50vw">Hello. Hola. Moin. Salve. 
 
-Huzzah! My first game!
+<h3>Huzzah! My first game!</h3>
 
-This game is designed for desktop and mobile version. The sidebar therefore is only for rollback, saving, loading and restarting. As I tested many times, I am satisfied with the outcome. Although I fear, some skewed layout will happen to some of you. Hopefully not you, eh. Anyway, if you want to support me by giving me feedbacks, ideas, suggestions, co-authoring, tips, corrections etc., please do: pajozim@gmail.com.
+This game is designed for desktop and mobile version. The sidebar is therefore only for rollback, saving, loading and restarting. I tested many times, I am satisfied with the outcome. Although I fear, some skewed layout will happen to some of you. Hopefully not you, eh. 
+Anyway, if you want to support me by giving me feedbacks, ideas, suggestions, co-authoring, tips, corrections etc., please do: pajozim@gmail.com.
 
-Sidenotes:
+<h3>Sidenotes:</h3>
 
-By selling my soul, notably to Google, I could use some free services. However, these only go as that far. The voices are created using ElevenLabs. Some pictures are sourced from the internet (the origins are in the image links), while others are created by tensor.art and seaart.ai. Consistency and context are still significant challenges in AI image generation, which is why characters may appear different in each new image. Additionally, visionary depictions, such as different carbon-based life forms (imagine red-colored leaves, blue-colored grass, sponge-like trees, fungus with its spore clouds, etc.), still require human artists.
+By selling my soul, notably to Google, I could use some free services. However, these only go as that far. The voices are created using ElevenLabs (credits to unknown contributors). Some pictures are sourced from the internet (the origins are in the image links), while others are created by tensor.art and seaart.ai (here again: credits also to the unwillingly or willingly "contributors"). Consistency and context are still significant challenges in AI image generation, which is why characters and objects may appear different in each new image. Additionally, visionary depictions, such as different carbon-based life forms (imagine red-colored leaves, blue-colored grass, sponge-like trees, fungus with its spore clouds, etc. or just imagine the mini series: Scavengers Reign), still require human visionaries.
 
 This game is free and has no intention of generating income, as it was my formation project.
 
-If you wish to hear some music and voices, you can toggle the speaker icon on the top-right corner of this browser window. <div onmouseover="document.querySelector('.soundonoff').style.opacity = '1'" onmouseout="document.querySelector('.soundonoff').style.opacity = '0'" style="cursor: default; color: cadetblue;"><u>Hover me to show you.</u></div>
+If you wish to hear some music and voices, you can toggle the speaker icon on the top-right corner of this browser window. <span style="cursor: default; color: cadetblue;"><u><span id="mobileono"><script>$(document).on(':passagerender', function() {window.matchMedia("(max-width: 900px)").matches ? '<span onclick="mobileuser()">Click on me</span>' : '<span onmouseover="desktopuser()">Hover me</span>';});</script></span></u> to show you.</span>
 
-Aside from formalities:
+<h3>Aside from formalities:</h3>
 
-Well then, ancient. Welcome to the future, as it is already now, oldtimer. Ready to play?
+Well then, ancient. Welcome to the future, as it is already now. Ready to play?
 </div>
 
 <<ab>>[[Yes]]<</ab>>
@@ -4849,6 +4848,7 @@ Both now feel rather that we resettle our camp here. They wish more company. Tha
 
   <<ab>>[[Nah|The Map]]<</ab>>
 <<else>>
+<<audio "RD_A003" play>>
   <<if random(1, 10) = 9>>[img[assets/events/meteoritebombardments3.webp]]<<elseif random(1, 10) = 10>>[img[assets/events/meteoritebombardments4.webp]]<</if>>
 
   Ui! There was a loud explosion! Meteroite? Volcano? Aliens?
@@ -4863,16 +4863,14 @@ Both now feel rather that we resettle our camp here. They wish more company. Tha
 :: StoryScript [script]
 //--------- invisible button to de-&activate sound
 
-// Create an invisible div that will be used to catch a click that will either activate or desactivate sound
 var sounddiv = document.createElement('div');
 sounddiv.className = 'soundonoff';
 document.querySelector("#ui-bar").insertAdjacentElement("afterend", sounddiv);
 sounddiv.classList.add('fadeinout');
 var soundimg = document.createElement('img');
 soundimg.className = 'soundoff';
-soundimg.src = 'assets/backgrounds/soundoff.png';
+soundimg.src = 'assets/backgrounds/soundoff.webp';
 sounddiv.appendChild(soundimg);
-soundimg.classList.add('fadeinout');
 var soundaudio = document.createElement('audio');
 soundaudio.src = 'assets/characters/Audio/background_introduction.wav';
 soundaudio.loop = true;
@@ -4880,34 +4878,23 @@ soundaudio.volume = 1;
 sounddiv.appendChild(soundaudio);
 setTimeout(function() {
     sounddiv.classList.remove('fadeinout');
-    soundimg.classList.remove('fadeinout');
 }, 2000);
 sounddiv.onclick = function() {
-    sounddiv.classList.add('fadeinout');
-    soundimg.classList.add('fadeinout');
+    sounddiv.classList.add('fadeinout');   
     setTimeout(function() {
         sounddiv.classList.remove('fadeinout');
-        soundimg.classList.remove('fadeinout');
     }, 2000);
     if (soundimg.className.contains("soundon")) {
         soundimg.classList.remove("soundon");
-        soundimg.src = 'assets/backgrounds/soundoff.png';
+        soundimg.src = 'assets/backgrounds/soundoff.webp';
         soundimg.className = 'soundoff';
         soundaudio.pause();
     } else {
         soundimg.classList.remove("soundoff");
         soundimg.className = 'soundon';
-        soundimg.src = 'assets/backgrounds/soundon.png';
+        soundimg.src = 'assets/backgrounds/soundon.webp';
         soundaudio.play();
     }
-};
-sounddiv.onmouseover = soundimg.onmouseover = function() {
-    sounddiv.classList.add('fadeinout');
-    soundimg.classList.add('fadeinout');
-    setTimeout(function() {
-        sounddiv.classList.remove('fadeinout');
-        soundimg.classList.remove('fadeinout');
-    }, 2000);
 };
 
 //--------- automatic downscroll
@@ -5219,18 +5206,21 @@ button[id|=history-forward]::before {
   margin: 0.5em;
   cursor: pointer;
   opacity: 0;
+  transition: opacity 2s;
+}
+
+.soundonoff:hover {
+  opacity: 1;
 }
 
 @keyframes fadeinout {
   0% {opacity: 0;}
-  10% {opacity: 1;}
-  90% {opacity: 1;}
-  100% {opacity: 0;}  
+  80% {opacity: 1;}
+  100% {opacity: 1;}  
 }
 
 .fadeinout {
-  cursor: pointer;
-  animation: fadeinout 2s infinite ease-in-out alternate-reverse;
+  animation: fadeinout 1s ease 0s 2 alternate;
 }
 
 /* sidebar     ------------------------------------------------------------------------------------- */
@@ -5515,18 +5505,11 @@ box-sizing: border-box;
 #theJBase {
     top: 400px;
     left: 360px;
-    /*  background-image: url("assets/Ch-Camp/JungleCamp.png");
-      opacity: 0.8 !important;
-    background-size: cover;
-    background-color: red; */
 }
 
 #theMBase {
     top: 260px;
     left: 720px;
-    /* background-image: url("assets/Ch-Camp/MountainCamp.png");
-    background-size: cover;
-    opacity: 0.8 !important; */
 }
 
 #p1E {

@@ -201,18 +201,21 @@ button[id|=history-forward]::before {
   margin: 0.5em;
   cursor: pointer;
   opacity: 0;
+  transition: opacity 2s;
+}
+
+.soundonoff:hover {
+  opacity: 1;
 }
 
 @keyframes fadeinout {
   0% {opacity: 0;}
-  10% {opacity: 1;}
-  90% {opacity: 1;}
-  100% {opacity: 0;}  
+  80% {opacity: 1;}
+  100% {opacity: 1;}  
 }
 
 .fadeinout {
-  cursor: pointer;
-  animation: fadeinout 2s infinite ease-in-out alternate-reverse;
+  animation: fadeinout 1s ease 0s 2 alternate;
 }
 
 /* sidebar     ------------------------------------------------------------------------------------- */
@@ -497,18 +500,11 @@ box-sizing: border-box;
 #theJBase {
     top: 400px;
     left: 360px;
-    /*  background-image: url("assets/Ch-Camp/JungleCamp.png");
-      opacity: 0.8 !important;
-    background-size: cover;
-    background-color: red; */
 }
 
 #theMBase {
     top: 260px;
     left: 720px;
-    /* background-image: url("assets/Ch-Camp/MountainCamp.png");
-    background-size: cover;
-    opacity: 0.8 !important; */
 }
 
 #p1E {
@@ -1010,16 +1006,14 @@ position: sticky;
 
 /* placeholder ----------------------------------------------*/</style><script role="script" id="twine-user-script" type="text/twine-javascript">//--------- invisible button to de-&activate sound
 
-// Create an invisible div that will be used to catch a click that will either activate or desactivate sound
 var sounddiv = document.createElement('div');
 sounddiv.className = 'soundonoff';
 document.querySelector("#ui-bar").insertAdjacentElement("afterend", sounddiv);
 sounddiv.classList.add('fadeinout');
 var soundimg = document.createElement('img');
 soundimg.className = 'soundoff';
-soundimg.src = 'assets/backgrounds/soundoff.png';
+soundimg.src = 'assets/backgrounds/soundoff.webp';
 sounddiv.appendChild(soundimg);
-soundimg.classList.add('fadeinout');
 var soundaudio = document.createElement('audio');
 soundaudio.src = 'assets/characters/Audio/background_introduction.wav';
 soundaudio.loop = true;
@@ -1027,34 +1021,23 @@ soundaudio.volume = 1;
 sounddiv.appendChild(soundaudio);
 setTimeout(function() {
     sounddiv.classList.remove('fadeinout');
-    soundimg.classList.remove('fadeinout');
 }, 2000);
 sounddiv.onclick = function() {
-    sounddiv.classList.add('fadeinout');
-    soundimg.classList.add('fadeinout');
+    sounddiv.classList.add('fadeinout');   
     setTimeout(function() {
         sounddiv.classList.remove('fadeinout');
-        soundimg.classList.remove('fadeinout');
     }, 2000);
     if (soundimg.className.contains("soundon")) {
         soundimg.classList.remove("soundon");
-        soundimg.src = 'assets/backgrounds/soundoff.png';
+        soundimg.src = 'assets/backgrounds/soundoff.webp';
         soundimg.className = 'soundoff';
         soundaudio.pause();
     } else {
         soundimg.classList.remove("soundoff");
         soundimg.className = 'soundon';
-        soundimg.src = 'assets/backgrounds/soundon.png';
+        soundimg.src = 'assets/backgrounds/soundon.webp';
         soundaudio.play();
     }
-};
-sounddiv.onmouseover = soundimg.onmouseover = function() {
-    sounddiv.classList.add('fadeinout');
-    soundimg.classList.add('fadeinout');
-    setTimeout(function() {
-        sounddiv.classList.remove('fadeinout');
-        soundimg.classList.remove('fadeinout');
-    }, 2000);
 };
 
 //--------- automatic downscroll
@@ -1716,9 +1699,7 @@ It is a huge setback. The hull is broken. As are the cockpit, our life maintenan
 /* Vika */
 &lt;&lt;cacheaudio &quot;Vika_A001_1&quot; &quot;assets/characters/Audio/Vika_A001_1.mp3&quot;&gt;&gt;
 &lt;&lt;cacheaudio &quot;Vika_A001_2&quot; &quot;assets/characters/Audio/Vika_A001_2.mp3&quot;&gt;&gt;
-&lt;&lt;cacheaudio &quot;Vika_A002_1&quot; &quot;assets/characters/Audio/Vika_A002_1.mp3&quot;&gt;&gt;
-
-</tw-passagedata><tw-passagedata pid="12" name="Beginning" tags="" position="2050,2475" size="100,100">&lt;center&gt;&lt;blockquote&gt;
+&lt;&lt;cacheaudio &quot;Vika_A002_1&quot; &quot;assets/characters/Audio/Vika_A002_1.mp3&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="12" name="Beginning" tags="" position="2050,2475" size="100,100">&lt;center&gt;&lt;blockquote&gt;
 [img[assets/backgrounds/Placeholder.webp]]
 
 &lt;div class=&quot;logbook&quot;&gt;As Solaris extended its reach across the entire solar system, integrating Neptune into the Solaris Hub became an inevitability. It was only a matter of time before the connection was established. Consequently, the logical progression was to dispatch probes to nearby stellar systems, particularly those with promising Earth-like characteristics.
@@ -2720,21 +2701,22 @@ Choose in which profession I should master:
 
 &lt;div class=&quot;text&quot; style=&quot;width:50vw&quot;&gt;Hello. Hola. Moin. Salve. 
 
-Huzzah! My first game!
+&lt;h3&gt;Huzzah! My first game!&lt;/h3&gt;
 
-This game is designed for desktop and mobile version. The sidebar therefore is only for rollback, saving, loading and restarting. As I tested many times, I am satisfied with the outcome. Although I fear, some skewed layout will happen to some of you. Hopefully not you, eh. Anyway, if you want to support me by giving me feedbacks, ideas, suggestions, co-authoring, tips, corrections etc., please do: pajozim@gmail.com.
+This game is designed for desktop and mobile version. The sidebar is therefore only for rollback, saving, loading and restarting. I tested many times, I am satisfied with the outcome. Although I fear, some skewed layout will happen to some of you. Hopefully not you, eh. 
+Anyway, if you want to support me by giving me feedbacks, ideas, suggestions, co-authoring, tips, corrections etc., please do: pajozim@gmail.com.
 
-Sidenotes:
+&lt;h3&gt;Sidenotes:&lt;/h3&gt;
 
-By selling my soul, notably to Google, I could use some free services. However, these only go as that far. The voices are created using ElevenLabs. Some pictures are sourced from the internet (the origins are in the image links), while others are created by tensor.art and seaart.ai. Consistency and context are still significant challenges in AI image generation, which is why characters may appear different in each new image. Additionally, visionary depictions, such as different carbon-based life forms (imagine red-colored leaves, blue-colored grass, sponge-like trees, fungus with its spore clouds, etc.), still require human artists.
+By selling my soul, notably to Google, I could use some free services. However, these only go as that far. The voices are created using ElevenLabs (credits to unknown contributors). Some pictures are sourced from the internet (the origins are in the image links), while others are created by tensor.art and seaart.ai (here again: credits also to the unwillingly or willingly &quot;contributors&quot;). Consistency and context are still significant challenges in AI image generation, which is why characters and objects may appear different in each new image. Additionally, visionary depictions, such as different carbon-based life forms (imagine red-colored leaves, blue-colored grass, sponge-like trees, fungus with its spore clouds, etc. or just imagine the mini series: Scavengers Reign), still require human visionaries.
 
 This game is free and has no intention of generating income, as it was my formation project.
 
-If you wish to hear some music and voices, you can toggle the speaker icon on the top-right corner of this browser window. &lt;div onmouseover=&quot;document.querySelector(&#39;.soundonoff&#39;).style.opacity = &#39;1&#39;&quot; onmouseout=&quot;document.querySelector(&#39;.soundonoff&#39;).style.opacity = &#39;0&#39;&quot; style=&quot;cursor: default; color: cadetblue;&quot;&gt;&lt;u&gt;Hover me to show you.&lt;/u&gt;&lt;/div&gt;
+If you wish to hear some music and voices, you can toggle the speaker icon on the top-right corner of this browser window. &lt;span style=&quot;cursor: default; color: cadetblue;&quot;&gt;&lt;u&gt;&lt;span id=&quot;mobileono&quot;&gt;&lt;script&gt;$(document).on(&#39;:passagerender&#39;, function() {window.matchMedia(&quot;(max-width: 900px)&quot;).matches ? &#39;&lt;span onclick=&quot;mobileuser()&quot;&gt;Click on me&lt;/span&gt;&#39; : &#39;&lt;span onmouseover=&quot;desktopuser()&quot;&gt;Hover me&lt;/span&gt;&#39;;});&lt;/script&gt;&lt;/span&gt;&lt;/u&gt; to show you.&lt;/span&gt;
 
-Aside from formalities:
+&lt;h3&gt;Aside from formalities:&lt;/h3&gt;
 
-Well then, ancient. Welcome to the future, as it is already now, oldtimer. Ready to play?
+Well then, ancient. Welcome to the future, as it is already now. Ready to play?
 &lt;/div&gt;
 
 &lt;&lt;ab&gt;&gt;[[Yes]]&lt;&lt;/ab&gt;&gt;
@@ -5654,6 +5636,7 @@ Both now feel rather that we resettle our camp here. They wish more company. Tha
 
   &lt;&lt;ab&gt;&gt;[[Nah|The Map]]&lt;&lt;/ab&gt;&gt;
 &lt;&lt;else&gt;&gt;
+&lt;&lt;audio &quot;RD_A003&quot; play&gt;&gt;
   &lt;&lt;if random(1, 10) = 9&gt;&gt;[img[assets/events/meteoritebombardments3.webp]]&lt;&lt;elseif random(1, 10) = 10&gt;&gt;[img[assets/events/meteoritebombardments4.webp]]&lt;&lt;/if&gt;&gt;
 
   Ui! There was a loud explosion! Meteroite? Volcano? Aliens?
