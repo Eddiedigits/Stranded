@@ -1022,6 +1022,7 @@ sounddiv.appendChild(soundaudio);
 setTimeout(function() {
     sounddiv.classList.remove('fadeinout');
 }, 2000);
+
 sounddiv.onclick = function() {
     sounddiv.classList.add('fadeinout');   
     setTimeout(function() {
@@ -1031,13 +1032,19 @@ sounddiv.onclick = function() {
         soundimg.classList.remove("soundon");
         soundimg.src = 'assets/backgrounds/soundoff.webp';
         soundimg.className = 'soundoff';
-        soundaudio.pause();
+        SimpleAudio.mute(true);
     } else {
         soundimg.classList.remove("soundoff");
         soundimg.className = 'soundon';
         soundimg.src = 'assets/backgrounds/soundon.webp';
-        soundaudio.play();
-    }
+        SimpleAudio.mute(false);
+    };};
+
+window.soundiconappear = function() {
+    sounddiv.classList.add('fadeinout');
+    setTimeout(function() {
+        sounddiv.classList.remove('fadeinout');
+    }, 2000);
 };
 
 //--------- automatic downscroll
@@ -1247,7 +1254,7 @@ document.addEventListener('DOMContentLoaded', function() {
 &lt;div class=&quot;slowlyappearing&quot;&gt;&lt;&lt;linkappend &quot;&lt;em&gt;Nfh!&lt;/em&gt;&quot;&gt;&gt; 
 
 &lt;div id=&quot;aniwakingup&quot;&gt;&lt;/div&gt;
-[img[assets/backgrounds/Placeholder.webp]]
+[img[assets/backgrounds/broken-interior.webp]]
 
 &lt;&lt;timed 6s&gt;&gt;&lt;&lt;linkappend &quot;Whoa!&quot;&gt;&gt; Destruction and chaos everywhere.
 
@@ -1257,7 +1264,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 &lt;&lt;timed 3s&gt;&gt;&lt;&lt;ab&gt;&gt;[[Assess the outcome]]&lt;&lt;/ab&gt;&gt;&lt;&lt;/timed&gt;&gt;&lt;&lt;/timed&gt;&gt;&lt;&lt;/timed&gt;&gt;&lt;&lt;/linkappend&gt;&gt;&lt;&lt;/timed&gt;&gt;&lt;&lt;/linkappend&gt;&gt;&lt;/div&gt;
 
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="2" name="3E-Event" tags="" position="3200,1350" size="100,100">&lt;center&gt;[img[assets/backgrounds/Placeholder.webp]]
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="2" name="3E-Event" tags="" position="3200,1350" size="100,100">&lt;center&gt;[img[assets/backgrounds/running_away.webp]]
   &lt;blockquote&gt;
 
 I run and run and run and run and run, my pump, my heart, is overclocking. As soon as I see the spaceship, I radio to the spaceship to be ready to close the hatch and even fly away. But Leo is already on the hatch and as soon as I run to a distance he seemt fit, he intitiate the closing of the hatch. As it is closing, &lt;&lt;linkappend &#39;I jump in&#39;&gt;&gt;&lt;div id=&quot;anilowshake&quot;&gt;and hear a loud clack and thuck and more collision noises. We are running inside and hear the machines humming. Vika is in the cockpit, pressing all buttons to levitate the spaceship out of place in short time. From all sides comes the roaring of the motor and the thucks against the hull.&lt;/div&gt;
@@ -1355,86 +1362,21 @@ The antenna is installed on a small hill. But it seems to reach no one. Maybe it
 &lt;&lt;/nobr&gt;&gt;
 &lt;&lt;ab&gt;&gt;[[Set up the Camp|Camp Jungle]]&lt;&lt;/ab&gt;&gt;
 &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="5" name="Abiba" tags="" position="3525,600" size="100,100">&lt;center&gt;&lt;blockquote&gt;
-&lt;&lt;if random(5) &gt; 1&gt;&gt;
-&lt;&lt;if $Abiba_ICP.AI1&gt;&gt;
-  [img[assets/characters/Abiba/Abiba_P.webp]]
+&lt;&lt;if random(4) == 0&gt;&gt;[img[assets/characters/Abiba/Abiba_1.webp]]
+    
+  Not an easy talker, she is. Maybe because she is young?&lt;&lt;set $social += 0.15&gt;&gt;
+&lt;&lt;elseif random(3) == 1&gt;&gt;[img[assets/characters/Abiba/Abiba_2.webp]]
+      
+  We were talking about some ideas of what can be improved here. More of silent work than think.&lt;&lt;set $engineering += 0.1 * $social&gt;&gt;
+&lt;&lt;else&gt;&gt;
+  She is reading, she doesn&#39;t want to be disturbed. &lt;&lt;set $noAbiba = true&gt;&gt;&lt;&lt;set $Abibavisits -= 1&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;ab&gt;&gt;[[Back to Camp|Camp Jungle]]&lt;&lt;/ab&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;ab&gt;&gt;[[Back to Camp|Camp Mountain]]&lt;&lt;/ab&gt;&gt;&lt;&lt;/if&gt;&gt;
+
+&lt;&lt;if $energy &gt; 1&gt;&gt;&lt;&lt;ab&gt;&gt;[[Go chat with others|Social Events]]&lt;&lt;/ab&gt;&gt;&lt;&lt;/if&gt;&gt;
   
-  Mensch! Do I have hard time concentrating on what she is saying, and, me expressing my intentions.&lt;&lt;if $social &gt; 3 &amp;&amp; $Abibavisits &gt; 5&gt;&gt;&lt;&lt;set $Abiba_ICP.AI2 = true; $Abiba_ICP.AI1 = false; $Abibavisits = 6&gt;&gt;&lt;&lt;/if&gt;&gt;
-  &lt;&lt;elseif $Abiba_ICP.AI2 || $Abibavisits &lt; 9&gt;&gt;
-  [img[assets/characters/Abiba/Abiba6.webp]]
-  
-&lt;&lt;if $social &gt; 4 &amp;&amp; $Abibavisits &gt; 8&gt;&gt;&lt;&lt;set $Abiba_ICP.AI3 = true; $Abiba_ICP.AI2 = false; $Abibavisits = 9&gt;&gt;&lt;&lt;/if&gt;&gt;
-&lt;&lt;elseif $SFW_Path == false&gt;&gt;
-  &lt;&lt;if $Abiba_ICP.AI3 || $Abibavisits &lt; 12&gt;&gt;
-  [img[assets/characters/Abiba/Abiba7_1.webp]]
-  
- &lt;&lt;if $social &gt; 5 &amp;&amp; $Abibavisits &gt; 11&gt;&gt;&lt;&lt;set $Abiba_ICP.AI4 = true; $Abiba_ICP.AI3 = false; $Abibavisits = 12&gt;&gt;&lt;&lt;/if&gt;&gt;
-  &lt;&lt;elseif $Abiba_ICP.AI4 || $Abibavisits &lt; 15&gt;&gt;
-  [img[assets/characters/Abiba/Abiba8.webp]]
-  
-&lt;&lt;if $social &gt; 6 &amp;&amp; $Abibavisits &gt; 14&gt;&gt;&lt;&lt;set $Abiba_ICP.AI5 = true; $Abiba_ICP.AI4 = false; $Abibavisits = 15&gt;&gt;&lt;&lt;/if&gt;&gt;
-
-    &lt;&lt;elseif $Abiba_ICP.AI5 || $Abibavisits &lt; 19&gt;&gt;
-    [img[assets/characters/Abiba/Abiba11.webp]]
-    
-&lt;&lt;if $social &gt; 7 &amp;&amp; $Abibavisits &gt; 18&gt;&gt;&lt;&lt;set $Abiba_ICP.AI6 = true; $Abiba_ICP.AI5 = false; $Abibavisits = 19&gt;&gt;&lt;&lt;/if&gt;&gt;
-    
-    &lt;&lt;linkappend &quot;&quot; t8n&gt;&gt;
-    [img[assets/characters/Abiba/Abiba10.webp]]
-    
-
-    &lt;&lt;/linkappend&gt;&gt;
-    &lt;&lt;elseif $Abiba_ICP.AI6 || $Abibavisits &lt; 23&gt;&gt;
-    [img[assets/characters/Abiba/Abiba13.webp]]
-    
-   &lt;&lt;if $social &gt; 8 &amp;&amp; $Abibavisits &gt; 22&gt;&gt;&lt;&lt;set $Abiba_ICP.AI7 = true; $Abiba_ICP.AI6 = false; $Abibavisits = 23&gt;&gt;&lt;&lt;/if&gt;&gt;
-    
-    &lt;&lt;linkappend &quot;&quot; t8n&gt;&gt;
-    [img[assets/characters/Abiba/Abiba13_2.webp]]
-    
-
-    &lt;&lt;/linkappend&gt;&gt;
-    
-    &lt;&lt;linkappend &quot;&quot; t8n&gt;&gt;
-    [img[assets/characters/Abiba/Abiba13_3.webp]]
-    
-
-    &lt;&lt;/linkappend&gt;&gt;
-    &lt;&lt;elseif $Abiba_ICP.AI7 || $Abibavisits &lt; 26&gt;&gt;
-    [img[assets/characters/Abiba/Abiba19.webp]]
-    
-&lt;&lt;if $social &gt; 9 &amp;&amp; $Abibavisits &gt; 25&gt;&gt;&lt;&lt;set $Abiba_ICP.AI8 = true; $Abiba_ICP.AI7 = false; $Abibavisits = 26&gt;&gt;&lt;&lt;/if&gt;&gt;
-    
-&lt;&lt;linkappend &quot;&quot; t8n&gt;&gt;
-    [img[assets/characters/Abiba/Abiba14.webp]]
-    
-
-    &lt;&lt;/linkappend&gt;&gt;
-    
-    &lt;&lt;linkappend &quot;&quot; t8n&gt;&gt;
-    [img[assets/characters/Abiba/Abiba21.webp]]
-
-    &lt;&lt;/linkappend&gt;&gt;
-    &lt;&lt;elseif $Abiba_ICP.AI8 || $Abibavisits &lt; 30&gt;&gt;&lt;&lt;if $Abibavisits &gt; 30&gt;&gt;&lt;&lt;set $Abibavisits = 30&gt;&gt;&lt;&lt;/if&gt;&gt;
-    [img[assets/characters/Abiba/Abiba16.webp]]
-    
-    &lt;&lt;else&gt;&gt;
-      [img[assets/characters/Abiba/Abiba6.webp]]
-
-      Okay, it is kind slow and muddy talk. It is okay. More or less.
-    &lt;&lt;/if&gt;&gt;
-  &lt;&lt;else&gt;&gt;
-     Abiba doesn&#39;t react, I guess now is not the time. &lt;&lt;set $noAbiba = true&gt;&gt;&lt;&lt;set $Abibavisits -= 1&gt;&gt;
-  &lt;&lt;/if&gt;&gt;
-  &lt;&lt;else&gt;&gt;
-    Abiba is in training. Better not disturbing her. &lt;&lt;set $noAbiba = true&gt;&gt;&lt;&lt;set $Abibavisits -= 1&gt;&gt;
-  &lt;&lt;/if&gt;&gt;
-  &lt;div class=&quot;actions-row&quot;&gt;&lt;&lt;if $Camp_J&gt;&gt;&lt;div&gt;[[Back to Camp|Camp Jungle]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div&gt;[[Back to Camp|Camp Mountain]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/div&gt;
-    
-  &lt;&lt;ab&gt;&gt;[[Go chat with others|Social Events]]&lt;&lt;/ab&gt;&gt;
-  
-  &lt;&lt;if $energy &gt; 1 &amp;&amp; $noAbiba != true&gt;&gt;&lt;&lt;ab&gt;&gt;[[continue chatting with her?|Abiba][$energy -= 1; $social += 0.08; $Abibavisits += 1]]&lt;&lt;/ab&gt;&gt;&lt;&lt;/if&gt;&gt;
-  &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="6" name="Ante Explore" tags="" position="875,1375" size="100,100">&lt;center&gt;&lt;blockquote&gt;
+&lt;&lt;if $energy &gt; 1 &amp;&amp; $noAbiba != true&gt;&gt;&lt;&lt;ab&gt;&gt;[[continue chatting with her?|Abiba][$energy -= 1; $social += 0.1]]&lt;&lt;/ab&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="6" name="Ante Explore" tags="" position="875,1375" size="100,100">&lt;center&gt;&lt;blockquote&gt;
 Who will accompany me, who can I persuade?
 &lt;&lt;nobr&gt;&gt;&lt;br&gt;
 &lt;&lt;if $QuestPool.includesAny($Q1CA, $Q1CA1, $Q1CA2, $Q1CA3, $Q1CA4)&gt;&gt;Vika is not available.&lt;&lt;else&gt;&gt;&lt;&lt;linkreplace &quot;Vika&quot;&gt;&gt;&lt;&lt;if random(10) * $social &gt; 40 || (($CampJ.EHarvester == 0 &amp;&amp; $Camp_J || $Camp_M &amp;&amp; $CampM.EHarvester == 0) &amp;&amp; $notrepaired &gt; 2) || $nutrients &lt; 10&gt;&gt;+ Vika will accompany you.&lt;&lt;set $Humcarrycap +=1&gt;&gt;&lt;&lt;else&gt;&gt;- Vika is focusing on the communications screen, she rather sit by the radio.&lt;&lt;/if&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;br&gt;&lt;br&gt;
@@ -1532,7 +1474,7 @@ Have I a change of mind? Do I want a ...
 &lt;&lt;button &quot;Energy Harvester&quot;&gt;&gt;&lt;&lt;set $numero = 3&gt;&gt;&lt;&lt;goto &quot;Vote&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="8" name="Arrival at CJ" tags="" position="3200,2100" size="100,100">&lt;center&gt;&lt;blockquote&gt;
-[img[assets/backgrounds/Placeholder.webp]]/* Arrival at Camp Jungle */
+[img[assets/backgrounds/night-landing.webp]]/* Arrival at Camp Jungle */
  
   With the protection of the night, we were departing for the Jungle Camp. It was not an easy ride, always on alert, on our toes. Even as our flight didn&#39;t took more than 15 minutes - we took a huge curved flight path, evading the hotspot -, we didn&#39;t know whether I made the right choice. What&#39;s more is that we have absolutely no data whether the air in the night is free of hostiles. 
 
@@ -1552,7 +1494,7 @@ Have I a change of mind? Do I want a ...
   &lt;&lt;/if&gt;&gt;
 &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="9" name="Assess the outcome" tags="" position="3200,1600" size="100,100">&lt;&lt;nobr&gt;&gt;
   &lt;&lt;set $QuestPool.pushUnique($Q1C0, $Q1CA)&gt;&gt; /* Urgency of Vika */
-&lt;&lt;/nobr&gt;&gt;&lt;center&gt;&lt;blockquote&gt;[img[assets/backgrounds/Placeholder.webp]]
+&lt;&lt;/nobr&gt;&gt;&lt;center&gt;&lt;blockquote&gt;[img[assets/backgrounds/broken-interior.webp]]
 
 It is a huge setback. The hull is broken. As are the cockpit, our life maintenance modules, the nutrients converter, the energy generator, the outbuildings and worse of all: our Printer! Leo is shaken, but compared to his first landing, still good. Last but not least, Vika is in coma, in emergency mode. &lt;&lt;set $VikaCountdown = $days&gt;&gt; That makes me the luckiest of all, as I need only a bit of polishing, not more. 
 &lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;set $CampJ to {TransMast: false,Farm: 0,DefPerimeter: false,building: 0,maxbuildings: 0,EHarvester: 0,Orb: 1,nOrb: 1,cOrb: 1,}; $energy = 2; $unimatter = 1; $nutrients = 4&gt;&gt;
@@ -1626,7 +1568,7 @@ It is a huge setback. The hull is broken. As are the cockpit, our life maintenan
   &lt;&lt;set $QuestPool.delete($Q1A), $QuestPool.delete($Q1B), $QuestPoolDone.pushUnique($Q1A), $QuestPoolDone.pushUnique($Q1B)&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;
 &lt;center&gt;&lt;blockquote&gt;
-&lt;&lt;if $CampM.nutrients &lt;= 0&gt;&gt;[img[assets/backgrounds/Placeholder.webp]]
+&lt;&lt;if $CampM.nutrients &lt;= 0&gt;&gt;[img[assets/backgrounds/silent-camp.webp]]
   
   On a spot of a mountainous area, I found another spaceship - like ours! Another stranded. 
 
@@ -1728,7 +1670,7 @@ Phase 2: Conduct a comprehensive survey to assess:
     &lt;&lt;if $evenfrom3E &amp;&amp; $QuestPoolDone.includes($Q1CA3, $Q1CB) &amp;&amp; !$QuestPool.includesAny($Q1CD, $Q1CD1) &amp;&amp; !$QuestPoolDone.includes($Q3)&gt;&gt;&lt;&lt;set $QuestPool.pushUnique($Q3)&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;&lt;center&gt;
 &lt;&lt;nobr&gt;&gt;&lt;&lt;if $QuestPool.includes($Q1CC2A) || $QuestPoolDone.includesAny($Q1A, $Q1B, $Q1CC2A)&gt;&gt;
-  &lt;center&gt;[img[assets/backgrounds/Placeholder.webp]]/* Two Spaceships */&lt;/center&gt;
+  &lt;center&gt;[img[assets/Ch-Camp/JungleCamp_bothSps.webp]]/* Two Spaceships */&lt;/center&gt;
 &lt;&lt;else&gt;&gt;
   &lt;center&gt;[img[assets/Ch-Camp/JungleCamp.webp]]&lt;/center&gt;
 &lt;&lt;/if&gt;&gt;&lt;&lt;/nobr&gt;&gt;
@@ -1897,15 +1839,15 @@ And for other reasons, as: to counteract brain degeneration and for energy effic
     &lt;&lt;elseif $unimatter &lt; 3 || $energy &lt; 3&gt;&gt;&lt;div class=&quot;color-red&quot;&gt;insufficient ressources&lt;/div&gt;
     &lt;&lt;elseif $Camp_J &amp;&amp; $maxenergy &lt; 10 || $Camp_M &amp;&amp; $maxenergy &lt; 20&gt;&gt;&lt;div class=&quot;color-red&quot;&gt;insufficient ressources&lt;/div&gt;&lt;&lt;/if&gt;&gt;
     &lt;&lt;else&gt;&gt;&lt;div class=&quot;color-green&quot;&gt;all good and functioning.&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/li&gt;
-  &lt;li&gt;Lvl 2: Substance Analyzer (2E - 5U): 
-  &lt;&lt;if $engineering &gt;= 2 &amp;&amp; $SubAnalyzer != true &amp;&amp; $energy &gt;= 2 &amp;&amp; $unimatter &gt;= 5&gt;&gt;[[Print|Construction Menu][$energy -= 2; $unimatter -= 5; $SubAnalyzer = true]]
+  &lt;&lt;if $engineering &gt;= 2&gt;&gt;&lt;li&gt;Lvl 2: Substance Analyzer (2E - 5U): 
+  &lt;&lt;if $SubAnalyzer != true &amp;&amp; $energy &gt;= 2 &amp;&amp; $unimatter &gt;= 5&gt;&gt;[[Print|Construction Menu][$energy -= 2; $unimatter -= 5; $SubAnalyzer = true]]
   &lt;&lt;elseif $SubAnalyzer&gt;&gt;&lt;br&gt;&lt;div class=&quot;color-green&quot;&gt;We have already the Substance Analyzer in our inventory.&lt;/div&gt;
-  &lt;&lt;else&gt;&gt;&lt;div class=&quot;color-red&quot;&gt;insufficient level or ressources&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/li&gt;&lt;/ul&gt;
+  &lt;&lt;else&gt;&gt;&lt;div class=&quot;color-red&quot;&gt;insufficient level or ressources&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/li&gt;&lt;&lt;/if&gt;&gt;&lt;/ul&gt;
 &lt;&lt;if $Camp_J &amp;&amp; $CampJ.building &lt; $CampJ.maxbuildings || $Camp_M &amp;&amp; $CampM.building &lt; $CampM.maxbuildings&gt;&gt;
   &lt;ul&gt;
-  &lt;li&gt;Lvl 2: Energy Harvester (5E - 5U): 
-    &lt;&lt;if $engineering &gt;= 2 &amp;&amp; $CampJ.EHarvester == 0 &amp;&amp; $Camp_J &amp;&amp; $energy &gt;= 5 &amp;&amp; $unimatter &gt;= 5&gt;&gt;[[Print|Construction Menu][$energy -= 5; $unimatter -= 5; $CampJ.EHarvester = 5; $CampJ.building += 1]]
-    &lt;&lt;elseif $engineering &gt;= 2 &amp;&amp; $CampM.EHarvester == 0 &amp;&amp; $Camp_M &amp;&amp; $energy &gt;= 5 &amp;&amp; $unimatter &gt;= 5&gt;&gt;[[Print|Construction Menu][$energy -= 5; $unimatter -= 5; $CampM.EHarvester = 5; $CampM.building += 1]]
+  &lt;&lt;if $engineering &gt;= 2&gt;&gt;&lt;li&gt;Lvl 2: Energy Harvester (5E - 5U): 
+    &lt;&lt;if $CampJ.EHarvester == 0 &amp;&amp; $Camp_J &amp;&amp; $energy &gt;= 5 &amp;&amp; $unimatter &gt;= 5&gt;&gt;[[Print|Construction Menu][$energy -= 5; $unimatter -= 5; $CampJ.EHarvester = 5; $CampJ.building += 1]]
+    &lt;&lt;elseif $CampM.EHarvester == 0 &amp;&amp; $Camp_M &amp;&amp; $energy &gt;= 5 &amp;&amp; $unimatter &gt;= 5&gt;&gt;[[Print|Construction Menu][$energy -= 5; $unimatter -= 5; $CampM.EHarvester = 5; $CampM.building += 1]]
     &lt;&lt;elseif $CampJ.EHarvester == 5 &amp;&amp; $Camp_J || $CampM.EHarvester == 5 &amp;&amp; $Camp_M&gt;&gt;&lt;br&gt;&lt;div class=&quot;color-green&quot;&gt;Our Energy Harvester collects all possible energies.&lt;/div&gt;
     &lt;&lt;elseif ($CampJ.EHarvester == 10 &amp;&amp; $Camp_J) || ($CampM.EHarvester == 10 &amp;&amp; $Camp_M)&gt;&gt;&lt;br&gt;&lt;div class=&quot;color-green&quot;&gt;Our energy regeneration rate is raised by +10.&lt;/div&gt;
     &lt;&lt;else&gt;&gt;&lt;div class=&quot;color-red&quot;&gt;insufficient level or ressources&lt;/div&gt;
@@ -1916,17 +1858,17 @@ And for other reasons, as: to counteract brain degeneration and for energy effic
       &lt;li&gt;Lvl 5: + Energy Generation Upgrade (5E - 5U): 
         &lt;&lt;if $engineering &gt;= 5 &amp;&amp; $energy &gt;= 5 &amp;&amp; $unimatter &gt;= 5 &amp;&amp; ($CampJ.EHarvester == 5 &amp;&amp; $Camp_J || $CampM.EHarvester == 5 &amp;&amp; $Camp_M)&gt;&gt;&lt;&lt;if $Camp_J&gt;&gt;[[Print|Construction Menu][$energy -= 5; $unimatter -= 5; $CampJ.EHarvester = 10]]&lt;&lt;else&gt;&gt;[[Print|Construction Menu][$energy -= 5; $unimatter -= 5; $CampM.EHarvester = 10]]&lt;&lt;/if&gt;&gt;&lt;&lt;else&gt;&gt;
         &lt;div class=&quot;color-red&quot;&gt;insufficient level or ressources&lt;/div&gt;&lt;&lt;/if&gt;&gt;
-      &lt;/li&gt;&lt;/ul&gt;&lt;&lt;/if&gt;&gt;
-  &lt;li&gt;Lvl 3: Defense Perimeter (2E - 2U - 1EU): 
-    &lt;&lt;if $engineering &gt;= 2 &amp;&amp; $CampJ.DefPerimeter != true &amp;&amp; $Camp_J &amp;&amp; $energy &gt;= 2 &amp;&amp; $unimatter &gt;= 2&gt;&gt;[[Print|Construction Menu][$energy -= 2; $unimatter -= 2; $CampJ.DefPerimeter = true; $CampJ.building += 1]]
-    &lt;&lt;elseif $engineering &gt;= 2 &amp;&amp; $CampM.DefPerimeter != true &amp;&amp; $Camp_M &amp;&amp; $energy &gt;= 2 &amp;&amp; $unimatter &gt;= 2&gt;&gt;[[Print|Construction Menu][$energy -= 8; $unimatter -= 3; $CampM.DefPerimeter = true; $CampM.building += 1]]
+      &lt;/li&gt;&lt;/ul&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt;
+  &lt;&lt;if $engineering &gt;= 2&gt;&gt;&lt;li&gt;Lvl 3: Defense Perimeter (2E - 2U - 1EU): 
+    &lt;&lt;if $CampJ.DefPerimeter != true &amp;&amp; $Camp_J &amp;&amp; $energy &gt;= 2 &amp;&amp; $unimatter &gt;= 2&gt;&gt;[[Print|Construction Menu][$energy -= 2; $unimatter -= 2; $CampJ.DefPerimeter = true; $CampJ.building += 1]]
+    &lt;&lt;elseif $CampM.DefPerimeter != true &amp;&amp; $Camp_M &amp;&amp; $energy &gt;= 2 &amp;&amp; $unimatter &gt;= 2&gt;&gt;[[Print|Construction Menu][$energy -= 8; $unimatter -= 3; $CampM.DefPerimeter = true; $CampM.building += 1]]
     &lt;&lt;elseif $CampJ.DefPerimeter &amp;&amp; $Camp_J || $CampM.DefPerimeter &amp;&amp; $Camp_M&gt;&gt;&lt;br&gt;&lt;div class=&quot;color-green&quot;&gt;The Defense Perimeter is active.&lt;/div&gt;
     &lt;&lt;else&gt;&gt;&lt;div class=&quot;color-red&quot;&gt;insufficient level or ressources&lt;/div&gt;
     &lt;&lt;/if&gt;&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Lvl 3: Antenna (2E - 2U - 1EU): 
-    &lt;&lt;if $engineering &gt;= 3 &amp;&amp; $CampJ.TransMast != true  &amp;&amp; $Camp_J &amp;&amp; $energy &gt;= 2 &amp;&amp; $unimatter &gt;= 2&gt;&gt;[[Print|Construction Menu][$energy -= 2; $unimatter -= 2; $CampJ.TransMast = true; $CampJ.building += 1]]
-    &lt;&lt;elseif $engineering &gt;= 3 &amp;&amp; $CampM.TransMast != true &amp;&amp; $Camp_M &amp;&amp; $energy &gt;= 2 &amp;&amp; $unimatter &gt;= 2&gt;&gt;[[Print|Construction Menu][$energy -= 2; $unimatter -= 2; $CampM.TransMast = true; $CampM.building += 1]]
+  &lt;/li&gt;&lt;&lt;/if&gt;&gt;
+  &lt;&lt;if $engineering &gt;= 3&gt;&gt;&lt;li&gt;Lvl 3: Antenna (2E - 2U - 1EU): 
+    &lt;&lt;if $CampJ.TransMast != true  &amp;&amp; $Camp_J &amp;&amp; $energy &gt;= 2 &amp;&amp; $unimatter &gt;= 2&gt;&gt;[[Print|Construction Menu][$energy -= 2; $unimatter -= 2; $CampJ.TransMast = true; $CampJ.building += 1]]
+    &lt;&lt;elseif $CampM.TransMast != true &amp;&amp; $Camp_M &amp;&amp; $energy &gt;= 2 &amp;&amp; $unimatter &gt;= 2&gt;&gt;[[Print|Construction Menu][$energy -= 2; $unimatter -= 2; $CampM.TransMast = true; $CampM.building += 1]]
     &lt;&lt;elseif $CampJ.TransMast &amp;&amp; $Camp_J || $CampM.TransMast &amp;&amp; $Camp_M&gt;&gt;&lt;br&gt;&lt;div class=&quot;color-green&quot;&gt;Our transmission mast is sending without interruption.&lt;/div&gt;
     &lt;&lt;else&gt;&gt;&lt;div class=&quot;color-red&quot;&gt;insufficient level or ressources&lt;/div&gt;
     &lt;&lt;/if&gt;&gt;
@@ -1947,15 +1889,15 @@ And for other reasons, as: to counteract brain degeneration and for energy effic
           &lt;&lt;/if&gt;&gt;
         &lt;/li&gt;
         &lt;/ul&gt;
-      &lt;&lt;/if&gt;&gt;
-  &lt;li&gt;Lvl 4: Farm (4E - 6U - 1EU): 
-    &lt;&lt;if $engineering &gt;= 4 &amp;&amp; $CampJ.Farm == 0 &amp;&amp; $Camp_J &amp;&amp; $energy &gt;= 4 &amp;&amp; $unimatter &gt;= 6&gt;&gt;[[Print|Construction Menu][$energy -= 4; $unimatter -= 6; $CampJ.Farm = 5; $CampJ.building += 1]]
-    &lt;&lt;elseif $engineering &gt;= 4 &amp;&amp; $CampM.Farm == 0 &amp;&amp; $Camp_M &amp;&amp; $energy &gt;= 4 &amp;&amp; $unimatter &gt;= 6&gt;&gt;[[Print|Construction Menu][$energy -= 4; $unimatter -= 6; $CampM.Farm = 5; $CampM.building += 1]]
+      &lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt;
+  &lt;&lt;if $engineering &gt;= 4&gt;&gt;&lt;li&gt;Lvl 4: Farm (4E - 6U - 1EU): 
+    &lt;&lt;if $CampJ.Farm == 0 &amp;&amp; $Camp_J &amp;&amp; $energy &gt;= 4 &amp;&amp; $unimatter &gt;= 6&gt;&gt;[[Print|Construction Menu][$energy -= 4; $unimatter -= 6; $CampJ.Farm = 5; $CampJ.building += 1]]
+    &lt;&lt;elseif $CampM.Farm == 0 &amp;&amp; $Camp_M &amp;&amp; $energy &gt;= 4 &amp;&amp; $unimatter &gt;= 6&gt;&gt;[[Print|Construction Menu][$energy -= 4; $unimatter -= 6; $CampM.Farm = 5; $CampM.building += 1]]
     &lt;&lt;elseif $CampJ.Farm == 5 &amp;&amp; $Camp_J || $CampM.Farm == 5 &amp;&amp; $Camp_M&gt;&gt;&lt;br&gt;&lt;div class=&quot;color-green&quot;&gt;Our horticulture produces our nutrients all fine.&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;color-red&quot;&gt;insufficient level or ressources&lt;/div&gt;
     &lt;&lt;/if&gt;&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Lvl 4: Floating Orb (8E - 4U - 1EU): 
-    &lt;&lt;if $engineering &gt;= 4 &amp;&amp; $CampJ.Orb != 3 &amp;&amp; $Camp_J &amp;&amp; $energy &gt;= 8 &amp;&amp; $unimatter &gt;= 4&gt;&gt;[[Print|Construction Menu][$energy -= 8; $unimatter -= 4; $CampJ.Orb = 3; $CampJ.building += 1]]
+  &lt;/li&gt;&lt;&lt;/if&gt;&gt;
+  &lt;&lt;if $engineering &gt;= 4&gt;&gt;&lt;li&gt;Lvl 4: Floating Orb (8E - 4U - 1EU): 
+    &lt;&lt;if $CampJ.Orb != 3 &amp;&amp; $Camp_J &amp;&amp; $energy &gt;= 8 &amp;&amp; $unimatter &gt;= 4&gt;&gt;[[Print|Construction Menu][$energy -= 8; $unimatter -= 4; $CampJ.Orb = 3; $CampJ.building += 1]]
     &lt;&lt;elseif $engineering &gt;= 4 &amp;&amp; $CampM.Orb != 3 &amp;&amp; $Camp_M &amp;&amp; $energy &gt;= 8 &amp;&amp; $unimatter &gt;= 4&gt;&gt;[[Print|Construction Menu][$energy -= 8; $unimatter -= 4; $CampM.Orb = 3; $CampM.building += 1]]
     &lt;&lt;elseif $CampJ.Orb == 3 &amp;&amp; $Camp_J || $CampM.Orb == 3 &amp;&amp; $Camp_M&gt;&gt;&lt;br&gt;&lt;div class=&quot;color-green&quot;&gt;The Orb is recharging at its port.&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;color-red&quot;&gt;insufficient level or ressources&lt;/div&gt;
     &lt;&lt;/if&gt;&gt;
@@ -1974,7 +1916,7 @@ And for other reasons, as: to counteract brain degeneration and for energy effic
       &lt;&lt;if $engineering &gt;= 6 &amp;&amp; $OrbAutoCJ != true &amp;&amp; $Camp_J &amp;&amp; $energy &gt;= 1 &amp;&amp; $unimatter &gt;= 1&gt;&gt;[[Print|Construction Menu][$energy -= 1; $unimatter -= 1; $OrbAutoCJ = true]]
       &lt;&lt;elseif $engineering &gt;= 6 &amp;&amp; $OrbAutoCM != true &amp;&amp; $Camp_M &amp;&amp; $energy &gt;= 1 &amp;&amp; $unimatter &gt;= 1&gt;&gt;[[Print|Construction Menu][$energy -= 1; $unimatter -= 1; $OrbAutoCM = true]]
       &lt;&lt;elseif $OrbAutoCJ &amp;&amp; $Camp_J || $OrbAutoCM &amp;&amp; $Camp_M&gt;&gt;&lt;br&gt;&lt;div class=&quot;color-green&quot;&gt;The options panel is available in the Task Monitor.&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;color-red&quot;&gt;insufficient level or ressources&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/li&gt;
-    &lt;/ul&gt;&lt;&lt;/if&gt;&gt;
+    &lt;/ul&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;else&gt;&gt;
   &lt;br&gt;&lt;div style=&quot;color:#b35900&quot;&gt;There is no more space.&lt;/div&gt;&lt;br&gt;
 
@@ -2210,74 +2152,29 @@ Leo looks to all our eyes, especially at mine more harder. &lt;em&gt;Huh? What!&
       &lt;&lt;elseif $OrbAutoCM &amp;&amp; $Camp_M&gt;&gt;
         &lt;li&gt;+ [[Orb Automation (1E - 1U)|Disintegration Menu][$energy += 1; $unimatter += 1; $OrbAutoCM = false]]&lt;/li&gt;&lt;&lt;/if&gt;&gt;&lt;/ul&gt;
 &lt;&lt;else&gt;&gt;&lt;div class=&quot;color-yellow&quot;&gt;There is nothing built or printed.&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="23" name="Elva" tags="" position="3525,475" size="100,100">&lt;center&gt;&lt;blockquote&gt;
-&lt;&lt;if random(5) &gt; 1&gt;&gt;
-  &lt;&lt;if $Elva_ICP.EI1&gt;&gt;
-    [img[assets/characters/Elva/ER_1.webp]]
-
-    Elva and I were talking about the defenses here and what she did in her training as a marine. I learned something something from her.&lt;&lt;set $combat += 0.05&gt;&gt;&lt;&lt;if $Elvavisits &gt; 4 &amp;&amp; $social &gt; 2&gt;&gt;&lt;&lt;set $Elva_ICP.EI2 = true; $Elva_ICP.EI1 = false; $Elvavisits = 5&gt;&gt;&lt;&lt;/if&gt;&gt;
-&lt;&lt;elseif $SFW_Path == false&gt;&gt;  
-  &lt;&lt;if $Elva_ICP.EI2 || $Elvavisits &lt; 7&gt;&gt;
-    [img[assets/characters/Elva/ER_2.webp]]
+&lt;&lt;if random(5) == 0&gt;&gt;[img[assets/characters/Elva/Elva_1.webp]]
     
- &lt;&lt;set $combat += 0.1&gt;&gt;&lt;&lt;if $social &gt; 3 &amp;&amp; $Elvavisits &gt; 6&gt;&gt;&lt;&lt;set $Elva_ICP.EI3 = true; $Elva_ICP.EI2 = false; $Elvavisits = 7&gt;&gt;&lt;&lt;/if&gt;&gt;
-  &lt;&lt;elseif $Elva_ICP.E3 || $Elvavisits &lt; 10&gt;&gt;
-    [img[assets/characters/Elva/ER_4_1.webp]]
-  
-  &lt;&lt;if $social &gt; 4 &amp;&amp; $Elvavisits &gt; 9&gt;&gt;&lt;&lt;set $Elva_ICP.EI4 = true; $Elva_ICP.EI3 = false; $Elvavisits = 10&gt;&gt;&lt;&lt;/if&gt;&gt;
-    
-    &lt;&lt;linkappend &quot;&quot; t8n&gt;&gt;
-    [img[assets/characters/Elva/ER_m2_1.webp]]
-    
- 
-    &lt;&lt;/linkappend&gt;&gt;
-  &lt;&lt;elseif $Elva_ICP.E4 || $Elvavisits &lt; 14&gt;&gt;
-    [img[assets/characters/Elva/ER_6.webp]]
-    
-&lt;&lt;if $social &gt; 5 &amp;&amp; $Elvavisits &gt; 13&gt;&gt;&lt;&lt;set $Elva_ICP.EI5 = true; $Elva_ICP.EI4 = false; $Elvavisits = 14&gt;&gt;&lt;&lt;/if&gt;&gt;
-    
-    &lt;&lt;linkappend &quot;More so that she shows no inhibitions.&quot; t8n&gt;&gt;
-    [img[assets/characters/Elva/ER_8.webp]]
-    
+  She was telling me about her time in the training camp.&lt;&lt;set $social += 0.1&gt;&gt;
+&lt;&lt;elseif random(5) == 1&gt;&gt;[img[assets/characters/Elva/Elva_2.webp]]
+      
+  She challenged me over in a simulation of wits, strategy and tactics.&lt;&lt;set $combat += 0.1 * $social&gt;&gt;
+&lt;&lt;elseif random(5) == 2&gt;&gt;[img[assets/characters/Elva/Elva_3.webp]]
+      
+  Tips and tricks in a serious situation. Handy.&lt;&lt;set $combat += 0.1&gt;&gt;
+&lt;&lt;elseif random(5) == 3&gt;&gt;[img[assets/characters/Elva/Elva_4.webp]]
 
-    &lt;&lt;/linkappend&gt;&gt;
+  We improved our cardio and our motor skills. She is a rough, yet useful motivator.&lt;&lt;set $combat += 0.1 * $social&gt;&gt;
+&lt;&lt;elseif random(5) == 3&gt;&gt;[img[assets/characters/Elva/Elva_5.webp]]
 
-    &lt;&lt;elseif $Elva_ICP.E5 || $Elvavisits &lt; 16&gt;&gt;
-      [img[assets/characters/Elva/ER_m3.webp]]
-      
-&lt;&lt;if $social &gt; 6 &amp;&amp; $Elvavisits &gt; 16&gt;&gt;&lt;&lt;set $Elva_ICP.EI6 = true; $Elva_ICP.EI5 = false; $Elvavisits = 17&gt;&gt;&lt;&lt;/if&gt;&gt;
-      
-      &lt;&lt;linkappend &quot;&quot; t8n&gt;&gt;
-      [img[assets/characters/Elva/ER_m5.webp]]
-      
-
-      &lt;&lt;/linkappend&gt;&gt;
-    &lt;&lt;elseif $Elva_ICP.E6 || $Elvavisits &lt; 20&gt;&gt;
-      [img[assets/characters/Elva/ER_m5_2.webp]]
-
-&lt;&lt;if $social &gt; 7 &amp;&amp; $Elvavisits &gt; 19&gt;&gt;&lt;&lt;set $Elva_ICP.EI7 = true; $Elva_ICP.EI6 = false; $Elvavisits = 20&gt;&gt;&lt;&lt;/if&gt;&gt;
-    &lt;&lt;elseif $Elva_ICP.E7 || $Elvavisits &lt; 25&gt;&gt;
-      [img[assets/characters/Elva/ER_m5_3.webp]]
-      
-
-      &lt;&lt;set $energy -= 2&gt;&gt;
-      
-&lt;&lt;if $Elvavisits &gt; 25&gt;&gt;&lt;&lt;set $Elvavisits = 25&gt;&gt;&lt;&lt;/if&gt;&gt;
-    &lt;&lt;else&gt;&gt;
-      [img[assets/characters/Elva/ER_1.webp]]
-      
-      We were chatting about our situation here and generally about our life.
-    &lt;&lt;/if&gt;&gt;
-  &lt;&lt;else&gt;&gt;
-    She cannot now. Another time. But she was glad that I came by. &lt;&lt;set $noElva = true&gt;&gt;&lt;&lt;set $Elvavisits -= 1&gt;&gt;
-  &lt;&lt;/if&gt;&gt;
+  General talk; about life, anecdotes, this planet here, what to do next, ...&lt;&lt;set $social += 0.1&gt;&gt;
 &lt;&lt;else&gt;&gt;
-  Not now. Better tomorrow again. &lt;&lt;set $noElva = true&gt;&gt;&lt;&lt;set $Elvavisits -= 1&gt;&gt;
+    Elva is not in the mood now. I should try another time. &lt;&lt;set $noElva = true&gt;&gt;&lt;&lt;set $Elvavisits -= 1&gt;&gt;
 &lt;&lt;/if&gt;&gt;
-&lt;div class=&quot;actions-row&quot;&gt;&lt;&lt;if $Camp_J&gt;&gt;&lt;div&gt;[[Back to Camp|Camp Jungle]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div&gt;[[Back to Camp|Camp Mountain]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/div&gt;
-  
-&lt;&lt;ab&gt;&gt;[[Go chat with others|Social Events]]&lt;&lt;/ab&gt;&gt;
+&lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;ab&gt;&gt;[[Back to Camp|Camp Jungle]]&lt;&lt;/ab&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;ab&gt;&gt;[[Back to Camp|Camp Mountain]]&lt;&lt;/ab&gt;&gt;&lt;&lt;/if&gt;&gt;
 
-&lt;&lt;if $energy &gt; 1 &amp;&amp; $noElva != true&gt;&gt;&lt;&lt;ab&gt;&gt;[[continue chatting with her?|Elva][$energy -= 1; $social += 0.06; $Elvavisits += 1]]&lt;&lt;/ab&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $energy &gt; 1&gt;&gt;&lt;&lt;ab&gt;&gt;[[Go chat with others|Social Events]]&lt;&lt;/ab&gt;&gt;&lt;&lt;/if&gt;&gt;
+  
+&lt;&lt;if $energy &gt; 1 &amp;&amp; $noElva != true&gt;&gt;&lt;&lt;ab&gt;&gt;[[continue chatting with her?|Elva][$energy -= 1; $social += 0.1]]&lt;&lt;/ab&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="24" name="End of Game" tags="" position="1675,1400" size="100,100">&lt;center&gt;&lt;blockquote&gt;
 &lt;&lt;if $days &lt;60&gt;&gt;
 
@@ -2712,7 +2609,7 @@ By selling my soul, notably to Google, I could use some free services. However, 
 
 This game is free and has no intention of generating income, as it was my formation project.
 
-If you wish to hear some music and voices, you can toggle the speaker icon on the top-right corner of this browser window. &lt;span style=&quot;cursor: default; color: cadetblue;&quot;&gt;&lt;u&gt;&lt;span id=&quot;mobileono&quot;&gt;&lt;script&gt;$(document).on(&#39;:passagerender&#39;, function() {window.matchMedia(&quot;(max-width: 900px)&quot;).matches ? &#39;&lt;span onclick=&quot;mobileuser()&quot;&gt;Click on me&lt;/span&gt;&#39; : &#39;&lt;span onmouseover=&quot;desktopuser()&quot;&gt;Hover me&lt;/span&gt;&#39;;});&lt;/script&gt;&lt;/span&gt;&lt;/u&gt; to show you.&lt;/span&gt;
+If you wish to hear some music and voices, you can toggle the speaker icon on the top-right corner of this browser window. &lt;span style=&quot;cursor: default; color: cadetblue;&quot;&gt;&lt;u&gt;&lt;span id=&quot;mobileono&quot;&gt;&lt;script&gt;$(document).one(&#39;:passageend&#39;, function (ev) { if (window.innerWidth &lt; 900) {document.getElementById(&#39;mobileono&#39;).innerHTML = &#39;&lt;span onclick=&quot;soundiconappear()&quot;&gt;Click on me&lt;/span&gt;&#39;} else {document.getElementById(&#39;mobileono&#39;).innerHTML = &#39;&lt;span onmouseover=&quot;soundiconappear()&quot;&gt;Hover me&lt;/span&gt;&#39;};});&lt;/script&gt;&lt;/span&gt;&lt;/u&gt; to show you.&lt;/span&gt;
 
 &lt;h3&gt;Aside from formalities:&lt;/h3&gt;
 
@@ -5137,73 +5034,29 @@ The others set the record interpreter outside in a distance to the spaceship, bu
 &lt;&lt;ab&gt;&gt;[[At the time ...|Beginning]]&lt;&lt;/ab&gt;&gt;
 
 &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="96" name="Vika" tags="" position="3525,225" size="100,100">&lt;center&gt;&lt;blockquote&gt;
-  &lt;&lt;if random(4) &gt; 1&gt;&gt;
-    &lt;&lt;if $Vika_ICP.VI1&gt;&gt;[img[assets/characters/Vika/Vika_4.webp]]
+&lt;&lt;if random(5) == 0&gt;&gt;[img[assets/characters/Vika/Vika_1.webp]]
     
-      We both exchanged topics in machines and communications engineerings.&lt;&lt;set $engineering += 0.1 * $social&gt;&gt;&lt;&lt;if $social &gt; 2 &amp;&amp; $Vikavisits &gt; 4&gt;&gt;&lt;&lt;set $Vika_ICP.VI2 = true; $Vika_ICP.VI1 = false; $Vikavisits = 5&gt;&gt;&lt;&lt;/if&gt;&gt;
-    &lt;&lt;elseif $Vika_ICP.VI2 || $vikavisits &lt; 8&gt;&gt;[img[assets/characters/Vika/Vika_3.webp]]
+  We both exchanged topics in machines and communications engineerings. I feel I get a better understanding in engineering. &lt;&lt;set $engineering += 0.1 * $social&gt;&gt;
+&lt;&lt;elseif random(5) == 1&gt;&gt;[img[assets/characters/Vika/Vika_2.webp]]
       
-      Vika enjoy the time with me. She is smirking at your anecdotes and jokes.&lt;&lt;if $social &gt; 3 &amp;&amp; $Vikavisits &gt; 7&gt;&gt;&lt;&lt;set $Vika_ICP.VI3 = true; $Vika_ICP.VI2 = false; $Vikavisits = 8&gt;&gt;&lt;&lt;/if&gt;&gt;
-    &lt;&lt;elseif $Vika_ICP.VI3 || $vikavisits &lt; 11&gt;&gt;[img[assets/characters/Vika/Vika9.webp]]
+  I helped as much as I could do on the communications she want to work on.&lt;&lt;set $social += 0.1&gt;&gt;
+&lt;&lt;elseif random(5) == 2&gt;&gt;[img[assets/characters/Vika/Vika_3.webp]]
       
-      Vika wanted some inspirations about engineering, whether I have sufficient engineering or not. Any idea counts.&lt;&lt;if $social &gt; 4 &amp;&amp; $Vikavisits &gt; 10&gt;&gt;&lt;&lt;set $Vika_ICP.VI4 = true; $Vika_ICP.VI3 = false; $Vikavisits = 11&gt;&gt;&lt;&lt;/if&gt;&gt;
-    &lt;&lt;elseif $Vika_ICP.VI4 || $vikavisits &lt; 14&gt;&gt;[img[assets/characters/Vika/Vika_6.webp]]
-      
-&lt;&lt;if $social &gt; 5 &amp;&amp; $Vikavisits &gt; 13&gt;&gt;&lt;&lt;set $Vika_ICP.VI5 = true; $Vika_ICP.VI4 = false; $Vikavisits = 14&gt;&gt;&lt;&lt;/if&gt;&gt;
-    &lt;&lt;elseif $SFW_Path == false&gt;&gt;
-      &lt;&lt;if $Vika_ICP.VI5 || $vikavisits &lt; 17&gt;&gt;[img[assets/characters/Vika/Vika_9.webp]]
-      
-    &lt;&lt;if $social &gt; 6 &amp;&amp; $Vikavisits &gt; 16&gt;&gt;&lt;&lt;set $Vika_ICP.VI6 = true; $Vika_ICP.VI5 = false; $Vikavisits = 17&gt;&gt;&lt;&lt;/if&gt;&gt;
-      &lt;&lt;elseif $Vika_ICP.VI6 || $vikavisits &lt; 20&gt;&gt;[img[assets/characters/Vika/Vika10.webp]]
-        
-&lt;&lt;if $social &gt; 7 &amp;&amp; $Vikavisits &gt; 19&gt;&gt;&lt;&lt;set $Vika_ICP.VI7 = true; $Vika_ICP.VI6 = false; $Vikavisits = 20&gt;&gt;&lt;&lt;/if&gt;&gt;
-        
-        &lt;&lt;linkappend &quot;&quot; t8n&gt;&gt;
-        [img[assets/characters/Vika/Vika9_3.webp]]
-        
+  We were brainstorming and developing some concepts to improve our bearings here. &lt;&lt;set $engineering += 0.1 * $social&gt;&gt;
+&lt;&lt;elseif random(5) == 3&gt;&gt;[img[assets/characters/Vika/Vika_4.webp]]
 
-        
-        &lt;&lt;linkappend &quot;&quot; t8n&gt;&gt;
-        [img[assets/characters/Vika/Vika11.webp]]
-        
-   
-        &lt;&lt;/linkappend&gt;&gt;&lt;&lt;/linkappend&gt;&gt;
-      &lt;&lt;elseif $Vika_ICP.VI7 || $vikavisits &lt; 23&gt;&gt;[img[assets/characters/Vika/Vika13.webp]]
-        
-   &lt;&lt;if $social &gt; 8 &amp;&amp; $Vikavisits &gt; 22&gt;&gt;&lt;&lt;set $Vika_ICP.VI8 = true; $Vika_ICP.VI7 = false; $Vikavisits = 23&gt;&gt;&lt;&lt;/if&gt;&gt;
-        
-        &lt;&lt;linkappend &quot;&quot; t8n&gt;&gt;
-        [img[assets/characters/Vika/Vika15.webp]]
-        
+  We improved our blueprints. &lt;&lt;set $engineering += 0.1 * $social&gt;&gt;
+&lt;&lt;elseif random(5) == 3&gt;&gt;[img[assets/characters/Vika/Vika_5.webp]]
 
-        &lt;&lt;/linkappend&gt;&gt;
-      &lt;&lt;elseif $Vika_ICP.VI8 || $vikavisits &lt; 25&gt;&gt;[img[assets/characters/Vika/Vika16.webp]]
-        
-        
-        &lt;&lt;linkappend &quot;Yes!&quot; t8n&gt;&gt;
-        [img[assets/characters/Vika/Vika17.webp]]
-       
-        
-        &lt;&lt;linkappend &quot;&quot; t8n&gt;&gt;
-        [img[assets/characters/Vika/Vika18v.webp]]
-
-        &lt;&lt;/linkappend&gt;&gt;&lt;&lt;/linkappend&gt;&gt;
-        
-  		&lt;&lt;if $Vikavisits &gt; 25&gt;&gt;&lt;&lt;set $Vikavisits = 25&gt;&gt;&lt;&lt;/if&gt;&gt;
-      &lt;&lt;else&gt;&gt;
-        [img[assets/characters/Vika/Vika_3.webp]]
-        
-        We had a nice chat. We enjoyed that.
-        &lt;&lt;/if&gt;&gt;
-    &lt;&lt;/if&gt;&gt;
-  &lt;&lt;else&gt;&gt;
+  We had all had a nice chat.&lt;&lt;set $social += 0.1&gt;&gt;
+&lt;&lt;else&gt;&gt;
     Vika is not in the mood now. I should try another time. &lt;&lt;set $noVika = true&gt;&gt;&lt;&lt;set $Vikavisits -= 1&gt;&gt;
-  &lt;&lt;/if&gt;&gt;
+&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;ab&gt;&gt;[[Back to Camp|Camp Jungle]]&lt;&lt;/ab&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;ab&gt;&gt;[[Back to Camp|Camp Mountain]]&lt;&lt;/ab&gt;&gt;&lt;&lt;/if&gt;&gt;
 
 &lt;&lt;if $energy &gt; 1&gt;&gt;&lt;&lt;ab&gt;&gt;[[Go chat with others|Social Events]]&lt;&lt;/ab&gt;&gt;&lt;&lt;/if&gt;&gt;
   
-&lt;&lt;if $energy &gt; 1 &amp;&amp; $noVika != true&gt;&gt;&lt;&lt;ab&gt;&gt;[[continue chatting with her?|Vika][$energy -= 1; $social += 0.04; $Vikavisits += 1]]&lt;&lt;/ab&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $energy &gt; 1 &amp;&amp; $noVika != true&gt;&gt;&lt;&lt;ab&gt;&gt;[[continue chatting with her?|Vika][$energy -= 1; $social += 0.1]]&lt;&lt;/ab&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="97" name="Vote" tags="" position="1550,300" size="100,100">&lt;center&gt;&lt;blockquote&gt;&lt;&lt;nobr&gt;&gt;
   &lt;&lt;set $Vikavote = random(1, 3)&gt;&gt;&lt;&lt;set $Leovote = random(1, 3)&gt;&gt;&lt;&lt;timed 1000ms&gt;&gt;Vika gives in her vote&lt;&lt;/timed&gt;&gt;&lt;br&gt;&lt;br&gt;
 
@@ -5297,7 +5150,7 @@ After the formalities, Paavali opens his arms to the side, palms up.
       &lt;&lt;/if&gt;&gt;
     &lt;&lt;/if&gt;&gt;  
   &lt;/div&gt;&lt;&lt;/nobr&gt;&gt;&lt;&lt;/widget&gt;&gt;</tw-passagedata><tw-passagedata pid="101" name="Year 1" tags="" position="2175,2475" size="100,100">&lt;center&gt;&lt;blockquote&gt;
-[img[assets/backgrounds/Placeholder.webp]]
+[img[assets/backgrounds/Arrival_KapteynsS.webp]]
 
 &lt;div class=&quot;logbook&quot;&gt;&lt;strong&gt;&lt;h3&gt;Log - Year 1:&lt;/h3&gt;&lt;h4&gt;Arrival at Kapteyn&#39;s Star System&lt;/h4&gt;&lt;/strong&gt;
 Upon arrival at Kapteyn&#39;s Star, a red dwarf system, all sensors were activated to scan for planetary bodies. Initial readings confirmed the presence of two planets, Kapteyn b and Kapteyn c, within our immediate vicinity. Subsequent scans identified two additional planets, Kapteyn d and Kapteyn e.
@@ -5313,7 +5166,7 @@ We all nod.
 &lt;&lt;ab&gt;&gt;[[Year 2]]&lt;&lt;/ab&gt;&gt;
 
 &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="102" name="Year 2" tags="" position="2300,2475" size="100,100">&lt;center&gt;&lt;blockquote&gt;
-[img[assets/backgrounds/Placeholder.webp]]
+[img[assets/backgrounds/Year_2.webp]]
 
 &lt;div class=&quot;logbook&quot;&gt;&lt;strong&gt;&lt;h3&gt;Log - Year 2:&lt;/h3&gt;&lt;h4&gt;Exploration of Kapteyn c (Bādhiccu)&lt;/h4&gt;&lt;/strong&gt;
 A site has been identified on Bādhiccu that remains undisturbed by meteorite activity, providing a sufficient window for on-site exploration. The current survey status of the stellar system stands at 86.54%, with 34.23% of Bādhiccu&#39;s surface cartographed.
@@ -5338,7 +5191,7 @@ I hear a groaning from Vika. She is shaking her head, looking with such suspicio
 &lt;&lt;ab&gt;&gt;[[Year 3]]&lt;&lt;/ab&gt;&gt;
 
 &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="103" name="Year 3" tags="" position="2425,2475" size="100,100">&lt;center&gt;&lt;blockquote&gt;
-[img[assets/backgrounds/Placeholder.webp]]
+[img[assets/backgrounds/Year_3.webp]]
 
 &lt;div class=&quot;logbook&quot;&gt;&lt;strong&gt;&lt;h3&gt;Log - Year 3:&lt;/h3&gt;&lt;h4&gt;Investigation of the Entity: Titan&lt;/h4&gt;&lt;/strong&gt;
 
@@ -5377,7 +5230,7 @@ Initial attempts to send messages to the monolith yielded no correlated response
 &lt;&lt;ab&gt;&gt;[[Year 4]]&lt;&lt;/ab&gt;&gt;
 
 &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="104" name="Year 4" tags="" position="2550,2475" size="100,100">&lt;center&gt;&lt;blockquote&gt;
-[img[assets/backgrounds/Placeholder.webp]]
+[img[assets/backgrounds/Year_4.webp]]
 
 &lt;div class=&quot;logbook&quot;&gt;&lt;strong&gt;&lt;h3&gt;Log - Year 4:&lt;/h3&gt;&lt;h4&gt;Status Update on Bādhiccu Operations&lt;/h4&gt;&lt;/strong&gt;
 &lt;ul&gt;&lt;li&gt;all of our automatic units lost during planetary charting missions.&lt;/li&gt;
