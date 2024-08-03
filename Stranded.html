@@ -1310,7 +1310,16 @@ window.scrollBy(0,120)&lt;&lt;/script&gt;&gt;&lt;&lt;/nobr&gt;&gt; with a loud c
   &lt;&lt;/if&gt;&gt;
   &lt;&lt;/nobr&gt;&gt;
   &lt;&lt;if $rNr == 2&gt;&gt;
-  False Alarm. Or the AI handled it. Anyway, time to rest. A new cycle.
+    &lt;&lt;if random(4) &gt; 0&gt;&gt;
+      False Alarm. Or the AI handled it. Anyway, time to rest. A new cycle.
+    &lt;&lt;elseif $OrbTA = true&gt;&gt;[img[assets/events/Orb_automated.webp]]
+      
+      The whirring hum of the orb, gliding through its morning route, begins its cycle of collection.
+    &lt;&lt;else&gt;&gt;
+      [img[assets/events/torments.webp]]
+    
+      What a spectacle!
+    &lt;&lt;/if&gt;&gt;
   &lt;&lt;elseif $rNr == 4 &amp;&amp; ($days.range(15, 25) || $days.range(35, 45))&gt;&gt;&gt;
     &lt;div class=&quot;anilowshake&quot;&gt;&lt;&lt;if $days.range(15, 25)&gt;&gt;[img[assets/events/meteoritebombardments1.webp]]&lt;&lt;else&gt;&gt;[img[assets/events/meteoritebombardments2.webp]]&lt;&lt;/if&gt;&gt;
 
@@ -1362,12 +1371,12 @@ The antenna is installed on a small hill. But it seems to reach no one. Maybe it
 &lt;&lt;/nobr&gt;&gt;
 &lt;&lt;ab&gt;&gt;[[Set up the Camp|Camp Jungle]]&lt;&lt;/ab&gt;&gt;
 &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="5" name="Abiba" tags="" position="3525,600" size="100,100">&lt;center&gt;&lt;blockquote&gt;
-&lt;&lt;if random(4) == 0&gt;&gt;[img[assets/characters/Abiba/Abiba_1.webp]]
+&lt;&lt;if random(4) == 0&gt;&gt;[img[assets/characters/Abiba/Abiba_3.webp]]
     
-  Not an easy talker, she is. Maybe because she is young?&lt;&lt;set $social += 0.15&gt;&gt;
+  Not an easy talker, she is; maybe because she is young?&lt;&lt;set $social += 0.15&gt;&gt;
 &lt;&lt;elseif random(3) == 1&gt;&gt;[img[assets/characters/Abiba/Abiba_2.webp]]
       
-  We were talking about some ideas of what can be improved here. More of silent work than think.&lt;&lt;set $engineering += 0.1 * $social&gt;&gt;
+  We were talking about some ideas of what can be improved here. More ruminating than talking.&lt;&lt;set $engineering += 0.1 * $social&gt;&gt;
 &lt;&lt;else&gt;&gt;
   She is reading, she doesn&#39;t want to be disturbed. &lt;&lt;set $noAbiba = true&gt;&gt;&lt;&lt;set $Abibavisits -= 1&gt;&gt;
 &lt;&lt;/if&gt;&gt;
@@ -2152,19 +2161,19 @@ Leo looks to all our eyes, especially at mine more harder. &lt;em&gt;Huh? What!&
       &lt;&lt;elseif $OrbAutoCM &amp;&amp; $Camp_M&gt;&gt;
         &lt;li&gt;+ [[Orb Automation (1E - 1U)|Disintegration Menu][$energy += 1; $unimatter += 1; $OrbAutoCM = false]]&lt;/li&gt;&lt;&lt;/if&gt;&gt;&lt;/ul&gt;
 &lt;&lt;else&gt;&gt;&lt;div class=&quot;color-yellow&quot;&gt;There is nothing built or printed.&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="23" name="Elva" tags="" position="3525,475" size="100,100">&lt;center&gt;&lt;blockquote&gt;
-&lt;&lt;if random(5) == 0&gt;&gt;[img[assets/characters/Elva/Elva_1.webp]]
+&lt;&lt;if random(6) == 0&gt;&gt;[img[assets/characters/Elva/Elva_4.webp]]
     
-  She was telling me about her time in the training camp.&lt;&lt;set $social += 0.1&gt;&gt;
-&lt;&lt;elseif random(5) == 1&gt;&gt;[img[assets/characters/Elva/Elva_2.webp]]
+  She was reminiscing about her time in the marines academy and in the training camp.&lt;&lt;set $social += 0.1&gt;&gt;
+&lt;&lt;elseif random(6) == 1&gt;&gt;&lt;&lt;if random(6) == 2&gt;&gt;[img[assets/characters/Elva/Elva_2.webp]]&lt;&lt;else&gt;&gt;[img[assets/characters/Elva/Elva_2-5.webp]]&lt;&lt;/if&gt;&gt;
       
   She challenged me over in a simulation of wits, strategy and tactics.&lt;&lt;set $combat += 0.1 * $social&gt;&gt;
-&lt;&lt;elseif random(5) == 2&gt;&gt;[img[assets/characters/Elva/Elva_3.webp]]
+&lt;&lt;elseif random(6) == 3&gt;&gt;[img[assets/characters/Elva/Elva_3.webp]]
       
-  Tips and tricks in a serious situation. Handy.&lt;&lt;set $combat += 0.1&gt;&gt;
-&lt;&lt;elseif random(5) == 3&gt;&gt;[img[assets/characters/Elva/Elva_4.webp]]
+  Tips and tricks for serious situations. Handy.&lt;&lt;set $combat += 0.1&gt;&gt;
+&lt;&lt;elseif random(6) == 4&gt;&gt;[img[assets/characters/Elva/Elva_5.webp]]
 
   We improved our cardio and our motor skills. She is a rough, yet useful motivator.&lt;&lt;set $combat += 0.1 * $social&gt;&gt;
-&lt;&lt;elseif random(5) == 3&gt;&gt;[img[assets/characters/Elva/Elva_5.webp]]
+&lt;&lt;elseif random(6) == 5&gt;&gt;[img[assets/characters/Elva/Elva_6.webp]]
 
   General talk; about life, anecdotes, this planet here, what to do next, ...&lt;&lt;set $social += 0.1&gt;&gt;
 &lt;&lt;else&gt;&gt;
@@ -2504,7 +2513,7 @@ The answer may be given to &lt;&lt;linkappend &quot;me.&quot; t8n&gt;&gt; Soon. 
   &lt;&lt;run automaticDownscroll();&gt;&gt;&lt;&lt;/nobr&gt;&gt;
 
 &lt;&lt;linkappend &quot;As in our route after exiting the neighbor galaxy&quot; t8n&gt;&gt; something [[happens.|Crash]]&lt;&lt;/linkappend&gt;&gt;&lt;&lt;/linkappend&gt;&gt;
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="36" name="Leo" tags="" position="3525,350" size="100,100">&lt;center&gt;&lt;blockquote&gt;&lt;&lt;if random(5) &gt;= 1&gt;&gt;[img[assets/characters/2_men_talking.webp]]
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="36" name="Leo" tags="" position="3525,350" size="100,100">&lt;center&gt;&lt;blockquote&gt;&lt;&lt;if random(3) == 1&gt;&gt;[img[assets/characters/2_men_talking.webp]]
 
   I had an interesting viewpoint from him about AI&#39;s and algorithms.
 
@@ -2519,6 +2528,12 @@ The answer may be given to &lt;&lt;linkappend &quot;me.&quot; t8n&gt;&gt; Soon. 
   I thank Leo for the chat and &lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;ab&gt;&gt;[[go back to Camp|Camp Jungle]]&lt;&lt;/ab&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;ab&gt;&gt;[[go back to Camp|Camp Mountain]]&lt;&lt;/ab&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if $energy &gt; 1&gt;&gt; or &lt;&lt;ab&gt;&gt;[[I rather want to chat with the others?|Social Events]]&lt;&lt;/ab&gt;&gt;&lt;&lt;/if&gt;&gt;
 
   &lt;&lt;if $energy &gt;= 1&gt;&gt;I am in the mood to chat further with &lt;&lt;ab&gt;&gt;[[Leo.|Leo][$energy -= 1; $social += 0.5]]&lt;&lt;/ab&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;&lt;elseif random(3) == 2&gt;&gt;[img[assets/characters/Leo_2.webp]]
+
+  That was fun; pLaying games of many kinds: cards, rpg, boardgames, etc. &lt;&lt;set $social += 0.3, $combat += 0.05, $engineering += 0.05&gt;&gt;
+&lt;&lt;elseif random(3) == 3&gt;&gt;[img[assets/characters/Leo_3.webp]]
+
+  We were talking about our lives, our experiences, politics, economy, about other life forms, AI&#39;s, ... &lt;&lt;set $social += 0.1, $xeno += 0.5&gt;&gt;
 &lt;&lt;else&gt;&gt;
   &lt;&lt;set $noLeo = true&gt;&gt;
   Leo is not in the mood. Try another time.
@@ -3709,7 +3724,7 @@ With that, we should be able to collect materials nearby. Hopefully, some can be
 	&lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;set $explored.TBJ0 = 100&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;&lt;&lt;nobr&gt;&gt;
   &lt;&lt;if $Camp_J &amp;&amp; $eventfrom3E != true &amp;&amp; $energy &lt;= 2*(0.2+$Oeu)&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;elseif $Camp_M &amp;&amp; $eventfrom3E &amp;&amp; hasVisited(&quot;3E-Event&quot;) &amp;&amp; $energy &lt;= 6*(0.2+$Oeu)&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;elseif $Camp_M &amp;&amp; $eventfrom3E != true &amp;&amp; $energy &lt;= 4*(0.2+$Oeu)&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;&lt;center&gt;[img[assets/Ch-Explore/T1E.webp]]
+&lt;&lt;/nobr&gt;&gt;&lt;center&gt;&lt;&lt;if not hasVisited(&quot;3E-Event&quot;) &amp;&amp; $eventfrom3E&gt;&gt;[img[assets/Ch-Explore/running_away.webp]]&lt;&lt;else&gt;&gt;[img[assets/Ch-Explore/T4E.webp]]&lt;&lt;/if&gt;&gt;
   &lt;blockquote&gt;
     &lt;&lt;if $eventfrom3E &amp;&amp; not hasVisited(&quot;3E-Event&quot;)&gt;&gt;
       &lt;&lt;if $energy &gt; 0.2&gt;&gt;
@@ -4027,7 +4042,7 @@ Bring them to Camp anyway?
 &lt;&lt;compass &quot;T1NW&quot; &quot;T2W&quot; &quot;TBJ0&quot; &quot;T1SW&quot;&gt;&gt;
 &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="79" name="T2E" tags="" position="1125,2175" size="100,100">&lt;&lt;nobr&gt;&gt;
   &lt;&lt;if $Camp_J &amp;&amp; $eventfrom3E != true &amp;&amp; $energy &lt;= 2*(0.2+$Oeu)&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;elseif $Camp_M &amp;&amp; $eventfrom3E &amp;&amp; hasVisited(&quot;3E-Event&quot;) &amp;&amp; $energy &lt;= 5*(0.2+$Oeu)&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;elseif $Camp_M &amp;&amp; $eventfrom3E != true &amp;&amp; $energy &lt;= 3*(0.2+$Oeu)&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;&lt;center&gt;[img[assets/Ch-Explore/T2E.webp]]
+&lt;&lt;/nobr&gt;&gt;&lt;center&gt;&lt;&lt;if not hasVisited(&quot;3E-Event&quot;) &amp;&amp; $eventfrom3E&gt;&gt;[img[assets/Ch-Explore/running_away.webp]]&lt;&lt;else&gt;&gt;[img[assets/Ch-Explore/T4E.webp]]&lt;&lt;/if&gt;&gt;
 &lt;blockquote&gt;&lt;&lt;nobr&gt;&gt;
 &lt;&lt;if not hasVisited(&quot;3E-Event&quot;) &amp;&amp; $eventfrom3E&gt;&gt;
   &lt;&lt;set _run = 6&gt;&gt;
@@ -4270,7 +4285,7 @@ Aah. Open space. Open air.
 &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="87" name="T4E" tags="" position="1375,2175" size="100,100">&lt;&lt;nobr&gt;&gt;
 	&lt;&lt;if $Camp_M&gt;&gt;&lt;&lt;set $explored.TBM0 = 100&gt;&gt;&lt;&lt;/if&gt;&gt;
   &lt;&lt;if $Camp_J &amp;&amp; $energy &lt;= (4+$summand)*(0.2+$Oeu)&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;elseif $Camp_M &amp;&amp; $energy &lt;= 0.2+$Oeu&gt;&gt;&lt;&lt;set $energy = 0&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;&lt;center&gt;[img[assets/Ch-Explore/T4E.webp]]
+&lt;&lt;/nobr&gt;&gt;&lt;center&gt;&lt;&lt;if not hasVisited(&quot;3E-Event&quot;) &amp;&amp; $eventfrom3E&gt;&gt;[img[assets/Ch-Explore/running_away.webp]]&lt;&lt;else&gt;&gt;[img[assets/Ch-Explore/T4E.webp]]&lt;&lt;/if&gt;&gt;
 &lt;blockquote&gt;
 &lt;&lt;if not hasVisited(&quot;3E-Event&quot;) &amp;&amp; $eventfrom3E&gt;&gt;
   &lt;&lt;set _run = 6&gt;&gt;
@@ -5034,21 +5049,18 @@ The others set the record interpreter outside in a distance to the spaceship, bu
 &lt;&lt;ab&gt;&gt;[[At the time ...|Beginning]]&lt;&lt;/ab&gt;&gt;
 
 &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="96" name="Vika" tags="" position="3525,225" size="100,100">&lt;center&gt;&lt;blockquote&gt;
-&lt;&lt;if random(5) == 0&gt;&gt;[img[assets/characters/Vika/Vika_1.webp]]
+&lt;&lt;if random(4) == 0&gt;&gt;[img[assets/characters/Vika/Vika_1.webp]]
     
   We both exchanged topics in machines and communications engineerings. I feel I get a better understanding in engineering. &lt;&lt;set $engineering += 0.1 * $social&gt;&gt;
-&lt;&lt;elseif random(5) == 1&gt;&gt;[img[assets/characters/Vika/Vika_2.webp]]
+&lt;&lt;elseif random(4) == 1&gt;&gt;[img[assets/characters/Vika/Vika_5.webp]]
       
   I helped as much as I could do on the communications she want to work on.&lt;&lt;set $social += 0.1&gt;&gt;
-&lt;&lt;elseif random(5) == 2&gt;&gt;[img[assets/characters/Vika/Vika_3.webp]]
+&lt;&lt;elseif random(4) == 2&gt;&gt;[img[assets/characters/Vika/Vika_4.webp]]
       
   We were brainstorming and developing some concepts to improve our bearings here. &lt;&lt;set $engineering += 0.1 * $social&gt;&gt;
-&lt;&lt;elseif random(5) == 3&gt;&gt;[img[assets/characters/Vika/Vika_4.webp]]
+&lt;&lt;elseif random(4) == 3&gt;&gt;[img[assets/characters/Vika/Vika_6.webp]]
 
-  We improved our blueprints. &lt;&lt;set $engineering += 0.1 * $social&gt;&gt;
-&lt;&lt;elseif random(5) == 3&gt;&gt;[img[assets/characters/Vika/Vika_5.webp]]
-
-  We had all had a nice chat.&lt;&lt;set $social += 0.1&gt;&gt;
+  A chat over a beer in a virtual bar.&lt;&lt;set $social += 0.1&gt;&gt;
 &lt;&lt;else&gt;&gt;
     Vika is not in the mood now. I should try another time. &lt;&lt;set $noVika = true&gt;&gt;&lt;&lt;set $Vikavisits -= 1&gt;&gt;
 &lt;&lt;/if&gt;&gt;
@@ -5288,7 +5300,7 @@ Elva looks at me puzzled, but then I waved her to go back.&lt;br&gt;
 &lt;br&gt; 
 &lt;&lt;ab&gt;&gt;[[Go back|PassTest3E][$choice1P3E = 6]]&lt;&lt;/ab&gt;&gt;</tw-passagedata><tw-passagedata pid="107" name="dormant spaceship 1" tags="" position="3075,1350" size="100,100">&lt;&lt;nobr&gt;&gt;
   &lt;&lt;set $CampM.nutrients = 0; $CampM.unimatter = 0&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;&lt;center&gt;&lt;blockquote&gt;[img[assets/backgrounds/Placeholder.webp]]
+&lt;&lt;/nobr&gt;&gt;&lt;center&gt;&lt;blockquote&gt;[img[assets/backgrounds/silent-campM.webp]]
   
   On a spot of a mountainous area, I found another spaceship - like ours! Another stranded. 
   

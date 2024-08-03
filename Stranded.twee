@@ -87,7 +87,16 @@ window.scrollBy(0,120)<</script>><</nobr>> with a loud crash, a crystalline stel
   <</if>>
   <</nobr>>
   <<if $rNr == 2>>
-  False Alarm. Or the AI handled it. Anyway, time to rest. A new cycle.
+    <<if random(4) > 0>>
+      False Alarm. Or the AI handled it. Anyway, time to rest. A new cycle.
+    <<elseif $OrbTA = true>>[img[assets/events/Orb_automated.webp]]
+      
+      The whirring hum of the orb, gliding through its morning route, begins its cycle of collection.
+    <<else>>
+      [img[assets/events/torments.webp]]
+    
+      What a spectacle!
+    <</if>>
   <<elseif $rNr == 4 && ($days.range(15, 25) || $days.range(35, 45))>>>
     <div class="anilowshake"><<if $days.range(15, 25)>>[img[assets/events/meteoritebombardments1.webp]]<<else>>[img[assets/events/meteoritebombardments2.webp]]<</if>>
 
@@ -147,12 +156,12 @@ The antenna is installed on a small hill. But it seems to reach no one. Maybe it
 
 :: Abiba {"position":"3525,600","size":"100,100"}
 <center><blockquote>
-<<if random(4) == 0>>[img[assets/characters/Abiba/Abiba_1.webp]]
+<<if random(4) == 0>>[img[assets/characters/Abiba/Abiba_3.webp]]
     
-  Not an easy talker, she is. Maybe because she is young?<<set $social += 0.15>>
+  Not an easy talker, she is; maybe because she is young?<<set $social += 0.15>>
 <<elseif random(3) == 1>>[img[assets/characters/Abiba/Abiba_2.webp]]
       
-  We were talking about some ideas of what can be improved here. More of silent work than think.<<set $engineering += 0.1 * $social>>
+  We were talking about some ideas of what can be improved here. More ruminating than talking.<<set $engineering += 0.1 * $social>>
 <<else>>
   She is reading, she doesn't want to be disturbed. <<set $noAbiba = true>><<set $Abibavisits -= 1>>
 <</if>>
@@ -1009,19 +1018,19 @@ Leo looks to all our eyes, especially at mine more harder. <em>Huh? What!</em>
 
 :: Elva {"position":"3525,475","size":"100,100"}
 <center><blockquote>
-<<if random(5) == 0>>[img[assets/characters/Elva/Elva_1.webp]]
+<<if random(6) == 0>>[img[assets/characters/Elva/Elva_4.webp]]
     
-  She was telling me about her time in the training camp.<<set $social += 0.1>>
-<<elseif random(5) == 1>>[img[assets/characters/Elva/Elva_2.webp]]
+  She was reminiscing about her time in the marines academy and in the training camp.<<set $social += 0.1>>
+<<elseif random(6) == 1>><<if random(6) == 2>>[img[assets/characters/Elva/Elva_2.webp]]<<else>>[img[assets/characters/Elva/Elva_2-5.webp]]<</if>>
       
   She challenged me over in a simulation of wits, strategy and tactics.<<set $combat += 0.1 * $social>>
-<<elseif random(5) == 2>>[img[assets/characters/Elva/Elva_3.webp]]
+<<elseif random(6) == 3>>[img[assets/characters/Elva/Elva_3.webp]]
       
-  Tips and tricks in a serious situation. Handy.<<set $combat += 0.1>>
-<<elseif random(5) == 3>>[img[assets/characters/Elva/Elva_4.webp]]
+  Tips and tricks for serious situations. Handy.<<set $combat += 0.1>>
+<<elseif random(6) == 4>>[img[assets/characters/Elva/Elva_5.webp]]
 
   We improved our cardio and our motor skills. She is a rough, yet useful motivator.<<set $combat += 0.1 * $social>>
-<<elseif random(5) == 3>>[img[assets/characters/Elva/Elva_5.webp]]
+<<elseif random(6) == 5>>[img[assets/characters/Elva/Elva_6.webp]]
 
   General talk; about life, anecdotes, this planet here, what to do next, ...<<set $social += 0.1>>
 <<else>>
@@ -1413,7 +1422,7 @@ The answer may be given to <<linkappend "me." t8n>> Soon. <<nobr>>
 
 
 :: Leo {"position":"3525,350","size":"100,100"}
-<center><blockquote><<if random(5) >= 1>>[img[assets/characters/2_men_talking.webp]]
+<center><blockquote><<if random(3) == 1>>[img[assets/characters/2_men_talking.webp]]
 
   I had an interesting viewpoint from him about AI's and algorithms.
 
@@ -1428,6 +1437,12 @@ The answer may be given to <<linkappend "me." t8n>> Soon. <<nobr>>
   I thank Leo for the chat and <<if $Camp_J>><<ab>>[[go back to Camp|Camp Jungle]]<</ab>><<else>><<ab>>[[go back to Camp|Camp Mountain]]<</ab>><</if>><<if $energy > 1>> or <<ab>>[[I rather want to chat with the others?|Social Events]]<</ab>><</if>>
 
   <<if $energy >= 1>>I am in the mood to chat further with <<ab>>[[Leo.|Leo][$energy -= 1; $social += 0.5]]<</ab>><</if>>
+<<elseif random(3) == 2>>[img[assets/characters/Leo_2.webp]]
+
+  That was fun; pLaying games of many kinds: cards, rpg, boardgames, etc. <<set $social += 0.3, $combat += 0.05, $engineering += 0.05>>
+<<elseif random(3) == 3>>[img[assets/characters/Leo_3.webp]]
+
+  We were talking about our lives, our experiences, politics, economy, about other life forms, AI's, ... <<set $social += 0.1, $xeno += 0.5>>
 <<else>>
   <<set $noLeo = true>>
   Leo is not in the mood. Try another time.
@@ -2734,7 +2749,7 @@ With that, we should be able to collect materials nearby. Hopefully, some can be
 	<<if $Camp_J>><<set $explored.TBJ0 = 100>><</if>>
 <</nobr>><<nobr>>
   <<if $Camp_J && $eventfrom3E != true && $energy <= 2*(0.2+$Oeu)>><<set $energy = 0>><<goto [[Camp Jungle]]>><<elseif $Camp_M && $eventfrom3E && hasVisited("3E-Event") && $energy <= 6*(0.2+$Oeu)>><<set $energy = 0>><<goto [[Camp Mountain]]>><<elseif $Camp_M && $eventfrom3E != true && $energy <= 4*(0.2+$Oeu)>><<set $energy = 0>><<goto [[Camp Mountain]]>><</if>>
-<</nobr>><center>[img[assets/Ch-Explore/T1E.webp]]
+<</nobr>><center><<if not hasVisited("3E-Event") && $eventfrom3E>>[img[assets/Ch-Explore/running_away.webp]]<<else>>[img[assets/Ch-Explore/T4E.webp]]<</if>>
   <blockquote>
     <<if $eventfrom3E && not hasVisited("3E-Event")>>
       <<if $energy > 0.2>>
@@ -3108,7 +3123,7 @@ Bring them to Camp anyway?
 :: T2E {"position":"1125,2175","size":"100,100"}
 <<nobr>>
   <<if $Camp_J && $eventfrom3E != true && $energy <= 2*(0.2+$Oeu)>><<set $energy = 0>><<goto [[Camp Jungle]]>><<elseif $Camp_M && $eventfrom3E && hasVisited("3E-Event") && $energy <= 5*(0.2+$Oeu)>><<set $energy = 0>><<goto [[Camp Mountain]]>><<elseif $Camp_M && $eventfrom3E != true && $energy <= 3*(0.2+$Oeu)>><<set $energy = 0>><<goto [[Camp Mountain]]>><</if>>
-<</nobr>><center>[img[assets/Ch-Explore/T2E.webp]]
+<</nobr>><center><<if not hasVisited("3E-Event") && $eventfrom3E>>[img[assets/Ch-Explore/running_away.webp]]<<else>>[img[assets/Ch-Explore/T4E.webp]]<</if>>
 <blockquote><<nobr>>
 <<if not hasVisited("3E-Event") && $eventfrom3E>>
   <<set _run = 6>>
@@ -3383,7 +3398,7 @@ Aah. Open space. Open air.
 <<nobr>>
 	<<if $Camp_M>><<set $explored.TBM0 = 100>><</if>>
   <<if $Camp_J && $energy <= (4+$summand)*(0.2+$Oeu)>><<set $energy = 0>><<goto [[Camp Jungle]]>><<elseif $Camp_M && $energy <= 0.2+$Oeu>><<set $energy = 0>><<goto [[Camp Mountain]]>><</if>>
-<</nobr>><center>[img[assets/Ch-Explore/T4E.webp]]
+<</nobr>><center><<if not hasVisited("3E-Event") && $eventfrom3E>>[img[assets/Ch-Explore/running_away.webp]]<<else>>[img[assets/Ch-Explore/T4E.webp]]<</if>>
 <blockquote>
 <<if not hasVisited("3E-Event") && $eventfrom3E>>
   <<set _run = 6>>
@@ -4183,21 +4198,18 @@ The others set the record interpreter outside in a distance to the spaceship, bu
 
 :: Vika {"position":"3525,225","size":"100,100"}
 <center><blockquote>
-<<if random(5) == 0>>[img[assets/characters/Vika/Vika_1.webp]]
+<<if random(4) == 0>>[img[assets/characters/Vika/Vika_1.webp]]
     
   We both exchanged topics in machines and communications engineerings. I feel I get a better understanding in engineering. <<set $engineering += 0.1 * $social>>
-<<elseif random(5) == 1>>[img[assets/characters/Vika/Vika_2.webp]]
+<<elseif random(4) == 1>>[img[assets/characters/Vika/Vika_5.webp]]
       
   I helped as much as I could do on the communications she want to work on.<<set $social += 0.1>>
-<<elseif random(5) == 2>>[img[assets/characters/Vika/Vika_3.webp]]
+<<elseif random(4) == 2>>[img[assets/characters/Vika/Vika_4.webp]]
       
   We were brainstorming and developing some concepts to improve our bearings here. <<set $engineering += 0.1 * $social>>
-<<elseif random(5) == 3>>[img[assets/characters/Vika/Vika_4.webp]]
+<<elseif random(4) == 3>>[img[assets/characters/Vika/Vika_6.webp]]
 
-  We improved our blueprints. <<set $engineering += 0.1 * $social>>
-<<elseif random(5) == 3>>[img[assets/characters/Vika/Vika_5.webp]]
-
-  We had all had a nice chat.<<set $social += 0.1>>
+  A chat over a beer in a virtual bar.<<set $social += 0.1>>
 <<else>>
     Vika is not in the mood now. I should try another time. <<set $noVika = true>><<set $Vikavisits -= 1>>
 <</if>>
@@ -4481,7 +4493,7 @@ Elva looks at me puzzled, but then I waved her to go back.<br>
 :: dormant spaceship 1 {"position":"3075,1350","size":"100,100"}
 <<nobr>>
   <<set $CampM.nutrients = 0; $CampM.unimatter = 0>>
-<</nobr>><center><blockquote>[img[assets/backgrounds/Placeholder.webp]]
+<</nobr>><center><blockquote>[img[assets/backgrounds/silent-campM.webp]]
   
   On a spot of a mountainous area, I found another spaceship - like ours! Another stranded. 
   
