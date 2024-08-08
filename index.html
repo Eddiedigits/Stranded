@@ -1371,10 +1371,10 @@ The antenna is installed on a small hill. But it seems to reach no one. Maybe it
 &lt;&lt;/nobr&gt;&gt;
 &lt;&lt;ab&gt;&gt;[[Set up the Camp|Camp Jungle]]&lt;&lt;/ab&gt;&gt;
 &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="5" name="Abiba" tags="" position="3525,600" size="100,100">&lt;center&gt;&lt;blockquote&gt;
-&lt;&lt;if random(4) == 0&gt;&gt;[img[assets/characters/Abiba/Abiba_3.webp]]
+&lt;&lt;if random(4) == 0&gt;&gt;[img[assets/characters/Abiba/abiba_3.webp]]
     
   Not an easy talker, she is; maybe because she is young?&lt;&lt;set $social += 0.15&gt;&gt;
-&lt;&lt;elseif random(3) == 1&gt;&gt;[img[assets/characters/Abiba/Abiba_2.webp]]
+&lt;&lt;elseif random(3) == 1&gt;&gt;[img[assets/characters/Abiba/abiba_2.webp]]
       
   We were talking about some ideas of what can be improved here. More ruminating than talking.&lt;&lt;set $engineering += 0.1 * $social&gt;&gt;
 &lt;&lt;else&gt;&gt;
@@ -1774,11 +1774,11 @@ Ech! Nothing happens. It is boring. Maybe I should try to go out anyway?
 
       Elva joins me in a training session.&lt;br&gt;
 &lt;&lt;elseif _rNr == 2 &amp;&amp; ($Camp_M || $eventfrom3E)&gt;&gt;
-      [img[assets/characters/Elva/Elva_combat.webp]]
+      [img[assets/characters/Elva/elva_combat.webp]]
 
       Elva joins me for a sparring match.&lt;br&gt;
 &lt;&lt;elseif _rNr == 3 &amp;&amp; $SFW_Path == false &amp;&amp; $Camp_M &amp;&amp; $social &gt; 7&gt;&gt;
-    	[img[assets/characters/Elva/Elva_combat.webp]]
+    	[img[assets/characters/Elva/elva_combat.webp]]
         
         That is gonna be a twofactored battle; for the mind as well for the body.
 &lt;&lt;else&gt;&gt;
@@ -2161,19 +2161,19 @@ Leo looks to all our eyes, especially at mine more harder. &lt;em&gt;Huh? What!&
       &lt;&lt;elseif $OrbAutoCM &amp;&amp; $Camp_M&gt;&gt;
         &lt;li&gt;+ [[Orb Automation (1E - 1U)|Disintegration Menu][$energy += 1; $unimatter += 1; $OrbAutoCM = false]]&lt;/li&gt;&lt;&lt;/if&gt;&gt;&lt;/ul&gt;
 &lt;&lt;else&gt;&gt;&lt;div class=&quot;color-yellow&quot;&gt;There is nothing built or printed.&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="23" name="Elva" tags="" position="3525,475" size="100,100">&lt;center&gt;&lt;blockquote&gt;
-&lt;&lt;if random(6) == 0&gt;&gt;[img[assets/characters/Elva/Elva_4.webp]]
+&lt;&lt;if random(6) == 0&gt;&gt;[img[assets/characters/Elva/elva_4.webp]]
     
   She was reminiscing about her time in the marines academy and in the training camp.&lt;&lt;set $social += 0.1&gt;&gt;
-&lt;&lt;elseif random(6) == 1&gt;&gt;&lt;&lt;if random(6) == 2&gt;&gt;[img[assets/characters/Elva/Elva_2.webp]]&lt;&lt;else&gt;&gt;[img[assets/characters/Elva/Elva_2-5.webp]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;elseif random(6) == 1&gt;&gt;&lt;&lt;if random(6) == 2&gt;&gt;[img[assets/characters/Elva/elva_2.webp]]&lt;&lt;else&gt;&gt;[img[assets/characters/Elva/elva_2-5.webp]]&lt;&lt;/if&gt;&gt;
       
   She challenged me over in a simulation of wits, strategy and tactics.&lt;&lt;set $combat += 0.1 * $social&gt;&gt;
-&lt;&lt;elseif random(6) == 3&gt;&gt;[img[assets/characters/Elva/Elva_3.webp]]
+&lt;&lt;elseif random(6) == 3&gt;&gt;[img[assets/characters/Elva/elva_3.webp]]
       
   Tips and tricks for serious situations. Handy.&lt;&lt;set $combat += 0.1&gt;&gt;
-&lt;&lt;elseif random(6) == 4&gt;&gt;[img[assets/characters/Elva/Elva_5.webp]]
+&lt;&lt;elseif random(6) == 4&gt;&gt;[img[assets/characters/Elva/elva_5.webp]]
 
   We improved our cardio and our motor skills. She is a rough, yet useful motivator.&lt;&lt;set $combat += 0.1 * $social&gt;&gt;
-&lt;&lt;elseif random(6) == 5&gt;&gt;[img[assets/characters/Elva/Elva_6.webp]]
+&lt;&lt;elseif random(6) == 5&gt;&gt;[img[assets/characters/Elva/elva_6.webp]]
 
   General talk; about life, anecdotes, this planet here, what to do next, ...&lt;&lt;set $social += 0.1&gt;&gt;
 &lt;&lt;else&gt;&gt;
@@ -2223,7 +2223,7 @@ You can close the window.
 &lt;&lt;/script&gt;&gt;&lt;&lt;/nobr&gt;&gt;
 &lt;center&gt;&lt;blockquote&gt;
 &lt;&lt;nobr&gt;&gt;&lt;div style=&quot;position: relative;&quot;&gt;
-    &lt;img id=&quot;VikaFront&quot; src=&quot;assets/characters/Vika_2.webp&quot;&gt;
+    &lt;img id=&quot;VikaFront&quot; src=&quot;assets/characters/vika_2.webp&quot;&gt;
     &lt;img src=&quot;assets/Ch-Camp/JungleCamp.webp&quot;&gt;
 &lt;/div&gt;&lt;&lt;/nobr&gt;&gt;
 
@@ -2528,10 +2528,10 @@ The answer may be given to &lt;&lt;linkappend &quot;me.&quot; t8n&gt;&gt; Soon. 
   I thank Leo for the chat and &lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;ab&gt;&gt;[[go back to Camp|Camp Jungle]]&lt;&lt;/ab&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;ab&gt;&gt;[[go back to Camp|Camp Mountain]]&lt;&lt;/ab&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if $energy &gt; 1&gt;&gt; or &lt;&lt;ab&gt;&gt;[[I rather want to chat with the others?|Social Events]]&lt;&lt;/ab&gt;&gt;&lt;&lt;/if&gt;&gt;
 
   &lt;&lt;if $energy &gt;= 1&gt;&gt;I am in the mood to chat further with &lt;&lt;ab&gt;&gt;[[Leo.|Leo][$energy -= 1; $social += 0.5]]&lt;&lt;/ab&gt;&gt;&lt;&lt;/if&gt;&gt;
-&lt;&lt;elseif random(3) == 2&gt;&gt;[img[assets/characters/Leo_2.webp]]
+&lt;&lt;elseif random(3) == 2&gt;&gt;[img[assets/characters/leo_2.webp]]
 
   That was fun; pLaying games of many kinds: cards, rpg, boardgames, etc. &lt;&lt;set $social += 0.3, $combat += 0.05, $engineering += 0.05&gt;&gt;
-&lt;&lt;elseif random(3) == 3&gt;&gt;[img[assets/characters/Leo_3.webp]]
+&lt;&lt;elseif random(3) == 3&gt;&gt;[img[assets/characters/leo_3.webp]]
 
   We were talking about our lives, our experiences, politics, economy, about other life forms, AI&#39;s, ... &lt;&lt;set $social += 0.1, $xeno += 0.5&gt;&gt;
 &lt;&lt;else&gt;&gt;
@@ -5049,16 +5049,16 @@ The others set the record interpreter outside in a distance to the spaceship, bu
 &lt;&lt;ab&gt;&gt;[[At the time ...|Beginning]]&lt;&lt;/ab&gt;&gt;
 
 &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="96" name="Vika" tags="" position="3525,225" size="100,100">&lt;center&gt;&lt;blockquote&gt;
-&lt;&lt;if random(4) == 0&gt;&gt;[img[assets/characters/Vika/Vika_1.webp]]
+&lt;&lt;if random(4) == 0&gt;&gt;[img[assets/characters/Vika/vika_1.webp]]
     
   We both exchanged topics in machines and communications engineerings. I feel I get a better understanding in engineering. &lt;&lt;set $engineering += 0.1 * $social&gt;&gt;
-&lt;&lt;elseif random(4) == 1&gt;&gt;[img[assets/characters/Vika/Vika_5.webp]]
+&lt;&lt;elseif random(4) == 1&gt;&gt;[img[assets/characters/Vika/vika_5.webp]]
       
   I helped as much as I could do on the communications she want to work on.&lt;&lt;set $social += 0.1&gt;&gt;
-&lt;&lt;elseif random(4) == 2&gt;&gt;[img[assets/characters/Vika/Vika_4.webp]]
+&lt;&lt;elseif random(4) == 2&gt;&gt;[img[assets/characters/Vika/vika_4.webp]]
       
   We were brainstorming and developing some concepts to improve our bearings here. &lt;&lt;set $engineering += 0.1 * $social&gt;&gt;
-&lt;&lt;elseif random(4) == 3&gt;&gt;[img[assets/characters/Vika/Vika_6.webp]]
+&lt;&lt;elseif random(4) == 3&gt;&gt;[img[assets/characters/Vika/vika_6.webp]]
 
   A chat over a beer in a virtual bar.&lt;&lt;set $social += 0.1&gt;&gt;
 &lt;&lt;else&gt;&gt;
