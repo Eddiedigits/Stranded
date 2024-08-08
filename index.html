@@ -1423,12 +1423,12 @@ Vika&#39;s spaceship, which is the parent spaceship of our - Leo&#39;s and mine 
 
 Alas, what will we do?
 
-&lt;&lt;say &quot;Vika&quot;&gt;&gt;&lt;&lt;timed 78s&gt;&gt;&lt;&lt;audio &quot;Vika_A002_1&quot; play&gt;&gt;&lt;&lt;/timed&gt;&gt;Honestly, as a pilot, I can say that we cannot connect to the mothership. In fact, there is nothing but static. So, I conclude the mothership is unreachable or no more. Also, I do not reach the others; the other stranded.
+&lt;&lt;say &quot;vika&quot;&gt;&gt;&lt;&lt;timed 78s&gt;&gt;&lt;&lt;audio &quot;Vika_A002_1&quot; play&gt;&gt;&lt;&lt;/timed&gt;&gt;Honestly, as a pilot, I can say that we cannot connect to the mothership. In fact, there is nothing but static. So, I conclude the mothership is unreachable or no more. Also, I do not reach the others; the other stranded.
 My suggestion is therefore: As we only have 5 unimatter, we print a transmission mast, look for an optimal elevation and reach out to the others.&lt;&lt;/say&gt;&gt;
 
 &lt;&lt;timed 104s&gt;&gt;&lt;&lt;audio &quot;RD_A009_2&quot; play&gt;&gt;&lt;&lt;/timed&gt;&gt;Only 5 unimatter?! That sucks! That means, I ... uh, we have to strategize wisely.
 
-&lt;&lt;say &quot;Leo&quot;&gt;&gt;&lt;&lt;timed 114s&gt;&gt;&lt;&lt;audio &quot;Leo_A002_1&quot; play&gt;&gt;&lt;&lt;/timed&gt;&gt;&lt;em&gt;groan&lt;/em&gt; I would hoard nutritions. What Vika said doesn&#39;t sound good. I fear, we are stuck here. At least for a while.
+&lt;&lt;say &quot;leo&quot;&gt;&gt;&lt;&lt;timed 114s&gt;&gt;&lt;&lt;audio &quot;Leo_A002_1&quot; play&gt;&gt;&lt;&lt;/timed&gt;&gt;&lt;em&gt;groan&lt;/em&gt; I would hoard nutritions. What Vika said doesn&#39;t sound good. I fear, we are stuck here. At least for a while.
 Oh, by the dark universe! Please, give us hope!
 Ah, ye&#39;. I would like to repair myself and have a substance analyzer.&lt;&lt;/say&gt;&gt;
 
@@ -1436,7 +1436,7 @@ Ah, ye&#39;. I would like to repair myself and have a substance analyzer.&lt;&lt
 
 --- no more voices for the time being ---
 
-&lt;&lt;say &quot;RD&quot;&gt;&gt;&lt;em&gt;Hrm!&lt;/em&gt;&amp;nbsp;Let me check. Do we have enough energy?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;&lt;em&gt;Hrm!&lt;/em&gt;&amp;nbsp;Let me check. Do we have enough energy?&lt;&lt;/say&gt;&gt;
 &lt;&lt;nobr&gt;&gt;&lt;&lt;if $engineering &gt;= 2&gt;&gt;
 I could salvage one more energy.
 &lt;&lt;set $energy += 1&gt;&gt;
@@ -1449,12 +1449,12 @@ And for walk? We gotta see.
 &lt;&lt;if $engineering &gt;= 2&gt;&gt;And we have enough&lt;&lt;else&gt;&gt;Enough&lt;&lt;/if&gt;&gt;&amp;nbsp;energies for flying.
 &lt;&lt;/if&gt;&gt;&lt;&lt;/nobr&gt;&gt;
 
-&lt;&lt;say &quot;RD&quot;&gt;&gt;Alright. Anyway. I suggest we use these 5 unimatter to build an energy harvester.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;Alright. Anyway. I suggest we use these 5 unimatter to build an energy harvester.&lt;&lt;/say&gt;&gt;
 ... some pause ...
 
-&lt;&lt;say &quot;Leo&quot;&gt;&gt;&lt;em&gt;Mh.&lt;/em&gt;&amp;nbsp;To me, all reasons seem to be sensible. I say, we vote.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;leo&quot;&gt;&gt;&lt;em&gt;Mh.&lt;/em&gt;&amp;nbsp;To me, all reasons seem to be sensible. I say, we vote.&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Vika&quot;&gt;&gt;I agree.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;vika&quot;&gt;&gt;I agree.&lt;&lt;/say&gt;&gt;
 
 &lt;strong&gt;What?! I am the protagonist!
 
@@ -1507,39 +1507,39 @@ Have I a change of mind? Do I want a ...
 
 It is a huge setback. The hull is broken. As are the cockpit, our life maintenance modules, the nutrients converter, the energy generator, the outbuildings and worse of all: our Printer! Leo is shaken, but compared to his first landing, still good. Last but not least, Vika is in coma, in emergency mode. &lt;&lt;set $VikaCountdown = $days&gt;&gt; That makes me the luckiest of all, as I need only a bit of polishing, not more. 
 &lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;set $CampJ to {TransMast: false,Farm: 0,DefPerimeter: false,building: 0,maxbuildings: 0,EHarvester: 0,Orb: 1,nOrb: 1,cOrb: 1,}; $energy = 2; $unimatter = 1; $nutrients = 4&gt;&gt;
-  &lt;&lt;say &quot;Leo&quot;&gt;&gt;By the coldness in the dark universe! What. Was. That?&lt;&lt;/say&gt;&gt;
-  &lt;&lt;say &quot;RD&quot;&gt;&gt;&lt;em&gt;I gesticulate wildly.&lt;/em&gt;What are you looking at me? I have no idea.&lt;br&gt; I sent the orb to prospect the spaceship - that one overgrown with vegetation -, and then ... it happened so fast, I decided to run. Looking at the capable violence, I would have been smashed to smithereens.&lt;&lt;/say&gt;&gt;
+  &lt;&lt;say &quot;leo&quot;&gt;&gt;By the coldness in the dark universe! What. Was. That?&lt;&lt;/say&gt;&gt;
+  &lt;&lt;say &quot;rd&quot;&gt;&gt;&lt;em&gt;I gesticulate wildly.&lt;/em&gt;What are you looking at me? I have no idea.&lt;br&gt; I sent the orb to prospect the spaceship - that one overgrown with vegetation -, and then ... it happened so fast, I decided to run. Looking at the capable violence, I would have been smashed to smithereens.&lt;&lt;/say&gt;&gt;
   Leo gesticulates to calm me down.&lt;br&gt;
-  &lt;&lt;say &quot;Leo&quot;&gt;&gt;Mate, sorry. It was more a rhetorical question. I knew ...&lt;&lt;/say&gt;&gt;
-  &lt;&lt;say &quot;RD&quot;&gt;&gt;By the way, how did you knew?&lt;&lt;/say&gt;&gt;
-  &lt;&lt;say &quot;Leo&quot;&gt;&gt;... that something was coming. Our Watcher warned us.&lt;&lt;/say&gt;&gt;
-  &lt;&lt;say &quot;RD&quot;&gt;&gt;Huh! &lt;br&gt;The first time, it took initiative. Then it was something. Quite.&lt;&lt;/say&gt;&gt;
-  &lt;&lt;say &quot;Leo&quot;&gt;&gt;You tell me. With this wreck, it is!&lt;&lt;/say&gt;&gt;
+  &lt;&lt;say &quot;leo&quot;&gt;&gt;Mate, sorry. It was more a rhetorical question. I knew ...&lt;&lt;/say&gt;&gt;
+  &lt;&lt;say &quot;rd&quot;&gt;&gt;By the way, how did you knew?&lt;&lt;/say&gt;&gt;
+  &lt;&lt;say &quot;leo&quot;&gt;&gt;... that something was coming. Our Watcher warned us.&lt;&lt;/say&gt;&gt;
+  &lt;&lt;say &quot;rd&quot;&gt;&gt;Huh! &lt;br&gt;The first time, it took initiative. Then it was something. Quite.&lt;&lt;/say&gt;&gt;
+  &lt;&lt;say &quot;leo&quot;&gt;&gt;You tell me. With this wreck, it is!&lt;&lt;/say&gt;&gt;
   ...&lt;br&gt;
-  &lt;&lt;say &quot;RD&quot;&gt;&gt;So ... we have ...&lt;&lt;/say&gt;&gt;
-  &lt;&lt;say &quot;Leo&quot;&gt;&gt;We have to call for help.&lt;&lt;/say&gt;&gt;
-  &lt;&lt;say &quot;RD&quot;&gt;&gt;Yeapp&lt;&lt;/say&gt;&gt;
+  &lt;&lt;say &quot;rd&quot;&gt;&gt;So ... we have ...&lt;&lt;/say&gt;&gt;
+  &lt;&lt;say &quot;leo&quot;&gt;&gt;We have to call for help.&lt;&lt;/say&gt;&gt;
+  &lt;&lt;say &quot;rd&quot;&gt;&gt;Yeapp&lt;&lt;/say&gt;&gt;
  /* Start Quest 3E Event Aftermath */
  &lt;&lt;if hasVisited(&quot;TBM0&quot;)&gt;&gt;&lt;&lt;set $QuestPool.pushUnique($Q1A)&gt;&gt; /* Go East and ask for help */
-  &lt;&lt;say &quot;RD&quot;&gt;&gt;I will go to the others at the mountain and came back with them.&lt;&lt;/say&gt;&gt;
+  &lt;&lt;say &quot;rd&quot;&gt;&gt;I will go to the others at the mountain and came back with them.&lt;&lt;/say&gt;&gt;
   Leo nods&lt;br&gt;
-  &lt;&lt;say &quot;RD&quot;&gt;&gt;Or did our Watcher, our AI, send an emergeny alert?!&lt;&lt;/say&gt;&gt;
-  &lt;&lt;say &quot;Leo&quot;&gt;&gt;Not that I know of.&lt;&lt;/say&gt;&gt;
-  &lt;&lt;say &quot;RD&quot;&gt;&gt;Sometimes it is so hard to understand their reasoning!&lt;&lt;/say&gt;&gt;
-  &lt;&lt;say &quot;Leo&quot;&gt;&gt;Mmmh! I believe there is a reason for it. It will eventually pop int our minds.&lt;&lt;/say&gt;&gt;
-  &lt;&lt;say &quot;RD&quot;&gt;&gt;There better be!&lt;&lt;/say&gt;&gt;
+  &lt;&lt;say &quot;rd&quot;&gt;&gt;Or did our Watcher, our AI, send an emergeny alert?!&lt;&lt;/say&gt;&gt;
+  &lt;&lt;say &quot;leo&quot;&gt;&gt;Not that I know of.&lt;&lt;/say&gt;&gt;
+  &lt;&lt;say &quot;rd&quot;&gt;&gt;Sometimes it is so hard to understand their reasoning!&lt;&lt;/say&gt;&gt;
+  &lt;&lt;say &quot;leo&quot;&gt;&gt;Mmmh! I believe there is a reason for it. It will eventually pop int our minds.&lt;&lt;/say&gt;&gt;
+  &lt;&lt;say &quot;rd&quot;&gt;&gt;There better be!&lt;&lt;/say&gt;&gt;
   &lt;&lt;ab&gt;&gt;[[Go East|T1E]]&lt;&lt;/ab&gt;&gt;
  &lt;&lt;else&gt;&gt;&lt;&lt;set $QuestPool.pushUnique($Q1B)&gt;&gt; /* Go East, recommended by AI */
-  &lt;&lt;say &quot;Leo&quot;&gt;&gt;Our Watcher once hinted that there is something on the east, or some else.&lt;&lt;/say&gt;&gt;
-  &lt;&lt;say &quot;RD&quot;&gt;&gt;Great! Mystic and reticent as always.&lt;&lt;/say&gt;&gt;
-  &lt;&lt;say &quot;Leo&quot;&gt;&gt;Young Boy. Well! Go!&lt;&lt;/say&gt;&gt;
-  &lt;&lt;say &quot;RD&quot;&gt;&gt;Oi! What about ...&lt;&lt;/say&gt;&gt;
-  &lt;&lt;say &quot;Leo&quot;&gt;&gt;Don&#39;t debate. Go! And yes, I am that old. C&#39;mon.&lt;&lt;/say&gt;&gt;
-  &lt;&lt;say &quot;RD&quot;&gt;&gt;Huh! That&#39;s powerplay!&lt;&lt;/say&gt;&gt;
-  &lt;&lt;say &quot;Leo&quot;&gt;&gt;By zero Kelvin! You have more experience in the outside field and are the less broken one of all of us.&lt;&lt;/say&gt;&gt;
-  &lt;&lt;say &quot;RD&quot;&gt;&gt;...&lt;&lt;/say&gt;&gt;
-  &lt;&lt;say &quot;Leo&quot;&gt;&gt;Mach den Abgang!&amp;nbsp;&lt;em&gt;gesticulating to go&lt;/em&gt;&lt;br&gt;&lt;&lt;/say&gt;&gt;
-  &lt;&lt;say &quot;RD&quot;&gt;&gt;&lt;span&gt;Wha?! Yeah, damn! Couldn&#39;t you have been nicer!?&lt;br&gt;&lt;em&gt;What language was that?&lt;/em&gt;&lt;/span&gt;&lt;&lt;/say&gt;&gt;
+  &lt;&lt;say &quot;leo&quot;&gt;&gt;Our Watcher once hinted that there is something on the east, or some else.&lt;&lt;/say&gt;&gt;
+  &lt;&lt;say &quot;rd&quot;&gt;&gt;Great! Mystic and reticent as always.&lt;&lt;/say&gt;&gt;
+  &lt;&lt;say &quot;leo&quot;&gt;&gt;Young Boy. Well! Go!&lt;&lt;/say&gt;&gt;
+  &lt;&lt;say &quot;rd&quot;&gt;&gt;Oi! What about ...&lt;&lt;/say&gt;&gt;
+  &lt;&lt;say &quot;leo&quot;&gt;&gt;Don&#39;t debate. Go! And yes, I am that old. C&#39;mon.&lt;&lt;/say&gt;&gt;
+  &lt;&lt;say &quot;rd&quot;&gt;&gt;Huh! That&#39;s powerplay!&lt;&lt;/say&gt;&gt;
+  &lt;&lt;say &quot;leo&quot;&gt;&gt;By zero Kelvin! You have more experience in the outside field and are the less broken one of all of us.&lt;&lt;/say&gt;&gt;
+  &lt;&lt;say &quot;rd&quot;&gt;&gt;...&lt;&lt;/say&gt;&gt;
+  &lt;&lt;say &quot;leo&quot;&gt;&gt;Mach den Abgang!&amp;nbsp;&lt;em&gt;gesticulating to go&lt;/em&gt;&lt;br&gt;&lt;&lt;/say&gt;&gt;
+  &lt;&lt;say &quot;rd&quot;&gt;&gt;&lt;span&gt;Wha?! Yeah, damn! Couldn&#39;t you have been nicer!?&lt;br&gt;&lt;em&gt;What language was that?&lt;/em&gt;&lt;/span&gt;&lt;&lt;/say&gt;&gt;
   &lt;&lt;ab&gt;&gt;[[Go East|T1E]]&lt;&lt;/ab&gt;&gt;
   &lt;&lt;/if&gt;&gt;
 &lt;&lt;else&gt;&gt;&lt;&lt;set $CampM to {TransMast: false,Farm: 0,DefPerimeter: false,building: 0,maxbuildings: 0,EHarvester: 0,Orb: 1,nOrb: 1,cOrb: 1,}; $nutrients /= 2; $unimatter /= 2; $energy /= 2; $QuestPool.pushUnique($Q1C0); $storageFactor = 1;&gt;&gt; /* Q1C is: do repairs */
@@ -1547,29 +1547,29 @@ It is a huge setback. The hull is broken. As are the cockpit, our life maintenan
 
   With jetting forces their ship land on the same spot. The hatch opens, both of them run out and hugs us, asking what that was? What I did?&lt;br&gt; 
   I did nothing.&lt;br&gt; 
-  &lt;&lt;say &quot;Leo&quot;&gt;&gt;Guys! Let us bring Vika in and stabilize her.&lt;&lt;/say&gt;&gt;&lt;br&gt;
+  &lt;&lt;say &quot;leo&quot;&gt;&gt;Guys! Let us bring Vika in and stabilize her.&lt;&lt;/say&gt;&gt;&lt;br&gt;
   Ashamed, I fret at myself that Vika&#39;s priority didn&#39;t came to my mind first, instead to Leo&#39;s. Am I selfish?
   We all carry her into their spaceship, to one of the unfilled pod &lt;&lt;nobr&gt;&gt;
     &lt;&lt;if $energy &gt; 2 &amp;&amp; $CampM.unimatter &gt;= 3&gt;&gt;&lt;&lt;set $CampM.unimatter -= 3&gt;&gt;, but the watcher directed us to the costruction chamber and already is on to repair her module, as printing the replacement tools. I guess, it is too urgent to let us diagnose and creating a solution. It notified us that it should only take some days.&lt;&lt;set $noVika = true&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;set $QuestPool.pushUnique($Q1CA); $QuestPool.pushUnique($Q1CA2)&gt;&gt;and the watcher stabilized her, but urges us to find unimatter as of now! At latest in two cycles.&lt;&lt;/if&gt;&gt;&lt;br&gt;
     &lt;&lt;if $energy &gt; 3 &amp;&amp; $CampM.nutrients &gt;= 5&gt;&gt;&lt;&lt;set $CampM.nutrients -= 5&gt;&gt;It notified us also that it will infuse her with enough medicine to neutralize the damages on the internal composition. &lt;&lt;else&gt;&gt;&lt;&lt;set $QuestPool.pushUnique($Q1CA1)&gt;&gt;Same for medicine. She needs nutrients, also within two cycles. Else she has to be enfreezed, which uses regularly energy that we also need.&lt;&lt;/if&gt;&gt;&lt;br&gt;
     &lt;&lt;if $energy &gt;= 1 &amp;&amp;$CampM.unimatter &gt;= 1 &amp;&amp; $CampM.nutrients &gt;= 2&gt;&gt;&lt;&lt;set $CampM.nutrients -= 2; $CampM.unimatter -= 1, $energy -= 1&gt;&gt;Leo&#39;s case is quite mild and is done in a few hours.&lt;&lt;else&gt;&gt;&lt;&lt;set $QuestPool.pushUnique($Q1CB)&gt;&gt;Leo&#39;s case is quite mild and has not an urgency, he only needs to be inside a pod and let himself stabilized. Until then, Vika has to be healed, then Leo.&lt;&lt;/if&gt;&gt;&lt;br&gt;
   &lt;&lt;/nobr&gt;&gt;
-  &lt;&lt;say &quot;Elva&quot;&gt;&gt;&lt;p onclick=&quot;recOTattack();&quot; style=&quot;color: royalblue; cursor: pointer&quot;&gt;Look!&lt;/p&gt;&amp;nbsp;That is what attacked you.&lt;&lt;/say&gt;&gt;&lt;br&gt;
+  &lt;&lt;say &quot;elva&quot;&gt;&gt;&lt;p onclick=&quot;recOTattack();&quot; style=&quot;color: royalblue; cursor: pointer&quot;&gt;Look!&lt;/p&gt;&amp;nbsp;That is what attacked you.&lt;&lt;/say&gt;&gt;&lt;br&gt;
   ...&lt;br&gt;
-  &lt;&lt;say &quot;RD&quot;&gt;&gt;Huh!&lt;&lt;/say&gt;&gt;
-  &lt;&lt;say &quot;Leo&quot;&gt;&gt;Okay ...&lt;&lt;/say&gt;&gt;
-  &lt;&lt;say &quot;Abiba&quot;&gt;&gt;...&lt;&lt;/say&gt;&gt;
-  &lt;&lt;say &quot;Elva&quot;&gt;&gt;So, we have something far more dangerous than the animals that attack us occasionally.&lt;&lt;/say&gt;&gt;
-  &lt;&lt;say &quot;RD&quot;&gt;&gt;Oh yes!&lt;&lt;/say&gt;&gt;
+  &lt;&lt;say &quot;rd&quot;&gt;&gt;Huh!&lt;&lt;/say&gt;&gt;
+  &lt;&lt;say &quot;leo&quot;&gt;&gt;Okay ...&lt;&lt;/say&gt;&gt;
+  &lt;&lt;say &quot;abiba&quot;&gt;&gt;...&lt;&lt;/say&gt;&gt;
+  &lt;&lt;say &quot;elva&quot;&gt;&gt;So, we have something far more dangerous than the animals that attack us occasionally.&lt;&lt;/say&gt;&gt;
+  &lt;&lt;say &quot;rd&quot;&gt;&gt;Oh yes!&lt;&lt;/say&gt;&gt;
   By the sight of the sheer destruction power, we all can only agree.&lt;br&gt;
-  &lt;&lt;say &quot;RD&quot;&gt;&gt;And it seemt to have an intelligence.&lt;&lt;/say&gt;&gt;
-  &lt;&lt;say &quot;Elva&quot;&gt;&gt;How come?&lt;&lt;/say&gt;&gt;
-  &lt;&lt;say &quot;RD&quot;&gt;&gt;&lt;em&gt;Mmh.&lt;/em&gt;&amp;nbsp;A feeling.&lt;&lt;/say&gt;&gt;
-  &lt;&lt;say &quot;RD&quot;&gt;&gt;Our watchers doesn&#39;t say anything?&lt;&lt;/say&gt;&gt; 
+  &lt;&lt;say &quot;rd&quot;&gt;&gt;And it seemt to have an intelligence.&lt;&lt;/say&gt;&gt;
+  &lt;&lt;say &quot;elva&quot;&gt;&gt;How come?&lt;&lt;/say&gt;&gt;
+  &lt;&lt;say &quot;rd&quot;&gt;&gt;&lt;em&gt;Mmh.&lt;/em&gt;&amp;nbsp;A feeling.&lt;&lt;/say&gt;&gt;
+  &lt;&lt;say &quot;rd&quot;&gt;&gt;Our watchers doesn&#39;t say anything?&lt;&lt;/say&gt;&gt; 
   Nope. Both ladies shake their heads.&lt;br&gt;
   &lt;em&gt;Ugh! Typical.&lt;/em&gt;&lt;br&gt;
-  &lt;&lt;say &quot;RD&quot;&gt;&gt;Fine. I have to go out collecting nutrients.&lt;&lt;/say&gt;&gt;
-  &lt;&lt;say &quot;Elva&quot;&gt;&gt;I will accompany you.&lt;&lt;/say&gt;&gt;&lt;&lt;set $carrycap += 1&gt;&gt;
+  &lt;&lt;say &quot;rd&quot;&gt;&gt;Fine. I have to go out collecting nutrients.&lt;&lt;/say&gt;&gt;
+  &lt;&lt;say &quot;elva&quot;&gt;&gt;I will accompany you.&lt;&lt;/say&gt;&gt;&lt;&lt;set $carrycap += 1&gt;&gt;
   Abiba nods and stays near the cockpit, in case they need to quickjump again.&lt;br&gt;
   &lt;&lt;ab&gt;&gt;[[Go West|T4E]]&lt;&lt;/ab&gt;&gt;
 &lt;&lt;/if&gt;&gt;
@@ -1612,11 +1612,11 @@ It is a huge setback. The hull is broken. As are the cockpit, our life maintenan
   
   Yes! There are others! The ladies greet me in surprise and ask me from where I do come, which spaceship number is it, why didn&#39;t I radio them. I ask them that their antenna works? They gesturing and answering: not always, it is weird. So I answered to them that &lt;&lt;if $CampJ.TransMast&gt;&gt;even though we built an antenna, we didn&#39;t received any incomings - we assume it is because of the dense jungle.&lt;&lt;else&gt;&gt;we hadn&#39;t found the time and the urgency to build an antenna. Until now.&lt;&lt;/if&gt;&gt; So, what happened that I took a rather dangerous journey?
 
-  &lt;&lt;say &quot;RD&quot;&gt;&gt;Yes! I almost forgot! We were attacked. Whacked!&lt;&lt;/say&gt;&gt;
+  &lt;&lt;say &quot;rd&quot;&gt;&gt;Yes! I almost forgot! We were attacked. Whacked!&lt;&lt;/say&gt;&gt;
 
   The ladies raises the eyebrows, opens the eyes, slightly open the mouth as I tell them what happened. As in to realize that they, we, are not in a safe environment anymore. Or dreading more if they also had their encounters.
 
-  &lt;&lt;say &quot;Elva&quot;&gt;&gt;Then let us go there. You know the way.&lt;&lt;/say&gt;&gt;
+  &lt;&lt;say &quot;elva&quot;&gt;&gt;Then let us go there. You know the way.&lt;&lt;/say&gt;&gt;
 
   &lt;&lt;ab&gt;&gt;[[Yes! Thank you!|End of Game][$whydead = 1]]&lt;&lt;/ab&gt;&gt;
 
@@ -1973,59 +1973,59 @@ And for other reasons, as: to counteract brain degeneration and for energy effic
 &lt;&lt;/if&gt;&gt;&lt;&lt;/nobr&gt;&gt;&lt;br&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="18" name="Council Round 2" tags="" position="3325,1725" size="100,100">&lt;center&gt;&lt;blockquote&gt;
 [img[assets/backgrounds/Placeholder.webp]]
 
-&lt;&lt;say &quot;RD&quot;&gt;&gt;Sooo! What do you make out of this situation?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;Sooo! What do you make out of this situation?&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Elva&quot;&gt;&gt;Sure that it is not from us?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;elva&quot;&gt;&gt;Sure that it is not from us?&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;RD&quot;&gt;&gt;Ah, come on, Elva.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;Ah, come on, Elva.&lt;&lt;/say&gt;&gt;
 
 Elva only shrugs.
 
-&lt;&lt;say &quot;Leo&quot;&gt;&gt;The design seems to be older. I have my doubts as well.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;leo&quot;&gt;&gt;The design seems to be older. I have my doubts as well.&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Vika&quot;&gt;&gt;Didn&#39;t you saw anyone?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;vika&quot;&gt;&gt;Didn&#39;t you saw anyone?&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;RD&quot;&gt;&gt;Nope!&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;Nope!&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Vika&quot;&gt;&gt;Were you looking?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;vika&quot;&gt;&gt;Were you looking?&lt;&lt;/say&gt;&gt;
 
 Slighted, I point to Abiba.
 
-&lt;&lt;say &quot;Vika&quot;&gt;&gt;Yeah, but you were not nearby the hot zone.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;vika&quot;&gt;&gt;Yeah, but you were not nearby the hot zone.&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;RD&quot;&gt;&gt;Well, first it is nearby - for me at least -, second I saw no activity, and these made me feel that this area could be connected to the first incident.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;Well, first it is nearby - for me at least -, second I saw no activity, and these made me feel that this area could be connected to the first incident.&lt;&lt;/say&gt;&gt;
 
 Vika looks at me completely sceptical.
 
-&lt;&lt;say &quot;RD&quot;&gt;&gt;Oh, come on. The alien, or whatever, exactly knew where to hit on our spaceship.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;Oh, come on. The alien, or whatever, exactly knew where to hit on our spaceship.&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Vika&quot;&gt;&gt;Both are of completely different design. How can it know?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;vika&quot;&gt;&gt;Both are of completely different design. How can it know?&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;RD&quot;&gt;&gt;What do I know! I just felt like that. That it may be intelligent enough for deduction.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;What do I know! I just felt like that. That it may be intelligent enough for deduction.&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Vika&quot;&gt;&gt;Whooa!&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;vika&quot;&gt;&gt;Whooa!&lt;&lt;/say&gt;&gt;
 
 I stand to it, I posture to stress what I felt.
 
-&lt;&lt;say &quot;Leo&quot;&gt;&gt;I guess, we vote on how ...&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;leo&quot;&gt;&gt;I guess, we vote on how ...&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;RD&quot;&gt;&gt;Leo! You and always voting.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;Leo! You and always voting.&lt;&lt;/say&gt;&gt;
 
 Leo is taken aback, then a bit affronted.
 
-&lt;&lt;say &quot;Leo&quot;&gt;&gt;Then, how should we ...&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;leo&quot;&gt;&gt;Then, how should we ...&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;RD&quot;&gt;&gt;Print a nano drone!&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;Print a nano drone!&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Leo&quot;&gt;&gt;... keep our cohesion?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;leo&quot;&gt;&gt;... keep our cohesion?&lt;&lt;/say&gt;&gt;
 
 He is gesticulating with a shrugged shoulder, swirled with his uplifted hand and tilted slighty his head.
 
-&lt;&lt;say &quot;Elva&quot;&gt;&gt;Fine, I guess, it is your right since you are out there the most of the time.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;elva&quot;&gt;&gt;Fine, I guess, it is your right since you are out there the most of the time.&lt;&lt;/say&gt;&gt;
 
 I thank Elva with a nod. Then look at Abiba, but she only stares at me, rather a bit darkly.
 
-&lt;&lt;say &quot;RD&quot;&gt;&gt;Yes, I know, it is kind of a lottery. As a compromise, I will explore more. But if I didn&#39;t found anything, we do our plan. Agreed?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;Yes, I know, it is kind of a lottery. As a compromise, I will explore more. But if I didn&#39;t found anything, we do our plan. Agreed?&lt;&lt;/say&gt;&gt;
 
 Abiba looks sideways, grinds her left teeth while the others do not veto. Leo looks at me with his mouth wrinkle far on his side. Then all of them nod.
 
@@ -2034,47 +2034,47 @@ Abiba looks sideways, grinds her left teeth while the others do not veto. Leo lo
 &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="19" name="Council Round 3" tags="" position="3325,1975" size="100,100">&lt;center&gt;&lt;blockquote&gt;
 [img[assets/backgrounds/Placeholder.webp]]
 
-&lt;&lt;say &quot;Vika&quot;&gt;&gt;So there is someone!&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;vika&quot;&gt;&gt;So there is someone!&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;RD&quot;&gt;&gt;Yeah! The first one ... s.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;Yeah! The first one ... s.&lt;&lt;/say&gt;&gt;
 
 Unsure whether he is alone or has others.
 
-&lt;&lt;say &quot;Vika&quot;&gt;&gt;And he want us a what?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;vika&quot;&gt;&gt;And he want us a what?&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;RD&quot;&gt;&gt;A data interpreter. &lt;&lt;if $engineering &lt; 20&gt;&gt;Whatever he meant by that.&lt;&lt;/if&gt;&gt;&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;A data interpreter. &lt;&lt;if $engineering &lt; 20&gt;&gt;Whatever he meant by that.&lt;&lt;/if&gt;&gt;&lt;&lt;/say&gt;&gt;
 &lt;&lt;nobr&gt;&gt;
-&lt;&lt;if $engineering &lt; 20&gt;&gt;&lt;&lt;say &quot;Abiba&quot;&gt;&gt;Something that ... &lt;&lt;/say&gt;&gt;
+&lt;&lt;if $engineering &lt; 20&gt;&gt;&lt;&lt;say &quot;abiba&quot;&gt;&gt;Something that ... &lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Vika&quot;&gt;&gt;... compiles, interpret and present us the whole picture.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;vika&quot;&gt;&gt;... compiles, interpret and present us the whole picture.&lt;&lt;/say&gt;&gt;
 
 Abiba turned her palm up and point to Vika.&lt;&lt;/if&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;
-&lt;&lt;say &quot;Elva&quot;&gt;&gt;We finally can unravel the weird situation we&#39;re in?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;elva&quot;&gt;&gt;We finally can unravel the weird situation we&#39;re in?&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;RD&quot;&gt;&gt;Don&#39;t you dare to hope!&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;Don&#39;t you dare to hope!&lt;&lt;/say&gt;&gt;
 
 ...
 
-&lt;&lt;say &quot;RD&quot;&gt;&gt;But, yeah, that is what I make out of my encounter with him.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;But, yeah, that is what I make out of my encounter with him.&lt;&lt;/say&gt;&gt;
 
 Elva crosses her fingers and asks us of what are we waiting for?
 
-&lt;&lt;say &quot;Leo&quot;&gt;&gt;And the guy was secretive? Evading questions?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;leo&quot;&gt;&gt;And the guy was secretive? Evading questions?&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;RD&quot;&gt;&gt;Nnnhah, more discreet than secretive.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;Nnnhah, more discreet than secretive.&lt;&lt;/say&gt;&gt;
 
 Leo, with his hand on his mouth and his index finger on the cheek, acknowledges the description.
 
-&lt;&lt;say &quot;Leo&quot;&gt;&gt;You trust him?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;leo&quot;&gt;&gt;You trust him?&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;RD&quot;&gt;&gt;Puh ... &lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;Puh ... &lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;RD&quot;&gt;&gt;Difficult to say. I mean, such a device, completed off our network, solely isolated, simplified. Such a thing cannot do much harm, can it?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;Difficult to say. I mean, such a device, completed off our network, solely isolated, simplified. Such a thing cannot do much harm, can it?&lt;&lt;/say&gt;&gt;
 
 I ask the engineering ladies. Vika and Abiba are between weighing and nodding their heads.
 
-&lt;&lt;say &quot;RD&quot;&gt;&gt;Right. Onwards then.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;Right. Onwards then.&lt;&lt;/say&gt;&gt;
 
 We all scatter except for Vika. She sits still there lost in thoughts and with a serious sceptic face, even shaking subtly her head time to time.
 
@@ -2093,11 +2093,11 @@ Everyone voted. Vika took her sweet time. Understandable, it is not an easy deci
 
 Abiba, though, seems very relieved.
 
-&lt;&lt;say &quot;Leo&quot;&gt;&gt;Alright. We stick to it!?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;leo&quot;&gt;&gt;Alright. We stick to it!?&lt;&lt;/say&gt;&gt;
 
 Leo looks to all our eyes, especially at mine more harder. &lt;em&gt;Huh? What!&lt;/em&gt;
 
-&lt;&lt;say &quot;RD&quot;&gt;&gt;Yeah ... &lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;Yeah ... &lt;&lt;/say&gt;&gt;
 
 &lt;em&gt;Will I though?&lt;/em&gt;
 
@@ -2229,7 +2229,7 @@ You can close the window.
 
 Oh! Am I glad to find our spaceship.&lt;&lt;audio &quot;RD_A008&quot; play&gt;&gt;
 
-&lt;&lt;say &quot;Vika&quot;&gt;&gt;&lt;&lt;if hasVisited(&quot;Shutdown&quot;)&gt;&gt;&lt;&lt;timed 3s&gt;&gt;&lt;&lt;audio &quot;Vika_A001_1&quot; play&gt;&gt;&lt;&lt;/timed&gt;&gt;Fella! Can I tell you how glad I am to find another one of you?&lt;&lt;else&gt;&gt;&lt;&lt;timed 3s&gt;&gt;&lt;&lt;audio &quot;Vika_A001_2&quot; play&gt;&gt;&lt;&lt;/timed&gt;&gt;Fellas! Can I tell you how glad I am to find the likes of you?&lt;&lt;/if&gt;&gt;&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;vika&quot;&gt;&gt;&lt;&lt;if hasVisited(&quot;Shutdown&quot;)&gt;&gt;&lt;&lt;timed 3s&gt;&gt;&lt;&lt;audio &quot;Vika_A001_1&quot; play&gt;&gt;&lt;&lt;/timed&gt;&gt;Fella! Can I tell you how glad I am to find another one of you?&lt;&lt;else&gt;&gt;&lt;&lt;timed 3s&gt;&gt;&lt;&lt;audio &quot;Vika_A001_2&quot; play&gt;&gt;&lt;&lt;/timed&gt;&gt;Fellas! Can I tell you how glad I am to find the likes of you?&lt;&lt;/if&gt;&gt;&lt;&lt;/say&gt;&gt;
 
 &lt;&lt;ab&gt;&gt; [[Same here, same here|AnteVote]]&lt;&lt;/ab&gt;&gt;
  &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="26" name="Energy Harvester" tags="" position="2300,300" size="100,100">&lt;center&gt;[img[assets/items/sun-collectors.webp]]
@@ -2322,104 +2322,104 @@ But, for me personally, I welcome to have two more ladies: Elva and Abiba.
 
 After opening a virtual space, it didn&#39;t took long for them to enter.
 
-&lt;&lt;say &quot;RD&quot;&gt;&gt;Ladies and Gentleman. Thank you ... &lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;Ladies and Gentleman. Thank you ... &lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Elva&quot;&gt;&gt;Huh? Why so formal?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;elva&quot;&gt;&gt;Huh? Why so formal?&lt;&lt;/say&gt;&gt;
 
 I look at Elva, make a gesture and mimic as I do not know either.
 
-&lt;&lt;say &quot;RD&quot;&gt;&gt;Fine. Then I get to the point: What do we do with the info that we, or I, were attacked?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;Fine. Then I get to the point: What do we do with the info that we, or I, were attacked?&lt;&lt;/say&gt;&gt;
 
 Vika shudders a bit, changing her position to more encapsulating.
 
-&lt;&lt;say &quot;Elva&quot;&gt;&gt;It didn&#39;t attack us anew. So, either we do all right or it will happen again.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;elva&quot;&gt;&gt;It didn&#39;t attack us anew. So, either we do all right or it will happen again.&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Vika&quot;&gt;&gt;After reliving of what happened again and again, I think it is intelligent.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;vika&quot;&gt;&gt;After reliving of what happened again and again, I think it is intelligent.&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;RD&quot;&gt;&gt;I know right.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;I know right.&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Leo&quot;&gt;&gt;What makes you both think so?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;leo&quot;&gt;&gt;What makes you both think so?&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Vika&quot;&gt;&gt;By the fact that it didn&#39;t killed us. Well, it almost killed me. I do not know ... well, compared to the animals, it seemt to be very precise and exact, as it knew where to hit.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;vika&quot;&gt;&gt;By the fact that it didn&#39;t killed us. Well, it almost killed me. I do not know ... well, compared to the animals, it seemt to be very precise and exact, as it knew where to hit.&lt;&lt;/say&gt;&gt;
 
 That is it! That&#39;s the concrete feeling I had after the pullback, the back-to-ground-stomp. 
 The others are not that convinced, though spooked by such a possibility.
 
-&lt;&lt;say &quot;RD&quot;&gt;&gt;Then ... you were the most dangerous one for it to have almost killed you!&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;Then ... you were the most dangerous one for it to have almost killed you!&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Vika&quot;&gt;&gt;Maybe. It could have killed me, but it decided rather to weaken me or to neutralize me.&amp;nbsp;&lt;em&gt;Mfh!&lt;/em&gt;&amp;nbsp;I do not know. It is indeed that we know almost nothing about it.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;vika&quot;&gt;&gt;Maybe. It could have killed me, but it decided rather to weaken me or to neutralize me.&amp;nbsp;&lt;em&gt;Mfh!&lt;/em&gt;&amp;nbsp;I do not know. It is indeed that we know almost nothing about it.&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Abiba&quot;&gt;&gt;Would it be wise to poke on a beehive?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;abiba&quot;&gt;&gt;Would it be wise to poke on a beehive?&lt;&lt;/say&gt;&gt;
 
 Mixed with surprise that Abiba spoke and with what she said, we - for many seconds - haven&#39;t said a word. She made us re-align to the original topic.
 
 With a clicking sound, Leo initiates the talk anew.
 
-&lt;&lt;say &quot;Leo&quot;&gt;&gt;What would you do?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;leo&quot;&gt;&gt;What would you do?&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Abiba&quot;&gt;&gt;Continue on trying to find others and a way to contact our mothership. Let ... the thing be. No more crossing over the zone.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;abiba&quot;&gt;&gt;Continue on trying to find others and a way to contact our mothership. Let ... the thing be. No more crossing over the zone.&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;RD&quot;&gt;&gt;It was all fine until I used the Orb to scan the spaceship. The spaceship overgrown by plants.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;It was all fine until I used the Orb to scan the spaceship. The spaceship overgrown by plants.&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Abiba&quot;&gt;&gt;Then no more orbs. We can do it without it.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;abiba&quot;&gt;&gt;Then no more orbs. We can do it without it.&lt;&lt;/say&gt;&gt;
 
 We all squirm.
 
-&lt;&lt;say &quot;RD&quot;&gt;&gt;I say, we print ultra-small drones and slowly collect data.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;I say, we print ultra-small drones and slowly collect data.&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Abiba&quot;&gt;&gt;We do no such things! Didn&#39;t we agreed on no flying things?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;abiba&quot;&gt;&gt;We do no such things! Didn&#39;t we agreed on no flying things?&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;RD&quot;&gt;&gt;Well, we neither agreed nor vetoed.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;Well, we neither agreed nor vetoed.&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Abiba&quot;&gt;&gt;Avoid the hotspot at all cost, no fliers. Only trying to find the others. Until we reach the mothership!&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;abiba&quot;&gt;&gt;Avoid the hotspot at all cost, no fliers. Only trying to find the others. Until we reach the mothership!&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Elva&quot;&gt;&gt;If it is intelligent, wouldn&#39;t it have us attacked again?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;elva&quot;&gt;&gt;If it is intelligent, wouldn&#39;t it have us attacked again?&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Leo&quot;&gt;&gt;From the human perspective, we should have done, yes. But obviously, it is not. So, its decision factors may differ. But then again: we indeed know too less ... in fact: we have no data at all, except &lt;&lt;if $QuestPoolDone.includesAny($Q1A, $Q1B)&gt;&gt;our own memories&lt;&lt;else&gt;&gt;the record&lt;&lt;/if&gt;&gt;.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;leo&quot;&gt;&gt;From the human perspective, we should have done, yes. But obviously, it is not. So, its decision factors may differ. But then again: we indeed know too less ... in fact: we have no data at all, except &lt;&lt;if $QuestPoolDone.includesAny($Q1A, $Q1B)&gt;&gt;our own memories&lt;&lt;else&gt;&gt;the record&lt;&lt;/if&gt;&gt;.&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;RD&quot;&gt;&gt;That makes you to which position? To which side?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;That makes you to which position? To which side?&lt;&lt;/say&gt;&gt;
 
 Leo looks at me, says nothing, ruminates.
 
-&lt;&lt;say &quot;Vika&quot;&gt;&gt;A middle ground?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;vika&quot;&gt;&gt;A middle ground?&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Elva&quot;&gt;&gt;Which is?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;elva&quot;&gt;&gt;Which is?&lt;&lt;/say&gt;&gt;
 
 Vika shakes her head and everyone is silent.
 
-&lt;&lt;say &quot;RD&quot;&gt;&gt;Fine. One ultra-small drone, no more?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;Fine. One ultra-small drone, no more?&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Abiba&quot;&gt;&gt;A&#39;a!&amp;nbsp;&lt;em&gt;gesturing determined&lt;/em&gt;&amp;nbsp;No!&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;abiba&quot;&gt;&gt;A&#39;a!&amp;nbsp;&lt;em&gt;gesturing determined&lt;/em&gt;&amp;nbsp;No!&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Elva&quot;&gt;&gt;Bien. How about the antenna?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;elva&quot;&gt;&gt;Bien. How about the antenna?&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Vika&quot;&gt;&gt;Here? It doesn&#39;t seem to reach no one.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;vika&quot;&gt;&gt;Here? It doesn&#39;t seem to reach no one.&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Elva&quot;&gt;&gt;Weird. It is overreaching the canopies, is it not?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;elva&quot;&gt;&gt;Weird. It is overreaching the canopies, is it not?&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Vika&quot;&gt;&gt;It is. It is even functional. There is just no reaction. It seems to reach no one.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;vika&quot;&gt;&gt;It is. It is even functional. There is just no reaction. It seems to reach no one.&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Elva&quot;&gt;&gt;But we were there on the mountains as you installed the antenna?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;elva&quot;&gt;&gt;But we were there on the mountains as you installed the antenna?&lt;&lt;/say&gt;&gt;
 
 Vika only looks at Elva, saying nothing, asking herself whether there is something she oversaw.
 
-&lt;&lt;say &quot;Elva&quot;&gt;&gt;If we build an antenna and a transmitter again on the mountain ridge? This time with your expertise? After we found ... well, after he&amp;nbsp;&lt;em&gt;pointing towards me&lt;/em&gt;&amp;nbsp;found another route and spot?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;elva&quot;&gt;&gt;If we build an antenna and a transmitter again on the mountain ridge? This time with your expertise? After we found ... well, after he&amp;nbsp;&lt;em&gt;pointing towards me&lt;/em&gt;&amp;nbsp;found another route and spot?&lt;&lt;/say&gt;&gt;
 
 Vika has still her doubts. The ladies are competent enough. There must be another reason. 
 
-&lt;&lt;say &quot;Elva&quot;&gt;&gt;We try again? With Vika&#39;s expertise? Can we accept that, Abiba?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;elva&quot;&gt;&gt;We try again? With Vika&#39;s expertise? Can we accept that, Abiba?&lt;&lt;/say&gt;&gt;
 
 Abiba is squirming. She would completely avoid the East at all.
 
-&lt;&lt;say &quot;Leo&quot;&gt;&gt;Gut! It is obvious: we need to find others! Be it other stranded or our mothership. That is: genereally explore more until he stumbles upon others plus an alternative route to the mountain ridge and build a new antenna?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;leo&quot;&gt;&gt;Gut! It is obvious: we need to find others! Be it other stranded or our mothership. That is: genereally explore more until he stumbles upon others plus an alternative route to the mountain ridge and build a new antenna?&lt;&lt;/say&gt;&gt;
 
 The ladies nod and shrug.
 
-&lt;&lt;say &quot;Leo&quot;&gt;&gt;Agreed?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;leo&quot;&gt;&gt;Agreed?&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;RD&quot;&gt;&gt;Hold on! What about my approach?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;Hold on! What about my approach?&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Leo&quot;&gt;&gt;Then: vote it is.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;leo&quot;&gt;&gt;Then: vote it is.&lt;&lt;/say&gt;&gt;
 
 Leo and his voting! &lt;em&gt;hrgh&lt;/em&gt;
 
@@ -2512,7 +2512,7 @@ It is a big wonder with our technological advancements that we do not live in an
 The answer may be given to &lt;&lt;linkappend &quot;me.&quot; t8n&gt;&gt; Soon. &lt;&lt;nobr&gt;&gt;
   &lt;&lt;run automaticDownscroll();&gt;&gt;&lt;&lt;/nobr&gt;&gt;
 
-&lt;&lt;linkappend &quot;As in our route after exiting the neighbor galaxy&quot; t8n&gt;&gt; something [[happens.|Crash]]&lt;&lt;/linkappend&gt;&gt;&lt;&lt;/linkappend&gt;&gt;
+&lt;&lt;linkappend &quot;As in our route after exiting the neighbor star system&quot; t8n&gt;&gt; something [[happens.|Crash]]&lt;&lt;/linkappend&gt;&gt;&lt;&lt;/linkappend&gt;&gt;
 &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="36" name="Leo" tags="" position="3525,350" size="100,100">&lt;center&gt;&lt;blockquote&gt;&lt;&lt;if random(3) == 1&gt;&gt;[img[assets/characters/2_men_talking.webp]]
 
   I had an interesting viewpoint from him about AI&#39;s and algorithms.
@@ -2548,18 +2548,18 @@ The answer may be given to &lt;&lt;linkappend &quot;me.&quot; t8n&gt;&gt; Soon. 
 Another stranded. And this one is quite dilapidated. He has his movement, but barely any limbs (no forgetti, we are inside machines). He will survive, but not up to top. I help him getting up. He thanks me and asks me if I have a compass?
 
 &lt;&lt;if $compass == true&gt;&gt;
-&lt;&lt;say &quot;RD&quot;&gt;&gt;Yes I have one.&lt;&lt;/say&gt;&gt;&lt;&lt;timed 18s&gt;&gt;&lt;&lt;audio &quot;RD_A007_1&quot; play&gt;&gt;&lt;&lt;/timed&gt;&gt;
-&lt;&lt;say &quot;Leo&quot;&gt;&gt;Oh good, then we can find the others.&lt;&lt;/say&gt;&gt;&lt;&lt;timed 20s&gt;&gt;&lt;&lt;audio &quot;Leo_A001_1&quot; play&gt;&gt;&lt;&lt;/timed&gt;&gt;
-&lt;&lt;say &quot;RD&quot;&gt;&gt;True. Although there is only one signal.&lt;&lt;/say&gt;&gt;&lt;&lt;timed 23s&gt;&gt;&lt;&lt;audio &quot;RD_A007_2&quot; play&gt;&gt;&lt;&lt;/timed&gt;&gt;
-&lt;&lt;say &quot;Leo&quot;&gt;&gt;Hm. Well, anyway. Like as we can do anything here. Let us go.&lt;&lt;/say&gt;&gt;&lt;&lt;timed 27s&gt;&gt;&lt;&lt;audio &quot;Leo_A001_2&quot; play&gt;&gt;&lt;&lt;/timed&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;Yes I have one.&lt;&lt;/say&gt;&gt;&lt;&lt;timed 18s&gt;&gt;&lt;&lt;audio &quot;RD_A007_1&quot; play&gt;&gt;&lt;&lt;/timed&gt;&gt;
+&lt;&lt;say &quot;leo&quot;&gt;&gt;Oh good, then we can find the others.&lt;&lt;/say&gt;&gt;&lt;&lt;timed 20s&gt;&gt;&lt;&lt;audio &quot;Leo_A001_1&quot; play&gt;&gt;&lt;&lt;/timed&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;True. Although there is only one signal.&lt;&lt;/say&gt;&gt;&lt;&lt;timed 23s&gt;&gt;&lt;&lt;audio &quot;RD_A007_2&quot; play&gt;&gt;&lt;&lt;/timed&gt;&gt;
+&lt;&lt;say &quot;leo&quot;&gt;&gt;Hm. Well, anyway. Like as we can do anything here. Let us go.&lt;&lt;/say&gt;&gt;&lt;&lt;timed 27s&gt;&gt;&lt;&lt;audio &quot;Leo_A001_2&quot; play&gt;&gt;&lt;&lt;/timed&gt;&gt;
 
 &lt;&lt;ab&gt;&gt;[[Go to the only and last signal|EndPoint ChCrash]]&lt;&lt;/ab&gt;&gt;
 &lt;&lt;else&gt;&gt;
-&lt;&lt;say &quot;RD&quot;&gt;&gt;Nope&lt;&lt;/say&gt;&gt;&lt;&lt;timed 18s&gt;&gt;&lt;&lt;audio &quot;RD_A007_3&quot; play&gt;&gt;&lt;&lt;/timed&gt;&gt;
-&lt;&lt;say &quot;Leo&quot;&gt;&gt;So, you just found me by sheer luck?&lt;&lt;/say&gt;&gt;&lt;&lt;timed 19s&gt;&gt;&lt;&lt;audio &quot;Leo_A001_3&quot; play&gt;&gt;&lt;&lt;/timed&gt;&gt;
-&lt;&lt;say &quot;RD&quot;&gt;&gt;Pretty cool, eh.&lt;&lt;/say&gt;&gt;&lt;&lt;timed 22s&gt;&gt;&lt;&lt;audio &quot;RD_A007_4&quot; play&gt;&gt;&lt;&lt;/timed&gt;&gt;
-&lt;&lt;say &quot;Leo&quot;&gt;&gt;...&lt;&lt;/say&gt;&gt;
-&lt;&lt;say &quot;Leo&quot;&gt;&gt;Anyway, you should find one in my pod.&lt;&lt;/say&gt;&gt;&lt;&lt;timed 24s&gt;&gt;&lt;&lt;audio &quot;Leo_A001_4&quot; play&gt;&gt;&lt;&lt;/timed&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;Nope&lt;&lt;/say&gt;&gt;&lt;&lt;timed 18s&gt;&gt;&lt;&lt;audio &quot;RD_A007_3&quot; play&gt;&gt;&lt;&lt;/timed&gt;&gt;
+&lt;&lt;say &quot;leo&quot;&gt;&gt;So, you just found me by sheer luck?&lt;&lt;/say&gt;&gt;&lt;&lt;timed 19s&gt;&gt;&lt;&lt;audio &quot;Leo_A001_3&quot; play&gt;&gt;&lt;&lt;/timed&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;Pretty cool, eh.&lt;&lt;/say&gt;&gt;&lt;&lt;timed 22s&gt;&gt;&lt;&lt;audio &quot;RD_A007_4&quot; play&gt;&gt;&lt;&lt;/timed&gt;&gt;
+&lt;&lt;say &quot;leo&quot;&gt;&gt;...&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;leo&quot;&gt;&gt;Anyway, you should find one in my pod.&lt;&lt;/say&gt;&gt;&lt;&lt;timed 24s&gt;&gt;&lt;&lt;audio &quot;Leo_A001_4&quot; play&gt;&gt;&lt;&lt;/timed&gt;&gt;
 
 &lt;&lt;ab&gt;&gt;[[Search for Compass]]&lt;&lt;/ab&gt;&gt;
 &lt;&lt;/if&gt;&gt;
@@ -2798,17 +2798,17 @@ What do I want for the Orb to collect?&lt;&lt;nobr&gt;&gt;
 
         I went to check on Vika to get more urgency on myself, to have more pressure. Two cycles, and Vika is has to undergo more complications. That is if we are lucky when no hostile passes here meanwhile. &lt;em&gt;Ech!&lt;/em&gt; That sucks.&lt;br&gt;&lt;br&gt;
 
-        &lt;&lt;if hasVisited(&quot;TBM0&quot;) &amp;&amp; $Camp_J&gt;&gt;&lt;&lt;say &quot;RD&quot;&gt;&gt;What if I go West or North? Or South?&lt;&lt;/say&gt;&gt;&lt;br&gt;&lt;br&gt;
+        &lt;&lt;if hasVisited(&quot;TBM0&quot;) &amp;&amp; $Camp_J&gt;&gt;&lt;&lt;say &quot;rd&quot;&gt;&gt;What if I go West or North? Or South?&lt;&lt;/say&gt;&gt;&lt;br&gt;&lt;br&gt;
 
         Leo only rolled with his head and shrugged with on shoulder.&lt;br&gt;&lt;br&gt;
 
-        &lt;&lt;say &quot;Leo&quot;&gt;&gt;It is in the east. The likelihood is higher. Much higher.&lt;&lt;/say&gt;&gt;&lt;br&gt;&lt;br&gt;
+        &lt;&lt;say &quot;leo&quot;&gt;&gt;It is in the east. The likelihood is higher. Much higher.&lt;&lt;/say&gt;&gt;&lt;br&gt;&lt;br&gt;
 
-        &lt;&lt;say &quot;RD&quot;&gt;&gt;You trust on this source that much?&lt;&lt;/say&gt;&gt;&lt;br&gt;&lt;br&gt;
+        &lt;&lt;say &quot;rd&quot;&gt;&gt;You trust on this source that much?&lt;&lt;/say&gt;&gt;&lt;br&gt;&lt;br&gt;
 
         Leo turns his eyes to the side, said nothing for fraction of a second.&lt;br&gt;&lt;br&gt;
 
-        &lt;&lt;say &quot;Leo&quot;&gt;&gt;It is the same feeling if I am usually right.&lt;&lt;/say&gt;&gt;&lt;br&gt;&lt;br&gt;
+        &lt;&lt;say &quot;leo&quot;&gt;&gt;It is the same feeling if I am usually right.&lt;&lt;/say&gt;&gt;&lt;br&gt;&lt;br&gt;
 
         I raised my eyebrows, stare at him. But he stares me back, resolutely. Now I turn my eyes to the side and upwards. Weighing my legs forth and back.&lt;br&gt;&lt;br&gt;&lt;&lt;/if&gt;&gt;
 
@@ -2825,15 +2825,15 @@ What do I want for the Orb to collect?&lt;&lt;nobr&gt;&gt;
                   &lt;&lt;timed 2s&gt;&gt;&lt;em&gt;&lt;br&gt;&lt;br&gt;Breathe. In. Out. In. Out.&lt;/em&gt;
                     &lt;&lt;timed 2s&gt;&gt;&lt;em&gt;&lt;br&gt;&lt;br&gt;...&lt;/em&gt;
                       &lt;&lt;timed 2s&gt;&gt;&lt;em&gt;&lt;br&gt;&lt;br&gt;There is a nudge. A movement.&lt;/em&gt;
-                        &lt;&lt;timed 1s&gt;&gt;&lt;br&gt;&lt;br&gt;&lt;&lt;say &quot;Leo&quot;&gt;&gt;Wake up! Come on! You were off since 3 hours!&lt;&lt;/say&gt;&gt;&lt;br&gt;&lt;br&gt;
+                        &lt;&lt;timed 1s&gt;&gt;&lt;br&gt;&lt;br&gt;&lt;&lt;say &quot;leo&quot;&gt;&gt;Wake up! Come on! You were off since 3 hours!&lt;&lt;/say&gt;&gt;&lt;br&gt;&lt;br&gt;
 
-                          &lt;&lt;timed 1s&gt;&gt;&lt;&lt;say &quot;RD&quot;&gt;&gt;Whoa. That long?&lt;&lt;/say&gt;&gt;&lt;&lt;set $energy += 3&gt;&gt;&lt;br&gt;&lt;br&gt;
+                          &lt;&lt;timed 1s&gt;&gt;&lt;&lt;say &quot;rd&quot;&gt;&gt;Whoa. That long?&lt;&lt;/say&gt;&gt;&lt;&lt;set $energy += 3&gt;&gt;&lt;br&gt;&lt;br&gt;
 
-                            &lt;&lt;say &quot;Leo&quot;&gt;&gt;The sun will touch the canopies in around 2 hours.&lt;&lt;/say&gt;&gt;&lt;br&gt;&lt;br&gt;
+                            &lt;&lt;say &quot;leo&quot;&gt;&gt;The sun will touch the canopies in around 2 hours.&lt;&lt;/say&gt;&gt;&lt;br&gt;&lt;br&gt;
 
                             I hurry waking and prepping myself up.&lt;br&gt;&lt;br&gt;
 
-                            &lt;&lt;say &quot;Leo&quot;&gt;&gt;Here: kind of a flashlight. It may be handy for you.&lt;&lt;/say&gt;&gt;&lt;br&gt;&lt;br&gt;
+                            &lt;&lt;say &quot;leo&quot;&gt;&gt;Here: kind of a flashlight. It may be handy for you.&lt;&lt;/say&gt;&gt;&lt;br&gt;&lt;br&gt;
 
                             Oh yes, it is. &lt;&lt;set $xeno += 1&gt;&gt;&lt;br&gt;&lt;br&gt;
 
@@ -2864,23 +2864,23 @@ What do I want for the Orb to collect?&lt;&lt;nobr&gt;&gt;
     &lt;&lt;timed 0s&gt;&gt;
     &lt;&lt;replace &quot;#PassTile3E&quot;&gt;&gt;[img[assets/backgrounds/placeholder.webp]]&lt;br&gt;&lt;br&gt;
 
-      &lt;&lt;say &quot;RD&quot;&gt;&gt;Guys, listen. Let us go to the camp in the jungle.&lt;&lt;/say&gt;&gt;&lt;br&gt;
+      &lt;&lt;say &quot;rd&quot;&gt;&gt;Guys, listen. Let us go to the camp in the jungle.&lt;&lt;/say&gt;&gt;&lt;br&gt;
 
       Everyone is thinking, but ultimately are shrugging their shoulders or nod.&lt;br&gt;&lt;br&gt;
 
-      &lt;&lt;say &quot;Leo&quot;&gt;&gt;To be honest, I was thinking about that too.&lt;&lt;/say&gt;&gt;&lt;br&gt;
+      &lt;&lt;say &quot;leo&quot;&gt;&gt;To be honest, I was thinking about that too.&lt;&lt;/say&gt;&gt;&lt;br&gt;
 
-      &lt;&lt;say &quot;Elva&quot;&gt;&gt; Wouldn&#39;t it be dangerous flying? Since it can extend itself quite long; enough to pierce us at our maximal flying altitude.&lt;&lt;/say&gt;&gt;&lt;br&gt;
+      &lt;&lt;say &quot;elva&quot;&gt;&gt; Wouldn&#39;t it be dangerous flying? Since it can extend itself quite long; enough to pierce us at our maximal flying altitude.&lt;&lt;/say&gt;&gt;&lt;br&gt;
 
-      &lt;&lt;say &quot;RD&quot;&gt;&gt;Yeah, that is the risk. At last, we have to ask ourselves whether - me or Elva - traversing the zone is less riskier. Or whether finding an alternative route is  worth the many energies we have to use. If! We find other stashes of unimatter or food nearby. For now, the camp in the jungle is the one most conveniently located.&lt;&lt;/say&gt;&gt;&lt;br&gt;
+      &lt;&lt;say &quot;rd&quot;&gt;&gt;Yeah, that is the risk. At last, we have to ask ourselves whether - me or Elva - traversing the zone is less riskier. Or whether finding an alternative route is  worth the many energies we have to use. If! We find other stashes of unimatter or food nearby. For now, the camp in the jungle is the one most conveniently located.&lt;&lt;/say&gt;&gt;&lt;br&gt;
 
       The others are listening and pondering. Leo is nodding his head slowly and constantly, while Elva looks sideways down to the grass and sighs. Abiba only observes us.&lt;br&gt;&lt;br&gt;
 
-      &lt;&lt;say &quot;Elva&quot;&gt;&gt;I guess, it is your word, since you&#39;re risking out there for us more than us.&lt;&lt;/say&gt;&gt;&lt;br&gt;
+      &lt;&lt;say &quot;elva&quot;&gt;&gt;I guess, it is your word, since you&#39;re risking out there for us more than us.&lt;&lt;/say&gt;&gt;&lt;br&gt;
 
       Leo agrees.&lt;br&gt;&lt;br&gt;
 
-      &lt;&lt;say &quot;RD&quot;&gt;&gt;Ok ...&amp;nbsp;&lt;em&gt;Puh!&lt;/em&gt;&lt;&lt;/say&gt;&gt;&lt;br&gt;
+      &lt;&lt;say &quot;rd&quot;&gt;&gt;Ok ...&amp;nbsp;&lt;em&gt;Puh!&lt;/em&gt;&lt;&lt;/say&gt;&gt;&lt;br&gt;
 
       Please, let it be the correct choice.&lt;br&gt;&lt;br&gt;
 
@@ -3192,277 +3192,277 @@ Now. Time for the truth!
 
 ---- WARNING: LOOOONG PAGE WITH DIALOGUES ----
 
-&lt;&lt;say &quot;Vika&quot;&gt;&gt;Are you from the first generation?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;vika&quot;&gt;&gt;Are you from the first generation?&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;Niin. The one and only.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;Niin. The one and only.&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Vika&quot;&gt;&gt;How many were of you.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;vika&quot;&gt;&gt;How many were of you.&lt;&lt;/say&gt;&gt;
 
 Paavali is rubbing his nose.
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;Around 100 people, including only-brains.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;Around 100 people, including only-brains.&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Elva&quot;&gt;&gt;Only brains?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;elva&quot;&gt;&gt;Only brains?&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;Brains in a biiig immobile facility in Kapteyn Hub. Have you seen the hub upon arrival?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;Brains in a biiig immobile facility in Kapteyn Hub. Have you seen the hub upon arrival?&lt;&lt;/say&gt;&gt;
 
 All of us shake our head. Paavali chirruped, then waved it away and gestures that he is ready for more.
 
-&lt;&lt;say &quot;RD&quot;&gt;&gt;What is this thing? You said, it is a silver carpet?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;What is this thing? You said, it is a silver carpet?&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Elva&quot;&gt;&gt;No no! What is it about the brains!? They do not have ... a torso oooor ... limbs?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;elva&quot;&gt;&gt;No no! What is it about the brains!? They do not have ... a torso oooor ... limbs?&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;Niin. That Is correct. They live completely virtual, alongside an AI. It was also them who were more or less awake throughout the journey, depending on the energy quantity en route, of course. While us were in cryonics, they - or some of them - were managing, fixing, improvising our spaceship/probe and were keeping in contact with Solaris.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;Niin. That Is correct. They live completely virtual, alongside an AI. It was also them who were more or less awake throughout the journey, depending on the energy quantity en route, of course. While us were in cryonics, they - or some of them - were managing, fixing, improvising our spaceship/probe and were keeping in contact with Solaris.&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Vika&quot;&gt;&gt;You volunteered?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;vika&quot;&gt;&gt;You volunteered?&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;Me? Or us?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;Me? Or us?&lt;&lt;/say&gt;&gt;
 
 Vika stares at him more sternly. Paavali reacts a bit confused, but then continues on.
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;Yeah, yeah, I kind of volunteered. The others more or less.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;Yeah, yeah, I kind of volunteered. The others more or less.&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Elva&quot;&gt;&gt;How so? Anyone were forced?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;elva&quot;&gt;&gt;How so? Anyone were forced?&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;Not at gunpoint, that to say. But for economic reasons, financial, or only if the family could join. Some only joined by securing special benefits - like having a claim on a planet or having a long-term trade contract. Some others again simply joined by lacks of alternatives. All in all though, many of us decided to come here.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;Not at gunpoint, that to say. But for economic reasons, financial, or only if the family could join. Some only joined by securing special benefits - like having a claim on a planet or having a long-term trade contract. Some others again simply joined by lacks of alternatives. All in all though, many of us decided to come here.&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Vika&quot;&gt;&gt;What about other probes? Were they composed like yours? And how many did Solaris sent out?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;vika&quot;&gt;&gt;What about other probes? Were they composed like yours? And how many did Solaris sent out?&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;Oooph. We were around ... the 20th or 30th?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;Oooph. We were around ... the 20th or 30th?&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Vika&quot;&gt;&gt;Composed like yours?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;vika&quot;&gt;&gt;Composed like yours?&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;I guess so. Why not?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;I guess so. Why not?&lt;&lt;/say&gt;&gt;
 
 Vika look at him sceptically, gives him no answer though.
 
-&lt;&lt;say &quot;RD&quot;&gt;&gt;Can we talk about the thing?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;Can we talk about the thing?&lt;&lt;/say&gt;&gt;
 
 Paavali turned his head, but his eyes are still on Vika&#39;s. He is pointing towards her, asking us why she is hostile to him. 
 
-&lt;&lt;say &quot;RD&quot;&gt;&gt;Silver Carpet!&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;Silver Carpet!&lt;&lt;/say&gt;&gt;
 
 Paavali gives some lingering on Vika then focuses on my question.
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;Yeah, yeah, ok. Uhh ... yeah. Hopeamatto. Or officially: the Titan. Yeah, well, we agreed that it a ... being. Almost sentient. &quot;Almost&quot; in the sense that obviously it can withstand harder external forces, contrary to us obvously. It is &lt;strong&gt;very&lt;/strong&gt; observant! Aaand yes, It is intelligent. A bit different, but intelligent nonetheless.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;Yeah, yeah, ok. Uhh ... yeah. Hopeamatto. Or officially: the Titan. Yeah, well, we agreed that it a ... being. Almost sentient. &quot;Almost&quot; in the sense that obviously it can withstand harder external forces, contrary to us obvously. It is &lt;strong&gt;very&lt;/strong&gt; observant! Aaand yes, It is intelligent. A bit different, but intelligent nonetheless.&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Abiba&quot;&gt;&gt;How so?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;abiba&quot;&gt;&gt;How so?&lt;&lt;/say&gt;&gt;
 
 Paavali stretched his underlip up, combed his beard with his hand.
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;It sent us messages.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;It sent us messages.&lt;&lt;/say&gt;&gt;
 
 We all reacted surprised. Amazed. Then with nervousness.
 
-&lt;&lt;say &quot;Abiba&quot;&gt;&gt;And?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;abiba&quot;&gt;&gt;And?&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Elva&quot;&gt;&gt;Hold on! Was it before or after?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;elva&quot;&gt;&gt;Hold on! Was it before or after?&lt;&lt;/say&gt;&gt;
 
 Paavali stares at her, addled as to what Elva was referring to. As Leo wants to help, Paavali is already asking back.
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;You mean: before or after the initiation to deep slumber, to the sleep mode?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;You mean: before or after the initiation to deep slumber, to the sleep mode?&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Elva&quot;&gt;&gt;Yes.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;elva&quot;&gt;&gt;Yes.&lt;&lt;/say&gt;&gt;
 
 He raises his eyebrow, swayed his head leftward and back.
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;After.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;After.&lt;&lt;/say&gt;&gt;
 
 Now, we are more surprised and amazed.
 
-&lt;&lt;say &quot;Abiba&quot;&gt;&gt;Ok. Wow. How? I don&#39;t understand. And! What did the message say?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;abiba&quot;&gt;&gt;Ok. Wow. How? I don&#39;t understand. And! What did the message say?&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;Sometimes, to save energy or if we cannot continue on as usual, we need to got to deep sleep mode. Same policy as in your spaceship, I strongly presume. So, when we all were in a state of inertia, of doing nothing, machines, hardwares, us, have their own life periods, obviously. Thus, sometimes one of us, depending on the expertise, has to wake up and repair or do maintenance. So far so good, It mostly went without incidents.
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;Sometimes, to save energy or if we cannot continue on as usual, we need to got to deep sleep mode. Same policy as in your spaceship, I strongly presume. So, when we all were in a state of inertia, of doing nothing, machines, hardwares, us, have their own life periods, obviously. Thus, sometimes one of us, depending on the expertise, has to wake up and repair or do maintenance. So far so good, It mostly went without incidents.
 Not so last time! Our ship got attacked and some of us have to repair with what we have. The first two times were all good, not so on the third time where we realize if it happens again, we have to do hard decisions.&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Abiba&quot;&gt;&gt;Killing those in cryonics?!&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;abiba&quot;&gt;&gt;Killing those in cryonics?!&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;Whoa! First we - or: one of us - tried to find the ressources needed for repairs. Sometimes, we could find it, sometimes it was too less, but mostly we had an energy budget problem. All our sensors were lost, We couldn&#39;t access to the charts. We couldn&#39;t transport the ressources from the distances. All in short: Me ollaan aika pahasti kusessa. We became from a desperate situation to a worse situation, To answer your question, yes, we had the talk, aaand, yes ...&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;Whoa! First we - or: one of us - tried to find the ressources needed for repairs. Sometimes, we could find it, sometimes it was too less, but mostly we had an energy budget problem. All our sensors were lost, We couldn&#39;t access to the charts. We couldn&#39;t transport the ressources from the distances. All in short: Me ollaan aika pahasti kusessa. We became from a desperate situation to a worse situation, To answer your question, yes, we had the talk, aaand, yes ...&lt;&lt;/say&gt;&gt;
 
 He nodding slowly, his eyes staring absently to the grass, lost in memory, chewing on his underlip, with a worrying facial expression.
 
-&lt;&lt;say &quot;Abiba&quot;&gt;&gt;You killed!&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;abiba&quot;&gt;&gt;You killed!&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;Hei!&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;Hei!&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Abiba&quot;&gt;&gt;Did you not or did you?!&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;abiba&quot;&gt;&gt;Did you not or did you?!&lt;&lt;/say&gt;&gt;
 
 Whoa! Abiba pierces with her eyes on him, demanding intently an answer from him.
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;I did not.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;I did not.&lt;&lt;/say&gt;&gt;
 
 She searches him for any sign of a lie.
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;But eventually I would have, yes, But someone else already did. Before our agreement, our agreement was to wake them all up and explain the situation. Some heftily protested, saying that switching off is more merciful than waking them up and have them to decide. How would you have decided?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;But eventually I would have, yes, But someone else already did. Before our agreement, our agreement was to wake them all up and explain the situation. Some heftily protested, saying that switching off is more merciful than waking them up and have them to decide. How would you have decided?&lt;&lt;/say&gt;&gt;
 
 Abiba would have demanded to woken up, to be given a chance, while the rest of us say nothing. In my opinion, that is indeed a difficult question and at first I would rather drift off than to be woken up. 
 ...
 But then ... 
 &lt;em&gt;Ech&lt;/em&gt; I do not know.
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;I have to correct: it wasn&#39;t an agreement, it escalated into a conflict where ... we neutralized ... the opposition. Not by killing, by tearing off their limbs.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;I have to correct: it wasn&#39;t an agreement, it escalated into a conflict where ... we neutralized ... the opposition. Not by killing, by tearing off their limbs.&lt;&lt;/say&gt;&gt;
 
 What a diverse pallette of emotional reactions on us, from disgust to understanding to blank stares.
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;As we were about to wake the others up, the aggressive monster - tuo kirottu eläin - ran into us. Crushed and rammed and bited and ... ugh, a mess! Guys, I tell ya, voi hyvänen aika! At the end, only me and another one were mostly unscathed. The others were no more or had to go to their cryonics caskets or to med, but with what? We had nothing. And our ship was for the dogs. Hopeless! &lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;As we were about to wake the others up, the aggressive monster - tuo kirottu eläin - ran into us. Crushed and rammed and bited and ... ugh, a mess! Guys, I tell ya, voi hyvänen aika! At the end, only me and another one were mostly unscathed. The others were no more or had to go to their cryonics caskets or to med, but with what? We had nothing. And our ship was for the dogs. Hopeless! &lt;&lt;/say&gt;&gt;
 
 Hm. The ship I saw? It seemt in a good state. What is going on? It doesn&#39;t feel like he is lying, or acting up.
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;Now, we had to wake them all, hold a comlpete council and do hard to swallow decisions.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;Now, we had to wake them all, hold a comlpete council and do hard to swallow decisions.&lt;&lt;/say&gt;&gt;
 
 Paavali does a pause, fidgeting with his fingers, concentrating at a patch of grass. 
 
-&lt;&lt;say &quot;RD&quot;&gt;&gt;Come on!&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;Come on!&lt;&lt;/say&gt;&gt;
 
 Without looking up, he continues on.
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;Then it came.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;Then it came.&lt;&lt;/say&gt;&gt;
 
 Now, all our eyes are open.
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;Sent us an offer: to enter it.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;Sent us an offer: to enter it.&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;RD&quot;&gt;&gt;To enter it?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;To enter it?&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;Yeah, we didn&#39;t knew either what it meant by that. But when it repaired and stabilized those in critical state, slighty fixed the rest of us, it ... &lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;Yeah, we didn&#39;t knew either what it meant by that. But when it repaired and stabilized those in critical state, slighty fixed the rest of us, it ... &lt;&lt;/say&gt;&gt;
 
 He broke off and stares again on the grass. No! Not again! Gosh, the suspense! 
 
-&lt;&lt;say &quot;RD&quot;&gt;&gt;Tell!&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;Tell!&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt; ... those who were deemed hopeless, it ... swallowed them. Incorporated them. At that moment, we kind of knew what the offer meant. And obviously all of us refused.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt; ... those who were deemed hopeless, it ... swallowed them. Incorporated them. At that moment, we kind of knew what the offer meant. And obviously all of us refused.&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Elva&quot;&gt;&gt;Refuse&quot;d&quot;?! As in past?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;elva&quot;&gt;&gt;Refuse&quot;d&quot;?! As in past?&lt;&lt;/say&gt;&gt;
 
 Paavali nods.
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;Until, around two or three days, as some decided their luck in the wilderness or wanted to sleep to oblivion or just waited, we were having visitations. Virtually. From those it swallowed. They were telling us what a huge world there awaits, a kind of a paradise in waiting, in making, or just a world - for us sceptics. Virtual nonetheless, But also it wanted us to keep biological; or is trying to keep it biological.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;Until, around two or three days, as some decided their luck in the wilderness or wanted to sleep to oblivion or just waited, we were having visitations. Virtually. From those it swallowed. They were telling us what a huge world there awaits, a kind of a paradise in waiting, in making, or just a world - for us sceptics. Virtual nonetheless, But also it wanted us to keep biological; or is trying to keep it biological.&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Abiba&quot;&gt;&gt;It is able to understand humanity? To tempt you all? Is that the reason it wants ... biological ... carbon-based structures? To understand carbon-based structures?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;abiba&quot;&gt;&gt;It is able to understand humanity? To tempt you all? Is that the reason it wants ... biological ... carbon-based structures? To understand carbon-based structures?&lt;&lt;/say&gt;&gt;
 
 Abiba. Speaking so much, with such an emotionally invested interest. Huh.
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;It seems to understand us, in a way. Or just some pattern we emit. It is not like it converses with us. Regarding tempation, either that or it is just kind of honest. We had many theories, but none really proved for what it is. Consquently, more and more accepted the offer and let themselves be assimilated into the silver carpet.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;It seems to understand us, in a way. Or just some pattern we emit. It is not like it converses with us. Regarding tempation, either that or it is just kind of honest. We had many theories, but none really proved for what it is. Consquently, more and more accepted the offer and let themselves be assimilated into the silver carpet.&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Leo&quot;&gt;&gt;What convinced them?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;leo&quot;&gt;&gt;What convinced them?&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;Well, first establishing a settlement were not going well, too slow reproduction, two hunting parties - which were mere two persons - never returned. Fear crept in. Obvious that at a point, more and more risk by &quot;entering&quot; the silver carpet. To understand better, those visitations, they came regularly and grew. Also, they &lt;strong&gt;were not!&lt;/strong&gt; simplistic. Gradually, we came into conviction that it is indeed the same people who entered Hopeamatto.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;Well, first establishing a settlement were not going well, too slow reproduction, two hunting parties - which were mere two persons - never returned. Fear crept in. Obvious that at a point, more and more risk by &quot;entering&quot; the silver carpet. To understand better, those visitations, they came regularly and grew. Also, they &lt;strong&gt;were not!&lt;/strong&gt; simplistic. Gradually, we came into conviction that it is indeed the same people who entered Hopeamatto.&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Leo&quot;&gt;&gt;How is it possible? Isn&#39;t it mostly metallic?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;leo&quot;&gt;&gt;How is it possible? Isn&#39;t it mostly metallic?&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;You ask, how it can absorb and reproduce the same people with same complexity? I guess, in the same way we communicate with AIs. Only much more intertwined, I do not have a clear idea. Also! Important detail: we observed animals observing us, practically inanimate for daaays! It became clear to us that those were not original animals. They were made.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;You ask, how it can absorb and reproduce the same people with same complexity? I guess, in the same way we communicate with AIs. Only much more intertwined, I do not have a clear idea. Also! Important detail: we observed animals observing us, practically inanimate for daaays! It became clear to us that those were not original animals. They were made.&lt;&lt;/say&gt;&gt;
 
 Whoa! Now that sets us to a completely new level. That ...
 
-&lt;&lt;say &quot;Leo&quot;&gt;&gt;That would explain ... many things.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;leo&quot;&gt;&gt;That would explain ... many things.&lt;&lt;/say&gt;&gt;
 
 Now Leo, and the others too, are staring, looking at Paavali.
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;I am one of last ones. No. I mean: the ones who never accepted ... accepts the offer, as it is still standing.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;I am one of last ones. No. I mean: the ones who never accepted ... accepts the offer, as it is still standing.&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Vika&quot;&gt;&gt;Why?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;vika&quot;&gt;&gt;Why?&lt;&lt;/say&gt;&gt;
 
 Paavali looks at Vika with intense eyes.
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;Because I, for example, don&#39;t believe in paradise, in a world of eternal blessing. There is always something to pay, to sacrifice, to tribute, to suffer. Yin and Yang. Duality. Two poles.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;Because I, for example, don&#39;t believe in paradise, in a world of eternal blessing. There is always something to pay, to sacrifice, to tribute, to suffer. Yin and Yang. Duality. Two poles.&lt;&lt;/say&gt;&gt;
 
 He said those with such a concentration, with a sincerity, with a seriousness that put us in a bit of awe, even as it is cheesy, kitschy, schlocky. But considering that ... wait! 
 
-&lt;&lt;say &quot;RD&quot;&gt;&gt;Can they communicate? Communicate with you? As in having dialogues?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;Can they communicate? Communicate with you? As in having dialogues?&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;Yes. And that is the other reason for not going in. Some of them proposed to us that we should stay in original biology, as original as possible obviously. Their project is ... not decoupling from their host, but become a kind of a loose unit. Hard to understand at first. They say, their host, their &quot;overseer&quot; is kind of trying to understand individuality. Now they explain: decentralization, fragmentaion, copies with variations. Seems to be received better. Well, now they work on a link to a biological product.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;Yes. And that is the other reason for not going in. Some of them proposed to us that we should stay in original biology, as original as possible obviously. Their project is ... not decoupling from their host, but become a kind of a loose unit. Hard to understand at first. They say, their host, their &quot;overseer&quot; is kind of trying to understand individuality. Now they explain: decentralization, fragmentaion, copies with variations. Seems to be received better. Well, now they work on a link to a biological product.&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Leo&quot;&gt;&gt;A what?!&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;leo&quot;&gt;&gt;A what?!&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;Yeah!&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;Yeah!&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Leo&quot;&gt;&gt;No! I didn&#39;t understood what you were trying to say. Biological product? As in producing ... animals?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;leo&quot;&gt;&gt;No! I didn&#39;t understood what you were trying to say. Biological product? As in producing ... animals?&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;That what I understood.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;That what I understood.&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Abiba&quot;&gt;&gt;Then the aggressive animal is its product!?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;abiba&quot;&gt;&gt;Then the aggressive animal is its product!?&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;Some asked that too. But we believe it is not, at most it can incluence it, but it doesn&#39;t control them.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;Some asked that too. But we believe it is not, at most it can incluence it, but it doesn&#39;t control them.&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Elva&quot;&gt;&gt;How much influence?!&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;elva&quot;&gt;&gt;How much influence?!&lt;&lt;/say&gt;&gt;
 
 Paavali shrugs, said that they stressed: influence, not control.
 
-&lt;&lt;say &quot;Vika&quot;&gt;&gt;Where are the others? The others who didn&#39;t &quot;enter&quot;. Where are they?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;vika&quot;&gt;&gt;Where are the others? The others who didn&#39;t &quot;enter&quot;. Where are they?&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;In cryonics. It is only four of us. Enough energy by that way. And we rotate every year.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;In cryonics. It is only four of us. Enough energy by that way. And we rotate every year.&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;RD&quot;&gt;&gt;You said your ship were damaged. Wrecked?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;You said your ship were damaged. Wrecked?&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;Yes. ... Voi, kyllä. Our ship looks like it is repaired? That what you refer to?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;Yes. ... Voi, kyllä. Our ship looks like it is repaired? That what you refer to?&lt;&lt;/say&gt;&gt;
 
 I nod.
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;With the help of those inside the Titan, it spits some ressources that enabled us to repair the ship eventually.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;With the help of those inside the Titan, it spits some ressources that enabled us to repair the ship eventually.&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Vika&quot;&gt;&gt;Then you must be able to launch now? And! Are you in contact with the Kapteyn Hub?!&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;vika&quot;&gt;&gt;Then you must be able to launch now? And! Are you in contact with the Kapteyn Hub?!&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;...&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;...&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Vika&quot;&gt;&gt;Are you!?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;vika&quot;&gt;&gt;Are you!?&lt;&lt;/say&gt;&gt;
 
 Vika looks like as she is about to jump. Paavali stares back at her, obviously raking his brain on how to answer. Now that will be something that will bother us.
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;We are.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;We are.&lt;&lt;/say&gt;&gt;
 
 Huh?! He is?! He is in contact with the hub?  We all are happy, but also dazzled.
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;Although ...&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;Although ...&lt;&lt;/say&gt;&gt;
 
 I knew it! And probably not only me as well.
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;... we have not received any messages from Solaris since entering deep sleep mode. Knowing that answers takes some years, but nowadays it is too long too silent.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;... we have not received any messages from Solaris since entering deep sleep mode. Knowing that answers takes some years, but nowadays it is too long too silent.&lt;&lt;/say&gt;&gt;
 
 ...
 
-&lt;&lt;say &quot;Leo&quot;&gt;&gt;Foul Play?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;leo&quot;&gt;&gt;Foul Play?&lt;&lt;/say&gt;&gt;
 
 Paavali weighs his whole body, weighing his shoulders, saying that he even himself doesn&#39;t know for sure.
 
-&lt;&lt;say &quot;Elva&quot;&gt;&gt;Maybe Solaris intentionally doesn&#39;t reply?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;elva&quot;&gt;&gt;Maybe Solaris intentionally doesn&#39;t reply?&lt;&lt;/say&gt;&gt;
 
 We all ponder, but it feels weak, this argument. Silence befalls on us. No words are spoken, for a whole minute. Then Paavali takes the initiative.
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;Can I ask you guys?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;Can I ask you guys?&lt;&lt;/say&gt;&gt;
 
 We all slowly gaze at him.
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;Nuori veitikka here says: you are not the sent corps? Or: you do not know of such things?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;Nuori veitikka here says: you are not the sent corps? Or: you do not know of such things?&lt;&lt;/say&gt;&gt;
 
 We confirm, we do not know anything of such.
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;To where were you destined?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;To where were you destined?&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;RD&quot;&gt;&gt;Alpha Centauri.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;Alpha Centauri.&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;Again?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;Again?&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;RD&quot;&gt;&gt;We are the third wave. Third wave of colonizers.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;We are the third wave. Third wave of colonizers.&lt;&lt;/say&gt;&gt;
 
 Paavali kneads his mouth, stretches his lips,
 
-&lt;&lt;say &quot;RD&quot;&gt;&gt;Anyway, that explains why we had to put in cryonics. That our journey took another double.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;Anyway, that explains why we had to put in cryonics. That our journey took another double.&lt;&lt;/say&gt;&gt;
 
 Paavali looks at me. In a way that I can read that he has a premonition.
 
-&lt;&lt;say &quot;RD&quot;&gt;&gt;Paavali. What is it?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;Paavali. What is it?&lt;&lt;/say&gt;&gt;
 
 He stares at me, obviously weighing the arguments in his head. Obviously he cannot speak it out. He grins, the grin of a dilemma. Then he shakes his head.
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;Ok, kaverit. You know where I am. Let us keep in contact. Yeah?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;Ok, kaverit. You know where I am. Let us keep in contact. Yeah?&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Vika&quot;&gt;&gt;Hold on. How can you walk freely outside without any concern?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;vika&quot;&gt;&gt;Hold on. How can you walk freely outside without any concern?&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;With the guarantee of our peers in the Titan.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;With the guarantee of our peers in the Titan.&lt;&lt;/say&gt;&gt;
 
 Sounds like more controlling than influencing if he can walk around &quot;freely&quot;. I feel that the other thinking the same.
 
-&lt;&lt;say &quot;Vika&quot;&gt;&gt;And: why don&#39;t we have a monolith?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;vika&quot;&gt;&gt;And: why don&#39;t we have a monolith?&lt;&lt;/say&gt;&gt;
 
 He answers by pointing with his index finger vigorously at Vika, grinning on his left face. But then he looks intently at me, as if he wants to warn me, to hint me to rake my brain, to understand of what he wants to say to me. I could feel that Leo noticed that too.
 After Paavali were out of sight in the late afternoon horizon, Vika cast her doubts to trust him. We all nod more or less, no one protesting. 
@@ -3586,13 +3586,13 @@ Bien, bien. Now I have the compass. &lt;&lt;/timed&gt;&gt;
   I will go back and tell the others about the new option: the resettling to Camp Mountain.</tw-passagedata><tw-passagedata pid="60" name="Shutdown" tags="" position="1050,175" size="100,100">&lt;center&gt;&lt;blockquote&gt;
 
 &lt;&lt;timed 1000ms&gt;&gt;Shutdown in 3
-&lt;div class=&quot;Char&quot;&gt;&lt;div class=&quot;Char-Framer&quot;&gt;&lt;img class=&quot;Char-img&quot; src=&quot;assets/characters/RD.webp&quot;&gt;&lt;/div&gt;&lt;div class=&quot;Char-dialogues&quot;&gt;Shit?! No! No!&lt;/div&gt;&lt;/div&gt;&lt;&lt;/timed&gt;&gt;
+&lt;div class=&quot;Char&quot;&gt;&lt;div class=&quot;Char-Framer&quot;&gt;&lt;img class=&quot;Char-img&quot; src=&quot;assets/characters/rd.webp&quot;&gt;&lt;/div&gt;&lt;div class=&quot;Char-dialogues&quot;&gt;Shit?! No! No!&lt;/div&gt;&lt;/div&gt;&lt;&lt;/timed&gt;&gt;
 
 &lt;&lt;timed 2000ms&gt;&gt;2
-&lt;div class=&quot;Char&quot;&gt;&lt;div class=&quot;Char-Framer&quot;&gt;&lt;img class=&quot;Char-img&quot; src=&quot;assets/characters/RD.webp&quot;&gt;&lt;/div&gt;&lt;div class=&quot;Char-dialogues&quot;&gt;&lt;em&gt;Eeeech!&lt;/em&gt;&lt;/div&gt;&lt;/div&gt;&lt;&lt;/timed&gt;&gt;
+&lt;div class=&quot;Char&quot;&gt;&lt;div class=&quot;Char-Framer&quot;&gt;&lt;img class=&quot;Char-img&quot; src=&quot;assets/characters/rd.webp&quot;&gt;&lt;/div&gt;&lt;div class=&quot;Char-dialogues&quot;&gt;&lt;em&gt;Eeeech!&lt;/em&gt;&lt;/div&gt;&lt;/div&gt;&lt;&lt;/timed&gt;&gt;
 
 &lt;&lt;timed 3000ms&gt;&gt;1
-&lt;div class=&quot;Char&quot;&gt;&lt;div class=&quot;Char-Framer&quot;&gt;&lt;img class=&quot;Char-img&quot; src=&quot;assets/characters/RD.webp&quot;&gt;&lt;/div&gt;&lt;div class=&quot;Char-dialogues&quot;&gt;Maldición! Oh please, oh please, someone find me!&lt;/div&gt;&lt;/div&gt;&lt;&lt;/timed&gt;&gt;
+&lt;div class=&quot;Char&quot;&gt;&lt;div class=&quot;Char-Framer&quot;&gt;&lt;img class=&quot;Char-img&quot; src=&quot;assets/characters/rd.webp&quot;&gt;&lt;/div&gt;&lt;div class=&quot;Char-dialogues&quot;&gt;Maldición! Oh please, oh please, someone find me!&lt;/div&gt;&lt;/div&gt;&lt;&lt;/timed&gt;&gt;
 
 &lt;&lt;timed 4000ms&gt;&gt;Shutting Down&lt;&lt;/timed&gt;&gt;
 &lt;div class=&quot;anilightsout&quot;&gt;&lt;/div&gt;
@@ -3609,7 +3609,7 @@ Bien, bien. Now I have the compass. &lt;&lt;/timed&gt;&gt;
     &lt;&lt;/script&gt;&gt;&lt;&lt;/nobr&gt;&gt;
 [img[assets/characters/Rescue.webp]]
 
-&lt;div class=&quot;Char&quot;&gt;&lt;div class=&quot;Char-Framer&quot;&gt;&lt;img class=&quot;Char-img&quot; src=&quot;assets/characters/RD.webp&quot;&gt;&lt;/div&gt;&lt;div class=&quot;Char-dialogues&quot;&gt;Huh?!
+&lt;div class=&quot;Char&quot;&gt;&lt;div class=&quot;Char-Framer&quot;&gt;&lt;img class=&quot;Char-img&quot; src=&quot;assets/characters/rd.webp&quot;&gt;&lt;/div&gt;&lt;div class=&quot;Char-dialogues&quot;&gt;Huh?!
 
 Yes! Yes! I am saved&lt;/div&gt;&lt;/div&gt;
 
@@ -3623,88 +3623,88 @@ Huh?! I turn my head back, but still ready to run. Also I notice no tremors. Fro
 There. I see a shape appearing. An old man, his hairs so white and long.
 Aaand! It is in an older version; more synthetic than cyborg. I look at him in bewilderment, but he walk so casually and non-threatening, even waving his hand.
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;So you can hear me.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;So you can hear me.&lt;&lt;/say&gt;&gt;
 
 Ok. Obviously he doesn&#39;t have the automatic virtual link, where my kinds can see each other virtually in human forms, whereas he only sees my capsule and its mechanic limbs. I activate the hologram. It whirs up, and after some seconds of warmup it increments its resolution until the old man sees my face with its individual features.
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;Oh, nice! A human. I greet you. You are human, right? From Solaris, right?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;Oh, nice! A human. I greet you. You are human, right? From Solaris, right?&lt;&lt;/say&gt;&gt;
 
 Why this question? Are there other aliens?
 
-&lt;&lt;say &quot;RD&quot;&gt;&gt;Yes.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;Yes.&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;Perhana, too long since I had someone humanely. Are you the sent corps?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;Perhana, too long since I had someone humanely. Are you the sent corps?&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;RD&quot;&gt;&gt;A sent corps?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;A sent corps?&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;...&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;...&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;Perkele! You know nothing?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;Perkele! You know nothing?&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;RD&quot;&gt;&gt;About?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;About?&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;Oh no ...&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;Oh no ...&lt;&lt;/say&gt;&gt;
 
 The old man puts his hand on his face and pulls it downwards, grimacing the facial skin downwards.
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;Then ... who are you, from where do you come from, are you alone, which spaceship?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;Then ... who are you, from where do you come from, are you alone, which spaceship?&lt;&lt;/say&gt;&gt;
 
 I say nothing, too flummoxed. As in what is he doing here, as obviously he must be from an older generation. I know Solaris sent many probes and first wave scouts to all corners from our solar galaxis. So many, I barely know all of them solely by the sheer number of them. I guess, this one is one of them first wave scouts.
 
-&lt;&lt;say &quot;RD&quot;&gt;&gt;Are you the first wave scouts?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;Are you the first wave scouts?&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;Niin&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;Niin&lt;&lt;/say&gt;&gt;
 
 Niin? What language is that? Ugh, since we do not have the automatic translator - energy saving methodology -, there will be many words unknown.
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;Right, I can see that you didn&#39;t understood me. I was saying: Yes, I am one of the scouts and explorers. Paavali my name.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;Right, I can see that you didn&#39;t understood me. I was saying: Yes, I am one of the scouts and explorers. Paavali my name.&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;RD&quot;&gt;&gt;Wait! My orb and ... my orb were attacked. Why did y ... Why?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;Wait! My orb and ... my orb were attacked. Why did y ... Why?&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;Mh!&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;Mh!&lt;&lt;/say&gt;&gt;
 
 The old man pucks his lips sideways, turns and tilts his head subtly and looks over my side.
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;Yeah, that would be Hopeamatto.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;Yeah, that would be Hopeamatto.&lt;&lt;/say&gt;&gt;
 
 I look at him, sensing something revealing, but also confirming my suspicion. And yes, it is.
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;Meaning: silver carpet. But he has another name.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;Meaning: silver carpet. But he has another name.&lt;&lt;/say&gt;&gt;
 
 ...
 
 I look at the old man. The old man looks at me. 
 
-&lt;&lt;say &quot;RD&quot;&gt;&gt;And?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;And?&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;I recommend you to build a data interpreter. A kind of a record player, reproducible for older versions.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;I recommend you to build a data interpreter. A kind of a record player, reproducible for older versions.&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;RD&quot;&gt;&gt;Why? Just send us me the data, the records.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;Why? Just send us me the data, the records.&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;Nah, have a simple data interpreter. Also, I need to collect the hardware.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;Nah, have a simple data interpreter. Also, I need to collect the hardware.&lt;&lt;/say&gt;&gt;
 
 Was he almost blinking his eye? As in to give me a hint? A warning? And he gesticulated like I shouldn&#39;t ask further. Huh ...
 
-&lt;&lt;say &quot;RD&quot;&gt;&gt;Ok, then ... but the Orb gets shot down again? I need it for the transport. It didn&#39;t sounded lightweighted.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;Ok, then ... but the Orb gets shot down again? I need it for the transport. It didn&#39;t sounded lightweighted.&lt;&lt;/say&gt;&gt;
 
 He mimicked in the direction from where I came from. I concludes that is the spot where we meet again.
 
-&lt;&lt;say &quot;RD&quot;&gt;&gt;O&#39;right, old man, there we meet again.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;O&#39;right, old man, there we meet again.&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;Hei! Nuori veitikka.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;Hei! Nuori veitikka.&lt;&lt;/say&gt;&gt;
 
 &lt;&lt;ab&gt;&gt;[[Go back to camp|Camp Jungle][$QuestPool.delete($Q3D); $QuestPool.pushUnique($Q3E); $QuestPoolDone.pushUnique($Q3D)]]&lt;&lt;/ab&gt;&gt;
 
 &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="62" name="Social Events" tags="" position="3325,350" size="100,100">&lt;center&gt;&lt;blockquote&gt;&lt;&lt;if $energy &lt; 1&gt;&gt;&lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;goto [[Camp Jungle]]&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto [[Camp Mountain]]&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt;
 With whom do I want to socialize?
 
-&lt;&lt;if $noVika == false &amp;&amp; $energy &gt; 1&gt;&gt;[img[Vika|assets/characters/Vika.webp][Vika][$energy -= 1; $social += 0.04; $Vikavisits += 1]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $noVika == false &amp;&amp; $energy &gt; 1&gt;&gt;[img[Vika|assets/characters/vika.webp][Vika][$energy -= 1; $social += 0.04; $Vikavisits += 1]]&lt;&lt;/if&gt;&gt;
 
-&lt;&lt;if $noLeo == false &amp;&amp; $energy &gt; 1&gt;&gt;[img[Leo|assets/characters/Leo.webp][Leo][$energy -= 1; $social += 0.1]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $noLeo == false &amp;&amp; $energy &gt; 1&gt;&gt;[img[Leo|assets/characters/leo.webp][Leo][$energy -= 1; $social += 0.1]]&lt;&lt;/if&gt;&gt;
 
-&lt;&lt;if $Camp_M || $TransMast2 || $eventfrom3E&gt;&gt;&lt;&lt;if $noElva == false &amp;&amp; $energy &gt; 1&gt;&gt;[img[Elva|assets/characters/Elva.webp][Elva][$energy -= 1; $social += 0.06; $Elvavisits += 1]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $Camp_M || $TransMast2 || $eventfrom3E&gt;&gt;&lt;&lt;if $noElva == false &amp;&amp; $energy &gt; 1&gt;&gt;[img[Elva|assets/characters/elva.webp][Elva][$energy -= 1; $social += 0.06; $Elvavisits += 1]]&lt;&lt;/if&gt;&gt;
 
-&lt;&lt;if $noAbiba == false &amp;&amp; $energy &gt; 1&gt;&gt;[img[Abiba|assets/characters/Abiba.webp][Abiba][$energy -= 1; $social += 0.08; $Abibavisits += 1]]&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $noAbiba == false &amp;&amp; $energy &gt; 1&gt;&gt;[img[Abiba|assets/characters/abiba.webp][Abiba][$energy -= 1; $social += 0.08; $Abibavisits += 1]]&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt;
 
 &lt;div class=&quot;actions-row&quot;&gt;&lt;&lt;if $Camp_J&gt;&gt;&lt;div&gt;[[Back to the camp|Camp Jungle]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div&gt;[[Back to the camp|Camp Mountain]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/div&gt;
 
@@ -3987,7 +3987,7 @@ Although, it feels like ... here nearby are the crash sites of our pods. Whateve
 
       Huh! What indicates those 4%?
 
-      &lt;&lt;say &quot;RD&quot;&gt;&gt;... new components, new design, not known to humanity. The developper do not take responsibility in case of failure. Right. Obviously. Clever! Just generally have a small percentage to be lawfully out of responsibility.&lt;&lt;/say&gt;&gt;
+      &lt;&lt;say &quot;rd&quot;&gt;&gt;... new components, new design, not known to humanity. The developper do not take responsibility in case of failure. Right. Obviously. Clever! Just generally have a small percentage to be lawfully out of responsibility.&lt;&lt;/say&gt;&gt;
 
       ...
 
@@ -5075,7 +5075,7 @@ The others set the record interpreter outside in a distance to the spaceship, bu
   &lt;&lt;timed 3000ms&gt;&gt;Leo has decided&lt;&lt;/timed&gt;&gt;&lt;&lt;set $vcount = [$numero, $Vikavote, $Leovote]&gt;&gt;&lt;br&gt;&lt;br&gt;
   
   &lt;&lt;timed 5000ms&gt;&gt;
-    &lt;&lt;say &quot;Vika&quot;&gt;&gt;Gentlemen. It resulted in for a &lt;div id=&quot;replace3points&quot; style=&quot;align-content:center;&quot;&gt;&amp;nbsp;...&lt;/div&gt;&lt;&lt;timed 3000ms&gt;&gt;
+    &lt;&lt;say &quot;vika&quot;&gt;&gt;Gentlemen. It resulted in for a &lt;div id=&quot;replace3points&quot; style=&quot;align-content:center;&quot;&gt;&amp;nbsp;...&lt;/div&gt;&lt;&lt;timed 3000ms&gt;&gt;
       &lt;&lt;if $energy &gt; 5 &amp;&amp; $vcount.count(1) &gt;= 2&gt;&gt;&lt;&lt;replace &quot;#replace3points&quot;&gt;&gt;&amp;nbsp;[[Transmission Mast.|Foot of a Mountain][$energy -= 6; $unimatter -= 2]]&lt;&lt;/replace&gt;&gt;
       &lt;&lt;elseif $energy &lt; 5 &amp;&amp; $energy &gt; 2 &amp;&amp; $vcount.count(1) &gt;= 2&gt;&gt;&lt;&lt;replace &quot;#replace3points&quot;&gt;&gt;&amp;nbsp;[[Transmission Mast.|A Small Hill][$energy -= 3; $unimatter -= 2]]&lt;&lt;/replace&gt;&gt;
       &lt;&lt;elseif $energy &lt;= 2 &amp;&amp; $vcount.count(1) &gt;= 2&gt;&gt;&lt;&lt;replace &quot;#replace3points&quot;&gt;&gt;&amp;nbsp;[[Transmission Mast. But ...|WhyNothing]]&lt;&lt;/replace&gt;&gt;
@@ -5087,32 +5087,32 @@ The others set the record interpreter outside in a distance to the spaceship, bu
 
 Paavali stands before the defense perimeter, looking to us. In a distance, not visible immediately, unless he is moving.
 
-&lt;&lt;say &quot;Vika&quot;&gt;&gt;What is that?! Is that him?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;vika&quot;&gt;&gt;What is that?! Is that him?&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;RD&quot;&gt;&gt;Pable - or kind of -, yes.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;Pable - or kind of -, yes.&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Vika&quot;&gt;&gt;Why is he here?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;vika&quot;&gt;&gt;Why is he here?&lt;&lt;/say&gt;&gt;
 
 He is waving.
 I go to him, but cannot help wonder how he could find us - not that it surprises me - and how he seems to know about the defense perimeter as he is leaning with his stretched arm on a tree, 2 m before the staked sensor post. Paavali greets me, yet looks kind of a bit under me, looking for a focus point. First it was confounding until I remembered to activate again my hologram. Then Paavali could look correctly into my eyes. He asks me whether we watched and listened through it all. I silently nod, as I am sure he would have known since Vika glances at him repeatedly. My reticence is not unnoticed, Paavali mimicked a question whether all is good?
 
 Not really. Vika&#39;s certainty that all first waves were non-humans bugs me. It would make more sense since humans need to be in big groups, at least 200 of them, and we are and were not that plentiful since the Big Decline after the first out-movement to the earthen orbit. At least not in our original biology. Even as synthetics - or even in our cylinders - it is still too much percentage to slice off. I guess. I am not that versed in history. Maybe I am wrong. 
 
-&lt;&lt;say &quot;Leo&quot;&gt;&gt;Humans are known for being discreet and secretive. And do exceptions to the rule. Or! He is not from the first wave?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;leo&quot;&gt;&gt;Humans are known for being discreet and secretive. And do exceptions to the rule. Or! He is not from the first wave?&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Vika&quot;&gt;&gt;Slipping under the eyes of Solaris?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;vika&quot;&gt;&gt;Slipping under the eyes of Solaris?&lt;&lt;/say&gt;&gt;
 
 Leo asks me to ask Pable which I did. He grimaced humourously, sighed heavily.
 
-&lt;&lt;say &quot;Vika&quot;&gt;&gt;The data interpreter told us there were biological humans!&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;vika&quot;&gt;&gt;The data interpreter told us there were biological humans!&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Leo&quot;&gt;&gt;Well, not exactly biological, only that there were humans.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;leo&quot;&gt;&gt;Well, not exactly biological, only that there were humans.&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Vika&quot;&gt;&gt;What had he said?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;vika&quot;&gt;&gt;What had he said?&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;RD&quot;&gt;&gt;&quot;I am not proof enough?&quot;, he said.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;&quot;I am not proof enough?&quot;, he said.&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Leo&quot;&gt;&gt;Sure that you are not ... that somewhere you are mixing up, Vika? Maybe mixing up with a policy upon arrival to not set foot on a planet until it is confirmed to be safe? Besides, our watcher says there were biological humans.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;leo&quot;&gt;&gt;Sure that you are not ... that somewhere you are mixing up, Vika? Maybe mixing up with a policy upon arrival to not set foot on a planet until it is confirmed to be safe? Besides, our watcher says there were biological humans.&lt;&lt;/say&gt;&gt;
 
 Vika is brooding. Heavily. 
 Curious! She doesn&#39;t seem swayed.
@@ -5121,7 +5121,7 @@ Now Leo comes to me and greets Paavali. With a good mood he greets back. Interna
 
 After the formalities, Paavali opens his arms to the side, palms up.
 
-&lt;&lt;say &quot;Paavali&quot;&gt;&gt;Well then. Shoot.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;paavali&quot;&gt;&gt;Well then. Shoot.&lt;&lt;/say&gt;&gt;
 
 &lt;&lt;ab&gt;&gt;[[Questions. Questions. Questions.|Questions][$epilog = false]]&lt;&lt;/ab&gt;&gt;
 
@@ -5171,7 +5171,7 @@ A preliminary survey was conducted on all planets to evaluate their potential ha
 
 Our orbital outpost was required to execute evasive maneuvers three times due to this debris. Calculations indicate that while Kapteyn c will experience numerous setbacks due to the bombardments, it will not be rendered uninhabitable. The planet has been designated &lt;strong&gt;Bādhiccu&lt;/strong&gt;, meaning &quot;the plighted.&quot;&lt;/div&gt;
 
-&lt;&lt;say &quot;Elva&quot;&gt;&gt;That is definitely a fact contra colonization. Moreso, that more detritus will follow.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;elva&quot;&gt;&gt;That is definitely a fact contra colonization. Moreso, that more detritus will follow.&lt;&lt;/say&gt;&gt;
 
 We all nod.
 
@@ -5209,9 +5209,9 @@ I hear a groaning from Vika. She is shaking her head, looking with such suspicio
 
 The reactive metallic entity has been designated &quot;Titan.&quot;&lt;/div&gt;
 
-&lt;&lt;say &quot;Elva&quot;&gt;&gt;How fitting!&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;elva&quot;&gt;&gt;How fitting!&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;RD&quot;&gt;&gt;Yeah, very creative.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;Yeah, very creative.&lt;&lt;/say&gt;&gt;
 
 Elva looked at me, I looked at Elva back, puzzled. She meant it?
 
@@ -5227,13 +5227,13 @@ Elva looked at me, I looked at Elva back, puzzled. She meant it?
 &lt;li&gt; Earthquakes, correlated with Titan&#39;s activity, meteorite bombardments, and tectonic shifts&lt;/li&gt;
 &lt;li&gt; a monolith near our camp, - - -&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
 
-&lt;&lt;say &quot;RD&quot;&gt;&gt;Hey! That is almost the same I saw just North-East of here!&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;Hey! That is almost the same I saw just North-East of here!&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Leo&quot;&gt;&gt;Huh!&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;leo&quot;&gt;&gt;Huh!&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Vika&quot;&gt;&gt;What?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;vika&quot;&gt;&gt;What?&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Leo&quot;&gt;&gt;Just an ominous feeling. I fear now, it is not simple-minded like the animals.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;leo&quot;&gt;&gt;Just an ominous feeling. I fear now, it is not simple-minded like the animals.&lt;&lt;/say&gt;&gt;
 
 &lt;div class=&quot;logbook&quot;&gt; - - -  composed of many types of compounds, presumed to function as sensors
 
@@ -5250,34 +5250,34 @@ Initial attempts to send messages to the monolith yielded no correlated response
 &lt;li&gt;launch attempts from Bādhiccu failed; insufficient resources to analyze the failures.&lt;/li&gt;
 &lt;li&gt;switching to sleep mode to conserve energy and resources.&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
 
-&lt;&lt;say &quot;RD&quot;&gt;&gt;Leo? You do not look good.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;Leo? You do not look good.&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Leo&quot;&gt;&gt;How can I. It demonstrates an high intelligence!&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;leo&quot;&gt;&gt;How can I. It demonstrates an high intelligence!&lt;&lt;/say&gt;&gt;
 
 Weird, I do not feel that spooked. But the others are in all degrees of nervousness. Is it because of my feeling that it could have killed us, but didn&#39;t?
 But I wanted to ask Vika something, couldn&#39;t remember what it was. Sucks. Particularly that it was not that long ago. Then Vika asked the data interpreter of what was the mixture of the probeship. Weirdly, it didn&#39;t answered on point. Vika asked again, and again it didn&#39;t answered satisfactory. Leo looks at the data interpreter befuddled, sinks its head pondering with a serious face. Only after the third inquiry, it output us the mixture of the 30% humans, 30% AI units and 30% Hive Mind. Vika looks still uncertain at it. Do I perceive distrust?
 
-&lt;&lt;say &quot;Abiba&quot;&gt;&gt;Why?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;abiba&quot;&gt;&gt;Why?&lt;&lt;/say&gt;&gt;
 
 Vika tilted her head, laying it on her hand that massages her forehead, then waving with her index finger.
 
-&lt;&lt;say &quot;Vika&quot;&gt;&gt;Because as far as I remember there were no humans sent.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;vika&quot;&gt;&gt;Because as far as I remember there were no humans sent.&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Elva&quot;&gt;&gt;Then here because it was deemed as potential habitable?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;elva&quot;&gt;&gt;Then here because it was deemed as potential habitable?&lt;&lt;/say&gt;&gt;
 
 Vika weighes her head.
 
-&lt;&lt;say &quot;Leo&quot;&gt;&gt;It said only brains. So, maybe brains in containers, like us? WIth that explosive force that happened on the drilling, an original human would have died.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;leo&quot;&gt;&gt;It said only brains. So, maybe brains in containers, like us? WIth that explosive force that happened on the drilling, an original human would have died.&lt;&lt;/say&gt;&gt;
 
 Vika looks at Leo chewing her underlip, then ask about the composition of humans to the data interpreter.
 
-&lt;&lt;say &quot;Vika&quot;&gt;&gt;I was ... am convinvced that biological humans were sent first.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;vika&quot;&gt;&gt;I was ... am convinvced that biological humans were sent first.&lt;&lt;/say&gt;&gt;
 
 The data interpreter displays the first humans as synthetic beings. Like Paavali.
 
-&lt;&lt;say &quot;Leo&quot;&gt;&gt;Were there no exceptions of outsent first-wave units??&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;leo&quot;&gt;&gt;Were there no exceptions of outsent first-wave units??&lt;&lt;/say&gt;&gt;
 
-&lt;&lt;say &quot;Vika&quot;&gt;&gt;They were ... strict. Moreso particularly to the first waves.&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;vika&quot;&gt;&gt;They were ... strict. Moreso particularly to the first waves.&lt;&lt;/say&gt;&gt;
 
 Then we all jolted, Vika shrieked. As we turn to see what made her scream, we jolted again.
 
@@ -5288,13 +5288,13 @@ Then we all jolted, Vika shrieked. As we turn to see what made her scream, we jo
 &lt;blockquote&gt;&lt;&lt;audio &quot;RD_A001&quot; play&gt;&gt;&lt;&lt;audio &quot;BgMusic&quot; loop play&gt;&gt;
 Yep, that&#39;s me. Handsome, eh? Like a Roman demi-god, no?
 
-Since I come from upper middle class, my family invested in a designer baby. Obviously. But surprise, surprise! Like the mayority of humanity (and pets!), we are synthetic beings, Cyborgs. For better space travel, which this story is about, we have to be cyborgs. Only our brain and spine is completely organic; the rest is in synthetic materials.
+Since I come from upper middle class, my family invested in a designer baby. Obviously. But surprise, surprise! Like the majority of humanity (and pets!), we are synthetic beings, Cyborgs. For better space travel, which this story is about, we have to be cyborgs. Only our brain and spine is completely organic; the rest is in synthetic materials.
 &lt;/blockquote&gt;
 &lt;&lt;ab&gt;&gt;[[Like this]]&lt;&lt;/ab&gt;&gt;
-&lt;/center&gt;</tw-passagedata><tw-passagedata pid="106" name="change of mind" tags="" position="3200,1975" size="100,100">&lt;&lt;say &quot;RD&quot;&gt;&gt;Hold on!&lt;&lt;/say&gt;&gt;&lt;br&gt;
+&lt;/center&gt;</tw-passagedata><tw-passagedata pid="106" name="change of mind" tags="" position="3200,1975" size="100,100">&lt;&lt;say &quot;rd&quot;&gt;&gt;Hold on!&lt;&lt;/say&gt;&gt;&lt;br&gt;
 ... 
 &lt;br&gt;
-&lt;&lt;say &quot;RD&quot;&gt;&gt;Why taking many risks walking around this dangerous area if we have to take one dangerous risk to do?&lt;&lt;/say&gt;&gt;
+&lt;&lt;say &quot;rd&quot;&gt;&gt;Why taking many risks walking around this dangerous area if we have to take one dangerous risk to do?&lt;&lt;/say&gt;&gt;
 &lt;br&gt; 
 Elva looks at me puzzled, but then I waved her to go back.&lt;br&gt;
 &lt;br&gt; 
