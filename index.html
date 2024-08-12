@@ -1371,10 +1371,10 @@ The antenna is installed on a small hill. But it seems to reach no one. Maybe it
 &lt;&lt;/nobr&gt;&gt;
 &lt;&lt;ab&gt;&gt;[[Set up the Camp|Camp Jungle]]&lt;&lt;/ab&gt;&gt;
 &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="5" name="Abiba" tags="" position="3525,600" size="100,100">&lt;center&gt;&lt;blockquote&gt;
-&lt;&lt;if random(4) == 0&gt;&gt;[img[assets/characters/abiba_3.webp]]
+&lt;&lt;if random(4) == 0&gt;&gt;[img[assets/characters/Abiba/abiba_3.webp]]
     
   Not an easy talker, she is; maybe because she is young?&lt;&lt;set $social += 0.15&gt;&gt;
-&lt;&lt;elseif random(3) == 1&gt;&gt;[img[assets/characters/abiba_2.webp]]
+&lt;&lt;elseif random(3) == 1&gt;&gt;[img[assets/characters/Abiba/abiba_2.webp]]
       
   We were talking about some ideas of what can be improved here. More ruminating than talking.&lt;&lt;set $engineering += 0.1 * $social&gt;&gt;
 &lt;&lt;else&gt;&gt;
@@ -1774,11 +1774,11 @@ Ech! Nothing happens. It is boring. Maybe I should try to go out anyway?
 
       Elva joins me in a training session.&lt;br&gt;
 &lt;&lt;elseif _rNr == 2 &amp;&amp; ($Camp_M || $eventfrom3E)&gt;&gt;
-      [img[assets/characters/elva_combat.webp]]
+      [img[assets/characters/Elva/elva_combat.webp]]
 
       Elva joins me for a sparring match.&lt;br&gt;
 &lt;&lt;elseif _rNr == 3 &amp;&amp; $SFW_Path == false &amp;&amp; $Camp_M &amp;&amp; $social &gt; 7&gt;&gt;
-    	[img[assets/characters/elva_combat.webp]]
+    	[img[assets/characters/Elva/elva_combat.webp]]
         
         That is gonna be a twofactored battle; for the mind as well for the body.
 &lt;&lt;else&gt;&gt;
@@ -2161,19 +2161,19 @@ Leo looks to all our eyes, especially at mine more harder. &lt;em&gt;Huh? What!&
       &lt;&lt;elseif $OrbAutoCM &amp;&amp; $Camp_M&gt;&gt;
         &lt;li&gt;+ [[Orb Automation (1E - 1U)|Disintegration Menu][$energy += 1; $unimatter += 1; $OrbAutoCM = false]]&lt;/li&gt;&lt;&lt;/if&gt;&gt;&lt;/ul&gt;
 &lt;&lt;else&gt;&gt;&lt;div class=&quot;color-yellow&quot;&gt;There is nothing built or printed.&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="23" name="Elva" tags="" position="3525,475" size="100,100">&lt;center&gt;&lt;blockquote&gt;
-&lt;&lt;if random(6) == 0&gt;&gt;[img[assets/characters/elva_4.webp]]
+&lt;&lt;if random(6) == 0&gt;&gt;[img[assets/characters/Elva/elva_4.webp]]
     
   She was reminiscing about her time in the marines academy and in the training camp.&lt;&lt;set $social += 0.1&gt;&gt;
-&lt;&lt;elseif random(6) == 1&gt;&gt;&lt;&lt;if random(6) == 2&gt;&gt;[img[assets/characters/elva_2.webp]]&lt;&lt;else&gt;&gt;[img[assets/characters/elva_2-5.webp]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;elseif random(6) == 1&gt;&gt;&lt;&lt;if random(6) == 2&gt;&gt;[img[assets/characters/Elva/elva_2.webp]]&lt;&lt;else&gt;&gt;[img[assets/characters/Elva/elva_2-5.webp]]&lt;&lt;/if&gt;&gt;
       
   She challenged me over in a simulation of wits, strategy and tactics.&lt;&lt;set $combat += 0.1 * $social&gt;&gt;
-&lt;&lt;elseif random(6) == 3&gt;&gt;[img[assets/characters/elva_3.webp]]
+&lt;&lt;elseif random(6) == 3&gt;&gt;[img[assets/characters/Elva/elva_3.webp]]
       
   Tips and tricks for serious situations. Handy.&lt;&lt;set $combat += 0.1&gt;&gt;
-&lt;&lt;elseif random(6) == 4&gt;&gt;[img[assets/characters/elva_5.webp]]
+&lt;&lt;elseif random(6) == 4&gt;&gt;[img[assets/characters/Elva/elva_5.webp]]
 
   We improved our cardio and our motor skills. She is a rough, yet useful motivator.&lt;&lt;set $combat += 0.1 * $social&gt;&gt;
-&lt;&lt;elseif random(6) == 5&gt;&gt;[img[assets/characters/elva_6.webp]]
+&lt;&lt;elseif random(6) == 5&gt;&gt;[img[assets/characters/Elva/elva_6.webp]]
 
   General talk; about life, anecdotes, this planet here, what to do next, ...&lt;&lt;set $social += 0.1&gt;&gt;
 &lt;&lt;else&gt;&gt;
@@ -2537,14 +2537,11 @@ The answer may be given to &lt;&lt;linkappend &quot;me.&quot; t8n&gt;&gt; Soon. 
 &lt;&lt;else&gt;&gt;
   &lt;&lt;set $noLeo = true&gt;&gt;
   Leo is not in the mood. Try another time.
-&lt;&lt;/if&gt;&gt;
 
-&lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;ab&gt;&gt;[[Back to Camp|Camp Jungle]]&lt;&lt;/ab&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;ab&gt;&gt;[[Back to Camp|Camp Mountain]]&lt;&lt;/ab&gt;&gt;&lt;&lt;/if&gt;&gt;
-
-&lt;&lt;if $energy &gt; 1&gt;&gt;&lt;&lt;ab&gt;&gt;[[Go chat with others|Social Events]]&lt;&lt;/ab&gt;&gt;&lt;&lt;/if&gt;&gt;
-  
-&lt;&lt;if $energy &gt; 1 &amp;&amp; $noLeo != true&gt;&gt;&lt;&lt;ab&gt;&gt;[[continue chatting with him?|Leo][$energy -= 1; $social += 0.2]]&lt;&lt;/ab&gt;&gt;&lt;&lt;/if&gt;&gt;
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="37" name="Leo Crashsite" tags="" position="1175,175" size="100,100">&lt;&lt;nobr&gt;&gt;
+  &lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;ab&gt;&gt;[[Back to Camp|Camp Jungle]]&lt;&lt;/ab&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;ab&gt;&gt;[[Back to Camp|Camp Mountain]]&lt;&lt;/ab&gt;&gt;&lt;&lt;/if&gt;&gt;
+      
+  &lt;&lt;if $energy &gt; 1&gt;&gt;&lt;&lt;ab&gt;&gt;[[Go chat with others|Social Events]]&lt;&lt;/ab&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;&lt;/if&gt;&gt;&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="37" name="Leo Crashsite" tags="" position="1175,175" size="100,100">&lt;&lt;nobr&gt;&gt;
 	&lt;&lt;if $firsttime == false&gt;&gt;&lt;&lt;script&gt;&gt;SimpleAudio.select(&quot;RD_A006&quot;).volume(1).stop();&lt;&lt;/script&gt;&gt;&lt;&lt;audio &quot;RD_A007&quot; play&gt;&gt;&lt;&lt;set $firsttime = true&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;&lt;center&gt;[img[assets/Ch-Crash/Pod2.webp]]&lt;&lt;unset $numero&gt;&gt;
 &lt;blockquote&gt;
@@ -2660,28 +2657,28 @@ What do I want for the Orb to collect?&lt;&lt;nobr&gt;&gt;
       &lt;div&gt;&lt;&lt;= 3 * $OrbTransport.count(&quot;unimatter&quot;)&gt;&gt; unimatter for &lt;br&gt;&lt;&lt;= ((4*$Oeu) * $OrbTransport.count(&quot;unimatter&quot;)).toFixed(1)&gt;&gt; Energy &lt;/div&gt;
       &lt;&lt;if $energy &gt; $maxenergy&gt;&gt;&lt;&lt;set $energy = $maxenergy&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;= $energy.toFixed(1)&gt;&gt; of maximal &lt;&lt;= $maxenergy&gt;&gt;&lt;/div&gt;
       &lt;&lt;if $energy &gt;= (4*$Oeu)&gt;&gt;&lt;&lt;button &quot;+1 dispatch&quot;&gt;&gt;&lt;&lt;set $OrbTransport.push(&quot;unimatter&quot;), $energy -= (4*$Oeu)&gt;&gt;&lt;&lt;goto &quot;Orb Configuration&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
-      &lt;&lt;if $OrbTransport.count(&quot;unimatter&quot;) &gt; 0&gt;&gt;&lt;&lt;button &quot;-1 dispatch&quot;&gt;&gt;&lt;&lt;set $OrbTransport = removeOne($OrbTransport, &quot;unimatter&quot;), $energy += (4*$Oeu)&gt;&gt;&lt;&lt;goto &quot;Orb Configuration&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
+      &lt;&lt;if $OrbTransport.count(&quot;unimatter&quot;) &gt; 0&gt;&gt;&lt;&lt;button &quot;-1 dispatch&quot;&gt;&gt;&lt;&lt;set $OrbTransport.removeOne($OrbTransport, &quot;unimatter&quot;), $energy += (4*$Oeu)&gt;&gt;&lt;&lt;goto &quot;Orb Configuration&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
     &lt;&lt;/if&gt;&gt;
     &lt;&lt;if $explored.T1E == 100&gt;&gt;
       &lt;div class=&quot;index-screens-small-OC&quot;&gt;&lt;div&gt;&lt;strong&gt;Nutrients Transport&lt;/strong&gt;
       &lt;div&gt;&lt;&lt;= 9 * $OrbTransport.count(&quot;nutrients&quot;)&gt;&gt; nutrients for &lt;br&gt;&lt;&lt;= ((2*$Oeu) * $OrbTransport.count(&quot;nutrients&quot;)).toFixed(1)&gt;&gt; Energy &lt;/div&gt;
       &lt;&lt;if $energy &gt; $maxenergy&gt;&gt;&lt;&lt;set $energy = $maxenergy&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;= $energy.toFixed(1)&gt;&gt; of maximal &lt;&lt;= $maxenergy&gt;&gt;&lt;/div&gt;
       &lt;&lt;if $energy &gt;= (2*$Oeu)&gt;&gt;&lt;&lt;button &quot;+1 dispatch&quot;&gt;&gt;&lt;&lt;set $OrbTransport.push(&quot;nutrients&quot;), $energy -= (2*$Oeu)&gt;&gt;&lt;&lt;goto &quot;Orb Configuration&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
-      &lt;&lt;if $OrbTransport.count(&quot;nutrients&quot;) &gt; 0&gt;&gt;&lt;&lt;button &quot;-1 dispatch&quot;&gt;&gt;&lt;&lt;set $OrbTransport = removeOne($OrbTransport, &quot;nutrients&quot;), $energy += (2*$Oeu)&gt;&gt;&lt;&lt;goto &quot;Orb Configuration&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
+      &lt;&lt;if $OrbTransport.count(&quot;nutrients&quot;) &gt; 0&gt;&gt;&lt;&lt;button &quot;-1 dispatch&quot;&gt;&gt;&lt;&lt;set $OrbTransport.removeOne(&quot;nutrients&quot;), $energy += (2*$Oeu)&gt;&gt;&lt;&lt;goto &quot;Orb Configuration&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
     &lt;&lt;/if&gt;&gt;
     &lt;&lt;if $explored.T3S == 100 &amp;&amp; $noenglobe != true&gt;&gt;
       &lt;div class=&quot;index-screens-small-OC&quot;&gt;&lt;div&gt;&lt;strong&gt;Energy Composite Transport&lt;/strong&gt;
       &lt;div&gt;&lt;&lt;= (2.5 * $OrbTransport.count(&quot;encomp&quot;)).toFixed(1)&gt;&gt; energy composites for &lt;br&gt;&lt;&lt;= ((6*$Oeu) * $OrbTransport.count(&quot;encomp&quot;)).toFixed(1)&gt;&gt; Energy &lt;/div&gt;
       &lt;&lt;if $energy &gt; $maxenergy&gt;&gt;&lt;&lt;set $energy = $maxenergy&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;= $energy.toFixed(1)&gt;&gt; of maximal &lt;&lt;= $maxenergy&gt;&gt;&lt;/div&gt;
-      &lt;&lt;if $energy &gt;= (6*$Oeu) &amp;&amp; $OrbTransport.count(&quot;encomp&quot;) &lt; 1&gt;&gt;&lt;&lt;button &quot;+1 dispatch&quot;&gt;&gt;&lt;&lt;set $OrbTransport = removeOne($OrbTransport, &quot;encomp&quot;), $energy -= (6*$Oeu)&gt;&gt;&lt;&lt;goto &quot;Orb Configuration&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
-      &lt;&lt;if $OrbTransport.count(&quot;encomp&quot;) &gt; 0&gt;&gt;&lt;&lt;button &quot;-1 dispatch&quot;&gt;&gt;&lt;&lt;set $OrbTransport.pluck(&quot;encomp&quot;, 0), $energy += (6*$Oeu)&gt;&gt;&lt;&lt;goto &quot;Orb Configuration&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
+      &lt;&lt;if $energy &gt;= (6*$Oeu) &amp;&amp; $OrbTransport.count(&quot;encomp&quot;) &lt; 1&gt;&gt;&lt;&lt;button &quot;+1 dispatch&quot;&gt;&gt;&lt;&lt;set $OrbTransport.removeOne(&quot;encomp&quot;), $energy -= (6*$Oeu)&gt;&gt;&lt;&lt;goto &quot;Orb Configuration&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
+      &lt;&lt;if $OrbTransport.count(&quot;encomp&quot;) &gt; 0&gt;&gt;&lt;&lt;button &quot;-1 dispatch&quot;&gt;&gt;&lt;&lt;set $OrbTransport.removeOne(&quot;encomp&quot;, 0), $energy += (6*$Oeu)&gt;&gt;&lt;&lt;goto &quot;Orb Configuration&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
     &lt;&lt;/if&gt;&gt;
     &lt;&lt;if ($TransMast3 &amp;&amp; $CampM.Orb &amp;&amp; $Camp_M) || ($Camp_J &amp;&amp; $CampJ.Orb &amp;&amp; hasVisited(&quot;TBM0&quot;) &amp;&amp; !$eventfrom3E &amp;&amp; !$QuestPool.includesAny($Q2, $Q2A, $Q2B))&gt;&gt;
       &lt;div class=&quot;index-screens-small-OC&quot;&gt;&lt;div&gt;&lt;strong&gt;Nutrients Transport to Camp Mountain&lt;/strong&gt;
       &lt;div&gt;&lt;&lt;= (9 * $OrbTransport.count(&quot;CMNutrients&quot;)).toFixed(1)&gt;&gt; nutrients for &lt;br&gt;&lt;&lt;= (((10+($summand*2))*$Oeu) * $OrbTransport.count(&quot;CMNutrients&quot;)).toFixed(1)&gt;&gt; Energy &lt;/div&gt;
       &lt;&lt;if $energy &gt; $maxenergy&gt;&gt;&lt;&lt;set $energy = $maxenergy&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;= $energy.toFixed(1)&gt;&gt; of maximal &lt;&lt;= $maxenergy&gt;&gt;&lt;/div&gt;
       &lt;&lt;if $energy &gt;= ((10+($summand*2))*$Oeu)&gt;&gt;&lt;&lt;button &quot;+1 dispatch&quot;&gt;&gt;&lt;&lt;set $energy -= 3&gt;&gt;&lt;&lt;set $OrbTransport.push(&quot;CMNutrients&quot;), $energy -= ((10+($summand*2))*$Oeu)&gt;&gt;&lt;&lt;goto &quot;Orb Configuration&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
-      &lt;&lt;if $OrbTransport.count(&quot;CMNutrients&quot;) &gt; 0&gt;&gt;&lt;&lt;button &quot;-1 dispatch&quot;&gt;&gt;&lt;&lt;set $energy += 3&gt;&gt;&lt;&lt;set $OrbTransport. = removeOne($OrbTransport, &quot;CMNutrients&quot;), $energy -= ((10+($summand*2))*$Oeu)&gt;&gt;&lt;&lt;goto &quot;Orb Configuration&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
+      &lt;&lt;if $OrbTransport.count(&quot;CMNutrients&quot;) &gt; 0&gt;&gt;&lt;&lt;button &quot;-1 dispatch&quot;&gt;&gt;&lt;&lt;set $energy += 3&gt;&gt;&lt;&lt;set $OrbTransport.removeOne(&quot;CMNutrients&quot;), $energy -= ((10+($summand*2))*$Oeu)&gt;&gt;&lt;&lt;goto &quot;Orb Configuration&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
     &lt;&lt;/if&gt;&gt;
   &lt;&lt;elseif $Camp_M&gt;&gt;
     &lt;&lt;if $explored.T2N == 100&gt;&gt;
@@ -2689,21 +2686,21 @@ What do I want for the Orb to collect?&lt;&lt;nobr&gt;&gt;
       &lt;div&gt;&lt;&lt;= 3 * $OrbTransport.count(&quot;unimatter&quot;)&gt;&gt; unimatter for &lt;br&gt;&lt;&lt;= (((14+($summand*2))*$Oeu) * $OrbTransport.count(&quot;unimatter&quot;)).toFixed(1)&gt;&gt; Energy &lt;/div&gt;
       &lt;&lt;if $energy &gt; $maxenergy&gt;&gt;&lt;&lt;set $energy = $maxenergy&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;= $energy.toFixed(1)&gt;&gt; of maximal &lt;&lt;= $maxenergy&gt;&gt;&lt;/div&gt;
       &lt;&lt;if $energy &gt;= ((14+($summand*2))*$Oeu)&gt;&gt;&lt;&lt;button &quot;+1 dispatch&quot;&gt;&gt;&lt;&lt;set $OrbTransport.push(&quot;unimatter&quot;), $energy -= ((14+($summand*2))*$Oeu)&gt;&gt;&lt;&lt;goto &quot;Orb Configuration&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
-      &lt;&lt;if $OrbTransport.count(&quot;unimatter&quot;) &gt; 0&gt;&gt;&lt;&lt;button &quot;-1 dispatch&quot;&gt;&gt;&lt;&lt;set $OrbTransport.pluck(&quot;unimatter&quot;), $energy += ((14+($summand*2))*$Oeu)&gt;&gt;&lt;&lt;goto &quot;Orb Configuration&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
+      &lt;&lt;if $OrbTransport.count(&quot;unimatter&quot;) &gt; 0&gt;&gt;&lt;&lt;button &quot;-1 dispatch&quot;&gt;&gt;&lt;&lt;set $OrbTransport.removeOne(&quot;unimatter&quot;), $energy += ((14+($summand*2))*$Oeu)&gt;&gt;&lt;&lt;goto &quot;Orb Configuration&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
     &lt;&lt;/if&gt;&gt;
     &lt;&lt;if $explored.T1E == 100&gt;&gt;
       &lt;div class=&quot;index-screens-small-OC&quot;&gt;&lt;div&gt;&lt;strong&gt;Nutrients Transport&lt;/strong&gt;
       &lt;div&gt;&lt;&lt;= 9 * $OrbTransport.count(&quot;nutrients&quot;)&gt;&gt; nutrients for &lt;br&gt;&lt;&lt;= (((8+($summand*2))*$Oeu) * $OrbTransport.count(&quot;nutrients&quot;)).toFixed(1)&gt;&gt; Energy &lt;/div&gt;
       &lt;&lt;if $energy &gt; $maxenergy&gt;&gt;&lt;&lt;set $energy = $maxenergy&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;= $energy.toFixed(1)&gt;&gt; of maximal &lt;&lt;= $maxenergy&gt;&gt;&lt;/div&gt;
       &lt;&lt;if $energy &gt;= ((8+($summand*2))*$Oeu)&gt;&gt;&lt;&lt;button &quot;+1 dispatch&quot;&gt;&gt;&lt;&lt;set $OrbTransport.push(&quot;nutrients&quot;), $energy -= ((8+($summand*2))*$Oeu)&gt;&gt;&lt;&lt;goto &quot;Orb Configuration&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
-      &lt;&lt;if $OrbTransport.count(&quot;nutrients&quot;) &gt; 0&gt;&gt;&lt;&lt;button &quot;-1 dispatch&quot;&gt;&gt;&lt;&lt;set $OrbTransport.pluck(&quot;nutrients&quot;), $energy += ((8+($summand*2))*$Oeu)&gt;&gt;&lt;&lt;goto &quot;Orb Configuration&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
+      &lt;&lt;if $OrbTransport.count(&quot;nutrients&quot;) &gt; 0&gt;&gt;&lt;&lt;button &quot;-1 dispatch&quot;&gt;&gt;&lt;&lt;set $OrbTransport.removeOne(&quot;nutrients&quot;), $energy += ((8+($summand*2))*$Oeu)&gt;&gt;&lt;&lt;goto &quot;Orb Configuration&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
     &lt;&lt;/if&gt;&gt;
     &lt;&lt;if $explored.T3S == 100&gt;&gt;
       &lt;div class=&quot;index-screens-small-OC&quot;&gt;&lt;div&gt;&lt;strong&gt;Energy Composite Transport&lt;/strong&gt;
       &lt;div&gt;&lt;&lt;= (2.5 * $OrbTransport.count(&quot;encomp&quot;)).toFixed(1)&gt;&gt; energy composites for &lt;br&gt;&lt;&lt;= (((16+($summand*2))*$Oeu) * $OrbTransport.count(&quot;encomp&quot;)).toFixed(1)&gt;&gt; Energy &lt;/div&gt;
       &lt;&lt;if $energy &gt; $maxenergy&gt;&gt;&lt;&lt;set $energy = $maxenergy&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;= $energy.toFixed(1)&gt;&gt; of maximal &lt;&lt;= $maxenergy&gt;&gt;&lt;/div&gt;
       &lt;&lt;if $energy &gt;= ((16+($summand*2))*$Oeu)  || $OrbTransport.count(&quot;encomp&quot;) &lt; 1&gt;&gt;&lt;&lt;button &quot;+1 dispatch&quot;&gt;&gt;&lt;&lt;set $OrbTransport.push(&quot;encomp&quot;), $energy -= ((16+($summand*2))*$Oeu)&gt;&gt;&lt;&lt;goto &quot;Orb Configuration&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
-      &lt;&lt;if $OrbTransport.count(&quot;encomp&quot;) &gt; 0&gt;&gt;&lt;&lt;button &quot;-1 dispatch&quot;&gt;&gt;&lt;&lt;set $OrbTransport.pluck(&quot;encomp&quot;), $energy += ((16+($summand*2))*$Oeu)&gt;&gt;&lt;&lt;goto &quot;Orb Configuration&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt; 
+      &lt;&lt;if $OrbTransport.count(&quot;encomp&quot;) &gt; 0&gt;&gt;&lt;&lt;button &quot;-1 dispatch&quot;&gt;&gt;&lt;&lt;set $OrbTransport.removeOne(&quot;encomp&quot;), $energy += ((16+($summand*2))*$Oeu)&gt;&gt;&lt;&lt;goto &quot;Orb Configuration&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt; 
     &lt;&lt;/if&gt;&gt;
   &lt;&lt;else&gt;&gt;
     All energy spent. Either reduce the energy input or rest.
@@ -4385,21 +4382,21 @@ Sandy Beach! That&#39;s a spot!
   &lt;&lt;if $QuestPool.includes($Q2)&gt;&gt;
     I think it is better to start up with at least 12 nutrients - keep additional 3 nutrients as a buffer for ourselves. Less so would be ridiculous. What or who will carry them with me?&lt;&lt;set _conditional = 1; _orbconditional = 0&gt;&gt;
 
-    &lt;&lt;if $CampJ.Orb == 3&gt;&gt;&lt;&lt;linkappend &quot;+ activate the Orb&quot;&gt;&gt;&lt;&lt;if $energy &gt; (((5+$summand)*2)*0.3)&gt;&gt;: The Orb is programmed to accompany me and is about to gather the nutrients&lt;&lt;set _orbconditional = 1&gt;&gt;&lt;&lt;else&gt;&gt;: There is not enough energy (&lt;&lt;print $energy.toFixed(1)&gt;&gt;) or nutrients ($nutrients).&lt;&lt;/if&gt;&gt;&lt;&lt;/linkappend&gt;&gt;
+    &lt;&lt;if $CampJ.Orb == 3&gt;&gt;&lt;&lt;linkappend &quot;+ activate the Orb&quot;&gt;&gt;&lt;&lt;if $energy &gt; (((5+$summand)*2)*0.3)&gt;&gt;: The Orb is programmed to accompany me and is about to gather the nutrients&lt;&lt;set _orbconditional = 1&gt;&gt;&lt;&lt;else&gt;&gt;: &lt;div class=&quot;conditionnotmet&quot;&gt;There is not enough energy (&lt;&lt;print $energy.toFixed(1)&gt;&gt;) or nutrients ($nutrients).&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/linkappend&gt;&gt;
 
     AND/OR&lt;&lt;/if&gt;&gt;
 
-    &lt;&lt;linkappend &quot;+ ask Vika for help&quot;&gt;&gt;&lt;&lt;if $social &gt;=5 &amp;&amp; $energy &gt;= (((5+$summand)*2)*0.2)&gt;&gt;: Vika will help you carrying the nutrients.&lt;&lt;set _conditional += 1&gt;&gt;&lt;&lt;elseif $social &lt; 5&gt;&gt;: She thinks that maybe it is better this way, for now. Jugding by her tone, I guess, she doesn&#39;t trust me enough.&lt;&lt;else&gt;&gt;: Not enough energy (&lt;&lt;print $energy.toFixed(1)&gt;&gt;).&lt;&lt;/if&gt;&gt;&lt;&lt;/linkappend&gt;&gt;
+    &lt;&lt;linkappend &quot;+ ask Vika for help&quot;&gt;&gt;&lt;&lt;if $social &gt;=5 &amp;&amp; $energy &gt;= (((5+$summand)*2)*0.2)&gt;&gt;: Vika will help you carrying the nutrients.&lt;&lt;set _conditional += 1&gt;&gt;&lt;&lt;elseif $social &lt; 5&gt;&gt;: She thinks that maybe it is better this way, for now. Jugding by her tone, I guess, she doesn&#39;t trust me enough.&lt;&lt;else&gt;&gt;: &lt;div class=&quot;conditionnotmet&quot;&gt;Not enough energy (&lt;&lt;print $energy.toFixed(1)&gt;&gt;).&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/linkappend&gt;&gt;
 
-    &lt;&lt;linkappend &quot;+ ask Leo for help&quot;&gt;&gt;&lt;&lt;if $social &gt;=7 &amp;&amp; (((5+$summand)*2)*0.2)&gt;&gt;: Leo will help carrying nutrients and activating the dormant spaceship.&lt;&lt;set _conditional += 1&gt;&gt;&lt;&lt;elseif $social &lt; 7&gt;&gt;: I couldn&#39;t motivate him. He doesn&#39;t feel comfortable to walk a long way to the mountain ridge.&lt;&lt;else&gt;&gt;: Not enough energy (&lt;&lt;print $energy.toFixed(1)&gt;&gt;).&lt;&lt;/if&gt;&gt;&lt;&lt;/linkappend&gt;&gt;
+    &lt;&lt;linkappend &quot;+ ask Leo for help&quot;&gt;&gt;&lt;&lt;if $social &gt;=7 &amp;&amp; (((5+$summand)*2)*0.2)&gt;&gt;: Leo will help carrying nutrients and activating the dormant spaceship.&lt;&lt;set _conditional += 1&gt;&gt;&lt;&lt;elseif $social &lt; 7&gt;&gt;: I couldn&#39;t motivate him. He doesn&#39;t feel comfortable to walk a long way to the mountain ridge.&lt;&lt;else&gt;&gt;: &lt;div class=&quot;conditionnotmet&quot;&gt;Not enough energy (&lt;&lt;print $energy.toFixed(1)&gt;&gt;).&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/linkappend&gt;&gt;
 
     &lt;&lt;nobr&gt;&gt;&lt;&lt;repeat 2s&gt;&gt;
       &lt;&lt;if ((_conditional*(((5+$summand)*2)*0.2)+_orbconditional*(((5+$summand)*2)*0.3)) &lt;= $energy) &amp;&amp; (_conditional == 3 || _orbconditional == 1)&gt;&gt;
         &lt;&lt;replace &quot;#Quest2Status&quot;&gt;&gt;&lt;&lt;ab&gt;&gt;[[Go to the Mountain Ridge|TBM0][$energy -= _conditional*(((5+$summand)*2)*0.2)+_orbconditional*(((5+$summand)*2)*0.3); $nutrients -= _conditional*3+_orbconditional*9; $QuestPool.delete($Q2); $QuestPool.pushUnique($Q2A); $QuestPoolDone.pushUnique($Q2)]]&lt;&lt;/ab&gt;&gt;&lt;&lt;/replace&gt;&gt;
       &lt;&lt;elseif (_conditional*(((5+$summand)*2)*0.2)+_orbconditional*(((5+$summand)*2)*0.3)) &gt; $energy&gt;&gt;
-        &lt;&lt;replace &quot;#Quest2Status&quot;&gt;&gt;Energy (&lt;&lt;= $energy.toFixed(0)&gt;&gt;) is not in sufficent quantity.&lt;&lt;/replace&gt;&gt;
+        &lt;&lt;replace &quot;#Quest2Status&quot;&gt;&gt;&lt;div class=&quot;conditionnotmet&quot;&gt;Energy (&lt;&lt;= $energy.toFixed(0)&gt;&gt;) is not in sufficent quantity.&lt;/div&gt;&lt;&lt;/replace&gt;&gt;
       &lt;&lt;else&gt;&gt;
-        &lt;&lt;replace &quot;#Quest2Status&quot;&gt;&gt;Not enough transport capacity.&lt;&lt;/replace&gt;&gt;
+        &lt;&lt;replace &quot;#Quest2Status&quot;&gt;&gt;&lt;div class=&quot;conditionnotmet&quot;&gt;Not enough transport capacity.&lt;/div&gt;&lt;&lt;/replace&gt;&gt;
       &lt;&lt;/if&gt;&gt;
     &lt;&lt;/repeat&gt;&gt;
 
@@ -4408,21 +4405,21 @@ Sandy Beach! That&#39;s a spot!
 
   Two unimatter are ready to be transported. What or who will help me?&lt;&lt;set _conditional = 1; _orbconditional = 0&gt;&gt;
 
-    &lt;&lt;if $CampJ.Orb == 3&gt;&gt;&lt;&lt;linkappend &quot;+ activate the Orb&quot;&gt;&gt;&lt;&lt;if $energy &gt; (((5+$summand)*2)*0.3)&gt;&gt;: The Orb is programmed to accompany me and is about to store the unimatter into itself.&lt;&lt;set _orbconditional = 1&gt;&gt;&lt;&lt;else&gt;&gt;: There is not enough energy (&lt;&lt;print $energy.toFixed(1)&gt;&gt;).&lt;&lt;/if&gt;&gt;&lt;&lt;/linkappend&gt;&gt;
+    &lt;&lt;if $CampJ.Orb == 3&gt;&gt;&lt;&lt;linkappend &quot;+ activate the Orb&quot;&gt;&gt;&lt;&lt;if $energy &gt; (((5+$summand)*2)*0.3)&gt;&gt;: The Orb is programmed to accompany me and is about to store the unimatter into itself.&lt;&lt;set _orbconditional = 1&gt;&gt;&lt;&lt;else&gt;&gt;: &lt;div class=&quot;conditionnotmet&quot;&gt;There is not enough energy (&lt;&lt;print $energy.toFixed(1)&gt;&gt;).&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/linkappend&gt;&gt;
 
     AND/OR&lt;&lt;/if&gt;&gt;
 
-    &lt;&lt;linkappend &quot;+ ask Vika for help&quot;&gt;&gt;&lt;&lt;if $social &gt;=5 &amp;&amp; $energy &gt;= (((5+$summand)*2)*0.2)&gt;&gt;: Vika will help you carrying the one unimatter disk.&lt;&lt;set _conditional += 1&gt;&gt;&lt;&lt;elseif $social &lt; 5&gt;&gt;: She doen&#39;t feel good for the trek.&lt;&lt;else&gt;&gt;: Not enough energy (&lt;&lt;print $energy.toFixed(1)&gt;&gt;).&lt;&lt;/if&gt;&gt;&lt;&lt;/linkappend&gt;&gt;
+    &lt;&lt;linkappend &quot;+ ask Vika for help&quot;&gt;&gt;&lt;&lt;if $social &gt;=5 &amp;&amp; $energy &gt;= (((5+$summand)*2)*0.2)&gt;&gt;: Vika will help you carrying the one unimatter disk.&lt;&lt;set _conditional += 1&gt;&gt;&lt;&lt;elseif $social &lt; 5&gt;&gt;: She doen&#39;t feel good for the trek.&lt;&lt;else&gt;&gt;: &lt;div class=&quot;conditionnotmet&quot;&gt;Not enough energy (&lt;&lt;print $energy.toFixed(1)&gt;&gt;).&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/linkappend&gt;&gt;
 
-    &lt;&lt;linkappend &quot;+ ask Leo for help&quot;&gt;&gt;&lt;&lt;if $social &gt;=7 &amp;&amp; $energy &gt;= (((5+$summand)*2)*0.2)&gt;&gt;: Leo will help carrying one unimatter disk.&lt;&lt;set _conditional += 1&gt;&gt;&lt;&lt;elseif $social &lt; 7&gt;&gt;: Leo doesn&#39;t feel comfortable to walk a long way to the mountain ridge.&lt;&lt;else&gt;&gt;: Not enough energy (&lt;&lt;print $energy.toFixed(1)&gt;&gt;).&lt;&lt;/if&gt;&gt;&lt;&lt;/linkappend&gt;&gt;
+    &lt;&lt;linkappend &quot;+ ask Leo for help&quot;&gt;&gt;&lt;&lt;if $social &gt;=7 &amp;&amp; $energy &gt;= (((5+$summand)*2)*0.2)&gt;&gt;: Leo will help carrying one unimatter disk.&lt;&lt;set _conditional += 1&gt;&gt;&lt;&lt;elseif $social &lt; 7&gt;&gt;: Leo doesn&#39;t feel comfortable to walk a long way to the mountain ridge.&lt;&lt;else&gt;&gt;: &lt;div class=&quot;conditionnotmet&quot;&gt;Not enough energy (&lt;&lt;print $energy.toFixed(1)&gt;&gt;).&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/linkappend&gt;&gt;
 
     &lt;&lt;nobr&gt;&gt;&lt;&lt;repeat 2s&gt;&gt;
       &lt;&lt;if ((_conditional*(((5+$summand)*2)*0.2)+_orbconditional*(((5+$summand)*2)*0.3)) &lt;= $energy) &amp;&amp; (_conditional == 3 || _orbconditional == 1)&gt;&gt;
         &lt;&lt;replace &quot;#Quest3Status&quot;&gt;&gt;&lt;&lt;ab&gt;&gt;[[Go to the Mountain Ridge anew.|TBM0][$energy -= _conditional*(((5+$summand)*2)*0.2)+_orbconditional*(((5+$summand)*2)*0.3); $unimatter -= _conditional*3+_orbconditional*9; $CampM.nutrients = 12; $CampM.DefPerimeter = true; $CampM.building += 1; $QuestPool.delete($Q2A); $QuestPool.pushUnique($Q2B); $QuestPoolDone.pushUnique($Q2A)]]&lt;&lt;/ab&gt;&gt;&lt;&lt;/replace&gt;&gt;
       &lt;&lt;elseif (_conditional*(((5+$summand)*2)*0.2)+_orbconditional*(((5+$summand)*2)*0.3)) &gt; $energy&gt;&gt;
-        &lt;&lt;replace &quot;#Quest3Status&quot;&gt;&gt;Energy (&lt;&lt;= $energy.toFixed(0)&gt;&gt;) is not in sufficent quantity.&lt;&lt;/replace&gt;&gt;
+        &lt;&lt;replace &quot;#Quest3Status&quot;&gt;&gt;&lt;div class=&quot;conditionnotmet&quot;&gt;Energy (&lt;&lt;= $energy.toFixed(0)&gt;&gt;) is not in sufficent quantity.&lt;/div&gt;&lt;&lt;/replace&gt;&gt;
       &lt;&lt;else&gt;&gt;
-        &lt;&lt;replace &quot;#Quest3Status&quot;&gt;&gt;Not enough transport capacity.&lt;&lt;/replace&gt;&gt;
+        &lt;&lt;replace &quot;#Quest3Status&quot;&gt;&gt;&lt;div class=&quot;conditionnotmet&quot;&gt;Not enough transport capacity.&lt;/div&gt;&lt;&lt;/replace&gt;&gt;
       &lt;&lt;/if&gt;&gt;
     &lt;&lt;/repeat&gt;&gt;
 
@@ -5052,16 +5049,16 @@ The others set the record interpreter outside in a distance to the spaceship, bu
 &lt;&lt;ab&gt;&gt;[[At the time ...|Beginning]]&lt;&lt;/ab&gt;&gt;
 
 &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="96" name="Vika" tags="" position="3525,225" size="100,100">&lt;center&gt;&lt;blockquote&gt;
-&lt;&lt;if random(4) == 0&gt;&gt;[img[assets/characters/vika_1.webp]]
+&lt;&lt;if random(4) == 0&gt;&gt;[img[assets/characters/Vika/vika_1.webp]]
     
   We both exchanged topics in machines and communications engineerings. I feel I get a better understanding in engineering. &lt;&lt;set $engineering += 0.1 * $social&gt;&gt;
-&lt;&lt;elseif random(4) == 1&gt;&gt;[img[assets/characters/vika_5.webp]]
+&lt;&lt;elseif random(4) == 1&gt;&gt;[img[assets/characters/Vika/vika_5.webp]]
       
   I helped as much as I could do on the communications she want to work on.&lt;&lt;set $social += 0.1&gt;&gt;
-&lt;&lt;elseif random(4) == 2&gt;&gt;[img[assets/characters/vika_4.webp]]
+&lt;&lt;elseif random(4) == 2&gt;&gt;[img[assets/characters/Vika/vika_4.webp]]
       
   We were brainstorming and developing some concepts to improve our bearings here. &lt;&lt;set $engineering += 0.1 * $social&gt;&gt;
-&lt;&lt;elseif random(4) == 3&gt;&gt;[img[assets/characters/vika_6.webp]]
+&lt;&lt;elseif random(4) == 3&gt;&gt;[img[assets/characters/Vika/vika_6.webp]]
 
   A chat over a beer in a virtual bar.&lt;&lt;set $social += 0.1&gt;&gt;
 &lt;&lt;else&gt;&gt;
