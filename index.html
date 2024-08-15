@@ -230,7 +230,7 @@ blockquote {
   width: 3em;
   height: 20em;
   margin: 0;
-  padding: 0;
+  padding: 0.1em;
   transition: left .2s ease-in;
 }
 
@@ -276,7 +276,12 @@ blockquote {
 }
 
 #ui-bar-tray {
+  position: absolute;
   top: 25%;
+  height: auto;
+  margin: 0%;
+  padding: 0;
+  right: unset;
 }
 
 #ui-bar-history{
@@ -301,19 +306,26 @@ button[id|=history], #ui-bar-tray button {
   color: #eee;
   background-color: transparent;
   border: 0;
-  border-radius: .5em;
+  border-radius: .33em;
   line-height: normal;
-  padding: .4em;
+  padding: .4em .1em;
+  display: flex;
+  justify-content: center;
+  width: 2.8em;
+  margin-left: .2em;
+}
+
+#ui-bar-tray button:hover {
+  background-color: #0066cc;
+  border-color: transparent;
 }
 
 #ui-bar-body {
-  line-height: 1.5;
-  overflow: auto;
   position: absolute;
   top: 55%;
   height: auto;
-  padding: 0%;
   margin: 0%;
+  padding: 0;
 }
 
 #menu-core {
@@ -329,12 +341,22 @@ button[id|=history], #ui-bar-tray button {
   border: 0;
 }
 
-menu li {
-  margin: 0;
+#menu li a {
+  border: 0;
+}
+
+#menu li a:hover {
+  border: 0;
+  background-color: #0066cc;
+  border-radius: .33em;
 }
 
 #menu li:not(:first-child) {
   border-top: 0;
+}
+
+#menu-item-saves a::before, #menu-item-restart a::before {
+  margin: 0 .20em;
 }
 
 @media screen and (max-width: 815px) {
@@ -351,8 +373,15 @@ menu li {
   }
 
   #ui-bar-tray {
-    top: 10%;
+    display: flex;
+    flex-direction: row;
+    left: 38%;
   }
+
+  button[id|=history], #ui-bar-tray button {
+    padding: .1em;
+    width: 2.3em;
+  }  
 
   #ui-bar-body {
     position: absolute;
@@ -1181,7 +1210,7 @@ sounddiv.onclick = function() {
     setTimeout(function() {
         sounddiv.classList.remove('fadeinout');
     }, 2000);
-    if (soundimg.className.contains("soundon")) {
+    if (soundimg.className === "soundon") {
         soundimg.classList.remove("soundon");
         soundimg.src = 'assets/backgrounds/soundoff.webp';
         soundimg.className = 'soundoff';
@@ -1213,29 +1242,14 @@ window.imgbannerappear = function() {
     }, 1100);
 };
 
-var uiBarHis = document.getElementById('ui-bar-history');
-uiBarHis.parentNode.removeChild(uiBarHis);
-
-var buttonhisback = document.createElement('button');
-buttonhisback.id = 'history-backward';
-buttonhisback.tabIndex = '0';
-buttonhisback.title = 'Go backward within the game history';
-buttonhisback.ariaLabel = 'Go backward within the game history';
-buttonhisback.disabled = true;
-buttonhisback.ariaDisabled = true;
-buttonhisback.setAttribute('data-last-tabindex', '0');
-buttonhisback.type = 'button';
-buttonhisback.role = 'button';
+var buttonhisback = document.getElementById('history-backward');
 document.querySelector('#ui-bar-tray').insertAdjacentElement("afterbegin", buttonhisback);
 
-var buttonhisforw = document.createElement('button');
-buttonhisforw.id = 'history-forward';
-buttonhisforw.tabIndex = '0';
-buttonhisforw.title = 'Go forward within the game history';
-buttonhisforw.ariaLabel = 'Go forward within the game history';
-buttonhisforw.type = 'button';
-buttonhisforw.role = 'button';
+var buttonhisforw = document.getElementById('history-forward');
 document.querySelector('#ui-bar-tray').insertAdjacentElement("beforeend", buttonhisforw);
+
+var uiBarHis = document.getElementById('ui-bar-history');
+uiBarHis.parentNode.removeChild(uiBarHis);
 
 var headertitle = document.getElementById('title');
 headertitle.parentNode.removeChild(headertitle);
