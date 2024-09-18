@@ -1641,13 +1641,13 @@ window.scrollBy(0,120)&lt;&lt;/script&gt;&gt;&lt;&lt;/nobr&gt;&gt; with a loud c
   Animals!
 
   Alien Animals are breaching in. It seems, they only distinctively go for the food. 
-  We have lost some nutrients.&lt;&lt;set $nutrients -= 5&gt;&gt;&lt;&lt;if $nutrients &lt; 0&gt;&gt;&lt;&lt;set $nutrients = 0&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;set $xeno += 0.1&gt;&gt;
+  We have lost some nutrients.&lt;&lt;set $nutrients -= 5&gt;&gt;&lt;&lt;if $nutrients &lt; 0&gt;&gt;&lt;&lt;set $nutrients = 0&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;set $xenoexp += 0.1&gt;&gt;
   &lt;&lt;elseif $rNr == 6 &amp;&amp; $CampJ.DefPerimeter == false &amp;&amp; $Camp_J|| $rNr == 6 &amp;&amp; $CampM.DefPerimeter == false &amp;&amp; $Camp_M&gt;&gt;
   [img[assets/events/aggressive_animal.webp]]
 
   What a ruckus!
 
-  Shiiiet! One that attacks us relentless! It depends much on our Combat Arts.&lt;&lt;set $xeno += 0.1&gt;&gt;
+  Shiiiet! One that attacks us relentless! It depends much on our Combat Arts.&lt;&lt;set $xenoexp += 0.1&gt;&gt;
   &lt;h3&gt;OUTCOME:&lt;/h3&gt;
     &lt;&lt;if $combat*$cbtOrb &gt; 5&gt;&gt;
       Yes! That was a good training session, &lt;&lt;if $Camp_M&gt;&gt;Elva and I&lt;&lt;else&gt;&gt;we&lt;&lt;/if&gt;&gt; could defeat that beast.&amp;nbsp;&lt;&lt;set $combat += 0.5&gt;&gt;&lt;&lt;if $SubAnalyzer&gt;&gt;And have some bit food. The rest can be disintegrated as unimatter.&lt;&lt;set $nutrients += 3&gt;&gt;&lt;&lt;set $unimatter += 2&gt;&gt;&lt;&lt;/if&gt;&gt;
@@ -1687,15 +1687,15 @@ The antenna is installed on a small hill. But it seems to reach no one. Maybe it
 &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="6" name="Ante Explore" tags="" position="875,1375" size="100,100">&lt;center&gt;&lt;blockquote&gt;
 Who will accompany me, who can I persuade?
 &lt;&lt;nobr&gt;&gt;&lt;br&gt;
-&lt;&lt;if $QuestPool.includesAny($Q1CA, $Q1CA1, $Q1CA2, $Q1CA3, $Q1CA4)&gt;&gt;Vika is not available.&lt;&lt;else&gt;&gt;&lt;&lt;linkreplace &quot;Vika&quot;&gt;&gt;&lt;&lt;if random(10) * $social &gt; 40 || (($CampJ.EHarvester == 0 &amp;&amp; $Camp_J || $Camp_M &amp;&amp; $CampM.EHarvester == 0) &amp;&amp; $notrepaired &gt; 2) || $nutrients &lt; 10&gt;&gt;+ Vika will accompany you.&lt;&lt;set $Humcarrycap +=1, $xenohelp += .3&gt;&gt;&lt;&lt;else&gt;&gt;- Vika is focusing on the communications screen, she rather sit by the radio.&lt;&lt;/if&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;br&gt;&lt;br&gt;
+&lt;&lt;if $QuestPool.includesAny($Q1CA, $Q1CA1, $Q1CA2, $Q1CA3, $Q1CA4)&gt;&gt;Vika is not available.&lt;&lt;else&gt;&gt;&lt;&lt;linkreplace &quot;Vika&quot;&gt;&gt;&lt;&lt;if random(10) * $social &gt; 40 || (($CampJ.EHarvester == 0 &amp;&amp; $Camp_J || $Camp_M &amp;&amp; $CampM.EHarvester == 0) &amp;&amp; $notrepaired &gt; 2) || $nutrients &lt; 10&gt;&gt;+ Vika will accompany you.&lt;&lt;set $Humcarrycap +=1, $xenohelp += 0.3&gt;&gt;&lt;&lt;else&gt;&gt;- Vika is focusing on the communications screen, she rather sit by the radio.&lt;&lt;/if&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;br&gt;&lt;br&gt;
 
-&lt;&lt;if $QuestPool.includes($Q1CB)&gt;&gt;Leo is not in optimal state to go out.&lt;&lt;else&gt;&gt;&lt;&lt;linkreplace &quot;Leo&quot;&gt;&gt;&lt;&lt;if random(10) * $social &gt; 30 || (($CampJ.EHarvester == 0 &amp;&amp; $Camp_J || $Camp_M &amp;&amp; $CampM.EHarvester == 0) &amp;&amp; $notrepaired &gt; 2) || $nutrients &lt;10&gt;&gt;+ Leo will help you.&lt;&lt;set $Humcarrycap +=1, $xenohelp += .3&gt;&gt;&lt;&lt;elseif $nutrients &lt;10 &amp;&amp; $explored.T1E != 100 &amp;&amp; !$SubAnalyzer&gt;&gt;+ Leo will help you. Also he got the information form the AI that somewhere in the east is a field crucial for organic optimum.&lt;&lt;set $Humcarrycap +=1, $xenohelp += .3&gt;&gt;&lt;&lt;else&gt;&gt;- Leo is in dialogue with his AI or other AIs. He cannot come with you.&lt;&lt;/if&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $QuestPool.includes($Q1CB)&gt;&gt;Leo is not in optimal state to go out.&lt;&lt;else&gt;&gt;&lt;&lt;linkreplace &quot;Leo&quot;&gt;&gt;&lt;&lt;if random(10) * $social &gt; 30 || (($CampJ.EHarvester == 0 &amp;&amp; $Camp_J || $Camp_M &amp;&amp; $CampM.EHarvester == 0) &amp;&amp; $notrepaired &gt; 2) || $nutrients &lt;10&gt;&gt;+ Leo will help you.&lt;&lt;set $Humcarrycap +=1, $xenohelp += 0.3&gt;&gt;&lt;&lt;elseif $nutrients &lt;10 &amp;&amp; $explored.T1E != 100 &amp;&amp; !$SubAnalyzer&gt;&gt;+ Leo will help you. Also he got the information form the AI that somewhere in the east is a field crucial for organic optimum.&lt;&lt;set $Humcarrycap +=1, $xenohelp += .3&gt;&gt;&lt;&lt;else&gt;&gt;- Leo is in dialogue with his AI or other AIs. He cannot come with you.&lt;&lt;/if&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;br&gt;
 &lt;br&gt;
-&lt;&lt;if $Camp_M || $eventfrom3E&gt;&gt;&lt;&lt;linkreplace &quot;Elva&quot;&gt;&gt;&lt;&lt;if random(10) * $social &gt; 38 || (($CampJ.EHarvester == 0 &amp;&amp; $Camp_J || $Camp_M &amp;&amp; $CampM.EHarvester == 0) &amp;&amp; $notrepaired &gt; 2) || $nutrients &lt;10&gt;&gt;+ Elva want some outdoor training, she comes with me.&lt;&lt;set $Humcarrycap +=1, $xenohelp += .3&gt;&gt;&lt;&lt;else&gt;&gt;- Elva is in her training mode. Quite intensely. Better not disturb her.&lt;&lt;/if&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $Camp_M || $eventfrom3E&gt;&gt;&lt;&lt;linkreplace &quot;Elva&quot;&gt;&gt;&lt;&lt;if random(10) * $social &gt; 38 || (($CampJ.EHarvester == 0 &amp;&amp; $Camp_J || $Camp_M &amp;&amp; $CampM.EHarvester == 0) &amp;&amp; $notrepaired &gt; 2) || $nutrients &lt;10&gt;&gt;+ Elva want some outdoor training, she comes with me.&lt;&lt;set $Humcarrycap +=1, $xenohelp += 0.3&gt;&gt;&lt;&lt;else&gt;&gt;- Elva is in her training mode. Quite intensely. Better not disturb her.&lt;&lt;/if&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;br&gt;
 &lt;br&gt;
-&lt;&lt;if $Camp_M || $eventfrom3E&gt;&gt;&lt;&lt;linkreplace &quot;Abiba&quot;&gt;&gt;&lt;&lt;if random(10) * $social &gt; 35 || (($CampJ.EHarvester == 0 &amp;&amp; $Camp_J || $Camp_M &amp;&amp; $CampM.EHarvester == 0) &amp;&amp; $notrepaired &gt; 2) || $nutrients &lt; 10&gt;&gt;+ Abiba nods.&lt;&lt;set $Humcarrycap +=1, $xenohelp += .3&gt;&gt;&lt;&lt;else&gt;&gt;- Abiba is not available. She seems to be occupied.&lt;&lt;/if&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $Camp_M || $eventfrom3E&gt;&gt;&lt;&lt;linkreplace &quot;Abiba&quot;&gt;&gt;&lt;&lt;if random(10) * $social &gt; 35 || (($CampJ.EHarvester == 0 &amp;&amp; $Camp_J || $Camp_M &amp;&amp; $CampM.EHarvester == 0) &amp;&amp; $notrepaired &gt; 2) || $nutrients &lt; 10&gt;&gt;+ Abiba nods.&lt;&lt;set $Humcarrycap +=1, $xenohelp += 0.3&gt;&gt;&lt;&lt;else&gt;&gt;- Abiba is not available. She seems to be occupied.&lt;&lt;/if&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;br&gt;
 &lt;br&gt;
 &lt;&lt;if ($CampJ.Orb == 3 &amp;&amp; $Camp_J) || ($CampM.Orb == 3 &amp;&amp; $Camp_M)&gt;&gt;Do I activate the floating Orb?
@@ -1904,9 +1904,7 @@ It is a huge setback. The hull is broken. As are the cockpit, our life maintenan
     &lt;&lt;ab&gt;&gt;[[Start now and Go!|End of Game][$whydead = 1]]&lt;&lt;/ab&gt;&gt;
 
     &lt;&lt;ab&gt;&gt;[[Or wait for the night?|Arrival at CJ]]&lt;&lt;/ab&gt;&gt;
-    &lt;&lt;/timed&gt;&gt;&lt;&lt;/linkappend&gt;&gt;&lt;&lt;timed&gt;&gt;
-  &lt;&lt;/linkappend&gt;&gt;
-  &lt;&lt;/replace&gt;&gt;&lt;&lt;/timed&gt;&gt;
+    &lt;&lt;/timed&gt;&gt;&lt;&lt;/linkappend&gt;&gt;&lt;&lt;/linkappend&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/timed&gt;&gt;
 &lt;&lt;else&gt;&gt;[img[assets/Ch-Camp/MountainCamp.webp]]
   
   Yes! There are others! The ladies greet me in surprise and ask me from where I do come, which spaceship number is it, why didn&#39;t I radio them. I ask them that their antenna works? They gesturing and answering: not always, it is weird. So I answered to them that &lt;&lt;if $CampJ.TransMast&gt;&gt;even though we built an antenna, we didn&#39;t received any incomings - we assume it is because of the dense jungle.&lt;&lt;else&gt;&gt;we hadn&#39;t found the time and the urgency to build an antenna. Until now.&lt;&lt;/if&gt;&gt; So, what happened that I took a rather dangerous journey?
@@ -2828,7 +2826,7 @@ The answer may be given to &lt;&lt;linkappend &quot;me.&quot; t8n&gt;&gt; Soon. 
   Not bad. Leo is not an easy opponent. &lt;&lt;set $social += 0.3, $combat += 0.05, $engineering += 0.05&gt;&gt;
 &lt;&lt;elseif random(3) == 3&gt;&gt;[img[assets/characters/leo_3.webp]]
 
-  We were talking about our lives, our experiences, politics, economy, about other life forms, AI&#39;s, ... &lt;&lt;set $social += 0.1, $xeno += 0.5&gt;&gt;
+  We were talking about our lives, our experiences, politics, economy, about other life forms, AI&#39;s, ... &lt;&lt;set $social += 0.1, $xenoexp += 0.5&gt;&gt;
 &lt;&lt;else&gt;&gt;
   &lt;&lt;set $noLeo = true&gt;&gt;
   Leo is not in the mood. Try another time.
@@ -2869,7 +2867,7 @@ And since we are in the future, or like in the past, every technology is subject
 &lt;/blockquote&gt;
 Choose in which profession I should master:
 
-&lt;&lt;ab&gt;&gt;[[Xenology (archaelogy, exploration/navigation, cataloguing etc.)|Intro2][$xeno = 1]]&lt;&lt;/ab&gt;&gt;
+&lt;&lt;ab&gt;&gt;[[Xenology (archaelogy, exploration/navigation, cataloguing etc.)|Intro2][$xenoexp = 1]]&lt;&lt;/ab&gt;&gt;
 
 &lt;&lt;ab&gt;&gt;[[Combatability (martial arts, endurance, attack, defense etc.)|Intro2][$combat = 1]]&lt;&lt;/ab&gt;&gt;
 
@@ -2905,7 +2903,7 @@ Choose in which profession I should master:
         
         &lt;&lt;ab&gt;&gt;[[West|LostiJ][$energy -= 1]]&lt;&lt;/ab&gt;&gt;
 &lt;&lt;/if&gt;&gt;
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="41" name="Menu" tags="" position="100,400" size="100,100"> &lt;center&gt;
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="41" name="Menu" tags="" position="100,400" size="100,100">&lt;center&gt;
   [img[assets/backgrounds/bg-cover.webp]]
   &lt;blockquote&gt;
   &lt;div class=&quot;text&quot;&gt;Hello. Hola. Moin. Salve. 
@@ -2917,7 +2915,7 @@ Choose in which profession I should master:
 
   &lt;div class=&quot;changelog&quot;&gt;Changelog:
 
-  Update 17.09.23:
+  Update 18.09.23:
     + changed the exploration factor (exploring is more effective the more persons help you)
     + fixed the Quests
     + adjusted the energy use for exploring
@@ -3152,7 +3150,7 @@ What do I want for the Orb to collect?&lt;&lt;nobr&gt;&gt;
 
                             &lt;&lt;say &quot;leo&quot;&gt;&gt;Here: kind of a flashlight. It may be handy for you.&lt;&lt;/say&gt;&gt;&lt;br&gt;&lt;br&gt;
 
-                            Oh yes, it is. &lt;&lt;set $xeno += 1&gt;&gt;&lt;br&gt;&lt;br&gt;
+                            Oh yes, it is. &lt;&lt;set $xenoexp += 1&gt;&gt;&lt;br&gt;&lt;br&gt;
 
                             Alright. Ready I am?&lt;br&gt;&lt;br&gt; 
                                 
@@ -4596,7 +4594,7 @@ Where to go next?
 &lt;blockquote&gt;
 Aah. Open space. Open air.
 
-&lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;ab&gt;&gt;[[Go back to Base|The Map][$energy -= 3*(0.2+$Oeu)]]&lt;&lt;/ab&gt;&gt;&lt;&lt;else&gt;&gt;[[Go back to Base|The Map][$energy -= (8+$summand)*(0.2+$Oeu)]]&lt;&lt;/ab&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $Camp_J&gt;&gt;&lt;&lt;ab&gt;&gt;[[Go back to Base|The Map][$energy -= 3*(0.2+$Oeu)]]&lt;&lt;/ab&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;ab&gt;&gt;[[Go back to Base|The Map][$energy -= (8+$summand)*(0.2+$Oeu)]]&lt;&lt;/ab&gt;&gt;&lt;&lt;/if&gt;&gt;
 
 &lt;&lt;compass &quot;&quot; &quot;T4W&quot; &quot;T2W&quot; &quot;&quot;&gt;&gt;
 &lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="88" name="T4E" tags="" position="1375,2175" size="100,100">&lt;&lt;nobr&gt;&gt;
@@ -4779,7 +4777,7 @@ T5W: 0,
 }&gt;&gt;</tw-passagedata><tw-passagedata pid="95" name="The Map" tags="" position="875,1500" size="100,100">&lt;&lt;nobr&gt;&gt;
   &lt;&lt;set _nummer = random(80)&gt;&gt;
   &lt;&lt;if $days != 0&gt;&gt;&lt;&lt;set _randomNumber = random(20)/($days/10)&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;set _randomNumber = random(20)&gt;&gt;&lt;&lt;/if&gt;&gt;
-  &lt;&lt;if $xeno == 0&gt;&gt;&lt;&lt;set $xeno = 0.05&gt;&gt;&lt;&lt;/if&gt;&gt;
+  &lt;&lt;if $xeno == 0&gt;&gt;&lt;&lt;set $xenoexp = 0.05&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;
 &lt;&lt;if _nummer.range(0, 1)&gt;&gt;
 
@@ -4826,7 +4824,7 @@ T5W: 0,
             &lt;&lt;if $energy &lt; 10*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/TBCJ.webp]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/TBCJ.webp][TBJ0][$energy -= 5*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
           &lt;&lt;else&gt;&gt;
             &lt;&lt;if $Camp_M &amp;&amp; $energy &gt; 10*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored.TBJ0.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-              &lt;&lt;set $explored.TBJ0 += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.02&gt;&gt;
+              &lt;&lt;set $explored.TBJ0 += _randomNumber*$xeno*$navOrb; $energy -= 1; $xenoexp += 0.02&gt;&gt;
               &lt;&lt;goto [[The Map]]&gt;&gt;
               &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
           &lt;&lt;/if&gt;&gt;
@@ -4853,7 +4851,7 @@ T5W: 0,
           &lt;&lt;/if&gt;&gt;
         &lt;&lt;else&gt;&gt;
           &lt;&lt;if $Camp_M &amp;&amp; $energy &gt; 8*(($Humcarrycap*0.2)+$Oeu) || $Camp_J &amp;&amp; $energy &gt; 2*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored.T1E.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-            &lt;&lt;set $explored.T1E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05&gt;&gt;
+            &lt;&lt;set $explored.T1E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xenoexp += 0.05&gt;&gt;
             &lt;&lt;goto [[The Map]]&gt;&gt;
           &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
         &lt;&lt;/if&gt;&gt;
@@ -4877,7 +4875,7 @@ T5W: 0,
           &lt;&lt;/if&gt;&gt;
         &lt;&lt;else&gt;&gt;
           &lt;&lt;if $Camp_M &amp;&amp; $energy &gt; 6*(($Humcarrycap*0.2)+$Oeu) || $Camp_J &amp;&amp; $energy &gt; 4*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored.T2E.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-            &lt;&lt;set $explored.T2E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05&gt;&gt;
+            &lt;&lt;set $explored.T2E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xenoexp += 0.05&gt;&gt;
             &lt;&lt;goto [[The Map]]&gt;&gt;
           &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
         &lt;&lt;/if&gt;&gt;
@@ -4898,7 +4896,7 @@ T5W: 0,
             &lt;&lt;/if&gt;&gt;
           &lt;&lt;else&gt;&gt;
             &lt;&lt;if $Camp_M &amp;&amp; $energy &gt; 4*(($Humcarrycap*0.2)+$Oeu) || $Camp_J &amp;&amp; $energy &gt; 6*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored.T3E.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-              &lt;&lt;set $explored.T3E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05&gt;&gt;
+              &lt;&lt;set $explored.T3E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xenoexp += 0.05&gt;&gt;
               &lt;&lt;goto [[The Map]]&gt;&gt;
             &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
           &lt;&lt;/if&gt;&gt;
@@ -4923,7 +4921,7 @@ T5W: 0,
           &lt;&lt;/if&gt;&gt;
         &lt;&lt;else&gt;&gt;
           &lt;&lt;if $Camp_M &amp;&amp; $energy &gt; 2*(($Humcarrycap*0.2)+$Oeu) || $Camp_J &amp;&amp; $energy &gt; 8*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored.T4E.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-            &lt;&lt;set $explored.T4E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05&gt;&gt;
+            &lt;&lt;set $explored.T4E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xenoexp += 0.05&gt;&gt;
             &lt;&lt;goto [[The Map]]&gt;&gt;
           &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
         &lt;&lt;/if&gt;&gt;
@@ -4940,7 +4938,7 @@ T5W: 0,
             &lt;&lt;if $energy &lt; 10*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;&lt;&lt;if $eventfrom3E&gt;&gt;[img[assets/Ch-Camp/MountainCamp_empty.webp]]&lt;&lt;else&gt;&gt;[img[assets/Ch-Camp/MountainCamp.webp]]&lt;&lt;/if&gt;&gt;&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;&lt;&lt;if $eventfrom3E&gt;&gt;[img[assets/Ch-Camp/MountainCamp_empty.webp][TBM0][$energy -= 5*(($Humcarrycap*0.2)+$Oeu)]]&lt;&lt;else&gt;&gt;[img[assets/Ch-Camp/MountainCamp.webp][TBM0][$energy -= 5*(($Humcarrycap*0.2)+$Oeu)]]&lt;&lt;/if&gt;&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
           &lt;&lt;else&gt;&gt;
             &lt;&lt;if $Camp_J &amp;&amp; $energy &gt; 10*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored.TBM0.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-            &lt;&lt;set $explored.TBM0 += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05&gt;&gt;
+            &lt;&lt;set $explored.TBM0 += _randomNumber*$xeno*$navOrb; $energy -= 1; $xenoexp += 0.05&gt;&gt;
              &lt;&lt;goto [[The Map]]&gt;&gt;
              &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
           &lt;&lt;/if&gt;&gt;
@@ -4963,7 +4961,7 @@ T5W: 0,
           &lt;&lt;/if&gt;&gt;
         &lt;&lt;else&gt;&gt;
           &lt;&lt;if $Camp_M &amp;&amp; $energy &gt; 12*(($Humcarrycap*0.2)+$Oeu) || $Camp_J &amp;&amp; $energy &gt; 2*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored.T1S.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-            &lt;&lt;set $explored.T1S += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.02&gt;&gt;
+            &lt;&lt;set $explored.T1S += _randomNumber*$xeno*$navOrb; $energy -= 1; $xenoexp += 0.02&gt;&gt;
             &lt;&lt;goto [[The Map]]&gt;&gt;
           &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
         &lt;&lt;/if&gt;&gt;
@@ -4983,7 +4981,7 @@ T5W: 0,
           &lt;&lt;/if&gt;&gt;
         &lt;&lt;else&gt;&gt;
           &lt;&lt;if $Camp_M &amp;&amp; $energy &gt; 14*(($Humcarrycap*0.2)+$Oeu) || $Camp_J &amp;&amp; $energy &gt; 4*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored.T2S.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-            &lt;&lt;set $explored.T2S += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.02&gt;&gt;
+            &lt;&lt;set $explored.T2S += _randomNumber*$xeno*$navOrb; $energy -= 1; $xenoexp += 0.02&gt;&gt;
             &lt;&lt;goto [[The Map]]&gt;&gt;
           &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
         &lt;&lt;/if&gt;&gt;
@@ -5003,7 +5001,7 @@ T5W: 0,
           &lt;&lt;/if&gt;&gt;
         &lt;&lt;else&gt;&gt;
           &lt;&lt;if $Camp_M &amp;&amp; $energy &gt; 16*(($Humcarrycap*0.2)+$Oeu) || $Camp_J &amp;&amp; $energy &gt; 6*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored.T3S.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-            &lt;&lt;set $explored.T3S += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.02&gt;&gt;
+            &lt;&lt;set $explored.T3S += _randomNumber*$xeno*$navOrb; $energy -= 1; $xenoexp += 0.02&gt;&gt;
             &lt;&lt;goto [[The Map]]&gt;&gt;
           &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
         &lt;&lt;/if&gt;&gt;
@@ -5023,7 +5021,7 @@ T5W: 0,
           &lt;&lt;/if&gt;&gt;
         &lt;&lt;else&gt;&gt;
           &lt;&lt;if $Camp_M &amp;&amp; $energy &gt; 12*(($Humcarrycap*0.2)+$Oeu) || $Camp_J &amp;&amp; $energy &gt; 2*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored.T1W.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-            &lt;&lt;set $explored.T1W += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.02&gt;&gt;
+            &lt;&lt;set $explored.T1W += _randomNumber*$xeno*$navOrb; $energy -= 1; $xenoexp += 0.02&gt;&gt;
             &lt;&lt;goto [[The Map]]&gt;&gt;
           &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
         &lt;&lt;/if&gt;&gt;
@@ -5043,7 +5041,7 @@ T5W: 0,
           &lt;&lt;/if&gt;&gt;
         &lt;&lt;else&gt;&gt;
           &lt;&lt;if $Camp_M &amp;&amp; $energy &gt; 14*(($Humcarrycap*0.2)+$Oeu) || $Camp_J &amp;&amp; $energy &gt; 4*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored.T2W.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-            &lt;&lt;set $explored.T2W += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.02&gt;&gt;
+            &lt;&lt;set $explored.T2W += _randomNumber*$xeno*$navOrb; $energy -= 1; $xenoexp += 0.02&gt;&gt;
             &lt;&lt;goto [[The Map]]&gt;&gt;
           &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
         &lt;&lt;/if&gt;&gt;
@@ -5063,7 +5061,7 @@ T5W: 0,
           &lt;&lt;/if&gt;&gt;
         &lt;&lt;else&gt;&gt;
           &lt;&lt;if $Camp_M &amp;&amp; $energy &gt; 16*(($Humcarrycap*0.2)+$Oeu) || $Camp_J &amp;&amp; $energy &gt; 6*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored.T3W.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-            &lt;&lt;set $explored.T3W += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.02&gt;&gt;
+            &lt;&lt;set $explored.T3W += _randomNumber*$xeno*$navOrb; $energy -= 1; $xenoexp += 0.02&gt;&gt;
             &lt;&lt;goto [[The Map]]&gt;&gt;
           &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
         &lt;&lt;/if&gt;&gt;
@@ -5083,7 +5081,7 @@ T5W: 0,
           &lt;&lt;/if&gt;&gt;
         &lt;&lt;else&gt;&gt;
           &lt;&lt;if $Camp_M &amp;&amp; $energy &gt; 18*(($Humcarrycap*0.2)+$Oeu) || $Camp_J &amp;&amp; $energy &gt; 8*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored.T4W.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-            &lt;&lt;set $explored.T4W += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.02&gt;&gt;
+            &lt;&lt;set $explored.T4W += _randomNumber*$xeno*$navOrb; $energy -= 1; $xenoexp += 0.02&gt;&gt;
             &lt;&lt;goto [[The Map]]&gt;&gt;
           &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
         &lt;&lt;/if&gt;&gt;
@@ -5103,7 +5101,7 @@ T5W: 0,
           &lt;&lt;/if&gt;&gt;
         &lt;&lt;else&gt;&gt;
           &lt;&lt;if $Camp_M &amp;&amp; $energy &gt; 20*(($Humcarrycap*0.2)+$Oeu) || $Camp_J &amp;&amp; $energy &gt; 10*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored.T5W.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-            &lt;&lt;set $explored.T5W += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05&gt;&gt;
+            &lt;&lt;set $explored.T5W += _randomNumber*$xeno*$navOrb; $energy -= 1; $xenoexp += 0.05&gt;&gt;
             &lt;&lt;goto [[The Map]]&gt;&gt;
           &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
         &lt;&lt;/if&gt;&gt;
@@ -5123,7 +5121,7 @@ T5W: 0,
           &lt;&lt;/if&gt;&gt;
         &lt;&lt;else&gt;&gt;
           &lt;&lt;if $Camp_M &amp;&amp; $energy &gt; 12*(($Humcarrycap*0.2)+$Oeu) || $Camp_J &amp;&amp; $energy &gt; 2*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored.T1N.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-            &lt;&lt;set $explored.T1N += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05&gt;&gt;
+            &lt;&lt;set $explored.T1N += _randomNumber*$xeno*$navOrb; $energy -= 1; $xenoexp += 0.05&gt;&gt;
             &lt;&lt;goto [[The Map]]&gt;&gt;
           &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
         &lt;&lt;/if&gt;&gt;
@@ -5143,7 +5141,7 @@ T5W: 0,
           &lt;&lt;/if&gt;&gt;
         &lt;&lt;else&gt;&gt;
           &lt;&lt;if $Camp_M &amp;&amp; $energy &gt; 14*(($Humcarrycap*0.2)+$Oeu) || $Camp_J &amp;&amp; $energy &gt; 4*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored.T2N.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-            &lt;&lt;set $explored.T2N += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05&gt;&gt;
+            &lt;&lt;set $explored.T2N += _randomNumber*$xeno*$navOrb; $energy -= 1; $xenoexp += 0.05&gt;&gt;
             &lt;&lt;goto [[The Map]]&gt;&gt;
           &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
         &lt;&lt;/if&gt;&gt;
@@ -5165,7 +5163,7 @@ T5W: 0,
           &lt;&lt;/if&gt;&gt;
         &lt;&lt;else&gt;&gt;
           &lt;&lt;if $Camp_J &amp;&amp; $energy &gt; 4*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored.T1NE.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-            &lt;&lt;set $explored.T1NE += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05&gt;&gt;
+            &lt;&lt;set $explored.T1NE += _randomNumber*$xeno*$navOrb; $energy -= 1; $xenoexp += 0.05&gt;&gt;
             &lt;&lt;goto [[The Map]]&gt;&gt;
           &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
         &lt;&lt;/if&gt;&gt;
@@ -5183,7 +5181,7 @@ T5W: 0,
           &lt;&lt;/if&gt;&gt;
         &lt;&lt;else&gt;&gt;
           &lt;&lt;if $Camp_J &amp;&amp; $energy &gt; 6*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored.T1N2E.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-            &lt;&lt;set $explored.T1N2E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05&gt;&gt;
+            &lt;&lt;set $explored.T1N2E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xenoexp += 0.05&gt;&gt;
             &lt;&lt;goto [[The Map]]&gt;&gt;
           &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
         &lt;&lt;/if&gt;&gt;
@@ -5201,7 +5199,7 @@ T5W: 0,
           &lt;&lt;/if&gt;&gt;
         &lt;&lt;else&gt;&gt;
           &lt;&lt;if $Camp_J &amp;&amp; $energy &gt; 8*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored.T1N3E.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-            &lt;&lt;set $explored.T1N3E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05&gt;&gt;
+            &lt;&lt;set $explored.T1N3E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xenoexp += 0.05&gt;&gt;
             &lt;&lt;goto [[The Map]]&gt;&gt;
           &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
         &lt;&lt;/if&gt;&gt;
@@ -5219,7 +5217,7 @@ T5W: 0,
           &lt;&lt;/if&gt;&gt;
         &lt;&lt;else&gt;&gt;
           &lt;&lt;if $Camp_J &amp;&amp; $energy &gt; 10*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored.T1N4E.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-            &lt;&lt;set $explored.T1N4E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05&gt;&gt;
+            &lt;&lt;set $explored.T1N4E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xenoexp += 0.05&gt;&gt;
             &lt;&lt;goto [[The Map]]&gt;&gt;
           &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
         &lt;&lt;/if&gt;&gt;
@@ -5237,7 +5235,7 @@ T5W: 0,
           &lt;&lt;/if&gt;&gt;
         &lt;&lt;else&gt;&gt;
           &lt;&lt;if $Camp_J &amp;&amp; $energy &gt; 6*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored.T1N5E.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-            &lt;&lt;set $explored.T1N5E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05&gt;&gt;
+            &lt;&lt;set $explored.T1N5E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xenoexp += 0.05&gt;&gt;
             &lt;&lt;goto [[The Map]]&gt;&gt;
           &lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;
         &lt;&lt;/if&gt;&gt;
@@ -5256,7 +5254,7 @@ T5W: 0,
           &lt;&lt;if $energy &lt; 4*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/T1SE.webp]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/T1SE.webp][T1SE][$energy -= 2*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
         &lt;&lt;else&gt;&gt;
           &lt;&lt;if $Camp_J &amp;&amp; $energy &gt; 4*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored.T1SE.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-            &lt;&lt;set $explored.T1SE += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05&gt;&gt;
+            &lt;&lt;set $explored.T1SE += _randomNumber*$xeno*$navOrb; $energy -= 1; $xenoexp += 0.05&gt;&gt;
             &lt;&lt;goto [[The Map]]&gt;&gt;&lt;&lt;/button&gt;&gt;
           &lt;&lt;/if&gt;&gt;
         &lt;&lt;/if&gt;&gt;
@@ -5272,7 +5270,7 @@ T5W: 0,
           &lt;&lt;if $energy &lt; 6*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/T1S2E.webp]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/T1S2E.webp][T1S2E][$energy -= 3*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
         &lt;&lt;else&gt;&gt;
           &lt;&lt;if $Camp_J &amp;&amp; $energy &gt; 6*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored.T1S2E.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-            &lt;&lt;set $explored.T1S2E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05&gt;&gt;
+            &lt;&lt;set $explored.T1S2E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xenoexp += 0.05&gt;&gt;
             &lt;&lt;goto [[The Map]]&gt;&gt;&lt;&lt;/button&gt;&gt;
           &lt;&lt;/if&gt;&gt;
         &lt;&lt;/if&gt;&gt;
@@ -5288,7 +5286,7 @@ T5W: 0,
           &lt;&lt;if $energy &lt; 4*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/T1SW.webp]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/T1SW.webp][T1SW][$energy -= 2*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
         &lt;&lt;else&gt;&gt;
           &lt;&lt;if $Camp_J &amp;&amp; $energy &gt; 4*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored.T1SW.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-            &lt;&lt;set $explored.T1SW += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05&gt;&gt;
+            &lt;&lt;set $explored.T1SW += _randomNumber*$xeno*$navOrb; $energy -= 1; $xenoexp += 0.05&gt;&gt;
             &lt;&lt;goto [[The Map]]&gt;&gt;&lt;&lt;/button&gt;&gt;
           &lt;&lt;/if&gt;&gt;
         &lt;&lt;/if&gt;&gt;
@@ -5304,7 +5302,7 @@ T5W: 0,
           &lt;&lt;if $energy &lt; 6*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/T1S2W.webp]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/T1S2W.webp][T1S2W][$energy -= 3*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
         &lt;&lt;else&gt;&gt;
           &lt;&lt;if $Camp_J &amp;&amp; $energy &gt; 6*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored.T1S2W.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-            &lt;&lt;set $explored.T1S2W += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05&gt;&gt;
+            &lt;&lt;set $explored.T1S2W += _randomNumber*$xeno*$navOrb; $energy -= 1; $xenoexp += 0.05&gt;&gt;
             &lt;&lt;goto [[The Map]]&gt;&gt;&lt;&lt;/button&gt;&gt;
           &lt;&lt;/if&gt;&gt;
         &lt;&lt;/if&gt;&gt;
@@ -5320,7 +5318,7 @@ T5W: 0,
           &lt;&lt;if $energy &lt; 4*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/T1NW.webp]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/T1NW.webp][T1NW][$energy -= 2*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
         &lt;&lt;else&gt;&gt;
           &lt;&lt;if $Camp_J &amp;&amp; $energy &gt; 4*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored.T1NW.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-            &lt;&lt;set $explored.T1NW += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05&gt;&gt;
+            &lt;&lt;set $explored.T1NW += _randomNumber*$xeno*$navOrb; $energy -= 1; $xenoexp += 0.05&gt;&gt;
             &lt;&lt;goto [[The Map]]&gt;&gt;&lt;&lt;/button&gt;&gt;
           &lt;&lt;/if&gt;&gt;
         &lt;&lt;/if&gt;&gt;
@@ -5336,7 +5334,7 @@ T5W: 0,
           &lt;&lt;if $energy &lt; 8*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;div class=&quot;imgs-opaqued&quot;&gt;[img[assets/Ch-Explore/T2N2E.webp]]&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;imgs-scaled&quot;&gt;[img[assets/Ch-Explore/T2N2E.webp][T2N2E][$energy -= 4*(($Humcarrycap*0.2)+$Oeu)]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
         &lt;&lt;else&gt;&gt;
           &lt;&lt;if $Camp_J &amp;&amp; $energy &gt; 8*(($Humcarrycap*0.2)+$Oeu)&gt;&gt;&lt;&lt;button &quot;&lt;&lt;print $explored.T2N2E.toFixed(0)&gt;&gt;%&quot;&gt;&gt;
-            &lt;&lt;set $explored.T2N2E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xeno += 0.05&gt;&gt;
+            &lt;&lt;set $explored.T2N2E += _randomNumber*$xeno*$navOrb; $energy -= 1; $xenoexp += 0.05&gt;&gt;
             &lt;&lt;goto [[The Map]]&gt;&gt;&lt;&lt;/button&gt;&gt;
           &lt;&lt;/if&gt;&gt;
         &lt;&lt;/if&gt;&gt;
@@ -5669,11 +5667,12 @@ Both now feel rather that we resettle our camp here. They wish more company, whi
 &lt;&lt;set $CampM.TransMast = true, $CampM.building += 1, $CampM.nutrients = 12, $Q2D = true, $dayCount = $days&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;ab&gt;&gt;[[Go back to Base|The Map]]&lt;&lt;/ab&gt;&gt;
-&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="110" name="globalvariables" tags="" position="225,25" size="100,100">&lt;&lt;set $xeno = 0 * $xenohelp&gt;&gt;
+&lt;/blockquote&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="110" name="globalvariables" tags="" position="225,25" size="100,100">&lt;&lt;set $xeno = $xenoexp * $xenohelp&gt;&gt;
 &lt;&lt;set $combat = 0&gt;&gt;
 &lt;&lt;set $engineering = 0&gt;&gt;
 &lt;&lt;set $social = 0&gt;&gt;
 
+&lt;&lt;set $xenoexp = 0&gt;&gt;
 &lt;&lt;set $xenohelp = 1&gt;&gt;
 
 &lt;&lt;set $storageFactor = 1&gt;&gt;
